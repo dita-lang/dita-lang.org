@@ -1,0 +1,23 @@
+name: Build LwDITA
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      DITA_OT_VERSION: '3.6.1'
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          path: dita-draft-website
+      - uses: actions/checkout@v3
+        with:
+          repository: 'oasis-tcs/dita-lwdita'
+          ref: 'spec'
+          path: lwdita
+      - name: Deploy online
+        uses: ./dita-draft-website/.github/actions/publish
+        with:
+          MAP: lwdita/Spec/lwdita.ditamap
+          FILTER: lwdita/Spec/resources/lwdita.ditaval
+          DIR: lwdita

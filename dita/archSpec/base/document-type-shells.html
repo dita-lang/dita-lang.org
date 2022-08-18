@@ -1,0 +1,160 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Overview of document-type shells'
+description: 'A document-type shell is an XML grammar
+          file that specifies the elements and attributes that are allowed in a DITA document. The
+          document-type shell integrates structural modules, domain modules, and element-configuration modules. In addition, a document-type shell specifies
+          whether and how topics can nest.
+	'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/ditaspecialization.html"
+            >Overview of DITA extension facilities</a
+          >
+        </li>
+        <li>
+          <a href="../../archSpec/base/configuration.html">Document-type configuration</a>
+          <ul class="nav nav-list">
+            <li class="active">
+              <a href="../../archSpec/base/document-type-shells.html"
+                >Overview of document-type shells</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/rules-document-type-shells.html"
+                >Rules for document-type shells</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/document-type-shells-equivalence.html"
+                >Equivalence of document-type shells</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/document-type-shells-conformance.html"
+                >Conformance of document-type shells</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/specialization.html">Specialization</a></li>
+        <li><a href="../../archSpec/base/generalization.html">Generalization</a></li>
+        <li><a href="../../archSpec/base/constraints.html">Constraints</a></li>
+        <li><a href="../../archSpec/base/expansion-modules.html">Expansion modules</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Overview of document-type shells</h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        <span class="ph"
+          >A document-type shell is an XML grammar file that specifies the elements and attributes
+          that are allowed in a DITA document. The document-type shell integrates structural
+          modules, domain modules, and
+          <span style="color:red;" class="ph">element-configuration modules</span>. In addition, a
+          document-type shell specifies whether and how topics can nest.</span
+        >
+      </p>
+      <p class="p">
+        A DITA document either must have an associated document-type definition or all required
+        attributes must be made explicit in the document instances. Most DITA documents have an
+        associated document-type shell. DITA documents that reference a document-type shell can be
+        validated using most standard XML processors. Such validation enables processors to read the
+        XML grammar files and determine default values for the
+        <code class="keyword markupname xmlatt">@specializations</code> and
+        <code class="keyword markupname xmlatt">@class</code> attributes.
+      </p>
+      <p class="p">
+        The following figure illustrates the relationship between a DTD-based DITA document, its
+        document-type shell, the vocabulary modules that it uses,
+        <span style="color:red;" class="ph"
+          >and the element-configuration modules (constraint and expansion) that it integrates</span
+        >. Similar structure applies to DITA documents that use other XML grammars.
+      </p>
+      <figure class="fig fignone">
+        <figcaption><span class="fig--title-label">Figure 1. </span>Document type shell</figcaption>
+
+        <br /><img
+          class="image"
+          src="../../images/instances-modules-declarations-01.png"
+          height="484"
+          width="541"
+          alt="Diagram showing a typical architecture of a DITA document type shell. At the top left a DITA document file named myTopic.dita refers to a document type of 'myTopic'. An arrow from this file points to a document-type shell file named myTopic.dtd. Arrows point to several other modules. A constraint module is named strictMyTopicConstraint.mod. Structural modules are named mytopic.ent, mytopic.mod, topic.ent, and topic.mod. Domain modules are named myPhraseDomain.ent, myPhraseDomain.mod, highlightDomain.ent, highlightDomain.mod, programmingDomain.ent, and programmingDomain.mod. The structural and domain modules are grouped together and labeled vocabulary modules."
+        /><br />
+      </figure>
+
+      <p class="p">
+        The DITA specification contains a starter set of document-type shells. These document-type
+        shells are commented and can be used as templates for creating custom document-type shells.
+      </p>
+      <p class="p">
+        While the OASIS-provided document-type shells can be used without any modification, creating
+        custom document-type shells is a best practice. If the document-type shells need to be
+        modified in the future, for example, to include a specialization or integrate
+        <span style="color:red;" class="ph"
+          >an element-configuration module (constraint or expansion)</span
+        >, the existing DITA documents will not need to be modified to reference a new document-type
+        shell.
+      </p>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/configuration.html"
+            title="Document-type configuration enables the definition of DITA document types that include only the vocabulary modules that are required for a given set of documents. There is no need to modify the vocabulary modules. Document-type configurations are implemented as document-type shells."
+            >Document-type configuration</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

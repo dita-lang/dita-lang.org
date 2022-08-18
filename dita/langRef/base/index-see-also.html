@@ -1,0 +1,163 @@
+---
+# Generated from DITA source
+layout: base
+title: 'index-see-also'
+description: 'An index-see-also element directs the reader to an index entry
+  that the reader should use in addition to the current one.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      <code class="keyword markupname xmlelement">&lt;index-see-also&gt;</code>
+    </h1>
+
+    <div class="body refbody">
+      <p class="shortdesc">
+        An <code class="keyword markupname xmlelement">&lt;index-see-also&gt;</code> element directs
+        the reader to an index entry that the reader should use in addition to the current one.
+      </p>
+      <section class="section" id="index-see-also__usage-information">
+        <h2 class="title sectiontitle">Usage information</h2>
+
+        <p class="p">
+          There can be multiple
+          <code class="keyword markupname xmlelement">&lt;index-see-also&gt;</code> elements within
+          a single <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element.
+        </p>
+      </section>
+      <section class="section" id="index-see-also__processing-expectations">
+        <h2 class="title sectiontitle">Processing expectations</h2>
+
+        <p class="p">
+          Processors <dfn class="term RFC-2119">SHOULD</dfn> ignore an
+          <code class="keyword markupname xmlelement">&lt;index-see-also&gt;</code> element if its
+          parent <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element
+          contains any
+          <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> children.
+        </p>
+      </section>
+      <section class="section" id="index-see-also__attributes">
+        <h2 class="title sectiontitle">Attributes</h2>
+
+        <p class="p">
+          The following attributes are available on this element:
+          <span class="ph"
+            ><a
+              class="xref"
+              href="../../common/../langRef/attributes/universalAttributes.html"
+              title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang"
+              >universal attributes</a
+            ></span
+          >
+          and
+          <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-keyref"
+            ><code class="keyword markupname xmlatt">@keyref</code></a
+          >.
+        </p>
+      </section>
+      <div class="example" id="index-see-also__example">
+        <h2 class="title sectiontitle">Examples</h2>
+
+        <p class="p">
+          This section contains examples of how
+          <code class="keyword markupname xmlelement">&lt;index-see-also&gt;</code> elements can be
+          used.
+        </p>
+        <figure class="fig fignone">
+          <figcaption>
+            <span class="fig--title-label">Figure 1. </span>Use of an
+            <code class="keyword markupname xmlelement">&lt;index-see-also&gt;</code> element
+          </figcaption>
+
+          <p class="p">
+            The following code sample shows the use of an
+            <code class="keyword markupname xmlelement">&lt;index-see-also&gt;</code> element to
+            generate a "see also" reference to the index entry for "goldfish".
+          </p>
+          <pre class="pre codeblock"><code>&lt;indexterm&gt;carp
+  &lt;index-see-also&gt;goldfish&lt;/index-see-also&gt;
+&lt;/indexterm&gt;</code></pre>
+          <p class="p">
+            This markup generates a primary index entry for "carp" and a redirection that instructs
+            the reader to "see also goldfish".
+          </p>
+        </figure>
+        <figure class="fig fignone">
+          <figcaption>
+            <span class="fig--title-label">Figure 2. </span>Use of an
+            <code class="keyword markupname xmlelement">&lt;index-see-also&gt;</code> element to
+            redirect to a multilevel index entry
+          </figcaption>
+
+          <p class="p">
+            The following code sample shows the use of an
+            <code class="keyword markupname xmlelement">&lt;index-see-also&gt;</code> element to
+            redirect to a multilevel
+            <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element:
+          </p>
+          <pre class="pre codeblock"><code>&lt;indexterm&gt;feeding
+  &lt;index-see-also&gt;goldfish
+    &lt;indexterm&gt;feeding&lt;/indexterm&gt;
+  &lt;/index-see-also&gt;
+&lt;/indexterm&gt;</code></pre>
+        </figure>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../langRef/containers/indexing-d.html"
+            title="The indexing elements provide content that a processor can use to generate an index."
+            >Indexing elements</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

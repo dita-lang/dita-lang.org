@@ -1,0 +1,231 @@
+---
+# Generated from DITA source
+layout: base
+title: 'RELAX NG: Coding requirements for element-domain modules'
+description:
+  'Element-domain modules declare an extension pattern for each element that is extended by
+  the domain. These patterns are used when including the domain module in document-type
+  shells.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/recognizedconstraintmechanisms.html"
+            >Recognized XML-document grammar mechanisms</a
+          >
+        </li>
+        <li>
+          <a href="../../archSpec/base/using-relax-ng.html"
+            >Normative versions of DITA grammar files</a
+          >
+        </li>
+        <li><a href="../../archSpec/base/dtd-requirements.html">DTD coding requirements</a></li>
+        <li>
+          <a href="../../archSpec/base/relax-ng-requirements.html">RELAX NG coding requirements</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/relax-ng-coding-overview.html"
+                >RELAX NG: Overview of coding requirements</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/relax-ng-coding-doctype-shell.html"
+                >RELAX NG: Coding requirements for document-type shells</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/relax-ng-coding-element-types.html"
+                >RELAX NG: Coding requirements for element-type declarations</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/relax-ng-coding-structural-modules.html"
+                >RELAX NG: Coding requirements for structural modules</a
+              >
+            </li>
+            <li class="active">
+              <a href="../../archSpec/base/relax-ng-coding-element-domains.html"
+                >RELAX NG: Coding requirements for element-domain modules</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/relax-ng-coding-attribute-domains.html"
+                >RELAX NG: Coding requirements for attribute-domain modules</a
+              >
+            </li>
+            <li>
+              <a
+                href="../../archSpec/base/relax-ng-coding-requirements-for-element-configuration-modules.html"
+                >RELAX NG: Coding requirements for element-configuration modules</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      RELAX NG: Coding requirements for element-domain modules
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        Element-domain modules declare an extension pattern for each element that is extended by the
+        domain. These patterns are used when including the domain module in document-type shells.
+      </p>
+      <dl class="dl">
+        <dt class="dt dlterm">Pattern name</dt>
+        <dd class="dd">
+          <p class="p">
+            The name of the pattern is the abbreviation for the domain, followed by a hyphen ("-"),
+            and the name of the element that is extended.
+          </p>
+          <div class="example">
+            <p class="p">
+              For example, the name of the pattern for the highlight domain that extends the
+              <code class="keyword markupname xmlelement">&lt;ph&gt;</code> element is
+              <code class="ph codeph">hi-d-ph</code>.
+            </p>
+          </div>
+        </dd>
+
+        <dt class="dt dlterm">Pattern definition</dt>
+        <dd class="dd">
+          <p class="p">
+            The pattern consists of a choice group that contains references to element-type name
+            patterns. Each extension of the base element type is referenced.
+          </p>
+          <div class="example">
+            <p class="p">For example:</p>
+            <pre
+              class="pre codeblock"
+            ><code>&lt;a:documentation&gt;DOMAIN EXTENSION PATTERNS&lt;/a:documentation&gt;
+
+&lt;define name="hi-d-ph"&gt;
+  &lt;choice&gt;
+    &lt;ref name="b.element"/&gt;
+    &lt;ref name="i.element"/&gt;
+    &lt;ref name="line-through.element"/&gt;
+    &lt;ref name="overline.element"/&gt;
+    &lt;ref name="sup.element"/&gt;
+    &lt;ref name="sub.element"/&gt;
+    &lt;ref name="tt.element"/&gt;
+    &lt;ref name="u.element"/&gt;
+  &lt;/choice&gt;
+&lt;/define&gt;
+</code></pre>
+          </div>
+        </dd>
+
+        <dt class="dt dlterm">Extension pattern</dt>
+        <dd class="dd">
+          <p class="p">
+            For each element type that is extended by the element-domain module, the module extends
+            the element-type pattern with a
+            <code class="keyword markupname xmlatt">@combine</code> value of
+            <span class="keyword">choice</span> that contains a reference to the domain pattern.
+          </p>
+          <div class="example">
+            <p class="p">
+              For example, the following pattern adds the highlight domain specializations of the
+              <code class="keyword markupname xmlelement">&lt;ph&gt;</code> element to the content
+              model of the <code class="keyword markupname xmlelement">&lt;ph&gt;</code> element:
+            </p>
+            <pre class="pre codeblock"><code>&lt;define name="ph" combine="choice"&gt;
+  &lt;ref name="hi-d-ph"/&gt;
+&lt;/define&gt;</code></pre>
+          </div>
+          <p class="p">
+            Because the pattern uses a <code class="keyword markupname xmlatt">@combine</code> value
+            of <span class="keyword">choice</span>, the effect is that the domain-provided elements
+            automatically are added to the effective content model of the extended element in any
+            grammar that includes the domain module.
+          </p>
+        </dd>
+      </dl>
+      <div class="example">
+        <h2 class="title sectiontitle">Example</h2>
+
+        <p class="p">
+          The following code sample shows the extension pattern for the highlight domain, as
+          declared in <span class="ph filepath">highlightDomain.rng</span>:
+        </p>
+        <pre class="pre codeblock"><code>  &lt;div&gt;
+    &lt;a:documentation&gt;DOMAIN EXTENSION PATTERNS&lt;/a:documentation&gt;
+
+    &lt;define name="hi-d-ph"&gt;
+      &lt;choice&gt;
+        &lt;ref name="b.element"/&gt;
+        &lt;ref name="i.element"/&gt;
+        &lt;ref name="line-through.element"/&gt;
+        &lt;ref name="overline.element"/&gt;
+        &lt;ref name="sup.element"/&gt;
+        &lt;ref name="sub.element"/&gt;
+        &lt;ref name="tt.element"/&gt;
+        &lt;ref name="u.element"/&gt;
+      &lt;/choice&gt;
+    &lt;/define&gt;
+
+    &lt;define name="ph" combine="choice"&gt;
+      &lt;ref name="hi-d-ph"/&gt;
+    &lt;/define&gt;
+  &lt;/div&gt;</code></pre>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/relax-ng-requirements.html"
+            title="This section explains how to implement RNG based document-type shells, specializations, and element-configuration modules (constraints and expansions)."
+            >RELAX NG coding requirements</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

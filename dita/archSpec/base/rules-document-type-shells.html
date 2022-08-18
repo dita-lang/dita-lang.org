@@ -1,0 +1,164 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Rules for document-type shells'
+description: 'This topic collects the rules that concern DITA document-type shells.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/ditaspecialization.html"
+            >Overview of DITA extension facilities</a
+          >
+        </li>
+        <li>
+          <a href="../../archSpec/base/configuration.html">Document-type configuration</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/document-type-shells.html"
+                >Overview of document-type shells</a
+              >
+            </li>
+            <li class="active">
+              <a href="../../archSpec/base/rules-document-type-shells.html"
+                >Rules for document-type shells</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/document-type-shells-equivalence.html"
+                >Equivalence of document-type shells</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/document-type-shells-conformance.html"
+                >Conformance of document-type shells</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/specialization.html">Specialization</a></li>
+        <li><a href="../../archSpec/base/generalization.html">Generalization</a></li>
+        <li><a href="../../archSpec/base/constraints.html">Constraints</a></li>
+        <li><a href="../../archSpec/base/expansion-modules.html">Expansion modules</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Rules for document-type shells</h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">This topic collects the rules that concern DITA document-type shells.</p>
+      <dl class="dl">
+        <dt class="dt dlterm">XML grammars</dt>
+        <dd class="dd">
+          <p class="p">
+            While the DITA specification only defines coding requirements for DTD and RELAX NG,
+            conforming DITA documents <dfn class="term RFC-2119">MAY</dfn> use other document-type
+            constraint languages, such as Schematron.
+          </p>
+        </dd>
+
+        <dt class="dt dlterm">Defining element or attribute types</dt>
+        <dd class="dd">
+          <div class="p">
+            With two exceptions, a document-type shell
+            <dfn class="term RFC-2119">MUST NOT</dfn> directly define element or attribute types; it
+            only includes vocabulary
+            <span style="color:red;" class="ph"
+              >and element-configuration modules (constraint and expansion)</span
+            >. The exceptions to this rule are the following:
+            <ul class="ul">
+              <li class="li">
+                The ditabase document-type shell directly defines the
+                <code class="keyword markupname xmlelement">&lt;dita&gt;</code> element.
+              </li>
+              <li class="li">
+                RNG-based document-type shells directly specify values for the
+                <code class="keyword markupname xmlatt">@specializations</code> attribute. These
+                values reflect the details of the attribute domains that are integrated by the
+                document-type shell.
+              </li>
+            </ul>
+          </div>
+        </dd>
+
+        <dt class="dt dlterm">Document-type shells not provided by OASIS</dt>
+        <dd class="dd">
+          <p class="p">
+            Document-type shells that are not provided by OASIS
+            <dfn class="term RFC-2119">MUST</dfn> have a unique public identifier, if public
+            identifiers are used.
+          </p>
+          <p class="p">
+            Document-type shells that are not provided by OASIS
+            <dfn class="term RFC-2119">MUST NOT</dfn> indicate OASIS as the owner. The public
+            identifier or URN for such document-type shells
+            <dfn class="term RFC-2119">SHOULD</dfn> reflect the owner or creator of the
+            document-type shell.
+          </p>
+          <p class="p">
+            For example, if <span class="ph filepath">example.com</span> creates a copy of the
+            document-type shell for topic, an appropriate public identifier would be
+            "-//EXAMPLE//DTD DITA Topic//EN", where "EXAMPLE" is the component of the public
+            identifier that identifies the owner. An appropriate URN would be
+            <span class="keyword">urn:example.com:names:dita:rng:topic.rng</span>.
+          </p>
+        </dd>
+      </dl>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/configuration.html"
+            title="Document-type configuration enables the definition of DITA document types that include only the vocabulary modules that are required for a given set of documents. There is no need to modify the vocabulary modules. Document-type configurations are implemented as document-type shells."
+            >Document-type configuration</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

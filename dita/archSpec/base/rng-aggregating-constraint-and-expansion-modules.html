@@ -1,0 +1,355 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Example: Aggregating constraint and expansion modules using RNG'
+description: 'The DITA architect wants to add some extension modules to the document-type shell for
+  topic. The document-type shell already integrates a constraint module.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/ditaspecialization.html"
+            >Overview of DITA extension facilities</a
+          >
+        </li>
+        <li><a href="../../archSpec/base/configuration.html">Document-type configuration</a></li>
+        <li><a href="../../archSpec/base/specialization.html">Specialization</a></li>
+        <li><a href="../../archSpec/base/generalization.html">Generalization</a></li>
+        <li><a href="../../archSpec/base/constraints.html">Constraints</a></li>
+        <li>
+          <a href="../../archSpec/base/expansion-modules.html">Expansion modules</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/overview-of-expansion-modules.html"
+                >Overview of expansion modules</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/expansion-module-rules.html">Expansion module rules</a>
+            </li>
+            <li>
+              <a href="../../archSpec/base/example-expansion-modules.html"
+                >Examples: Expansion modules</a
+              >
+              <ul class="nav nav-list">
+                <li>
+                  <a href="../../archSpec/base/examples-expansion-implemented-using-dtds.html"
+                    >Examples: Expansion implemented using DTDs</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/examples-expansion-implemented-using-rng.html"
+                    >Examples: Expansion implemented using RNG</a
+                  >
+                  <ul class="nav nav-list">
+                    <li>
+                      <a
+                        href="../../archSpec/base/rng-adding-an-element-to-the-section-element.html"
+                        >Example: Adding an element to the section element using RNG</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="../../archSpec/base/rng-adding-an-attribute-to-certain-table-elements.html"
+                        >Example: Adding an attribute to certain table elements using RNG</a
+                      >
+                    </li>
+                    <li class="active">
+                      <a
+                        href="../../archSpec/base/rng-aggregating-constraint-and-expansion-modules.html"
+                        >Example: Aggregating constraint and expansion modules using RNG</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      Example: Aggregating constraint and expansion modules using RNG
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        The DITA architect wants to add some extension modules to the document-type shell for topic.
+        The document-type shell already integrates a constraint module.
+      </p>
+      <p class="p">
+        The following table lists the constraint module and the extension modules that the DITA
+        architect wants to integrate into the document-type shell for topic.
+      </p>
+      <table class="simpletable frame-all">
+        <colgroup>
+          <col style="width:20%" />
+          <col style="width:40%" />
+          <col style="width:40%" />
+        </colgroup>
+        <thead>
+          <tr class="sthead">
+            <th
+              class="stentry"
+              scope="col"
+              id="rng_aggregating_constraint_and_expansion_modules__stentry__1"
+            >
+              Type of element configuration
+            </th>
+            <th
+              class="stentry"
+              scope="col"
+              id="rng_aggregating_constraint_and_expansion_modules__stentry__2"
+            >
+              File name
+            </th>
+            <th
+              class="stentry"
+              scope="col"
+              id="rng_aggregating_constraint_and_expansion_modules__stentry__3"
+            >
+              What it does
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="strow">
+            <td
+              class="stentry"
+              headers="rng_aggregating_constraint_and_expansion_modules__stentry__1"
+            >
+              Constraint
+            </td>
+            <td
+              class="stentry"
+              headers="rng_aggregating_constraint_and_expansion_modules__stentry__2"
+            >
+              <span class="ph filepath">topicSectionConstraint.rng</span>
+            </td>
+            <td
+              class="stentry"
+              headers="rng_aggregating_constraint_and_expansion_modules__stentry__3"
+            >
+              <p class="p">
+                Constrains <code class="keyword markupname xmlelement">&lt;topic&gt;</code>:
+              </p>
+              <ul class="ul">
+                <li class="li">
+                  Removes <code class="keyword markupname xmlelement">&lt;abstract&gt;</code>
+                </li>
+                <li class="li">
+                  Makes
+                  <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code> required
+                </li>
+                <li class="li">
+                  Removes <code class="keyword markupname xmlelement">&lt;related-links&gt;</code>
+                </li>
+                <li class="li">Disallows topic nesting</li>
+              </ul>
+              <p class="p">
+                Constrains <code class="keyword markupname xmlelement">&lt;section&gt;</code>:
+              </p>
+              <ul class="ul">
+                <li class="li">
+                  Makes <code class="keyword markupname xmlatt">@id</code> required
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr class="strow">
+            <td
+              class="stentry"
+              headers="rng_aggregating_constraint_and_expansion_modules__stentry__1"
+            >
+              Expansion
+            </td>
+            <td
+              class="stentry"
+              headers="rng_aggregating_constraint_and_expansion_modules__stentry__2"
+            >
+              <span class="ph filepath">sectionExpansionMod.rng</span>
+            </td>
+            <td
+              class="stentry"
+              headers="rng_aggregating_constraint_and_expansion_modules__stentry__3"
+            >
+              Adds <code class="keyword markupname xmlelement">&lt;sectionDesc&gt;</code> to the
+              content model of <code class="keyword markupname xmlelement">&lt;section&gt;</code>
+            </td>
+          </tr>
+          <tr class="strow">
+            <td
+              class="stentry"
+              headers="rng_aggregating_constraint_and_expansion_modules__stentry__1"
+            >
+              Expansion
+            </td>
+            <td
+              class="stentry"
+              headers="rng_aggregating_constraint_and_expansion_modules__stentry__2"
+            >
+              <span class="ph filepath">tableCellAttExpansion.rng</span>
+            </td>
+            <td
+              class="stentry"
+              headers="rng_aggregating_constraint_and_expansion_modules__stentry__3"
+            >
+              Adds <code class="keyword markupname xmlatt">@cellPurpose</code> to the attribute
+              lists for certain table elements
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="p">
+        Because all of these element-configuration modules target elements declared in
+        <span class="ph filepath">topicMod.rng</span>, the DITA architect needs to combine them into
+        a single element-configuration module like the following:
+      </p>
+      <pre class="pre codeblock"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;?xml-model href="urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng"
+                         schematypens="http://relaxng.org/ns/structure/1.0"?&gt;
+&lt;grammar xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"&gt;
+  &lt;div&gt;
+    &lt;a:documentation&gt;CONTENT MODEL AND ATTRIBUTE LIST OVERRIDES&lt;/a:documentation&gt;
+    &lt;include href="urn:oasis:names:tc:dita:rng:topicMod.rng:2.0"&gt;
+      <strong class="ph b">&lt;!-- Redefines attribute list for section: Makes @id required --&gt;</strong>
+      &lt;define name="section.attributes"&gt;
+        &lt;attribute name="id"&gt;
+          &lt;data type="ID"/&gt;
+        &lt;/attribute&gt;
+        &lt;ref name="conref-atts"/&gt;
+        &lt;ref name="select-atts"/&gt;
+        &lt;ref name="localization-atts"/&gt;
+        &lt;optional&gt;
+          &lt;attribute name="outputclass"/&gt;
+        &lt;/optional&gt;
+      &lt;/define&gt;
+      <strong class="ph b">&lt;!-- Adds sectionDesc to the content model of section --&gt;</strong>
+      &lt;define name="section.content" combine="interleave"&gt;
+        &lt;optional&gt;
+          &lt;ref name="title"/&gt;
+        &lt;/optional&gt;
+        &lt;optional&gt;
+          &lt;ref name="sectionDesc"/&gt;
+        &lt;/optional&gt;
+        &lt;zeroOrMore&gt;
+          &lt;ref name="section.cnt"/&gt;
+        &lt;/zeroOrMore&gt;
+      &lt;/define&gt;
+      <strong class="ph b">&lt;!-- Adds @cellPurpose to certain table and simple table elements --&gt;</strong>
+      &lt;define name="colspec.attributes" combine="interleave"&gt;
+        &lt;optional&gt;
+          &lt;attribute name="cellPurpose"/&gt;
+        &lt;/optional&gt;
+      &lt;/define&gt;
+      &lt;define name="entry.attributes" combine="interleave"&gt;
+        &lt;optional&gt;
+          &lt;attribute name="cellPurpose"/&gt;
+        &lt;/optional&gt;
+      &lt;/define&gt;
+      &lt;define name="row.attributes" combine="interleave"&gt;
+        &lt;optional&gt;
+          &lt;attribute name="cellPurpose"/&gt;
+        &lt;/optional&gt;
+      &lt;/define&gt;
+      &lt;define name="stentry.attributes" combine="interleave"&gt;
+        &lt;optional&gt;
+          &lt;attribute name="cellPurpose"/&gt;
+        &lt;/optional&gt;
+      &lt;/define&gt;
+      &lt;define name="strow.attributes" combine="interleave"&gt;
+        &lt;optional&gt;
+          &lt;attribute name="cellPurpose"/&gt;
+        &lt;/optional&gt;
+      &lt;/define&gt;
+      <strong class="ph b">&lt;!-- Redefines topic: removes abstract and related-links; makes shortdesc --&gt;
+      &lt;!--                  required; disallows topic nesting                   --&gt;</strong>
+      &lt;define name="topic.content"&gt;
+        &lt;ref name="title"/&gt;
+        &lt;ref name="shortdesc"/&gt;
+        &lt;optional&gt;
+          &lt;ref name="prolog"/&gt;
+        &lt;/optional&gt;
+        &lt;optional&gt;
+          &lt;ref name="body"/&gt;
+        &lt;/optional&gt;
+      &lt;/define&gt;
+    &lt;/include&gt;
+  &lt;/div&gt;
+&lt;/grammar&gt;
+</code></pre>
+      <p class="p">
+        When the DITA architect edits the document-type shell to integrate the element configuration
+        module, <span style="color:red;" class="ph">they also need</span> to do the following:
+      </p>
+      <ul class="ul">
+        <li class="li">
+          Remove the include statement for <span class="ph filepath">topicMod.rng</span>
+        </li>
+        <li class="li">
+          Add <code class="keyword markupname xmlelement">&lt;section&gt;</code> to the "ID-DEFINING
+          ELEMENT OVERRIDES" division
+        </li>
+      </ul>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/examples-expansion-implemented-using-rng.html"
+            title="This section of the specification contains examples of extension modules implemented using RNG."
+            >Examples: Expansion implemented using RNG</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

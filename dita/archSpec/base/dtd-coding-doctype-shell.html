@@ -1,0 +1,578 @@
+---
+# Generated from DITA source
+layout: base
+title: 'DTD: Coding requirements for document-type shells'
+description: 'A DTD-based document-type shell is organized into sections; each section contains
+  entity declarations that follow specific coding rules.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/recognizedconstraintmechanisms.html"
+            >Recognized XML-document grammar mechanisms</a
+          >
+        </li>
+        <li>
+          <a href="../../archSpec/base/using-relax-ng.html"
+            >Normative versions of DITA grammar files</a
+          >
+        </li>
+        <li>
+          <a href="../../archSpec/base/dtd-requirements.html">DTD coding requirements</a>
+          <ul class="nav nav-list">
+            <li><a href="../../archSpec/base/dtd-coding-overview.html">DTD: Use of entities</a></li>
+            <li class="active">
+              <a href="../../archSpec/base/dtd-coding-doctype-shell.html"
+                >DTD: Coding requirements for document-type shells</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/dtd-coding-element-types.html"
+                >DTD: Coding requirements for element-type declarations</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/dtd-coding-structural-modules.html"
+                >DTD: Coding requirements for structural modules</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/dtd-coding-element-domains.html"
+                >DTD: Coding requirements for element-domain modules</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/dtd-coding-attribute-domains.html"
+                >DTD: Coding requirements for attribute domain modules</a
+              >
+            </li>
+            <li>
+              <a
+                href="../../archSpec/base/dtd-coding-requirements-for-element-configuration-modules.html"
+                >DTD: Coding requirements for element-configuration modules</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="../../archSpec/base/relax-ng-requirements.html">RELAX NG coding requirements</a>
+        </li>
+      </ul>
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      DTD: Coding requirements for document-type shells
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        A DTD-based document-type shell is organized into sections; each section contains entity
+        declarations that follow specific coding rules.
+      </p>
+      <p class="p">
+        The DTD-based approach to configuration, specialization, and
+        <span style="color:red;" class="ph">element configuration (constraint and expansion)</span>
+        relies heavily upon parameter entities. Several of the parameter entities that are declared
+        in document-type shells contain references to other parameter entities. Because parameter
+        entities must be declared before they are used, the order of the sections in a DTD-based
+        document-type shell is significant.
+      </p>
+      <p class="p">A DTD-based document-type shell contains the following sections:</p>
+      <ol class="ol">
+        <li class="li">
+          <a class="xref" href="#shell-dtd-coding-reqs__topic-map-entity-declarations"
+            >Topic [or map] entity declarations</a
+          >
+        </li>
+        <li class="li">
+          <a class="xref" href="#shell-dtd-coding-reqs__domain-constraint-integration"
+            >Domain constraint integration</a
+          >
+        </li>
+        <li class="li">
+          <a class="xref" href="#shell-dtd-coding-reqs__domain-entity-declarations"
+            >Domain entity declarations</a
+          >
+        </li>
+        <li class="li">
+          <a class="xref" href="#shell-dtd-coding-reqs__domain-attributes-declarations"
+            >Domain attributes declarations</a
+          >
+        </li>
+        <li class="li">
+          <a class="xref" href="#shell-dtd-coding-reqs__domain-extensions">Domain extensions</a>
+        </li>
+        <li class="li">
+          <a class="xref" href="#shell-dtd-coding-reqs__domain-attribute-extensions"
+            >Domain attribute extensions</a
+          >
+        </li>
+        <li class="li">
+          <a class="xref" href="#shell-dtd-coding-reqs__topic-nesting-overrides"
+            >Topic nesting override</a
+          >
+        </li>
+        <li class="li">
+          <a class="xref" href="#shell-dtd-coding-reqs__domains-attribute-override"
+            >Specializations attribute override</a
+          >
+        </li>
+        <li class="li">
+          <a class="xref" href="#shell-dtd-coding-reqs__content-constraint-integration"
+            >Element-type configuration integration</a
+          >
+        </li>
+        <li class="li">
+          <a class="xref" href="#shell-dtd-coding-reqs__topic-map-element-integration"
+            >Topic [or map] element integration</a
+          >
+        </li>
+        <li class="li">
+          <a class="xref" href="#shell-dtd-coding-reqs__domain-element-integration"
+            >Domain element integration</a
+          >
+        </li>
+      </ol>
+      <p class="p">
+        Each of the sections in a DTD-based document-type shell follows a pattern. These patterns
+        help ensure that the shell follows XML parsing rules for DTDs. They also establish a modular
+        design that simplifies creation of new document-type shells.
+      </p>
+
+      <dl class="dl">
+        <dt class="dt dlterm" id="shell-dtd-coding-reqs__topic-map-entity-declarations">
+          Topic [or map] entity declarations
+        </dt>
+        <dd class="dd">
+          <p class="p">
+            This section declares and references an external parameter entity for each of the
+            following items:
+          </p>
+          <ul class="ul">
+            <li class="li">
+              The top-level topic or map type that the document-type shell configures
+            </li>
+            <li class="li">
+              Any additional structural modules that are used by the document type shell
+            </li>
+          </ul>
+          <p class="p">
+            The parameter entity is named
+            <code class="ph codeph"><var class="keyword varname">type-name</var>-dec</code>.
+          </p>
+          <div class="example">
+            <p class="p">
+              In the following example, the
+              <code class="keyword markupname xmlelement">&lt;concept&gt;</code> specialization is
+              integrated into a document-type shell:
+            </p>
+            <pre class="pre codeblock"><code>
+&lt;!-- ============================================================= --&gt;
+&lt;!--              TOPIC ENTITY DECLARATIONS                        --&gt;
+&lt;!-- ============================================================= --&gt;
+
+&lt;!ENTITY % concept-dec     
+  PUBLIC "-//OASIS//ENTITIES DITA 2.0 Concept//EN" 
+         "concept.ent"
+&gt;%concept-dec;</code></pre>
+          </div>
+        </dd>
+
+        <dt class="dt dlterm" id="shell-dtd-coding-reqs__domain-constraint-integration">
+          Domain constraint integration
+        </dt>
+        <dd class="dd">
+          <p class="p">
+            This section declares and references an external parameter entity for each
+            domain-constraint module that is integrated into the document-type shell.
+          </p>
+          <p class="p">
+            The parameter entity is named
+            <code class="ph codeph"
+              ><var class="keyword varname">descriptorDomainName</var>-c-dec</code
+            >.
+          </p>
+          <div class="example">
+            <p class="p">
+              In the following example, the entity file for a constraint module that reduces the
+              highlighting domain to a subset is integrated in a document-type shell:
+            </p>
+            <pre
+              class="pre codeblock"
+            ><code>&lt;!-- ============================================================= --&gt;
+&lt;!--                    DOMAIN CONSTRAINT INTEGRATION              --&gt;
+&lt;!-- ============================================================= --&gt;
+
+&lt;!ENTITY % HighlightingDomain-c-dec  
+  PUBLIC "-//ACME//ENTITIES DITA Highlighting Domain Constraint//EN" 
+  "acme-HighlightingDomainConstraint.mod"
+&gt;%basic-HighlightingDomain-c-dec;</code></pre>
+          </div>
+        </dd>
+
+        <dt class="dt dlterm" id="shell-dtd-coding-reqs__domain-entity-declarations">
+          Domain entity declarations
+        </dt>
+        <dd class="dd">
+          <p class="p">
+            This section declares and references an external parameter entity for each
+            element-domain module that is integrated into the document-type shell.
+          </p>
+          <p class="p">
+            The parameter entity is named
+            <code class="ph codeph"><var class="keyword varname">shortDomainName</var>-dec</code>.
+          </p>
+          <div class="example">
+            <p class="p">
+              In the following example, the entity file for the highlighting domain is included in a
+              document-type shell:
+            </p>
+            <pre
+              class="pre codeblock"
+            ><code>&lt;!-- ============================================================= --&gt;
+&lt;!--             DOMAIN ENTITY DECLARATIONS                        --&gt;
+&lt;!-- ============================================================= --&gt;
+
+&lt;!ENTITY % hi-d-dec PUBLIC
+    "-//OASIS//ENTITIES DITA 2.0 Highlight Domain//EN" 
+    "highlightDomain.ent"
+&gt;%hi-d-dec;</code></pre>
+          </div>
+        </dd>
+
+        <dt class="dt dlterm" id="shell-dtd-coding-reqs__domain-attributes-declarations">
+          Domain attributes declarations
+        </dt>
+        <dd class="dd">
+          <p class="p">
+            This section declares and references an external parameter entity for each attribute
+            domain that is integrated into the document-type shell.
+          </p>
+          <p class="p">
+            The parameter entity is named
+            <code class="ph codeph"><var class="keyword varname">domainName</var>-dec</code>.
+          </p>
+          <div class="example">
+            <p class="p">
+              In the following example, the entity file for the
+              <code class="keyword markupname xmlatt">@deliveryTarget</code> attribute domain is
+              included in a document-type shell:
+            </p>
+            <pre
+              class="pre codeblock"
+            ><code>&lt;!-- ============================================================= --&gt;
+&lt;!--             DOMAIN ATTRIBUTES DECLARATIONS                    --&gt;
+&lt;!-- ============================================================= --&gt;
+
+&lt;!ENTITY % deliveryTargetAtt-d-dec
+  PUBLIC "-//OASIS//ENTITIES DITA 2.0 Delivery Target Attribute Domain//EN"
+         "deliveryTargetAttDomain.ent"
+&gt;%deliveryTargetAtt-d-dec;</code></pre>
+          </div>
+        </dd>
+
+        <dt class="dt dlterm" id="shell-dtd-coding-reqs__domain-extensions">Domain extensions</dt>
+        <dd class="dd">
+          <p class="p">
+            This section declares and references a parameter entity for each element that is
+            extended by one or more domain modules. These entities are used by later modules to
+            define content models; redefining the entity adds domain specializations wherever the
+            base element is allowed.
+          </p>
+          <div class="example">
+            <p class="p">
+              In the following example, the entity for the
+              <code class="keyword markupname xmlelement">&lt;pre&gt;</code> element is redefined to
+              add specializations from the programming, software, and user interface domains:
+            </p>
+            <pre
+              class="pre codeblock"
+            ><code>&lt;!-- ============================================================= --&gt;
+&lt;!--                    DOMAIN EXTENSIONS                          --&gt;
+&lt;!-- ============================================================= --&gt;
+
+&lt;!ENTITY % pre
+    "pre        | 
+     %pr-d-pre; | 
+     %sw-d-pre; | 
+     %ui-d-pre;"&gt;</code></pre>
+          </div>
+        </dd>
+
+        <dt class="dt dlterm" id="shell-dtd-coding-reqs__domain-attribute-extensions">
+          Domain attribute extensions
+        </dt>
+        <dd class="dd">
+          <p class="p">
+            This section redefines the parameter entity for each attribute domain that is integrated
+            <span style="color:red;" class="ph">globally</span> into the document-type shell. The
+            redefinition adds an extension to the parameter entity for the relevant attribute.
+          </p>
+          <div class="example">
+            <p class="p">
+              In the following example, the parameter entities for the
+              <code class="keyword markupname xmlatt">@base</code> and
+              <code class="keyword markupname xmlatt">@props</code> attributes are redefined to
+              include the <code class="keyword markupname xmlatt">@newfrombase</code>,
+              <code class="keyword markupname xmlatt">@othernewfrombase</code>,
+              <code class="keyword markupname xmlatt">@new</code>, and
+              <code class="keyword markupname xmlatt">@othernew</code> attributes:
+            </p>
+            <pre
+              class="pre codeblock"
+            ><code>&lt;!-- ============================================================= --&gt;
+&lt;!--                    DOMAIN ATTRIBUTE EXTENSIONS                --&gt;
+&lt;!-- ============================================================= --&gt;
+
+&lt;!ENTITY % base-attribute-extensions
+        "%newfrombaseAtt-d-attribute; 
+         %othernewfrombaseAtt-d-attribute;"&gt;
+
+&lt;!ENTITY % props-attribute-extensions
+        "%newAtt-d-attribute; 
+         %othernewAtt-d-attribute;"&gt;</code></pre>
+          </div>
+        </dd>
+
+        <dt class="dt dlterm" id="shell-dtd-coding-reqs__topic-nesting-overrides">
+          Topic nesting override
+        </dt>
+        <dd class="dd">
+          <p class="p">
+            This section redefines the entity that controls topic nesting for each topic type that
+            is integrated into the document-type shell.
+          </p>
+          <p class="p">
+            The parameter entity is named
+            <code class="ph codeph"><var class="keyword varname">topictype</var>-info-types</code>.
+          </p>
+          <p class="p">
+            The definition usually is an "OR" list of the topic types that can be nested in the
+            parent topic type. Use the literal root-element name, not the corresponding parameter
+            entity. Topic nesting can be disallowed completely by specifying the
+            <code class="keyword markupname xmlelement">&lt;no-topic-nesting&gt;</code> element.
+          </p>
+          <div class="example">
+            <p class="p">
+              In the following example, the parameter entity specifies that
+              <code class="keyword markupname xmlelement">&lt;concept&gt;</code> can nest any number
+              of <code class="keyword markupname xmlelement">&lt;concept&gt;</code> or
+              <code class="keyword markupname xmlelement">&lt;myTopicType&gt;</code> topics, in any
+              order:
+            </p>
+            <pre
+              class="pre codeblock"
+            ><code>&lt;!-- ============================================================= --&gt;
+&lt;!--                    TOPIC NESTING OVERRIDE                     --&gt;
+&lt;!-- ============================================================= --&gt;
+
+&lt;!ENTITY % concept-info-types "concept | myTopicType"&gt;</code></pre>
+          </div>
+        </dd>
+
+        <dt class="dt dlterm" id="shell-dtd-coding-reqs__domains-attribute-override">
+          Specializations attribute override
+        </dt>
+        <dd class="dd">
+          <p class="p">
+            This section redefines the <code class="ph codeph">included-domains</code> entity to
+            include the text entity for each attribute domain that is included in the document-type
+            shell. The redefinition sets the effective value of the
+            <code class="keyword markupname xmlatt">@specializations</code> attribute for the
+            top-level document type that is configured by the document-type shell.
+          </p>
+          <div class="example">
+            <p class="p">
+              In the following example, parameter entities are included for the DITA
+              conditional-processing attributes:
+            </p>
+            <pre
+              class="pre codeblock"
+            ><code>&lt;!-- ============================================================= --&gt;
+&lt;!--                 SPECIALIZATIONS ATTRIBUTE OVERRIDE            --&gt;
+&lt;!-- ============================================================= --&gt;
+
+&lt;!ENTITY included-domains
+                          "&amp;audienceAtt-d-att;
+                           &amp;deliveryTargetAtt-d-att;
+                           &amp;otherpropsAtt-d-att;
+                           &amp;platformAtt-d-att;
+                           &amp;productAtt-d-att;"
+&gt;</code></pre>
+          </div>
+        </dd>
+
+        <dt class="dt dlterm" id="shell-dtd-coding-reqs__content-constraint-integration">
+          <span style="color:red;" class="ph">Element-type configuration integration</span>
+        </dt>
+        <dd class="dd">
+          <p class="p">
+            This section declares and references the parameter entity for each
+            <span style="color:red;" class="ph"
+              >element-configuration module (constraint and expansion)</span
+            >
+            that is integrated into the document-type shell
+          </p>
+          <p class="p">
+            The parameter entity is named
+            <code class="ph codeph"
+              ><var class="keyword varname">descriptionElement</var>-c-def</code
+            >.
+          </p>
+          <div class="example">
+            <p class="p">
+              In the following example, the module that constrains the content model for the
+              <code class="keyword markupname xmlelement">&lt;taskbody&gt;</code> element is
+              integrated into the document-type shell for strict task:
+            </p>
+            <pre class="pre codeblock"><code>&lt;!ENTITY % strictTaskbody-c-def  
+  PUBLIC "-//OASIS//ELEMENTS DITA 2.0 Strict Taskbody Constraint//EN" 
+  "strictTaskbodyConstraint.mod"
+&gt;%strictTaskbody-c-def;</code></pre>
+          </div>
+        </dd>
+
+        <dt class="dt dlterm" id="shell-dtd-coding-reqs__topic-map-element-integration">
+          Topic [or map] element integration
+        </dt>
+        <dd class="dd">
+          <p class="p">
+            This section declares and references a parameter entity for each structural module that
+            is integrated into the document-type shell.
+          </p>
+          <p class="p">
+            The parameter entity is named
+            <code class="ph codeph"><var class="keyword varname">structuralType</var>-type</code>.
+          </p>
+          <p class="p">
+            The structural modules are included in ancestry order, so that the parameter entities
+            that are used in an ancestor module are available for use in specializations. When a
+            structural module depends on elements from a vocabulary module that is not part of its
+            ancestry, the module upon which the structural module has a dependency (and any ancestor
+            modules not already included) need to be included before the module with a dependency.
+          </p>
+          <div class="example">
+            <p class="p">
+              In the following example, the structural modules required by the troubleshooting topic
+              are integrated into the document-type shell:
+            </p>
+            <pre
+              class="pre codeblock"
+            ><code>&lt;!-- ============================================================= --&gt;
+&lt;!--                    TOPIC ELEMENT INTEGRATION                  --&gt;
+&lt;!-- ============================================================= --&gt;
+
+&lt;!ENTITY % topic-type
+  PUBLIC "-//OASIS//ELEMENTS DITA 2.0 Topic//EN"
+         "../../base/dtd/topic.mod"
+&gt;%topic-type;
+
+&lt;!ENTITY % task-type
+  PUBLIC "-//OASIS//ELEMENTS DITA 2.0 Task//EN"
+         "task.mod"
+&gt;%task-type;
+
+&lt;!ENTITY % troubleshooting-type
+  PUBLIC "-//OASIS//ELEMENTS DITA 2.0 Troubleshooting//EN"
+         "troubleshooting.mod"
+&gt;%troubleshooting-type;</code></pre>
+          </div>
+        </dd>
+
+        <dt class="dt dlterm" id="shell-dtd-coding-reqs__domain-element-integration">
+          Domain element integration
+        </dt>
+        <dd class="dd">
+          <p class="p">
+            This section declares and references a parameter entity for each element domain that is
+            integrated tinto the document-type shell.
+          </p>
+
+          <p class="p">
+            The parameter entity is named
+            <code class="ph codeph"><var class="keyword varname">domainName</var>-def</code>.
+          </p>
+          <div class="example">
+            <p class="p">
+              In the following example, the element-definition file for the highlighting domain is
+              integrated into the document-type shell:
+            </p>
+            <pre
+              class="pre codeblock"
+            ><code>&lt;!-- ============================================================= --&gt;
+&lt;!--                    DOMAIN ELEMENT INTEGRATION                 --&gt;
+&lt;!-- ============================================================= --&gt;
+
+&lt;!ENTITY % hi-d-def PUBLIC
+    "-//OASIS//ELEMENTS DITA 2.0 Highlight Domain//EN" 
+    "highlightDomain.mod"
+&gt;%hi-d-def;</code></pre>
+          </div>
+          <p class="p">
+            If a structural module depends on a domain, the domain module needs to be included
+            before the structural module. This erases the boundary between the final two sections of
+            the DTD-based document-type shell, but it is necessary to ensure that modules are
+            embedded after their dependencies. Technically, the only solid requirement is that both
+            domain and structural modules be declared after all other modules that they specialize
+            from or depend on.
+          </p>
+        </dd>
+      </dl>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/dtd-requirements.html"
+            title="This section explains how to implement DTD based document-type shells, specializations, and element-configuration modules (constraint and expansion)."
+            >DTD coding requirements</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

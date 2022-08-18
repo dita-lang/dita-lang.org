@@ -1,0 +1,414 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Processing xrefs and conrefs within a conref'
+description: 'When referenced content contains a content reference or cross reference, the effective
+  target of the reference depends on the form of address that is used in the referenced content.
+  It also might depend on the map context, especially when key scopes are present.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li>
+      <a href="../../archSpec/base/behaviors.html">DITA processing</a>
+      <ul class="nav nav-list">
+        <li><a href="../../archSpec/base/navigation.html">Navigation</a></li>
+        <li><a href="../../archSpec/base/indexes.html">Indexes</a></li>
+        <li>
+          <a href="../../archSpec/base/conref.html">Content reference (conref)</a>
+          <ul class="nav nav-list">
+            <li><a href="../../archSpec/base/conref-overview.html">Conref overview</a></li>
+            <li>
+              <a href="../../archSpec/base/theconactionattribute.html">The conaction attribute</a>
+            </li>
+            <li>
+              <a href="../../archSpec/base/theconrefendattribute.html">The conrefend attribute</a>
+            </li>
+            <li>
+              <a href="../../archSpec/base/theconkeyrefattribute.html">The conkeyref attribute</a>
+            </li>
+            <li><a href="../../archSpec/base/theconrefattribute.html">The conref attribute</a></li>
+            <li>
+              <a href="../../archSpec/base/ditauseconreftarget.html"
+                >Using the -dita-use-conref-target value</a
+              >
+            </li>
+            <li><a href="../../archSpec/base/conref-processing.html">Processing conrefs</a></li>
+            <li>
+              <a href="../../archSpec/base/conref-attributes-specified-on-elements.html"
+                >Processing attributes when resolving conrefs</a
+              >
+            </li>
+            <li class="active">
+              <a href="../../archSpec/base/handling-xref-and-conref-within-topics.html"
+                >Processing xrefs and conrefs within a conref</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/condproc.html">Conditional processing</a></li>
+        <li><a href="../../archSpec/base/branch-filtering.html">Branch filtering</a></li>
+        <li><a href="../../archSpec/base/sort-as-processing.html">Sorting</a></li>
+        <li>
+          <a href="../../archSpec/base/determining-effective-attribute-values.html"
+            >Determining effective attribute values</a
+          >
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      <span class="ph">Processing</span> xrefs and conrefs within a conref
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        When referenced content contains a content reference or cross reference, the effective
+        target of the reference depends on the form of address that is used in the referenced
+        content. It also might depend on the map context, especially when key scopes are present.
+      </p>
+      <dl class="dl">
+        <dt class="dt dlterm">Direct URI reference (but not a same-topic fragment identifier )</dt>
+        <dd class="dd">
+          When the address is a direct URI reference of any form other than a same-topic fragment
+          identifier, processors <dfn class="term RFC-2119">MUST</dfn> resolve it relative to the
+          source document that contains the original URI reference.
+        </dd>
+
+        <dt class="dt dlterm">Same-topic fragment identifier</dt>
+        <dd class="dd">
+          When the address is a same-topic fragment identifier, processors
+          <dfn class="term RFC-2119">MUST</dfn> resolve it relative to the location of the content
+          reference (referencing context).
+        </dd>
+
+        <dt class="dt dlterm">Key reference</dt>
+        <dd class="dd">
+          When the address is a key reference, processors
+          <dfn class="term RFC-2119">MUST</dfn> resolve it relative to the location of the content
+          reference (referencing context).
+        </dd>
+      </dl>
+      <p class="p">
+        When resolving key references or same-topic fragment identifiers, the phrase
+        <dfn class="term">location of the content reference</dfn> means the final resolved context.
+        For example, in a case where content references are chained (topic A pulls from topic B,
+        which in turn pulls a reference from topic C), the reference is resolved relative to the
+        topic that is rendered. When topic B is rendered, the reference is resolved relative to the
+        content reference in topic B; when topic A is rendered, the reference is resolved relative
+        to topic A.
+        <span class="ph"
+          >If content is pushed from topic A to topic B to topic C, then the same-topic fragment
+          identifier is resolved in the context of topic C.</span
+        >
+      </p>
+      <p class="p">
+        The implication is that a content reference or cross reference can resolve to different
+        targets in different use contexts. This is because a URI reference that contains a
+        same-topic fragment identifier is resolved in the context of the topic that contains the
+        content reference, and a key reference is resolved in the context of the key scope that is
+        in effect for each use of the topic that contains the content reference.
+      </p>
+      <div class="note note note_note">
+        <span class="note__title">Note:</span> In the case of same-topic fragment identifiers, it is
+        the responsibility of the author of the content reference to ensure that any element IDs
+        that are specified in same-topic fragment identifiers in the referenced content will also be
+        available in the referencing topic at resolution time.
+      </div>
+      <div class="example" id="handling-xref-and-conref-within-topics__example">
+        <h2 class="title sectiontitle">
+          Example: Resolving conrefs to elements that contain cross references
+        </h2>
+
+        <p class="p">
+          Consider the following paragraphs in <span class="ph filepath">paras-01.dita</span> that
+          are intended to be used by reference from other topics:
+        </p>
+        <pre
+          class="pre codeblock"
+        ><code>&lt;topic id="paras-01"&gt;&lt;title&gt;Reusable paragraphs&lt;/title&gt;
+    &lt;body&gt;
+        &lt;p id="p1"&gt;See &lt;xref href="#paras-01/p5"/&gt;.&lt;/p&gt;
+        &lt;p id="p2"&gt;See &lt;xref href="topic-02.dita#topic02/fig-01"/&gt;.&lt;/p&gt;
+        &lt;p id="p3"&gt;See &lt;xref href="#./p5"/&gt;.&lt;/p&gt;
+        &lt;p id="p4"&gt;See &lt;xref keyref="task-remove-cover"/&gt;.&lt;/p&gt;
+        &lt;p id="p5"&gt;Paragraph 5 in paras-01.&lt;/p&gt;
+    &lt;/body&gt;
+&lt;/topic&gt;</code></pre>
+        <p class="p">
+          The paragraphs are used by content reference from other topics, including the
+          <span class="ph filepath">using-topic-01.dita</span> topic:
+        </p>
+        <pre
+          class="pre codeblock"
+        ><code>&lt;topic id="using-topic-01"&gt;&lt;title&gt;Using topic one&lt;/title&gt;
+    &lt;body&gt;
+        &lt;p id="A" conref="paras-01.dita#paras-01/p1"/&gt; 
+        &lt;p id="B" conref="paras-01.dita#paras-01/p2"/&gt; 
+        &lt;p id="C" conref="paras-01.dita#paras-01/p3"/&gt;
+        &lt;p id="D" conref="paras-01.dita#paras-01/p4"/&gt;
+        &lt;p id="p5"&gt;Paragraph 5 in using-topic-01&lt;/p&gt;  
+    &lt;/body&gt;
+&lt;/topic&gt;</code></pre>
+        <p class="p">
+          Following resolution of the content references and processing of the
+          <code class="keyword markupname xmlelement">&lt;xref&gt;</code> elements in the referenced
+          paragraphs, the rendered cross references in
+          <span class="ph filepath">using-topic-01.dita</span> are
+          <span class="ph">shown in the following table</span>.
+        </p>
+        <table class="simpletable frame-all">
+          <colgroup>
+            <col style="width:14.285714285714285%" />
+            <col style="width:14.285714285714285%" />
+            <col style="width:28.57142857142857%" />
+            <col style="width:42.857142857142854%" />
+          </colgroup>
+          <thead>
+            <tr class="sthead">
+              <th
+                class="stentry"
+                scope="col"
+                id="handling-xref-and-conref-within-topics__example__stentry__1"
+              >
+                Paragraph
+              </th>
+              <th
+                class="stentry"
+                scope="col"
+                id="handling-xref-and-conref-within-topics__example__stentry__2"
+              >
+                Value of <code class="keyword markupname xmlatt">@id</code> attribute on conrefed
+                paragraph
+              </th>
+              <th
+                class="stentry"
+                scope="col"
+                id="handling-xref-and-conref-within-topics__example__stentry__3"
+              >
+                <code class="keyword markupname xmlelement">&lt;xref&gt;</code> within conrefed
+                paragraph
+              </th>
+              <th
+                class="stentry"
+                scope="col"
+                id="handling-xref-and-conref-within-topics__example__stentry__4"
+              >
+                Resolution
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="strow">
+              <td
+                class="stentry"
+                headers="handling-xref-and-conref-within-topics__example__stentry__1"
+              >
+                A
+              </td>
+              <td
+                class="stentry"
+                headers="handling-xref-and-conref-within-topics__example__stentry__2"
+              >
+                p1
+              </td>
+              <td
+                class="stentry"
+                headers="handling-xref-and-conref-within-topics__example__stentry__3"
+              >
+                <code class="ph codeph">&lt;xref href="#paras-01/p5"/&gt;</code>
+              </td>
+              <td
+                class="stentry"
+                headers="handling-xref-and-conref-within-topics__example__stentry__4"
+              >
+                The cross reference in paragraph p1 is a direct URI reference that does not contain
+                a same-topic fragment identifier. It can be resolved only to paragraph p5 in
+                <span class="ph filepath">paras-01.dita</span>, which contains the content
+                "Paragraph 5 in paras-01".
+              </td>
+            </tr>
+            <tr class="strow">
+              <td
+                class="stentry"
+                headers="handling-xref-and-conref-within-topics__example__stentry__1"
+              >
+                B
+              </td>
+              <td
+                class="stentry"
+                headers="handling-xref-and-conref-within-topics__example__stentry__2"
+              >
+                p2
+              </td>
+              <td
+                class="stentry"
+                headers="handling-xref-and-conref-within-topics__example__stentry__3"
+              >
+                <code class="ph codeph">&lt;xref href="topic-02.dita#topic02/fig-01"/&gt;</code>
+              </td>
+              <td
+                class="stentry"
+                headers="handling-xref-and-conref-within-topics__example__stentry__4"
+              >
+                The cross reference in paragraph p2 is a direct URI reference. It can be resolved
+                only to the element with <code class="ph codeph">id="fig-01"</code> in
+                <span class="ph filepath">topic-02.dita</span>.
+              </td>
+            </tr>
+            <tr class="strow">
+              <td
+                class="stentry"
+                headers="handling-xref-and-conref-within-topics__example__stentry__1"
+              >
+                C
+              </td>
+              <td
+                class="stentry"
+                headers="handling-xref-and-conref-within-topics__example__stentry__2"
+              >
+                p3
+              </td>
+              <td
+                class="stentry"
+                headers="handling-xref-and-conref-within-topics__example__stentry__3"
+              >
+                <code class="ph codeph">&lt;xref href="#./p5"/&gt;</code>
+              </td>
+              <td
+                class="stentry"
+                headers="handling-xref-and-conref-within-topics__example__stentry__4"
+              >
+                <p class="p">
+                  The cross reference in paragraph p3 is a direct URI reference that contains a
+                  same-topic fragment identifier. Because the URI reference contains a same-topic
+                  fragment identifier, the reference is resolved in the context of the referencing
+                  topic (<span class="ph filepath">using-topic-01.dita</span>).
+                </p>
+                <p class="p">
+                  If <span class="ph filepath">using-topic-01.dita</span> did not contain an element
+                  with <code class="ph codeph">id="p5"</code>, then the conref to paragraph p3 would
+                  result in a link resolution failure.
+                </p>
+              </td>
+            </tr>
+            <tr class="strow">
+              <td
+                class="stentry"
+                headers="handling-xref-and-conref-within-topics__example__stentry__1"
+              >
+                D
+              </td>
+              <td
+                class="stentry"
+                headers="handling-xref-and-conref-within-topics__example__stentry__2"
+              >
+                p4
+              </td>
+              <td
+                class="stentry"
+                headers="handling-xref-and-conref-within-topics__example__stentry__3"
+              >
+                <code class="ph codeph">&lt;xref keyref="task-remove-cover"/&gt;</code>
+              </td>
+              <td
+                class="stentry"
+                headers="handling-xref-and-conref-within-topics__example__stentry__4"
+              >
+                The cross reference in paragraph p4 is a key reference. It is resolved to whatever
+                resource is bound to the key name "task-remove-cover" in the applicable map context.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="example" id="handling-xref-and-conref-within-topics__example-w-scoped-keys">
+        <h2 class="title sectiontitle">
+          Example: Resolving conrefs to elements that contain key-based cross references
+        </h2>
+
+        <p class="p">
+          Consider the following map, which uses the topics from the previous example:
+        </p>
+        <pre class="pre codeblock"><code>&lt;map&gt;
+  &lt;topicgroup keyscope="product-1"&gt;
+    &lt;topicref keys="task-remove-cover" href="prod-1-task-remove-cover.dita"/&gt;
+    &lt;topicref href="using-topic-01.dita"/&gt;
+  &lt;/topicgroup&gt;
+  &lt;topicgroup keyscope="product-2"&gt;
+    &lt;topicref keys="task-remove-cover" href="prod-2-task-remove-cover.dita"/&gt;
+    &lt;topicref href="using-topic-01.dita"/&gt;
+  &lt;/topicgroup&gt;
+&lt;/map&gt;</code></pre>
+        <p class="p">
+          The map establishes two key scopes: "product-1" and "product-2". Within the map branches,
+          the key name "task-remove-cover" is bound to a different topic. The topic
+          <span class="ph filepath">using-topic-01.dita</span>, which includes a conref to a
+          paragraph that includes a cross reference to the key name "task-remove-cover", is also
+          referenced in each branch. When each branch is rendered, the target of the cross reference
+          is different.
+        </p>
+        <p class="p">
+          In the first branch with the key scope set to "product-1", the cross reference from
+          paragraph p4 is resolved to
+          <span class="ph filepath">prod-1-task-remove-cover.dita</span>. In the second branch with
+          the key scope set to "product-2", the cross reference from paragraph p4 is resolved to
+          <span class="ph filepath">prod-2-task-remove-cover.dita</span>.
+        </p>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/conref.html"
+            title="The DITA conref attributes provide mechanisms for reusing content. DITA content references support reuse scenarios that are difficult or impossible to implement using other XML-based inclusion mechanisms like XInclude and entities. Additionally, DITA content references have rules that help ensure that the results of content inclusion remain valid after resolution"
+            >Content reference (conref)</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

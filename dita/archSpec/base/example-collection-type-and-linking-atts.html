@@ -1,0 +1,208 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Example: How the collection-type and linking attributes
+  determine links'
+description: 'In this scenario, a simple map establishes basic hierarchical and relationship table
+  links. The collection-type and linking attributes are then
+  added to modify how links are generated.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li>
+      <a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a>
+      <ul class="nav nav-list">
+        <li><a href="../../archSpec/base/basic-concepts.html">Basic concepts</a></li>
+        <li>
+          <a href="../../archSpec/base/single-sourcing.html"
+            >Producing different deliverables from a single source</a
+          >
+        </li>
+        <li><a href="../../archSpec/base/topicover.html">DITA topics</a></li>
+        <li>
+          <a href="../../archSpec/base/ditamaps.html">DITA maps</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/definition-of-ditamaps.html">Definition of DITA maps</a>
+            </li>
+            <li><a href="../../archSpec/base/purpose-of-ditamaps.html">Purpose of DITA maps</a></li>
+            <li><a href="../../archSpec/base/ditamap-attributes.html">DITA map attributes</a></li>
+            <li>
+              <a href="../../archSpec/base/example-ditamaps.html">Examples of DITA maps</a>
+              <ul class="nav nav-list">
+                <li>
+                  <a href="../../archSpec/base/example-simple-map-w-submap.html"
+                    >Example: DITA map that references a subordinate map</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-simple-map-w-reltable.html"
+                    >Example: DITA map with a simple relationship table</a
+                  >
+                </li>
+                <li class="active">
+                  <a href="../../archSpec/base/example-collection-type-and-linking-atts.html"
+                    >Example: How the collection-type and linking attributes determine links</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-how-cascade-att-functions.html"
+                    >Example: How the cascade attribute functions</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/dita-metadata.html">DITA metadata</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      Example: How the <code class="keyword markupname xmlatt">@collection-type</code> and
+      <code class="keyword markupname xmlatt">@linking</code> attributes determine links
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        In this scenario, a simple map establishes basic hierarchical and relationship table links.
+        The <code class="keyword markupname xmlatt">@collection-type</code> and
+        <code class="keyword markupname xmlatt">@linking</code> attributes are then added to modify
+        how links are generated.
+      </p>
+      <p class="p">The following example illustrates how linkage is defined in a DITA map:</p>
+      <figure class="fig fignone">
+        <figcaption>
+          <span class="fig--title-label">Figure 1. </span>Simple linking example
+        </figcaption>
+
+        <pre class="pre codeblock"><code>&lt;topicref href="A.dita" collection-type="sequence"&gt;
+  &lt;topicref href="A1.dita"/&gt;
+  &lt;topicref href="A2.dita"/&gt;
+&lt;/topicref&gt;
+&lt;reltable&gt;
+  &lt;relrow&gt;
+    <span class="ph">&lt;relcell&gt;&lt;topicref href="A.dita"/&gt;&lt;/relcell&gt;
+    &lt;relcell&gt;&lt;topicref href="B.dita"/&gt;&lt;/relcell&gt;</span>
+  &lt;/relrow&gt;
+&lt;/reltable&gt;</code></pre>
+      </figure>
+      <p class="p">
+        When the output is generated, the topics contain the following linkage. Sequential
+        (next/previous) links between A1 and A2 are present because of the
+        <code class="keyword markupname xmlatt">@collection-type</code> attribute on the parent:
+      </p>
+      <dl class="dl">
+        <dt class="dt dlterm">A</dt>
+        <dd class="dd">Links to A1, A2 as children</dd>
+        <dd class="dd ddexpand">Links to B as related</dd>
+
+        <dt class="dt dlterm">A1</dt>
+        <dd class="dd">Links to A as a parent</dd>
+        <dd class="dd ddexpand">Links to A2 as next in the sequence</dd>
+
+        <dt class="dt dlterm">A2</dt>
+        <dd class="dd">Links to A as a parent</dd>
+        <dd class="dd ddexpand">Links to A1 as previous in the sequence</dd>
+
+        <dt class="dt dlterm">B</dt>
+        <dd class="dd">Links to A as related</dd>
+      </dl>
+      <p class="p">
+        The following example illustrates how setting the
+        <code class="keyword markupname xmlatt">@linking</code> attribute can change the default
+        behavior:
+      </p>
+      <figure class="fig fignone">
+        <figcaption>
+          <span class="fig--title-label">Figure 2. </span>Linking example with the
+          <code class="keyword markupname xmlatt">@linking</code> attribute
+        </figcaption>
+
+        <pre class="pre codeblock"><code>&lt;topicref href="A.dita" collection-type="sequence"&gt;
+  &lt;topicref href="B.dita" linking="none"/&gt;
+  &lt;topicref href="A1.dita"/&gt;
+  &lt;topicref href="A2.dita"/&gt;
+&lt;/topicref&gt;
+&lt;reltable&gt;
+  &lt;relrow&gt;
+    <span class="ph">&lt;relcell&gt;&lt;topicref href="A.dita"/&gt;&lt;/relcell&gt;
+    &lt;relcell linking="sourceonly"&gt;&lt;topicref href="B.dita"/&gt;&lt;/relcell&gt;</span>
+  &lt;/relrow&gt;
+&lt;/reltable&gt;</code></pre>
+      </figure>
+      <p class="p">When the output is generated, the topics contain the following linkage:</p>
+      <dl class="dl">
+        <dt class="dt dlterm">A</dt>
+        <dd class="dd">Links to A1, A2 as children</dd>
+        <dd class="dd ddexpand">Does not link to B as a child or related topic</dd>
+
+        <dt class="dt dlterm">A1</dt>
+        <dd class="dd">Links to A as a parent</dd>
+        <dd class="dd ddexpand">Links to A2 as next in the sequence</dd>
+        <dd class="dd ddexpand">Does not link to B as previous in the sequence</dd>
+
+        <dt class="dt dlterm">A2</dt>
+        <dd class="dd">Links to A as a parent</dd>
+        <dd class="dd ddexpand">Links to A1 as previous in the sequence</dd>
+
+        <dt class="dt dlterm">B</dt>
+        <dd class="dd">Links to A as a related topic</dd>
+      </dl>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/example-ditamaps.html"
+            title="This section of the specification contains simple examples of DITA maps. The examples illustrate a few of the ways that DITA maps are used."
+            >Examples of DITA maps</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

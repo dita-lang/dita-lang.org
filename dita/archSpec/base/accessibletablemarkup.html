@@ -1,0 +1,218 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Accessible tables'
+description: 'The complexity of table rendering requires authors and
+  processors to be aware of several table-specific elements and
+  attributes if they want to ensure that tables are
+  accessible.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/accessibility.html">Accessibility</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/accessibility-contentvsprocessor.html"
+                >Handling accessibility in content and in processors</a
+              >
+            </li>
+            <li><a href="../../archSpec/base/accessiblemarkup.html">Accessible content</a></li>
+            <li class="active">
+              <a href="../../archSpec/base/accessibletablemarkup.html">Accessible tables</a>
+            </li>
+            <li>
+              <a href="../../archSpec/base/examples-of-dita-markup-for-accessibility.html"
+                >Examples of DITA markup for accessibility</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/translation.html">Translation and localization</a></li>
+      </ul>
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Accessible tables</h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        The complexity of table rendering requires authors and processors to be aware of several
+        table-specific elements and attributes if they want to ensure that tables are accessible.
+      </p>
+
+      <p class="p">
+        <span class="ph"
+          >DITA topics support two types of tables:
+          <span style="color:red;" class="ph">complex table</span> and simple table.</span
+        >
+      </p>
+      <div class="div">
+        <p class="p">
+          The <code class="keyword markupname xmlelement">&lt;table&gt;</code> element uses the
+          OASIS Exchange Table Model,
+          <span style="color:red;" class="ph">a simplification of the CALS table model</span>. The
+          complex table provides a wide variety of controls over the display properties of the data
+          and even the table structure itself.
+        </p>
+        <p class="p">
+          The <code class="keyword markupname xmlelement">&lt;simpletable&gt;</code> element is
+          structurally less complex than the
+          <span style="color:red;" class="ph"
+            ><code class="keyword markupname xmlelement">&lt;table&gt;</code> element</span
+          >
+          and so is an easier base for specialization. It reflects a content model that
+          <span style="color:red;" class="ph">is</span> close to the HTML table. The
+          <code class="keyword markupname xmlelement">&lt;simpletable&gt;</code> element does not
+          provide much control over formatting<span style="color:red;" class="ph"
+            >, although it permits titles and row and column spanning.</span
+          >
+        </p>
+      </div>
+      <p class="p">
+        The following list provides information about table features that have an effect on table
+        accessibility. Note that some features are applicable only to the complex tables that are
+        produced by the <code class="keyword markupname xmlelement">&lt;table&gt;</code> element.
+      </p>
+      <dl class="dl">
+        <dt class="dt dlterm">Captions</dt>
+        <dd class="dd">
+          Both table models allow for a caption to be provided by using the
+          <code class="keyword markupname xmlelement">&lt;title&gt;</code> element.
+        </dd>
+
+        <dt class="dt dlterm">Cell headers</dt>
+        <dd class="dd">
+          (Complex table only) When entries within a table function as headers, but do not fall into
+          the categories of column or row headers, the
+          <code class="keyword markupname xmlatt">@id</code> and
+          <code class="keyword markupname xmlatt">@headers</code> attributes on
+          <code class="keyword markupname xmlelement">&lt;table&gt;</code> cells can be used.
+          Specifying the <code class="keyword markupname xmlatt">@id</code> attribute on the cell
+          that functions as a header, and setting the
+          <code class="keyword markupname xmlatt">@headers</code> attribute to that ID value on
+          table cell for which it acts as a header serves to relate table cells to headers.
+        </dd>
+
+        <dt class="dt dlterm">Column headers</dt>
+        <dd class="dd">
+          <p class="p">Both table models provide support for column headers:</p>
+          <dl class="dl">
+            <dt class="dt dlterm">Complex table</dt>
+            <dd class="dd">
+              (First column) The <code class="keyword markupname xmlatt">@rowheader</code> attribute
+              can be set to <span class="keyword">firstcol</span> to indicate that the first column
+              is a header. Alternatively, the
+              <code class="keyword markupname xmlatt">@scope</code> attribute in the first entry in
+              the first row to can be set to <span class="keyword">col</span> to indicate that it is
+              a header for the entire column.
+            </dd>
+            <dd class="dd ddexpand">
+              (Other columns) The
+              <code class="keyword markupname xmlelement">&lt;colspec&gt;</code> element can define
+              which columns function as headers. For that case, set the
+              <code class="keyword markupname xmlatt">@rowheader</code> attribute to
+              <span class="keyword">headers</span> on the column or columns that function as
+              headers. Alternatively, set the
+              <code class="keyword markupname xmlatt">@scope</code> attribute on each relevant entry
+              in the first row to <span class="keyword">col</span>, indicating that the entry is a
+              header for the entire column.
+            </dd>
+
+            <dt class="dt dlterm">Simple table</dt>
+            <dd class="dd">
+              The <code class="keyword markupname xmlatt">@keycol</code> attribute can be set to the
+              number of the column that functions as a header.
+            </dd>
+          </dl>
+        </dd>
+
+        <dt class="dt dlterm">Row headers</dt>
+        <dd class="dd">
+          <p class="p">Both table models provide support for a row header:</p>
+          <dl class="dl">
+            <dt class="dt dlterm">Complex table</dt>
+            <dt class="dt dlterm"></dt>
+            <dd class="dd">
+              The <code class="keyword markupname xmlelement">&lt;thead&gt;</code> element can
+              provide one or more header rows.
+            </dd>
+
+            <dt class="dt dlterm">Simple table</dt>
+            <dd class="dd">
+              The <code class="keyword markupname xmlelement">&lt;sthead&gt;</code> element can be
+              used to provide a single row header.
+            </dd>
+          </dl>
+        </dd>
+
+        <dt class="dt dlterm">Summaries</dt>
+        <dd class="dd">
+          (Complex table only) While the <code class="keyword markupname xmlatt">@summary</code>
+          attribute on tables is deprecated in HTML5, the
+          <code class="keyword markupname xmlelement">&lt;desc&gt;</code> element within a
+          <code class="keyword markupname xmlelement">&lt;table&gt;</code> can be used to store a
+          summary. Since the content of the
+          <code class="keyword markupname xmlelement">&lt;desc&gt;</code> element is typically
+          rendered as part of the content flow when used within
+          <code class="keyword markupname xmlelement">&lt;table&gt;</code>, processors might need
+          special configuration to support this usage.
+        </dd>
+      </dl>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/accessibility.html"
+            title="DITA has markup and features that enable producing output that is accessible by all audiences."
+            >Accessibility</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

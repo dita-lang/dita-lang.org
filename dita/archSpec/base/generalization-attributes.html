@@ -1,0 +1,179 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Attribute generalization'
+description: 'DITA provides a syntax to generalize attributes that have been specialized from the
+  props or base attribute.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/ditaspecialization.html"
+            >Overview of DITA extension facilities</a
+          >
+        </li>
+        <li><a href="../../archSpec/base/configuration.html">Document-type configuration</a></li>
+        <li><a href="../../archSpec/base/specialization.html">Specialization</a></li>
+        <li>
+          <a href="../../archSpec/base/generalization.html">Generalization</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/generalization-overview.html"
+                >Overview of generalization</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/generalization-elements.html">Element generalization</a>
+            </li>
+            <li>
+              <a href="../../archSpec/base/generalization-processor-expectations.html"
+                >Processor expectations when generalizing elements</a
+              >
+            </li>
+            <li class="active">
+              <a href="../../archSpec/base/generalization-attributes.html"
+                >Attribute generalization</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/generalization-w-cross-specialization-dependencies.html"
+                >Generalization with cross-specialization dependencies</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/constraints.html">Constraints</a></li>
+        <li><a href="../../archSpec/base/expansion-modules.html">Expansion modules</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Attribute generalization</h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        DITA provides a syntax to generalize attributes that have been specialized from the
+        <code class="keyword markupname xmlatt">@props</code> or
+        <code class="keyword markupname xmlatt">@base</code> attribute.
+      </p>
+      <p class="p">
+        Specialization-aware processors <dfn class="term RFC-2119">MUST</dfn> process both the
+        specialized and generalized forms of an attribute as equivalent in their values.
+      </p>
+      <p class="p">
+        When a specialized attribute is generalized to an ancestor attribute, the value of the
+        ancestor attribute consists of the name of the specialized attribute followed by its
+        specialized value in parentheses.
+      </p>
+      <div class="div">
+        <p class="p">
+          For example, if <code class="keyword markupname xmlatt">@jobrole</code> is an attribute
+          specialized from <code class="keyword markupname xmlatt">@person</code>, which in turn is
+          specialized from <code class="keyword markupname xmlatt">@props</code>:
+        </p>
+        <ul class="ul">
+          <li class="li">
+            <code class="ph codeph">jobrole="programmer"</code> can be generalized to
+            <code class="ph codeph">person="jobrole(programmer)"</code> or to
+            <code class="ph codeph">props="jobrole(programmer)"</code>
+          </li>
+          <li class="li">
+            <code class="ph codeph">props="jobrole(programmer)"</code> can be respecialized to
+            <code class="ph codeph">person="jobrole(programmer)"</code> or to
+            <code class="ph codeph">jobrole="programmer"</code>
+          </li>
+        </ul>
+      </div>
+      <p class="p">
+        In this example, processors performing generalization and respecialization can use the
+        <code class="keyword markupname xmlatt">@specializations</code> attribute to determine the
+        ancestry of the specialized
+        <code class="keyword markupname xmlatt">@jobrole</code> attribute, and therefore the
+        validity of the specialized <code class="keyword markupname xmlatt">@person</code> attribute
+        as an intermediate target for generalization.
+      </p>
+      <p class="p">
+        If more than one attribute is generalized, the value of each is separately represented in
+        this way in the value of the ancestor attribute.
+      </p>
+      <p class="p">
+        Generalized attributes are typically not expected to be authored or edited directly. They
+        are used by processors to preserve the values of the specialized attributes during the time
+        or in the circumstances in which the document is in a generalized form.
+      </p>
+      <p class="p">
+        A single element <dfn class="term RFC-2119">MUST NOT</dfn> contain both generalized and
+        specialized values for the same attribute.
+      </p>
+      <div class="div">
+        <p class="p">
+          For example, the following
+          <code class="keyword markupname xmlelement">&lt;p&gt;</code> element provides two values
+          for the <code class="keyword markupname xmlatt">@jobrole</code> attribute, one in a
+          generalized syntax and the other in a specialized syntax:
+        </p>
+        <pre class="pre codeblock"><code>&lt;p person="jobrole(programmer)" jobrole="admin"&gt;
+    &lt;!-- ... --&gt;
+&lt;/p&gt;</code></pre>
+      </div>
+      <p class="p">
+        This is an error condition, since it means the document has been only partially generalized,
+        or that the document has been generalized and then edited using a specialized document type.
+      </p>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/generalization.html"
+            title="Generalization is the process of reversing a specialization. It converts specialized elements or attributes into the original types from which they were derived."
+            >Generalization</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

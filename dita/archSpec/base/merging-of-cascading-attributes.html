@@ -1,0 +1,174 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Merging of cascading attributes'
+description: 'The cascade attribute can be used to modify
+  the additive nature of attribute cascading,
+  although it does not turn off cascading altogether. The
+  attribute has two predefined values: merge and
+  nomerge.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li>
+      <a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a>
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/dita-maps-and-their-usage.html">DITA maps and their usage</a>
+        </li>
+        <li>
+          <a href="../../archSpec/base/subject-scheme-maps-and-usage.html"
+            >Subject scheme maps and their usage</a
+          >
+        </li>
+        <li>
+          <a href="../../archSpec/base/map-cascading.html">Metadata cascading</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/cascading-in-a-ditamap.html"
+                >Cascading of metadata attributes in a DITA map</a
+              >
+              <ul class="nav nav-list">
+                <li>
+                  <a href="../../archSpec/base/processing-cascading-attributes-in-a-map.html"
+                    >Processing cascading attributes in a map</a
+                  >
+                </li>
+                <li class="active">
+                  <a href="../../archSpec/base/merging-of-cascading-attributes.html"
+                    >Merging of cascading attributes</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="../../archSpec/base/reconciling-topic-and-map-metadata.html"
+                >Reconciling topic and map metadata elements</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/map-to-map-cascading-of-metadata.html"
+                >Map-to-map cascading behaviors</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/examples-of-cascading.html"
+                >Examples of metadata cascading</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/chunking.html">Chunking</a></li>
+      </ul>
+    </li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Merging of cascading attributes</h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        The <code class="keyword markupname xmlatt">@cascade</code> attribute can be used to modify
+        the additive nature of attribute cascading<span style="color:red;" class="ph"
+          >, although</span
+        >
+        it does not turn off cascading altogether. The attribute has two predefined values:
+        <span class="keyword">merge</span> and <span class="keyword">nomerge</span>.
+      </p>
+      <dl class="dl">
+        <dt class="dt dlterm">merge</dt>
+        <dd class="dd">
+          <span style="color:red;" class="ph"
+            >Indicates that the metadata attributes cascade, and that </span
+          >the values of the metadata attributes are additive. This is the processing default for
+          the <code class="keyword markupname xmlatt">@cascade</code> attribute.
+        </dd>
+
+        <dt class="dt dlterm">nomerge</dt>
+        <dd class="dd">
+          <span style="color:red;" class="ph"
+            >Indicates that the metadata attributes cascade, but that </span
+          >they are not additive for
+          <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements that specify
+          a different value for a specific metadata attribute. If the cascading value for an
+          attribute is already merged based on multiple ancestor elements, that merged value
+          continues to cascade until a new value is encountered<span style="color:red;" class="ph"
+            >. That is,</span
+          >
+          setting <code class="ph codeph">cascade="nomerge"</code> does not undo merging that took
+          place on ancestor elements.
+        </dd>
+      </dl>
+      <p class="p">
+        Implementers <dfn class="term RFC-2119">MAY</dfn> define their own custom,
+        implementation-specific tokens for the
+        <code class="keyword markupname xmlatt">@merge</code> attribute. To avoid name conflicts
+        between implementations or with future additions to the standard, implementation-specific
+        tokens <dfn class="term RFC-2119">SHOULD</dfn> consist of a prefix that gives the name or an
+        abbreviation for the implementation followed by a colon followed by the token or method
+        name. For example, a processor might define the token "appToken:audience" in order to
+        specify cascading and merging behaviors for <strong class="ph b">only</strong> the
+        <code class="keyword markupname xmlatt">@audience</code> attribute.
+      </p>
+
+      <p class="p">
+        The predefined values for the
+        <code class="keyword markupname xmlatt">@cascade</code> attribute
+        <dfn class="term RFC-2119">MUST</dfn> precede any implementation-specific tokens, for
+        example, <code class="ph codeph">cascade="merge appToken:audience"</code>.
+      </p>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/cascading-in-a-ditamap.html"
+            title="Certain attributes cascade throughout a map, which facilitates attribute and metadata management. When attributes cascade, they apply to the elements that are children of the element where the attributes were specified. Cascading applies to a containment hierarchy, as opposed to a specialization hierarchy."
+            >Cascading of metadata attributes in a DITA map</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

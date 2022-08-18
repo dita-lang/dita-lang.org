@@ -1,0 +1,206 @@
+---
+# Generated from DITA source
+layout: base
+title: 'ID attribute'
+description: 'The id attribute assigns an identifier to DITA elements so that the
+  elements can be referenced.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li>
+      <a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a>
+      <ul class="nav nav-list">
+        <li class="active"><a href="../../archSpec/base/id.html">ID attribute</a></li>
+        <li><a href="../../archSpec/base/dita-linking.html">DITA linking</a></li>
+        <li>
+          <a href="../../archSpec/base/uri-based-addressing.html">URI-based (direct) addressing</a>
+        </li>
+        <li>
+          <a href="../../archSpec/base/key-based-addressing.html">Indirect key-based addressing</a>
+        </li>
+        <li>
+          <a href="../../archSpec/base/context-hooks-for-user-assistance.html"
+            >Context hooks for user assistance</a
+          >
+        </li>
+      </ul>
+    </li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">ID attribute</h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        The <code class="keyword markupname xmlatt">@id</code> attribute assigns an identifier to
+        DITA elements so that the elements can be referenced.
+      </p>
+      <p class="p">
+        The <code class="keyword markupname xmlatt">@id</code> attribute is available for most
+        elements. An element must have a valid value for the
+        <code class="keyword markupname xmlatt">@id</code> attribute before it can be referenced
+        using a fragment identifier. The requirements for the
+        <code class="keyword markupname xmlatt">@id</code> attribute differ depending on whether it
+        is used on a topic element, a map element, or an element within a topic or map.
+      </p>
+      <p class="p">
+        All values for the <code class="keyword markupname xmlatt">@id</code> attribute must be XML
+        name tokens.
+      </p>
+      <p class="p">
+        The <code class="keyword markupname xmlatt">@id</code> attributes for
+        <code class="keyword markupname xmlelement">&lt;topic&gt;</code> and
+        <code class="keyword markupname xmlelement">&lt;map&gt;</code> elements are declared as XML
+        attribute type ID; therefore, they must be unique with respect to other XML IDs within the
+        XML document that contains the topic or map element. The
+        <code class="keyword markupname xmlatt">@id</code> attribute for most other elements within
+        topics and maps is not declared to be XML ID; this means that XML parsers do not require
+        that the values of those <code class="keyword markupname xmlatt">@id</code> attributes be
+        unique. However, the DITA specification requires that all IDs be unique within the context
+        of a topic. For this reason, tools might provide an additional layer of validation to flag
+        violations of this rule.
+      </p>
+      <p class="p">
+        Within documents that contain multiple topics, the values of the
+        <code class="keyword markupname xmlatt">@id</code> attribute for all non-topic elements that
+        have the same nearest-ancestor-topic element need to be unique with respect to each other.
+        The values of the <code class="keyword markupname xmlatt">@id</code> attribute for non-topic
+        elements can be the same as non-topic elements with different nearest-ancestor-topic
+        elements. Therefore, within a single DITA document that contains more than one topic, the
+        values of the <code class="keyword markupname xmlatt">@id</code> attribute of the non-topic
+        elements need only to be unique within each topic.
+      </p>
+      <p class="p">
+        Within a map document, the values of the
+        <code class="keyword markupname xmlatt">@id</code> attributes for all elements
+        <dfn class="term RFC-2119">SHOULD</dfn> be unique. When two elements within a map have the
+        same value for the <code class="keyword markupname xmlatt">@id</code> attribute, processors
+        <dfn class="term RFC-2119">MUST</dfn> resolve references to that ID to the first element
+        with the given ID value in document order.
+      </p>
+      <figure class="fig fignone">
+        <figcaption>
+          <span class="fig--title-label">Figure 1. </span>Summary of requirements for the
+          <code class="keyword markupname xmlatt">@id</code> attribute
+        </figcaption>
+
+        <table class="simpletable frame-all">
+          <colgroup>
+            <col style="width:25%" />
+            <col style="width:25%" />
+            <col style="width:25%" />
+            <col style="width:25%" />
+          </colgroup>
+          <thead>
+            <tr class="sthead">
+              <th class="stentry" scope="col" id="id__stentry__1">Element</th>
+              <th class="stentry" scope="col" id="id__stentry__2">
+                XML attribute type for <code class="keyword markupname xmlatt">@id</code>
+              </th>
+              <th class="stentry" scope="col" id="id__stentry__3">Must be unique within</th>
+              <th class="stentry" scope="col" id="id__stentry__4">Required?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="strow">
+              <td class="stentry" headers="id__stentry__1">
+                <code class="keyword markupname xmlelement">&lt;map&gt;</code>
+              </td>
+              <td class="stentry" headers="id__stentry__2">ID</td>
+              <td class="stentry" headers="id__stentry__3">document</td>
+              <td class="stentry" headers="id__stentry__4">No</td>
+            </tr>
+            <tr class="strow">
+              <td class="stentry" headers="id__stentry__1">
+                <code class="keyword markupname xmlelement">&lt;topic&gt;</code>
+              </td>
+              <td class="stentry" headers="id__stentry__2">ID</td>
+              <td class="stentry" headers="id__stentry__3">document</td>
+              <td class="stentry" headers="id__stentry__4">Yes</td>
+            </tr>
+            <tr class="strow">
+              <td class="stentry" headers="id__stentry__1">
+                sub-map (elements nested within a map)
+              </td>
+              <td class="stentry" headers="id__stentry__2">NMTOKEN</td>
+              <td class="stentry" headers="id__stentry__3">document</td>
+              <td class="stentry" headers="id__stentry__4">Usually no, with some exceptions</td>
+            </tr>
+            <tr class="strow">
+              <td class="stentry" headers="id__stentry__1">
+                sub-topic (elements nested within a topic)
+              </td>
+              <td class="stentry" headers="id__stentry__2">NMTOKEN</td>
+              <td class="stentry" headers="id__stentry__3">individual topic</td>
+              <td class="stentry" headers="id__stentry__4">Usually no, with some exceptions</td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+
+      <div class="note note note_note">
+        <span class="note__title">Note:</span> For all elements other than footnote (<code
+          class="keyword markupname xmlelement"
+          >&lt;fn&gt;</code
+        >), the presence of a value for the
+        <code class="keyword markupname xmlatt">@id</code> attribute has no impact on processing.
+        For <code class="keyword markupname xmlelement">&lt;fn&gt;</code>, the presence or absence
+        of a valid <code class="keyword markupname xmlatt">@id</code> attribute affects how the
+        element is processed. This is important for tools that automatically assign
+        <code class="keyword markupname xmlatt">@id</code> attributes to all elements.
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/ditaaddressing.html"
+            title="DITA provides two addressing mechanisms. DITA addresses either are direct URI-based addresses, or they are indirect key-based addresses. Within DITA documents, individual elements are addressed by unique identifiers specified on the id attribute. DITA defines two fragment-identifier syntaxes; one is the full fragment-identifier syntax, and the other is an abbreviated fragment-identifier syntax that can be used when addressing non-topic elements from within the same topic."
+            >DITA addressing</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

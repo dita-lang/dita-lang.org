@@ -1,0 +1,394 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Core concepts for working with keys'
+description: ' The concepts described below are critical for a full understanding of keys and key
+  processing.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li>
+      <a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a>
+      <ul class="nav nav-list">
+        <li><a href="../../archSpec/base/id.html">ID attribute</a></li>
+        <li><a href="../../archSpec/base/dita-linking.html">DITA linking</a></li>
+        <li>
+          <a href="../../archSpec/base/uri-based-addressing.html">URI-based (direct) addressing</a>
+        </li>
+        <li>
+          <a href="../../archSpec/base/key-based-addressing.html">Indirect key-based addressing</a>
+          <ul class="nav nav-list">
+            <li class="active">
+              <a href="../../archSpec/base/keys-core-concepts.html"
+                >Core concepts for working with keys</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/thekeysattribute.html"
+                >Setting key names with the keys attribute</a
+              >
+            </li>
+            <li><a href="../../archSpec/base/thekeyrefattribute.html">The keyref attribute</a></li>
+            <li>
+              <a href="../../archSpec/base/using-keys-for-addressing.html"
+                >Using keys for addressing</a
+              >
+            </li>
+            <li><a href="../../archSpec/base/keyScopes.html">Key scopes</a></li>
+            <li>
+              <a href="../../archSpec/base/the-key-scope-attribute.html">The keyscope attribute</a>
+            </li>
+            <li>
+              <a href="../../archSpec/base/using-keys-to-address-keys-across-scopes.html"
+                >Addressing keys across scopes</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/links-between-maps.html"
+                >Cross-deliverable addressing and linking</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/processing-key-references-general.html"
+                >Processing key references</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/processing-keyref-for-links.html"
+                >Processing key references for navigation links and images</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/processing-keyref-on-topicref.html"
+                >Processing key references on topicref elements</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/processing-keyref-for-text.html"
+                >Processing key references to generate text or link text</a
+              >
+            </li>
+            <li><a href="../../archSpec/base/examples-of-keys.html">Examples of keys</a></li>
+            <li>
+              <a href="../../archSpec/base/examples-of-scoped-keys.html">Examples of scoped keys</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="../../archSpec/base/context-hooks-for-user-assistance.html"
+            >Context hooks for user assistance</a
+          >
+        </li>
+      </ul>
+    </li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Core concepts for working with keys</h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        The concepts described below are critical for a full understanding of keys and key
+        processing.
+      </p>
+      <section class="section" id="concept_igf_3c4_kn__section">
+        <p class="p">
+          The use of the phases "<code class="keyword markupname xmlelement">&lt;map&gt;</code>
+          element" or "<code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element"
+          should be interpreted as "<code class="keyword markupname xmlelement">&lt;map&gt;</code>
+          element and any specialization of
+          <code class="keyword markupname xmlelement">&lt;map&gt;</code> element " or "
+          <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element or any
+          specialization of
+          <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element."
+        </p>
+      </section>
+      <section class="section" id="concept_igf_3c4_kn__definitions">
+        <h2 class="title sectiontitle">Definitions related to keys</h2>
+
+        <dl class="dl">
+          <dt class="dt dlterm" id="concept_igf_3c4_kn__resource">resource</dt>
+          <dd class="dd">
+            For the purposes of keys and key resolution, one of the following:
+            <ul class="ul">
+              <li class="li">An object addressed by URI</li>
+              <li class="li">
+                Metadata specified on a resource, such as a
+                <code class="keyword markupname xmlatt">@scope</code> or
+                <code class="keyword markupname xmlatt">@format</code> attribute
+              </li>
+              <li class="li">
+                Text or metadata located within a
+                <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> element
+              </li>
+            </ul>
+          </dd>
+
+          <dt class="dt dlterm" id="concept_igf_3c4_kn__key">key</dt>
+          <dd class="dd">
+            A name for a resource.
+            <span class="ph"
+              >See
+              <a
+                class="xref"
+                href="using-keys-for-addressing.html"
+                title="For topic references, image references, and other link relationships, resources can be indirectly addressed by using the keyref attribute. For content reference relationships, resources can be indirectly addressed by using the conkeyref attribute."
+                >Using keys for addressing</a
+              >
+              for more information.</span
+            >
+          </dd>
+
+          <dt class="dt dlterm" id="concept_igf_3c4_kn__key-definition">key definition</dt>
+          <dd class="dd">
+            A <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element that binds
+            one or more key names to <span class="ph">zero or more</span> resources.
+          </dd>
+
+          <dt class="dt dlterm" id="concept_igf_3c4_kn__key-reference">key reference</dt>
+          <dd class="dd">
+            An attribute that references a key, such as
+            <code class="keyword markupname xmlatt">@keyref</code> or
+            <code class="keyword markupname xmlatt">@conkeyref</code>.
+          </dd>
+
+          <dt class="dt dlterm" id="concept_igf_3c4_kn__key-space">key space</dt>
+          <dd class="dd">A list of key definitions that are used to resolve key references.</dd>
+
+          <dt class="dt dlterm" id="concept_igf_3c4_kn__effective-key-definition">
+            effective key definition
+          </dt>
+          <dd class="dd">
+            The definition for a key within a key space that is used to resolve references to that
+            key. A key might have multiple definitions within a key space, but only one of those
+            definitions is effective.
+          </dd>
+
+          <dt class="dt dlterm" id="concept_igf_3c4_kn__key-scope">key scope</dt>
+          <dd class="dd">
+            A map or section of a map that defines its own key space and serves as the resolution
+            context for its key references.
+          </dd>
+        </dl>
+      </section>
+      <section class="section" id="concept_igf_3c4_kn__key-definition-full">
+        <h2 class="title sectiontitle">Key definitions</h2>
+
+        <p class="p">
+          <span class="ph"
+            >A key definition binds one or more keys to zero or more resources.
+            <span class="ph">Resources can be:</span></span
+          >
+        </p>
+        <ul class="ul">
+          <li class="li">
+            Any <span class="ph">URI-addressed resource</span> that is referenced directly by the
+            <code class="keyword markupname xmlatt">@href</code> attribute or indirectly by the
+            <code class="keyword markupname xmlatt">@keyref</code> attribute
+            <span class="ph">on the key definition</span>. References to the key are considered
+            references to <span class="ph">the URI-addressed resource</span>.
+          </li>
+          <li class="li">
+            <span class="ph"
+              >(If the key definition contains a child
+              <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> element) The
+              child elements of the
+              <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> element.</span
+            >
+            The content of those elements can be used to populate the content of elements that
+            reference <span class="ph">the key</span>.
+          </li>
+        </ul>
+        <p class="p">
+          If a key definition does not contain a
+          <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> element and does not
+          <span class="ph">refer to</span> a resource by
+          <code class="keyword markupname xmlatt">@href</code> or
+          <code class="keyword markupname xmlatt">@keyref</code>, it is nonetheless a valid key
+          definition. References to the key definition are considered resolvable, but no linking or
+          content <span class="ph">transclusion</span> occurs.
+        </p>
+      </section>
+      <section class="section" id="concept_igf_3c4_kn__key-scope-full">
+        <h2 class="title sectiontitle">Key scopes</h2>
+
+        <p class="p">
+          All key definitions and key references exist within a key scope.
+          <span class="ph"
+            >If the <code class="keyword markupname xmlatt">@keyscope</code> attribute is never
+            specified within the map hierarchy, all keys exist within a single, default key
+            scope.</span
+          >
+        </p>
+        <p class="p">
+          <span class="ph"
+            >Additional key scopes are created when the
+            <code class="keyword markupname xmlatt">@keyscope</code> attribute is used.</span
+          >
+          The <code class="keyword markupname xmlatt">@keyscope</code> attribute specifies a name or
+          names for the scope. Within a map hierarchy, key scopes are bounded by the following:
+        </p>
+        <ul class="ul" id="concept_igf_3c4_kn__ul_nfz_hjp_kn">
+          <li class="li">The root map.</li>
+          <li class="li">
+            The root element of submaps
+            <span class="ph">when the root elements of the submaps</span> specify the
+            <code class="keyword markupname xmlatt">@keyscope</code> attribute
+          </li>
+          <li class="li">
+            Any <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements that
+            specify the <code class="keyword markupname xmlatt">@keyscope</code> attribute
+          </li>
+        </ul>
+      </section>
+      <section class="section" id="concept_igf_3c4_kn__key-space-full">
+        <h2 class="title sectiontitle">Key spaces</h2>
+
+        <p class="p">
+          The key space associated with a key scope is used to resolve all key references that occur
+          immediately within that scope. Key references in child scopes are resolved using the key
+          spaces that are associated with those child scopes.
+        </p>
+        <p class="p">
+          A key scope is associated with exactly one key space. That key space contains all key
+          definitions that are located directly within the scope; it
+          <span class="ph">might</span> also contain definitions that exist in other scopes.
+          Specifically, the key space associated with a key scope is comprised of the following key
+          definitions, in order of precedence:
+        </p>
+        <ol class="ol" id="concept_igf_3c4_kn__ol_w41_rjp_kn">
+          <li class="li">
+            All key definitions from the key space associated with the parent key scope, if any.
+          </li>
+          <li class="li">
+            Key definitions within the scope-defining element, including those defined in
+            directly-addressed, locally-scoped submaps, but excluding those defined in child scopes.
+            <span class="ph"
+              >(Keys defined in child scopes cannot be addressed without qualifiers.)</span
+            >
+          </li>
+          <li class="li">
+            The key definitions from child scopes, with each key prepended by the child scope name
+            followed by a period. If a child scope has multiple names, the keys in that scope are
+            addressable from the parent scope using any of the scope names as a prefix.
+          </li>
+        </ol>
+        <div class="note note note_note">
+          <span class="note__title">Note:</span> Because of rules 1 and 3, the key space that is
+          associated with a child scope includes the scope-qualified copies of its own keys that are
+          inherited from the key space of the parent scope, as well as those from other "sibling"
+          scopes.
+        </div>
+      </section>
+      <section class="section" id="concept_igf_3c4_kn__effective-key-definition-full">
+        <h2 class="title sectiontitle">Effective key definitions</h2>
+
+        <p class="p">
+          A key space can contain many definitions for a given key, but only one definition is
+          effective for the purpose of resolving key references.
+        </p>
+        <p class="p">
+          When a key has a definition in the key space that is
+          <span class="ph">inherited from</span> a parent scope, that definition is effective.
+          Otherwise, a key definition is effective if it is first in a breadth-first traversal of
+          the locally-scoped submaps beneath the scope-defining element.
+          <span class="ph"
+            >Put another way, a key definition is effective if it is the first definition for that
+            key name in the shallowest map that contains that key definition.</span
+          >
+          This allows higher-level map authors to override keys defined in referenced submaps.
+        </p>
+        <div class="note note note_note">
+          <span class="note__title">Note:</span> A key definition that specifies more than one key
+          name in its <code class="keyword markupname xmlatt">@keys</code> attribute
+          <span class="ph">might</span> be the effective definition for some of its keys but not for
+          others.
+        </div>
+        <p class="p">
+          Within a key scope, keys do not have to be defined before they are referenced. The key
+          space is effective for the entire scope, so the order of key definitions and key
+          references relative to one another is not significant.
+          <span class="ph">This has the following implications for processors:</span>
+        </p>
+        <ul class="ul">
+          <li class="li">
+            All key spaces for a root map must be determined before any key reference processing can
+            be performed.
+          </li>
+          <li class="li">
+            Maps referenced solely by key reference have no bearing on key space contents.
+          </li>
+        </ul>
+        <p class="p">
+          <span class="ph"
+            >For purposes of key definition precedence, the scope-qualified key definitions from a
+            child scope are considered to occur at the location of the scope-defining element within
+            the parent scope.</span
+          >
+          <span class="ph"
+            >See
+            <a
+              class="xref"
+              href="example-keys-scope-defining-precedence.html"
+              title="For purposes of key definition precedence, the scope-qualified key definitions from a child scope are considered to occur at the location of the scope-defining element within the parent scope."
+              >Example: How key scopes affect key precedence</a
+            >
+            for more information.</span
+          >
+        </p>
+      </section>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/key-based-addressing.html"
+            title="DITA keys provide an alternative to direct addressing. The key reference mechanism provides a layer of indirection so that resources (for example, URIs, metadata, or variable text strings) can be defined at the DITA map level instead of locally in each topic."
+            >Indirect key-based addressing</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

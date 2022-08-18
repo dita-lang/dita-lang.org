@@ -1,0 +1,207 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Expansion module rules'
+description: 'There are certain rules that apply to the design and
+  implementation of expansion modules. These rules all stem
+  from the requirement that, after generalization, the content model of
+  a element affected by an expansion module must match the original
+  content model for that element.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/ditaspecialization.html"
+            >Overview of DITA extension facilities</a
+          >
+        </li>
+        <li><a href="../../archSpec/base/configuration.html">Document-type configuration</a></li>
+        <li><a href="../../archSpec/base/specialization.html">Specialization</a></li>
+        <li><a href="../../archSpec/base/generalization.html">Generalization</a></li>
+        <li><a href="../../archSpec/base/constraints.html">Constraints</a></li>
+        <li>
+          <a href="../../archSpec/base/expansion-modules.html">Expansion modules</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/overview-of-expansion-modules.html"
+                >Overview of expansion modules</a
+              >
+            </li>
+            <li class="active">
+              <a href="../../archSpec/base/expansion-module-rules.html">Expansion module rules</a>
+            </li>
+            <li>
+              <a href="../../archSpec/base/example-expansion-modules.html"
+                >Examples: Expansion modules</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Expansion module rules</h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        There are certain rules that apply to the design and implementation of expansion modules.
+        <span style="color:red;" class="ph"
+          >These rules all stem from the requirement that, after generalization, the content model
+          of a element affected by an expansion module must match the original content model for
+          that element.</span
+        >
+      </p>
+
+      <dl class="dl">
+        <dt class="dt dlterm">Specialization base of expanded elements</dt>
+        <dd class="dd">
+          <p class="p">
+            Elements that are added to content models by expansion models must be specializations of
+            existing elements that are permitted in the content model.
+          </p>
+        </dd>
+
+        <dt class="dt dlterm">Content model of expanded elements</dt>
+        <dd class="dd">
+          <p class="p">
+            Elements that are added to content models by expansion models must be allowed only where
+            their specialization base is allowed.
+          </p>
+          <p class="p">
+            For example, when creating an expansion model that adds a specialization of
+            <code class="keyword markupname xmlelement">&lt;data&gt;</code> to
+            <code class="keyword markupname xmlelement">&lt;ol&gt;</code>, the specialization of
+            <code class="keyword markupname xmlelement">&lt;data&gt;</code> must only be allowed
+            before any <code class="keyword markupname xmlelement">&lt;li&gt;</code> elements, as
+            that is the only place that the
+            <code class="keyword markupname xmlelement">&lt;data&gt;</code> element is allowed in
+            the content model for an ordered list.
+          </p>
+        </dd>
+
+        <dt class="dt dlterm" style="color:red;">Ordinality of expanded elements</dt>
+        <dd class="dd">
+          <p class="p">
+            Elements that are added to content models by expansion modules must not
+            <span style="color:red;" class="ph">violate</span> the ordinality of the original
+            content model.
+            <span style="color:red;" class="ph"
+              >If the original content model requires a child element to occur at least once, then
+              the expanded content model cannot break this requirement.</span
+            >
+            If the original content model only permits a
+            <span style="color:red;" class="ph">child</span> element to occur once, then the
+            expanded content model cannot break this requirement.
+          </p>
+          <div class="div">
+            <p class="p">
+              For example, in the expansion module that adds a specialization of
+              <code class="keyword markupname xmlelement">&lt;data&gt;</code> to
+              <code class="keyword markupname xmlelement">&lt;ol&gt;</code>, the redefined content
+              model for <code class="keyword markupname xmlelement">&lt;ol&gt;</code> cannot make
+              the <code class="keyword markupname xmlelement">&lt;li&gt;</code> element optional.
+            </p>
+            <p style="color:red;" class="p">
+              However, a expansion module that adds a specialization of
+              <code class="keyword markupname xmlelement">&lt;li&gt;</code> (<code
+                class="keyword markupname xmlelement"
+                >&lt;listIntro&gt;</code
+              >) to <code class="keyword markupname xmlelement">&lt;ol&gt;</code> can redefine the
+              content model of <code class="keyword markupname xmlelement">&lt;ol&gt;</code> in the
+              following ways:
+            </p>
+            <ul style="color:red;" class="ul">
+              <li class="li">
+                Make <code class="keyword markupname xmlelement">&lt;listIntro&gt;</code> the first
+                child element and be required
+              </li>
+              <li class="li">
+                Make <code class="keyword markupname xmlelement">&lt;li&gt;</code> the second child
+                element and optional
+              </li>
+            </ul>
+            <p style="color:red;" class="p">
+              When a DITA topic affected by this expansion module is generalized, the resulting
+              markup would be valid; the content model of
+              <code class="keyword markupname xmlelement">&lt;ol&gt;</code> would be respected.
+            </p>
+          </div>
+        </dd>
+
+        <dt class="dt dlterm">Aggregation of expansion modules</dt>
+        <dd class="dd">
+          <p class="p">
+            The content model of an element can be modified by either of the following
+            element-configuration modules:
+          </p>
+          <ul class="ul">
+            <li class="li">Constraint module</li>
+            <li class="li">Expansion module</li>
+          </ul>
+          <p class="p">
+            The content model of an element can be modified only by a single element-type
+            configuration module. If multiple constraints or extensions need to be applied to a
+            single element, the element configurations must be combined into a single module that
+            reflects all the constraints and expansions that were defined in the original separate
+            modules.
+          </p>
+        </dd>
+      </dl>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/expansion-modules.html"
+            title="Expansion modules enable the extension of content models and attribute lists for individual elements. Expansion modules are the opposite of constraints. They add elements and attributes to specific content models and attribute lists, rather than removing them."
+            >Expansion modules</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

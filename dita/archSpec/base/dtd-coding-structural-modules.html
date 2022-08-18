@@ -1,0 +1,300 @@
+---
+# Generated from DITA source
+layout: base
+title: 'DTD: Coding requirements for structural modules'
+description: 'This
+  topic covers general coding requirements for DTD-based structural modules.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/recognizedconstraintmechanisms.html"
+            >Recognized XML-document grammar mechanisms</a
+          >
+        </li>
+        <li>
+          <a href="../../archSpec/base/using-relax-ng.html"
+            >Normative versions of DITA grammar files</a
+          >
+        </li>
+        <li>
+          <a href="../../archSpec/base/dtd-requirements.html">DTD coding requirements</a>
+          <ul class="nav nav-list">
+            <li><a href="../../archSpec/base/dtd-coding-overview.html">DTD: Use of entities</a></li>
+            <li>
+              <a href="../../archSpec/base/dtd-coding-doctype-shell.html"
+                >DTD: Coding requirements for document-type shells</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/dtd-coding-element-types.html"
+                >DTD: Coding requirements for element-type declarations</a
+              >
+            </li>
+            <li class="active">
+              <a href="../../archSpec/base/dtd-coding-structural-modules.html"
+                >DTD: Coding requirements for structural modules</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/dtd-coding-element-domains.html"
+                >DTD: Coding requirements for element-domain modules</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/dtd-coding-attribute-domains.html"
+                >DTD: Coding requirements for attribute domain modules</a
+              >
+            </li>
+            <li>
+              <a
+                href="../../archSpec/base/dtd-coding-requirements-for-element-configuration-modules.html"
+                >DTD: Coding requirements for element-configuration modules</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="../../archSpec/base/relax-ng-requirements.html">RELAX NG coding requirements</a>
+        </li>
+      </ul>
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      DTD: Coding requirements for structural modules
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        This topic covers general coding requirements for DTD-based structural modules.
+      </p>
+      <section class="section" id="dtdStructuralCoding__architectural-attributes">
+        <h2 class="title sectiontitle">Required topic and map element attributes</h2>
+
+        <p class="p">
+          The topic or map element type sets the
+          <code class="keyword markupname xmlatt">@DITAArchVersion</code> attribute to the version
+          of DITA in use, typically by referencing the
+          <code class="ph codeph">arch-atts</code> parameter entity. It also sets the
+          <code class="keyword markupname xmlatt">@specializations</code> attribute to the
+          <code class="ph codeph">included-domains</code> entity.
+        </p>
+        <p class="p">
+          The <code class="keyword markupname xmlatt">@DITAArchVersion</code> and
+          <code class="keyword markupname xmlatt">@specializations</code> attributes give processors
+          a reliable way to check the architecture version and look up the list of attribute domains
+          that are available in the document type.
+        </p>
+        <div class="example">
+          <p class="p">
+            The following example shows how the
+            <code class="keyword markupname xmlatt">@DITAArchVersion</code> and
+            <code class="keyword markupname xmlatt">@specializations</code> attributes are defined
+            for the <code class="keyword markupname xmlelement">&lt;concept&gt;</code> element in
+            DITA 2.0. Ellipses indicate where the code is snipped for brevity:
+          </p>
+          <pre
+            class="pre codeblock"
+          ><code>&lt;!-- ============================================================= --&gt;
+&lt;!--                    ELEMENT DECLARATIONS                       --&gt;
+&lt;!-- ============================================================= --&gt;
+
+...
+
+&lt;!--                    LONG NAME: Concept                         --&gt;
+
+...
+
+&lt;!ATTLIST concept    
+  %concept.attributes;
+  <strong class="ph b">%arch-atts;
+  specializations  CDATA  "&amp;included-domains;</strong>"&gt;</code></pre>
+        </div>
+      </section>
+      <section class="section" id="dtdStructuralCoding__topic-nesting">
+        <h2 class="title sectiontitle">Controlling nesting in topic types</h2>
+
+        <p class="p">
+          <span style="color:red;" class="ph"
+            >A structural modules that defines a new topic type</span
+          >
+          typically uses a parameter entity to define what topic types are permitted to nest. While
+          there are known exceptions described below, the following rules apply when using parameter
+          entities to control nesting.
+        </p>
+        <dl class="dl">
+          <dt class="dt dlterm">Parameter entity name</dt>
+          <dd class="dd">
+            <p class="p">
+              The name of the parameter entity is the topic element name plus the
+              <code class="ph codeph">-info-types</code> suffix.
+            </p>
+            <div class="example">
+              <p class="p">
+                For example, the name of the parameter entity for the concept topic is
+                <code class="ph codeph">concept-info-types</code>.
+              </p>
+            </div>
+          </dd>
+
+          <dt class="dt dlterm">Parameter entity value</dt>
+          <dd class="dd">
+            <p class="p">
+              To set up default topic nesting rules, set the entity to the desired topic elements.
+              The default topic nesting is used when a document-type shell does not set up different
+              rules.
+            </p>
+            <div class="example">
+              <p class="p">
+                For example, the following parameter entity sets up default nesting so that
+                <code class="keyword markupname xmlelement">&lt;concept&gt;</code> will nest only
+                other <code class="keyword markupname xmlelement">&lt;concept&gt;</code> topics:
+              </p>
+              <pre
+                class="pre codeblock"
+              ><code>&lt;!-- ============================================================= --&gt;
+&lt;!--                    ELEMENT DECLARATIONS                       --&gt;
+&lt;!-- ============================================================= --&gt;
+
+&lt;!ENTITY % concept-info-types
+              "%info-types;"
+&gt;</code></pre>
+            </div>
+            <div class="example">
+              <p class="p">
+                As an additional example, the following parameter entity sets up a default that will
+                not allow any nesting:
+              </p>
+              <pre
+                class="pre codeblock"
+              ><code>&lt;!ENTITY % glossentry-info-types "no-topic-nesting"&gt;</code></pre>
+            </div>
+            <p class="p">
+              Default topic nesting in a structural module often is set up to use the
+              <code class="ph codeph">%info-types;</code> parameter entity rather than using a
+              specific element. When this is done consistently, a shell that includes multiple
+              structural modules can set common nesting rules for all topic types by setting
+              <code class="ph codeph">%info-types;</code> entity.
+            </p>
+            <div class="example">
+              <p class="p">
+                The following example shows a structural module that uses
+                <code class="ph codeph">%info-types;</code> for default topic nesting:
+              </p>
+              <pre
+                class="pre codeblock"
+              ><code>&lt;!ENTITY % concept-info-types "%info-types;"&gt;</code></pre>
+            </div>
+          </dd>
+
+          <dt class="dt dlterm">Content model of the root element</dt>
+          <dd class="dd">
+            <p class="p">
+              The last position in the content model defined for the root element of a topic type
+              <dfn class="term RFC-2119">SHOULD</dfn> be the
+              <code class="ph codeph"><var class="keyword varname">topictype</var>-info-types</code>
+              parameter entity.
+            </p>
+            <p class="p">
+              A document-type shell then can control how topics are allowed to nest for this
+              specific topic type by redefining the
+              <code class="ph codeph"><var class="keyword varname">topictype</var>-info-types</code>
+              entity for each topic type. If default nesting rules reference the
+              <code class="ph codeph">info-types</code> parameter entity, a shell can efficiently
+              create common nesting rules by redefining the
+              <code class="ph codeph">info-types</code> entity.
+            </p>
+            <div class="example">
+              <p class="p">
+                For example, with the following content model defined for
+                <code class="keyword markupname xmlelement">&lt;concept&gt;</code>, a document-type
+                shell that uses the concept specialization can control which topics are nested in
+                <code class="keyword markupname xmlelement">&lt;concept&gt;</code> by redefining the
+                <code class="ph codeph">concept-info-types</code> parameter entity:
+              </p>
+              <pre class="pre codeblock"><code>&lt;!ENTITY % concept.content
+  "((%title;), 
+    (%titlealts;)?,
+    (%abstract; | %shortdesc;)?, 
+    (%prolog;)?, 
+    (%conbody;)?, 
+    (%related-links;)?,
+    <strong class="ph b">(%concept-info-types;)*</strong>)"
+&gt;</code></pre>
+            </div>
+          </dd>
+        </dl>
+        <p class="p">
+          In certain cases, you do not need to use an
+          <code class="ph codeph">info-types</code> parameter entity to control topic nesting:
+        </p>
+        <ul class="ul">
+          <li class="li">
+            If you want a specialized topic type to never allow any nested topics, regardless of
+            context, it can be defined without any entity or any nested topics.
+          </li>
+          <li class="li">
+            If you want a specialized topic type to only allow specific nesting patterns, such as
+            allowing only other topic types that are defined in the same module, it can nest those
+            topics directly in the same way that other nested elements are defined.
+          </li>
+        </ul>
+      </section>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/dtd-requirements.html"
+            title="This section explains how to implement DTD based document-type shells, specializations, and element-configuration modules (constraint and expansion)."
+            >DTD coding requirements</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

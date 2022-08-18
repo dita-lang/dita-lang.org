@@ -1,0 +1,191 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Example: Complex table with manual accessibility markup'
+description: ''
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/accessibility.html">Accessibility</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/accessibility-contentvsprocessor.html"
+                >Handling accessibility in content and in processors</a
+              >
+            </li>
+            <li><a href="../../archSpec/base/accessiblemarkup.html">Accessible content</a></li>
+            <li><a href="../../archSpec/base/accessibletablemarkup.html">Accessible tables</a></li>
+            <li>
+              <a href="../../archSpec/base/examples-of-dita-markup-for-accessibility.html"
+                >Examples of DITA markup for accessibility</a
+              >
+              <ul class="nav nav-list">
+                <li>
+                  <a href="../../archSpec/base/example-alternate-text-for-an-image.html"
+                    >Example: Alternate text for an image</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-alternate-text-for-an-image-map.html"
+                    >Example: Alternate text for an image map</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-fallback-information-for-multimedia.html"
+                    >Example: Fallback information for multimedia content</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-complex-table-with-accessibility-markup.html"
+                    >Example: Complex table with accessibility markup</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../archSpec/base/example-complex-table-with-some-manually-specified-accessibility-markup.html"
+                    >Example: Complex table with some manually-specified accessibility markup</a
+                  >
+                </li>
+                <li class="active">
+                  <a
+                    href="../../archSpec/base/example-complex-table-with-manual-accessibility-markup.html"
+                    >Example: Complex table with manual accessibility markup</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/translation.html">Translation and localization</a></li>
+      </ul>
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      Example: Complex table with manual accessibility markup
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc"></p>
+      <p class="p">
+        In extremely complex tables, such as those with a single header cell in the middle of the
+        table, fine-grained accessibility controls are available to explicitly associate any content
+        cell with any header cell. This might also be useful for cases where processors do not
+        support the implied accessibility relationships described above.
+      </p>
+      <p class="p">
+        In the following sample, header cells are identified using the
+        <code class="keyword markupname xmlatt">@id</code> attribute, which is referenced using the
+        <code class="keyword markupname xmlatt">@headers</code> attribute on appropriate content
+        cells. This makes all header relationships in the table explicit. Note that this sample
+        ignores the <code class="keyword markupname xmlatt">@scope</code> attribute, which could be
+        used to exercise manual control without setting as many attribute values; it also ignores
+        the fact that <code class="keyword markupname xmlelement">&lt;thead&gt;</code> creates a
+        header relationship even when the <code class="keyword markupname xmlatt">@id</code> and
+        <code class="keyword markupname xmlatt">@headers</code> attributes are not used.
+      </p>
+      <p class="p"></p>
+      <pre class="pre codeblock"><code>&lt;table frame="all"&gt;
+  &lt;title&gt;Sample with fully manual accessibility control&lt;/title&gt;
+&lt;desc&gt;Names are listed in the column c1. Points are listed in both data columns, with
+expected points in column c2 and actual points in column c3.&lt;/desc&gt;
+  &lt;tgroup cols="3"&gt;
+    &lt;colspec colname="c1"/&gt;
+    &lt;colspec colname="c2"/&gt;
+    &lt;colspec colname="c3"/&gt;
+    &lt;thead&gt;
+      &lt;row&gt;
+        &lt;entry morerows="1"&gt; &lt;/entry&gt;
+        &lt;entry namest="c2" nameend="c3" <strong class="ph b">id="pts"</strong>&gt;Points&lt;/entry&gt;
+      &lt;/row&gt;
+      &lt;row&gt;
+        &lt;entry <strong class="ph b">id="exp" headers="pts"</strong>&gt;Expected&lt;/entry&gt;
+        &lt;entry <strong class="ph b">id="act" headers="pts"</strong>&gt;Actual&lt;/entry&gt;
+      &lt;/row&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;row&gt;
+        &lt;entry <strong class="ph b">id="name1"</strong>&gt;Mark&lt;/entry&gt;
+        &lt;entry <strong class="ph b">headers="name1 exp pts"</strong>&gt;10,000&lt;/entry&gt;
+        &lt;entry <strong class="ph b">headers="name1 act pts"</strong>&gt;11,123.45&lt;/entry&gt;
+      &lt;/row&gt;
+      &lt;row&gt;
+        &lt;entry <strong class="ph b">id="name2"</strong>&gt;Peter&lt;/entry&gt;
+        &lt;entry <strong class="ph b">headers="name2 exp pts"</strong>&gt;9,000&lt;/entry&gt;
+        &lt;entry <strong class="ph b">headers="name2 act pts"</strong>&gt;11,012.34&lt;/entry&gt;
+      &lt;/row&gt;
+      &lt;row&gt;
+        &lt;entry <strong class="ph b">id="name3"</strong>&gt;Cindy&lt;/entry&gt;
+        &lt;entry <strong class="ph b">headers="name3 exp pts"</strong>&gt;10,000&lt;/entry&gt;
+        &lt;entry <strong class="ph b">headers="name3 act pts"</strong>&gt;10,987.64&lt;/entry&gt;
+      &lt;/row&gt;
+     &lt;/tbody&gt;
+   &lt;/tgroup&gt;
+&lt;/table&gt;</code></pre>
+      <p class="p">
+        The output might be
+        <span style="color:red;" class="ph">rendered in the following way:</span>
+      </p>
+      <br /><img
+        class="image"
+        src="../../langRef/images/table-manual-accessibility.jpg"
+        alt="The image shows … The header row is shaded with green, and the text in the header column and rows is bold. The edges of the screen capture are tattered, to indicate that the image is part of a larger document."
+      /><br />
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/examples-of-dita-markup-for-accessibility.html"
+            title="This section contains examples of how DITA markup facilitates accessibility."
+            >Examples of DITA markup for accessibility</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

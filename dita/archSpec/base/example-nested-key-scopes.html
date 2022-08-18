@@ -1,0 +1,389 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Example: Key definitions in nested key scopes'
+description: 'In this scenario, the root map contains nested key scopes, each of
+	 which contain duplicate key definitions. The effective key definition depends
+	 on key-scope precedence rules. 
+  '
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li>
+      <a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a>
+      <ul class="nav nav-list">
+        <li><a href="../../archSpec/base/id.html">ID attribute</a></li>
+        <li><a href="../../archSpec/base/dita-linking.html">DITA linking</a></li>
+        <li>
+          <a href="../../archSpec/base/uri-based-addressing.html">URI-based (direct) addressing</a>
+        </li>
+        <li>
+          <a href="../../archSpec/base/key-based-addressing.html">Indirect key-based addressing</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/keys-core-concepts.html"
+                >Core concepts for working with keys</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/thekeysattribute.html"
+                >Setting key names with the keys attribute</a
+              >
+            </li>
+            <li><a href="../../archSpec/base/thekeyrefattribute.html">The keyref attribute</a></li>
+            <li>
+              <a href="../../archSpec/base/using-keys-for-addressing.html"
+                >Using keys for addressing</a
+              >
+            </li>
+            <li><a href="../../archSpec/base/keyScopes.html">Key scopes</a></li>
+            <li>
+              <a href="../../archSpec/base/the-key-scope-attribute.html">The keyscope attribute</a>
+            </li>
+            <li>
+              <a href="../../archSpec/base/using-keys-to-address-keys-across-scopes.html"
+                >Addressing keys across scopes</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/links-between-maps.html"
+                >Cross-deliverable addressing and linking</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/processing-key-references-general.html"
+                >Processing key references</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/processing-keyref-for-links.html"
+                >Processing key references for navigation links and images</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/processing-keyref-on-topicref.html"
+                >Processing key references on topicref elements</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/processing-keyref-for-text.html"
+                >Processing key references to generate text or link text</a
+              >
+            </li>
+            <li><a href="../../archSpec/base/examples-of-keys.html">Examples of keys</a></li>
+            <li>
+              <a href="../../archSpec/base/examples-of-scoped-keys.html">Examples of scoped keys</a>
+              <ul class="nav nav-list">
+                <li>
+                  <a href="../../archSpec/base/example-scoped-keys-for-variable-text.html"
+                    >Example: Scoped key definitions for variable text</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-scoped-key-references.html"
+                    >Example: References to scoped keys</a
+                  >
+                </li>
+                <li class="active">
+                  <a href="../../archSpec/base/example-nested-key-scopes.html"
+                    >Example: Key definitions in nested key scopes</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-key-scopes-omnibus-publications.html"
+                    >Example: Key scopes and omnibus publications</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-keys-scope-defining-precedence.html"
+                    >Example: How key scopes affect key precedence</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-scoped-key-name-conflicts.html"
+                    >Example: How key scopes with the same name interact</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="../../archSpec/base/context-hooks-for-user-assistance.html"
+            >Context hooks for user assistance</a
+          >
+        </li>
+      </ul>
+    </li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      Example: Key definitions in nested key scopes
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        In this scenario, the root map contains nested key scopes, each of which contain duplicate
+        key definitions. The effective key definition depends on key-scope precedence rules.
+      </p>
+      <p class="p">Consider the following DITA map:</p>
+      <pre class="pre codeblock"><code>&lt;map&gt;
+  &lt;title&gt;Root map&lt;/title&gt;
+  &lt;!-- Root scope --&gt;
+  &lt;keydef keys="a" href="topic-1.dita"/&gt;
+  
+  &lt;!-- Key scope A --&gt;
+  &lt;topicgroup keyscope="A"&gt;
+    &lt;keydef keys="b" href="topic-2.dita"/&gt;
+    
+    &lt;!-- Key scope A-1 --&gt;
+    &lt;topicgroup keyscope="A-1"&gt;
+      &lt;keydef keys="c" href="topic-3.dita"/&gt;
+    &lt;/topicgroup&gt;
+
+    &lt;!-- Key scope A-2 --&gt;    
+    &lt;topicgroup keyscope="A-2"&gt;
+      &lt;keydef keys="d" href="topic-4.dita"/&gt;
+    &lt;/topicgroup&gt;
+  &lt;/topicgroup&gt; 
+
+  &lt;!-- Key scope B --&gt;  
+  &lt;topicgroup keyscope="B"&gt;
+    &lt;keydef keys="a" href="topic-5.dita"/&gt;
+    &lt;keydef keys="e" href="topic-6.dita"/&gt;
+
+    &lt;!-- Key scope B-1 --&gt;     
+    &lt;topicgroup keyscope="B-1"&gt;
+      &lt;keydef keys="f" href="topic-7.dita"/&gt;
+    &lt;/topicgroup&gt;
+
+    &lt;!-- Key scope B-2 --&gt;
+    &lt;topicgroup keyscope="B-2"&gt;
+      &lt;keydef keys="g" href="topic-8.dita"/&gt;
+    &lt;/topicgroup&gt;
+  &lt;/topicgroup&gt;
+&lt;/map&gt;</code></pre>
+      <p class="p">The key scopes in this map form a tree structure.</p>
+      <figure class="fig fignone">
+        <figcaption>
+          <span class="fig--title-label">Figure 1. </span>Graphical representation of the key scopes
+        </figcaption>
+
+        <br /><img
+          class="image"
+          src="../../images/Keyscopes-Illustrated.png"
+          alt="Tree structure diagram showing example references to key scope names relative to other key scopes. The tree has a root node labeled 'Root' with two children 'A' and 'B', which in turn have children 'A-1', 'A-2', 'B-1', and 'B-2'. Every node has a list of one or more key scope names with different typographic styling. In the root node the name 'A' appears with no style, and the following labels appear with parentheses: 'A.b', 'A.A-1.c', 'A.A-2.d', 'B.a', 'B.e', 'B.B-1.f', 'B.B-2.g'. In the A node the name 'b' has no style, and the following labels appear with parentheses: 'A-1.c', 'A-2.d'. In the A-1 node the label 'c' appears with no style. In the A-2 node the label 'd' appears with no style. In the B node the label 'a' appears with square brackets; the label 'e' appears with no style; and the following labels appear with parentheses: 'B-1.f', 'B-2.g'. In the B-1 node the label 'f' appears with no style. In the B-2 node the label 'g' appears with no style."
+        /><br />
+      </figure>
+      <p class="p">
+        Each box in the diagram represents a key scope; the name of the key scope is indicated in
+        bold with upper-case letters. Below the name of the key scope, the key definitions that are
+        present in the scope are listed. Different typographic conventions are used to indicate
+        where the key definition occurs:
+      </p>
+      <dl class="dl">
+        <dt class="dt dlterm">No styling</dt>
+        <dd class="dd">
+          The key definition occurs in the immediate key scope and is not overridden by a key
+          definition in a parent scope. For example, key "a" in the root map.
+        </dd>
+
+        <dt class="dt dlterm">Parentheses</dt>
+        <dd class="dd">
+          The key definition occurs in a child scope. For example, keys "A-1.c" and "A-2.d" in key
+          scope A.
+        </dd>
+
+        <dt class="dt dlterm">Brackets</dt>
+        <dd class="dd">
+          The key definition occurs in the immediate key scope, but it is overridden by a key
+          definition in an ancestor scope. For example, key "a" in key scope B.
+        </dd>
+      </dl>
+      <p class="p">Arrows point from child to parent scopes.</p>
+      <p class="p">
+        Assume that each key scope contains numerous key references. The following tables
+        demonstrate how key references resolve in key scopes A-2 and B. The first column shows the
+        value used in key references; the second column shows the resource to which the key
+        resolves.
+      </p>
+      <table class="table frame-topbot">
+        <caption>
+          <span class="table--title-label">Table 1. </span
+          ><span class="title">Key scope A-2</span>
+        </caption>
+        <colgroup>
+          <col style="width:50%" />
+          <col style="width:50%" />
+        </colgroup>
+        <thead class="thead">
+          <tr class="row">
+            <th class="entry colsep-1 rowsep-1" id="concept_myc_r2g_mp__entry__1">Key reference</th>
+            <th class="entry colsep-1 rowsep-1" id="concept_myc_r2g_mp__entry__2">
+              Resource to which the key resolves
+            </th>
+          </tr>
+        </thead>
+        <tbody class="tbody">
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="concept_myc_r2g_mp__entry__1">a</td>
+            <td class="entry colsep-1 rowsep-1" headers="concept_myc_r2g_mp__entry__2">
+              "a", defined in the root map: <span class="ph filepath">topic-1.dita</span>
+            </td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="concept_myc_r2g_mp__entry__1">d</td>
+            <td class="entry colsep-1 rowsep-1" headers="concept_myc_r2g_mp__entry__2">
+              "d", as defined in the immediate key scope:
+              <span class="ph filepath">topic-4.dita</span>
+            </td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="concept_myc_r2g_mp__entry__1">A-2.d</td>
+            <td class="entry colsep-1 rowsep-1" headers="concept_myc_r2g_mp__entry__2">
+              "d", as defined in the immediate key scope:
+              <span class="ph filepath">topic-4.dita</span>
+            </td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="concept_myc_r2g_mp__entry__1">c</td>
+            <td class="entry colsep-1 rowsep-1" headers="concept_myc_r2g_mp__entry__2">
+              Undefined
+            </td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="concept_myc_r2g_mp__entry__1">A-1.c</td>
+            <td class="entry colsep-1 rowsep-1" headers="concept_myc_r2g_mp__entry__2">
+              "A-1.c", as defined in key scope A-1. This key name is available because it exists in
+              the parent scope, key scope A. The key name resolves to
+              <span class="ph filepath">topic-3.dita</span>
+            </td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="concept_myc_r2g_mp__entry__1">A.A-1.c</td>
+            <td class="entry colsep-1 rowsep-1" headers="concept_myc_r2g_mp__entry__2">
+              "A-1.c", as defined in key scope A-1. This key name is available because it exists in
+              the root key scope. The key name resolves to
+              <span class="ph filepath">topic-3.dita</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table frame-topbot">
+        <caption>
+          <span class="table--title-label">Table 2. </span
+          ><span class="title">Key scope B</span>
+        </caption>
+        <colgroup>
+          <col style="width:50%" />
+          <col style="width:50%" />
+        </colgroup>
+        <thead class="thead">
+          <tr class="row">
+            <th class="entry colsep-1 rowsep-1" id="concept_myc_r2g_mp__entry__15">
+              Key reference
+            </th>
+            <th class="entry colsep-1 rowsep-1" id="concept_myc_r2g_mp__entry__16">
+              Resource to which the key resolves
+            </th>
+          </tr>
+        </thead>
+        <tbody class="tbody">
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="concept_myc_r2g_mp__entry__15">e</td>
+            <td class="entry colsep-1 rowsep-1" headers="concept_myc_r2g_mp__entry__16">
+              "e", defined in the immediate key scope:
+              <span class="ph filepath">topic-6.dita</span>
+            </td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="concept_myc_r2g_mp__entry__15">a</td>
+            <td class="entry colsep-1 rowsep-1" headers="concept_myc_r2g_mp__entry__16">
+              "a", as defined in the <em class="ph i">root key scope</em>. (While a key definition
+              for "a" exists in the immediate key scope, it is overridden by the key definition that
+              occurs in the parent key scope.) The key name resolves to
+              <span class="ph filepath">topic-1.dita</span>
+            </td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="concept_myc_r2g_mp__entry__15">B.a</td>
+            <td class="entry colsep-1 rowsep-1" headers="concept_myc_r2g_mp__entry__16">
+              <p class="p">
+                "a", as defined in the <em class="ph i">immediate key scope</em>. Because the key
+                reference uses the scope-qualified names, it resolves to the key "a" in scope B. The
+                key name resolves to
+                <span class="ph filepath">topic-5.dita</span>
+              </p>
+            </td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="concept_myc_r2g_mp__entry__15">g</td>
+            <td class="entry colsep-1 rowsep-1" headers="concept_myc_r2g_mp__entry__16">
+              Undefined. The key "g" is defined only in key scope B-2, so no unqualified key named
+              "g" is defined in scope B.
+            </td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="concept_myc_r2g_mp__entry__15">B-2.g</td>
+            <td class="entry colsep-1 rowsep-1" headers="concept_myc_r2g_mp__entry__16">
+              "g", as defined in key scope B-2: <span class="ph filepath">topic-8.dita</span>.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/examples-of-scoped-keys.html"
+            title="This section of the specification contains examples and scenarios. They illustrate how scoped keys can be used."
+            >Examples of scoped keys</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

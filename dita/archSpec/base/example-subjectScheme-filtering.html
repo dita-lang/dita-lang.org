@@ -1,0 +1,437 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Example: How hierarchies defined in a subject scheme map affect filtering'
+description: 'This scenario demonstrates how a processor evaluates attribute values when it performs
+  conditional processing for an attribute that is bound to a set of controlled values.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li>
+      <a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a>
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/dita-maps-and-their-usage.html">DITA maps and their usage</a>
+        </li>
+        <li>
+          <a href="../../archSpec/base/subject-scheme-maps-and-usage.html"
+            >Subject scheme maps and their usage</a
+          >
+          <ul class="nav nav-list">
+            <li><a href="../../archSpec/base/subjectSchema.html">Subject scheme maps</a></li>
+            <li>
+              <a href="../../archSpec/base/controlled-values-for-attributes.html"
+                >Defining controlled values for attributes</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/binding-controlled-values-to-attribute.html"
+                >Binding controlled values to an attribute</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/processing-controlled-attribute-values.html"
+                >Processing controlled attribute values</a
+              >
+            </li>
+            <li><a href="../../archSpec/base/classification-maps.html">Classification maps</a></li>
+            <li>
+              <a href="../../archSpec/base/examples-subjectScheme-maps.html"
+                >Examples of subject scheme maps</a
+              >
+              <ul class="nav nav-list">
+                <li class="active">
+                  <a href="../../archSpec/base/example-subjectScheme-filtering.html"
+                    >Example: How hierarchies defined in a subject scheme map affect filtering</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-subjectScheme-values-for-deliveryTarget.html"
+                    >Example: Defining values for deliveryTarget</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/map-cascading.html">Metadata cascading</a></li>
+        <li><a href="../../archSpec/base/chunking.html">Chunking</a></li>
+      </ul>
+    </li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      Example: How hierarchies defined in a subject scheme map affect filtering
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        This scenario demonstrates how a processor evaluates attribute values when it performs
+        conditional processing for an attribute that is bound to a set of controlled values.
+      </p>
+      <div class="example" id="concept_hxl_2sz_vp__example">
+        <p class="p">
+          A company defines a subject category for "Operating system", with a key set to
+          <span class="keyword">os</span>. There are sub-categories for Linux, Windows, and z/OS, as
+          well as specific Linux variants: Red Hat Linux and SuSE Linux. The company then binds the
+          values that are enumerated in the "Operating system" category to the
+          <code class="keyword markupname xmlatt">@platform</code> attribute:
+        </p>
+        <pre class="pre codeblock"><code>&lt;subjectScheme&gt;
+    &lt;subjectdef keys="os"&gt;
+        &lt;topicmeta&gt;
+            &lt;navtitle&gt;Operating systems&lt;/navtitle&gt;
+        &lt;/topicmeta&gt;
+        &lt;subjectdef keys="linux"&gt;
+            &lt;topicmeta&gt;
+                &lt;navtitle&gt;Linux&lt;/navtitle&gt;
+            &lt;/topicmeta&gt;
+            &lt;subjectdef keys="redhat"&gt;
+                &lt;topicmeta&gt;
+                    &lt;navtitle&gt;RedHat Linux&lt;/navtitle&gt;
+                &lt;/topicmeta&gt;
+            &lt;/subjectdef&gt;
+            &lt;subjectdef keys="suse"&gt;
+                &lt;topicmeta&gt;
+                    &lt;navtitle&gt;SuSE Linux&lt;/navtitle&gt;
+                &lt;/topicmeta&gt;
+            &lt;/subjectdef&gt;
+        &lt;/subjectdef&gt;
+        &lt;subjectdef keys="windows"&gt;
+            &lt;topicmeta&gt;
+                &lt;navtitle&gt;Windows&lt;/navtitle&gt;
+            &lt;/topicmeta&gt;
+        &lt;/subjectdef&gt;
+        &lt;subjectdef keys="zos"&gt;
+            &lt;topicmeta&gt;
+                &lt;navtitle&gt;z/OS&lt;/navtitle&gt;
+            &lt;/topicmeta&gt;
+        &lt;/subjectdef&gt;
+    &lt;/subjectdef&gt;
+    &lt;enumerationdef&gt;
+        &lt;attributedef name="platform"/&gt;
+        &lt;subjectdef keyref="os"/&gt;
+    &lt;/enumerationdef&gt;
+&lt;/subjectScheme&gt;</code></pre>
+        <p class="p">
+          The enumeration limits valid values for the
+          <code class="keyword markupname xmlatt">@platform</code> attribute to the following:
+          <span class="keyword">linux</span>, <span class="keyword">redhat</span>,
+          <span class="keyword">suse</span>, <span class="keyword">windows</span>, and
+          <span class="keyword">zos</span>. If any other values are encountered, processors
+          validating against the scheme will issue a warning.
+        </p>
+
+        <p class="p">
+          The following table illustrates how filtering and flagging operate when the above map is
+          processed by a processor. The first two columns provide the values specified in the
+          DITAVAL file<span style="color:red;" class="ph">. The </span>third and fourth columns
+          indicate the results of the filtering or flagging operation.
+        </p>
+        <table class="table">
+          <caption></caption>
+          <colgroup>
+            <col style="width:24.752475247524753%" />
+            <col style="width:25.247524752475247%" />
+            <col style="width:25.247524752475247%" />
+            <col style="width:24.752475247524753%" />
+          </colgroup>
+          <thead class="thead">
+            <tr class="row valign-bottom">
+              <th class="entry colsep-1 rowsep-1" id="concept_hxl_2sz_vp__example__entry__1">
+                <code class="ph codeph">att="platform"</code>
+                <code class="ph codeph">val="linux"</code>
+              </th>
+              <th class="entry colsep-1 rowsep-1" id="concept_hxl_2sz_vp__example__entry__2">
+                <code class="ph codeph">att="platform"</code>
+                <code class="ph codeph">val="redhat"</code>
+              </th>
+              <th class="entry colsep-1 rowsep-1" id="concept_hxl_2sz_vp__example__entry__3">
+                How <code class="ph codeph">platform="redhat"</code> is evaluated
+              </th>
+              <th class="entry colsep-1 rowsep-1" id="concept_hxl_2sz_vp__example__entry__4">
+                How <code class="ph codeph">platform="linux"</code> is evaluated
+              </th>
+            </tr>
+          </thead>
+          <tbody class="tbody">
+            <tr class="row">
+              <td
+                class="entry colsep-1 rowsep-1"
+                headers="concept_hxl_2sz_vp__example__entry__1"
+                rowspan="3"
+              >
+                action="exclude"
+              </td>
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__2">
+                action="exclude"
+              </td>
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__3">
+                Excluded.
+              </td>
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__4">
+                Excluded.
+              </td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__2">
+                action="include" or action="flag"
+              </td>
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__3">
+                Excluded. This is an error condition, because if all
+                <span class="keyword">linux</span> content is excluded,
+                <span class="keyword">redhat</span> also is excluded. Applications can recover by
+                generating an error message.
+              </td>
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__4">
+                Excluded.
+              </td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__2">
+                Unspecified
+              </td>
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__3">
+                Excluded, because <span class="keyword">redhat</span> is a kind of
+                <span class="keyword">linux</span>, and <span class="keyword">linux</span> is
+                excluded.
+              </td>
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__4">
+                Excluded.
+              </td>
+            </tr>
+            <tr class="row">
+              <td
+                class="entry colsep-1 rowsep-1"
+                headers="concept_hxl_2sz_vp__example__entry__1"
+                rowspan="4"
+              >
+                action="include"
+              </td>
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__2">
+                action="exclude"
+              </td>
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__3">
+                Excluded, because all <span class="keyword">redhat</span> content is excluded.
+              </td>
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__4">
+                Included.
+              </td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__2">
+                action="include"
+              </td>
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__3">
+                Included.
+              </td>
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__4">
+                Included.
+              </td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__2">
+                action="flag"
+              </td>
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__3">
+                Included and flagged with the <span class="keyword">redhat</span> flag.
+              </td>
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__4">
+                Included.
+              </td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__2">
+                Unspecified
+              </td>
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__3">
+                Included, because all <span class="keyword">linux</span> content is included.
+              </td>
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__4">
+                Included.
+              </td>
+            </tr>
+            <tr class="row">
+              <td
+                class="entry colsep-1 rowsep-1"
+                headers="concept_hxl_2sz_vp__example__entry__1"
+                rowspan="4"
+              >
+                action="flag"
+              </td>
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__2">
+                action="exclude"
+              </td>
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__3">
+                Excluded, because all <span class="keyword">redhat</span> content is excluded.
+              </td>
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__4">
+                Included and flagged with the <span class="keyword">linux</span> flag.
+              </td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__2">
+                action="include"
+              </td>
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__3">
+                Included and flagged with the <span class="keyword">linux</span> flag, because
+                <span class="keyword">linux</span> is flagged and
+                <span class="keyword">redhat</span> is a type of <span class="keyword">linux</span>.
+              </td>
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__4">
+                Included and flagged with the <span class="keyword">linux</span> flag.
+              </td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__2">
+                action="flag"
+              </td>
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__3">
+                Included and flagged with the <span class="keyword">redhat</span> flag, because a
+                flag is available that is specifically for <span class="keyword">redhat</span>.
+              </td>
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__4">
+                Included and flagged with the <span class="keyword">linux</span> flag.
+              </td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__2">
+                Unspecified
+              </td>
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__3">
+                Included and flagged with the <span class="keyword">linux</span> flag, because
+                <span class="keyword">linux</span> is flagged and
+                <span class="keyword">redhat</span> is a type of <span class="keyword">linux</span>
+              </td>
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__4">
+                Included and flagged with the <span class="keyword">linux</span> flag.
+              </td>
+            </tr>
+            <tr class="row">
+              <td
+                class="entry colsep-1 rowsep-1"
+                headers="concept_hxl_2sz_vp__example__entry__1"
+                rowspan="4"
+              >
+                Unspecified
+              </td>
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__2">
+                action="exclude"
+              </td>
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__3">
+                Excluded, because all <span class="keyword">redhat</span> content is excluded
+              </td>
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__4">
+                If the default value for
+                <code class="keyword markupname xmlatt">@platform</code> set in the DITAVAL is
+                "include", this is included. If the default value for
+                <code class="keyword markupname xmlatt">@platform</code> set in the DITAVAL is
+                "exclude", this is excluded.
+              </td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__2">
+                action="include"
+              </td>
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__3">
+                Included.
+              </td>
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__4">
+                Included, because all <span class="keyword">redhat</span> content is included, and
+                general Linux content also applies to RedHat
+              </td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__2">
+                action="flag"
+              </td>
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__3">
+                Included and flagged with the <span class="keyword">redhat</span> flag.
+              </td>
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__4">
+                Included, because all <span class="keyword">redhat</span> content is included, and
+                general Linux content also applies to RedHat
+              </td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__2">
+                Unspecified
+              </td>
+              <td
+                style="color:red;"
+                class="entry colsep-1 rowsep-1"
+                headers="concept_hxl_2sz_vp__example__entry__3"
+              >
+                If the default value for
+                <code class="keyword markupname xmlatt">@platform</code> set in the DITAVAL is
+                "include", this is included. If the default value for
+                <code class="keyword markupname xmlatt">@platform</code> set in the DITAVAL is
+                "exclude", this is excluded.
+              </td>
+              <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__4">
+                If the default value for
+                <code class="keyword markupname xmlatt">@platform</code> set in the DITAVAL is
+                "include", this is included. If the default value for
+                <code class="keyword markupname xmlatt">@platform</code> set in the DITAVAL is
+                "exclude", this is excluded.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/examples-subjectScheme-maps.html"
+            title="This section contains examples and scenarios that illustrate the use of subject scheme maps."
+            >Examples of subject scheme maps</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

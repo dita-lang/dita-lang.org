@@ -1,0 +1,197 @@
+---
+# Generated from DITA source
+layout: base
+title: 'imagemap'
+description: 'The imagemap element supports the basic
+	 functionality of the HTML "client-side" image map markup.
+	 imagemap allows you to designate a linkable area or
+	 region over an image, allowing a link in that region to display another topic. 
+  '
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      <code class="keyword markupname xmlelement">&lt;imagemap&gt;</code>
+    </h1>
+
+    <div class="body refbody">
+      <p class="shortdesc">
+        The <code class="keyword markupname xmlelement">&lt;imagemap&gt;</code> element supports the
+        basic functionality of the HTML "client-side" image map markup.
+        <code class="keyword markupname xmlelement">&lt;imagemap&gt;</code> allows you to designate
+        a linkable area or region over an image, allowing a link in that region to display another
+        topic.
+      </p>
+      <section class="section" id="imagemap__usage-information">
+        <h2 class="title sectiontitle">Usage information</h2>
+
+        <p class="p">
+          An HTML client-side image map binds an image to the navigation structure (the "map") by
+          means of an ID association from the map to the image. In contrast, the DITA version of
+          <code class="keyword markupname xmlelement">&lt;imagemap&gt;</code> markup simply includes
+          the target image as the first required element in the markup, followed by a sequence of
+          <code class="keyword markupname xmlelement">&lt;area&gt;</code> elements that represent
+          the links associated with the contained image.
+        </p>
+        <p class="p">
+          The <code class="keyword markupname xmlelement">&lt;xref&gt;</code> content within
+          <code class="keyword markupname xmlelement">&lt;area&gt;</code> contains the intended
+          alternative text or hover text for that image map area. Normal text retrieval for
+          <code class="keyword markupname xmlelement">&lt;xref&gt;</code> elements can be used to
+          populate that alternative text.
+        </p>
+      </section>
+      <section class="section" id="imagemap__rendering-expectations">
+        <h2 class="title sectiontitle">Rendering expectations</h2>
+
+        <p class="p">
+          An <code class="keyword markupname xmlelement">&lt;imagemap&gt;</code> structure can be
+          rendered as a standard HTML image map or as an alternative form of navigation (such as
+          table-based image maps). When rendered in PDF, the minimal form would be to represent the
+          image; advanced PDF output processors could provide equivalent region-oriented hyperlinks.
+        </p>
+      </section>
+      <section class="section" id="imagemap__specialization-hierachy">
+        <h2 class="title sectiontitle">Specialization hierarchy</h2>
+
+        <p class="p">
+          The <code class="keyword markupname xmlelement">&lt;imagemap&gt;</code> element is
+          specialized from <code class="keyword markupname xmlelement">&lt;div&gt;</code>. It is
+          defined in the utilities-domain module.
+        </p>
+      </section>
+      <section class="section" id="imagemap__attributes">
+        <h2 class="title sectiontitle">Attributes</h2>
+
+        <p class="p">
+          The following attributes are available on this element:
+          <span class="ph"
+            ><a
+              class="xref"
+              href="../../common/../langRef/attributes/universalAttributes.html"
+              title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang"
+              >universal attributes</a
+            ></span
+          >
+          and
+          <span class="ph"
+            ><a
+              class="xref"
+              href="../../common/../langRef/attributes/commonAttributes.html#common-atts__displayatts"
+              title="Display attributes include: expanse, frame, and scale"
+              >display attributes</a
+            ></span
+          >.
+        </p>
+      </section>
+      <div class="example" id="imagemap__example">
+        <h2 class="title sectiontitle">Example</h2>
+
+        <div class="p">
+          The following code sample shows a simple
+          <code class="keyword markupname xmlelement">&lt;imagemap&gt;</code> with five areas, using
+          three different shapes:
+          <pre class="pre codeblock"><code>&lt;imagemap&gt;
+ &lt;image href="imagemapworld.jpg"&gt;
+   &lt;alt&gt;Map of the world showing 5 areas&lt;/alt&gt;
+ &lt;/image&gt;
+ &lt;area&gt;&lt;shape&gt;rect&lt;/shape&gt;&lt;coords&gt;2,0,53,59&lt;/coords&gt;
+  &lt;xref href="d1-s1.dita"&gt;Section 1 alternative text&lt;/xref&gt;
+ &lt;/area&gt;
+ &lt;area&gt;&lt;shape&gt;rect&lt;/shape&gt;&lt;coords&gt;54,1,117,60&lt;/coords&gt;
+  &lt;xref href="d1-s2.dita"&gt;&lt;!-- Pull title from d1-s2.dita --&gt;&lt;/xref&gt;
+ &lt;/area&gt;
+ &lt;area&gt;&lt;shape&gt;rect&lt;/shape&gt;&lt;coords&gt;54,62,114,116&lt;/coords&gt;
+  &lt;xref href="#inline" type="topic"&gt;Alternative text for this rectangle&lt;/xref&gt;
+ &lt;/area&gt;
+ &lt;area&gt;&lt;shape&gt;circle&lt;/shape&gt;&lt;coords&gt;120,154,29&lt;/coords&gt;
+  &lt;xref format="html" href="test.html"&gt;Link to a test html file&lt;/xref&gt;
+ &lt;/area&gt;
+ &lt;area&gt;&lt;shape&gt;poly&lt;/shape&gt;
+  &lt;coords&gt;246,39,200,35,173,52,177,86,215,90,245,84,254,65&lt;/coords&gt;
+  &lt;xref format="pdf" href="test.pdf"&gt;Link to a test PDF file&lt;/xref&gt;
+ &lt;/area&gt;
+&lt;/imagemap&gt;</code></pre>
+        </div>
+        <div class="p">
+          The areas defined correspond to this graphic image with the areas visible:<br /><img
+            class="image"
+            id="imagemap__image_445FC20D011A400F8D51CD6C31A3E1F4"
+            src="../../images/imagemapworld.png"
+            alt="Diagram showing a graphic image annotated to show the areas of an image map. Each area is indicated with a bordered region on the image. To the right of the image there is a list correlating the areas of the image map to the targets of their respective links."
+          /><br />
+        </div>
+
+        <p class="p">
+          The values for use in the
+          <code class="keyword markupname xmlelement">&lt;shape&gt;</code> and
+          <code class="keyword markupname xmlelement">&lt;coords&gt;</code> elements follow the
+          guidelines defined for image maps in HTML 4.1,
+          <a
+            class="xref"
+            href="http://www.w3.org/TR/html401/struct/objects.html#edef-MAP"
+            target="_blank"
+            rel="external noopener"
+            >Client-side image maps: the MAP and AREA elements</a
+          >
+        </p>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../langRef/containers/ut-d.html"
+            title="The utilities domain elements represent common features of a language that might not necessarily be semantic, such as image maps."
+            >Utilities domain elements</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

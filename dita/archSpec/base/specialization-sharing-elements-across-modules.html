@@ -1,0 +1,203 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Sharing elements across specializations'
+description: 'Specialization enables easy reuse of elements from ancestor specializations. However,
+  it is also possible to reuse elements from non-ancestor specializations, as long as the
+  dependency is properly declared in order to prevent invalid generalization or conref
+  processing.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/ditaspecialization.html"
+            >Overview of DITA extension facilities</a
+          >
+        </li>
+        <li><a href="../../archSpec/base/configuration.html">Document-type configuration</a></li>
+        <li>
+          <a href="../../archSpec/base/specialization.html">Specialization</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/specialization-overview.html"
+                >Overview of specialization</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/specialization-modularization.html">Modularization</a>
+            </li>
+            <li>
+              <a href="../../archSpec/base/specialization-vocabulary-modules.html"
+                >Vocabulary modules</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/specialization-rules-elements.html"
+                >Specialization rules for element types</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/specialization-rules-attributes.html"
+                >Specialization rules for attributes</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/specialization-class-attribute.html"
+                >class attribute rules and syntax</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/specialization-specializations-attribute.html"
+                >specializations attribute rules and syntax</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/specialization-including-non-dita-content.html"
+                >Specializing to include non-DITA content</a
+              >
+            </li>
+            <li class="active">
+              <a href="../../archSpec/base/specialization-sharing-elements-across-modules.html"
+                >Sharing elements across specializations</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/generalization.html">Generalization</a></li>
+        <li><a href="../../archSpec/base/constraints.html">Constraints</a></li>
+        <li><a href="../../archSpec/base/expansion-modules.html">Expansion modules</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Sharing elements across specializations</h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        Specialization enables easy reuse of elements from ancestor specializations. However, it is
+        also possible to reuse elements from non-ancestor specializations, as long as the dependency
+        is properly declared in order to prevent invalid generalization or conref processing.
+      </p>
+      <section class="section" id="topic_nt3_b12_zl__sharing">
+        <p class="p">
+          A structural specialization can incorporate elements from unrelated domains or other
+          structural specializations by referencing them in the content model of a specialized
+          element. The elements included in this manner must be specialized from ancestor content
+          that is valid in the new context. If the reusing and reused specializations share common
+          ancestry, the reused elements must be valid in the reusing context at every level they
+          share in common.
+        </p>
+        <p class="p">
+          Although a well-designed structural specialization hierarchy with controlled use of
+          domains is still the primary means of sharing and reusing elements in DITA, the ability to
+          also share elements declared elsewhere in the hierarchy allows for situations where
+          relevant markup comes from multiple sources and would otherwise be developed redundantly.
+        </p>
+      </section>
+      <div class="example" id="topic_nt3_b12_zl__conceptexample">
+        <h2 class="title sectiontitle">
+          Example: A specialization of
+          <code class="keyword markupname xmlelement">&lt;concept&gt;</code> reuses an element from
+          the task module
+        </h2>
+
+        <p class="p">
+          A specialized concept topic could declare a specialized
+          <code class="keyword markupname xmlelement">&lt;process&gt;</code> section that contains
+          the <code class="keyword markupname xmlelement">&lt;steps&gt;</code> element that is
+          defined in the task module. This is possible because of the following factors:
+        </p>
+        <ul class="ul">
+          <li class="li">
+            The <code class="keyword markupname xmlelement">&lt;steps&gt;</code> element is
+            specialized from <code class="keyword markupname xmlelement">&lt;ol&gt;</code>.
+          </li>
+          <li class="li">
+            The <code class="keyword markupname xmlelement">&lt;process&gt;</code> element is
+            specialized from <code class="keyword markupname xmlelement">&lt;section&gt;</code>, and
+            the content model of
+            <code class="keyword markupname xmlelement">&lt;section&gt;</code> includes
+            <code class="keyword markupname xmlelement">&lt;ol&gt;</code>.
+          </li>
+        </ul>
+        <p class="p">
+          The <code class="keyword markupname xmlelement">&lt;steps&gt;</code> element in
+          <code class="keyword markupname xmlelement">&lt;process&gt;</code> always can be
+          generalized back to <code class="keyword markupname xmlelement">&lt;ol&gt;</code> in
+          <code class="keyword markupname xmlelement">&lt;section&gt;</code>.
+        </p>
+      </div>
+      <div class="example" id="topic_nt3_b12_zl__referenceexample">
+        <h2 class="title sectiontitle">
+          Example: A specialization of
+          <code class="keyword markupname xmlelement">&lt;reference&gt;</code> reuses an element
+          from the programming domain
+        </h2>
+
+        <p class="p">
+          A specialized reference topic could declare a specialized list (<code
+            class="keyword markupname xmlelement"
+            >&lt;apilist&gt;</code
+          >) in which each
+          <code class="keyword markupname xmlelement">&lt;apilistitem&gt;</code> contains an
+          <code class="keyword markupname xmlelement">&lt;apiname&gt;</code> element that is
+          borrowed from the programming domain.
+        </p>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/specialization.html"
+            title="The specialization feature of DITA allows for the creation of new element types and attributes that are explicitly and formally derived from existing types. This facilitates interchange of conforming DITA content and ensures a minimum level of common processing for all DITA content. It also allows specialization-aware processors to add specialization-specific processing to existing base processing."
+            >Specialization</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

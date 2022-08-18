@@ -1,0 +1,201 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Setting key names with the keys attribute'
+description: 'A keys attribute consists of one or more space-separated keys. Map
+  authors define keys using a topicref or topicref
+  specialization that contains the keys attribute. Each key definition introduces
+  an identifier for a resource referenced from a map. Keys resolve to the resources given as the
+  href value on the key definition topicref element, to
+  content contained within the key definition topicref element, or
+  both.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li>
+      <a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a>
+      <ul class="nav nav-list">
+        <li><a href="../../archSpec/base/id.html">ID attribute</a></li>
+        <li><a href="../../archSpec/base/dita-linking.html">DITA linking</a></li>
+        <li>
+          <a href="../../archSpec/base/uri-based-addressing.html">URI-based (direct) addressing</a>
+        </li>
+        <li>
+          <a href="../../archSpec/base/key-based-addressing.html">Indirect key-based addressing</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/keys-core-concepts.html"
+                >Core concepts for working with keys</a
+              >
+            </li>
+            <li class="active">
+              <a href="../../archSpec/base/thekeysattribute.html"
+                >Setting key names with the keys attribute</a
+              >
+            </li>
+            <li><a href="../../archSpec/base/thekeyrefattribute.html">The keyref attribute</a></li>
+            <li>
+              <a href="../../archSpec/base/using-keys-for-addressing.html"
+                >Using keys for addressing</a
+              >
+            </li>
+            <li><a href="../../archSpec/base/keyScopes.html">Key scopes</a></li>
+            <li>
+              <a href="../../archSpec/base/the-key-scope-attribute.html">The keyscope attribute</a>
+            </li>
+            <li>
+              <a href="../../archSpec/base/using-keys-to-address-keys-across-scopes.html"
+                >Addressing keys across scopes</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/links-between-maps.html"
+                >Cross-deliverable addressing and linking</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/processing-key-references-general.html"
+                >Processing key references</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/processing-keyref-for-links.html"
+                >Processing key references for navigation links and images</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/processing-keyref-on-topicref.html"
+                >Processing key references on topicref elements</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/processing-keyref-for-text.html"
+                >Processing key references to generate text or link text</a
+              >
+            </li>
+            <li><a href="../../archSpec/base/examples-of-keys.html">Examples of keys</a></li>
+            <li>
+              <a href="../../archSpec/base/examples-of-scoped-keys.html">Examples of scoped keys</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="../../archSpec/base/context-hooks-for-user-assistance.html"
+            >Context hooks for user assistance</a
+          >
+        </li>
+      </ul>
+    </li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      Setting key names with the <code class="keyword markupname xmlatt">@keys</code> attribute
+    </h1>
+
+    <div class="body refbody">
+      <p class="shortdesc">
+        A <code class="keyword markupname xmlatt">@keys</code> attribute consists of one or more
+        space-separated keys. Map authors define keys using a
+        <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> or
+        <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> specialization that
+        contains the <code class="keyword markupname xmlatt">@keys</code> attribute. Each key
+        definition introduces an identifier for a resource referenced from a map. Keys resolve to
+        the resources given as the <code class="keyword markupname xmlatt">@href</code> value on the
+        key definition <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element,
+        to content contained within the key definition
+        <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element, or both.
+      </p>
+      <section class="section" id="thekeysattribute__section-1">
+        <div class="p">
+          The <code class="keyword markupname xmlatt">@keys</code> attribute uses the following
+          syntax:
+          <ul class="ul" id="thekeysattribute__d1316e419">
+            <li class="li">
+              The value of the <code class="keyword markupname xmlatt">@keys</code> attribute is one
+              or more space-separated key names.
+            </li>
+            <li class="li">
+              Key names consist of characters that are legal in a URI. The case of key names is
+              significant.
+            </li>
+            <li class="li">
+              The following characters are prohibited in key names: "{", "}", "[", "]", "/", "#",
+              "?", and whitespace characters.
+            </li>
+          </ul>
+        </div>
+        <p class="p">
+          A key <span class="ph">cannot</span> resolve to sub-topic elements, although a
+          <code class="keyword markupname xmlatt">@keyref</code> attribute
+          <span class="ph">can</span> do so by combining a key with a sub-topic element id.
+        </p>
+      </section>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/key-based-addressing.html"
+            title="DITA keys provide an alternative to direct addressing. The key reference mechanism provides a layer of indirection so that resources (for example, URIs, metadata, or variable text strings) can be defined at the DITA map level instead of locally in each topic."
+            >Indirect key-based addressing</a
+          >
+        </div>
+      </div>
+      <div class="linklist relconcepts">
+        <strong>Related concepts</strong><br />
+        <ul class="linklist">
+          <li class="linklist">
+            <a
+              class="link"
+              href="../../archSpec/base/key-based-addressing.html"
+              title="DITA keys provide an alternative to direct addressing. The key reference mechanism provides a layer of indirection so that resources (for example, URIs, metadata, or variable text strings) can be defined at the DITA map level instead of locally in each topic."
+              >Indirect key-based addressing</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </article>
+</main>

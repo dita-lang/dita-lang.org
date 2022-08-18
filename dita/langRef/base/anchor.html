@@ -1,0 +1,158 @@
+---
+# Generated from DITA source
+layout: base
+title: 'anchor'
+description: 'An anchor within a map is an integration point that another map can reference in order to
+    insert its navigation into the referenced map's navigation tree.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/determining-effective-attribute-values.html"
+        >Determining effective attribute values</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      <code class="keyword markupname xmlelement">&lt;anchor&gt;</code>
+    </h1>
+
+    <div class="body refbody">
+      <p class="shortdesc">
+        An anchor within a map is an integration point that another map can reference in order to
+        insert its navigation into the referenced map's navigation tree.
+      </p>
+      <section class="section" id="anchor__usage-information">
+        <h2 class="title sectiontitle">Usage information</h2>
+
+        <p class="p">
+          The <code class="keyword markupname xmlelement">&lt;anchor&gt;</code> element is typically
+          used to allow integration of run-time components. For build-time integration, you can use
+          a <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element to reference
+          another map, or use the <code class="keyword markupname xmlatt">@conref</code> or
+          <code class="keyword markupname xmlatt">@conkeyref</code> attribute on an element inside
+          the map.
+        </p>
+      </section>
+      <section class="section" id="anchor__processing-expectations">
+        <h2 class="title sectiontitle">Processing expectations</h2>
+
+        <p class="p">
+          The mechanism by which map processors discover maps to be anchored is processor specific.
+        </p>
+      </section>
+      <section class="section" id="anchor__attributes">
+        <h2 class="title sectiontitle">Attributes</h2>
+
+        <p class="p">
+          The following attributes are available on this element:
+          <span class="ph"
+            ><a
+              class="xref"
+              href="../../common/../langRef/attributes/universalAttributes.html"
+              title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang"
+              >universal attributes</a
+            ></span
+          >.
+        </p>
+        <p class="p attr-exception" id="anchor__attr-exception">
+          For this element, the <code class="keyword markupname xmlatt">@id</code> attribute is
+          required. It is referenced by
+          <code class="keyword markupname xmlelement">&lt;anchorref&gt;</code> or by the
+          <code class="keyword markupname xmlatt">@anchorref</code> attribute on
+          <code class="keyword markupname xmlelement">&lt;map&gt;</code> elements.
+        </p>
+      </section>
+      <div class="example" id="anchor__example">
+        <h2 class="title sectiontitle">Example</h2>
+        <div class="p" id="anchor__anchor_ex">
+          The following code sample shows how a map creates an
+          <code class="keyword markupname xmlelement">&lt;anchor&gt;</code> element with an
+          <code class="keyword markupname xmlatt">@id</code> attribute set to "a1".
+          <figure class="fig fignone" id="anchor__fig_c53_pdx_3nb">
+            <figcaption>
+              <span class="fig--title-label">Figure 1. </span>DITA map that contains an anchor
+            </figcaption>
+
+            <pre class="pre codeblock"><code>&lt;map&gt;
+  &lt;title&gt;MyComponent tasks&lt;/title&gt;
+  &lt;topicref href="start.dita" toc="yes"&gt;
+    &lt;navref mapref="othermap2.ditamap"/&gt;
+    &lt;navref mapref="othermap3.ditamap"/&gt;
+    &lt;anchor id="a1"/&gt;
+  &lt;/topicref&gt;
+&lt;/map&gt;</code></pre>
+          </figure>
+        </div>
+        <div class="p" id="anchor__anchoref">
+          The <code class="keyword markupname xmlatt">@id</code> on an
+          <code class="keyword markupname xmlelement">&lt;anchor&gt;</code> element can be
+          referenced by the <code class="keyword markupname xmlatt">@anchorref</code> attribute on
+          another map's <code class="keyword markupname xmlelement">&lt;map&gt;</code> element. For
+          example, the map to be integrated at that spot could be defined as follows.
+          <figure class="fig fignone" id="anchor__fig_gpx_sdx_3nb">
+            <figcaption>
+              <span class="fig--title-label">Figure 2. </span>DITA map that references an anchor
+            </figcaption>
+
+            <pre class="pre codeblock"><code>&lt;map anchorref="map1.ditamap#a1"&gt;
+  &lt;title&gt;This map is can be rendered at the "a1" anchor 
+         in the MyComponent task map&lt;/title&gt;
+  &lt;!-- ... --&gt;
+&lt;/map&gt;</code></pre>
+          </figure>
+        </div>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../langRef/containers/basic-map-elements.html"
+            title="DITA maps are built from a few core elements that are used for referencing and organizing topics. The topicmeta element is also available to specify metadata for the map, for individual topics, or for groups of topics. Many elements inside topicmeta are also available inside the topic prolog."
+            >Basic map elements</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

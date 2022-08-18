@@ -1,0 +1,515 @@
+---
+# Generated from DITA source
+layout: base
+title: 'File naming conventions'
+description:
+  'The DITA OASIS Technical Committee uses certain conventions for the names of XML grammar
+  files. We suggest using these conventions as a best practice to facilitate interchange of grammar
+  files.'
+index: '../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../non-normative/non-normative-information.html">Non-normative information</a>
+      <ul class="nav nav-list">
+        <li>
+          <a href="../non-normative/about-specification-source.html"
+            >About the specification source</a
+          >
+        </li>
+        <li>
+          <a href="../non-normative/changes-from-dita-1.3-to-dita-2.0.html"
+            >Changes from DITA 1.3 to DITA 2.0</a
+          >
+        </li>
+        <li class="active">
+          <a href="../non-normative/file-naming-conventions.html">File naming conventions</a>
+        </li>
+        <li><a href="../non-normative/migrating-to-dita-2.0.html">Migrating to DITA 2.0</a></li>
+        <li>
+          <a href="../non-normative/foreigngeneralization.html"
+            >Considerations for generalizing foreign elements</a
+          >
+        </li>
+        <li>
+          <a href="../non-normative/elementsMerged.html"
+            >Element-by-element recommendations for translators</a
+          >
+        </li>
+        <li><a href="../non-normative/formatting-expectations.html">Formatting expectations</a></li>
+        <li><a href="../non-normative/dtd-public-identifiers.html">DTD public identifiers</a></li>
+        <li>
+          <a href="../non-normative/domainscontainer.html"
+            >Domains and constraints in the OASIS specification</a
+          >
+        </li>
+        <li>
+          <a href="../non-normative/interoperability-considerations.html"
+            >Processing interoperability considerations</a
+          >
+        </li>
+        <li>
+          <a href="../non-normative/speclimits.html"
+            >Specialization design, customization, and the limits of specialization</a
+          >
+        </li>
+      </ul>
+    </li>
+    <li><a href="../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">File naming conventions</h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        The DITA OASIS Technical Committee uses certain conventions for the names of XML grammar
+        files. We suggest using these conventions as a best practice to facilitate interchange of
+        grammar files.
+      </p>
+      <section class="section" id="file-naming-conventions__unique-identifiers">
+        <h2 class="title sectiontitle">Globally unique identifiers</h2>
+
+        <p class="p">
+          Vocabulary modules that are intended for use outside of a narrowly-restricted context
+          should have one or more associated, globally-unique names by which the modules can be
+          referenced without regard to their local storage location. The globally-unique names can
+          be public identifiers, URNs, or absolute URLs.
+        </p>
+      </section>
+      <section class="section" id="file-naming-conventions__document-type-shells">
+        <h2 class="title sectiontitle">Document type shells</h2>
+
+        <p class="p">
+          Document type shells should be given a name that distinguishes their name, owner, or
+          purpose; for example, <span class="ph filepath">acme-concept.dtd</span>. The document type
+          shells that are provided by the DITA Technical Committee use the root element of the
+          primary specialization as the basis for the file name.
+        </p>
+      </section>
+      <section class="section" id="file-naming-conventions__module-names">
+        <h2 class="title sectiontitle">Module names</h2>
+
+        <p class="p">
+          Each vocabulary module has a short name that is used to construct entity names and other
+          names that are used in associated declarations. Modules also can have abbreviated names
+          that further shorten the short name, for example "hi-d" for the "highlight" domain, where
+          "software" is the short name and "hi-d" is the abbreviated name.
+        </p>
+        <p class="p">
+          For structural modules, the module name should be the element type name of the top-level
+          topic or map type defined by the module, such as "concept" or "bookmap".
+        </p>
+        <p class="p">
+          For element domain modules, the module name should be a name that reflects the subject
+          domain to which the domain applies, such as "highlight" or "software". Domain module names
+          should be sufficiently unique that they are unlikely to conflict with any other domains.
+        </p>
+      </section>
+      <section class="section" id="file-naming-conventions__dtd-specialization-modules">
+        <h2 class="title sectiontitle">DTD-based specialization modules</h2>
+
+        <p class="p">
+          Use the following file-naming conventions for DTD-based specialization modules.
+        </p>
+        <table class="simpletable frame-all">
+          <colgroup>
+            <col style="width:25%" />
+            <col style="width:25%" />
+            <col style="width:25%" />
+            <col style="width:25%" />
+          </colgroup>
+          <thead>
+            <tr class="sthead">
+              <th
+                class="stentry"
+                scope="col"
+                id="file-naming-conventions__dtd-specialization-modules__stentry__1"
+              >
+                Module type
+              </th>
+              <th
+                class="stentry"
+                scope="col"
+                id="file-naming-conventions__dtd-specialization-modules__stentry__2"
+              >
+                File name (entities)
+              </th>
+              <th
+                class="stentry"
+                scope="col"
+                id="file-naming-conventions__dtd-specialization-modules__stentry__3"
+              >
+                File name (elements)
+              </th>
+              <th
+                class="stentry"
+                scope="col"
+                id="file-naming-conventions__dtd-specialization-modules__stentry__4"
+              >
+                Example
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="strow">
+              <td
+                class="stentry"
+                headers="file-naming-conventions__dtd-specialization-modules__stentry__1"
+              >
+                Structural
+              </td>
+              <td
+                class="stentry"
+                headers="file-naming-conventions__dtd-specialization-modules__stentry__2"
+              >
+                <span class="ph filepath"><var class="keyword varname">ModuleName</var>.ent</span>
+              </td>
+              <td
+                class="stentry"
+                headers="file-naming-conventions__dtd-specialization-modules__stentry__3"
+              >
+                <span class="ph filepath"><var class="keyword varname">ModuleName</var>.mod</span>
+              </td>
+              <td
+                class="stentry"
+                headers="file-naming-conventions__dtd-specialization-modules__stentry__4"
+              >
+                <span class="ph filepath">concept.ent</span> or
+                <span class="ph filepath">concept.mod</span>
+              </td>
+            </tr>
+            <tr class="strow">
+              <td
+                class="stentry"
+                headers="file-naming-conventions__dtd-specialization-modules__stentry__1"
+              >
+                Element domain
+              </td>
+              <td
+                class="stentry"
+                headers="file-naming-conventions__dtd-specialization-modules__stentry__2"
+              >
+                <span class="ph filepath"
+                  ><var class="keyword varname">DomainName</var>Domain.ent</span
+                >
+              </td>
+              <td
+                class="stentry"
+                headers="file-naming-conventions__dtd-specialization-modules__stentry__3"
+              >
+                <span class="ph filepath"
+                  ><var class="keyword varname">DomainName</var>Domain.mod</span
+                >
+              </td>
+              <td
+                class="stentry"
+                headers="file-naming-conventions__dtd-specialization-modules__stentry__4"
+              >
+                <span class="ph filepath">highlightDomain.ent</span> or
+                <span class="ph filepath">highlightDomain.mod</span>
+              </td>
+            </tr>
+            <tr class="strow">
+              <td
+                class="stentry"
+                headers="file-naming-conventions__dtd-specialization-modules__stentry__1"
+              >
+                Attribute domain
+              </td>
+              <td
+                class="stentry"
+                headers="file-naming-conventions__dtd-specialization-modules__stentry__2"
+              >
+                <span class="ph filepath"
+                  ><var class="keyword varname">AttributeName</var>AttDomain.ent</span
+                >
+              </td>
+              <td
+                class="stentry"
+                headers="file-naming-conventions__dtd-specialization-modules__stentry__3"
+              >
+                Not applicable
+              </td>
+              <td
+                class="stentry"
+                headers="file-naming-conventions__dtd-specialization-modules__stentry__4"
+              >
+                <span class="ph filepath">deliveryTargetAttDomain.ent</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="p">where:</p>
+        <ul class="ul">
+          <li class="li">
+            <var class="keyword varname">ModuleName</var> is the name of the element type, such as
+            "concept" or "glossentry".
+          </li>
+          <li class="li">
+            <var class="keyword varname">DomainName</var> is the name of the domain, for example,
+            "highlight" or "utilities".
+          </li>
+          <li class="li">
+            <var class="keyword varname">AttributeName</var> is the name of the specialized
+            attribute, for example, "deliveryTarget".
+          </li>
+        </ul>
+      </section>
+      <section class="section" id="file-naming-conventions__relax-ng-modules">
+        <h2 class="title sectiontitle">RELAX NG-based specialization modules</h2>
+
+        <p class="p">
+          Use the following file-naming conventions for RELAX NG-based specialization modules.
+        </p>
+        <table class="simpletable frame-all">
+          <colgroup>
+            <col style="width:20%" />
+            <col style="width:60%" />
+            <col style="width:20%" />
+          </colgroup>
+          <thead>
+            <tr class="sthead">
+              <th
+                class="stentry"
+                scope="col"
+                id="file-naming-conventions__relax-ng-modules__stentry__1"
+              >
+                Module type
+              </th>
+              <th
+                class="stentry"
+                scope="col"
+                id="file-naming-conventions__relax-ng-modules__stentry__2"
+              >
+                File name
+              </th>
+              <th
+                class="stentry"
+                scope="col"
+                id="file-naming-conventions__relax-ng-modules__stentry__3"
+              >
+                Example
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="strow">
+              <td class="stentry" headers="file-naming-conventions__relax-ng-modules__stentry__1">
+                Structural
+              </td>
+              <td class="stentry" headers="file-naming-conventions__relax-ng-modules__stentry__2">
+                <span class="ph filepath"
+                  ><var class="keyword varname">ModuleName</var>Mod.<var class="keyword varname"
+                    >rng</var
+                  ></span
+                >
+              </td>
+              <td class="stentry" headers="file-naming-conventions__relax-ng-modules__stentry__3">
+                <span class="ph filepath">conceptMod.rng</span>
+              </td>
+            </tr>
+            <tr class="strow">
+              <td class="stentry" headers="file-naming-conventions__relax-ng-modules__stentry__1">
+                Element domain
+              </td>
+              <td class="stentry" headers="file-naming-conventions__relax-ng-modules__stentry__2">
+                <span class="ph filepath"
+                  ><var class="keyword varname">DomainName</var>DomainMod.rng</span
+                >
+              </td>
+              <td class="stentry" headers="file-naming-conventions__relax-ng-modules__stentry__3">
+                <span class="ph filepath">highlightDomainMod.rng</span>
+              </td>
+            </tr>
+            <tr class="strow">
+              <td class="stentry" headers="file-naming-conventions__relax-ng-modules__stentry__1">
+                Attribute domain
+              </td>
+              <td class="stentry" headers="file-naming-conventions__relax-ng-modules__stentry__2">
+                <span class="ph filepath"
+                  ><var class="keyword varname">AttributeName</var>AttDomain.rng</span
+                >
+              </td>
+              <td class="stentry" headers="file-naming-conventions__relax-ng-modules__stentry__3">
+                <span class="ph filepath">deliveryTargetAttDomainMod.rng</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="p">where:</p>
+        <ul class="ul">
+          <li class="li">
+            <var class="keyword varname">ModuleName</var> is the name of the element type, such as
+            "concept" or "glossentry".
+          </li>
+          <li class="li">
+            <var class="keyword varname">DomainName</var> is the name of the domain, for example,
+            "highlight" or "utilities".
+          </li>
+          <li class="li">
+            <var class="keyword varname">AttributeName</var> is the name of the specialized
+            attribute, for example, "deliveryTarget".
+          </li>
+        </ul>
+      </section>
+      <section class="section" id="file-naming-conventions__constraint-modules">
+        <h2 class="title sectiontitle">Constraint modules</h2>
+
+        <p class="p">Use the following file-naming conventions for constraint modules.</p>
+        <dl class="dl">
+          <dt class="dt dlterm">Structural modules</dt>
+          <dd class="dd">
+            <p class="p">
+              Structural constraint modules should be named using the following format:
+            </p>
+            <table class="simpletable frame-all">
+              <colgroup>
+                <col style="width:25%" />
+                <col style="width:75%" />
+              </colgroup>
+              <tbody>
+                <tr class="strow">
+                  <th class="stentry" scope="row">DTD</th>
+                  <td class="stentry">
+                    <span class="ph filepath"
+                      ><var class="keyword varname">qualifier</var
+                      ><var class="keyword varname">Tagname</var>Constraint.mod</span
+                    >
+                  </td>
+                </tr>
+                <tr class="strow">
+                  <th class="stentry" scope="row">RELAX NG</th>
+                  <td class="stentry">
+                    <span class="ph filepath"
+                      ><var class="keyword varname">qualifier</var
+                      ><var class="keyword varname">Tagname</var>ConstraintMod.rng</span
+                    >
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="p">where:</p>
+            <ul class="ul">
+              <li class="li">
+                <var class="keyword varname">qualifier</var> is a string that is specific to the
+                constraints module and characterizes it, for example, "strict" or "requiredTitle" or
+                "myCompany-".
+              </li>
+              <li class="li">
+                <var class="keyword varname">Tagname</var> is the element type name with an initial
+                capital, for example, "Topic".
+              </li>
+            </ul>
+            <p class="p">
+              For example, the file names for the constraint that is applied to the general task to
+              create the strict task are
+              <span class="ph filepath">strictTaskbodyConstraint.mod</span>,
+              <span class="ph filepath">strictTaskbodyConstraintMod.rng</span>, or
+              <span class="ph filepath">strictTaskbodyConstraintMod.xsd</span>.
+            </p>
+          </dd>
+
+          <dt class="dt dlterm">Domain modules</dt>
+          <dd class="dd">
+            <p class="p">Domain constraint modules should be named using the following format:</p>
+            <table class="simpletable frame-all">
+              <colgroup>
+                <col style="width:25%" />
+                <col style="width:75%" />
+              </colgroup>
+              <tbody>
+                <tr class="strow">
+                  <th class="stentry" scope="row">DTD</th>
+                  <td class="stentry">
+                    <span class="ph filepath"
+                      ><var class="keyword varname">qualifier</var
+                      ><var class="keyword varname">domain</var>DomainConstraint.ent</span
+                    >
+                  </td>
+                </tr>
+                <tr class="strow">
+                  <th class="stentry" scope="row">RELAX NG</th>
+                  <td class="stentry">
+                    <span class="ph filepath"
+                      ><var class="keyword varname">qualifier</var
+                      ><var class="keyword varname">domain</var>DomainConstraintMod.rng</span
+                    >
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="p">where:</p>
+            <ul class="ul">
+              <li class="li">
+                <var class="keyword varname">qualifier</var> is a string that is specific to the
+                constraints module and characterizes it, for example, "noSyntaxDiagram" or
+                "myCompany-".
+              </li>
+              <li class="li">
+                <span class="ph" id="file-naming-conventions__d1464e640"
+                  ><var class="keyword varname">domain</var> is the name of the domain to which the
+                  constraints apply, for example, "Highlighting" or "Programming".</span
+                >
+              </li>
+            </ul>
+            <p class="p">
+              For example, the file name for a constraint module that removes the syntax diagram
+              from the programming domain might be
+              <span class="ph filepath">noSyntaxDiagramProgrammingDomainConstraint.ent</span>.
+            </p>
+          </dd>
+        </dl>
+      </section>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../non-normative/non-normative-information.html"
+            title="This section contains non-normative information, including topics about new features in DITA 2.0 and migrating to DITA 2.0."
+            >Non-normative information</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

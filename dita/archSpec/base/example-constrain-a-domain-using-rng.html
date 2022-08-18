@@ -1,0 +1,211 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Example: Constrain a domain module using RNG'
+description: 'In this scenario, a DITA architect wants
+  to use only a subset of the elements defined in the highlighting
+  domain. They want to use b
+  and i but not
+  line-through,
+  overline, sup,
+  sup, tt, or
+  u. Their implementation
+  uses RNG for its grammar files.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/ditaspecialization.html"
+            >Overview of DITA extension facilities</a
+          >
+        </li>
+        <li><a href="../../archSpec/base/configuration.html">Document-type configuration</a></li>
+        <li><a href="../../archSpec/base/specialization.html">Specialization</a></li>
+        <li><a href="../../archSpec/base/generalization.html">Generalization</a></li>
+        <li>
+          <a href="../../archSpec/base/constraints.html">Constraints</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/constraints-overview.html">Overview of constraints</a>
+            </li>
+            <li><a href="../../archSpec/base/constraint-rules.html">Constraint rules</a></li>
+            <li>
+              <a href="../../archSpec/base/constraints-processing-interoperability.html"
+                >Constraints, processing, and interoperability</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/examples-constraints.html"
+                >Examples: Constraints implemented using DTDs</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/examples-constraints-implemented-using-rng.html"
+                >Examples: Constraints implemented using RNG</a
+              >
+              <ul class="nav nav-list">
+                <li>
+                  <a href="../../archSpec/base/example-rng-constraints-redefine-content-model.html"
+                    >Example: Redefine the content model for the topic element using RNG</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../archSpec/base/example-rng-constraints-redefine-content-model-attributes.html"
+                    >Example: Constrain attributes for the section element using RNG</a
+                  >
+                </li>
+                <li class="active">
+                  <a href="../../archSpec/base/example-constrain-a-domain-using-rng.html"
+                    >Example: Constrain a domain module using RNG</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../archSpec/base/example-rng-constraints-replace-base-element-w-domain-extensions.html"
+                    >Example: Replace a base element with the domain extensions using RNG</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../archSpec/base/example-rng-constraints-apply-multiple-constraints.html"
+                    >Example: Apply multiple constraints to a single document-type shell using
+                    RNG</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/expansion-modules.html">Expansion modules</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      Example: Constrain a domain module using RNG
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        In this scenario, <span style="color:red;" class="ph">a DITA architect</span> wants to use
+        only a subset of the elements defined in the highlighting domain.
+        <span style="color:red;" class="ph">They want</span> to use
+        <code class="keyword markupname xmlelement">&lt;b&gt;</code> and
+        <code class="keyword markupname xmlelement">&lt;i&gt;</code> but not
+        <code class="keyword markupname xmlelement">&lt;line-through&gt;</code>,
+        <code class="keyword markupname xmlelement">&lt;overline&gt;</code>,
+        <code class="keyword markupname xmlelement">&lt;sup&gt;</code>,
+        <code class="keyword markupname xmlelement">&lt;sup&gt;</code>,
+        <code class="keyword markupname xmlelement">&lt;tt&gt;</code>, or
+        <code class="keyword markupname xmlelement">&lt;u&gt;</code>.
+        <span style="color:red;" class="ph">Their</span> implementation uses RNG for its grammar
+        files.
+      </p>
+      <p class="p">
+        When using RNG, domains can be constrained directly in the document-type shells.
+      </p>
+      <ol class="ol">
+        <li class="li">
+          <p class="p">
+            <span style="color:red;" class="ph">They open</span> the document-type shell for topic
+            in an XML editor, and then <span style="color:red;" class="ph">they modify</span> the
+            "MODULE INCLUSIONS" division to exclude the elements that
+            <span style="color:red;" class="ph">they do</span> not want the implementation to use:
+          </p>
+          <pre class="pre codeblock"><code>&lt;div&gt;
+  &lt;a:documentation&gt;MODULE INCLUSIONS&lt;/a:documentation&gt;
+  ...
+  &lt;include href="highlightDomain.rng"&gt;
+    &lt;define name="line-through.element"&gt;
+      &lt;notAllowed/&gt;
+    &lt;/define&gt;
+    &lt;define name="overline.element"&gt;
+      &lt;notAllowed/&gt;
+    &lt;/define&gt;
+    &lt;define name="sub.element"&gt;
+      &lt;notAllowed/&gt;
+    &lt;/define&gt;
+    &lt;define name="sup.element"&gt;
+      &lt;notAllowed/&gt;
+    &lt;/define&gt;
+    &lt;define name="tt.element"&gt;
+      &lt;notAllowed/&gt;
+    &lt;/define&gt;
+    &lt;define name="u.element"&gt;
+      &lt;notAllowed/&gt;
+    &lt;/define&gt;
+  &lt;/include&gt;
+  ..  
+&lt;/div&gt;</code></pre>
+          <div class="note note note_note">
+            <span class="note__title">Note:</span> The
+            <span style="color:red;" class="ph">DITA</span> architect made a choice as to where in
+            the document-type shell <span style="color:red;" class="ph">they</span> would implement
+            the constraint. It can be placed either in the "Element-type configuration integration"
+            or the "Module inclusions" section.
+          </div>
+        </li>
+        <li class="li">
+          <span style="color:red;" class="ph">They make</span> similar changes to all the other
+          document-type shells in which <span style="color:red;" class="ph">they want</span> to
+          constrain the highlighting domain.
+        </li>
+      </ol>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/examples-constraints-implemented-using-rng.html"
+            title="This section of the specification contains examples of constraints implemented using RNG"
+            >Examples: Constraints implemented using RNG</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

@@ -1,0 +1,172 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Constraint rules'
+description: 'There are certain rules that apply to the design and implementation of
+  constraints.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/ditaspecialization.html"
+            >Overview of DITA extension facilities</a
+          >
+        </li>
+        <li><a href="../../archSpec/base/configuration.html">Document-type configuration</a></li>
+        <li><a href="../../archSpec/base/specialization.html">Specialization</a></li>
+        <li><a href="../../archSpec/base/generalization.html">Generalization</a></li>
+        <li>
+          <a href="../../archSpec/base/constraints.html">Constraints</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/constraints-overview.html">Overview of constraints</a>
+            </li>
+            <li class="active">
+              <a href="../../archSpec/base/constraint-rules.html">Constraint rules</a>
+            </li>
+            <li>
+              <a href="../../archSpec/base/constraints-processing-interoperability.html"
+                >Constraints, processing, and interoperability</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/examples-constraints.html"
+                >Examples: Constraints implemented using DTDs</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/examples-constraints-implemented-using-rng.html"
+                >Examples: Constraints implemented using RNG</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/expansion-modules.html">Expansion modules</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Constraint rules</h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        There are certain rules that apply to the design and implementation of constraints.
+      </p>
+      <dl class="dl">
+        <dt class="dt dlterm">Content model</dt>
+        <dd class="dd">
+          <p class="p">
+            The content model for a constrained element must be at least as restrictive as the
+            unconstrained content model for the element.
+          </p>
+        </dd>
+
+        <dt class="dt dlterm">Domain constraints</dt>
+        <dd class="dd">
+          <p class="p">
+            When a domain module is integrated into a document-type shell, the base domain element
+            can be omitted from the domain extension group or parameter entity. In such a case,
+            there is no separate constraint declaration, because the content model is configured
+            directly in the document-type shell.
+          </p>
+          <p class="p">
+            A domain module can be constrained by only one constraint module. This means that all
+            restrictions for the extension elements that are defined in the domain must be contained
+            within that one constraint module.
+          </p>
+        </dd>
+
+        <dt class="dt dlterm">Structural constraints</dt>
+        <dd class="dd">
+          <p class="p">
+            Each constraint module can constrain elements from only one vocabulary module. For
+            example, a single constraint module that constrains
+            <code class="keyword markupname xmlelement">&lt;refsyn&gt;</code> from
+            <span class="ph filepath">reference.mod</span> and constrains
+            <code class="keyword markupname xmlelement">&lt;context&gt;</code> from
+            <span class="ph filepath">task.mod</span> is not allowed. This rule maintains
+            granularity of reuse at the module level.
+          </p>
+          <p class="p">
+            Constraint modules that restrict different elements from within the same vocabulary
+            module can be combined with one another. Such combinations of constraints on a single
+            vocabulary module have no meaningful order or precedence.
+          </p>
+        </dd>
+
+        <dt style="color:red;" class="dt dlterm">Aggregation of constraint modules</dt>
+        <dd style="color:red;" class="dd">
+          <p class="p">
+            The content model of an element can be modified by either of the following
+            element-configuration modules:
+          </p>
+          <ul class="ul">
+            <li class="li">Constraint module</li>
+            <li class="li">Expansion module</li>
+          </ul>
+          <p class="p">
+            The content model of an element only can be modified by a single element-type
+            configuration module. If multiple constraints or extensions need to be applied to a
+            single element, the element configurations must be combined into a single module that
+            reflects all the constraints and expansions that were defined in the original separate
+            modules.
+          </p>
+        </dd>
+      </dl>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/constraints.html"
+            title="Constraint modules define additional constraints for vocabulary modules in order to restrict content models or attribute lists for specific element types, remove certain extension elements from an integrated domain module, or replace base element types with domain-provided, extension element types."
+            >Constraints</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

@@ -1,0 +1,148 @@
+---
+# Generated from DITA source
+layout: base
+title: 'How filtering rules interact'
+description: 'With branch filtering, it is possible to set include or exclude rules globally,
+  within a map, and within an already filtered map branch. The general rule for conflicts is
+  that once specified, "exclude" conditions are in effect for the entire map or
+  branch.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li>
+      <a href="../../archSpec/base/behaviors.html">DITA processing</a>
+      <ul class="nav nav-list">
+        <li><a href="../../archSpec/base/navigation.html">Navigation</a></li>
+        <li><a href="../../archSpec/base/indexes.html">Indexes</a></li>
+        <li><a href="../../archSpec/base/conref.html">Content reference (conref)</a></li>
+        <li><a href="../../archSpec/base/condproc.html">Conditional processing</a></li>
+        <li>
+          <a href="../../archSpec/base/branch-filtering.html">Branch filtering</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/branch-filtering-overview.html"
+                >Overview of branch filtering</a
+              >
+            </li>
+            <li class="active">
+              <a href="../../archSpec/base/branch-filtering-interactions.html"
+                >How filtering rules interact</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/branch-filtering-single-set.html"
+                >Branch filtering: Single referenced DITAVAL document for a branch</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/branch-filtering-multiple-sets.html"
+                >Branch filtering: Multiple referenced DITAVAL documents for a branch</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/branch-filtering-resource-names.html"
+                >Branch filtering: Impact on resource and key names</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/branch-filtering-implications-of-processing-order.html"
+                >Branch filtering: Implications of processing order</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/examples-of-branch-filter.html"
+                >Examples of branch filtering</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/sort-as-processing.html">Sorting</a></li>
+        <li>
+          <a href="../../archSpec/base/determining-effective-attribute-values.html"
+            >Determining effective attribute values</a
+          >
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">How filtering rules interact</h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        With branch filtering, it is possible to set include or exclude rules globally, within a
+        map, and within an already filtered map branch. The general rule for conflicts is that once
+        specified, "exclude" conditions are in effect for the entire map or branch.
+      </p>
+      <p class="p">
+        Filtering rules often are specified globally in a conditional processing profile, outside of
+        the content. When global conditions set a property value to "exclude", that setting
+        overrides any other settings for the same property that are specified at a branch level.
+        Global conditions that set a conditional property to "include" or "flag" do not override
+        branch-level conditions that set the same property to "exclude".
+      </p>
+      <p class="p">
+        Using <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> elements, it is
+        possible to specify one set of conditions for a branch and another set of conditions for a
+        subset of the branch. As with global conditions, properties set to "exclude" for a map
+        branch override any other settings for the same property specified for a subset of the
+        branch. Branch conditions that set a conditional property to "include" or "flag" do not
+        override conditions on a subset of the branch that explicitly set the same property to
+        "exclude".
+      </p>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/branch-filtering.html"
+            title="The branch filtering mechanism enables map authors to set filtering conditions for specific branches of a map. This makes it possible for multiple conditional-processing profiles to be applied within a single publication."
+            >Branch filtering</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

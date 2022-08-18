@@ -1,0 +1,155 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Definition of DITA maps'
+description: 'DITA maps are documents that organize topics and
+  other resources into structured collections of information. DITA maps specify hierarchy
+  and the relationships among the topics; they also provide the contexts in which
+  keys are defined and resolved.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li>
+      <a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a>
+      <ul class="nav nav-list">
+        <li><a href="../../archSpec/base/basic-concepts.html">Basic concepts</a></li>
+        <li>
+          <a href="../../archSpec/base/single-sourcing.html"
+            >Producing different deliverables from a single source</a
+          >
+        </li>
+        <li><a href="../../archSpec/base/topicover.html">DITA topics</a></li>
+        <li>
+          <a href="../../archSpec/base/ditamaps.html">DITA maps</a>
+          <ul class="nav nav-list">
+            <li class="active">
+              <a href="../../archSpec/base/definition-of-ditamaps.html">Definition of DITA maps</a>
+            </li>
+            <li><a href="../../archSpec/base/purpose-of-ditamaps.html">Purpose of DITA maps</a></li>
+            <li><a href="../../archSpec/base/ditamap-attributes.html">DITA map attributes</a></li>
+            <li><a href="../../archSpec/base/example-ditamaps.html">Examples of DITA maps</a></li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/dita-metadata.html">DITA metadata</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Definition of DITA maps</h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        <span class="ph"
+          >DITA maps are documents that organize topics and other resources into structured
+          collections of information. DITA maps specify hierarchy and the relationships among the
+          topics; they also provide the <span class="ph">contexts</span> in which keys are defined
+          and resolved.</span
+        >
+      </p>
+      <p class="p">
+        Maps draw on a rich set of existing best practices and standards for defining information
+        models, such as hierarchical task analysis. They also support the definition of
+        non-hierarchical relationships, such as matrices and groups, which provide a set of
+        capabilities that has similarities to Resource Description Framework (RDF) and ISO topic
+        maps.
+      </p>
+      <p class="p">
+        DITA maps use <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements
+        to reference DITA topics, DITA maps, and non-DITA resources, for example, HTML and TXT
+        files. The <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements can
+        be nested or grouped to create relationships among the referenced topics, maps, and non-DITA
+        files; the <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements can
+        be organized into hierarchies in order to represent a specific order of navigation or
+        presentation.
+      </p>
+      <p class="p">
+        DITA maps impose an architecture on a set of topics. Information architects can use DITA
+        maps to specify what DITA topics are needed to support a given set of user goals and
+        requirements; the sequential order of the topics; and the relationships that exist among
+        those topics. Because DITA maps provide this context for topics, the topics themselves can
+        be relatively context-free; they can be used and reused in multiple different contexts.
+      </p>
+      <p class="p">
+        DITA maps often represent a single deliverable, for example, a specific Web site, a printed
+        publication, or the online help for a product. DITA maps also can be subcomponents for a
+        single deliverable, for example, a DITA map might contain the content for a chapter in a
+        printed publication or the troubleshooting information for an online help system. The DITA
+        specification provides specialized map types; book maps represent printed publications,
+        subject scheme maps represent taxonomic or ontological classifications, and learning maps
+        represent formal units of instruction and assessment. However, these map types are only a
+        starter set of map types reflecting well-defined requirements.
+      </p>
+      <p class="p">
+        DITA maps establish relationships through the nesting of
+        <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements and the
+        application of the
+        <code class="keyword markupname xmlatt">@collection-type</code> attribute. Relationship
+        tables also <span class="ph">can</span> be used to associate topics with each other based on
+        membership in the same row; for example, task topics can be associated with supporting
+        concept and reference topics by placing each group in cells of the same row. During
+        processing, these relationships can be rendered in different ways, although they typically
+        result in lists of "Related topics" or "For more information" links. Like many aspects of
+        DITA, the details about how such linking relationships are presented is determined by the
+        DITA processor.
+      </p>
+      <p class="p">
+        DITA maps also define keys and organize the <span class="ph">contexts</span>
+        <span class="ph">(<dfn class="term">key scopes</dfn></span
+        >) in which key references are resolved.
+      </p>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/ditamaps.html"
+            title="This topic collection contains information about DITA maps and the purposes that they serve. It also includes high-level information about DITA map elements, attributes, and metadata."
+            >DITA maps</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

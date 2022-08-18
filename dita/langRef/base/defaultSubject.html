@@ -1,0 +1,166 @@
+---
+# Generated from DITA source
+layout: base
+title: 'defaultSubject'
+description: 'The defaultSubject element specifies the default value for the
+  attribute in cases where no value is specified. The default value must be one of the controlled
+  values that are bound to the attribute.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      <code class="keyword markupname xmlelement">&lt;defaultSubject&gt;</code>
+    </h1>
+
+    <div class="body refbody">
+      <p class="shortdesc">
+        The <code class="keyword markupname xmlelement">&lt;defaultSubject&gt;</code> element
+        specifies the default value for the attribute in cases where no value is specified. The
+        default value must be one of the controlled values that are bound to the attribute.
+      </p>
+      <section class="section" id="defaultSubject__processing-expectations">
+        <h2 class="title sectiontitle">Processing expectations</h2>
+      </section>
+      <section class="section" id="defaultSubject__specialization-hierachy">
+        <h2 class="title sectiontitle">Specialization hierarchy</h2>
+
+        <p class="p">
+          The <code class="keyword markupname xmlelement">&lt;defaultSubject&gt;</code> element is
+          specialized from <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>. It
+          is defined in the subject scheme module.
+        </p>
+      </section>
+      <section class="section" id="defaultSubject__attributes">
+        <h2 class="title sectiontitle">Attributes</h2>
+
+        <p class="p">
+          The following attributes are available on this element:
+          <span class="ph"
+            ><a
+              class="xref"
+              href="../../common/../langRef/attributes/universalAttributes.html"
+              title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang"
+              >universal attributes</a
+            ></span
+          >,
+          <span class="ph"
+            ><a
+              class="xref"
+              href="../../common/../langRef/attributes/commonAttributes.html#common-atts__linkatts"
+              title="Link relationship attributes include: format, href, type, and scope"
+              >link-relationship attributes</a
+            ></span
+          >,
+          <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-keys"
+            ><code class="keyword markupname xmlatt">@keys</code></a
+          >,
+          <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-keyref"
+            ><code class="keyword markupname xmlatt">@keyref</code></a
+          >,
+          <a
+            class="xref"
+            href="../attributes/commonAttributes.html#common-atts__attr-processing-role"
+            ><code class="keyword markupname xmlatt">@processing-role</code></a
+          >, and
+          <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-toc"
+            ><code class="keyword markupname xmlatt">@toc</code></a
+          >.
+        </p>
+      </section>
+      <div class="example" id="defaultSubject__example">
+        <h2 class="title sectiontitle">Example</h2>
+
+        <p class="p">
+          The following code sample limits the values for
+          <code class="keyword markupname xmlatt">@platform</code> to the
+          <span class="keyword">os</span> subject and sets the default value to
+          <span class="keyword">linux</span>:
+        </p>
+        <pre class="pre codeblock"><code>&lt;subjectScheme&gt;
+  &lt;subjectdef keys="os"&gt;
+    &lt;subjectdef keys="linux"/&gt;
+    &lt;subjectdef keys="mswin"/&gt;
+    &lt;subjectdef keys="zos"/&gt;
+    &lt;subjectdef keys="macos"/&gt;
+  &lt;/subjectdef&gt;
+  &lt;enumerationdef&gt;
+    &lt;attributedef name="platform"/&gt;
+    &lt;subjectdef keyref="os"/&gt;
+    <strong class="ph b">&lt;defaultSubject keyref="linux"/&gt;</strong>
+  &lt;/enumerationdef&gt;
+&lt;/subjectScheme&gt;</code></pre>
+        <p class="p">
+          The result is that only the following values are permitted for
+          <code class="keyword markupname xmlatt">@platform</code>:
+        </p>
+        <ul class="ul">
+          <li class="li"><code class="ph codeph">linux</code></li>
+          <li class="li"><code class="ph codeph">macos</code></li>
+          <li class="li"><code class="ph codeph">mswin</code></li>
+          <li class="li"><code class="ph codeph">zos</code></li>
+        </ul>
+        <p class="p">
+          If no value is specified for the <code class="keyword markupname xmlatt">@platform</code>
+          attribute in the DITA source, the value is assumed to be
+          <span class="keyword">linux</span>.
+        </p>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../langRef/containers/subjectScheme.html"
+            title="Subject scheme elements are used to define sets of controlled values and taxonomic subjects, bind controlled values to attributes as enumerations, and specify relationships among taxonomic subjects."
+            >Subject scheme elements</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

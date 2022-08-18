@@ -1,0 +1,173 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Basic DITA terminology'
+description: 'Certain terminology is used for basic DITA components.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/normative-and-non-normative-information.html"
+            >Normative and non-normative information</a
+          >
+        </li>
+        <li><a href="../../archSpec/base/notation.html">Notation</a></li>
+        <li class="active">
+          <a href="../../archSpec/base/basic-dita-terminology.html">Basic DITA terminology</a>
+        </li>
+        <li>
+          <a href="../../archSpec/base/specialization-terminology.html"
+            >Specialization terminology</a
+          >
+        </li>
+        <li><a href="../../archSpec/base/dita-modules.html">DITA module terminology</a></li>
+        <li>
+          <a href="../../archSpec/base/linking-and-addressing-terms.html"
+            >Linking and addressing terminology</a
+          >
+        </li>
+        <li><a href="../../archSpec/base/key-terminology.html">Key terminology</a></li>
+        <li><a href="../../archSpec/base/map-terminology.html">Map terminology</a></li>
+        <li><a href="../../archSpec/base/fileext.html">File extensions</a></li>
+      </ul>
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Basic DITA terminology</h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">Certain terminology is used for basic DITA components.</p>
+      <dl class="dl">
+        <dt class="dt dlterm">DITA document</dt>
+        <dd class="dd">
+          <p class="p">An XML document that conforms to the requirements of this specification.</p>
+          <div class="p">
+            A DITA document <dfn class="term RFC-2119">MUST</dfn> have as its root element one of
+            the following elements:
+            <ul class="ul">
+              <li class="li">
+                <code class="keyword markupname xmlelement">&lt;map&gt;</code> or a specialization
+                of the <code class="keyword markupname xmlelement">&lt;map&gt;</code> element
+              </li>
+              <li class="li">
+                <code class="keyword markupname xmlelement">&lt;topic&gt;</code> or a specialization
+                of the <code class="keyword markupname xmlelement">&lt;topic&gt;</code> element
+              </li>
+              <li class="li">
+                <code class="keyword markupname xmlelement">&lt;dita&gt;</code>, which cannot be
+                specialized, but which allows documents with multiple sibling topics
+              </li>
+            </ul>
+          </div>
+        </dd>
+
+        <dt class="dt dlterm">DITA document type</dt>
+        <dd class="dd">
+          A unique set of structural modules, domain modules, and constraint modules that taken
+          together provide the XML element and attribute declarations that define the structure of
+          DITA documents.
+        </dd>
+
+        <dt class="dt dlterm">DITA document-type shell</dt>
+        <dd class="dd">
+          A set of DTD or RELAX NG declarations that implement a DITA document type by using the
+          rules and design patterns that are included in the DITA specification. A DITA
+          document-type shell includes and configures one or more structural modules, zero or more
+          domain modules, and zero or more constraint modules. With the exception of the optional
+          declarations for the
+          <code class="keyword markupname xmlelement">&lt;dita&gt;</code> element and its
+          attributes, DITA document-type shells do not declare any element or attribute types
+          directly.
+        </dd>
+
+        <dt class="dt dlterm">DITA element</dt>
+        <dd class="dd">
+          An XML element instance whose type is a DITA element type. DITA elements must exhibit a
+          <code class="keyword markupname xmlatt">@class</code> attribute that has a value that
+          conforms to the rules for specialization hierarchy specifications.
+        </dd>
+        <dd class="dd ddexpand"></dd>
+
+        <dt class="dt dlterm">DITA element type</dt>
+        <dd class="dd">
+          An element type that is either one of the base element types that are defined by the DITA
+          specification, or a specialization of one of the base element types.
+        </dd>
+
+        <dt class="dt dlterm">map instance</dt>
+        <dd class="dd">An occurrence of a map type in a DITA document.</dd>
+
+        <dt class="dt dlterm">map type</dt>
+        <dd class="dd">
+          A map or a specialization of map that defines a set of relationships among topic
+          instances.
+        </dd>
+
+        <dt class="dt dlterm">structural type instance</dt>
+        <dd class="dd">An occurrence of a topic type or a map type in a DITA document.</dd>
+
+        <dt class="dt dlterm">topic instance</dt>
+        <dd class="dd">An occurrence of a topic type in a DITA document.</dd>
+
+        <dt class="dt dlterm">topic type</dt>
+        <dd class="dd">
+          A topic or a specialization of topic that defines a complete unit of content.
+        </dd>
+      </dl>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/dita-terminology.html"
+            title="The DITA specification uses specific notation and terms to define the components of the DITA standard."
+            >DITA terminology, notation, and conventions</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

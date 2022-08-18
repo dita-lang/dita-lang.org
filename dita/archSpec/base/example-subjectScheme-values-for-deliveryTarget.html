@@ -1,0 +1,240 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Example: Defining values for
+  deliveryTarget'
+description: 'You can use a subject scheme map to define the values for the
+  deliveryTarget attribute. This filtering attribute
+  is intended for use with a set of hierarchical, controlled
+  values.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li>
+      <a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a>
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/dita-maps-and-their-usage.html">DITA maps and their usage</a>
+        </li>
+        <li>
+          <a href="../../archSpec/base/subject-scheme-maps-and-usage.html"
+            >Subject scheme maps and their usage</a
+          >
+          <ul class="nav nav-list">
+            <li><a href="../../archSpec/base/subjectSchema.html">Subject scheme maps</a></li>
+            <li>
+              <a href="../../archSpec/base/controlled-values-for-attributes.html"
+                >Defining controlled values for attributes</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/binding-controlled-values-to-attribute.html"
+                >Binding controlled values to an attribute</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/processing-controlled-attribute-values.html"
+                >Processing controlled attribute values</a
+              >
+            </li>
+            <li><a href="../../archSpec/base/classification-maps.html">Classification maps</a></li>
+            <li>
+              <a href="../../archSpec/base/examples-subjectScheme-maps.html"
+                >Examples of subject scheme maps</a
+              >
+              <ul class="nav nav-list">
+                <li>
+                  <a href="../../archSpec/base/example-subjectScheme-filtering.html"
+                    >Example: How hierarchies defined in a subject scheme map affect filtering</a
+                  >
+                </li>
+                <li class="active">
+                  <a href="../../archSpec/base/example-subjectScheme-values-for-deliveryTarget.html"
+                    >Example: Defining values for deliveryTarget</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/map-cascading.html">Metadata cascading</a></li>
+        <li><a href="../../archSpec/base/chunking.html">Chunking</a></li>
+      </ul>
+    </li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      <span class="ph"
+        >Example: Defining values for
+        <code class="keyword markupname xmlatt">@deliveryTarget</code></span
+      >
+    </h1>
+
+    <div class="body refbody">
+      <p class="shortdesc">
+        You can use a subject scheme map to define the values for the
+        <code class="keyword markupname xmlatt">@deliveryTarget</code> attribute. This filtering
+        attribute is intended for use with a set of hierarchical, controlled values.
+      </p>
+      <div class="example" id="example-deliveryTarget__example">
+        <p class="p">
+          In this scenario, one department produces electronic publications (EPUB, EPUB2, EPUB3,
+          Kindle, etc.) while another department produces traditional, print-focused output. Each
+          department needs to exclude a certain category of content when they build documentation
+          deliverables.
+        </p>
+        <p class="p">
+          The following subject scheme map provides a set of values for the
+          <code class="keyword markupname xmlatt">@deliveryTarget</code> attribute that accommodates
+          the needs of both departments.
+        </p>
+        <pre class="pre codeblock"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE subjectScheme PUBLIC "-//OASIS//DTD DITA Subject Scheme Map//EN" "subjectScheme.dtd"&gt; 
+&lt;subjectScheme&gt;
+  &lt;subjectHead&gt;
+    &lt;subjectHeadMeta&gt;
+      &lt;navtitle&gt;Example of values for the @deliveryTarget attribute&lt;/navtitle&gt;
+      &lt;shortdesc&gt;Provides a set of values for use with the
+        @deliveryTarget conditional-processing attribute. This set of values is
+        illustrative only; you can use any values with the @deliveryTarget 
+        attribute.&lt;/shortdesc&gt;      
+    &lt;/subjectHeadMeta&gt;
+  &lt;/subjectHead&gt;
+  &lt;subjectdef keys="deliveryTargetValues"&gt;
+    &lt;topicmeta&gt;&lt;navtitle&gt;Values for @deliveryTarget attributes&lt;/navtitle&gt;&lt;/topicmeta&gt;
+    &lt;!-- A tree of related values --&gt;
+    &lt;subjectdef keys="print"&gt;
+      &lt;topicmeta&gt;&lt;navtitle&gt;Print-primary deliverables&lt;/navtitle&gt;&lt;/topicmeta&gt;
+      &lt;subjectdef keys="pdf"&gt;
+        &lt;topicmeta&gt;&lt;navtitle&gt;PDF&lt;/navtitle&gt;&lt;/topicmeta&gt;
+      &lt;/subjectdef&gt;
+      &lt;subjectdef keys="css-print"&gt;
+        &lt;topicmeta&gt;&lt;navtitle&gt;CSS for print&lt;/navtitle&gt;&lt;/topicmeta&gt;
+      &lt;/subjectdef&gt;
+      &lt;subjectdef keys="xsl-fo"&gt;
+        &lt;topicmeta&gt;&lt;navtitle&gt;XSL-FO&lt;/navtitle&gt;&lt;/topicmeta&gt;
+      &lt;/subjectdef&gt;
+      &lt;subjectdef keys="afp"&gt;
+        &lt;topicmeta&gt;&lt;navtitle&gt;Advanced Function Printing&lt;/navtitle&gt;&lt;/topicmeta&gt;
+      &lt;/subjectdef&gt;
+      &lt;subjectdef keys="ms-word"&gt;
+        &lt;topicmeta&gt;&lt;navtitle&gt;Microsoft Word&lt;/navtitle&gt;&lt;/topicmeta&gt;
+      &lt;/subjectdef&gt;
+      &lt;subjectdef keys="indesign"&gt;
+        &lt;topicmeta&gt;&lt;navtitle&gt;Adobe InDesign&lt;/navtitle&gt;&lt;/topicmeta&gt;
+      &lt;/subjectdef&gt;
+      &lt;subjectdef keys="open-office"&gt;
+        &lt;topicmeta&gt;&lt;navtitle&gt;Open Office&lt;/navtitle&gt;&lt;/topicmeta&gt;
+      &lt;/subjectdef&gt;
+    &lt;/subjectdef&gt;
+    &lt;subjectdef keys="online"&gt;
+      &lt;topicmeta&gt;&lt;navtitle&gt;Online deliverables&lt;/navtitle&gt;&lt;/topicmeta&gt;
+      &lt;subjectdef keys="html-based"&gt;
+        &lt;topicmeta&gt;&lt;navtitle&gt;HTML-based deliverables&lt;/navtitle&gt;&lt;/topicmeta&gt;
+        &lt;subjectdef keys="html"&gt;
+          &lt;topicmeta&gt;&lt;navtitle&gt;HTML&lt;/navtitle&gt;&lt;/topicmeta&gt;
+          &lt;subjectdef keys="html5"&gt;
+            &lt;topicmeta&gt;&lt;navtitle&gt;HTML5&lt;/navtitle&gt;&lt;/topicmeta&gt;
+          &lt;/subjectdef&gt;
+        &lt;/subjectdef&gt;
+        &lt;subjectdef keys="help"&gt;
+          &lt;topicmeta&gt;&lt;navtitle&gt;Contextual help&lt;/navtitle&gt;&lt;/topicmeta&gt;
+          &lt;subjectdef keys="htmlhelp"&gt;
+            &lt;topicmeta&gt;&lt;navtitle&gt;HTML Help&lt;/navtitle&gt;&lt;/topicmeta&gt;
+          &lt;/subjectdef&gt;
+          &lt;subjectdef keys="webhelp"&gt;
+            &lt;topicmeta&gt;&lt;navtitle&gt;Web help&lt;/navtitle&gt;&lt;/topicmeta&gt;
+          &lt;/subjectdef&gt;
+          &lt;subjectdef keys="javahelp"&gt;
+            &lt;topicmeta&gt;&lt;navtitle&gt;Java Help&lt;/navtitle&gt;&lt;/topicmeta&gt;
+          &lt;/subjectdef&gt;
+          &lt;subjectdef keys="eclipseinfocenter"&gt;
+            &lt;topicmeta&gt;&lt;navtitle&gt;Eclipse InfoCenter&lt;/navtitle&gt;&lt;/topicmeta&gt;
+          &lt;/subjectdef&gt;
+        &lt;/subjectdef&gt;
+        &lt;subjectdef keys="epub"&gt;
+          &lt;topicmeta&gt;&lt;navtitle&gt;EPUB&lt;/navtitle&gt;&lt;/topicmeta&gt;
+          &lt;subjectdef keys="epub2"&gt;
+            &lt;topicmeta&gt;&lt;navtitle&gt;EPUB2&lt;/navtitle&gt;&lt;/topicmeta&gt;
+          &lt;/subjectdef&gt;
+          &lt;subjectdef keys="epub3"&gt;
+            &lt;topicmeta&gt;&lt;navtitle&gt;EPUB3&lt;/navtitle&gt;&lt;/topicmeta&gt;
+          &lt;/subjectdef&gt;
+          &lt;subjectdef keys="ibooks"&gt;
+            &lt;topicmeta&gt;&lt;navtitle&gt;iBooks&lt;/navtitle&gt;&lt;/topicmeta&gt;
+          &lt;/subjectdef&gt;
+          &lt;subjectdef keys="nook"&gt;
+            &lt;topicmeta&gt;&lt;navtitle&gt;nook&lt;/navtitle&gt;&lt;/topicmeta&gt;
+          &lt;/subjectdef&gt;
+        &lt;/subjectdef&gt;
+        &lt;subjectdef keys="kindle"&gt;
+          &lt;topicmeta&gt;&lt;navtitle&gt;Amazon Kindle&lt;/navtitle&gt;&lt;/topicmeta&gt;
+          &lt;subjectdef keys="kindle8"&gt;
+            &lt;topicmeta&gt;&lt;navtitle&gt;Kindle Version 8&lt;/navtitle&gt;&lt;/topicmeta&gt;
+          &lt;/subjectdef&gt;
+        &lt;/subjectdef&gt;
+      &lt;/subjectdef&gt;
+    &lt;/subjectdef&gt;
+  &lt;/subjectdef&gt;
+  &lt;enumerationdef&gt;
+    &lt;attributedef name="deliveryTarget"/&gt;
+    &lt;subjectdef   keyref="deliveryTargetValues"/&gt;
+  &lt;/enumerationdef&gt;
+&lt;/subjectScheme&gt;</code></pre>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/examples-subjectScheme-maps.html"
+            title="This section contains examples and scenarios that illustrate the use of subject scheme maps."
+            >Examples of subject scheme maps</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

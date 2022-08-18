@@ -1,0 +1,275 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Addressing keys across scopes'
+description: 'When referencing key definitions that are defined in a different key scope, key names
+		might need to be qualified with key scope names. '
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li>
+      <a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a>
+      <ul class="nav nav-list">
+        <li><a href="../../archSpec/base/id.html">ID attribute</a></li>
+        <li><a href="../../archSpec/base/dita-linking.html">DITA linking</a></li>
+        <li>
+          <a href="../../archSpec/base/uri-based-addressing.html">URI-based (direct) addressing</a>
+        </li>
+        <li>
+          <a href="../../archSpec/base/key-based-addressing.html">Indirect key-based addressing</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/keys-core-concepts.html"
+                >Core concepts for working with keys</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/thekeysattribute.html"
+                >Setting key names with the keys attribute</a
+              >
+            </li>
+            <li><a href="../../archSpec/base/thekeyrefattribute.html">The keyref attribute</a></li>
+            <li>
+              <a href="../../archSpec/base/using-keys-for-addressing.html"
+                >Using keys for addressing</a
+              >
+            </li>
+            <li><a href="../../archSpec/base/keyScopes.html">Key scopes</a></li>
+            <li>
+              <a href="../../archSpec/base/the-key-scope-attribute.html">The keyscope attribute</a>
+            </li>
+            <li class="active">
+              <a href="../../archSpec/base/using-keys-to-address-keys-across-scopes.html"
+                >Addressing keys across scopes</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/links-between-maps.html"
+                >Cross-deliverable addressing and linking</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/processing-key-references-general.html"
+                >Processing key references</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/processing-keyref-for-links.html"
+                >Processing key references for navigation links and images</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/processing-keyref-on-topicref.html"
+                >Processing key references on topicref elements</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/processing-keyref-for-text.html"
+                >Processing key references to generate text or link text</a
+              >
+            </li>
+            <li><a href="../../archSpec/base/examples-of-keys.html">Examples of keys</a></li>
+            <li>
+              <a href="../../archSpec/base/examples-of-scoped-keys.html">Examples of scoped keys</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="../../archSpec/base/context-hooks-for-user-assistance.html"
+            >Context hooks for user assistance</a
+          >
+        </li>
+      </ul>
+    </li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Addressing keys across scopes</h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        When referencing key definitions that are defined in a different key scope, key names might
+        need to be qualified with key scope names.
+      </p>
+      <p class="p">
+        A root map might contain any number of key scopes; relationships between key scopes are
+        discussed using the following terms:
+      </p>
+      <dl class="dl">
+        <dt class="dt dlterm">child scope</dt>
+        <dd class="dd">
+          A key scope that occurs directly within another key scope. For example, in the figure
+          below, key scopes "A-1" and "A-2" are child scopes of key scope "A".
+        </dd>
+
+        <dt class="dt dlterm">parent scope</dt>
+        <dd class="dd">
+          A key scope that occurs one level above another key scope. For example, in the figure
+          below, key scope "A" is a parent scope of key scopes "A-1" and "A-2".
+        </dd>
+
+        <dt class="dt dlterm">ancestor scope</dt>
+        <dd class="dd">
+          A key scope that occurs any level above another key scope. For example, in the figure
+          below, key scopes "A" and "Root" are both ancestor scopes of key scopes "A-1" and "A-2"
+        </dd>
+
+        <dt class="dt dlterm">descendant scope</dt>
+        <dd class="dd">
+          A key scope that occurs any level below another key scope. For example, in the figure
+          below, key scopes "A", "A-1", and "A-2" are all descendant scopes of the implicit, root
+          key scope
+        </dd>
+
+        <dt class="dt dlterm">sibling scope</dt>
+        <dd class="dd">
+          A key scope that shares a common parent with another key scope. For example, in the figure
+          below, key scopes "A" and "B" are sibling scopes; they both are children of the implicit,
+          root key scope.
+        </dd>
+
+        <dt class="dt dlterm">key scope hierarchy</dt>
+        <dd class="dd">A key scope and all of its descendant scopes.</dd>
+      </dl>
+      <figure class="fig fignone" id="concept_art_5ps_sr__fig_DE65294F6EF64C129F38A19C66C40E3E">
+        <figcaption>
+          <span class="fig--title-label">Figure 1. </span>A key scope hierarchy
+        </figcaption>
+
+        <br /><img
+          class="image"
+          id="concept_art_5ps_sr__image_3BFFE5D941FD4EB6BD976801585C893A"
+          src="../../images/key-scope-hierarchy.png"
+          alt="Tree structure diagram showing a key scope hierarchy. The leftmost node is labeled 'Root'. There are two child nodes of Root labeled 'A' and 'B'. Node A has two children labeled 'A-1' and 'A-2'. Node B has two children labeled 'B-1' and 'B-2'."
+        /><br />
+      </figure>
+      <section class="section" id="concept_art_5ps_sr__keys-in-parent-key-scope">
+        <h2 class="title sectiontitle">Keys that are defined in parent key scopes</h2>
+
+        <p class="p">
+          The key space that is associated with a key scope also includes all key definitions from
+          its parent key scope. If a key name is defined in both a key scope and its parent scope,
+          the key definition in the parent scope takes precedence. This means that a key definition
+          in a parent scope overrides all definitions for the same key name in all descendant
+          scopes. This enables map authors to override the keys that are defined in submaps,
+          regardless of whether the submaps define key scopes.
+        </p>
+        <p class="p">
+          In certain complex cases, a scope-qualified key name (such as
+          <span class="keyword">scope.key</span>) can override an unqualified key name from the
+          parent scope. See
+          <a
+            class="xref"
+            href="example-keys-scope-defining-precedence.html"
+            title="For purposes of key definition precedence, the scope-qualified key definitions from a child scope are considered to occur at the location of the scope-defining element within the parent scope."
+            >Example: How key scopes affect key precedence</a
+          >.
+        </p>
+      </section>
+      <section class="section" id="concept_art_5ps_sr__keys-in-child-key-scope">
+        <h2 class="title sectiontitle">Keys that are defined in child key scopes</h2>
+
+        <p class="p">
+          The key space associated with a key scope does not include the
+          <em class="ph i">unqualified</em> key definitions from the child scopes. However, it does
+          include scope-qualified keys from the child scopes. This enables sibling key scopes to
+          have different key definitions for the same key name.
+        </p>
+        <p class="p">
+          A <dfn class="term">scope-qualified key name</dfn> is a key name, prepended by one or more
+          key scope names <span class="ph">and separated by periods</span>. For example, to
+          reference a key "keyName" defined in a child scope named "keyScope", specify
+          <code class="ph codeph">keyref="keyScope.keyName"</code>.
+        </p>
+        <p class="p">
+          If a key scope has multiple names, its keys can be addressed from its parent scope using
+          any of the scope names. For example, if a key scope is defined with
+          <code class="ph codeph">keyscope="a b c"</code>, and it contains a key name of "product",
+          that key can be referenced from the parent scope by
+          <code class="ph codeph">keyref="a.product"</code>,
+          <code class="ph codeph">keyref="b.product"</code>, or
+          <code class="ph codeph">keyref="c.product"</code>
+        </p>
+        <p class="p">
+          Because a child scope contributes its scope-qualified keys to its parent scope, and that
+          parent scope contributes <em class="ph i">its</em> scope-qualified keys to
+          <em class="ph i">its</em> parent scope, it is possible to address the keys in any
+          descendant scope by using the scope-qualified key name. For example, consider a key scope
+          named "ancestorScope" that has a child scope named "parentScope" which in turn has a child
+          scope named "childScope". The scope "childScope" defines a key named "keyName". To
+          reference the key "keyName" from scope "ancestorScope", specify the scope-qualified key
+          name: <code class="ph codeph">keyref="parentScope.childScope.keyName"</code>.
+        </p>
+      </section>
+      <section class="section" id="concept_art_5ps_sr__keys-in-sibling-key-scope">
+        <h2 class="title sectiontitle">Keys that are defined in sibling key scopes</h2>
+
+        <p class="p">
+          Because a parent key scope contains scope-qualified keys from all of its child scopes, and
+          a child scope inherits all of the key definitions (including scope-qualified keys) from
+          its parent scope, it is possible for a child scope to reference its own scope-qualified
+          keys, as well as those defined by its sibling scopes.
+        </p>
+        <p class="p">
+          For example, consider two sibling scopes, "scope1" and "scope2". Each scope defines the
+          key "productName". References to "productName" in each scope resolve to the local
+          definition. However, since each scope inherits the scope-qualified keys that are available
+          in their parent scope, either scope can reference "scope1.productName" and
+          "scope2.productName" to refer to the scope-specific definitions for that key.
+        </p>
+      </section>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/key-based-addressing.html"
+            title="DITA keys provide an alternative to direct addressing. The key reference mechanism provides a layer of indirection so that resources (for example, URIs, metadata, or variable text strings) can be defined at the DITA map level instead of locally in each topic."
+            >Indirect key-based addressing</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

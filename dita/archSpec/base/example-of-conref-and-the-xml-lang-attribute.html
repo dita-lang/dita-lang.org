@@ -1,0 +1,235 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Example: content reference and the xml:lang
+  attribute'
+description: 'This example outlines how processors
+  determine the effective value of the xml:lang
+  attribute for content that is referenced by the conref
+  or conkeyref attribute.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+      <ul class="nav nav-list">
+        <li><a href="../../archSpec/base/accessibility.html">Accessibility</a></li>
+        <li>
+          <a href="../../archSpec/base/translation.html">Translation and localization</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/xmllang.html">The xml:lang attribute</a>
+              <ul class="nav nav-list">
+                <li>
+                  <a href="../../archSpec/base/location-of-the-xml-lang-attribute.html"
+                    >Recommendations for the xml:lang attribute</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../archSpec/base/processing-expectations-regarding-the-xml-lang-attribute.html"
+                    >Processing expectations regarding the xml:lang attribute</a
+                  >
+                </li>
+                <li class="active">
+                  <a href="../../archSpec/base/example-of-conref-and-the-xml-lang-attribute.html"
+                    >Example: content reference and the xml:lang attribute</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li><a href="../../archSpec/base/diratt.html">The dir attribute</a></li>
+            <li>
+              <a href="../../archSpec/base/the-translate-attribute.html">The translate attribute</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      Example: content reference and the
+      <code class="keyword markupname xmlatt">@xml:lang</code> attribute
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        This <span style="color:red;" class="ph">example</span> outlines how processors determine
+        the effective value of the
+        <code class="keyword markupname xmlatt">@xml:lang</code> attribute for content that is
+        referenced by the <code class="keyword markupname xmlatt">@conref</code> or
+        <code class="keyword markupname xmlatt">@conkeyref</code> attribute.
+      </p>
+      <p class="p">
+        In this
+        <span style="color:red;" class="ph"
+          >scenario, a company has a notices topic that contains warnings in multiple languages. The
+          notices topic
+        </span>
+        specifies an <code class="keyword markupname xmlatt">@xml:lang</code> attribute of
+        <span class="keyword">en</span>. However, it contains content that is reused from topics
+        that explicitly set the <code class="keyword markupname xmlatt">@xml:lang</code> attribute
+        to <span class="keyword">fr</span
+        ><span style="color:red;" class="ph"> and <span class="keyword">de</span>.</span>
+      </p>
+      <p class="p">
+        The following code block shows the content of the DITA topic that contains the referencing
+        <span style="color:red;" class="ph">elements</span>:
+      </p>
+      <figure
+        class="fig fignone"
+        style="color:red;"
+        id="example-of-conref-and-the-xml-lang-attribute__topic-with-conrefs"
+      >
+        <figcaption>
+          <span class="fig--title-label">Figure 1. </span>Topic that contains the conrefs
+        </figcaption>
+
+        <pre class="pre codeblock"><code>&lt;topic xml:lang="en" id="notices"&gt;
+ &lt;title&gt;NOTICES&lt;/title&gt;
+ &lt;shortdesc&gt;Be sure to read all product safety information before using the product.&lt;/shortdesc&gt;
+ &lt;body&gt;
+   &lt;note id="warning-english" conref="warnings-en.dita#warnings/general"/&gt;
+   <strong class="ph b">&lt;note id="warning-french" conref="warnings-fr.dita#warnings/general"/&gt;</strong>
+   <strong class="ph b">&lt;note id="warning-german" conref="warnings-de.dita#warnings/general"/&gt;</strong>
+   &lt;!-- ... All supported languages for the product ... --&gt;
+ &lt;/body&gt;
+&lt;/topic&gt;</code></pre>
+      </figure>
+      <p class="p">
+        The following code <span style="color:red;" class="ph">blocks</span> show the content of the
+        <span style="color:red;" class="ph">topics that contains the referenced elements:</span>
+      </p>
+      <figure class="fig fignone" style="color:red;">
+        <figcaption>
+          <span class="fig--title-label">Figure 2. </span>English warnings topic:
+          <span class="ph filepath">warnings-en.dita</span>
+        </figcaption>
+
+        <pre class="pre codeblock"><code>&lt;topic id="warnings" xml:lang="en"&gt;
+ &lt;title&gt;Reusable warnings (English)&lt;/title&gt;
+ &lt;body&gt;
+  &lt;note id="general"&gt;General notice about using the product...&lt;/note&gt;
+  &lt;note id="water"&gt;Warning about using the product near water...&lt;/note&gt;
+  &lt;!-- Other reusable warnings --&gt;
+ &lt;/body&gt;
+&lt;/topic&gt;
+</code></pre>
+      </figure>
+      <figure class="fig fignone" style="color:red;">
+        <figcaption>
+          <span class="fig--title-label">Figure 3. </span>French warnings topic:
+          <span class="ph filepath">warnings-fr.dita</span>
+        </figcaption>
+
+        <pre class="pre codeblock"><code>&lt;topic id="warnings" xml:lang="fr"&gt;
+ &lt;title&gt;Reusable warnings (French)&lt;/title&gt;
+ &lt;body&gt;
+  &lt;note id="general"&gt;(French translation of: General notice about using the product...)&lt;/note&gt;
+  &lt;note id="water"&gt;(French translation of: Warning about using the product near water...)&lt;/note&gt;
+  &lt;!-- Other reusable warnings --&gt;
+ &lt;/body&gt;
+&lt;/topic&gt;
+</code></pre>
+      </figure>
+      <figure class="fig fignone" style="color:red;">
+        <figcaption>
+          <span class="fig--title-label">Figure 4. </span>German warnings topic:
+          <span class="ph filepath">warnings-de.dita</span>
+        </figcaption>
+
+        <pre class="pre codeblock"><code>&lt;topic id="warnings" xml:lang="de"&gt;
+ &lt;title&gt;Reusable warnings (German)&lt;/title&gt;
+ &lt;body&gt;
+  &lt;note id="general"&gt;(German translation of: General notice about using the product...)&lt;/note&gt;
+  &lt;note id="water"&gt;(German translation of: Warning about using the product near water...)&lt;/note&gt;
+  &lt;!-- Other reusable warnings --&gt;
+ &lt;/body&gt;
+&lt;/topic&gt;
+</code></pre>
+      </figure>
+      <div style="color:red;" class="div">
+        <p class="p">
+          When the topic that contains the conrefed notes is processed, the following occurs:
+        </p>
+        <ul class="ul">
+          <li class="li">
+            The <code class="keyword markupname xmlelement">&lt;note&gt;</code> element with the
+            <code class="keyword markupname xmlatt">@id</code> attribute set to
+            <span class="keyword">warning-french</span> has an effective value for the
+            <code class="keyword markupname xmlatt">@xml:lang</code> attribute of
+            <span class="keyword">fr</span>.
+          </li>
+          <li class="li">
+            The <code class="keyword markupname xmlelement">&lt;note&gt;</code> element with the
+            <code class="keyword markupname xmlatt">@id</code> attribute set to
+            <span class="keyword">warning-german</span> has an effective value for the
+            <code class="keyword markupname xmlatt">@xml:lang</code> attribute of
+            <span class="keyword">de</span>.
+          </li>
+        </ul>
+        <p class="p">
+          In each case, the effective value of the
+          <code class="keyword markupname xmlatt">@xml:lang</code>
+          attribute for the note is determined by the value of the
+          <code class="keyword markupname xmlatt">@xml:lang</code> attribute that is specified on
+          the topic that contains the referenced element, instead of the value of the
+          <code class="keyword markupname xmlatt">@xml:lang</code> attribute that is specified on
+          the notices topic that contains the referencing elements.
+        </p>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/xmllang.html"
+            title="The xml:lang attribute specifies the language and optional locale of the content that is contained in an element. The xml:lang attribute is described in the XML Recommendation."
+            >The xml:lang attribute</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

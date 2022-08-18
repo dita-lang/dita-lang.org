@@ -1,0 +1,162 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Processing chunk="combine"'
+description: 'The presence of
+  chunk="combine" instructs a processor to combine the
+  referenced source documents for rendering
+  purposes.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li>
+      <a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a>
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/dita-maps-and-their-usage.html">DITA maps and their usage</a>
+        </li>
+        <li>
+          <a href="../../archSpec/base/subject-scheme-maps-and-usage.html"
+            >Subject scheme maps and their usage</a
+          >
+        </li>
+        <li><a href="../../archSpec/base/map-cascading.html">Metadata cascading</a></li>
+        <li>
+          <a href="../../archSpec/base/chunking.html">Chunking</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/chunk-attribute-overview.html"
+                >About the chunk attribute</a
+              >
+            </li>
+            <li class="active">
+              <a href="../../archSpec/base/chunk-attribute-combine.html"
+                >Processing chunk="combine"</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/chunk-attribute-split.html">Processing chunk="split"</a>
+            </li>
+            <li>
+              <a href="../../archSpec/base/chunk-attribute-other-tokens.html"
+                >Using the chunk attribute for other purposes</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/examples-of-chunking.html"
+                >Examples of the chunk attribute</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      Processing <code class="ph codeph">chunk="combine"</code>
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        <span style="color:red;" class="ph">The presence of </span>
+        <code class="ph codeph">chunk="combine"</code> instructs a processor to combine the
+        <span style="color:red;" class="ph">referenced</span> source documents for rendering
+        purposes.
+      </p>
+      <p class="p">The following rules apply:</p>
+      <ul class="ul">
+        <li class="li">
+          When
+          <span style="color:red;" class="ph"
+            ><code class="ph codeph">chunk="combine"</code> is specified</span
+          >
+          on the root element of a map, all source DITA documents
+          <span style="color:red;" class="ph">that are</span> referenced by the map are treated as
+          one DITA document.
+        </li>
+        <li class="li">
+          When
+          <span style="color:red;" class="ph"
+            ><code class="ph codeph">chunk="combine"</code> is specified</span
+          >
+          on a branch of a map, all source DITA documents
+          <span style="color:red;" class="ph">that are</span> referenced within that branch are
+          treated as one DITA document.
+          <div class="note note note_note">
+            <span class="note__title">Note:</span> This is true regardless of whether the element
+            that specifies <code class="keyword markupname xmlatt">@chunk</code> refers to a topic
+            or specifies a heading. In cases such as
+            <code class="keyword markupname xmlelement">&lt;topicgroup&gt;</code> where a grouping
+            element specifies <code class="ph codeph">chunk="combine"</code>, the equivalent DITA
+            document would be a single DITA document with a root element
+            <span style="color:red;" class="ph">that groups</span> peer topics.
+          </div>
+        </li>
+
+        <li class="li">
+          <span style="color:red;" class="ph">When</span>
+          <code class="ph codeph">chunk="combine"</code> is specified on a map,
+          <span style="color:red;" class="ph">map</span> branch, or map reference, all source DITA
+          documents <span style="color:red;" class="ph">that are</span> grouped by the reference are
+          treated as a single resource. Any additional
+          <code class="keyword markupname xmlatt">@chunk</code> attributes on elements within the
+          <span style="color:red;" class="ph">grouping</span> are ignored.
+        </li>
+      </ul>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/chunking.html"
+            title="Content often needs to be delivered in a different granularity than it is authored. The chunk attribute enables map authors to specify that multiple source documents should be combined into a single document for delivery or that a single source document should be split into multiple documents for delivery."
+            >Chunking</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

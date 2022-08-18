@@ -1,0 +1,156 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Accessible content'
+description: ' DITA provides elements and attributes that are designed to
+  make content accessible.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/accessibility.html">Accessibility</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/accessibility-contentvsprocessor.html"
+                >Handling accessibility in content and in processors</a
+              >
+            </li>
+            <li class="active">
+              <a href="../../archSpec/base/accessiblemarkup.html">Accessible content</a>
+            </li>
+            <li><a href="../../archSpec/base/accessibletablemarkup.html">Accessible tables</a></li>
+            <li>
+              <a href="../../archSpec/base/examples-of-dita-markup-for-accessibility.html"
+                >Examples of DITA markup for accessibility</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/translation.html">Translation and localization</a></li>
+      </ul>
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Accessible content</h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        DITA provides elements and attributes that are designed to make content accessible.
+      </p>
+      <section class="section" id="accessibilitymarkup__about">
+        <p class="p">
+          Many common types of content are not accessible to all readers. For example, an image
+          cannot be rendered by a screen reader, and a video cannot be rendered in many formats.
+          DITA includes markup features that are designed to convey alternate versions of such
+          content.
+        </p>
+        <dl class="dl">
+          <dt class="dt dlterm" id="accessibilitymarkup__images">Alternate text for images</dt>
+          <dd class="dd">
+            <p class="p">
+              <span class="ph"
+                >Alternate text is a textual description of an image. Systems often render the
+                alternate text when the reader is using assistive technology or the image cannot be
+                rendered.</span
+              >
+            </p>
+            <p class="p">
+              The <code class="keyword markupname xmlelement">&lt;alt&gt;</code> element is
+              available inside of images as a way to specify alternate text.
+            </p>
+          </dd>
+
+          <dt class="dt dlterm">Alternate text for areas of image maps</dt>
+          <dd class="dd">
+            <p class="p">
+              Within an image map, each defined area of the image can specify a cross reference.
+              Whether <span style="color:red;" class="ph">or not</span> the cross reference actually
+              specifies a URI reference, the text within that cross reference
+              <span style="color:red;" class="ph">functions</span> as alternate or hover text.
+            </p>
+          </dd>
+
+          <dt class="dt dlterm">Long descriptions for media</dt>
+          <dd class="dd">
+            <p class="p">
+              <span style="color:red;" class="ph"
+                >A long description reference is a reference to a textual description of a graphic
+                or object. This is typically used to provide an extended description when the
+                graphic or object is too complicated to describe with alternate text.</span
+              >
+            </p>
+            <p class="p">Processors can handle the reference in the following ways:</p>
+            <ul class="ul">
+              <li class="li">Render the graphic or object as a link</li>
+              <li class="li">
+                Make the extended description available to accessibility tools such as screen
+                readers
+              </li>
+            </ul>
+          </dd>
+        </dl>
+        <p class="p">
+          While DITA provides the markup to enable these accessibility features, it is up to DITA
+          processors to render output that uses the markup properly. For example, when a processor
+          generates HTML5, alternate text must be specified using the
+          <code class="keyword markupname xmlatt">@alt</code> attribute on the
+          <code class="keyword markupname xmlelement">&lt;img&gt;</code> element.
+        </p>
+      </section>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/accessibility.html"
+            title="DITA has markup and features that enable producing output that is accessible by all audiences."
+            >Accessibility</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

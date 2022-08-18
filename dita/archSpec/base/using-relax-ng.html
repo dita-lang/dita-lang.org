@@ -1,0 +1,155 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Normative versions of DITA grammar files'
+description: 'The OASIS DITA Technical Committee uses the RELAX NG XML syntax for the normative
+  versions of the XML grammar files that comprise the DITA release. '
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/recognizedconstraintmechanisms.html"
+            >Recognized XML-document grammar mechanisms</a
+          >
+        </li>
+        <li class="active">
+          <a href="../../archSpec/base/using-relax-ng.html"
+            >Normative versions of DITA grammar files</a
+          >
+        </li>
+        <li><a href="../../archSpec/base/dtd-requirements.html">DTD coding requirements</a></li>
+        <li>
+          <a href="../../archSpec/base/relax-ng-requirements.html">RELAX NG coding requirements</a>
+        </li>
+      </ul>
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Normative versions of DITA grammar files</h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        The OASIS DITA Technical Committee uses the RELAX NG XML syntax for the normative versions
+        of the XML grammar files that comprise the DITA release.
+      </p>
+      <p class="p">
+        The DITA Technical Committee chose the RELAX NG XML syntax for the following reasons:
+      </p>
+      <dl class="dl">
+        <dt class="dt dlterm">Easy use of foreign markup</dt>
+        <dd class="dd">
+          The DITA grammar files maintained by OASIS depend on this feature of RELAX NG in order to
+          capture metadata about document-type shells and modules.
+          <p class="p">
+            The foreign vocabulary feature also can be used to include Schematron rules directly in
+            RELAX NG grammars. Schematron rules can check for patterns that either are not
+            expressible with RELAX NG directly or that would be difficult to express.
+          </p>
+        </dd>
+
+        <dt class="dt dlterm">
+          RELAX NG <code class="keyword markupname xmlelement">&lt;div&gt;</code> element
+        </dt>
+        <dd class="dd">
+          This general grouping element allows for arbitrary organization and grouping of patterns
+          within grammar documents. Such grouping tends to make the grammar documents easier to work
+          with, especially in XML-aware editors. The use or non-use of the RELAX NG
+          <code class="keyword markupname xmlelement">&lt;div&gt;</code> element does not affect the
+          meaning of the patterns that are defined in a RELAX NG schema.
+        </dd>
+
+        <dt class="dt dlterm">Capability of expressing precise restrictions</dt>
+        <dd class="dd">
+          RELAX NG is capable of expressing constraints that are more precise than is possible with
+          either DTDs or XSDs. For example, RELAX NG patterns can be context specific such that the
+          same element type can allow different content or attributes in different contexts.
+          <p class="p">
+            If you plan to generate DTD- or XSD-based modules from RELAX NG modules, avoid RELAX NG
+            features that cannot be translated into DTD or XSD constructs. When RELAX NG is used
+            directly for DITA document validation, the document-type shells for those documents can
+            integrate constraint modules that use the full power of RELAX NG to enforce constraints
+            that cannot be enforced by DTDs or XSDs. The grammar files provided by the OASIS DITA
+            Technical Committee do not use any features of RELAX NG that cannot be translated into
+            equivalent DTD or XSD constructs.
+          </p>
+        </dd>
+      </dl>
+      <p class="p">
+        The DITA use of RELAX NG depends on the
+        <cite class="cite">RELAX NG DTD Compatibility</cite> specification, which provides a
+        mechanism for defining default attribute values and embedded documentation. Processors that
+        use RELAX NG for DITA documents in which required attributes (for example,
+        <code class="keyword markupname xmlatt">@class</code> attribute) are not explicitly present
+        must implement the DTD compatibility specification in order to get default attribute values.
+      </p>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/coding-requirements.html"
+            title="This section collects all of the rules for creating modular DTD or RELAX NG-based grammar files that represent DITA document types, specializations, constraints, and expansion modules."
+            >Coding practices for DITA grammar files</a
+          >
+        </div>
+      </div>
+      <div class="linklist relinfo">
+        <strong>Related information</strong><br />
+        <ul class="linklist">
+          <li class="linklist">
+            <a
+              class="link"
+              href="http://dita.xml.org/resource/relax-ng-to-dtd-or-xsd-tools"
+              target="_blank"
+              rel="external noopener"
+              >Tools for generating DTD or XSD from RELAX NG</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </article>
+</main>

@@ -1,0 +1,153 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Overview of expansion modules'
+description: 'Expansion modules enable information architects to include specialized attributes or
+  elements in specific element types, without making them globally available.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/ditaspecialization.html"
+            >Overview of DITA extension facilities</a
+          >
+        </li>
+        <li><a href="../../archSpec/base/configuration.html">Document-type configuration</a></li>
+        <li><a href="../../archSpec/base/specialization.html">Specialization</a></li>
+        <li><a href="../../archSpec/base/generalization.html">Generalization</a></li>
+        <li><a href="../../archSpec/base/constraints.html">Constraints</a></li>
+        <li>
+          <a href="../../archSpec/base/expansion-modules.html">Expansion modules</a>
+          <ul class="nav nav-list">
+            <li class="active">
+              <a href="../../archSpec/base/overview-of-expansion-modules.html"
+                >Overview of expansion modules</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/expansion-module-rules.html">Expansion module rules</a>
+            </li>
+            <li>
+              <a href="../../archSpec/base/example-expansion-modules.html"
+                >Examples: Expansion modules</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Overview of expansion modules</h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        Expansion modules enable information architects to include specialized attributes or
+        elements in specific element types, without making them globally available.
+      </p>
+      <p class="p">An expansion module can perform the following functions:</p>
+      <dl class="dl">
+        <dt class="dt dlterm">Expand content models</dt>
+        <dd class="dd">
+          <p class="p">
+            Expansion modules extend the content models of specific elements, without making the
+            specialized elements available wherever the specialization base is permitted.
+          </p>
+          <p class="p">
+            For example, an expansion for
+            <code class="keyword markupname xmlelement">&lt;section&gt;</code> can make a new
+            element (<code class="keyword markupname xmlelement">&lt;sectionDesc&gt;</code>)
+            available as an optional, child element. The
+            <code class="keyword markupname xmlelement">&lt;sectionDesc&gt;</code> element is
+            specialized from <code class="keyword markupname xmlelement">&lt;p&gt;</code>, but it is
+            available only within
+            <code class="keyword markupname xmlelement">&lt;section&gt;</code>.
+          </p>
+          <p class="p">
+            The elements must be defined in a separate element domain that declares the content
+            models and attribute lists for the new elements.
+          </p>
+        </dd>
+
+        <dt class="dt dlterm">Expand attribute lists</dt>
+        <dd class="dd">
+          <p class="p">
+            Expansion modules extend the attribute lists of specific elements by adding attributes
+            specialized from either <code class="keyword markupname xmlatt">@base</code> or
+            <code class="keyword markupname xmlatt">@props</code>.
+          </p>
+          <p class="p">
+            For example, an expansion for
+            <code class="keyword markupname xmlelement">&lt;entry&gt;</code>,
+            <code class="keyword markupname xmlelement">&lt;row&gt;</code>, and
+            <code class="keyword markupname xmlelement">&lt;colspec&gt;</code> can make
+            <code class="keyword markupname xmlatt">@cell-purpose</code> available only on those
+            elements. The <code class="keyword markupname xmlatt">@cell-purpose</code> attribute is
+            specialized from <code class="keyword markupname xmlatt">@base</code>.
+          </p>
+          <p class="p">
+            The additional attribute can be either defined directly within the expansion module, or
+            it can be defined in a separate attribute-specialization module. In either case, the
+            token used as value for the
+            <code class="keyword markupname xmlatt">@specializations</code> attribute must be
+            defined.
+          </p>
+        </dd>
+      </dl>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/expansion-modules.html"
+            title="Expansion modules enable the extension of content models and attribute lists for individual elements. Expansion modules are the opposite of constraints. They add elements and attributes to specific content models and attribute lists, rather than removing them."
+            >Expansion modules</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

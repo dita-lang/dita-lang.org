@@ -1,0 +1,170 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Branch filtering: Single referenced DITAVAL document for a branch'
+description: 'Using a single ditavalref element as a child of a map or map
+  branch indicates that the map or map branch is filtered using the rules specified in the
+  referenced DITAVAL document.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li>
+      <a href="../../archSpec/base/behaviors.html">DITA processing</a>
+      <ul class="nav nav-list">
+        <li><a href="../../archSpec/base/navigation.html">Navigation</a></li>
+        <li><a href="../../archSpec/base/indexes.html">Indexes</a></li>
+        <li><a href="../../archSpec/base/conref.html">Content reference (conref)</a></li>
+        <li><a href="../../archSpec/base/condproc.html">Conditional processing</a></li>
+        <li>
+          <a href="../../archSpec/base/branch-filtering.html">Branch filtering</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/branch-filtering-overview.html"
+                >Overview of branch filtering</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/branch-filtering-interactions.html"
+                >How filtering rules interact</a
+              >
+            </li>
+            <li class="active">
+              <a href="../../archSpec/base/branch-filtering-single-set.html"
+                >Branch filtering: Single referenced DITAVAL document for a branch</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/branch-filtering-multiple-sets.html"
+                >Branch filtering: Multiple referenced DITAVAL documents for a branch</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/branch-filtering-resource-names.html"
+                >Branch filtering: Impact on resource and key names</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/branch-filtering-implications-of-processing-order.html"
+                >Branch filtering: Implications of processing order</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/examples-of-branch-filter.html"
+                >Examples of branch filtering</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/sort-as-processing.html">Sorting</a></li>
+        <li>
+          <a href="../../archSpec/base/determining-effective-attribute-values.html"
+            >Determining effective attribute values</a
+          >
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      Branch filtering: Single referenced DITAVAL document for a branch
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        Using a single <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element
+        as a child of a map or map branch indicates that the map or map branch is filtered using the
+        rules specified in the referenced DITAVAL document.
+      </p>
+
+      <p class="p">
+        The following rules outline how the filtering conditions that are specified in DITAVAL
+        document are applied:
+      </p>
+      <dl class="dl">
+        <dt class="dt dlterm">
+          <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element as a direct
+          child of a map
+        </dt>
+        <dd class="dd">The filtering conditions are applied to the entire map.</dd>
+
+        <dt class="dt dlterm">
+          <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element within a map
+          branch
+        </dt>
+        <dd class="dd">
+          The filtering conditions are used to process the entire branch, including the parent
+          element that contains the
+          <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element.
+        </dd>
+
+        <dt class="dt dlterm">
+          <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element within a
+          <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> reference to a local
+          map
+        </dt>
+        <dd class="dd">The filtering conditions are applied to the submap.</dd>
+
+        <dt class="dt dlterm">
+          <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element within a
+          <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> reference to peer map
+        </dt>
+        <dd class="dd">
+          The reference conditions are <strong class="ph b">not</strong> applied to the peer map.
+        </dd>
+      </dl>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/branch-filtering.html"
+            title="The branch filtering mechanism enables map authors to set filtering conditions for specific branches of a map. This makes it possible for multiple conditional-processing profiles to be applied within a single publication."
+            >Branch filtering</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

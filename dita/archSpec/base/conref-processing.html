@@ -1,0 +1,146 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Processing conrefs'
+description: 'When processing content references, DITA processors compare the
+  restrictions of each context to ensure that the conrefed content is valid in its new
+  context.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li>
+      <a href="../../archSpec/base/behaviors.html">DITA processing</a>
+      <ul class="nav nav-list">
+        <li><a href="../../archSpec/base/navigation.html">Navigation</a></li>
+        <li><a href="../../archSpec/base/indexes.html">Indexes</a></li>
+        <li>
+          <a href="../../archSpec/base/conref.html">Content reference (conref)</a>
+          <ul class="nav nav-list">
+            <li><a href="../../archSpec/base/conref-overview.html">Conref overview</a></li>
+            <li>
+              <a href="../../archSpec/base/theconactionattribute.html">The conaction attribute</a>
+            </li>
+            <li>
+              <a href="../../archSpec/base/theconrefendattribute.html">The conrefend attribute</a>
+            </li>
+            <li>
+              <a href="../../archSpec/base/theconkeyrefattribute.html">The conkeyref attribute</a>
+            </li>
+            <li><a href="../../archSpec/base/theconrefattribute.html">The conref attribute</a></li>
+            <li>
+              <a href="../../archSpec/base/ditauseconreftarget.html"
+                >Using the -dita-use-conref-target value</a
+              >
+            </li>
+            <li class="active">
+              <a href="../../archSpec/base/conref-processing.html">Processing conrefs</a>
+            </li>
+            <li>
+              <a href="../../archSpec/base/conref-attributes-specified-on-elements.html"
+                >Processing attributes when resolving conrefs</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/handling-xref-and-conref-within-topics.html"
+                >Processing xrefs and conrefs within a conref</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/condproc.html">Conditional processing</a></li>
+        <li><a href="../../archSpec/base/branch-filtering.html">Branch filtering</a></li>
+        <li><a href="../../archSpec/base/sort-as-processing.html">Sorting</a></li>
+        <li>
+          <a href="../../archSpec/base/determining-effective-attribute-values.html"
+            >Determining effective attribute values</a
+          >
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1"><span class="ph">Processing conrefs</span></h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        When processing content references, DITA processors compare the restrictions of each context
+        to ensure that the conrefed content is valid in its new context.
+      </p>
+      <div class="note note note_note">
+        <span class="note__title">Note:</span> The DITA
+        <code class="keyword markupname xmlatt">@conref</code> attribute is a transclusion mechanism
+        similar to XInclude and to HyTime value references. DITA differs from these mechanisms,
+        however, in that conref validity does not apply simply to the current content at the time of
+        replacement, but to the possible content given the restrictions of both the referencing
+        document type and the referenced document type.
+      </div>
+      <p class="p">
+        When content is reused between two documents with different domains or constraints, it is
+        possible for the reused content to include domain extensions that are not defined for the
+        new context, or to include elements that would be constrained out of the new context. When
+        pulling or pushing content with the conref mechanism, processors resolving conrefs
+        <dfn class="term RFC-2119">SHOULD</dfn> tolerate specializations of valid elements.
+        Processors <dfn class="term RFC-2119">MAY</dfn> generalize elements in the pushed or pulled
+        content fragment as needed for the resolving context.
+      </p>
+      <p class="p">
+        A conref processor <dfn class="term RFC-2119">SHOULD NOT</dfn> permit resolution of a reuse
+        relationship that could be rendered invalid under the rules of either the reused or reusing
+        content.
+      </p>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/conref.html"
+            title="The DITA conref attributes provide mechanisms for reusing content. DITA content references support reuse scenarios that are difficult or impossible to implement using other XML-based inclusion mechanisms like XInclude and entities. Additionally, DITA content references have rules that help ensure that the results of content inclusion remain valid after resolution"
+            >Content reference (conref)</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

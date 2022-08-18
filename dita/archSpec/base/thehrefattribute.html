@@ -1,0 +1,315 @@
+---
+# Generated from DITA source
+layout: base
+title: 'The href attribute'
+description: 'The href attribute specifies the URI of the
+  resource that is addressed. The referenced resource
+  can be   another DITA topic or map, an element inside a DITA
+  topic or map, or a non-DITA resource.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li>
+      <a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a>
+      <ul class="nav nav-list">
+        <li><a href="../../archSpec/base/id.html">ID attribute</a></li>
+        <li>
+          <a href="../../archSpec/base/dita-linking.html">DITA linking</a>
+          <ul class="nav nav-list">
+            <li><a href="../../archSpec/base/theformatattribute.html">The format attribute</a></li>
+            <li class="active">
+              <a href="../../archSpec/base/thehrefattribute.html">The href attribute</a>
+            </li>
+            <li><a href="../../archSpec/base/thescopeattribute.html">The scope attribute</a></li>
+            <li><a href="../../archSpec/base/thetypeattribute.html">The type attribute</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="../../archSpec/base/uri-based-addressing.html">URI-based (direct) addressing</a>
+        </li>
+        <li>
+          <a href="../../archSpec/base/key-based-addressing.html">Indirect key-based addressing</a>
+        </li>
+        <li>
+          <a href="../../archSpec/base/context-hooks-for-user-assistance.html"
+            >Context hooks for user assistance</a
+          >
+        </li>
+      </ul>
+    </li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      The <code class="keyword markupname xmlatt">@href</code> attribute
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        The <code class="keyword markupname xmlatt">@href</code> attribute specifies the URI of the
+        resource that is addressed.
+        <span style="color:red;" class="ph">The referenced resource can be </span> another DITA
+        topic or map, an element inside a DITA topic or map, or a non-DITA resource.
+      </p>
+      <p class="p">
+        The value of the <code class="keyword markupname xmlatt">@href</code> attribute
+        <dfn class="term RFC-2119">MUST</dfn> be a valid URI reference [<a
+          class="xref"
+          href="http://www.ietf.org/rfc/rfc3986.txt"
+          target="_blank"
+          rel="external noopener"
+          >RFC 3986</a
+        >]. If the value of the <code class="keyword markupname xmlatt">@href</code> attribute is
+        not a valid URI reference, an implementation <dfn class="term RFC-2119">MAY</dfn> generate
+        an error message. It <dfn class="term RFC-2119">MAY</dfn> also recover from this error
+        condition by attempting to convert the value to a valid URI reference.
+      </p>
+      <p class="p">
+        The value of the <code class="keyword markupname xmlatt">@href</code>
+        <span style="color:red;" class="ph">attribute</span> can optionally contain a fragment
+        identifier.
+      </p>
+      <p class="p">
+        When an <code class="keyword markupname xmlatt">@href</code> attribute references a DITA
+        resource using a URI without a fragment identifier, the URI resolves to the root element in
+        the referenced document. For the purposes of rendering, such as when a topic reference to a
+        DITA document is used to render the content as HTML, this means that
+        <strong class="ph b">all</strong> topics in the target document are included in the
+        reference. For the purpose of linking, the reference resolves to the first topic in the
+        document.
+      </p>
+      <p class="p">
+        When an <code class="keyword markupname xmlatt">@href</code> attribute references a DITA
+        resource using a URI with a fragment identifier, the portion after the hash must be a DITA
+        local identifier. A DITA local identifier takes the following forms:
+      </p>
+      <table class="simpletable">
+        <colgroup>
+          <col style="width:50%" />
+          <col style="width:50%" />
+        </colgroup>
+        <thead>
+          <tr class="sthead">
+            <th class="stentry" scope="col" id="thehrefattribute__stentry__1">Target</th>
+            <th class="stentry" scope="col" id="thehrefattribute__stentry__2">Syntax</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="strow">
+            <td class="stentry" headers="thehrefattribute__stentry__1">Topic element</td>
+            <td class="stentry" headers="thehrefattribute__stentry__2">
+              <code class="ph codeph"><var class="keyword varname">topicID</var></code>
+            </td>
+          </tr>
+          <tr class="strow">
+            <td class="stentry" headers="thehrefattribute__stentry__1">Element in a topic</td>
+            <td class="stentry" headers="thehrefattribute__stentry__2">
+              <code class="ph codeph"
+                ><var class="keyword varname">topicID</var>/<var class="keyword varname"
+                  >elementID</var
+                ></code
+              >
+            </td>
+          </tr>
+          <tr class="strow">
+            <td class="stentry" headers="thehrefattribute__stentry__1">Element in a map</td>
+            <td class="stentry" headers="thehrefattribute__stentry__2">
+              <code class="ph codeph"><var class="keyword varname">mapElementID</var></code>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="p">Where:</p>
+      <ul class="ul">
+        <li class="li">
+          <var class="keyword varname">topicID</var> is the value of the
+          <code class="keyword markupname xmlatt">@id</code> attribute of the DITA topic. If the
+          topic referenced by a DITA local identifier is the same topic that includes the reference,
+          then <var class="keyword varname">topicID</var> can be replaced by a period.
+        </li>
+        <li class="li">
+          <var class="keyword varname">elementID</var> is the value of the
+          <code class="keyword markupname xmlatt">@id</code> attribute of the
+          <span style="color:red;" class="ph">non-topic</span> element within a DITA topic.
+        </li>
+        <li class="li">
+          <var class="keyword varname">mapElementID</var> is the value of the
+          <code class="keyword markupname xmlatt">@id</code> attribute of the element within a DITA
+          map document.
+        </li>
+      </ul>
+      <p class="p">
+        See
+        <a
+          class="xref"
+          href="handling-xref-and-conref-within-topics.html"
+          title="When referenced content contains a content reference or cross reference, the effective target of the reference depends on the form of address that is used in the referenced content. It also might depend on the map context, especially when key scopes are present."
+          >Processing xrefs and conrefs within a conref</a
+        >
+        for more information on how this syntax relates to conref resolution.
+      </p>
+
+      <div class="example" id="thehrefattribute__example">
+        <h2 class="title sectiontitle">
+          Example: Common syntax for the
+          <code class="keyword markupname xmlatt">@href</code> attribute
+        </h2>
+
+        <p class="p">
+          The following table includes some examples of common
+          <code class="keyword markupname xmlatt">@href</code> syntax. Note that these examples
+          represent only a few common scenarios and are not all-inclusive.
+        </p>
+        <table class="simpletable frame-all">
+          <colgroup>
+            <col style="width:50%" />
+            <col style="width:50%" />
+          </colgroup>
+          <thead>
+            <tr class="sthead">
+              <th class="stentry" scope="col" id="thehrefattribute__example__stentry__1">Target</th>
+              <th class="stentry" scope="col" id="thehrefattribute__example__stentry__2">Syntax</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="strow">
+              <td class="stentry" headers="thehrefattribute__example__stentry__1">
+                The first topic in a DITA document
+              </td>
+              <td class="stentry" headers="thehrefattribute__example__stentry__2">
+                <code class="ph codeph">href="file.dita"</code>
+              </td>
+            </tr>
+            <tr class="strow">
+              <td class="stentry" headers="thehrefattribute__example__stentry__1">
+                A specific topic in a DITA document
+              </td>
+              <td class="stentry" headers="thehrefattribute__example__stentry__2">
+                <code class="ph codeph"
+                  >href="file.dita#<var class="keyword varname">topicid</var>"</code
+                >
+              </td>
+            </tr>
+            <tr class="strow">
+              <td class="stentry" headers="thehrefattribute__example__stentry__1">
+                A non-topic element inside a DITA topic
+              </td>
+              <td class="stentry" headers="thehrefattribute__example__stentry__2">
+                <code class="ph codeph"
+                  >href="<span class="ph">file.dita#</span
+                  ><var class="keyword varname">topicid</var>/<var class="keyword varname"
+                    >elementid</var
+                  >"</code
+                >
+              </td>
+            </tr>
+            <tr class="strow">
+              <td class="stentry" headers="thehrefattribute__example__stentry__1">
+                A non-topic element inside the same DITA topic as the reference
+              </td>
+              <td class="stentry" headers="thehrefattribute__example__stentry__2">
+                <code class="ph codeph"
+                  >href="#./<var class="keyword varname">elementid</var>"</code
+                >
+              </td>
+            </tr>
+            <tr class="strow">
+              <td class="stentry" headers="thehrefattribute__example__stentry__1">
+                An element in a DITA map
+              </td>
+              <td class="stentry" headers="thehrefattribute__example__stentry__2">
+                <code class="ph codeph"
+                  >href="myMap.ditamap#<var class="keyword varname">map-branch</var>"</code
+                >
+              </td>
+            </tr>
+            <tr class="strow">
+              <td class="stentry" headers="thehrefattribute__example__stentry__1">An image</td>
+              <td class="stentry" headers="thehrefattribute__example__stentry__2">
+                <code class="ph codeph">href="exampleImage.jpg"</code>
+              </td>
+            </tr>
+            <tr class="strow">
+              <td class="stentry" headers="thehrefattribute__example__stentry__1">
+                An external resource
+              </td>
+              <td class="stentry" headers="thehrefattribute__example__stentry__2">
+                <code class="ph codeph">href="http://www.example.org"</code>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="p">where:</p>
+        <ul class="ul">
+          <li class="li">
+            <var class="keyword varname">topicid</var> is the value of the
+            <code class="keyword markupname xmlatt">@id</code> attribute on the referenced DITA
+            topic.
+          </li>
+          <li class="li">
+            <var class="keyword varname">elementid</var> is the value of the
+            <code class="keyword markupname xmlatt">@id</code> attribute on the referenced
+            (non-topic) DITA element.
+          </li>
+          <li class="li">
+            <var class="keyword varname">map-branch</var> is the value of the
+            <code class="keyword markupname xmlatt">@id</code> attribute on the referenced DITA map
+            element.
+          </li>
+        </ul>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/dita-linking.html"
+            title="DITA supports many different linking elements, but they all use the same set of attributes: format, href, scope, and type. These four attributes act as a unit."
+            >DITA linking</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

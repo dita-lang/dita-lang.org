@@ -1,0 +1,189 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Overview of constraints'
+description: 'Constraint modules enable information architects to restrict the content models or
+  attributes of DITA elements. A constraint is a simplification of an XML grammar such that any
+  instance that conforms to the constrained grammar also will conform to the original
+  grammar.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/ditaspecialization.html"
+            >Overview of DITA extension facilities</a
+          >
+        </li>
+        <li><a href="../../archSpec/base/configuration.html">Document-type configuration</a></li>
+        <li><a href="../../archSpec/base/specialization.html">Specialization</a></li>
+        <li><a href="../../archSpec/base/generalization.html">Generalization</a></li>
+        <li>
+          <a href="../../archSpec/base/constraints.html">Constraints</a>
+          <ul class="nav nav-list">
+            <li class="active">
+              <a href="../../archSpec/base/constraints-overview.html">Overview of constraints</a>
+            </li>
+            <li><a href="../../archSpec/base/constraint-rules.html">Constraint rules</a></li>
+            <li>
+              <a href="../../archSpec/base/constraints-processing-interoperability.html"
+                >Constraints, processing, and interoperability</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/examples-constraints.html"
+                >Examples: Constraints implemented using DTDs</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/examples-constraints-implemented-using-rng.html"
+                >Examples: Constraints implemented using RNG</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/expansion-modules.html">Expansion modules</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Overview of constraints</h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        Constraint modules enable information architects to restrict the content models or
+        attributes of DITA elements. A constraint is a simplification of an XML grammar such that
+        any instance that conforms to the constrained grammar also will conform to the original
+        grammar.
+      </p>
+      <p class="p">A constraint module can perform the following functions:</p>
+      <dl class="dl">
+        <dt class="dt dlterm">Restrict the content model for an element</dt>
+        <dd class="dd">
+          Constraint modules can modify content models by removing optional elements, making
+          optional elements required, or requiring unordered elements to occur in a specific
+          sequence. Constraint modules cannot make required elements optional or change the order of
+          element occurrence for ordered elements.
+          <p class="p">
+            For example, a constraint for
+            <code class="keyword markupname xmlelement">&lt;topic&gt;</code> can require
+            <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code>, can remove
+            <code class="keyword markupname xmlelement">&lt;abstract&gt;</code>, and can require
+            that the first child of
+            <code class="keyword markupname xmlelement">&lt;body&gt;</code> be
+            <code class="keyword markupname xmlelement">&lt;p&gt;</code>. A constraint cannot allow
+            <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code> to follow
+            <code class="keyword markupname xmlelement">&lt;prolog&gt;</code>, because the content
+            model for <code class="keyword markupname xmlelement">&lt;topic&gt;</code>
+            <span class="ph"
+              >requires that
+              <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code> precedes
+              <code class="keyword markupname xmlelement">&lt;prolog&gt;</code>.</span
+            >
+          </p>
+        </dd>
+
+        <dt class="dt dlterm">Restrict the attributes that are available on an element</dt>
+        <dd class="dd">
+          <p class="p">
+            Constraint modules can restrict the attributes that are available on an element. They
+            also can limit the set of permissible values for an attribute.
+          </p>
+          <p class="p">
+            For example, a constraint for
+            <code class="keyword markupname xmlelement">&lt;note&gt;</code> can limit the set of
+            allowed values for the <code class="keyword markupname xmlatt">@type</code> attribute to
+            "note" and "tip". It also can omit the
+            <code class="keyword markupname xmlatt">@othertype</code> attribute, since it is needed
+            only when the value of the
+            <code class="keyword markupname xmlatt">@type</code> attribute is "other".
+          </p>
+        </dd>
+
+        <dt class="dt dlterm">Restrict the elements that are available in a domain</dt>
+        <dd class="dd">
+          <p class="p">
+            Constraint modules can restrict the set of extension elements that are provided in a
+            domain. They also can restrict the content models for the extension elements.
+          </p>
+          <p class="p">
+            For example, a constraint on the programming domain can reduce the list of included
+            extension elements to
+            <code class="keyword markupname xmlelement">&lt;codeph&gt;</code> and
+            <code class="keyword markupname xmlelement">&lt;codeblock&gt;</code>.
+          </p>
+          <div style="color:red;" class="note note note_note">
+            <span class="note__title">Note:</span> For DITA implementations that use RNG-based
+            grammar file, restricting the set of extension elements that are provided in a domain
+            can be handled simply by document-type configuration.
+          </div>
+        </dd>
+
+        <dt class="dt dlterm">Replace base elements with domain extensions</dt>
+        <dd class="dd">
+          Constraint modules can replace base element types with the domain-provided extension
+          elements.
+          <p class="p">
+            For example, a constraint module can replace the
+            <code class="keyword markupname xmlelement">&lt;ph&gt;</code> element with the
+            domain-provided elements, making
+            <code class="keyword markupname xmlelement">&lt;ph&gt;</code> unavailable.
+          </p>
+        </dd>
+      </dl>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/constraints.html"
+            title="Constraint modules define additional constraints for vocabulary modules in order to restrict content models or attribute lists for specific element types, remove certain extension elements from an integrated domain module, or replace base element types with domain-provided, extension element types."
+            >Constraints</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

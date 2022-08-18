@@ -1,0 +1,214 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Example: Redefine the content model for the topic element using
+  DTD'
+description: 'In this scenario, the DITA architect for
+  Acme, Incorporated wants to redefine the content model for the topic
+  document type. They want to omit the
+  abstract element and make the
+  shortdesc element required; they also want to omit the
+  related-links element and disallow topic
+  nesting.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/ditaspecialization.html"
+            >Overview of DITA extension facilities</a
+          >
+        </li>
+        <li><a href="../../archSpec/base/configuration.html">Document-type configuration</a></li>
+        <li><a href="../../archSpec/base/specialization.html">Specialization</a></li>
+        <li><a href="../../archSpec/base/generalization.html">Generalization</a></li>
+        <li>
+          <a href="../../archSpec/base/constraints.html">Constraints</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/constraints-overview.html">Overview of constraints</a>
+            </li>
+            <li><a href="../../archSpec/base/constraint-rules.html">Constraint rules</a></li>
+            <li>
+              <a href="../../archSpec/base/constraints-processing-interoperability.html"
+                >Constraints, processing, and interoperability</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/examples-constraints.html"
+                >Examples: Constraints implemented using DTDs</a
+              >
+              <ul class="nav nav-list">
+                <li class="active">
+                  <a href="../../archSpec/base/example-contraints-redefine-content-model.html"
+                    >Example: Redefine the content model for the topic element using DTD</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../archSpec/base/example-contraints-redefine-content-model-attributes.html"
+                    >Example: Constrain attributes for the section element using DTD</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-contraints-subset-domain.html"
+                    >Example: Constrain a domain module using DTD</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../archSpec/base/example-contraints-replace-base-element-w-domain-extensions.html"
+                    >Example: Replace a base element with the domain extensions using DTD</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-contraints-apply-multiple-constraints.html"
+                    >Example: Apply multiple constraints to a single document-type shell using
+                    DTD</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="../../archSpec/base/examples-constraints-implemented-using-rng.html"
+                >Examples: Constraints implemented using RNG</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/expansion-modules.html">Expansion modules</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      Example: Redefine the content model for the
+      <code class="keyword markupname xmlelement">&lt;topic&gt;</code> element using DTD
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        In this scenario, <span style="color:red;" class="ph">the DITA architect</span> for Acme,
+        Incorporated wants to redefine the content model for the topic document type.
+        <span style="color:red;" class="ph">They want</span> to omit the
+        <code class="keyword markupname xmlelement">&lt;abstract&gt;</code> element and make the
+        <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code> element required;
+        <span style="color:red;" class="ph">they also want</span> to omit the
+        <code class="keyword markupname xmlelement">&lt;related-links&gt;</code> element and
+        disallow topic nesting.
+      </p>
+      <div class="example" id="reference_cfb_ck4_5p__example">
+        <ol class="ol">
+          <li class="li">
+            <span style="color:red;" class="ph"
+              >The DITA architect creates a constraint module:
+            </span>
+            <span class="ph filepath">acme-TopicConstraint.mod</span>.
+          </li>
+          <li class="li">
+            <span style="color:red;" class="ph">They add</span> the following content to
+            <span class="ph filepath">acme-TopicConstraint.mod</span>:
+            <pre class="pre codeblock"><code>
+&lt;!-- ============================================================= --&gt;
+&lt;!--                    CONSTRAINED TOPIC ENTITIES                 --&gt;
+&lt;!-- ============================================================= --&gt;
+
+&lt;!-- Declares the entities referenced in the constrained content  --&gt;
+&lt;!-- model.                                                       --&gt;
+
+&lt;!ENTITY % title            "title"&gt;
+&lt;!ENTITY % shortdesc        "shortdesc"&gt;
+&lt;!ENTITY % prolog           "prolog"&gt;
+&lt;!ENTITY % body             "body"&gt;
+
+&lt;!-- Defines the constrained content model for &lt;topic&gt;.            --&gt;
+
+&lt;!ENTITY % topic.content
+                       "((%title;),
+                         (%shortdesc;), 
+                         (%prolog;)?, 
+                         (%body;)?)"
+&gt;</code></pre>
+          </li>
+          <li class="li">
+            <span style="color:red;" class="ph">They add</span> the constraint module to the
+            <span class="ph filepath">catalog.xml</span> file.
+          </li>
+          <li class="li">
+            <span style="color:red;" class="ph">They then integrate</span> the constraint module
+            into the document-type shell for topic by adding the following section above the "TOPIC
+            ELEMENT INTEGRATION" comment:
+            <pre
+              class="pre codeblock"
+            ><code>&lt;!-- ============================================================= --&gt;
+&lt;!--           ELEMENT-TYPE CONFIGURATION INTEGRATION              --&gt;
+&lt;!-- ============================================================= --&gt;
+
+&lt;!ENTITY % topic-constraints-c-def  
+  PUBLIC "-//ACME//ELEMENTS DITA Topic Constraint//EN" 
+  "acme-TopicConstraint.mod"&gt;
+%topic-constraints-c-def;</code></pre>
+          </li>
+          <li class="li">
+            After checking the test topic to ensure that the content model is modified as expected,
+            the work is done.
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/examples-constraints.html"
+            title="This section of the specification contains examples of constraints implemented using DTD."
+            >Examples: Constraints implemented using DTDs</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

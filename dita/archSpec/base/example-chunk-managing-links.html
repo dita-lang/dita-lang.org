@@ -1,0 +1,391 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Example: Managing links when chunking'
+description: 'If a topic is referenced more than once and
+  one of those instances involves chunking, links to that topic might
+  be ambiguous. In most of such cases, using key references to keys
+  that are defined directly on the chunked instance of the topic will
+  give the correct result.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li>
+      <a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a>
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/dita-maps-and-their-usage.html">DITA maps and their usage</a>
+        </li>
+        <li>
+          <a href="../../archSpec/base/subject-scheme-maps-and-usage.html"
+            >Subject scheme maps and their usage</a
+          >
+        </li>
+        <li><a href="../../archSpec/base/map-cascading.html">Metadata cascading</a></li>
+        <li>
+          <a href="../../archSpec/base/chunking.html">Chunking</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/chunk-attribute-overview.html"
+                >About the chunk attribute</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/chunk-attribute-combine.html"
+                >Processing chunk="combine"</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/chunk-attribute-split.html">Processing chunk="split"</a>
+            </li>
+            <li>
+              <a href="../../archSpec/base/chunk-attribute-other-tokens.html"
+                >Using the chunk attribute for other purposes</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/examples-of-chunking.html"
+                >Examples of the chunk attribute</a
+              >
+              <ul class="nav nav-list">
+                <li>
+                  <a href="../../archSpec/base/example-chunk-combine-all.html"
+                    >Example: Using chunk to combine all documents into one</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-chunk-combine-branch.html"
+                    >Example: Using chunk to render a single document from one or more branches</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-chunk-combine-group.html"
+                    >Example: Using chunk to combine groups of topics</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-chunk-combine-nested-topics.html"
+                    >Example: How chunk="combine" effects the map hierarchy</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-chunk-split.html"
+                    >Example: Using chunk to split documents</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-chunk-split-nested.html"
+                    >Example: How chunk="split" affects the map hierarchy</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-chunk-ignored.html"
+                    >Example: When chunk is ignored</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-chunk-combine-within-split.html"
+                    >Example: Using chunk="combine" when the root map specifies chunk="split"</a
+                  >
+                </li>
+                <li class="active">
+                  <a href="../../archSpec/base/example-chunk-managing-links.html"
+                    >Example: Managing links when chunking</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Example: Managing links when chunking</h1>
+
+    <div class="body conbody">
+      <div class="abstract">
+        <span style="color:red;" class="shortdesc"
+          >If a topic is referenced more than once and one of those instances involves chunking,
+          links to that topic might be ambiguous. In most of such cases, using key references to
+          keys that are defined directly on the chunked instance of the topic will give the correct
+          result.</span
+        >
+      </div>
+      <figure class="fig fignone">
+        <figcaption>
+          <span class="fig--title-label">Figure 1. </span>Source map and the topic documents that it
+          references
+        </figcaption>
+
+        <p class="p">
+          Consider the following DITA map, which is used for all examples in this topic:
+        </p>
+        <pre class="pre codeblock"><code>&lt;map&gt;
+  &lt;title&gt;Map with chunks and <span style="color:red;" class="ph">key definitions</span>&lt;/title&gt;
+  &lt;!-- Key definitions --&gt;
+  &lt;keydef href="splitThis.dita" keys="splitThisKey"/&gt;
+  &lt;keydef href="splitThis.dita#splitThisChild" keys="splitThisChildKey"/&gt;
+  &lt;!-- Navigational structure --&gt;
+  &lt;topicref href="splitThis.dita" <strong class="ph b">chunk="split"</strong> keys="explicitSplitKey"/&gt;
+  &lt;topicref href="combineThis.dita" <strong style="color:red;" class="ph b">chunk="combine"</strong> keys="combineThisKey"&gt;
+    &lt;topicref href="combinedChild.dita" keys="combinedChildKey"/&gt;
+  &lt;/topicref&gt;
+&lt;/map&gt;
+</code></pre>
+        <p class="p">The DITA map references the following topics:</p>
+        <pre class="pre codeblock"><code><strong class="ph b">&lt;!-- splitThis.dita --&gt;</strong>
+&lt;topic id="splitThisRoot"&gt;
+  &lt;title&gt;Root topic&lt;/title&gt;
+  &lt;!-- ... --&gt;
+  &lt;topic id="splitThisChild"&gt;
+    &lt;title&gt;Child topic&lt;/title&gt;
+    &lt;!-- ... --&gt;
+  &lt;/topic&gt;
+&lt;/topic&gt;</code></pre>
+        <pre
+          class="pre codeblock"
+        ><code><strong class="ph b">&lt;!-- combineThis.dita --&gt;</strong>
+&lt;topic id="combineThisRoot"&gt;
+  &lt;title&gt;Root topic&lt;/title&gt;
+  &lt;!-- ... --&gt;
+  &lt;topic id="combineThisChild"&gt;
+    &lt;title&gt;Child topic&lt;/title&gt;
+    &lt;!-- ... --&gt;
+  &lt;/topic&gt;
+&lt;/topic&gt;</code></pre>
+        <pre
+          class="pre codeblock"
+        ><code><strong class="ph b">&lt;!-- combinedChild.dita --&gt;</strong>
+&lt;topic id="combinedChildRoot"&gt;
+  &lt;title&gt;<span style="color:red;" class="ph">Topic in map branch, will be combined with parent topicref</span>&lt;/title&gt;
+  &lt;!-- ... --&gt;
+&lt;/topic&gt;</code></pre>
+      </figure>
+      <figure class="fig fignone">
+        <figcaption>
+          <span class="fig--title-label">Figure 2. </span>Scenario in which the topic documents are
+          rendered only once
+        </figcaption>
+
+        <p class="p">
+          Assume that the above map is a root map or a
+          <span style="color:red;" class="ph"
+            >submap that is referenced in a context that does not include any references to the
+            above topic documents.</span
+          >
+        </p>
+        <p style="color:red;" class="p">
+          The topic documents that are referenced in the above map are rendered in the following
+          ways:
+        </p>
+        <ul class="ul" id="chunklinking__ul_q3y_wng_thb">
+          <li class="li">
+            <span class="ph filepath">splitThis.dita</span
+            ><span style="color:red;" class="ph">, which contains two topics,</span> is rendered as
+            two documents. For this example, assume
+            <span style="color:red;" class="ph">the</span> processor creates two documents with
+            names <span style="color:red;" class="ph">that are based on the topic IDs</span>:
+            <span class="ph filepath">splitThisRoot.dita</span> and
+            <span class="ph filepath">splitThisChild.dita</span>.
+          </li>
+          <li class="li">
+            The <span style="color:red;" class="ph">map </span>branch with
+            <span class="ph filepath">combineThis.dita</span
+            ><span style="color:red;" class="ph">, which contains two topic references,</span> is
+            rendered as one document: <span class="ph filepath">combineThis.dita</span>.
+            <span style="color:red;" class="ph"
+              >The document contains the merged content of both
+              <span class="ph filepath">combineThis.dita</span> and
+              <span class="ph filepath">combinedChild.dita</span>.</span
+            >
+          </li>
+        </ul>
+        <p style="color:red;" class="p">
+          Links are resolved in the following ways. Note that the document names are those listed in
+          the above explanation of how the topic documents are rendered in this scenario.
+        </p>
+        <ul class="ul">
+          <li class="li">
+            All links <span style="color:red;" class="ph">that specify</span>
+            <code class="ph codeph">href="splitThis.dita"</code>,
+            <code class="ph codeph">keyref="splitThisKey"</code>, or
+            <code class="ph codeph">keyref="explicitSplitKey"</code> resolve to
+            <span class="ph filepath">splitThisRoot.dita</span
+            ><span style="color:red;" class="ph">, which is </span>the only rendered instance of the
+            topic.
+          </li>
+          <li class="li">
+            All links <span style="color:red;" class="ph">that specify</span>
+            <code class="ph codeph">href="splitThis.dita#splitThisChild"</code> or
+            <code class="ph codeph">keyref="splitThisChildKey"</code> resolve to
+            <span class="ph filepath">splitThisChild.dita</span
+            ><span style="color:red;" class="ph">, which is </span>the only rendered instance of the
+            topic.
+          </li>
+          <li class="li">
+            All links <span style="color:red;" class="ph">that specify</span>
+            <code class="ph codeph">href="combinedChild.dita"</code> or
+            <code class="ph codeph">keyref="combinedChildKey"</code> resolve to that topic within
+            <span class="ph filepath">combineThis.dita</span
+            ><span style="color:red;" class="ph">, which is </span>the only rendered instance of the
+            topic.
+          </li>
+        </ul>
+      </figure>
+      <figure class="fig fignone">
+        <figcaption>
+          <span class="fig--title-label">Figure 3. </span>Scenario in which the topic documents are
+          rendered more than once
+        </figcaption>
+
+        <p class="p">
+          Now assume that
+          <span style="color:red;" class="ph"
+            >the above map is used as a submap in another context, where the root map also
+            references the three topic documents.</span
+          >
+          As a result, each of the three topic documents (<span class="ph filepath"
+            >splitThis.dita</span
+          >, <span class="ph filepath">combineThis.dita</span>, and
+          <span class="ph filepath">combinedChild.dita</span>) are rendered more than once.
+        </p>
+        <p style="color:red;" class="p">
+          In this scenario, the topic documents are rendered in the following ways:
+        </p>
+        <ul class="ul" id="chunklinking__ul_hd5_hd1_rhb">
+          <li class="li">
+            The original source document <span class="ph filepath">splitThis.dita</span> is rendered
+            twice. Based on the map above, assume
+            <span style="color:red;" class="ph">the</span> processor creates two documents with
+            names <span style="color:red;" class="ph">that are based on the topic IDs</span>, so
+            that topic becomes <span class="ph filepath">splitThisRoot.dita</span> and
+            <span class="ph filepath">splitThisChild.dita</span>. At the same time,
+            <span class="ph filepath">splitThis.dita</span> is rendered
+            <em class="ph i">in another context</em> as a single document, with a different name.
+          </li>
+          <li class="li">
+            Based on the map above, the branch that starts with the original source document
+            <span class="ph filepath">combineThis.dita</span> is rendered as one document combined
+            with the content of <span class="ph filepath">combinedChild.dita</span>. At the same
+            time, those two documents are rendered in another context as individual documents. For
+            this example, assume a processor generates the combined document using the generated
+            name <span class="ph filepath">combinThis-2.dita</span>, while the documents
+            <span class="ph filepath">combineThis.dita</span> and
+            <span class="ph filepath">combinedChild.dita</span> retain their names in the other
+            context.
+          </li>
+        </ul>
+        <p style="color:red;" class="p">
+          In this scenario, the links to the topic documents are now problematic:
+        </p>
+        <ul class="ul">
+          <li class="li">
+            All links in this map <span style="color:red;" class="ph">that use</span> the direct URI
+            references <code class="ph codeph">href="splitThis.dita"</code>,
+            <code class="ph codeph">href="splitThis.dita#splitThisChild"</code>,
+            <code class="ph codeph">href="combineThis.dita"</code>, or
+            <code class="ph codeph">href="combinedChild.dita"</code> are ambiguous. They could
+            <span style="color:red;" class="ph">resolve to either</span> the chunked instance
+            <span style="color:red;" class="ph">of the topic documents</span> or to the individual
+            topics in the other context. Implementations will have to guess which topic to target:
+            the split or combined instances
+            <span style="color:red;" class="ph">of the topic documents</span> or the versions in the
+            alternate context from the root map.
+          </li>
+          <li class="li">
+            All links <span style="color:red;" class="ph">that specify</span>
+            <code class="ph codeph">keyref="splitThisKey"</code> or
+            <code class="ph codeph">keyref="splitThisChildKey"</code> are also ambiguous. The key
+            definitions are not associated explicitly with the chunked or not-chunked instance. If
+            key scopes are used, applications might more reliably guess that the intended target is
+            the split copy in this map, but this is not guaranteed.
+          </li>
+        </ul>
+        <p class="p">
+          All links <span style="color:red;" class="ph">that specify</span>
+          <code class="ph codeph">keyref="explicitSplitKey"</code>,
+          <code class="ph codeph">keyref="combinedThisKey"</code>, or
+          <code class="ph codeph">keyref="combinedChildKey"</code> are unambiguous. These links can
+          only resolve to the chunked instance
+          <span style="color:red;" class="ph">of the topic documents</span>, because
+          <span style="color:red;" class="ph">the key definitions</span> are defined directly within
+          the chunked context.
+        </p>
+        <p class="p">
+          There is no way to unambiguously link to the child document that will result from
+          splitting <span class="ph filepath">splitThis.dita</span>. This is because a
+          <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element that specifies
+          <code class="keyword markupname xmlatt">@chunk</code> can only associate a key definition
+          with the first or root topic in the document. While other key definition elements can be
+          used to associate keys with other topics in the same document, that can only be done
+          outside of the navigation context that uses
+          <code class="keyword markupname xmlatt">@chunk</code
+          ><span style="color:red;" class="ph">. As</span> a result, a processor cannot guarantee
+          whether the intended link target is the split topic from the chunked context or a use of
+          the same topic in the second context.
+        </p>
+        <p class="p">
+          It is possible for an implementation to define its own way to resolve this ambiguity.
+          <span style="color:red;" class="ph">However</span>, if a situation requires both multiple
+          instances of split topics and unambiguous cross-implementation links to those split
+          topics, alternate reuse mechanisms need to be considered.
+        </p>
+        <div class="p"></div>
+      </figure>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/examples-of-chunking.html"
+            title="These examples illustrate the processing expectations for various scenarios that involve the chunk attribute. The processing examples use either before and after sample markup or expanded syntax that shows the equivalent markup without the chunk attribute."
+            >Examples of the chunk attribute</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

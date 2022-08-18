@@ -1,0 +1,240 @@
+---
+# Generated from DITA source
+layout: base
+title: 'RELAX NG: Coding requirements for attribute-domain modules'
+description: 'An attribute-domain vocabulary module declares a new attribute specialized from either
+  the props or base attribute.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/recognizedconstraintmechanisms.html"
+            >Recognized XML-document grammar mechanisms</a
+          >
+        </li>
+        <li>
+          <a href="../../archSpec/base/using-relax-ng.html"
+            >Normative versions of DITA grammar files</a
+          >
+        </li>
+        <li><a href="../../archSpec/base/dtd-requirements.html">DTD coding requirements</a></li>
+        <li>
+          <a href="../../archSpec/base/relax-ng-requirements.html">RELAX NG coding requirements</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/relax-ng-coding-overview.html"
+                >RELAX NG: Overview of coding requirements</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/relax-ng-coding-doctype-shell.html"
+                >RELAX NG: Coding requirements for document-type shells</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/relax-ng-coding-element-types.html"
+                >RELAX NG: Coding requirements for element-type declarations</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/relax-ng-coding-structural-modules.html"
+                >RELAX NG: Coding requirements for structural modules</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/relax-ng-coding-element-domains.html"
+                >RELAX NG: Coding requirements for element-domain modules</a
+              >
+            </li>
+            <li class="active">
+              <a href="../../archSpec/base/relax-ng-coding-attribute-domains.html"
+                >RELAX NG: Coding requirements for attribute-domain modules</a
+              >
+            </li>
+            <li>
+              <a
+                href="../../archSpec/base/relax-ng-coding-requirements-for-element-configuration-modules.html"
+                >RELAX NG: Coding requirements for element-configuration modules</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      RELAX NG: Coding requirements for attribute-domain modules
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        An attribute-domain vocabulary module declares a new attribute specialized from either the
+        <code class="keyword markupname xmlatt">@props</code> or
+        <code class="keyword markupname xmlatt">@base</code> attribute.
+      </p>
+      <p class="p">
+        The name of an attribute domain is the name of the attribute plus
+        <span class="keyword">Att</span>. For example, for the attribute named
+        <code class="keyword markupname xmlatt">@deliveryTarget</code>, the attribute-domain name is
+        "deliveryTargetAtt". The attribute-domain name is used to construct pattern names for the
+        domain.
+      </p>
+      <p class="p">
+        An attribute-domain module consists of a single file, which has three sections:
+      </p>
+      <dl class="dl">
+        <dt class="dt dlterm">Specializations attribute contribution</dt>
+        <dd class="dd">
+          <p class="p">
+            The contribution to the
+            <code class="keyword markupname xmlatt">@specializations</code> attribute is documented
+            in the module. The value is constructed according to the rules found in
+            <a
+              class="xref"
+              href="specialization-specializations-attribute.html"
+              title="The specializations attribute enables processors to determine what attribute specializations are available in a document. The attribute is declared on the root element for each topic or map type. Each attribute domain defines a token to declare the extension; the effective value of the specializations attribute is composed of these tokens."
+              >specializations attribute rules and syntax</a
+            >.
+          </p>
+          <p class="p">
+            The OASIS grammar files use a
+            <code class="keyword markupname xmlelement">&lt;domainsContribution&gt;</code> element
+            to document the contribution; this element is used to help enable generation of DTD and
+            XSD grammar files. An XML comment or
+            <code class="keyword markupname xmlelement">&lt;a:documentation&gt;</code> element also
+            can be used.
+          </p>
+        </dd>
+
+        <dt class="dt dlterm">Attribute declaration pattern</dt>
+        <dd class="dd">
+          <p class="p">
+            The specialized attribute is declared in a pattern named
+            <code class="ph codeph"><var class="keyword varname">domainName</var>-d-attribute</code
+            >. The attribute is defined as optional.
+          </p>
+          <div class="div">
+            <p class="p">
+              For example, the following code samples shows the the
+              <code class="keyword markupname xmlatt">@audience</code> specialization of
+              <code class="keyword markupname xmlatt">@props</code>:
+            </p>
+            <pre class="pre codeblock"><code>&lt;define name="audienceAtt-d-attribute"&gt;
+  &lt;optional&gt;
+    &lt;attribute name="audience" dita:since="2.0"&gt;
+      &lt;a:documentation&gt;Specifies the audience to which an element applies.&lt;/a:documentation&gt;
+    &lt;/attribute&gt;
+  &lt;/optional&gt;    
+&lt;/define&gt;</code></pre>
+          </div>
+        </dd>
+
+        <dt class="dt dlterm">Attribute extension pattern</dt>
+        <dd class="dd">
+          <p class="p">
+            The attribute extension pattern extends either the
+            <code class="keyword markupname xmlatt">@props</code> or
+            <code class="keyword markupname xmlatt">@base</code> attribute set pattern to include
+            the attribute specialization.
+          </p>
+          <dl class="dl">
+            <dt class="dt dlterm">
+              Specializations of <code class="keyword markupname xmlatt">@props</code>
+            </dt>
+            <dd class="dd">
+              <p class="p">
+                The pattern is named <code class="ph codeph">props-attribute-extensions</code>. The
+                pattern specifies a <code class="keyword markupname xmlatt">@combine</code> value of
+                <span class="keyword">interleave</span>, and the content of the pattern is a
+                reference to the specialized-attribute declaration pattern.
+              </p>
+              <div class="div">
+                <p class="p">For example:</p>
+                <pre
+                  class="pre codeblock"
+                ><code>&lt;define name="props-attribute-extensions" combine="interleave"&gt;
+  &lt;ref name="audienceAtt-d-attribute"/&gt;
+&lt;/define&gt;</code></pre>
+              </div>
+            </dd>
+
+            <dt class="dt dlterm">
+              Specializations of <code class="keyword markupname xmlatt">@base</code>
+            </dt>
+            <dd class="dd">
+              <p class="p">
+                The pattern is named <code class="ph codeph">base-attribute-extensions</code>. The
+                pattern specifies a <code class="keyword markupname xmlatt">@combine</code> value of
+                <span class="keyword">interleave</span>, and the content of the pattern is a
+                reference to the specialized-attribute declaration pattern.
+              </p>
+              <div class="div">
+                <p class="p">For example:</p>
+                <pre
+                  class="pre codeblock"
+                ><code>&lt;define name="base-attribute-extensions" combine="interleave"&gt;
+    &lt;ref name="myBaseSpecializationAtt-d-attribute"/&gt;
+&lt;/define&gt;</code></pre>
+              </div>
+            </dd>
+          </dl>
+        </dd>
+      </dl>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/relax-ng-requirements.html"
+            title="This section explains how to implement RNG based document-type shells, specializations, and element-configuration modules (constraints and expansions)."
+            >RELAX NG coding requirements</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

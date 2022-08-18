@@ -1,0 +1,197 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Index ranges'
+description: 'Authors can use the start and end attributes on
+  indexterm elements to index extended discussions. Processors
+  generate index entries that range over several locators. '
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li>
+      <a href="../../archSpec/base/behaviors.html">DITA processing</a>
+      <ul class="nav nav-list">
+        <li><a href="../../archSpec/base/navigation.html">Navigation</a></li>
+        <li>
+          <a href="../../archSpec/base/indexes.html">Indexes</a>
+          <ul class="nav nav-list">
+            <li><a href="../../archSpec/base/index-elements.html">Index elements</a></li>
+            <li>
+              <a href="../../archSpec/base/location-of-indexterm-elements.html"
+                >Location of indexterm elements</a
+              >
+            </li>
+            <li><a href="../../archSpec/base/index-page-references.html">Index locators</a></li>
+            <li><a href="../../archSpec/base/index-redirection.html">Index redirection</a></li>
+            <li class="active"><a href="../../archSpec/base/index-ranges.html">Index ranges</a></li>
+            <li><a href="../../archSpec/base/index-sorting.html">Index sorting</a></li>
+            <li>
+              <a href="../../archSpec/base/merging-index-elements.html">Merging index elements</a>
+            </li>
+            <li><a href="../../archSpec/base/examples-indexing.html">Examples of indexing</a></li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/conref.html">Content reference (conref)</a></li>
+        <li><a href="../../archSpec/base/condproc.html">Conditional processing</a></li>
+        <li><a href="../../archSpec/base/branch-filtering.html">Branch filtering</a></li>
+        <li><a href="../../archSpec/base/sort-as-processing.html">Sorting</a></li>
+        <li>
+          <a href="../../archSpec/base/determining-effective-attribute-values.html"
+            >Determining effective attribute values</a
+          >
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Index ranges</h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        Authors can use the <code class="keyword markupname xmlatt">@start</code> and
+        <code class="keyword markupname xmlatt">@end</code> attributes on
+        <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements to index
+        extended discussions. Processors generate index entries that range over several locators.
+      </p>
+      <p class="p">
+        The start of an index range is indicated by an
+        <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> with a
+        <code class="keyword markupname xmlatt">@start</code> attribute.
+        <span class="ph">This is called a <dfn class="term">start element</dfn>.</span>
+      </p>
+      <p class="p">The end of a range is indicated by whichever of the following occurs first:</p>
+      <ul class="ul">
+        <li class="li">
+          An <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element with an
+          <code class="keyword markupname xmlatt">@end</code> attribute with a value that matches
+          the <code class="keyword markupname xmlatt">@start</code> attribute on the
+          <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element that begins
+          the range. <span class="ph">This is called an <dfn class="term">end element</dfn>.</span>
+        </li>
+        <li class="li">The applicable scope boundary.</li>
+      </ul>
+      <p class="p">The applicable scope boundary depends on the location of the start element:</p>
+      <dl class="dl">
+        <dt class="dt dlterm">Topic body</dt>
+        <dd class="dd">End of the topic body.</dd>
+
+        <dt class="dt dlterm">Topic prolog</dt>
+        <dd class="dd">
+          End of the topic that contains the start element, including any child topics
+        </dd>
+
+        <dt class="dt dlterm">DITA map</dt>
+        <dd class="dd">
+          <p class="p">Whichever of the following occurs first:</p>
+          <ul class="ul">
+            <li class="li">
+              End of the topic that <span class="ph">the start element references,</span>, including
+              any child topics
+            </li>
+            <li class="li">End of the DITA map</li>
+          </ul>
+        </dd>
+      </dl>
+
+      <div class="p">
+        Processors that support index ranges <dfn class="term RFC-2119">SHOULD</dfn> do the
+        following:
+        <ul class="ul">
+          <li class="li">
+            Match <code class="keyword markupname xmlatt">@start</code> and
+            <code class="keyword markupname xmlatt">@end</code> attributes by a
+            character-by-character comparison with all characters significant and no case folding.
+            occurring
+          </li>
+          <li class="li">
+            Ignore <code class="keyword markupname xmlatt">@start</code> and
+            <code class="keyword markupname xmlatt">@end</code> attributes if they occur on an
+            <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element that has
+            child <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements.
+          </li>
+          <li class="li">
+            When index ranges with the same identifier overlap,
+            <span class="ph"
+              >the effective range is determined by matching the earliest start element from the set
+              of overlapping ranges with the latest end element from the set of overlapping
+              ranges.</span
+            >
+          </li>
+          <li class="li">
+            Handle an end-of-range
+            <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element that is
+            nested within one or more
+            <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements. The
+            end-of-range
+            <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element should have
+            no content of its own; if it contains content, that content is ignored.
+          </li>
+          <li class="li">
+            Ignore unmatched end-of-range
+            <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements.
+          </li>
+        </ul>
+      </div>
+
+      <p class="p">
+        The <code class="keyword markupname xmlatt">@start</code> and
+        <code class="keyword markupname xmlatt">@end</code> attributes are defined as CDATA.
+        However, we recommend that authors do not include whitespace characters (spaces or tabs) or
+        control characters in values for these attributes.
+      </p>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/indexes.html"
+            title="Processors can generate an index from the content of indexing elements."
+            >Indexes</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

@@ -1,0 +1,269 @@
+---
+# Generated from DITA source
+layout: base
+title: 'subjectRelTable'
+description: 'The subjectRelTable element is a specialized relationship table
+  which establishes relationships between the subjects in different columns of the same
+  row.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/determining-effective-attribute-values.html"
+        >Determining effective attribute values</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      <code class="keyword markupname xmlelement">&lt;subjectRelTable&gt;</code>
+    </h1>
+
+    <div class="body refbody">
+      <p class="shortdesc">
+        The <code class="keyword markupname xmlelement">&lt;subjectRelTable&gt;</code> element is a
+        specialized relationship table which establishes relationships between the subjects in
+        different columns of the same row.
+      </p>
+      <section class="section" id="subjectRelTable__usage-information">
+        <h2 class="title sectiontitle">Usage information</h2>
+
+        <p class="p">
+          This element provides an efficient way to author non-hierarchical relationships between
+          subjects. Tools (such as search tools) that use subject relationships to find related
+          content might use these associative relationships in a similar way to the hierarchical
+          relationships.
+        </p>
+      </section>
+      <section class="section" id="subjectRelTable__specialization-hierachy">
+        <h2 class="title sectiontitle">Specialization hierarchy</h2>
+
+        <p class="p">
+          The <code class="keyword markupname xmlelement">&lt;subjectRelTable&gt;</code> element is
+          specialized from <code class="keyword markupname xmlelement">&lt;reltable&gt;</code>. It
+          is defined in the subject scheme module.
+        </p>
+      </section>
+      <section class="section" id="subjectRelTable__attributes">
+        <h2 class="title sectiontitle">Attributes</h2>
+
+        <div class="div">
+          <p class="p">
+            The following attributes are available on this element:
+            <span class="ph"
+              ><a
+                class="xref"
+                href="../../common/../langRef/attributes/universalAttributes.html"
+                title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang"
+                >universal attributes</a
+              ></span
+            >,
+            <span class="ph"
+              ><a
+                class="xref"
+                href="../../common/../langRef/attributes/commonAttributes.html#common-atts__commonmapatts"
+                title="Common map attributes include: cascade, chunk, collection-type, keyscope, linking, processing-role, search, and toc"
+                >common map attributes</a
+              ></span
+            >,
+            <a
+              class="xref"
+              href="../../common/../langRef/attributes/commonAttributes.html#common-atts__attr-type"
+              ><code class="keyword markupname xmlatt">@type</code></a
+            >,
+            <a
+              class="xref"
+              href="../../common/../langRef/attributes/commonAttributes.html#common-atts__attr-scope"
+              ><code class="keyword markupname xmlatt">@scope</code></a
+            >, and
+            <a
+              class="xref"
+              href="../../common/../langRef/attributes/commonAttributes.html#common-atts__attr-format"
+              ><code class="keyword markupname xmlatt">@format</code></a
+            >.
+          </p>
+          <p class="p attr-exception" id="subjectRelTable__d1313e1066">
+            For this element, the <code class="keyword markupname xmlatt">@toc</code> attribute has
+            a default value of <span class="keyword">no</span>.
+          </p>
+        </div>
+      </section>
+      <div class="example" id="subjectRelTable__example">
+        <h2 class="title sectiontitle">Example</h2>
+
+        <p class="p">
+          The subject relationship table in this example establishes relationships between operating
+          systems and applications. Based on the
+          <code class="keyword markupname xmlelement">&lt;subjectRole&gt;</code> element, subjects
+          in the first column are operating systems which are the environment for an application,
+          while subjects in the second column are applications that run in that environment. For a
+          user interested in content about the operating system, content about the applications
+          might also be relevant.
+        </p>
+        <pre class="pre codeblock"><code>&lt;subjectScheme&gt;
+  &lt;hasKind&gt;
+    &lt;subjectdef keys="operatingSystem"&gt;
+        &lt;subjectdef keys="linuxOS"/&gt;
+        &lt;subjectdef keys="windowsOS"/&gt;
+    &lt;/subjectdef&gt;
+    &lt;subjectdef keys="application"&gt;
+        &lt;subjectdef keys="IDE"&gt;
+            &lt;subjectdef keys="eclipseIDE"/&gt;
+            &lt;subjectdef keys="visualStudioIDE"/&gt;
+        &lt;/subjectdef&gt;
+        &lt;subjectdef keys="webBrowser"&gt;
+            &lt;subjectdef keys="firefoxBrowser"/&gt;
+            &lt;subjectdef keys="ieBrowser"/&gt;
+        &lt;/subjectdef&gt;
+    &lt;/subjectdef&gt;
+  &lt;/hasKind&gt;
+  &lt;!-- ... --&gt;
+  &lt;subjectRelTable&gt;
+    &lt;subjectRelHeader&gt;
+      &lt;subjectRole&gt;
+        &lt;subjectdef keyref="operatingSystem"&gt;
+          &lt;hasRelated keyref="environmentFor"&gt;
+            &lt;subjectdef keyref="application"/&gt;
+          &lt;/hasRelated&gt;
+        &lt;/subjectdef&gt;
+      &lt;/subjectRole&gt;
+      &lt;subjectRole&gt;
+        &lt;subjectdef keyref="application"/&gt;
+      &lt;/subjectRole&gt;
+    &lt;/subjectRelHeader&gt;
+    &lt;subjectRel&gt;
+      &lt;subjectRole&gt;
+        &lt;subjectdef keyref="linuxOS"/&gt;
+        &lt;subjectdef keyref="windowsOS"/&gt;
+      &lt;/subjectRole&gt;
+      &lt;subjectRole&gt;
+        &lt;subjectdef keyref="eclipseIDE"/&gt;
+        &lt;subjectdef keyref="firefoxBrowser"/&gt;
+      &lt;/subjectRole&gt;
+    &lt;/subjectRel&gt;
+    &lt;subjectRel&gt;
+      &lt;subjectRole&gt;
+        &lt;subjectdef keyref="windowsOS"/&gt;
+      &lt;/subjectRole&gt;
+      &lt;subjectRole&gt;
+        &lt;subjectdef keyref="ieBrowser"/&gt;
+        &lt;subjectdef keyref="visualStudioIDE"/&gt;
+      &lt;/subjectRole&gt;
+    &lt;/subjectRel&gt;
+  &lt;/subjectRelTable&gt;
+&lt;/subjectScheme&gt;</code></pre>
+        <div class="p">
+          A table view of the
+          <code class="keyword markupname xmlelement">&lt;subjectRelTable&gt;</code>
+          <span class="ph">might</span> look like this; each
+          <code class="keyword markupname xmlelement">&lt;subjectRel&gt;</code> represents a single
+          row, and each
+          <code class="keyword markupname xmlelement">&lt;subjectRole&gt;</code> represents a cell.
+          <table class="table" id="subjectRelTable__table_em3_syg_dn">
+            <caption>
+              <span class="table--title-label">Table 1. </span
+              ><span class="title"
+                ><code class="keyword markupname xmlelement">&lt;subjectRelTable&gt;</code> as a
+                table</span
+              >
+            </caption>
+            <colgroup>
+              <col />
+              <col />
+            </colgroup>
+            <thead class="thead">
+              <tr class="row valign-bottom">
+                <th class="entry" id="subjectRelTable__table_em3_syg_dn__entry__1">
+                  <pre
+                    class="pre codeblock"
+                  ><code><em class="ph i">&lt;subjectdef keyref="operatingSystem"&gt;
+ &lt;hasRelated keyref="environmentFor"&gt;
+  &lt;subjectdef keyref="application"/&gt;
+ &lt;/hasRelated&gt;
+&lt;/subjectdef&gt;</em></code></pre>
+                </th>
+                <th class="entry" id="subjectRelTable__table_em3_syg_dn__entry__2">
+                  <pre
+                    class="pre codeblock"
+                  ><code><em class="ph i">&lt;subjectdef keyref="application"/&gt;</em></code></pre>
+                </th>
+              </tr>
+            </thead>
+            <tbody class="tbody">
+              <tr class="row">
+                <td class="entry" headers="subjectRelTable__table_em3_syg_dn__entry__1">
+                  <pre class="pre codeblock"><code>&lt;subjectdef keyref="linuxOS"/&gt;
+&lt;subjectdef keyref="windowsOS"/&gt;</code></pre>
+                </td>
+                <td class="entry" headers="subjectRelTable__table_em3_syg_dn__entry__2">
+                  <pre class="pre codeblock"><code>&lt;subjectdef keyref="eclipseIDE"/&gt;
+&lt;subjectdef keyref="firefoxBrowser"/&gt;</code></pre>
+                </td>
+              </tr>
+              <tr class="row">
+                <td class="entry" headers="subjectRelTable__table_em3_syg_dn__entry__1">
+                  <pre
+                    class="pre codeblock"
+                  ><code>&lt;subjectdef keyref="windowsOS"/&gt;</code></pre>
+                </td>
+                <td class="entry" headers="subjectRelTable__table_em3_syg_dn__entry__2">
+                  <pre class="pre codeblock"><code>&lt;subjectdef keyref="ieBrowser"/&gt;
+&lt;subjectdef keyref="visualStudioIDE"/&gt;</code></pre>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../langRef/containers/subjectScheme.html"
+            title="Subject scheme maps are used to define sets of controlled values and taxonomic subjects, bind controlled values to attributes as enumerations, and specify relationships among taxonomic subjects."
+            >Subject scheme elements</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

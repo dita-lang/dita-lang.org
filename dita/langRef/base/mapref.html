@@ -1,0 +1,198 @@
+---
+# Generated from DITA source
+layout: base
+title: 'mapref'
+description: 'A map reference is a mechanism for referencing a DITA map from a DITA map.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      <code class="keyword markupname xmlelement">&lt;mapref&gt;</code>
+    </h1>
+
+    <div class="body refbody">
+      <p class="shortdesc">
+        A map reference is a mechanism for referencing a DITA map from a DITA map.
+      </p>
+      <section class="section" id="mapref__usage-information">
+        <h2 class="title sectiontitle">Usage information</h2>
+
+        <p class="p">
+          The <code class="keyword markupname xmlelement">&lt;mapref&gt;</code> element is a
+          convenience element. It is equivalent to a
+          <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element with the
+          <code class="keyword markupname xmlatt">@format</code> attribute set to
+          <span class="keyword">ditamap</span>.
+        </p>
+      </section>
+      <section class="section" id="mapref__processing-expectations">
+        <h2 class="title sectiontitle">Processing expectations</h2>
+
+        <p class="p">
+          The hierarchy of the referenced map is merged into the container map at the position of
+          the reference, and the relationship tables of the child map are added to the parent map.
+        </p>
+      </section>
+      <section class="section" id="mapref__specialization-hierarchy">
+        <h2 class="title sectiontitle">Specialization hierarchy</h2>
+
+        <p class="p">
+          The <code class="keyword markupname xmlelement">&lt;mapref&gt;</code> element is
+          specialized from <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>. It
+          is defined in the <span style="color:red;" class="ph">mapgroup-domain module</span>.
+        </p>
+      </section>
+      <section class="section" id="mapref__attributes">
+        <h2 class="title sectiontitle">Attributes</h2>
+
+        <div class="div" id="mapref__mapref-attributes">
+          <p class="p">
+            The following attributes are available on this element:
+            <span class="ph"
+              ><a
+                class="xref"
+                href="../../common/../langRef/attributes/universalAttributes.html"
+                title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang"
+                >universal attributes</a
+              ></span
+            >,
+            <span class="ph"
+              ><a
+                class="xref"
+                href="../../common/../langRef/attributes/commonAttributes.html#common-atts__linkatts"
+                title="Link relationship attributes include: format, href, type, and scope"
+                >link-relationship attributes</a
+              ></span
+            >,
+            <span class="ph"
+              ><a
+                class="xref"
+                href="../../common/../langRef/attributes/commonAttributes.html#common-atts__commonmapatts"
+                title="Common map attributes include: cascade, chunk, collection-type, keyscope, linking, processing-role, search, and toc"
+                >common map attributes</a
+              ></span
+            >,
+            <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-keyref"
+              ><code class="keyword markupname xmlatt">@keyref</code></a
+            >, and
+            <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-keys"
+              ><code class="keyword markupname xmlatt">@keys</code></a
+            >.
+          </p>
+          <p class="p attr-exception" id="mapref__attr-exception">
+            For this element, the <code class="keyword markupname xmlatt">@format</code> attribute
+            has a default value of <span class="keyword">ditamap</span>.
+          </p>
+        </div>
+      </section>
+      <div class="example" id="mapref__example">
+        <h2 class="title sectiontitle" style="color:red;">Example</h2>
+        <p class="p">
+          The following code sample shows how a
+          <code class="keyword markupname xmlelement">&lt;mapref&gt;</code> element can be used to
+          reference a submap. The <span class="ph filepath">base-elements.ditamap</span> document
+          references the <span class="ph filepath">map-group-elements.ditamap)</span>:
+        </p>
+        <pre class="pre codeblock"><code>&lt;map&gt;
+ &lt;title&gt;Base elements&lt;/title&gt;
+ &lt;!-- ... --&gt;
+ &lt;topicref href="containers/domain-elements.dita" &gt;
+  &lt;!-- ... --&gt;
+  <strong class="ph b">&lt;mapref href="map-group-elements.ditamap"/&gt;</strong>
+  &lt;!-- ... --&gt;
+ &lt;/topicref&gt;
+ &lt;!-- ... --&gt;
+&lt;/map&gt;</code></pre>
+        <p class="p">
+          The <span class="ph filepath">map-group-elements.ditamap</span> document contains
+          references to the element-reference topics for the map group domain. It is constructed as
+          a map in order to enable easy editing of the child topics.
+        </p>
+        <pre class="pre codeblock"><code>&lt;map&gt;
+ &lt;title&gt;Map group elements&lt;/title&gt;
+ &lt;topicref keyref="mapgroup-d" &gt;
+  &lt;topicref keyref="keydef" /&gt;
+  &lt;topicref keyref="mapref" /&gt;
+  &lt;topicref keyref="topicgroup" /&gt;
+  &lt;topicref keyref="topichead" /&gt;
+ &lt;/topicref&gt;
+&lt;/map&gt;</code></pre>
+        <p class="p">
+          After processing, the <span class="ph filepath">base-elements.ditamap</span> contains the
+          topic references that originally were located in the submap:
+        </p>
+        <pre class="pre codeblock"><code>&lt;map&gt;
+ &lt;title&gt;Base elements&lt;/title&gt;
+ &lt;!-- ... --&gt;
+ &lt;topicref href="containers/domain-elements.dita" &gt;
+  &lt;!-- ... --&gt;
+  <strong class="ph b">&lt;topicref keyref="mapgroup-d" &gt;
+    &lt;topicref keyref="keydef" /&gt;
+    &lt;topicref keyref="mapref" /&gt;
+    &lt;topicref keyref="topicgroup" /&gt;
+    &lt;topicref keyref="topichead" /&gt;
+  &lt;/topicref&gt;</strong>
+  &lt;!-- ... --&gt;
+ &lt;/topicref&gt;
+ &lt;!-- ... --&gt;
+&lt;/map&gt;</code></pre>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../langRef/containers/mapgroup-d.html"
+            title="The mapgroup domain elements define, group, or reference content. Many of the mapgroup elements are convenience elements; they simply provide shortcuts for an author to use existing markup."
+            >Mapgroup domain elements</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

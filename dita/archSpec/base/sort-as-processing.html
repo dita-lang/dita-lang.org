@@ -1,0 +1,152 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Sorting'
+description: 'Processors can be configured to sort elements. Typical processing includes sorting
+  glossary entries, index entries, lists of parameters or reference entries in custom navigation
+  structures, and tables based on the contents of cells in specific columns or rows.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li>
+      <a href="../../archSpec/base/behaviors.html">DITA processing</a>
+      <ul class="nav nav-list">
+        <li><a href="../../archSpec/base/navigation.html">Navigation</a></li>
+        <li><a href="../../archSpec/base/indexes.html">Indexes</a></li>
+        <li><a href="../../archSpec/base/conref.html">Content reference (conref)</a></li>
+        <li><a href="../../archSpec/base/condproc.html">Conditional processing</a></li>
+        <li><a href="../../archSpec/base/branch-filtering.html">Branch filtering</a></li>
+        <li class="active"><a href="../../archSpec/base/sort-as-processing.html">Sorting</a></li>
+        <li>
+          <a href="../../archSpec/base/determining-effective-attribute-values.html"
+            >Determining effective attribute values</a
+          >
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Sorting</h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        Processors can be configured to sort elements. Typical processing includes sorting glossary
+        entries, index entries, lists of parameters or reference entries in custom navigation
+        structures, and tables based on the contents of cells in specific columns or rows.
+      </p>
+      <p class="p">
+        Each element to be sorted must have some inherent text on which it will be sorted. This text
+        is the <dfn class="term">base sort phrase</dfn> for the element. For elements that have
+        titles, the base sort phrase usually is the content of the
+        <code class="keyword markupname xmlelement">&lt;title&gt;</code> element. For elements that
+        do not have titles, the base sort phrase might be literal content in the DITA source, or it
+        might be generated or constructed based on the semantics of the element involved; for
+        example, it could be constructed from various attribute or metadata values.
+      </p>
+      <p class="p">
+        Processors that perform sorting <dfn class="term RFC-2119">SHOULD</dfn> explicitly document
+        how the base sort phrase is determined for a given element.
+      </p>
+      <p class="p">
+        The <code class="keyword markupname xmlelement">&lt;sort-as&gt;</code> element can be used
+        to specify an effective sort phrase when the base sort phrase is not appropriate for
+        sorting. For index terms, the
+        <code class="keyword markupname xmlelement">&lt;sort-as&gt;</code> element specifies the
+        effective sort phrase for an index entry.
+      </p>
+      <p class="p">
+        The details of sorting and grouping are implementation specific. Processors might provide
+        different mechanisms for defining or configuring collation and grouping details. Even where
+        the <code class="keyword markupname xmlelement">&lt;sort-as&gt;</code> element is specified,
+        two processors might produce different sorted and grouped results because they might use
+        different collation and grouping rules. For example, one processor might be configured to
+        sort English terms before non-English terms, while another might be configured to sort them
+        after. The grouping and sorting of content is subject to local editorial rules.
+      </p>
+      <div class="div">
+        <p class="p" id="sort-as-processing__d1316e461">
+          When a <code class="keyword markupname xmlelement">&lt;sort-as&gt;</code> element is
+          specified, processors that sort the containing element
+          <dfn class="term RFC-2119">MUST</dfn> construct the effective sort phrase by prepending
+          the content of the <code class="keyword markupname xmlelement">&lt;sort-as&gt;</code>
+          element to the base sort phrase. This ensures that two items with the same
+          <code class="keyword markupname xmlelement">&lt;sort-as&gt;</code> element but different
+          base sort phrases will sort in the appropriate order.
+        </p>
+        <p class="p" id="sort-as-processing__d1316e476">
+          For example, if a processor uses the content of the
+          <code class="keyword markupname xmlelement">&lt;title&gt;</code> element as the base sort
+          phrase, and the title of a topic is "24 Hour Support Hotline" and the value of the
+          <code class="keyword markupname xmlelement">&lt;sort-as&gt;</code> element is "twenty-four
+          hour", then the effective sort phrase would be "twenty-four hour24 Hour Support Hotline".
+        </p>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/behaviors.html"
+            title="DITA processing is affected by a number of factors, including attributes that indicate the set of vocabulary and constraint modules on which a DITA document depends; navigation; linking; content reuse (using direct or indirect addressing); conditional processing; branch filtering; chunking; and more. In addition, translation of DITA content is expedited through the use of the dir, translate, and xml:lang attributes."
+            >DITA processing</a
+          >
+        </div>
+      </div>
+      <div class="linklist relref">
+        <strong>Related reference</strong><br />
+        <ul class="linklist">
+          <li class="linklist">
+            <a
+              class="link"
+              href="../../langRef/base/sort-as.html"
+              title="For elements that are sorted, the sort-as element provides text that is combined with the base sort phrase to construct the effective sort phrase."
+              >sort-as</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </article>
+</main>

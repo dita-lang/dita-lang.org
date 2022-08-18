@@ -1,0 +1,304 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Example: Adding an element to the section element using
+  RNG'
+description: 'In this scenario, a DITA architect wants to modify the content model for the
+  section element. He wants to add an optional
+  sectionDesc element that is specialized from
+  p; the sectionDesc can occur once and
+  must be directly after the section title.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/ditaspecialization.html"
+            >Overview of DITA extension facilities</a
+          >
+        </li>
+        <li><a href="../../archSpec/base/configuration.html">Document-type configuration</a></li>
+        <li><a href="../../archSpec/base/specialization.html">Specialization</a></li>
+        <li><a href="../../archSpec/base/generalization.html">Generalization</a></li>
+        <li><a href="../../archSpec/base/constraints.html">Constraints</a></li>
+        <li>
+          <a href="../../archSpec/base/expansion-modules.html">Expansion modules</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/overview-of-expansion-modules.html"
+                >Overview of expansion modules</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/expansion-module-rules.html">Expansion module rules</a>
+            </li>
+            <li>
+              <a href="../../archSpec/base/example-expansion-modules.html"
+                >Examples: Expansion modules</a
+              >
+              <ul class="nav nav-list">
+                <li>
+                  <a href="../../archSpec/base/examples-expansion-implemented-using-dtds.html"
+                    >Examples: Expansion implemented using DTDs</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/examples-expansion-implemented-using-rng.html"
+                    >Examples: Expansion implemented using RNG</a
+                  >
+                  <ul class="nav nav-list">
+                    <li class="active">
+                      <a
+                        href="../../archSpec/base/rng-adding-an-element-to-the-section-element.html"
+                        >Example: Adding an element to the section element using RNG</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="../../archSpec/base/rng-adding-an-attribute-to-certain-table-elements.html"
+                        >Example: Adding an attribute to certain table elements using RNG</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="../../archSpec/base/rng-aggregating-constraint-and-expansion-modules.html"
+                        >Example: Aggregating constraint and expansion modules using RNG</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      Example: Adding an element to the
+      <code class="keyword markupname xmlelement">&lt;section&gt;</code> element using RNG
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        In this scenario, a DITA architect wants to modify the content model for the
+        <code class="keyword markupname xmlelement">&lt;section&gt;</code> element. He wants to add
+        an optional <code class="keyword markupname xmlelement">&lt;sectionDesc&gt;</code> element
+        that is specialized from <code class="keyword markupname xmlelement">&lt;p&gt;</code>; the
+        <code class="keyword markupname xmlelement">&lt;sectionDesc&gt;</code> can occur once and
+        must be directly after the section title.
+      </p>
+      <div class="example">
+        <p class="p">
+          To accomplish this, the DITA architect needs to create the following modules and integrate
+          them into the document-type shells:
+        </p>
+        <ul class="ul">
+          <li class="li">
+            An element domain module that defines the
+            <code class="keyword markupname xmlelement">&lt;sectionDesc&gt;</code> element
+          </li>
+          <li class="li">
+            An expansion module that adds the
+            <code class="keyword markupname xmlelement">&lt;sectionDesc&gt;</code> element to the
+            content model for <code class="keyword markupname xmlelement">&lt;section&gt;</code>
+          </li>
+        </ul>
+        <ol class="ol">
+          <li class="li">
+            First, the DITA architect creates the element domain module:
+            <span class="ph filepath">sectionDescDomain.rng</span>. It contains the following code:
+            <pre class="pre codeblock"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;?xml-model href="urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng"
+                         schematypens="http://relaxng.org/ns/structure/1.0"?&gt;
+&lt;grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  xmlns:dita="http://dita.oasis-open.org/architecture/2005/" 
+  xmlns="http://relaxng.org/ns/structure/1.0"&gt;
+  &lt;div&gt;
+    &lt;a:documentation&gt;DOMAIN EXTENSION PATTERNS&lt;/a:documentation&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;a:documentation&gt;ELEMENT TYPE NAME PATTERNS&lt;/a:documentation&gt;
+    &lt;define name="sectionDesc"&gt;
+      &lt;ref name="sectionDesc.element"/&gt;
+    &lt;/define&gt;   
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;a:documentation&gt;ELEMENT TYPE DECLARATIONS&lt;/a:documentation&gt;
+    &lt;div&gt;
+      &lt;a:documentation&gt;LONG NAME: Section Description&lt;/a:documentation&gt;
+      &lt;define name="sectionDesc.content"&gt;
+        &lt;zeroOrMore&gt;
+            &lt;ref name="para.cnt"/&gt;
+          &lt;/zeroOrMore&gt;
+      &lt;/define&gt;
+      &lt;define name="sectionDesc.attributes"&gt;
+        &lt;ref name="univ-atts"/&gt;
+      &lt;/define&gt;
+      &lt;define name="sectionDesc.element"&gt;
+        &lt;element name="sectionDesc" dita:longName="Section Description"&gt;
+          &lt;a:documentation/&gt;
+          &lt;ref name="sectionDesc.attlist"/&gt;
+          &lt;ref name="sectionDesc.content"/&gt;
+        &lt;/element&gt;
+      &lt;/define&gt;
+      &lt;define name="sectionDesc.attlist" combine="interleave"&gt;
+        &lt;ref name="sectionDesc.attributes"/&gt;
+      &lt;/define&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;a:documentation&gt;SPECIALIZATION ATTRIBUTE DECLARATIONS&lt;/a:documentation&gt;
+    &lt;define name="sectionDesc.attlist" combine="interleave"&gt;
+      &lt;optional&gt;
+        &lt;attribute name="class" a:defaultValue="+ topic/p sectionDesc-d-p/sectionDesc "/&gt;
+      &lt;/optional&gt;
+    &lt;/define&gt;
+  &lt;/div&gt;
+&lt;/grammar&gt;</code></pre>
+          </li>
+          <li class="li">
+            The DITA architect adds the element domain module to the
+            <span class="ph filepath">catalog.xml</span> file.
+          </li>
+          <li class="li">
+            <p class="p">
+              Next, the DITA architect modifies the document-type shell (in this example, the one
+              for topic) to integrate the element domain module:
+            </p>
+            <pre class="pre codeblock"><code>  &lt;div&gt;
+    &lt;a:documentation&gt;MODULE INCLUSIONS&lt;/a:documentation&gt;
+    ...
+    <strong class="ph b">&lt;include href="urn:example:names:tc:dita:rng:sectionDescDomain.rng:2.0"/&gt;</strong>
+  &lt;/div&gt;</code></pre>
+            <p class="p">
+              At this point, the new domain is integrated into the document-type shell. However, the
+              new element is not added to the content model for
+              <code class="keyword markupname xmlelement">&lt;section&gt;</code>.
+            </p>
+          </li>
+          <li class="li">
+            <p class="p">
+              Next, the DITA architect created an expansion module (<span class="ph filepath"
+                >sectionExpansionMod.rng</span
+              >) that adds the
+              <code class="keyword markupname xmlelement">&lt;sectionDesc&gt;</code> element to the
+              content model of <code class="keyword markupname xmlelement">&lt;section&gt;</code>:
+            </p>
+            <pre class="pre codeblock"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;?xml-model href="urn:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng"
+                         schematypens="http://relaxng.org/ns/structure/1.0"?&gt;
+&lt;grammar xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"&gt;
+  &lt;div&gt;
+    &lt;a:documentation&gt;CONTENT MODEL AND ATTRIBUTE LIST OVERRIDES&lt;/a:documentation&gt;
+    &lt;include href="urn:oasis:names:tc:dita:rng:topicMod.rng:2.0"&gt;  
+      &lt;define name="topic-info-types"&gt;
+        &lt;ref name="topic.element"/&gt;
+      &lt;/define&gt;    
+      &lt;define name="section.content" combine="interleave"&gt;
+        &lt;optional&gt;
+          &lt;ref name="title"/&gt;
+        &lt;/optional&gt;
+        &lt;optional&gt;
+          &lt;ref name="sectionDesc"/&gt;
+        &lt;/optional&gt;
+        &lt;zeroOrMore&gt;
+          &lt;ref name="section.cnt"/&gt;
+        &lt;/zeroOrMore&gt;
+      &lt;/define&gt;
+    &lt;/include&gt;
+  &lt;/div&gt;
+&lt;/grammar&gt;
+</code></pre>
+            <p class="p">
+              Note that the expansion module directly integrates
+              <span class="ph filepath">topicMod.rng</span>.
+            </p>
+          </li>
+          <li class="li">
+            <p class="p">
+              Finally, the DITA architect integrates the expansion module into the document-type
+              shell and removes the inclusion statement for
+              <span class="ph filepath">topicMod.rng</span>:
+            </p>
+            <pre class="pre codeblock"><code>  &lt;div&gt;
+    &lt;a:documentation&gt;ELEMENT-TYPE CONFIGURATION INTEGRATION&lt;/a:documentation&gt;
+    <strong class="ph b">&lt;include href="sectionExpansionMod.rng"/&gt;</strong>
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;a:documentation&gt;MODULE INCLUSIONS&lt;/a:documentation&gt;
+    <span class="ph line-through">&lt;include href="urn:oasis:names:tc:dita:rng:topicMod.rng:2.0"&gt;
+      &lt;define name="topic-info-types"&gt;
+        &lt;ref name="topic.element"/&gt;
+      &lt;/define&gt;
+    &lt;/include&gt;</span>
+    ... 
+    &lt;include href="urn:example:names:tc:dita:rng:sectionDescDomain.rng:2.0"/&gt;
+  &lt;/div&gt;</code></pre>
+          </li>
+          <li class="li">
+            After updating the <span class="ph filepath">catalog.xml</span> file to include the
+            expansion module and testing, the work is done.
+          </li>
+        </ol>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/examples-expansion-implemented-using-rng.html"
+            title="This section of the specification contains examples of extension modules implemented using RNG."
+            >Examples: Expansion implemented using RNG</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

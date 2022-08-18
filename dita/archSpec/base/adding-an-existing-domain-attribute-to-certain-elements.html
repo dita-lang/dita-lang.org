@@ -1,0 +1,251 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Example: Adding an existing domain attribute to certain elements
+  using DTDs'
+description: 'In this scenario, a company wants to use the
+  otherprops attribute specialization. However, they
+  want to make the attribute available only on certain elements:
+  p, div, and
+  section.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/ditaspecialization.html"
+            >Overview of DITA extension facilities</a
+          >
+        </li>
+        <li><a href="../../archSpec/base/configuration.html">Document-type configuration</a></li>
+        <li><a href="../../archSpec/base/specialization.html">Specialization</a></li>
+        <li><a href="../../archSpec/base/generalization.html">Generalization</a></li>
+        <li><a href="../../archSpec/base/constraints.html">Constraints</a></li>
+        <li>
+          <a href="../../archSpec/base/expansion-modules.html">Expansion modules</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/overview-of-expansion-modules.html"
+                >Overview of expansion modules</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/expansion-module-rules.html">Expansion module rules</a>
+            </li>
+            <li>
+              <a href="../../archSpec/base/example-expansion-modules.html"
+                >Examples: Expansion modules</a
+              >
+              <ul class="nav nav-list">
+                <li>
+                  <a href="../../archSpec/base/examples-expansion-implemented-using-dtds.html"
+                    >Examples: Expansion implemented using DTDs</a
+                  >
+                  <ul class="nav nav-list">
+                    <li>
+                      <a href="../../archSpec/base/adding-an-element-to-the-section-element.html"
+                        >Example: Adding an element to the section element using DTDs</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="../../archSpec/base/adding-an-attribute-to-certain-table-elements.html"
+                        >Example: Adding an attribute to certain table elements using DTDs</a
+                      >
+                    </li>
+                    <li class="active">
+                      <a
+                        href="../../archSpec/base/adding-an-existing-domain-attribute-to-certain-elements.html"
+                        >Example: Adding an existing domain attribute to certain elements using
+                        DTDs</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="../../archSpec/base/aggregating-constraint-and-expansion-modules.html"
+                        >Example: Aggregating constraint and expansion modules using DTDs</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="../../archSpec/base/examples-expansion-implemented-using-rng.html"
+                    >Examples: Expansion implemented using RNG</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      Example: Adding an existing domain attribute to certain elements using DTDs
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        In this scenario, a company wants to use the
+        <code class="keyword markupname xmlatt">@otherprops</code> attribute specialization.
+        However, they want to make the attribute available <strong class="ph b">only</strong> on
+        certain elements: <code class="keyword markupname xmlelement">&lt;p&gt;</code>,
+        <code class="keyword markupname xmlelement">&lt;div&gt;</code>, and
+        <code class="keyword markupname xmlelement">&lt;section&gt;</code>.
+      </p>
+      <p class="p">
+        The DITA architect will need to create an extension module and integrate it into the
+        appropriate document-type shells.
+      </p>
+      <ol class="ol">
+        <li class="li">
+          <p class="p">
+            The DITA architect creates an expansion module that adds the
+            <code class="keyword markupname xmlatt">@otherprops</code> attribute to the selected
+            elements: <span class="ph filepath">acme-otherpropsAttExpansion.mod</span>. The
+            expansion module contains the following code:
+          </p>
+          <pre class="pre codeblock"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+<strong class="ph b">
+&lt;!-- Add the otherprops attribute to certain elements --&gt;
+&lt;!ATTLIST p %otherpropsAtt-d-attribute;&gt;
+&lt;!ATTLIST div %otherpropsAtt-d-attribute;&gt;
+&lt;!ATTLIST section %otherpropsAtt-d-attribute;&gt;</strong></code></pre>
+          <p class="p">
+            Note that the <code class="ph codeph">%otherpropsAtt-d-attribute;</code> is defined in
+            the separate attribute-specialization module that defines the
+            <code class="keyword markupname xmlatt">@otherprops</code> attribute.
+          </p>
+        </li>
+        <li class="li">
+          They then update the <span class="ph filepath">catalog.xml</span> file to include the
+          expansion module.
+        </li>
+        <li class="li">
+          They integrate the extension module into the applicable document-type shell,
+          <strong class="ph b">after</strong> the declaration for the
+          <code class="keyword markupname xmlatt">@otherprops</code> attribute-specialization
+          module:
+          <pre
+            class="pre codeblock"
+          ><code>&lt;!-- ============================================================= --&gt;
+&lt;!--             DOMAIN ATTRIBUTES DECLARATIONS                    --&gt;
+&lt;!-- ============================================================= --&gt;
+...
+
+&lt;!ENTITY % otherpropsAtt-d-dec
+  PUBLIC "-//OASIS//ENTITIES DITA 2.0 Otherprops Attribute Domain//EN"
+         "otherpropsAttDomain.ent"
+&gt;%otherpropsAtt-d-dec;
+<strong class="ph b">
+&lt;!ENTITY % otherprops-expansion-e-def  
+  PUBLIC "-//ACME//DITA 2.0 Otherprops Expansion//EN" 
+         "acme-otherpropsAttExpansion.mod"
+  &gt;%otherprops-expansion-e-def;</strong>
+
+...</code></pre>
+        </li>
+        <li class="li">
+          <p class="p">
+            They remove the reference to the
+            <code class="keyword markupname xmlatt">@otherprops</code> attribute from the
+            <code class="ph codeph">props-attribute-extension</code> entity:
+          </p>
+          <pre
+            class="pre codeblock"
+          ><code>&lt;!-- ============================================================= --&gt;
+&lt;!--                    DOMAIN ATTRIBUTE EXTENSIONS                --&gt;
+&lt;!-- ============================================================= --&gt;
+
+&lt;!ENTITY % base-attribute-extensions
+  ""
+&gt;
+
+&lt;!ENTITY % props-attribute-extensions
+  "%audienceAtt-d-attribute;
+   %deliveryTargetAtt-d-attribute;
+   <strong class="ph b"><span class="ph line-through">%otherpropsAtt-d-attribute;</span></strong>
+   %platformAtt-d-attribute;
+   %productAtt-d-attribute;"
+&gt;</code></pre>
+        </li>
+        <li class="li">
+          They ensure that the <code class="ph codeph">included-domains</code> entity contains the
+          <code class="keyword markupname xmlatt">@otherprops</code> contribution to the
+          <code class="keyword markupname xmlatt">@specializations</code> attribute:
+          <pre
+            class="pre codeblock"
+          ><code>&lt;!-- ============================================================= --&gt;
+&lt;!--                 SPECIALIZATIONS ATTRIBUTE OVERRIDE            --&gt;
+&lt;!-- ============================================================= --&gt;
+
+&lt;!ENTITY included-domains
+                          "&amp;audienceAtt-d-att;
+                           &amp;deliveryTargetAtt-d-att;
+                           <strong class="ph b">&amp;otherpropsAtt-d-att;</strong>
+                           &amp;platformAtt-d-att;
+                           &amp;productAtt-d-att;"
+&gt;</code></pre>
+        </li>
+        <li class="li">
+          After checking the test topic to ensure that the attribute lists are modified as expected,
+          the work is done.
+        </li>
+      </ol>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/examples-expansion-implemented-using-dtds.html"
+            title="This section of the specification contains examples of extension modules that are implemented using DTDs."
+            >Examples: Expansion implemented using DTDs</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

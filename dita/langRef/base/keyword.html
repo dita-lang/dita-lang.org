@@ -1,0 +1,179 @@
+---
+# Generated from DITA source
+layout: base
+title: 'keyword'
+description: 'A keyword is text or a token that has a unique or key-like value, such as a product
+  name or unit of reusable text.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      <code class="keyword markupname xmlelement">&lt;keyword&gt;</code>
+    </h1>
+
+    <div class="body refbody">
+      <p class="shortdesc">
+        A keyword is text or a token that has a unique or key-like value, such as a product name or
+        unit of reusable text.
+      </p>
+      <section class="section" id="keyword__processing-expectations">
+        <h2 class="title sectiontitle">Processing expectations</h2>
+
+        <p class="p">
+          When used within the
+          <code class="keyword markupname xmlelement">&lt;keywords&gt;</code> element, the content
+          of a <code class="keyword markupname xmlelement">&lt;keyword&gt;</code> element is
+          considered to be metadata and should be processed as appropriate for the given output
+          medium.
+        </p>
+        <p class="p">
+          Elements that are specialized from the
+          <code class="keyword markupname xmlelement">&lt;keyword&gt;</code> element might have
+          extended processing, such as specific formatting or automatic indexing.
+        </p>
+      </section>
+      <section class="section" id="keyword__attributes">
+        <h2 class="title sectiontitle">Attributes</h2>
+
+        <p class="p">
+          The following attributes are available on this element:
+          <span class="ph"
+            ><a
+              class="xref"
+              href="../../common/../langRef/attributes/universalAttributes.html"
+              title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang"
+              >universal attributes</a
+            ></span
+          >
+          and
+          <a
+            class="xref"
+            href="../../common/../langRef/attributes/commonAttributes.html#common-atts__attr-keyref"
+            ><code class="keyword markupname xmlatt">@keyref</code></a
+          >.
+        </p>
+      </section>
+      <div class="example" id="keyword__example">
+        <h2 class="title sectiontitle">Examples</h2>
+
+        <p class="p">
+          This section contains examples of how the
+          <code class="keyword markupname xmlelement">&lt;keyword&gt;</code> element can be used.
+        </p>
+        <figure class="fig fignone">
+          <figcaption>
+            <span class="fig--title-label">Figure 1. </span
+            ><code class="keyword markupname xmlelement">&lt;keyword&gt;</code> element used to
+            store a product name
+          </figcaption>
+
+          <p class="p">
+            In the following code sample, the
+            <code class="keyword markupname xmlelement">&lt;keyword&gt;</code> element holds a
+            product name that can be referenced using content reference (conref) or content key
+            reference (conkeyref):
+          </p>
+          <pre
+            class="pre codeblock"
+          ><code>&lt;keyword id="acme-bird-feeder"&gt;ACME Bird Feeder&lt;/keyword&gt;</code></pre>
+          <p class="p">
+            To enable referencing variable text using
+            <code class="keyword markupname xmlatt">@keyref</code>, store the product name in a
+            <code class="keyword markupname xmlelement">&lt;keytext&gt;</code> element.
+          </p>
+        </figure>
+        <figure class="fig fignone" style="color:red;">
+          <figcaption>
+            <span class="fig--title-label">Figure 2. </span
+            ><code class="keyword markupname xmlelement">&lt;keyword&gt;</code> element referencing
+            a product name
+          </figcaption>
+
+          <p class="p">
+            In the following example, the
+            <code class="keyword markupname xmlelement">&lt;keyword&gt;</code>
+            element references a product name using
+            <code class="keyword markupname xmlatt">@conkeyref</code>:
+          </p>
+          <pre
+            class="pre codeblock"
+          ><code>&lt;p&gt;To fill the &lt;keyword conkeyref="productnames/acme-bird-feeder"/&gt;, unscrew the top ...&lt;/p&gt;</code></pre>
+        </figure>
+        <figure class="fig fignone">
+          <figcaption>
+            <span class="fig--title-label">Figure 3. </span
+            ><code class="keyword markupname xmlelement">&lt;keyword&gt;</code> element as metadata
+          </figcaption>
+
+          <p class="p">
+            In the following code sample, "Big data" is specified as metadata that applies to the
+            topic:
+          </p>
+          <pre class="pre codeblock"><code>&lt;prolog&gt;
+  &lt;metadata&gt;
+    &lt;keywords&gt;
+      &lt;keyword&gt;Big data&lt;/keyword&gt;
+    &lt;/keywords&gt;
+  &lt;/metadata&gt;
+&lt;/prolog&gt;</code></pre>
+        </figure>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../langRef/containers/body-elements.html"
+            title="The body elements support the most common types of content for topics: paragraphs, lists, phrases, figures, and other common document components."
+            >Body elements</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

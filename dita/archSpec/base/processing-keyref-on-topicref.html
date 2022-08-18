@@ -1,0 +1,198 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Processing key references on topicref elements'
+description: 'While topicref elements are used to define keys, they also
+  can reference keys that are defined elsewhere. This topic explains how to evaluate key
+  references on topicref elements and its
+  specializations.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li>
+      <a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a>
+      <ul class="nav nav-list">
+        <li><a href="../../archSpec/base/id.html">ID attribute</a></li>
+        <li><a href="../../archSpec/base/dita-linking.html">DITA linking</a></li>
+        <li>
+          <a href="../../archSpec/base/uri-based-addressing.html">URI-based (direct) addressing</a>
+        </li>
+        <li>
+          <a href="../../archSpec/base/key-based-addressing.html">Indirect key-based addressing</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/keys-core-concepts.html"
+                >Core concepts for working with keys</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/thekeysattribute.html"
+                >Setting key names with the keys attribute</a
+              >
+            </li>
+            <li><a href="../../archSpec/base/thekeyrefattribute.html">The keyref attribute</a></li>
+            <li>
+              <a href="../../archSpec/base/using-keys-for-addressing.html"
+                >Using keys for addressing</a
+              >
+            </li>
+            <li><a href="../../archSpec/base/keyScopes.html">Key scopes</a></li>
+            <li>
+              <a href="../../archSpec/base/the-key-scope-attribute.html">The keyscope attribute</a>
+            </li>
+            <li>
+              <a href="../../archSpec/base/using-keys-to-address-keys-across-scopes.html"
+                >Addressing keys across scopes</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/links-between-maps.html"
+                >Cross-deliverable addressing and linking</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/processing-key-references-general.html"
+                >Processing key references</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/processing-keyref-for-links.html"
+                >Processing key references for navigation links and images</a
+              >
+            </li>
+            <li class="active">
+              <a href="../../archSpec/base/processing-keyref-on-topicref.html"
+                >Processing key references on topicref elements</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/processing-keyref-for-text.html"
+                >Processing key references to generate text or link text</a
+              >
+            </li>
+            <li><a href="../../archSpec/base/examples-of-keys.html">Examples of keys</a></li>
+            <li>
+              <a href="../../archSpec/base/examples-of-scoped-keys.html">Examples of scoped keys</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="../../archSpec/base/context-hooks-for-user-assistance.html"
+            >Context hooks for user assistance</a
+          >
+        </li>
+      </ul>
+    </li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      Processing key references on
+      <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        While <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements are used
+        to define keys, they also can reference keys that are defined elsewhere. This topic explains
+        how to evaluate key references on
+        <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements and its
+        specializations.
+      </p>
+      <dl class="dl">
+        <dt class="dt dlterm">Determining the effective resource</dt>
+        <dd class="dd">
+          <p class="p">
+            For topic references that use the
+            <code class="keyword markupname xmlatt">@keyref</code> attribute, the effective resource
+            bound to the <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element
+            is determined by resolving all intermediate key references. Each key reference is
+            resolved either to a resource addressed directly by URI reference in an
+            <code class="keyword markupname xmlatt">@href</code> attribute, or to no resource.
+            Processors <dfn class="term RFC-2119">MAY</dfn> impose reasonable limits on the number
+            of intermediate key references that they will resolve. Processors
+            <dfn class="term RFC-2119">SHOULD</dfn> support at least three levels of key references.
+          </p>
+          <div class="note note note_note">
+            <span class="note__title">Note:</span> This rule applies to all topic references,
+            including those that define keys. The effective bound resource for a key definition that
+            uses the <code class="keyword markupname xmlatt">@keyref</code> attribute cannot be
+            determined until the key space has been constructed.
+          </div>
+        </dd>
+
+        <dt class="dt dlterm">Combining metadata</dt>
+        <dd class="dd">
+          <p class="p">
+            Content from a key-defining element cascades to the key-referencing element following
+            the rules for combining metadata between maps and other maps and between maps and
+            topics.
+          </p>
+          <p class="p">
+            The combined attributes and content cascade from one map to another or from a map to a
+            topic, but this is controlled by existing rules for cascading, which are not affected by
+            the use of key references.
+          </p>
+        </dd>
+      </dl>
+      <p class="p">
+        If, in addition to the <code class="keyword markupname xmlatt">@keys</code> attribute, a key
+        definition specifies a <code class="keyword markupname xmlatt">@keyref</code> attribute that
+        can be resolved after the key resolution context for the key definition has been determined,
+        the resources bound to the referenced key definition take precedence.
+      </p>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/key-based-addressing.html"
+            title="DITA keys provide an alternative to direct addressing. The key reference mechanism provides a layer of indirection so that resources (for example, URIs, metadata, or variable text strings) can be defined at the DITA map level instead of locally in each topic."
+            >Indirect key-based addressing</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

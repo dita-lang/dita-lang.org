@@ -1,0 +1,243 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Conref overview'
+description: 'The DITA conref,
+  conkeyref, conrefend, and conaction attributes provide mechanisms for reusing content within DITA topics
+  or maps. These mechanisms can be used both to pull and push content.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li>
+      <a href="../../archSpec/base/behaviors.html">DITA processing</a>
+      <ul class="nav nav-list">
+        <li><a href="../../archSpec/base/navigation.html">Navigation</a></li>
+        <li><a href="../../archSpec/base/indexes.html">Indexes</a></li>
+        <li>
+          <a href="../../archSpec/base/conref.html">Content reference (conref)</a>
+          <ul class="nav nav-list">
+            <li class="active">
+              <a href="../../archSpec/base/conref-overview.html">Conref overview</a>
+            </li>
+            <li>
+              <a href="../../archSpec/base/theconactionattribute.html">The conaction attribute</a>
+            </li>
+            <li>
+              <a href="../../archSpec/base/theconrefendattribute.html">The conrefend attribute</a>
+            </li>
+            <li>
+              <a href="../../archSpec/base/theconkeyrefattribute.html">The conkeyref attribute</a>
+            </li>
+            <li><a href="../../archSpec/base/theconrefattribute.html">The conref attribute</a></li>
+            <li>
+              <a href="../../archSpec/base/ditauseconreftarget.html"
+                >Using the -dita-use-conref-target value</a
+              >
+            </li>
+            <li><a href="../../archSpec/base/conref-processing.html">Processing conrefs</a></li>
+            <li>
+              <a href="../../archSpec/base/conref-attributes-specified-on-elements.html"
+                >Processing attributes when resolving conrefs</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/handling-xref-and-conref-within-topics.html"
+                >Processing xrefs and conrefs within a conref</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/condproc.html">Conditional processing</a></li>
+        <li><a href="../../archSpec/base/branch-filtering.html">Branch filtering</a></li>
+        <li><a href="../../archSpec/base/sort-as-processing.html">Sorting</a></li>
+        <li>
+          <a href="../../archSpec/base/determining-effective-attribute-values.html"
+            >Determining effective attribute values</a
+          >
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1"><span class="ph">Conref overview</span></h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        <span class="ph"
+          >The DITA <code class="keyword markupname xmlatt">@conref</code>,
+          <code class="keyword markupname xmlatt">@conkeyref</code>,
+          <code class="keyword markupname xmlatt">@conrefend</code>, and
+          <code class="keyword markupname xmlatt">@conaction</code> attributes provide mechanisms
+          for reusing content within DITA topics or maps.
+          <span class="ph"
+            >These mechanisms can be used both to
+            <span class="ph">pull and push</span> content.</span
+          ></span
+        >
+      </p>
+      <p class="p">
+        This topic uses the definitions of
+        <a
+          class="xref"
+          href="linking-and-addressing-terms.html#linking-and-addressing-terms__referenced-element"
+          >referenced element</a
+        >
+        and
+        <a
+          class="xref"
+          href="linking-and-addressing-terms.html#linking-and-addressing-terms__referencing-element"
+          >referencing element</a
+        >
+        as defined in
+        <a
+          class="xref"
+          href="linking-and-addressing-terms.html"
+          title="Certain terminology is used for discussing linking and addressing."
+          >Linking and addressing terminology</a
+        >.
+      </p>
+      <dl class="dl">
+        <dt class="dt dlterm">Pulling content to the referencing element</dt>
+        <dd class="dd">
+          <p class="p">
+            When the <code class="keyword markupname xmlatt">@conref</code> or
+            <code class="keyword markupname xmlatt">@conkeyref</code> attribute is used alone, the
+            referencing element acts as a placeholder for the referenced element, and the content of
+            the referenced element is rendered in place of the referencing element.
+          </p>
+          <p class="p">
+            The combination of the
+            <code class="keyword markupname xmlatt">@conrefend</code> attribute with either
+            <code class="keyword markupname xmlatt">@conref</code> or
+            <code class="keyword markupname xmlatt">@conkeyref</code> specifies a range of elements
+            that is rendered in place of the referencing element.
+            <span class="ph"
+              >Although the start and end elements must be of the same type as the referencing
+              element (or specialized from that element type), the elements inside the range can be
+              any type.</span
+            >
+          </p>
+        </dd>
+
+        <dt class="dt dlterm">Pushing content from the referencing element</dt>
+        <dd class="dd">
+          <p class="p">
+            The <code class="keyword markupname xmlatt">@conaction</code> attribute reverses the
+            direction of reuse from pull to push.
+            <span class="ph"
+              >With a push, the referencing element is rendered before, after, or in place of the
+              referenced element. The location (before, after, or in place of) is determined by the
+              value of the
+              <code class="keyword markupname xmlatt">@conaction</code> attribute.</span
+            >
+            Because the <code class="keyword markupname xmlatt">@conaction</code> and
+            <code class="keyword markupname xmlatt">@conrefend</code> attributes cannot both be used
+            within the same referencing element, it is not possible to push a range of elements.
+          </p>
+        </dd>
+      </dl>
+      <p class="p">
+        A fragment of DITA content, such as an XML document that contains only a single paragraph
+        without a topic ancestor, does not contain enough information for the conref processor to be
+        able to determine the validity of a reference to it. Consequently, the value of a conref
+        must specify one of the following items:
+      </p>
+      <ul class="ul">
+        <li class="li">A referenced element within a DITA map</li>
+        <li class="li">A referenced element within a DITA topic</li>
+        <li class="li">An entire DITA map</li>
+        <li class="li">An entire DITA topic</li>
+      </ul>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/conref.html"
+            title="The DITA conref attributes provide mechanisms for reusing content. DITA content references support reuse scenarios that are difficult or impossible to implement using other XML-based inclusion mechanisms like XInclude and entities. Additionally, DITA content references have rules that help ensure that the results of content inclusion remain valid after resolution"
+            >Content reference (conref)</a
+          >
+        </div>
+      </div>
+      <div class="linklist relref">
+        <strong>Related reference</strong><br />
+        <ul class="linklist">
+          <li class="linklist">
+            <a
+              class="link"
+              href="../../archSpec/base/theconactionattribute.html"
+              title="The conaction attribute allows users to push content from one topic into another. It causes the conref attribute to work in reverse, so that the content is pushed from the current topic into another, rather than pulled from another topic into the current one."
+              >The conaction attribute</a
+            >
+          </li>
+          <li class="linklist">
+            <a
+              class="link"
+              href="../../archSpec/base/theconkeyrefattribute.html"
+              title="The conkeyref attribute provides an indirect content reference to topic elements, map elements, or elements within maps or topics. When the DITA content is processed, the key references are resolved using key definitions from DITA maps."
+              >The conkeyref attribute</a
+            >
+          </li>
+          <li class="linklist">
+            <a
+              class="link"
+              href="../../archSpec/base/theconrefattribute.html"
+              title="The conref attribute is used to reference content that can be reused. It allows reuse of DITA elements, including topic or map level elements."
+              >The conref attribute</a
+            >
+          </li>
+          <li class="linklist">
+            <a
+              class="link"
+              href="../../archSpec/base/theconrefendattribute.html"
+              title="The conrefend attribute is used when referencing a range of elements with the conref mechanism. The conref or conkeyref attribute references the first element in the range, while conrefend references the last element in the range."
+              >The conrefend attribute</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </article>
+</main>

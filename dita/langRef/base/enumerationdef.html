@@ -1,0 +1,310 @@
+---
+# Generated from DITA source
+layout: base
+title: 'enumerationdef'
+description: 'An enumeration definition is a binding of an
+  attribute to a set of controlled values. The set of controlled values
+  can be limited to a specific element or it could be empty.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      <code class="keyword markupname xmlelement">&lt;enumerationdef&gt;</code>
+    </h1>
+
+    <div class="body refbody">
+      <p style="color:red;" class="shortdesc">
+        An enumeration definition is a binding of an attribute to a set of controlled values. The
+        set of controlled values can be limited to a specific element or it could be empty.
+      </p>
+      <section class="section" id="enumerationdef__usage-information">
+        <h2 class="title sectiontitle">Usage information</h2>
+
+        <p class="p">An enumeration definition can accomplish the following goals:</p>
+        <dl class="dl">
+          <dt class="dt dlterm">Bind a set of controlled values to an attribute</dt>
+          <dd class="dd">
+            When the
+            <code class="keyword markupname xmlelement">&lt;enumerationdef&gt;</code> element
+            contains only an
+            <code class="keyword markupname xmlelement">&lt;attributedef&gt;</code> and a
+            <code class="keyword markupname xmlelement">&lt;subjectdef&gt;</code> element, the set
+            of controlled values that are bound to the attribute apply to all elements. For example,
+            when <code class="keyword markupname xmlelement">&lt;enumerationdef&gt;</code> contains
+            only <code class="ph codeph">&lt;attributedef name="value"/&gt;</code>, the
+            <code class="keyword markupname xmlatt">@value</code> attribute is limited to the
+            specified enumeration for all elements
+            <span style="color:red;" class="ph"
+              >that can specify the
+              <code class="keyword markupname xmlatt">@value</code> attribute.</span
+            >
+          </dd>
+
+          <dt class="dt dlterm">
+            Limit a set of controlled values to a specific element and attribute pair
+          </dt>
+          <dd class="dd">
+            When the
+            <code class="keyword markupname xmlelement">&lt;enumerationdef&gt;</code> element
+            contains an <code class="keyword markupname xmlelement">&lt;attributedef&gt;</code>, a
+            <code class="keyword markupname xmlelement">&lt;subjectdef&gt;</code>,
+            <strong class="ph b">and</strong> an
+            <code class="keyword markupname xmlelement">&lt;elementdef&gt;</code> element, the
+            enumeration applies to the specified attribute <strong class="ph b">only</strong> on the
+            specified element. The enumeration does not apply to the attribute on other elements.
+            <p class="p">
+              For example, when the
+              <code class="keyword markupname xmlelement">&lt;enumerationdef&gt;</code> element
+              contains both <code class="ph codeph">&lt;attributedef name="type"/&gt;</code> and
+              <code class="ph codeph">&lt;elementdef name="note"/&gt;</code>, only the
+              <code class="keyword markupname xmlatt">@type</code> attribute on the
+              <code class="keyword markupname xmlelement">&lt;note&gt;</code> element is limited to
+              the specified enumeration. The possible values for the
+              <code class="keyword markupname xmlatt">@type</code> attribute on other elements are
+              not affected.
+            </p>
+          </dd>
+
+          <dt class="dt dlterm">
+            Specify the default value for an attribute or element and attribute pair
+          </dt>
+          <dd class="dd">
+            When the
+            <code class="keyword markupname xmlelement">&lt;enumerationdef&gt;</code> element
+            contains a
+            <code class="keyword markupname xmlelement">&lt;defaultSubject&gt;</code> element,
+            <span style="color:red;" class="ph"
+              >processors operate as if the value specified by the
+              <code class="keyword markupname xmlelement">&lt;defaultSubject&gt;</code> element is
+              explicitly set in the DITA source</span
+            >
+            <span style="color:red;" class="ph"
+              >and the XML grammar does not set a default value for the attribute.</span
+            >
+            <div class="div">
+              <p class="p">
+                For example, given the following
+                <code class="keyword markupname xmlelement">&lt;enumerationdef&gt;</code> element,
+                <span style="color:red;" class="ph"
+                  >if no value is set for the
+                  <code class="keyword markupname xmlatt">@audience</code> attribute on
+                  <code class="keyword markupname xmlelement">&lt;draft-comment&gt;</code> in the
+                  DITA source, processors operate as if the @audience attribute is explicitly set to
+                  <span class="keyword">spec-editors</span></span
+                >:
+              </p>
+              <pre class="pre codeblock"><code>&lt;subjectScheme&gt;
+  &lt;!-- ... --&gt;
+  &lt;enumerationdef&gt;
+    &lt;elementdef name="draft-comment"/&gt;
+    &lt;attributedef name="audience"/&gt;
+    &lt;subjectdef keyref="values-audience-draft-comment"/&gt;
+    &lt;defaultSubject keyref="spec-editors"/&gt;
+  &lt;/enumerationdef&gt;
+  &lt;!-- ... --&gt;
+&lt;/subjectScheme&gt;</code></pre>
+            </div>
+          </dd>
+
+          <dt class="dt dlterm">Specify that an attribute is not valid.</dt>
+          <dd class="dd">
+            <p class="p">
+              When the
+              <code class="keyword markupname xmlelement">&lt;enumerationdef&gt;</code> element
+              <span style="color:red;" class="ph"
+                >contains a <code class="keyword markupname xmlatt">@subjectdef</code> element that
+                does not reference a subject</span
+              >, no value is valid for the attribute.
+            </p>
+            <p class="p"></p>
+            For example, the following code sample specifies that no tokens are valid for the
+            <code class="keyword markupname xmlatt">@props</code> attribute:
+            <pre class="pre codeblock"><code>&lt;subjectScheme&gt;
+  &lt;!-- ... --&gt;
+  &lt;enumerationdef&gt;
+    &lt;attributedef name="props"/&gt;
+    &lt;subjectdef/&gt;
+  &lt;/enumerationdef&gt;
+  &lt;!-- ... --&gt;
+&lt;/subjectScheme&gt;</code></pre>
+          </dd>
+        </dl>
+      </section>
+      <section class="section" id="enumerationdef__specialization-hierachy">
+        <h2 class="title sectiontitle">Specialization hierarchy</h2>
+
+        <p class="p">
+          The <code class="keyword markupname xmlelement">&lt;enumerationdef&gt;</code> element is
+          specialized from <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>. It
+          is defined in the subject scheme module.
+        </p>
+      </section>
+      <section class="section" style="color:red;" id="enumerationdef__processing-expectations">
+        <h2 class="title sectiontitle">Processing expectations</h2>
+
+        <p class="p">
+          See
+          <a
+            class="xref"
+            href="../../archSpec/base/determining-effective-attribute-values.html"
+            title="Topic to be moved to more appropriate location: how to determine effective attribute values."
+            >Determining effective attribute values</a
+          >
+        </p>
+      </section>
+      <section class="section" id="enumerationdef__attributes">
+        <h2 class="title sectiontitle">Attributes</h2>
+
+        <p class="p">
+          The following attributes are available on this element:
+          <span class="ph"
+            ><a
+              class="xref"
+              href="../../common/../langRef/attributes/universalAttributes.html#univ-atts__idatts"
+              title="ID and conref attributes include: conaction, conkeyref, conref, conrefend, and id"
+              >ID and conref attributes</a
+            ></span
+          >,
+          <a class="xref" href="../attributes/universalAttributes.html#univ-atts__attr-status"
+            ><code class="keyword markupname xmlatt">@status</code></a
+          >,
+          <a class="xref" href="../attributes/universalAttributes.html#univ-atts__attr-base"
+            ><code class="keyword markupname xmlatt">@base</code></a
+          >,
+          <a class="xref" href="../attributes/universalAttributes.html#univ-atts__outputclass"
+            ><code class="keyword markupname xmlatt">@outputclass</code></a
+          >, and
+          <a class="xref" href="../attributes/universalAttributes.html#univ-atts__class"
+            ><code class="keyword markupname xmlatt">@class</code></a
+          >.
+        </p>
+      </section>
+      <div class="example">
+        <h2 class="title sectiontitle">Example</h2>
+
+        <p class="p">The following code sample contains three enumeration definitions:</p>
+        <pre class="pre codeblock"><code>&lt;subjectScheme&gt;
+    
+    &lt;!-- DEFINE SETS OF CONTROLLED VALUES --&gt;
+
+    &lt;!-- 1. Values for @audience on &lt;draft-comment&gt; --&gt;
+    &lt;subjectdef keys="values-audience-draft-comment"&gt;
+        &lt;subjectdef keys="spec-editors"/&gt;
+        &lt;subjectdef keys="tc-reviewers"/&gt;
+    &lt;/subjectdef&gt;
+    
+    &lt;!-- 2. Values for @otherprops --&gt;
+    &lt;subjectdef keys="values-otherprops"&gt;
+        &lt;subjectdef keys="examples"/&gt;
+    &lt;/subjectdef&gt;
+    
+    &lt;!-- BINDS SETS OF CONTROLLED VALUES --&gt;
+
+    &lt;!-- 1. Binding for @audience on &lt;draft-comment&gt; --&gt;
+    &lt;enumerationdef&gt;
+        &lt;elementdef name="draft-comment"/&gt;
+        &lt;attributedef name="audience"/&gt;
+        &lt;subjectdef keyref="values-audience-draft-comment"/&gt;
+        &lt;defaultSubject keyref="spec-editors"/&gt;
+    &lt;/enumerationdef&gt;
+    
+    &lt;!-- 2. Binding for @otherprops --&gt;
+    &lt;enumerationdef&gt;
+        &lt;attributedef name="otherprops"/&gt;
+        &lt;subjectdef keyref="values-otherprops"/&gt;
+    &lt;/enumerationdef&gt;
+
+    &lt;!-- 3. Binding for @props --&gt;
+    &lt;enumerationdef&gt;
+        &lt;attributedef name="props"/&gt;
+        <span style="color:red;" class="ph">&lt;subjectdef/&gt;</span>
+    &lt;/enumerationdef&gt;
+
+&lt;/subjectScheme&gt;</code></pre>
+        <ol class="ol">
+          <li class="li">
+            The permissible values for the
+            <code class="keyword markupname xmlatt">@audience</code> attribute on the
+            <code class="keyword markupname xmlelement">&lt;draft-comment&gt;</code> element are
+            restricted to the subject <span class="keyword">values-audience-draft-comment</span>.
+            This means that the only allowed values are
+            <span class="keyword">spec-editors</span> and <span class="keyword">tc-reviewers</span>.
+            If no value for <code class="keyword markupname xmlatt">@audience</code> is specified
+            for a <code class="keyword markupname xmlelement">&lt;draft-comment&gt;</code> element
+            in the DITA source, it is assumed to be set to
+            <span class="keyword">spec-editors</span>.
+          </li>
+          <li class="li">
+            The permissible values for
+            <code class="keyword markupname xmlatt">@otherprops</code> are restricted to the subject
+            <span class="keyword">values-otherprops</span>. This means that the only valid value for
+            <code class="keyword markupname xmlatt">@otherprops</code> is
+            <span class="keyword">examples</span>.
+          </li>
+          <li style="color:red;" class="li">
+            The enumeration for the <code class="keyword markupname xmlatt">@props</code> attribute
+            contains a <code class="keyword markupname xmlelement">&lt;subjectdef&gt;</code> element
+            that does not reference a subject. That means that no values are valid for the
+            <code class="keyword markupname xmlatt">@props</code> attribute.
+          </li>
+        </ol>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../langRef/containers/subjectScheme.html"
+            title="Subject scheme elements are used to define sets of controlled values and taxonomic subjects, bind controlled values to attributes as enumerations, and specify relationships among taxonomic subjects."
+            >Subject scheme elements</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

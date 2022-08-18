@@ -1,0 +1,194 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Index redirection'
+description: 'The index-see and index-see-also
+  elements enable redirection to other index entries within the generated index.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li>
+      <a href="../../archSpec/base/behaviors.html">DITA processing</a>
+      <ul class="nav nav-list">
+        <li><a href="../../archSpec/base/navigation.html">Navigation</a></li>
+        <li>
+          <a href="../../archSpec/base/indexes.html">Indexes</a>
+          <ul class="nav nav-list">
+            <li><a href="../../archSpec/base/index-elements.html">Index elements</a></li>
+            <li>
+              <a href="../../archSpec/base/location-of-indexterm-elements.html"
+                >Location of indexterm elements</a
+              >
+            </li>
+            <li><a href="../../archSpec/base/index-page-references.html">Index locators</a></li>
+            <li class="active">
+              <a href="../../archSpec/base/index-redirection.html">Index redirection</a>
+            </li>
+            <li><a href="../../archSpec/base/index-ranges.html">Index ranges</a></li>
+            <li><a href="../../archSpec/base/index-sorting.html">Index sorting</a></li>
+            <li>
+              <a href="../../archSpec/base/merging-index-elements.html">Merging index elements</a>
+            </li>
+            <li><a href="../../archSpec/base/examples-indexing.html">Examples of indexing</a></li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/conref.html">Content reference (conref)</a></li>
+        <li><a href="../../archSpec/base/condproc.html">Conditional processing</a></li>
+        <li><a href="../../archSpec/base/branch-filtering.html">Branch filtering</a></li>
+        <li><a href="../../archSpec/base/sort-as-processing.html">Sorting</a></li>
+        <li>
+          <a href="../../archSpec/base/determining-effective-attribute-values.html"
+            >Determining effective attribute values</a
+          >
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Index redirection</h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        The <code class="keyword markupname xmlelement">&lt;index-see&gt;</code> and
+        <code class="keyword markupname xmlelement">&lt;index-see-also&gt;</code> elements enable
+        redirection to other index entries within the generated index.
+      </p>
+      <p class="p">
+        The <code class="keyword markupname xmlelement">&lt;index-see&gt;</code> element contains
+        text for an index entry that the reader should use <em class="ph i">instead of</em> the
+        current one, whereas the
+        <code class="keyword markupname xmlelement">&lt;index-see-also&gt;</code> element contains
+        text for an index entry that the reader should use <em class="ph i">in addition to</em> the
+        current one.
+      </p>
+      <p class="p">
+        Generated index entries should not contain both locators and redirections. Therefore, it is
+        an error if the following conditions occur:
+      </p>
+      <dl class="dl">
+        <dt class="dt dlterm">
+          An <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> contains
+          <code class="keyword markupname xmlelement">&lt;index-see&gt;</code>, and the publication
+          contains other <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> with
+          matching content
+        </dt>
+        <dd class="dd">
+          <p class="p">
+            An <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element contains
+            an <code class="keyword markupname xmlelement">&lt;index-see&gt;</code> element, and the
+            publication contains one or more
+            <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements with
+            matching textual content.
+          </p>
+          <p class="p">
+            For example, topics referenced by the master map include the following markup:
+          </p>
+          <pre class="pre codeblock"><code>&lt;!-- Topic A --&gt;
+&lt;indexterm&gt;memory stick
+  &lt;index-see&gt;USB drive&lt;/index-see&gt;
+&lt;/indexterm&gt;
+
+&lt;!-- Topic B --&gt;
+&lt;indexterm&gt;memory stick&lt;/indexterm&gt;</code></pre>
+        </dd>
+
+        <dt class="dt dlterm">
+          An <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> contains
+          <code class="keyword markupname xmlelement">&lt;index-see&gt;</code> and
+          <code class="keyword markupname xmlelement">&lt;index-see-also&gt;</code>
+        </dt>
+        <dd class="dd">
+          <p class="p">
+            An <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element contains
+            both an <code class="keyword markupname xmlelement">&lt;index-see&gt;</code> element and
+            an <code class="keyword markupname xmlelement">&lt;index-see-also&gt;</code> element.
+          </p>
+          <p class="p">
+            For example, a topic contains the following
+            <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element:
+          </p>
+          <pre class="pre codeblock"><code>&lt;indexterm&gt;
+  memory stick
+    &lt;index-see&gt;USB drive&lt;/index-see&gt;
+    &lt;index-see-also&gt;flash stick&lt;/index-see-also&gt;
+&lt;/indexterm&gt;</code></pre>
+        </dd>
+      </dl>
+      <div class="p">
+        A processor <dfn class="term RFC-2119">MAY</dfn> give an error message when it encounters
+        the following error conditions:
+        <ul class="ul">
+          <li class="li">
+            An <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element contains
+            an <code class="keyword markupname xmlelement">&lt;index-see&gt;</code> element, and the
+            publication contains one or more
+            <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements with
+            matching textual content.
+          </li>
+          <li class="li">
+            Both <code class="keyword markupname xmlelement">&lt;index-see&gt;</code> and
+            <code class="keyword markupname xmlelement">&lt;index-see-also&gt;</code> elements
+            within the same
+            <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element.
+          </li>
+        </ul>
+        Processors <dfn class="term RFC-2119">MAY</dfn> recover from these error conditions by
+        treating the <code class="keyword markupname xmlelement">&lt;index-see&gt;</code> element as
+        an <code class="keyword markupname xmlelement">&lt;index-see-also&gt;</code> element.
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/indexes.html"
+            title="Processors can generate an index from the content of indexing elements."
+            >Indexes</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

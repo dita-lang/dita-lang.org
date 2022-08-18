@@ -1,0 +1,323 @@
+---
+# Generated from DITA source
+layout: base
+title: 'fn'
+description: 'A footnote is ancillary
+  information that typically is rendered in the footer of a page or at
+  the end of an online article. Such content is usually inappropriate for
+  inline inclusion.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      <code class="keyword markupname xmlelement">&lt;fn&gt;</code>
+    </h1>
+
+    <div class="body refbody">
+      <p class="shortdesc">
+        A footnote is ancillary information that typically is rendered in the footer of a page or at
+        the end of an online article. Such content is usually inappropriate for inline inclusion.
+      </p>
+      <section class="section" id="fn__usage-information">
+        <h2 class="title sectiontitle">Usage information</h2>
+
+        <p class="p">
+          There are two types of footnotes: <dfn class="term">single-use footnote</dfn> and
+          <dfn class="term">use-by-reference footnote</dfn>.
+        </p>
+        <div class="div">
+          <dl class="dl">
+            <dt class="dt dlterm">Single-use footnote</dt>
+            <dd class="dd">
+              This is produced by a
+              <code class="keyword markupname xmlelement">&lt;fn&gt;</code> element that does not
+              specify a value for the <code class="keyword markupname xmlatt">@id</code> attribute.
+            </dd>
+
+            <dt class="dt dlterm">Use-by-reference footnote</dt>
+            <dd class="dd">
+              This is produced by a
+              <code class="keyword markupname xmlelement">&lt;fn&gt;</code> element that specifies a
+              value for the <code class="keyword markupname xmlatt">@id</code> attribute. It must be
+              used in conjunction with an
+              <code class="keyword markupname xmlelement">&lt;xref&gt;</code> element with
+              <code class="keyword markupname xmlatt">@type</code> set to
+              <span class="keyword">fn</span>.
+            </dd>
+          </dl>
+          <p class="p">
+            To reference a footnote that is located in another topic, the conref or conkeyref
+            mechanism is used.
+          </p>
+        </div>
+      </section>
+      <section class="section" id="fn__rendering-expectations">
+        <h2 class="title sectiontitle">Rendering expectations</h2>
+
+        <p class="p">The two footnote types typically produce different types of output:</p>
+        <div class="div">
+          <dl class="dl">
+            <dt class="dt dlterm">Single-use footnote</dt>
+            <dd class="dd">
+              When rendered, a superscript symbol (numeral or character) is produced at the location
+              of the <code class="keyword markupname xmlelement">&lt;fn&gt;</code> element. The
+              superscript symbol is hyperlinked to the content of the footnote, which is placed at
+              the bottom of a PDF page or the end of an online article. The superscript symbol can
+              be specified by the value of the
+              <code class="keyword markupname xmlatt">@callout</code> attribute. When no
+              <code class="keyword markupname xmlatt">@callout</code> value is specified, footnotes
+              are typically numbered.
+            </dd>
+
+            <dt class="dt dlterm">Use-by-reference footnote</dt>
+            <dd class="dd">
+              Nothing is rendered at the location of the
+              <code class="keyword markupname xmlelement">&lt;fn&gt;</code> element. The content of
+              a use-by-reference footnote is only rendered when it is referenced by an
+              <code class="keyword markupname xmlelement">&lt;xref&gt;</code> with the
+              <code class="keyword markupname xmlatt">@type</code> attribute set to
+              <span class="keyword">fn</span>. If an
+              <code class="keyword markupname xmlelement">&lt;xref&gt;</code> with the
+              <code class="keyword markupname xmlatt">@type</code> attribute set to
+              <span class="keyword">fn</span> is present, a superscript symbol is rendered at the
+              location of the
+              <code class="keyword markupname xmlelement">&lt;xref&gt;</code> element. Unless conref
+              or conkeyref is used, the
+              <code class="keyword markupname xmlelement">&lt;fn&gt;</code> and
+              <code class="keyword markupname xmlelement">&lt;xref&gt;</code> must be located in the
+              same topic.
+            </dd>
+          </dl>
+        </div>
+        <div class="div"></div>
+        <p class="p">
+          However, the details of footnote processing and formatting are implementation dependent.
+          For example, a tool that renders DITA as PDF might lack support for the
+          <code class="keyword markupname xmlatt">@callout</code> attribute, or footnotes might be
+          collected as end notes for certain types of publications.
+        </p>
+      </section>
+      <section class="section" id="fn__attributes">
+        <h2 class="title sectiontitle">Attributes</h2>
+
+        <p class="p">
+          The following attributes are available on this element:
+          <span class="ph"
+            ><a
+              class="xref"
+              href="../../common/reuse-w-lwdita/../../langRef/attributes/universalAttributes.html"
+              title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang"
+              >universal attributes</a
+            ></span
+          >
+          and the attribute defined below.
+        </p>
+        <dl class="dl">
+          <dt class="dt dlterm" id="fn__d1444e178">
+            <a id="fn__d1444e176"></a><code class="keyword markupname xmlatt">@callout</code>
+          </dt>
+          <dd class="dd">
+            Specifies the character
+            <span style="color:red;" class="ph">or character string</span> that is used for the
+            footnote link
+          </dd>
+        </dl>
+      </section>
+      <div class="example" id="fn__example">
+        <h2 class="title sectiontitle">Examples</h2>
+
+        <p class="p">
+          This section contains examples of how the
+          <code class="keyword markupname xmlelement">&lt;fn&gt;</code> element can be used.
+        </p>
+        <figure class="fig fignone">
+          <figcaption>
+            <span class="fig--title-label">Figure 1. </span>An example of a single-use footnote
+          </figcaption>
+
+          <p class="p">
+            The following code sample shows a single-use footnote. It contains a simple
+            <code class="keyword markupname xmlelement">&lt;fn&gt;</code> element, with no
+            <code class="keyword markupname xmlatt">@id</code> or
+            <code class="keyword markupname xmlatt">@callout</code> attribute.
+          </p>
+          <pre class="pre codeblock"><code>&lt;p&gt;The memory storage capacity of the computer is 
+2 GB&lt;fn&gt;A GB (gigabyte) is equal to 
+1000 million bytes&lt;/fn&gt; with error correcting support.&lt;/p&gt;</code></pre>
+          <p class="p">
+            When rendered, typically a superscript symbol is placed at the location of the
+            <code class="keyword markupname xmlelement">&lt;fn&gt;</code> element; this superscript
+            symbol is hyperlinked to the content of the
+            <code class="keyword markupname xmlelement">&lt;fn&gt;</code>, which is typically placed
+            at the bottom of a PDF page or the end of an online article. The type of symbol used is
+            implementation specific.
+          </p>
+          <p class="p">
+            The above code sample might produce the following output similar to the following:
+          </p>
+          <br /><img
+            class="image"
+            src="../images/simple-footnote.jpg"
+            height="177"
+            width="831"
+            alt="The screen capture shows a text in a document that includes a footnote. In the body of the text, the location of the footnote is marked with the numeral one in superscript. At the bottom on the page, the text of the footnote appears along with the associated numeral one. The edges of the screen capture are tattered, to indicate that the image is part of a larger document."
+          /><br />
+        </figure>
+        <figure class="fig fignone">
+          <figcaption>
+            <span class="fig--title-label">Figure 2. </span>An example of a single-use footnote with
+            a <code class="keyword markupname xmlatt">@callout</code> attribute
+          </figcaption>
+
+          <p class="p">
+            The following code sample shows a single-use footnote that uses a
+            <code class="keyword markupname xmlatt">@callout</code> attribute:
+          </p>
+          <pre class="pre codeblock"><code>&lt;p&gt;The memory storage capacity of the computer is 
+2 GB&lt;fn callout="#"&gt;A GB (gigabyte) is equal to 
+1000 million bytes&lt;/fn&gt; with error correcting support.&lt;/p&gt;</code></pre>
+          <p class="p">
+            The rendered output is similar to that of the previous example, although processors that
+            support it will render the footnote symbol as # (hashtag).
+          </p>
+        </figure>
+        <figure class="fig fignone">
+          <figcaption>
+            <span class="fig--title-label">Figure 3. </span>A use-by-reference footnote
+          </figcaption>
+
+          <p class="p">
+            The following code sample shows use-by-reference footnotes. The
+            <code class="keyword markupname xmlelement">&lt;fn&gt;</code> elements have
+            <code class="keyword markupname xmlatt">@id</code> attributes, and inline
+            <code class="keyword markupname xmlelement">&lt;xref&gt;</code> elements reference those
+            <code class="keyword markupname xmlelement">&lt;fn&gt;</code> elements:
+          </p>
+          <pre class="pre codeblock"><code>&lt;section&gt;
+  &lt;fn id="dog-name"&gt;Fido&lt;/fn&gt;
+  &lt;fn id="cat-name"&gt;Puss&lt;/fn&gt;
+  &lt;fn id="llama-name"&gt;My llama&lt;/fn&gt;
+  &lt;!-- ... --&gt;
+  &lt;p&gt;I like pets. At my house, I have a dog&lt;xref href="#topic/dog-name" type="fn"/&gt;, a
+     cat&lt;xref href="#topic/cat-name" type="fn"/&gt;, and a 
+     llama&lt;xref href="#topic/llama-name" type="fn"/&gt;.&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+          <p class="p">The code sample might produce output similar to the following:</p>
+          <br /><img
+            class="image"
+            src="../images/footnote-use-by-reference.jpg"
+            height="224"
+            width="846"
+            alt=""
+          /><br />
+        </figure>
+        <figure class="fig fignone">
+          <figcaption>
+            <span class="fig--title-label">Figure 4. </span>A single-use footnote that uses conref
+          </figcaption>
+
+          <p class="p">
+            The following code sample shows footnotes stored in a shared topic (<span
+              class="ph filepath"
+              >footnotes.dita</span
+            >):
+          </p>
+          <pre class="pre codeblock"><code>&lt;!-- Content from footnotes.dita --&gt;
+&lt;topic id="footnotes"&gt;
+  &lt;title&gt;Shared topic...&lt;/title&gt;
+  &lt;body&gt;
+    &lt;bodydiv&gt;
+      &lt;fn id="strunk"&gt;Elements of Style&lt;/fn&gt;
+      &lt;fn id="DQTI"&gt;Developing Quality Technical Information, 2nd edition&lt;/fn&gt;
+      &lt;!-- ... --&gt;
+    &lt;/bodydiv&gt;
+  &lt;/body&gt;
+&lt;/topic&gt;</code></pre>
+          <p class="p">To use those footnotes, authors conref them into the relevant topics:</p>
+          <pre
+            class="pre codeblock"
+          ><code>&lt;p&gt;See the online resource&lt;fn conref="footnotes.dita#footnotes/DQTI"/&gt; for more 
+   information about how to assess the quality of technical documentation ...&lt;/p&gt;</code></pre>
+        </figure>
+        <figure class="fig fignone">
+          <figcaption>
+            <span class="fig--title-label">Figure 5. </span>A use-by-reference footnote that uses
+            conref
+          </figcaption>
+
+          <p class="p">
+            The following code sample shows a use-by-reference footnote that uses conref:
+          </p>
+          <pre class="pre codeblock"><code>&lt;topic id="evaluating-quality"&gt;
+  &lt;title&gt;Evaluating documentation quality&lt;/title&gt;
+  &lt;body&gt;
+    &lt;bodydiv&gt;
+      &lt;fn conref="footnotes.dita#footnotes/DQTI" id="dqti"/&gt;
+    &lt;/bodydiv&gt;
+    &lt;!-- ... --&gt;
+    &lt;p&gt;See the online resource&lt;xref="#./dqti" type="fn"/&gt; for more 
+       information about how to assess the quality of technical documentation ...&lt;/p&gt;
+    &lt;!-- ... --&gt;
+  &lt;/body&gt;
+&lt;topic&gt;</code></pre>
+        </figure>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../langRef/containers/body-elements.html"
+            title="The body elements support the most common types of content for topics: paragraphs, lists, phrases, figures, and other common document components."
+            >Body elements</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

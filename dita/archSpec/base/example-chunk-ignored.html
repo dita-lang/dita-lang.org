@@ -1,0 +1,248 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Example: When chunk is ignored'
+description: 'The chunk attribute is ignored in some cases, such as when
+chunk="combine" is already in effect or when chunk="split" is
+specified on a grouping element.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li>
+      <a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a>
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/dita-maps-and-their-usage.html">DITA maps and their usage</a>
+        </li>
+        <li>
+          <a href="../../archSpec/base/subject-scheme-maps-and-usage.html"
+            >Subject scheme maps and their usage</a
+          >
+        </li>
+        <li><a href="../../archSpec/base/map-cascading.html">Metadata cascading</a></li>
+        <li>
+          <a href="../../archSpec/base/chunking.html">Chunking</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/chunk-attribute-overview.html"
+                >About the chunk attribute</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/chunk-attribute-combine.html"
+                >Processing chunk="combine"</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/chunk-attribute-split.html">Processing chunk="split"</a>
+            </li>
+            <li>
+              <a href="../../archSpec/base/chunk-attribute-other-tokens.html"
+                >Using the chunk attribute for other purposes</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/examples-of-chunking.html"
+                >Examples of the chunk attribute</a
+              >
+              <ul class="nav nav-list">
+                <li>
+                  <a href="../../archSpec/base/example-chunk-combine-all.html"
+                    >Example: Using chunk to combine all documents into one</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-chunk-combine-branch.html"
+                    >Example: Using chunk to render a single document from one or more branches</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-chunk-combine-group.html"
+                    >Example: Using chunk to combine groups of topics</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-chunk-combine-nested-topics.html"
+                    >Example: How chunk="combine" effects the map hierarchy</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-chunk-split.html"
+                    >Example: Using chunk to split documents</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-chunk-split-nested.html"
+                    >Example: How chunk="split" affects the map hierarchy</a
+                  >
+                </li>
+                <li class="active">
+                  <a href="../../archSpec/base/example-chunk-ignored.html"
+                    >Example: When chunk is ignored</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-chunk-combine-within-split.html"
+                    >Example: Using chunk="combine" when the root map specifies chunk="split"</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-chunk-managing-links.html"
+                    >Example: Managing links when chunking</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      Example: When <code class="keyword markupname xmlatt">@chunk</code> is ignored
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        The <code class="keyword markupname xmlatt">@chunk</code> attribute is ignored in some
+        cases, such as when <code class="ph codeph">chunk="combine"</code> is already in effect or
+        when <code class="ph codeph">chunk="split"</code> is specified on a grouping element.
+      </p>
+      <figure class="fig fignone">
+        <figcaption>
+          <span class="fig--title-label">Figure 1. </span>Ignoring
+          <code class="keyword markupname xmlatt">@chunk</code> when already combining topics
+        </figcaption>
+
+        <p class="p">
+          In the following <span style="color:red;" class="ph">code sample</span>, evaluating
+          <code class="ph codeph">chunk="combine"</code> results in one rendered document for each
+          <span style="color:red;" class="ph">map branch</span>. Any additional
+          <code class="keyword markupname xmlatt">@chunk</code> values within
+          <span style="color:red;" class="ph">those branches</span> are ignored, including any
+          <code class="keyword markupname xmlatt">@chunk</code> values within any referenced maps.
+        </p>
+        <pre class="pre codeblock"><code>&lt;map&gt;
+  &lt;title&gt;Ignoring chunking when already combined&lt;/title&gt;
+
+  &lt;topicref href="branchOne.dita" <strong class="ph b">chunk="combine"</strong>&gt;
+    &lt;!-- @chunk ignored for branchOneChild.dita --&gt;
+    &lt;topicref href="branchOneChild.dita" <strong class="ph b">chunk="split"</strong>/&gt;
+  &lt;/topicref&gt;
+
+  &lt;topicref href="branchTwo.dita" <strong class="ph b">chunk="combine"</strong>&gt;
+    &lt;!-- Any @chunk within submap.ditamap is ignored --&gt;
+    &lt;topicref href="submap.ditamap" format="ditamap"/&gt;
+  &lt;/topicref&gt;
+</code></pre>
+      </figure>
+      <figure class="fig fignone">
+        <figcaption>
+          <span class="fig--title-label">Figure 2. </span>Ignoring
+          <code class="keyword markupname xmlatt">@chunk</code> on a grouping element
+        </figcaption>
+
+        <p class="p">
+          In the following <span style="color:red;" class="ph">code sample</span>,
+          <code class="ph codeph">chunk="split"</code> is specified on two grouping elements.
+        </p>
+        <pre class="pre codeblock"><code>&lt;map&gt;
+  &lt;title&gt;Trying to "split" groups&lt;/title&gt;
+  &lt;topicgroup <strong class="ph b">chunk="split"</strong>&gt;
+    &lt;topicref href="ingroup1.dita"&gt;&lt;!--...--&gt;&lt;/topicref&gt;
+    &lt;topicref href="ingroup2.dita"&gt;&lt;!--...--&gt;&lt;/topicref&gt;
+  &lt;/topicgroup&gt;
+  &lt;topichead <strong class="ph b">chunk="split"</strong>&gt;
+    &lt;topicmeta&gt;
+      &lt;navtitle&gt;Heading for a branch&lt;/navtitle&gt;
+    &lt;/topicmeta&gt;
+    &lt;topicref href="inhead1.dita"&gt;&lt;!--...--&gt;&lt;/topicref&gt;
+    &lt;topicref href="inhead2.dita"&gt;&lt;!--...--&gt;&lt;/topicref&gt;
+  &lt;/topichead&gt;
+&lt;/map&gt;</code></pre>
+        <p style="color:red;" class="p">The result of evaluating chunking is the following:</p>
+        <ul class="ul" id="exampleignorechunk__ul_o3y_wng_thb">
+          <li class="li">
+            The <code class="keyword markupname xmlatt">@chunk</code> attribute on the
+            <code class="keyword markupname xmlelement">&lt;topicgroup&gt;</code>
+            <span style="color:red;" class="ph">element</span> is ignored<span
+              style="color:red;"
+              class="ph"
+              >. The <code class="keyword markupname xmlatt">@chunk</code> attribute</span
+            >
+            does not cascade and there is no referenced topic, so it has no effect.
+          </li>
+          <li class="li">
+            In some cases, an implementation might treat the
+            <code class="keyword markupname xmlelement">&lt;topichead&gt;</code> element as
+            equivalent to a single title-only topic, while in other cases it might be ignored. In
+            either case, the <code class="keyword markupname xmlatt">@chunk</code> value has no
+            effect. If the <code class="keyword markupname xmlelement">&lt;topichead&gt;</code> is
+            treated as a title-only topic, it cannot be split further<span
+              style="color:red;"
+              class="ph"
+              >. If</span
+            >
+            it is ignored for the current processing context, it is no different than the
+            <code class="keyword markupname xmlelement">&lt;topicgroup&gt;</code>
+            <span style="color:red;" class="ph">element</span>.
+          </li>
+        </ul>
+      </figure>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/examples-of-chunking.html"
+            title="These examples illustrate the processing expectations for various scenarios that involve the chunk attribute. The processing examples use either before and after sample markup or expanded syntax that shows the equivalent markup without the chunk attribute."
+            >Examples of the chunk attribute</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

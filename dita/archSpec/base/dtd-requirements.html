@@ -1,0 +1,193 @@
+---
+# Generated from DITA source
+layout: base
+title: 'DTD coding requirements'
+description:
+  'This section explains how to implement DTD based document-type shells, specializations,
+  and element-configuration modules (constraint and expansion).'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/recognizedconstraintmechanisms.html"
+            >Recognized XML-document grammar mechanisms</a
+          >
+        </li>
+        <li>
+          <a href="../../archSpec/base/using-relax-ng.html"
+            >Normative versions of DITA grammar files</a
+          >
+        </li>
+        <li class="active">
+          <a href="../../archSpec/base/dtd-requirements.html">DTD coding requirements</a>
+          <ul class="nav nav-list">
+            <li><a href="../../archSpec/base/dtd-coding-overview.html">DTD: Use of entities</a></li>
+            <li>
+              <a href="../../archSpec/base/dtd-coding-doctype-shell.html"
+                >DTD: Coding requirements for document-type shells</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/dtd-coding-element-types.html"
+                >DTD: Coding requirements for element-type declarations</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/dtd-coding-structural-modules.html"
+                >DTD: Coding requirements for structural modules</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/dtd-coding-element-domains.html"
+                >DTD: Coding requirements for element-domain modules</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/dtd-coding-attribute-domains.html"
+                >DTD: Coding requirements for attribute domain modules</a
+              >
+            </li>
+            <li>
+              <a
+                href="../../archSpec/base/dtd-coding-requirements-for-element-configuration-modules.html"
+                >DTD: Coding requirements for element-configuration modules</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="../../archSpec/base/relax-ng-requirements.html">RELAX NG coding requirements</a>
+        </li>
+      </ul>
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">DTD coding requirements</h1>
+    <p class="shortdesc">
+      This section explains how to implement DTD based document-type shells, specializations, and
+      <span style="color:red;" class="ph"
+        >element-configuration modules (constraint and expansion).</span
+      >
+    </p>
+    <nav role="navigation" class="related-links">
+      <ul class="ullinks">
+        <li class="link ulchildlink">
+          <strong
+            ><a href="../../archSpec/base/dtd-coding-overview.html">DTD: Use of entities</a></strong
+          ><br />DITA-based DTDs use entities to implement specialization and
+          <span style="color:red;" class="ph">element configuration.</span> Therefore, an
+          understanding of entities is critical when working with DTD-based document-type shells,
+          vocabulary modules, or
+          <span style="color:red;" class="ph"
+            >element-configuration modules (constraint and expansion).</span
+          >
+        </li>
+        <li class="link ulchildlink">
+          <strong
+            ><a href="../../archSpec/base/dtd-coding-doctype-shell.html"
+              >DTD: Coding requirements for document-type shells</a
+            ></strong
+          ><br />A DTD-based document-type shell is organized into sections; each section contains
+          entity declarations that follow specific coding rules.
+        </li>
+        <li class="link ulchildlink">
+          <strong
+            ><a href="../../archSpec/base/dtd-coding-element-types.html"
+              >DTD: Coding requirements for element-type declarations</a
+            ></strong
+          ><br />This topic covers general coding requirements for defining element types in both
+          structural and element-domain vocabulary modules.
+        </li>
+        <li class="link ulchildlink">
+          <strong
+            ><a href="../../archSpec/base/dtd-coding-structural-modules.html"
+              >DTD: Coding requirements for structural modules</a
+            ></strong
+          ><br />This topic covers general coding requirements for DTD-based structural modules.
+        </li>
+        <li class="link ulchildlink">
+          <strong
+            ><a href="../../archSpec/base/dtd-coding-element-domains.html"
+              >DTD: Coding requirements for element-domain modules</a
+            ></strong
+          ><br />The vocabulary modules that define element domains have an additional coding
+          requirement. The entity declaration file must include a parameter entity for each element
+          that the domain extends.
+        </li>
+        <li class="link ulchildlink">
+          <strong
+            ><a href="../../archSpec/base/dtd-coding-attribute-domains.html"
+              >DTD: Coding requirements for attribute domain modules</a
+            ></strong
+          ><br />The vocabulary modules that define attribute domains have additional coding
+          requirements. The module must include a parameter entity for the new attribute, which can
+          be referenced in document-type shells, as well as a text entity that specifies the
+          contribution to the
+          <code class="keyword markupname xmlatt">@specializations</code> attribute for the
+          attribute domain.
+        </li>
+        <li class="link ulchildlink">
+          <strong
+            ><a
+              href="../../archSpec/base/dtd-coding-requirements-for-element-configuration-modules.html"
+              >DTD: Coding requirements for element-configuration modules</a
+            ></strong
+          ><br />Element-configuration modules (constraint and expansion) have specific coding
+          requirements.
+        </li>
+      </ul>
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/coding-requirements.html"
+            title="This section collects all of the rules for creating modular DTD or RELAX NG-based grammar files that represent DITA document types, specializations, constraints, and expansion modules."
+            >Coding practices for DITA grammar files</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

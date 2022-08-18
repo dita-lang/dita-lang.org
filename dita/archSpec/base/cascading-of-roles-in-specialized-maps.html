@@ -1,0 +1,215 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Cascading of roles from map to map'
+description: 'When specialized topicref elements,
+  such as chapter or
+  mapref, reference a map, they typically
+  imply a semantic role for the referenced content. '
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li>
+      <a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a>
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/dita-maps-and-their-usage.html">DITA maps and their usage</a>
+        </li>
+        <li>
+          <a href="../../archSpec/base/subject-scheme-maps-and-usage.html"
+            >Subject scheme maps and their usage</a
+          >
+        </li>
+        <li>
+          <a href="../../archSpec/base/map-cascading.html">Metadata cascading</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/cascading-in-a-ditamap.html"
+                >Cascading of metadata attributes in a DITA map</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/reconciling-topic-and-map-metadata.html"
+                >Reconciling topic and map metadata elements</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/map-to-map-cascading-of-metadata.html"
+                >Map-to-map cascading behaviors</a
+              >
+              <ul class="nav nav-list">
+                <li>
+                  <a href="../../archSpec/base/cascading-of-attributes-from-map-to-map.html"
+                    >Cascading of attributes from map to map</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/cascading-of-metadata-elements-from-map-to-map.html"
+                    >Cascading of metadata elements from map to map</a
+                  >
+                </li>
+                <li class="active">
+                  <a href="../../archSpec/base/cascading-of-roles-in-specialized-maps.html"
+                    >Cascading of roles from map to map</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="../../archSpec/base/examples-of-cascading.html"
+                >Examples of metadata cascading</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/chunking.html">Chunking</a></li>
+      </ul>
+    </li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Cascading of roles from map to map</h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        When specialized
+        <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements, such as
+        <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> or
+        <code class="keyword markupname xmlelement">&lt;mapref&gt;</code>, reference a map, they
+        typically imply a semantic role for the referenced content.
+      </p>
+
+      <p class="p">
+        The semantic role reflects the
+        <code class="keyword markupname xmlatt">@class</code> hierarchy of the referencing
+        <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element<span
+          style="color:red;"
+          class="ph"
+          >. It </span
+        >is equivalent to having the <code class="keyword markupname xmlatt">@class</code> attribute
+        from the referencing
+        <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> cascade to the top-level
+        <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements in the
+        referenced map. Although this cascade behavior is not universal, there are general
+        guidelines for when a role based on the
+        <code class="keyword markupname xmlatt">@class</code> attribute cascades.
+      </p>
+      <p class="p">
+        When a <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element or a
+        specialization of a
+        <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element references a
+        DITA resource, it defines a role for that resource. In some cases this role is
+        straightforward, such as when a
+        <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element references a
+        DITA topic (giving it the already known role of "topic"), or when a
+        <code class="keyword markupname xmlelement">&lt;mapref&gt;</code> element references a DITA
+        map (giving it the role of "DITA map").
+      </p>
+
+      <p class="p">
+        Unless otherwise instructed, a specialized
+        <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element that references
+        a map supplies a role for the referenced content. This means that, in effect, the
+        <code class="keyword markupname xmlatt">@class</code> attribute of the referencing element
+        cascades to top-level topicref elements in the referenced map. In situations where this
+        should not happen—such as all elements from the mapgroup domain—the non-default behavior
+        should be clearly specified.
+      </p>
+      <p class="p">
+        For example, when a
+        <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> element from the bookmap
+        specialization references a map, it supplies a role of "chapter" for each top-level
+        <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element in the
+        referenced map. When the
+        <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> element references a
+        branch in another map, it supplies a role of "chapter" for that branch. In effect, the
+        <code class="keyword markupname xmlatt">@class</code> attribute for
+        <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> (<code class="ph codeph"
+          >"- map/topicref bookmap/chapter "</code
+        >) cascades to the top-level
+        <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements in the nested
+        map, although it does not cascade any further.
+      </p>
+      <p class="p">
+        Because the <code class="keyword markupname xmlelement">&lt;mapref&gt;</code> element is a
+        convenience element, the top-level
+        <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements in the map
+        referenced by a <code class="keyword markupname xmlelement">&lt;mapref&gt;</code> element
+        <dfn class="term RFC-2119">MUST NOT</dfn> be processed as if they are
+        <code class="keyword markupname xmlelement">&lt;mapref&gt;</code> elements. The
+        <code class="keyword markupname xmlatt">@class</code> attribute from the
+        <code class="keyword markupname xmlelement">&lt;mapref&gt;</code> element (<code
+          class="ph codeph"
+          >"+ map/topicref mapgroup-d/mapref "</code
+        >) does not cascade to the referenced map.
+      </p>
+      <p class="p">
+        In some cases, preserving the role of the referencing element might result in out-of-context
+        content. For example, a
+        <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> element that references a
+        bookmap might pull in
+        <code class="keyword markupname xmlelement">&lt;part&gt;</code> elements that contain nested
+        <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> elements. Treating the
+        <code class="keyword markupname xmlelement">&lt;part&gt;</code> element as a
+        <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> will result in a chapter
+        that nests other chapters, which is not valid in bookmap and might not be understandable by
+        processors. The result is implementation specific<span style="color:red;" class="ph"
+          >. P</span
+        >rocessors <dfn class="term RFC-2119">MAY</dfn> choose to treat this as an error, issue a
+        warning, or simply assign new roles to the problematic elements.
+      </p>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/map-to-map-cascading-of-metadata.html"
+            title="When a DITA map or map branch is referenced by another DITA map, by default certain rules apply. These rules pertain to the cascading behaviors of attributes, metadata elements, and the roles that are assigned to content , for example, the role of &#34;Chapter&#34; that is assigned by a chapter element. Attributes and elements that cascade within a map generally follow the same rules when cascading from one map to another map, but there are some exceptions and additional rules that apply."
+            >Map-to-map cascading behaviors</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

@@ -1,0 +1,234 @@
+---
+# Generated from DITA source
+layout: base
+title: 'abstract'
+description: 'An abstract summarizes the content of the topic; it appears
+  at the start of the topic. It can contain multiple short
+  descriptions, as well as block-level content such as paragraphs,
+  lists, and tables. '
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      <code class="keyword markupname xmlelement">&lt;abstract&gt;</code>
+    </h1>
+
+    <div class="body refbody">
+      <div class="abstract">
+        <span class="shortdesc"
+          >An abstract summarizes the content of the topic; it appears at the start of the topic. It
+          can contain multiple short descriptions, as well as block-level content such as
+          paragraphs, lists, and tables.
+        </span>
+      </div>
+      <section class="section" id="abstract__usage-information">
+        <h2 class="title sectiontitle">Usage information</h2>
+
+        <div style="color:red;" class="div">
+          <p class="p">
+            The <code class="keyword markupname xmlelement">&lt;abstract&gt;</code> element is
+            designed for use in the following circumstances:
+          </p>
+          <ul class="ul">
+            <li class="li">
+              The initial paragraph of a topic contains lists, tables, or other block-level elements
+              that are not permitted in the content model of
+              <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code>.
+            </li>
+            <li class="li">
+              Only a portion of the content of the initial paragraph is suitable for a link preview
+              or hover text.
+            </li>
+            <li class="li">
+              A topic needs to contain multiple short descriptions, to facilitate conditional
+              processing.
+            </li>
+          </ul>
+        </div>
+
+        <p class="p">
+          When the initial paragraph is suitable as a link preview, simply place the content in a
+          <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code> element rather than
+          in an <code class="keyword markupname xmlelement">&lt;abstract&gt;</code> element.
+        </p>
+      </section>
+      <section class="section" id="abstract__rendering-expectations">
+        <h2 class="title sectiontitle">Rendering expectations</h2>
+
+        <p class="p">
+          When a contained
+          <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code> occurs within
+          phrase-level content, processors treat it as phrase-level content and do not create a
+          separate paragraph when the topic is rendered. When the contained
+          <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code> occurs as a peer to
+          paragraph-level content, processors treat it as block-level content and create a separate
+          paragraph when the topic is rendered. When multiple
+          <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code> elements are included
+          in an <code class="keyword markupname xmlelement">&lt;abstract&gt;</code>, they are
+          concatenated when used for link previews or link summaries (separated by spaces).
+        </p>
+      </section>
+      <section class="section" id="abstract__attributes">
+        <h2 class="title sectiontitle">Attributes</h2>
+
+        <p class="p">
+          The following attributes are available on this element:
+          <span class="ph"
+            ><a
+              class="xref"
+              href="../../common/../langRef/attributes/universalAttributes.html"
+              title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang"
+              >universal attributes</a
+            ></span
+          >.
+        </p>
+      </section>
+      <div class="example" id="abstract__example">
+        <h2 class="title sectiontitle">Examples</h2>
+
+        <p class="p">
+          This section contains examples of how the
+          <code class="keyword markupname xmlelement">&lt;abstract&gt;</code> element can be used.
+        </p>
+        <figure class="fig fignone">
+          <figcaption>
+            <span class="fig--title-label">Figure 1. </span
+            ><code class="keyword markupname xmlelement">&lt;abstract&gt;</code> with phrase-level
+            short description
+          </figcaption>
+
+          <p class="p">
+            The following code sample shows an
+            <code class="keyword markupname xmlelement">&lt;abstract&gt;</code> element that
+            contains phrase-level content, in addition to a short description:
+          </p>
+          <pre class="pre codeblock"><code>&lt;abstract&gt;
+  &lt;shortdesc&gt;Use the wonderful Widget to automatically vacuum your house.
+  &lt;/shortdesc&gt; It requires a 1800 lithium ion battery.
+&lt;/abstract&gt;</code></pre>
+          <p class="p">
+            While the complete content of the
+            <code class="keyword markupname xmlelement">&lt;abstract&gt;</code> element is rendered
+            as the first paragraph of the topic, only the content of the
+            <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code> element is used for
+            a link preview and hover text.
+          </p>
+        </figure>
+        <figure class="fig fignone">
+          <figcaption>
+            <span class="fig--title-label">Figure 2. </span
+            ><code class="keyword markupname xmlelement">&lt;abstract&gt;</code> with block-level
+            short description
+          </figcaption>
+
+          <p class="p">
+            The following code sample shows an
+            <code class="keyword markupname xmlelement">&lt;abstract&gt;</code> element that
+            contains block-level content, in addition to a short description:
+          </p>
+          <pre class="pre codeblock"><code>&lt;abstract&gt;
+  &lt;shortdesc&gt;You have many options for arranging lodging in Brussels: 
+      hotels, bed and breakfasts, youth hostels, and flats. You can select
+      from a wide price range.&lt;/shortdesc&gt;
+  &lt;p&gt;The following table explains the symbols that are used to indicate the price
+     categories of the lodging options:&lt;/p&gt;
+  &lt;simpletable&gt;
+    &lt;! -- ... --&gt;
+  &lt;/simpletable&gt;
+&lt;/abstract&gt;</code></pre>
+        </figure>
+        <figure class="fig fignone">
+          <figcaption>
+            <span class="fig--title-label">Figure 3. </span
+            ><code class="keyword markupname xmlelement">&lt;abstract&gt;</code> with multiple short
+            descriptions
+          </figcaption>
+
+          <p class="p">
+            The following code sample shows an
+            <code class="keyword markupname xmlelement">&lt;abstract&gt;</code> element that
+            contains multiple short descriptions, which will be filtered when the topic is
+            processed:
+          </p>
+          <pre class="pre codeblock"><code>&lt;abstract&gt;
+  &lt;shortdesc platform="free-version"&gt;The free version of the platform
+      provides a single e-mail list, storage for up to one gigabyte of
+      files, and will support up to 100 users.&lt;/shortdesc&gt;
+  &lt;shortdesc platform="premium-version"&gt;The premium version of the platform
+      provides multiple e-mails lists, storage for up to 30 gigabytes of
+      files, and will support up to 400 users.&lt;/shortdesc&gt;
+&lt;/abstract&gt;</code></pre>
+        </figure>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../langRef/containers/basic-topic-elements.html"
+            title="The basic topic elements provide the structural framework for a topic: title, short description, prolog, body, and related links."
+            >Basic topic elements</a
+          >
+        </div>
+      </div>
+      <div class="linklist relref">
+        <strong>Related reference</strong><br />
+        <ul class="linklist">
+          <li class="linklist">
+            <a
+              class="link"
+              href="../../langRef/base/shortdesc.html"
+              title="A short description is a sentence or group of sentences that describes the purpose or main point of the topic."
+              >shortdesc</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </article>
+</main>

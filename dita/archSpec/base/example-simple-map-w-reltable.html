@@ -1,0 +1,188 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Example: DITA map with a simple relationship table'
+description: 'This example illustrates how to interpret a basic three-column relationship table used
+  to maintain links between concept, task, and reference material.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li>
+      <a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a>
+      <ul class="nav nav-list">
+        <li><a href="../../archSpec/base/basic-concepts.html">Basic concepts</a></li>
+        <li>
+          <a href="../../archSpec/base/single-sourcing.html"
+            >Producing different deliverables from a single source</a
+          >
+        </li>
+        <li><a href="../../archSpec/base/topicover.html">DITA topics</a></li>
+        <li>
+          <a href="../../archSpec/base/ditamaps.html">DITA maps</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/definition-of-ditamaps.html">Definition of DITA maps</a>
+            </li>
+            <li><a href="../../archSpec/base/purpose-of-ditamaps.html">Purpose of DITA maps</a></li>
+            <li><a href="../../archSpec/base/ditamap-attributes.html">DITA map attributes</a></li>
+            <li>
+              <a href="../../archSpec/base/example-ditamaps.html">Examples of DITA maps</a>
+              <ul class="nav nav-list">
+                <li>
+                  <a href="../../archSpec/base/example-simple-map-w-submap.html"
+                    >Example: DITA map that references a subordinate map</a
+                  >
+                </li>
+                <li class="active">
+                  <a href="../../archSpec/base/example-simple-map-w-reltable.html"
+                    >Example: DITA map with a simple relationship table</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-collection-type-and-linking-atts.html"
+                    >Example: How the collection-type and linking attributes determine links</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-how-cascade-att-functions.html"
+                    >Example: How the cascade attribute functions</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/dita-metadata.html">DITA metadata</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      Example: DITA map with a simple relationship table
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        This example illustrates how to interpret a basic three-column relationship table used to
+        maintain links between concept, task, and reference material.
+      </p>
+      <p class="p">The following example contains the markup for a simple relationship table:</p>
+      <pre class="pre codeblock"><code>&lt;map&gt;
+&lt;!-- ... --&gt;
+&lt;reltable&gt;
+  &lt;relheader&gt;
+    &lt;relcolspec type="concept"/&gt;
+    &lt;relcolspec type="task"/&gt;
+    &lt;relcolspec type="reference"/&gt;
+  &lt;/relheader&gt;
+  &lt;relrow&gt;
+    &lt;relcell&gt;
+      &lt;topicref href="A.dita"/&gt;
+    &lt;/relcell&gt;
+    &lt;relcell&gt;
+      &lt;topicref href="B.dita"/&gt;
+    &lt;/relcell&gt;
+    &lt;relcell&gt;
+      &lt;topicref href="C1.dita"/&gt;
+      &lt;topicref href="C2.dita"/&gt;
+    &lt;/relcell&gt;
+  &lt;/relrow&gt;
+&lt;/reltable&gt;
+&lt;/map&gt;</code></pre>
+      <div class="p">
+        A DITA-aware tool might represent the relationship table graphically:
+        <table class="simpletable">
+          <colgroup>
+            <col style="width:33.33333333333333%" />
+            <col style="width:33.33333333333333%" />
+            <col style="width:33.33333333333333%" />
+          </colgroup>
+          <thead>
+            <tr class="sthead">
+              <th class="stentry" scope="col" id="concept_e5c_3t5_qp__stentry__1">
+                type="concept"
+              </th>
+              <th class="stentry" scope="col" id="concept_e5c_3t5_qp__stentry__2">type="task"</th>
+              <th class="stentry" scope="col" id="concept_e5c_3t5_qp__stentry__3">
+                type="reference"
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="strow">
+              <td class="stentry" headers="concept_e5c_3t5_qp__stentry__1">A</td>
+              <td class="stentry" headers="concept_e5c_3t5_qp__stentry__2">B</td>
+              <td class="stentry" headers="concept_e5c_3t5_qp__stentry__3">
+                <p class="lines">C1<br />C2</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="p">When the output is generated, the topics contain the following linkage:</p>
+      <dl class="dl">
+        <dt class="dt dlterm">A</dt>
+        <dd class="dd">Links to B, C1, and C2</dd>
+
+        <dt class="dt dlterm">B</dt>
+        <dd class="dd">Links to A, C1, and C2</dd>
+
+        <dt class="dt dlterm">C1, C2</dt>
+        <dd class="dd">Links to A and B</dd>
+      </dl>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/example-ditamaps.html"
+            title="This section of the specification contains simple examples of DITA maps. The examples illustrate a few of the ways that DITA maps are used."
+            >Examples of DITA maps</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

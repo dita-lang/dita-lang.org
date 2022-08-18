@@ -1,0 +1,259 @@
+---
+# Generated from DITA source
+layout: base
+title: 'RELAX NG: Coding requirements for element-configuration modules'
+description: 'An element-configuration module (constraint and expansion) redefines the content
+  model or attribute list for one or more elements.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/recognizedconstraintmechanisms.html"
+            >Recognized XML-document grammar mechanisms</a
+          >
+        </li>
+        <li>
+          <a href="../../archSpec/base/using-relax-ng.html"
+            >Normative versions of DITA grammar files</a
+          >
+        </li>
+        <li><a href="../../archSpec/base/dtd-requirements.html">DTD coding requirements</a></li>
+        <li>
+          <a href="../../archSpec/base/relax-ng-requirements.html">RELAX NG coding requirements</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/relax-ng-coding-overview.html"
+                >RELAX NG: Overview of coding requirements</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/relax-ng-coding-doctype-shell.html"
+                >RELAX NG: Coding requirements for document-type shells</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/relax-ng-coding-element-types.html"
+                >RELAX NG: Coding requirements for element-type declarations</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/relax-ng-coding-structural-modules.html"
+                >RELAX NG: Coding requirements for structural modules</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/relax-ng-coding-element-domains.html"
+                >RELAX NG: Coding requirements for element-domain modules</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/relax-ng-coding-attribute-domains.html"
+                >RELAX NG: Coding requirements for attribute-domain modules</a
+              >
+            </li>
+            <li class="active">
+              <a
+                href="../../archSpec/base/relax-ng-coding-requirements-for-element-configuration-modules.html"
+                >RELAX NG: Coding requirements for element-configuration modules</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      RELAX NG: Coding requirements for element-configuration modules
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        An element-configuration module (constraint and expansion) redefines the content model or
+        attribute list for one or more elements.
+      </p>
+      <section class="section">
+        <h2 class="title sectiontitle">Implementation of element-configuration modules</h2>
+
+        <p class="p">
+          Element-configuration modules are implemented by importing the element-configuration
+          modules into a document-type shell in place of the vocabulary module that is redefined.
+          The element-configuration module itself imports the base vocabulary module; within the
+          import, the module redefines the patterns as needed to implement the constraint,
+          expansion, or both.
+        </p>
+
+        <dl class="dl">
+          <dt class="dt dlterm">Constraint modules</dt>
+          <dd class="dd">
+            <p class="p">
+              For example, a constraint module that modifies the
+              <code class="keyword markupname xmlelement">&lt;topic&gt;</code> element imports the
+              base module <span class="ph filepath">topicMod.rng</span>. Within that import, it
+              constrains the <code class="ph codeph">topic.content</code> pattern:
+            </p>
+            <pre class="pre codeblock"><code>  &lt;div&gt;
+    &lt;a:documentation&gt;ATTRIBUTES AND CONTENT MODEL OVERRIDES&lt;/a:documentation&gt;
+    &lt;include href="urn:oasis:names:tc:dita:rng:topicMod.rng:2.0"&gt;
+      &lt;define name="topic.content" combine="interleave"&gt;
+        &lt;ref name="title"/&gt;
+        &lt;ref name="shortdesc"/&gt;
+        &lt;optional&gt;
+          &lt;ref name="prolog"/&gt;
+        &lt;/optional&gt;
+        &lt;optional&gt;
+          &lt;ref name="body"/&gt;
+        &lt;/optional&gt;
+      &lt;/define&gt;
+    &lt;/include&gt;
+  &lt;/div&gt;</code></pre>
+          </dd>
+
+          <dt class="dt dlterm">Expansion modules</dt>
+          <dd class="dd">
+            <p class="p">
+              For example, an expansion module that modifies the content model of
+              <code class="keyword markupname xmlelement">&lt;section&gt;</code> imports the base
+              module <span class="ph filepath">topicMod.rng</span>. Within that import, it expands
+              the <code class="ph codeph">section.content</code> pattern:
+            </p>
+            <pre
+              class="pre codeblock"
+            ><code>    &lt;a:documentation&gt;CONTENT MODEL AND ATTRIBUTE LIST OVERRIDES&lt;/a:documentation&gt;
+    &lt;include href="urn:oasis:names:tc:dita:rng:topicMod.rng:2.0"&gt;
+      <strong class="ph b">&lt;define name="section.content" combine="interleave"&gt;
+        &lt;optional&gt;
+          &lt;ref name="title"/&gt;
+        &lt;/optional&gt;
+        &lt;optional&gt;
+          &lt;ref name="sectionDesc"/&gt;
+        &lt;/optional&gt;
+        &lt;zeroOrMore&gt;
+          &lt;ref name="section.cnt"/&gt;
+        &lt;/zeroOrMore&gt;
+      &lt;/define&gt;</strong>
+    &lt;/include&gt;
+  &lt;/div&gt;</code></pre>
+            <p class="p">
+              Note that the specialized element
+              <code class="keyword markupname xmlelement">&lt;sectionDesc&gt;</code> must be
+              declared in an element domain module that also is integrated into the document-type
+              shell.
+            </p>
+          </dd>
+        </dl>
+      </section>
+      <section class="section">
+        <h2 class="title sectiontitle">Combining multiple element-configuration modules</h2>
+
+        <p class="p">
+          Because the element-configuration module imports the module that it modifies, only one
+          element-configuration module can be used per vocabulary module; otherwise the vocabulary
+          module would be imported multiple times. If multiple element configurations are combined
+          for a single vocabulary module, they need to be implemented in one of the following ways:
+        </p>
+        <dl class="dl">
+          <dt class="dt dlterm">Combined into a single element-configuration module</dt>
+          <dd class="dd">
+            <p class="p">The element configurations can be combined into a single module.</p>
+            <div class="div">
+              <p class="p">
+                For example, when combining separate constraints for
+                <code class="keyword markupname xmlelement">&lt;section&gt;</code> and
+                <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code>, a single
+                module can be defined as follows:
+              </p>
+              <pre class="pre codeblock"><code>&lt;include href="topicMod.rng"&gt;
+  &lt;define name="section.content"&gt;
+    &lt;!-- Constrained model for section --&gt;
+  &lt;/define&gt;
+  &lt;define name="shortdesc.content"&gt;
+    &lt;!-- Constrained model for shortdesc --&gt;
+  &lt;/define&gt;
+&lt;/include&gt;
+</code></pre>
+            </div>
+          </dd>
+
+          <dt class="dt dlterm">Chaining element-configuration modules</dt>
+          <dd class="dd">
+            <p class="p">
+              Element-configuration modules can be chained so that each element-configuration module
+              imports another, until the final element-configuration module imports the base
+              vocabulary module.
+            </p>
+            <div class="div">
+              <p class="p">
+                For example, when combining separate constraints for
+                <code class="keyword markupname xmlelement">&lt;section&gt;</code>,
+                <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code>, and
+                <code class="keyword markupname xmlelement">&lt;li&gt;</code> from the base
+                vocabulary, the
+                <code class="keyword markupname xmlelement">&lt;section&gt;</code> constraint can
+                import the
+                <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code> constraint,
+                which in turn imports the
+                <code class="keyword markupname xmlelement">&lt;li&gt;</code> constraint, which
+                finally imports <span class="ph filepath">topicMod.rng</span>.
+              </p>
+            </div>
+          </dd>
+        </dl>
+      </section>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/relax-ng-requirements.html"
+            title="This section explains how to implement RNG based document-type shells, specializations, and element-configuration modules (constraints and expansions)."
+            >RELAX NG coding requirements</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

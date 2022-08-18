@@ -1,0 +1,181 @@
+---
+# Generated from DITA source
+layout: base
+title: 'The scope attribute'
+description: 'The scope attribute identifies the closeness of the relationship between
+  the current document and the target resource.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li>
+      <a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a>
+      <ul class="nav nav-list">
+        <li><a href="../../archSpec/base/id.html">ID attribute</a></li>
+        <li>
+          <a href="../../archSpec/base/dita-linking.html">DITA linking</a>
+          <ul class="nav nav-list">
+            <li><a href="../../archSpec/base/theformatattribute.html">The format attribute</a></li>
+            <li><a href="../../archSpec/base/thehrefattribute.html">The href attribute</a></li>
+            <li class="active">
+              <a href="../../archSpec/base/thescopeattribute.html">The scope attribute</a>
+            </li>
+            <li><a href="../../archSpec/base/thetypeattribute.html">The type attribute</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="../../archSpec/base/uri-based-addressing.html">URI-based (direct) addressing</a>
+        </li>
+        <li>
+          <a href="../../archSpec/base/key-based-addressing.html">Indirect key-based addressing</a>
+        </li>
+        <li>
+          <a href="../../archSpec/base/context-hooks-for-user-assistance.html"
+            >Context hooks for user assistance</a
+          >
+        </li>
+      </ul>
+    </li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      The <code class="keyword markupname xmlatt">@scope</code> attribute
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        The <code class="keyword markupname xmlatt">@scope</code> attribute identifies the closeness
+        of the relationship between the current document and the target resource.
+      </p>
+      <p class="p">
+        The <code class="keyword markupname xmlatt">@scope</code> attribute takes the following
+        values:
+      </p>
+      <dl class="dl">
+        <dt class="dt dlterm"><span class="keyword">external</span></dt>
+        <dd class="dd">
+          Indicates that the resource is not part of the current
+          <span style="color:red;" class="ph">set of content.</span>
+        </dd>
+
+        <dt class="dt dlterm"><span class="keyword">local</span></dt>
+        <dd class="dd">Indicates that the resource is part of the current set of content.</dd>
+
+        <dt class="dt dlterm"><span class="keyword">peer</span></dt>
+        <dd class="dd">Indicates one of the following:</dd>
+        <dd class="dd ddexpand">
+          <ul class="ul">
+            <li class="li">
+              The resource is part of the current set of content, but it might not
+              <span style="color:red;" class="ph">be</span> accessible at build time.
+            </li>
+            <li class="li">
+              The resource should be treated as a root map for the purpose of creating map-to-map
+              key references (peer maps).
+            </li>
+            <li style="color:red;" class="li">
+              The resource is a peer map. If
+              <code class="keyword markupname xmlatt">@keyscope</code> is also specified on the
+              reference, it indicates that the map should be treated as a separate deliverable for
+              the purposes of linking.
+            </li>
+          </ul>
+        </dd>
+
+        <dt class="dt dlterm"><span class="keyword">-dita-use-conref-target</span></dt>
+        <dd class="dd">
+          See
+          <a
+            class="xref"
+            href="ditauseconreftarget.html"
+            title="The value -dita-use-conref-target is available on enumerated attributes and can also be specified on other attributes. When an element uses conref to pull in content, for any of its attributes assigned a value of -dita-use-conref-target, the resulting value for those attributes is also pulled in from the referenced element."
+            >Using the -dita-use-conref-target value</a
+          >
+          for more information on <span class="keyword">-dita-use-conref-target</span>
+        </dd>
+      </dl>
+
+      <p class="p">
+        If no value is specified for the
+        <code class="keyword markupname xmlatt">@scope</code> attribute, the following
+        considerations apply:
+      </p>
+      <ul class="ul">
+        <li class="li">
+          <span style="color:red;" class="ph"
+            >If the <code class="keyword markupname xmlatt">@scope</code> attribute</span
+          >
+          is specified on a containing element within a map or within the related-links section, the
+          value cascades from the closest containing element.
+        </li>
+        <li class="li">
+          In most cases, the processing default is <span class="keyword">local</span>. However the
+          processing default is <span class="keyword">external</span> whenever the absolute URI in
+          the <code class="keyword markupname xmlatt">@href</code> attribute begins with one of the
+          following schemes: <span class="keyword">http</span>, <span class="keyword">https</span>,
+          <span class="keyword">ftp</span>, or <span class="keyword">mailto</span>
+        </li>
+      </ul>
+
+      <p class="p">
+        <span style="color:red;" class="ph"
+          >For the <code class="keyword markupname xmlatt">@scope</code> attribute, p</span
+        >rocessors can consider additional URI schemes as <span class="keyword">external</span> by
+        default. Processors <dfn class="term RFC-2119">MUST</dfn> always consider relative URIs as
+        <span class="keyword">local</span> by default.
+      </p>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/dita-linking.html"
+            title="DITA supports many different linking elements, but they all use the same set of attributes: format, href, scope, and type. These four attributes act as a unit."
+            >DITA linking</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

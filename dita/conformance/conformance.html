@@ -1,0 +1,339 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Conformance'
+description: 'An implementation is a conforming implementation of DITA if the implementation meets
+  the conditions that are described in Section 4.1. A document is a conforming DITA document if the
+  document meets the conditions in that are described in Section 4.2.'
+index: '../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../langRef/langRef-base.html">Element reference</a></li>
+    <li class="active"><a href="../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li><a href="../non-normative/non-normative-information.html">Non-normative information</a></li>
+    <li><a href="../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Conformance</h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        An implementation is a conforming implementation of DITA if the implementation meets the
+        conditions that are described in Section 4.1. A document is a conforming DITA document if
+        the document meets the conditions in that are described in Section 4.2.
+      </p>
+      <p class="p">
+        Conformance to the DITA specification allows documents and document types that are used with
+        different processors to produce the same or similar results with little or no
+        reimplementation or modification. Conformance also allows DITA specializations to work with
+        any conforming DITA application, with at least the same level of support available to
+        unspecialized documents.
+      </p>
+      <section class="section" id="conformance__implementations">
+        <h2 class="title sectiontitle">4.1 Conformance of DITA implementations</h2>
+
+        <p class="p">
+          The DITA specification defines several core features, as summarized in the following list.
+          Any implementation that supports a feature <dfn class="term RFC-2119">MUST</dfn> conform
+          to all rules laid out in the section that describes the feature.
+        </p>
+
+        <ol class="ol">
+          <li class="li">Specialization-based processing, as described in X.</li>
+          <li class="li">
+            Resolving links to elements in DITA documents, as described in section X.
+          </li>
+          <li class="li">
+            Resolving <code class="keyword markupname xmlatt">@keyref</code> attributes to a key
+            defined in a map, as described in section X.
+          </li>
+          <li class="li">
+            Resolving <code class="keyword markupname xmlatt">@keyref</code> attributes across key
+            scopes, as described in section X.
+          </li>
+          <li class="li">
+            Pulling content references, as described in
+            <a
+              class="xref"
+              href="../archSpec/base/conref.html"
+              title="The DITA conref attributes provide mechanisms for reusing content. DITA content references support reuse scenarios that are difficult or impossible to implement using other XML-based inclusion mechanisms like XInclude and entities. Additionally, DITA content references have rules that help ensure that the results of content inclusion remain valid after resolution"
+              >Content reference (conref)</a
+            >
+          </li>
+          <li class="li">
+            Pushing content references, as described in
+            <a
+              class="xref"
+              href="../archSpec/base/conref.html"
+              title="The DITA conref attributes provide mechanisms for reusing content. DITA content references support reuse scenarios that are difficult or impossible to implement using other XML-based inclusion mechanisms like XInclude and entities. Additionally, DITA content references have rules that help ensure that the results of content inclusion remain valid after resolution"
+              >Content reference (conref)</a
+            >.
+          </li>
+          <li class="li">
+            Resolving conditional processing based on DITAVAL documents, as described in
+            <a
+              class="xref"
+              href="../archSpec/base/condproc.html"
+              title="Conditional processing is the filtering or flagging of information based on processing-time criteria. Conditional processing is based on attributes specified in the DITA source."
+              >Conditional processing</a
+            >.
+          </li>
+          <li class="li">
+            Resolving branch filtering markup, as described in
+            <a
+              class="xref"
+              href="../archSpec/base/branch-filtering.html"
+              title="The branch filtering mechanism enables map authors to set filtering conditions for specific branches of a map. This makes it possible for multiple conditional-processing profiles to be applied within a single publication."
+              >Branch filtering</a
+            >.
+          </li>
+          <li class="li">
+            Resolving <code class="keyword markupname xmlatt">@chunk</code> attributes, as described
+            in
+            <a
+              class="xref"
+              href="../archSpec/base/chunking.html"
+              title="Content often needs to be delivered in a different granularity than it is authored. The chunk attribute enables map authors to specify that multiple source documents should be combined into a single document for delivery or that a single source document should be split into multiple documents for delivery."
+              >Chunking</a
+            >.
+          </li>
+        </ol>
+
+        <p class="p">
+          In addition, certain DITA elements have normative rules associated regarding how to render
+          or process those elements.
+        </p>
+        <ol class="ol">
+          <li class="li">
+            <code class="keyword markupname xmlelement">&lt;desc&gt;</code>, as described in
+            <a
+              class="xref"
+              href="../langRef/base/desc.html"
+              title="A description is a statement that describes or contains additional information about an object."
+              >desc</a
+            >
+          </li>
+          <li class="li">
+            <code class="keyword markupname xmlelement">&lt;draft-comment&gt;</code>, as described
+            in
+            <a
+              class="xref"
+              href="../langRef/base/draft-comment.html"
+              title="A draft comment is content that is intended for review and discussion, such as questions, comments, and notes to reviewers. This content is not intended to be included in production output."
+              >draft-comment</a
+            >
+          </li>
+          <li class="li">
+            <code class="keyword markupname xmlelement">&lt;image&gt;</code>, as described in
+            <a
+              class="xref"
+              href="../langRef/base/image.html"
+              title="An image is a reference to artwork that is stored outside of the content."
+              >image</a
+            >
+          </li>
+          <li class="li">
+            <code class="keyword markupname xmlelement">&lt;linklist&gt;</code>, as described in
+            <a
+              class="xref"
+              href="../langRef/base/linklist.html"
+              title="A link list is an author-ordered group of links that can include a title."
+              >linklist</a
+            >
+          </li>
+          <li class="li">
+            <code class="keyword markupname xmlelement">&lt;pre&gt;</code>, as described in
+            <a
+              class="xref"
+              href="../langRef/base/pre.html"
+              title="Preformatted text is text that contains line breaks and spaces that are intended to be preserved at publication time."
+              >pre</a
+            >
+          </li>
+          <li class="li">
+            <code class="keyword markupname xmlelement">&lt;q&gt;</code>, as described in
+            <a
+              class="xref"
+              href="../langRef/base/q.html"
+              title="A quotation is a small group of words that is taken from a text or speech and repeated by someone other than the original author or speaker."
+              >q</a
+            >
+          </li>
+          <li class="li">
+            <code class="keyword markupname xmlelement">&lt;related-links&gt;</code>, as described
+            in
+            <a
+              class="xref"
+              href="../langRef/base/related-links.html"
+              title="Related links are a group of references to other topics or external information related to the current topic."
+              >related-links</a
+            >
+          </li>
+          <li class="li">
+            <code class="keyword markupname xmlelement">&lt;relcolspec&gt;</code>, as described in
+            <a
+              class="xref"
+              href="../langRef/base/relcolspec.html"
+              title="A column specification in a relationship table column that provides default attribute values for the references in that column of a relationship table."
+              >relcolspec</a
+            >
+          </li>
+          <li class="li">
+            <code class="keyword markupname xmlelement">&lt;reltable&gt;</code>, as described in
+            <a
+              class="xref"
+              href="../langRef/base/reltable.html"
+              title="A relationship table is a mechanism that creates relationships among topics, based on the familiar table model of rows, columns, and cells."
+              >reltable</a
+            >
+          </li>
+          <li class="li">
+            <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code>, as described in
+            <a
+              class="xref"
+              href="../langRef/base/shortdesc.html"
+              title="A short description is a sentence or group of sentences that describes the purpose or main point of the topic."
+              >shortdesc</a
+            >
+          </li>
+          <li class="li">
+            <code class="keyword markupname xmlelement">&lt;title&gt;</code>, as described in
+            <a
+              class="xref"
+              href="../langRef/base/title.html"
+              title="A title is a heading or label for an object. Titles can be associated with topics, maps, sections, examples, figures, tables, and other structures."
+              >title</a
+            >
+          </li>
+          <li class="li">
+            <code class="keyword markupname xmlelement">&lt;titlealt&gt;</code>, as described in
+            <a
+              class="xref"
+              href="../langRef/base/titlealt.html"
+              title="An alternative title is used to convey information about a document in contexts other than straightforward display."
+              >titlealt</a
+            >
+          </li>
+          <li class="li">
+            <code class="keyword markupname xmlelement">&lt;topichead&gt;</code>, as described in
+            <a
+              class="xref"
+              href="../langRef/base/topichead.html"
+              title="A topic head is a title-only entry in a DITA map."
+              >topichead</a
+            >
+          </li>
+        </ol>
+        <p class="p">
+          Conforming DITA implementations <dfn class="term RFC-2119">SHOULD</dfn> include a
+          conformance statement that gives the version of the DITA specification that is supported,
+          indicate if all features from the list above are supported, and indicate that all
+          normative rendering rules are supported.
+        </p>
+        <p class="p">
+          If only a subset of features is supported, implementations
+          <dfn class="term RFC-2119">SHOULD</dfn> indicate which features are (or are not)
+          supported. If an implementation supports rendering DITA elements but does not render all
+          elements as described above, that application
+          <dfn class="term RFC-2119">SHOULD</dfn> indicate which elements are (or are not)
+          supported.
+        </p>
+        <p class="p">
+          Not all DITA features are relevant for all implementations. For example, a DITA editor
+          that does not render content references in context does not need to conform to rules
+          regarding the <code class="keyword markupname xmlatt">@conref</code> attribute. However,
+          any application that renders content references
+          <dfn class="term RFC-2119">MUST</dfn> conform to the rules described in<a
+            class="xref"
+            href="../archSpec/base/conref.html"
+            title="The DITA conref attributes provide mechanisms for reusing content. DITA content references support reuse scenarios that are difficult or impossible to implement using other XML-based inclusion mechanisms like XInclude and entities. Additionally, DITA content references have rules that help ensure that the results of content inclusion remain valid after resolution"
+            >Content reference (conref)</a
+          >.
+        </p>
+        <p class="p">
+          Implementations that support only a subset of DITA features are considered conforming as
+          long as all supported features follow the requirements that are given in the DITA
+          specification. An implementation that does not support a particular feature
+          <dfn class="term RFC-2119">MUST</dfn> be prepared to interoperate with other
+          implementations that do support the feature.
+        </p>
+      </section>
+      <section class="section" id="conformance__documents">
+        <h2 class="title sectiontitle">4.2 Conformance of DITA documents</h2>
+
+        <p class="p">
+          A document conforms with the DITA standard if it meets all of the following conditions.
+        </p>
+        <ol class="ol">
+          <li class="li">
+            A DITA document that refers to document type shells distributed by OASIS
+            <dfn class="term RFC-2119">MUST</dfn> be valid according to both the grammar files and
+            any assertions provided in the language reference.
+          </li>
+          <li class="li">
+            If a DITA document refers to a custom document type shell, that shell
+            <dfn class="term RFC-2119">MUST</dfn> also conform to the rules laid out in
+            <a class="xref" href="http://example.com" target="_blank" rel="external noopener"
+              >X.X.X.X Rules for document-type shells</a
+            >.
+          </li>
+          <li class="li">
+            If a DITA document's custom document type shell includes constraints, that shell
+            <dfn class="term RFC-2119">MUST</dfn> also conform to the rules laid out in
+            <a class="xref" href="http://example.com" target="_blank" rel="external noopener"
+              >X.X.X.X Constraint rules</a
+            >
+          </li>
+          <li class="li">
+            If a DITA document uses specialized elements or attributes, those elements or attributes
+            <dfn class="term RFC-2119">MUST</dfn> also conform to the rules laid out in
+            <a class="xref" href="http://example.com" target="_blank" rel="external noopener"
+              >X.X.X Specialization rules for element types</a
+            >,
+            <a class="xref" href="http://example.com" target="_blank" rel="external noopener"
+              >X.X.X Specialization rules for attributes</a
+            >, and
+            <a class="xref" href="http://example.com" target="_blank" rel="external noopener"
+              >X.X.X Class attribute rules and syntax</a
+            >.
+          </li>
+        </ol>
+      </section>
+    </div>
+  </article>
+</main>

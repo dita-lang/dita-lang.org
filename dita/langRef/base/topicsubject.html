@@ -1,0 +1,172 @@
+---
+# Generated from DITA source
+layout: base
+title: 'topicsubject'
+description: 'The topicsubject element identifies the subjects that are
+  covered by a topic or map.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      <code class="keyword markupname xmlelement">&lt;topicsubject&gt;</code>
+    </h1>
+
+    <div class="body refbody">
+      <p class="shortdesc">
+        The <code class="keyword markupname xmlelement">&lt;topicsubject&gt;</code> element
+        identifies the subjects that are covered by a topic or map.
+      </p>
+      <section class="section" id="topicsubject__usage-information">
+        <h2 class="title sectiontitle">Usage information</h2>
+
+        <p class="p">
+          To identify a primary subject, refer to the subject with the
+          <code class="keyword markupname xmlelement">&lt;topicsubject&gt;</code> element itself.
+          Secondary subjects can be specified by nested
+          <code class="keyword markupname xmlelement">&lt;subjectref&gt;</code> elements.
+        </p>
+      </section>
+      <section class="section" id="topicsubject__specialization-hierachy">
+        <h2 class="title sectiontitle">Specialization hierarchy</h2>
+
+        <p class="p">
+          The <code class="keyword markupname xmlelement">&lt;topicsubject&gt;</code> element is
+          specialized from <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>. It
+          is defined in the classification-domain module.
+        </p>
+      </section>
+      <section class="section" id="topicsubject__attributes">
+        <h2 class="title sectiontitle">Attributes</h2>
+
+        <p class="p">
+          The following attributes are available on this element:
+          <span class="ph"
+            ><a
+              class="xref"
+              href="../../common/../langRef/attributes/universalAttributes.html"
+              title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang"
+              >universal attributes</a
+            ></span
+          >,
+          <span class="ph"
+            ><a
+              class="xref"
+              href="../../common/../langRef/attributes/commonAttributes.html#common-atts__linkatts"
+              title="Link relationship attributes include: format, href, type, and scope"
+              >link-relationship attributes</a
+            ></span
+          >,
+          <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-keyref"
+            ><code class="keyword markupname xmlatt">@keyref</code></a
+          >,
+          <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-keys"
+            ><code class="keyword markupname xmlatt">@keys</code></a
+          >,
+          <a
+            class="xref"
+            href="../attributes/commonAttributes.html#common-atts__attr-processing-role"
+            ><code class="keyword markupname xmlatt">@processing-role</code></a
+          >
+          and
+          <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-toc"
+            ><code class="keyword markupname xmlatt">@toc</code></a
+          >.
+        </p>
+        <div class="p attr-exception" id="topicsubject__attr-exception">
+          For this element:
+          <ul class="ul" id="topicsubject__ul_nwz_4kr_ppb">
+            <li class="li">
+              The <code class="keyword markupname xmlatt">@processing-role</code> attribute has a
+              default value of <span class="keyword">resource-only</span>.
+            </li>
+            <li class="li">
+              The <code class="keyword markupname xmlatt">@toc</code> attribute has a default value
+              of <span class="keyword">no</span>.
+            </li>
+          </ul>
+        </div>
+      </section>
+      <div class="example">
+        <h2 class="title sectiontitle">Example</h2>
+
+        <p class="p">
+          In the following example, the map is classified as covering the Linux subject, and
+          <span class="ph filepath">developing-web-applications.dita</span> is classified as
+          covering the Web and development subjects. These subjects (and their keys) are defined
+          externally in a subject scheme map; in order to reference the subject directly without the
+          subject scheme map, the <code class="keyword markupname xmlatt">@href</code> attribute
+          would be used in place of <code class="keyword markupname xmlatt">@keyref</code>.
+        </p>
+        <pre class="pre codeblock"><code>&lt;map&gt;
+  &lt;title&gt;Working with Linux&lt;/title&gt;
+  &lt;topicsubject keyref="linux"/&gt;
+  &lt;!-- ... --&gt;
+  &lt;topicref href="developing-web-applications.dita"&gt;
+    &lt;topicsubject&gt;
+      <strong class="ph b">&lt;subjectref keyref="web"/&gt;</strong>
+      <strong class="ph b">&lt;subjectref keyref="development"/&gt;</strong>
+    &lt;/topicsubject&gt;
+    &lt;!-- ... --&gt;
+  &lt;/topicref&gt;
+  &lt;!-- ... --&gt;
+&lt;/map&gt;</code></pre>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../langRef/containers/classify-d.html"
+            title="The classification domain elements are used to identify the subject matter of content that is referenced in a map. The subjects are defined in a subject scheme map."
+            >Classification domain elements</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

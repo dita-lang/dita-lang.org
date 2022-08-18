@@ -1,0 +1,198 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Binding controlled values to an attribute'
+description: ' The controlled values defined in a subject scheme map can be
+  bound to an attribute or an element and attribute pair. This affects
+  the expected behavior for processors and authoring tools.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li>
+      <a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a>
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/dita-maps-and-their-usage.html">DITA maps and their usage</a>
+        </li>
+        <li>
+          <a href="../../archSpec/base/subject-scheme-maps-and-usage.html"
+            >Subject scheme maps and their usage</a
+          >
+          <ul class="nav nav-list">
+            <li><a href="../../archSpec/base/subjectSchema.html">Subject scheme maps</a></li>
+            <li>
+              <a href="../../archSpec/base/controlled-values-for-attributes.html"
+                >Defining controlled values for attributes</a
+              >
+            </li>
+            <li class="active">
+              <a href="../../archSpec/base/binding-controlled-values-to-attribute.html"
+                >Binding controlled values to an attribute</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/processing-controlled-attribute-values.html"
+                >Processing controlled attribute values</a
+              >
+            </li>
+            <li><a href="../../archSpec/base/classification-maps.html">Classification maps</a></li>
+            <li>
+              <a href="../../archSpec/base/examples-subjectScheme-maps.html"
+                >Examples of subject scheme maps</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/map-cascading.html">Metadata cascading</a></li>
+        <li><a href="../../archSpec/base/chunking.html">Chunking</a></li>
+      </ul>
+    </li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Binding controlled values to an attribute</h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        The controlled values defined in a subject scheme map can be bound to an attribute or an
+        element and attribute pair. This affects the expected behavior for processors and authoring
+        tools.
+      </p>
+      <p class="p">
+        The <code class="keyword markupname xmlelement">&lt;enumerationdef&gt;</code> element binds
+        the set of controlled values to an attribute. Valid attribute values are those that are
+        defined in the set of controlled values. Invalid attribute values are those that are not
+        defined in the set of controlled values.
+        <span style="color:red;" class="ph"
+          >If an enumeration specifies an empty
+          <code class="keyword markupname xmlelement">&lt;subjectdef&gt;</code> element that does
+          not reference a set of controlled values, no value is valid for the attribute.</span
+        >
+        An enumeration can also specify an optional default value by using the
+        <code class="keyword markupname xmlelement">&lt;defaultSubject&gt;</code> element.
+      </p>
+      <p class="p">
+        If an enumeration is bound, processors <dfn class="term RFC-2119">SHOULD</dfn> validate
+        attribute values against the controlled values that are defined in the subject scheme map.
+        For authoring tools, this validation prevents users from entering misspelled or undefined
+        values. Recovery from validation errors is implementation specific.
+      </p>
+      <p class="p">
+        The default attribute values that are specified in a subject scheme map apply only if a
+        value is not otherwise specified in the DITA source or as a default value by the XML
+        grammar.
+      </p>
+
+      <div class="example" id="concept_fpj_jlx_54__example-binding-values">
+        <h2 class="title sectiontitle">
+          Example: Binding a list of controlled values to the
+          <code class="keyword markupname xmlatt">@audience</code> attribute
+        </h2>
+
+        <p class="p">
+          The following code sample illustrates the use of the
+          <code class="keyword markupname xmlelement">&lt;subjectdef&gt;</code> element to define
+          controlled values for types of users. It also binds the controlled values to the
+          <code class="keyword markupname xmlatt">@audience</code> attribute:
+        </p>
+        <pre class="pre codeblock"><code>&lt;subjectScheme&gt;
+  &lt;!-- DEFINE TYPES OF USERS --&gt;
+  &lt;subjectdef keys="users"&gt;
+    &lt;subjectdef keys="therapist"/&gt;
+    &lt;subjectdef keys="oncologist"/&gt;
+    &lt;subjectdef keys="physicist"/&gt;
+    &lt;subjectdef keys="radiologist"/&gt;
+  &lt;/subjectdef&gt;
+  &lt;!-- BIND THE SUBJECT TO THE @AUDIENCE ATTRIBUTE
+       This restricts the @audience attribute to the following
+       values: therapist, oncologist, physicist, radiologist --&gt;
+  &lt;enumerationdef&gt;
+    &lt;attributedef name="audience"/&gt;
+    &lt;subjectdef keyref="users"/&gt;
+  &lt;/enumerationdef&gt;
+&lt;/subjectScheme&gt;</code></pre>
+        <p class="p">
+          When the above subject scheme map is used, the only valid values for the
+          <code class="keyword markupname xmlatt">@audience</code> attribute are "therapist",
+          "oncologist", "physicist", and "radiologist". Note that "users" is not a valid value for
+          the <code class="keyword markupname xmlatt">@audience</code> attribute<span
+            style="color:red;"
+            class="ph"
+            >, as it</span
+          >
+          merely identifies the parent or container subject.
+        </p>
+      </div>
+      <div class="example" id="concept_fpj_jlx_54__example-binding-empty-set">
+        <h2 class="title sectiontitle">Example: Binding an attribute to an empty set</h2>
+
+        <p class="p">
+          The following code sample specifies that there are no valid values for the
+          <code class="keyword markupname xmlatt">@outputclass</code> attribute:
+        </p>
+        <pre class="pre codeblock"><code>&lt;subjectScheme&gt;
+  &lt;enumerationdef&gt;
+    &lt;attributedef name="outputclass"/&gt;
+    <strong style="color:red;" class="ph b">&lt;subjectdef/&gt;</strong>
+  &lt;/enumerationdef&gt;
+&lt;/subjectScheme&gt;</code></pre>
+        <p style="color:red;" class="p">
+          Authors will not be able to specify the
+          <code class="keyword markupname xmlatt">@outputclass</code> attribute on an element.
+        </p>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/subject-scheme-maps-and-usage.html"
+            title="Subject scheme maps can be used to define controlled values and subject definitions. The controlled values can be bound to attributes, as well as element and attribute pairs. The subject definitions can contain metadata and provide links to more detailed information; they can be used to classify content and provide semantics that can be used in taxonomies and ontologies."
+            >Subject scheme maps and their usage</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

@@ -1,0 +1,255 @@
+---
+# Generated from DITA source
+layout: base
+title: 'image'
+description: 'An image is a reference
+  to artwork that is stored outside of the content. '
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      <code class="keyword markupname xmlelement">&lt;image&gt;</code>
+    </h1>
+
+    <div class="body refbody">
+      <p class="shortdesc">
+        An image is a reference to artwork that is stored outside of the content.
+      </p>
+      <section class="section" id="image__rendering-expectations">
+        <h2 class="title sectiontitle">Rendering expectations</h2>
+
+        <p class="p">The referenced image typically is rendered in the main flow of the content.</p>
+        <div class="p">
+          Processors <dfn class="term RFC-2119">SHOULD</dfn> scale the object when values are
+          provided for the <code class="keyword markupname xmlatt">@height</code> and
+          <code class="keyword markupname xmlatt">@width</code> attributes. The following
+          expectations apply:
+          <ul class="ul">
+            <li class="li">
+              If a height value is specified and no width value is specified, processors
+              <dfn class="term RFC-2119">SHOULD</dfn> scale the width by the same factor as the
+              height.
+            </li>
+            <li class="li">
+              If a width value is specified and no height value is specified, processors
+              <dfn class="term RFC-2119">SHOULD</dfn> scale the height by the same factor as the
+              width.
+            </li>
+            <li class="li">
+              If both a height value and width value are specified, implementations
+              <dfn class="term RFC-2119">MAY</dfn> ignore one of the two values when they are unable
+              to scale to each direction using different factors.
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="section" id="image__attributes">
+        <h2 class="title sectiontitle">Attributes</h2>
+
+        <p class="p">
+          The following attributes are available on this element:
+          <span class="ph"
+            ><a
+              class="xref"
+              href="../../common/reuse-w-lwdita/../../langRef/attributes/universalAttributes.html"
+              title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang"
+              >universal attributes</a
+            ></span
+          >,
+          <a
+            class="xref"
+            href="../../common/reuse-w-lwdita/../../langRef/attributes/commonAttributes.html#common-atts__attr-href"
+            >href (link-relationship attributes)</a
+          >,
+          <a
+            class="xref"
+            href="../../common/reuse-w-lwdita/../../langRef/attributes/commonAttributes.html#common-atts__attr-format"
+            >format (link-relationship attributes)</a
+          >,
+          <a
+            class="xref"
+            href="../../common/reuse-w-lwdita/../../langRef/attributes/commonAttributes.html#common-atts__attr-scope"
+            >scope (link-relationship attributes)</a
+          >,
+          <a
+            class="xref"
+            href="../../common/reuse-w-lwdita/../../langRef/attributes/commonAttributes.html#common-atts__attr-keyref"
+            ><code class="keyword markupname xmlatt">@keyref</code></a
+          >, and the attributes defined below.
+        </p>
+
+        <dl class="dl">
+          <dt class="dt dlterm" id="image__d1440e54">
+            <code class="keyword markupname xmlatt">@align</code>
+          </dt>
+          <dd class="dd">
+            Controls the horizontal alignment of an image when
+            <code class="keyword markupname xmlatt">@placement</code> is specified as
+            <span class="keyword">break</span>. Common values include
+            <span class="keyword">left</span>, <span class="keyword">right</span>, and
+            <span class="keyword">center</span>.
+          </dd>
+
+          <dt class="dt dlterm" id="image__d1324e688">
+            <a id="image__height"></a><code class="keyword markupname xmlatt">@height</code>
+          </dt>
+          <dd class="dd">
+            Specifies the vertical dimension for the resulting display.
+            <span style="color:red;" class="ph"
+              >The value of this attribute is a real number expressed in decimal notation,
+              optionally followed by a unit of measure. The following units of measurement are
+              supported: cm, em, in, mm, pc, pt, and px (centimeters, ems, inches, millimeters,
+              picas, points, and pixels, respectively). The default unit is px (pixels). Possible
+              values include:<span class="keyword">5</span>, <span class="keyword">5in</span>, and
+              <span class="keyword">10.5cm</span>.</span
+            >
+          </dd>
+
+          <dt class="dt dlterm" id="image__d1440e86">
+            <code class="keyword markupname xmlatt">@placement</code>
+          </dt>
+          <dd class="dd">
+            Indicates whether an image is displayed inline or on a separate line. The default value
+            is inline. Allowable values are <span class="keyword">inline</span>,
+            <span class="keyword">break</span>, and
+            <a
+              class="xref"
+              href="../../common/reuse-w-lwdita/../../archSpec/base/ditauseconreftarget.html"
+              title="The value -dita-use-conref-target is available on enumerated attributes and can also be specified on other attributes. When an element uses conref to pull in content, for any of its attributes assigned a value of -dita-use-conref-target, the resulting value for those attributes is also pulled in from the referenced element."
+              >"-dita-use-conref-target"</a
+            >.
+          </dd>
+
+          <dt class="dt dlterm" id="image__d1440e105">
+            <code class="keyword markupname xmlatt">@scale</code>
+          </dt>
+          <dd class="dd">
+            Specifies a percentage as an unsigned integer by which to scale the image in the absence
+            of any specified image height or width; a value of 100 implies that the image should be
+            presented at its intrinsic size. If a value has been specified for the
+            <code class="keyword markupname xmlatt">@height</code> or
+            <code class="keyword markupname xmlatt">@width</code> attribute (or both), the
+            <code class="keyword markupname xmlatt">@scale</code> attribute is ignored.
+          </dd>
+
+          <dt class="dt dlterm" id="image__d1440e124">
+            <code class="keyword markupname xmlatt">@scalefit</code>
+          </dt>
+          <dd class="dd">
+            <p class="p">
+              Specifies whether an image is scaled up or down to fit within available space. The
+              allowable values are <span class="keyword">yes</span>,
+              <span class="keyword">no</span>, and
+              <a
+                class="xref"
+                href="../../common/reuse-w-lwdita/../../archSpec/base/ditauseconreftarget.html"
+                title="The value -dita-use-conref-target is available on enumerated attributes and can also be specified on other attributes. When an element uses conref to pull in content, for any of its attributes assigned a value of -dita-use-conref-target, the resulting value for those attributes is also pulled in from the referenced element."
+                >"-dita-use-conref-target"</a
+              >. If <code class="keyword markupname xmlatt">@height</code>,
+              <code class="keyword markupname xmlatt">@width</code>, or
+              <code class="keyword markupname xmlatt">@scale</code> is specified, those attributes
+              determine the graphic size, and the
+              <code class="keyword markupname xmlatt">@scalefit</code> attribute is ignored. If none
+              of those attributes are specified and <code class="ph codeph">scalefit="yes"</code>,
+              <span style="color:red;" class="ph"
+                >then the image is scaled by the same factor in both dimensions, so that the graphic
+                will just fit within the available height or width, whichever is more
+                constraining</span
+              >.
+            </p>
+            <p class="p">
+              The available width
+              <span style="color:red;" class="ph"
+                >would be that of the prevailing column or table cell</span
+              >, that is, the width a paragraph of text would have if the graphic were a paragraph
+              instead od text. The available height is implementation dependent, but if feasible, it
+              is suggested to be the page or table cell height or some other reasonable value.
+            </p>
+          </dd>
+
+          <dt class="dt dlterm" id="image__d1324e700">
+            <a id="image__width"></a><code class="keyword markupname xmlatt">@width</code>
+          </dt>
+          <dd class="dd">
+            Specifies the horizontal dimension for the resulting display.
+            <span style="color:red;" class="ph"
+              >The value of this attribute is a real number expressed in decimal notation,
+              optionally followed by a unit of measure. The following units of measurement are
+              supported: cm, em, in, mm, pc, pt, and px (centimeters, ems, inches, millimeters,
+              picas, points, and pixels, respectively). The default unit is px (pixels). Possible
+              values include:<span class="keyword">5</span>, <span class="keyword">5in</span>, and
+              <span class="keyword">10.5cm</span>.</span
+            >
+          </dd>
+        </dl>
+      </section>
+      <div class="example" id="image__example">
+        <h2 class="title sectiontitle">Example</h2>
+        <p class="p">
+          The following code sample shows how an image is referenced. The
+          <code class="keyword markupname xmlatt">@placement</code> attribute is set to "break";
+          this ensures that the image is not rendered inline.
+        </p>
+        <pre class="pre codeblock"><code>&lt;image href="bike.gif" placement="break"&gt;
+  &lt;alt&gt;Two-wheeled bicycle&lt;/alt&gt;
+&lt;/image&gt;</code></pre>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../langRef/containers/body-elements.html"
+            title="The body elements support the most common types of content for topics: paragraphs, lists, phrases, figures, and other common document components."
+            >Body elements</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

@@ -1,0 +1,304 @@
+---
+# Generated from DITA source
+layout: base
+title: 'class attribute rules and syntax'
+description: 'The specialization hierarchy of each DITA element is declared as the value of the
+  class attribute. The class attribute provides a mapping from
+  the current name of the element to its more general equivalents, but it also can provide a
+  mapping from the current name to more specialized equivalents. All specialization-aware
+  processing can be defined in terms of class attribute values.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/ditaspecialization.html"
+            >Overview of DITA extension facilities</a
+          >
+        </li>
+        <li><a href="../../archSpec/base/configuration.html">Document-type configuration</a></li>
+        <li>
+          <a href="../../archSpec/base/specialization.html">Specialization</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/specialization-overview.html"
+                >Overview of specialization</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/specialization-modularization.html">Modularization</a>
+            </li>
+            <li>
+              <a href="../../archSpec/base/specialization-vocabulary-modules.html"
+                >Vocabulary modules</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/specialization-rules-elements.html"
+                >Specialization rules for element types</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/specialization-rules-attributes.html"
+                >Specialization rules for attributes</a
+              >
+            </li>
+            <li class="active">
+              <a href="../../archSpec/base/specialization-class-attribute.html"
+                >class attribute rules and syntax</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/specialization-specializations-attribute.html"
+                >specializations attribute rules and syntax</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/specialization-including-non-dita-content.html"
+                >Specializing to include non-DITA content</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/specialization-sharing-elements-across-modules.html"
+                >Sharing elements across specializations</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/generalization.html">Generalization</a></li>
+        <li><a href="../../archSpec/base/constraints.html">Constraints</a></li>
+        <li><a href="../../archSpec/base/expansion-modules.html">Expansion modules</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      <code class="keyword markupname xmlatt">@class</code> attribute rules and syntax
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        The specialization hierarchy of each DITA element is declared as the value of the
+        <code class="keyword markupname xmlatt">@class</code> attribute. The
+        <code class="keyword markupname xmlatt">@class</code> attribute provides a mapping from the
+        current name of the element to its more general equivalents, but it also can provide a
+        mapping from the current name to more specialized equivalents. All specialization-aware
+        processing can be defined in terms of
+        <code class="keyword markupname xmlatt">@class</code> attribute values.
+      </p>
+      <p class="p">
+        The <code class="keyword markupname xmlatt">@class</code> attribute tells a processor what
+        general classes of elements the current element belongs to. DITA scopes elements by module
+        type (for example topic type, domain type, or map type) instead of document type, which lets
+        document type developers combine multiple module types in a single document without
+        complicating transformation logic.
+      </p>
+      <p class="p">
+        The sequence of values in the
+        <code class="keyword markupname xmlatt">@class</code> attribute is important because it
+        tells processors which value is the most general and which is most specific. This sequence
+        is what enables both specialization aware processing and generalization.
+      </p>
+      <section class="section" id="classatt__syntax">
+        <h2 class="title sectiontitle">Syntax</h2>
+
+        <div class="p">
+          Values for the <code class="keyword markupname xmlatt">@class</code> attribute have the
+          following syntax requirements:
+          <ul class="ul">
+            <li class="li">
+              An initial "-" or "+" character followed by one or more spaces. Use "-" for element
+              types that are defined in structural vocabulary modules, and use "+" for element types
+              that are defined in domain modules.
+            </li>
+            <li class="li">
+              A sequence of one or more tokens of the form
+              <code class="ph codeph"
+                >"<var class="keyword varname">modulename</var>/<var class="keyword varname"
+                  >typename</var
+                >",</code
+              >
+              with each token separated by one or more spaces, where
+              <var class="keyword varname">modulename</var> is the short name of the vocabulary
+              module and <var class="keyword varname">typename</var> is the element type name.
+              Tokens are ordered left to right from most general to most specialized.
+              <p class="p">
+                These tokens provide a mapping for every structural type or domain in the ancestry
+                of the specialized element. The specialization hierarchy for a given element type
+                must reflect any intermediate modules between the base type and the specialization
+                type, even those in which no element renaming occurs.
+              </p>
+            </li>
+            <li class="li">
+              At least one trailing space character (" "). The trailing space ensures that string
+              matches on the tokens can always include a leading and trailing space in order to
+              reliably match full tokens.
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="section" id="classatt__rules">
+        <h2 class="title sectiontitle">Rules</h2>
+
+        <p class="p">
+          Every DITA element (except the
+          <code class="keyword markupname xmlelement">&lt;dita&gt;</code> element that is used as
+          the root of a ditabase document) <dfn class="term RFC-2119">MUST</dfn> declare a
+          <code class="keyword markupname xmlatt">@class</code> attribute.
+        </p>
+        <p class="p">
+          When the <code class="keyword markupname xmlatt">@class</code> attribute is declared in an
+          XML grammar, it <dfn class="term RFC-2119">MUST</dfn> be declared with a default value. In
+          order to support generalization round-tripping (generalizing specialized content into a
+          generic form and then returning it to the specialized form) the default value
+          <dfn class="term RFC-2119">MUST NOT</dfn> be fixed. This allows a generalization process
+          to overwrite the default values that are defined by a general document type with
+          specialized values taken from the document being generalized.
+        </p>
+        <p class="p">
+          A vocabulary module <dfn class="term RFC-2119">MUST NOT</dfn> change the
+          <code class="keyword markupname xmlatt">@class</code> attribute for elements that it does
+          not specialize, but simply reuses by reference from more generic levels.
+        </p>
+        <p class="p">
+          Authors <dfn class="term RFC-2119">SHOULD NOT</dfn> modify the
+          <code class="keyword markupname xmlatt">@class</code> attribute.
+        </p>
+      </section>
+      <div class="example" id="classatt__example">
+        <h2 class="title sectiontitle">
+          Example: DTD declaration for
+          <code class="keyword markupname xmlatt">@class</code> attribute for the
+          <code class="keyword markupname xmlelement">&lt;step&gt;</code> element
+        </h2>
+
+        <p class="p">
+          The following code sample lists the DTD declaration for the
+          <code class="keyword markupname xmlatt">@class</code> attribute for the
+          <code class="keyword markupname xmlelement">&lt;step&gt;</code> element:
+        </p>
+        <pre
+          class="pre codeblock"
+        ><code>&lt;!ATTLIST step         class  CDATA "- topic/li task/step "&gt;</code></pre>
+        <p class="p">
+          This indicates that the
+          <code class="keyword markupname xmlelement">&lt;step&gt;</code> element is specialized
+          from the <code class="keyword markupname xmlelement">&lt;li&gt;</code> element in a
+          generic topic. It also indicates explicitly that the
+          <code class="keyword markupname xmlelement">&lt;step&gt;</code> element is available in a
+          task topic; this enables round-trip migration between upper level and lower level types
+          without the loss of information.
+        </p>
+      </div>
+      <div class="example" id="classatt__example2">
+        <h2 class="title sectiontitle">
+          Example: Element with <code class="keyword markupname xmlatt">@class</code> attribute made
+          explicit
+        </h2>
+
+        <p class="p">
+          The following code sample shows the value of the
+          <code class="keyword markupname xmlatt">@class</code> attribute for the
+          <code class="keyword markupname xmlelement">&lt;wintitle&gt;</code> element:
+        </p>
+        <pre
+          class="pre codeblock"
+        ><code>&lt;wintitle class="+ topic/keyword ui-d/wintitle "&gt;A specialized keyword&lt;/wintitle&gt;</code></pre>
+        <p class="p">
+          The <code class="keyword markupname xmlatt">@class</code> attribute and its value is
+          generally not surfaced in authored DITA topics, although it might be made explicit as part
+          of a processing operation.
+        </p>
+      </div>
+      <div class="example" id="classatt__example3">
+        <h2 class="title sectiontitle">
+          Example: <code class="keyword markupname xmlatt">@class</code> attribute with intermediate
+          value
+        </h2>
+
+        <p class="p">
+          The following code sample shows the value of a
+          <code class="keyword markupname xmlatt">@class</code> attribute for an element in the
+          guiTask module, which is specialized from
+          <code class="keyword markupname xmlelement">&lt;task&gt;</code>. The element is
+          specialized from <code class="keyword markupname xmlelement">&lt;keyword&gt;</code> in the
+          base topic vocabulary, rather than from an element in the task module:
+        </p>
+        <pre
+          class="pre codeblock"
+        ><code>&lt;windowName class="- topic/keyword task/keyword guiTask/windowname "&gt;...&lt;/windowName&gt;</code></pre>
+        <p class="p">
+          The intermediate values are necessary so that generalizing and specializing
+          transformations can map the values simply and accurately. For example, if
+          <code class="ph codeph">task/keyword</code> was missing as a value, and a user decided to
+          generalize this guiTask up to a task topic, then the transformation would have to guess
+          whether to map to keyword (appropriate if task is more general than guiTask, which it is)
+          or leave it as windowName (appropriate if task were more specialized, which it isn't). By
+          always providing mappings for more general values, processors can then apply the simple
+          rule that missing mappings must by default be to more specialized values than the one we
+          are generalizing to, which means the last value in the list is appropriate. For example,
+          when generalizing <code class="keyword markupname xmlelement">&lt;guitask&gt;</code> to
+          <code class="keyword markupname xmlelement">&lt;task&gt;</code>, if a
+          <code class="keyword markupname xmlelement">&lt;p&gt;</code> element has no target value
+          for <code class="keyword markupname xmlelement">&lt;task&gt;</code>, we can safely assume
+          that <code class="keyword markupname xmlelement">&lt;p&gt;</code> does not specialize from
+          <code class="keyword markupname xmlelement">&lt;task&gt;</code> and does not need to be
+          generalized.
+        </p>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/specialization.html"
+            title="The specialization feature of DITA allows for the creation of new element types and attributes that are explicitly and formally derived from existing types. This facilitates interchange of conforming DITA content and ensures a minimum level of common processing for all DITA content. It also allows specialization-aware processors to add specialization-specific processing to existing base processing."
+            >Specialization</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

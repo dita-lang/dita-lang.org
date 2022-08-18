@@ -1,0 +1,147 @@
+---
+# Generated from DITA source
+layout: base
+title: 'draft-comment'
+description:
+  'A draft comment is content that is intended for review and discussion, such as questions,
+  comments, and notes to reviewers. This content is not intended to be included in production
+  output.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      <code class="keyword markupname xmlelement">&lt;draft-comment&gt;</code>
+    </h1>
+
+    <div class="body refbody">
+      <p class="shortdesc">
+        A draft comment is content that is intended for review and discussion, such as questions,
+        comments, and notes to reviewers. This content is not intended to be included in production
+        output.
+      </p>
+      <section class="section" id="draft-comment__rendering-expectations">
+        <h2 class="title sectiontitle">Rendering expectations</h2>
+
+        <p class="p">
+          By default, processors <dfn class="term RFC-2119">SHOULD NOT</dfn> render
+          <code class="keyword markupname xmlelement">&lt;draft-comment&gt;</code> elements.
+          Processors <dfn class="term RFC-2119">SHOULD</dfn> provide a mechanism that causes the
+          content of the
+          <code class="keyword markupname xmlelement">&lt;draft-comment&gt;</code> element to be
+          rendered in draft output only.
+        </p>
+      </section>
+      <section class="section" id="draft-comment__attributes">
+        <h2 class="title sectiontitle">Attributes</h2>
+
+        <p class="p">
+          The following attributes are available on this element:
+          <span class="ph"
+            ><a
+              class="xref"
+              href="../../common/../langRef/attributes/universalAttributes.html"
+              title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang"
+              >universal attributes</a
+            ></span
+          >
+          and the attributes defined below.
+        </p>
+        <p class="p attr-exception" id="draft-comment__attr-exception">
+          For this element, the <code class="keyword markupname xmlatt">@translate</code> attribute
+          has a default value of <span class="keyword">no</span>.
+        </p>
+        <dl class="dl">
+          <dt class="dt dlterm" id="draft-comment__attr-author">
+            <a id="draft-comment__author"></a><code class="keyword markupname xmlatt">@author</code>
+          </dt>
+          <dd class="dd">Designates the originator of the draft comment.</dd>
+
+          <dt class="dt dlterm" id="draft-comment__attr-disposition">
+            <a id="draft-comment__disposition"></a
+            ><code class="keyword markupname xmlatt">@disposition</code>
+          </dt>
+          <dd class="dd">Specifies the status of the draft comment.</dd>
+
+          <dt class="dt dlterm" id="draft-comment__attr-time">
+            <a id="draft-comment__time"></a><code class="keyword markupname xmlatt">@time</code>
+          </dt>
+          <dd class="dd">Specifies when the draft comment was created.</dd>
+        </dl>
+      </section>
+      <div class="example" id="draft-comment__example">
+        <h2 class="title sectiontitle">Example</h2>
+
+        <p class="p">
+          The following code samples shows how a content developer can use a
+          <code class="keyword markupname xmlelement">&lt;draft-comment&gt;</code> element to pose a
+          question to reviewers:
+        </p>
+        <pre class="pre codeblock"><code>&lt;draft-comment author="EBP" time="23 May 2017"&gt;
+    &lt;p&gt;Where's the usage information for this section?&lt;/p&gt;
+&lt;/draft-comment&gt;</code></pre>
+        <p class="p">
+          Processors might render the information from the highlighted attributes at viewing or
+          publishing time. Authors might use the value of the
+          <code style="color:red;" class="keyword markupname xmlatt">@disposition</code> attribute
+          to track the work that remains to be done on a content collection.
+        </p>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../langRef/containers/body-elements.html"
+            title="The body elements support the most common types of content for topics: paragraphs, lists, phrases, figures, and other common document components."
+            >Body elements</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

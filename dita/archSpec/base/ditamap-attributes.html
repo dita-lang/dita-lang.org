@@ -1,0 +1,399 @@
+---
+# Generated from DITA source
+layout: base
+title: 'DITA map attributes'
+description: 'DITA maps have unique attributes that are designed to control the
+	 way that relationships are interpreted for different output purposes. In
+	 addition, DITA maps share many metadata and linking attributes with DITA
+	 topics. 
+  '
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li>
+      <a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a>
+      <ul class="nav nav-list">
+        <li><a href="../../archSpec/base/basic-concepts.html">Basic concepts</a></li>
+        <li>
+          <a href="../../archSpec/base/single-sourcing.html"
+            >Producing different deliverables from a single source</a
+          >
+        </li>
+        <li><a href="../../archSpec/base/topicover.html">DITA topics</a></li>
+        <li>
+          <a href="../../archSpec/base/ditamaps.html">DITA maps</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/definition-of-ditamaps.html">Definition of DITA maps</a>
+            </li>
+            <li><a href="../../archSpec/base/purpose-of-ditamaps.html">Purpose of DITA maps</a></li>
+            <li class="active">
+              <a href="../../archSpec/base/ditamap-attributes.html">DITA map attributes</a>
+            </li>
+            <li><a href="../../archSpec/base/example-ditamaps.html">Examples of DITA maps</a></li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/dita-metadata.html">DITA metadata</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      <span class="ph">DITA map attributes</span>
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        DITA maps have unique attributes that are designed to control the way that relationships are
+        interpreted for different output purposes. In addition, DITA maps share many metadata and
+        linking attributes with DITA topics.
+      </p>
+
+      <section class="section" id="ditamap-attributes__mostly-map">
+        <p class="p">
+          DITA maps often encode structures that are specific to a particular medium or output, for
+          example, Web pages or a PDF document. Attributes, such as
+          <code class="keyword markupname xmlatt">@deliveryTarget</code> and
+          <code class="keyword markupname xmlatt">@toc</code>, are designed to help processors
+          interpret the DITA map for each kind of output.
+        </p>
+
+        <p class="p">
+          Many of the following attributes are not available in DITA topics; individual topics, once
+          separated from the high-level structures and dependencies associated with a particular
+          kind of output, should be entirely reusable regardless of the intended output format.
+        </p>
+        <dl class="dl">
+          <dt class="dt dlterm"><code class="keyword markupname xmlatt">@collection-type</code></dt>
+          <dd class="dd">
+            The <code class="keyword markupname xmlatt">@collection-type</code> attribute specifies
+            how the children of a
+            <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element relate to
+            their parent and to each other. This attribute, which is set on the parent element,
+            typically is used by processors to determine how to generate navigation links in the
+            rendered topics. For example, a
+            <code class="keyword markupname xmlatt">@collection-type</code> value of "sequence"
+            indicates that children of the specifying
+            <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element represent an
+            ordered sequence of topics; processors might add numbers to the list of child topics or
+            generate next/previous links for online presentation. This attribute is available in
+            topics on the <code class="keyword markupname xmlelement">&lt;linklist&gt;</code> and
+            <code class="keyword markupname xmlelement">&lt;linkpool&gt;</code> elements, where it
+            has the same behavior. Where the
+            <code class="keyword markupname xmlatt">@collection-type</code> attribute is available
+            on elements that cannot directly contain elements, the behavior of the attribute is
+            undefined.
+          </dd>
+
+          <dt class="dt dlterm"><code class="keyword markupname xmlatt">@linking</code></dt>
+          <dd class="dd">
+            <p class="p">
+              By default, the relationships between the topics that are referenced in a map are
+              reciprocal:
+            </p>
+            <ul class="ul">
+              <li class="li">Child topics link to parent topics and vice versa.</li>
+              <li class="li">Next and previous topics in a sequence link to each other.</li>
+              <li class="li">Topics in a family link to their sibling topics.</li>
+              <li class="li">
+                Topics referenced in the table cells of the same row in a relationship table link to
+                each other. A topic referenced within a table cell does not (by default) link to
+                other topics referenced in the same table cell.
+              </li>
+            </ul>
+            <p class="p">
+              This behavior can be modified by using the
+              <code class="keyword markupname xmlatt">@linking</code> attribute, which enables an
+              author or information architect to specify how a topic participates in a relationship.
+              The following values are valid:
+            </p>
+            <dl class="dl">
+              <dt class="dt dlterm"><code class="ph codeph">linking="none"</code></dt>
+              <dd class="dd">
+                Specifies that the topic does not exist in the map for the purposes of calculating
+                links.
+              </dd>
+
+              <dt class="dt dlterm"><code class="ph codeph">linking="sourceonly"</code></dt>
+              <dd class="dd">
+                Specifies that the topic will link to its related topics but not vice versa.
+              </dd>
+
+              <dt class="dt dlterm"><code class="ph codeph">linking="targetonly"</code></dt>
+              <dd class="dd">
+                Specifies that the related topics will link to it but not vice versa.
+              </dd>
+
+              <dt class="dt dlterm"><code class="ph codeph">linking="normal"</code></dt>
+              <dd class="dd">
+                Default value. It specifies that linking will be reciprocal (the topic will link to
+                related topics, and they will link back to it).
+              </dd>
+            </dl>
+            <p class="p">
+              Authors also can create links directly in a topic by using the
+              <code class="keyword markupname xmlelement">&lt;xref&gt;</code> or
+              <code class="keyword markupname xmlelement">&lt;link&gt;</code> elements, but in most
+              cases map-based linking is preferable, because links in topics create dependencies
+              between topics that can hinder reuse.
+            </p>
+            <p class="p">
+              Note that while the relationships between the topics that are referenced in a map are
+              reciprocal, the relationships merely <em class="ph i">imply</em> reciprocal links in
+              generated output that includes links. The rendered navigation links are a function of
+              the presentation style that is determined by the processor.
+            </p>
+          </dd>
+
+          <dt class="dt dlterm"><code class="keyword markupname xmlatt">@toc</code></dt>
+          <dd class="dd">
+            Specifies whether topics are excluded from navigation output, such as a Web site map or
+            an online table of contents. By default,
+            <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> hierarchies are
+            included in navigation output; relationship tables are excluded.
+          </dd>
+
+          <dt class="dt dlterm"><code class="keyword markupname xmlatt">@search</code></dt>
+          <dd class="dd">Specifies whether the topic is included in search indexes.</dd>
+
+          <dt class="dt dlterm"><code class="keyword markupname xmlatt">@chunk</code></dt>
+          <dd class="dd">
+            Specifies that the processor generates an interim set of DITA topics that are used as
+            the input for the final processing. This can produce the following output results:
+            <ul class="ul">
+              <li class="li">
+                Multi-topic files are transformed into smaller files, for example, individual HTML
+                files for each DITA topic.
+              </li>
+              <li class="li">Individual DITA topics are combined into a single file.</li>
+            </ul>
+            <p class="p">
+              Specifying a value for the
+              <code class="keyword markupname xmlatt">@chunk</code> attribute on a
+              <code class="keyword markupname xmlelement">&lt;map&gt;</code> element establishes
+              chunking behavior that applies to the entire map, unless overridden by
+              <code class="keyword markupname xmlatt">@chunk</code> attributes that are set on more
+              specific elements in the DITA map. For a detailed description of the
+              <code class="keyword markupname xmlatt">@chunk</code> attribute and its usage, see
+              <a
+                class="xref"
+                href="chunking.html"
+                title="Content often needs to be delivered in a different granularity than it is authored. The chunk attribute enables map authors to specify that multiple source documents should be combined into a single document for delivery or that a single source document should be split into multiple documents for delivery."
+                >Chunking</a
+              >.
+            </p>
+          </dd>
+
+          <dt class="dt dlterm"><code class="keyword markupname xmlatt">@processing-role</code></dt>
+          <dd class="dd">
+            Specifies whether the topic or map referenced is processed normally or treated as a
+            resource that is only included in order to resolve key or content references.
+            <dl class="dl">
+              <dt class="dt dlterm">processing-role="normal"</dt>
+              <dd class="dd">
+                The topic is a readable part of the information set. It is included in navigation
+                and search results. This is the default value for the
+                <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element.
+              </dd>
+
+              <dt class="dt dlterm">processing-role="resource-only"</dt>
+              <dd class="dd">
+                The topic is used only as a resource for processing. It is not included in
+                navigation or search results, nor is it rendered as a topic. This is the default
+                value for the
+                <code class="keyword markupname xmlelement">&lt;keydef&gt;</code> element.
+              </dd>
+            </dl>
+            <p class="p">
+              If the <code class="keyword markupname xmlatt">@processing-role</code> attribute is
+              not specified locally, the value cascades from the closest element in the containment
+              hierarchy.
+            </p>
+          </dd>
+
+          <dt class="dt dlterm"><code class="keyword markupname xmlatt">@cascade</code></dt>
+          <dd class="dd">
+            <p class="p">
+              Specifies whether the default rules for the cascading of metadata attributes in a DITA
+              map apply. The following values are specified:
+            </p>
+            <dl class="dl">
+              <dt class="dt dlterm">merge</dt>
+              <dd class="dd">
+                <span style="color:red;" class="ph"
+                  >Indicates that the metadata attributes cascade, and that </span
+                >the values of the metadata attributes are additive. This is the processing default
+                for the <code class="keyword markupname xmlatt">@cascade</code> attribute.
+              </dd>
+
+              <dt class="dt dlterm">nomerge</dt>
+              <dd class="dd">
+                <span style="color:red;" class="ph"
+                  >Indicates that the metadata attributes cascade, but that </span
+                >they are not additive for
+                <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements that
+                specify a different value for a specific metadata attribute. If the cascading value
+                for an attribute is already merged based on multiple ancestor elements, that merged
+                value continues to cascade until a new value is encountered<span
+                  style="color:red;"
+                  class="ph"
+                  >. That is,</span
+                >
+                setting <code class="ph codeph">cascade="nomerge"</code> does not undo merging that
+                took place on ancestor elements.
+              </dd>
+            </dl>
+            <p class="p">
+              Processors also <dfn class="term RFC-2119">MAY</dfn> define additional values for the
+              <code class="keyword markupname xmlatt">@cascade</code> attribute.
+            </p>
+            <p class="p">
+              For more information, see
+              <a
+                class="xref"
+                href="example-how-cascade-att-functions.html"
+                title="The following example illustrates how the cascade attribute can be used to fine tune how the values for the platform attribute apply to topics referenced in a DITA map."
+                >Example: How the cascade attribute functions</a
+              >.
+            </p>
+          </dd>
+
+          <dt class="dt dlterm"><code class="keyword markupname xmlatt">@keys</code></dt>
+          <dd class="dd">Specifies one or more key names.</dd>
+
+          <dt class="dt dlterm"><code class="keyword markupname xmlatt">@keyscope</code></dt>
+          <dd class="dd">
+            Defines a new scope for key definition and resolution, and gives the scope one or more
+            names. For more information about key scopes, see
+            <a
+              class="xref"
+              href="key-based-addressing.html"
+              title="DITA keys provide an alternative to direct addressing. The key reference mechanism provides a layer of indirection so that resources (for example, URIs, metadata, or variable text strings) can be defined at the DITA map level instead of locally in each topic."
+              >Indirect key-based addressing</a
+            >.
+          </dd>
+        </dl>
+      </section>
+      <section class="section" id="ditamap-attributes__sharedatt">
+        <div class="p">
+          Attributes in the list above are used exclusively or primarily in maps, but many important
+          map attributes are shared with elements in topics. DITA maps also use many of the
+          following attributes that are used with linking elements in DITA topics, such as
+          <code class="keyword markupname xmlelement">&lt;link&gt;</code> and
+          <code class="keyword markupname xmlelement">&lt;xref&gt;</code>:
+          <ul class="ul" id="ditamap-attributes__ul_8EC90A51600A4EA388FCB3BCF0490924">
+            <li class="li" id="ditamap-attributes__li_5893ECBE9D1943CA8F67AFAF1A33AACA">
+              <code class="keyword markupname xmlatt">@format</code>
+            </li>
+            <li class="li" id="ditamap-attributes__li_324682CF250345F7B2DDC8692BC00C81">
+              <code class="keyword markupname xmlatt">@href</code>
+            </li>
+            <li class="li" id="ditamap-attributes__li_178E6EB1985D464A867DDB89066927F5">
+              <code class="keyword markupname xmlatt">@keyref</code>
+            </li>
+            <li class="li" id="ditamap-attributes__li_393B3EADBBBF45029DD13F74FCB01383">
+              <code class="keyword markupname xmlatt">@scope</code>
+            </li>
+            <li class="li" id="ditamap-attributes__li_C214A132BF374DD681F79EA9C91DFFF2">
+              <code class="keyword markupname xmlatt">@type</code>
+            </li>
+          </ul>
+        </div>
+        <div class="p">
+          The following metadata and reuse attributes are used by both DITA maps and DITA topics:
+          <ul class="ul">
+            <li class="li">
+              <code class="keyword markupname xmlatt">@rev</code>,
+              <code class="keyword markupname xmlatt">@status</code>,
+              <code class="keyword markupname xmlatt">@importance</code>
+            </li>
+            <li class="li">
+              <code class="keyword markupname xmlatt">@dir</code>,
+              <code class="keyword markupname xmlatt">@xml:lang</code>,
+              <code class="keyword markupname xmlatt">@translate</code>
+            </li>
+            <li class="li">
+              <code class="keyword markupname xmlatt">@id</code>,
+              <code class="keyword markupname xmlatt">@conref</code>,
+              <code class="keyword markupname xmlatt">@conrefend</code>,
+              <code class="keyword markupname xmlatt">@conkeyref</code>,
+              <code class="keyword markupname xmlatt">@conaction</code>
+            </li>
+            <li class="li">
+              <span class="ph"
+                ><code class="keyword markupname xmlatt">@props</code> and any attribute specialized
+                from <code class="keyword markupname xmlatt">@props</code>, including those
+                integrated by default in the OASIS-provided document-type shells:
+                <code class="keyword markupname xmlatt">@audience</code>,
+                <code class="keyword markupname xmlatt">@deliveryTarget</code>,
+                <code class="keyword markupname xmlatt">@platform</code>,
+                <code class="keyword markupname xmlatt">@product</code>,
+                <code class="keyword markupname xmlatt">@otherprops</code></span
+              >
+            </li>
+            <li class="li"><code class="keyword markupname xmlatt">@search</code></li>
+          </ul>
+        </div>
+        <p class="p">
+          When new attributes are specialized from
+          <code class="keyword markupname xmlatt">@props</code> or
+          <code class="keyword markupname xmlatt">@base</code> as a domain, they can be incorporated
+          into both map and topic structural types.
+        </p>
+      </section>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/ditamaps.html"
+            title="This topic collection contains information about DITA maps and the purposes that they serve. It also includes high-level information about DITA map elements, attributes, and metadata."
+            >DITA maps</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

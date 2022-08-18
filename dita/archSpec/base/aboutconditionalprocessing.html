@@ -1,0 +1,194 @@
+---
+# Generated from DITA source
+layout: base
+title: 'About conditional processing'
+description: 'Certain concepts are critical for a full understanding of
+  conditional processing.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li>
+      <a href="../../archSpec/base/behaviors.html">DITA processing</a>
+      <ul class="nav nav-list">
+        <li><a href="../../archSpec/base/navigation.html">Navigation</a></li>
+        <li><a href="../../archSpec/base/indexes.html">Indexes</a></li>
+        <li><a href="../../archSpec/base/conref.html">Content reference (conref)</a></li>
+        <li>
+          <a href="../../archSpec/base/condproc.html">Conditional processing</a>
+          <ul class="nav nav-list">
+            <li class="active">
+              <a href="../../archSpec/base/aboutconditionalprocessing.html"
+                >About conditional processing</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/conditionalprocessingexpectations.html"
+                >Expectations for conditional processing</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/aboutditavaldocuments.html"
+                >About the DITAVAL document</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/usage-of-conditional-processing-attributes.html"
+                >Conditional processing attribute values</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/usage-of-conditional-processing-attribute-groups.html"
+                >Conditional processing attribute values with groups</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/conditional-processing-and-subject-schemes.html"
+                >Conditional processing and subject schemes</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/filtering.html"
+                >Filtering based on metadata attributes</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/flagging.html">Flagging based on metadata attributes</a>
+            </li>
+            <li>
+              <a href="../../archSpec/base/examples-of-conditional-processing.html"
+                >Examples of conditional processing</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/branch-filtering.html">Branch filtering</a></li>
+        <li><a href="../../archSpec/base/sort-as-processing.html">Sorting</a></li>
+        <li>
+          <a href="../../archSpec/base/determining-effective-attribute-values.html"
+            >Determining effective attribute values</a
+          >
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">About conditional processing</h1>
+
+    <div class="body">
+      <p class="shortdesc">
+        Certain concepts are critical for a full understanding of conditional processing.
+      </p>
+      <dl class="dl">
+        <dt class="dt dlterm">conditional processing</dt>
+        <dd class="dd">
+          A process that determines whether content is included, excluded, or flagged. This process
+          is based on a comparison of conditional-processing attributes in the DITA source with the
+          rules that are set in one or more DITAVAL documents.
+        </dd>
+
+        <dt class="dt dlterm">conditional processing attribute</dt>
+        <dd class="dd">
+          <p class="p">
+            Attributes that can be used for filtering and flagging. These are the following
+            attributes:
+          </p>
+          <ul class="ul">
+            <li class="li">
+              <span class="ph"
+                ><code class="keyword markupname xmlatt">@props</code> and any attribute specialized
+                from <code class="keyword markupname xmlatt">@props</code>, including those
+                integrated by default in the OASIS-provided document-type shells:
+                <code class="keyword markupname xmlatt">@audience</code>,
+                <code class="keyword markupname xmlatt">@deliveryTarget</code>,
+                <code class="keyword markupname xmlatt">@platform</code>,
+                <code class="keyword markupname xmlatt">@product</code>,
+                <code class="keyword markupname xmlatt">@otherprops</code></span
+              >
+            </li>
+            <li class="li">
+              The <code class="keyword markupname xmlatt">@rev</code> attribute, which supports
+              flagging but not filtering
+            </li>
+          </ul>
+        </dd>
+
+        <dt class="dt dlterm">conditional-processing profile</dt>
+        <dd class="dd">
+          A set of rules that are provided to a processor for use at rendering time. These rules are
+          based on one or more DITAVAL documents.
+        </dd>
+
+        <dt class="dt dlterm">DITAVAL document</dt>
+        <dd class="dd">
+          A document that specifies a set of rules that define which elements to include, exclude,
+          or flag. A DITAVAL document can be a file on the file system, a set of rules stored in
+          memory, or another way of storing information that is expressed using DITAVAL syntax.
+        </dd>
+
+        <dt class="dt dlterm">filtering</dt>
+        <dd class="dd">The process of excluding content at rendering time.</dd>
+      </dl>
+
+      <dl class="dl">
+        <dt class="dt dlterm">flagging</dt>
+        <dd class="dd">
+          The process of emphasizing content by inserting images, text, or stylistic formatting at
+          rendering time.
+        </dd>
+      </dl>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/condproc.html"
+            title="Conditional processing is the filtering or flagging of information based on processing-time criteria. Conditional processing is based on attributes specified in the DITA source."
+            >Conditional processing</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

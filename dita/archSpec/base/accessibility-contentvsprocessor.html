@@ -1,0 +1,211 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Handling accessibility in content and in processors'
+description: 'Accessibility requirements vary depending on how content is
+  rendered. Making content accessible is work that involves both content
+  authors and the processors that render DITA content.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/accessibility.html">Accessibility</a>
+          <ul class="nav nav-list">
+            <li class="active">
+              <a href="../../archSpec/base/accessibility-contentvsprocessor.html"
+                >Handling accessibility in content and in processors</a
+              >
+            </li>
+            <li><a href="../../archSpec/base/accessiblemarkup.html">Accessible content</a></li>
+            <li><a href="../../archSpec/base/accessibletablemarkup.html">Accessible tables</a></li>
+            <li>
+              <a href="../../archSpec/base/examples-of-dita-markup-for-accessibility.html"
+                >Examples of DITA markup for accessibility</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/translation.html">Translation and localization</a></li>
+      </ul>
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      Handling accessibility in content and in processors
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        Accessibility requirements vary depending on how content is rendered. Making content
+        accessible is work that involves both content authors and the processors that render DITA
+        content.
+      </p>
+      <p class="p">
+        <span style="color:red;" class="ph">The foundation for accessible content is the</span> Web
+        Content Accessibility Guidelines (WCAG) from W3C. While content formats and content authors
+        might have unique or additional accessibility needs, the rules outlined in the WCAG provide
+        a reference point for considering how to create accessible content in DITA.
+      </p>
+      <p class="p">The guidelines fall into several categories:</p>
+      <dl class="dl">
+        <dt class="dt dlterm">General content guidelines</dt>
+        <dd class="dd">
+          <p class="p">
+            Many accessibility guidelines and best practices apply to all content. Such guidelines
+            are generally outside the scope of this specification.
+          </p>
+          <p class="p">
+            For example, a guideline might recommend against multiple levels of nested unordered
+            lists, because such lists are difficult to navigate with a screen reader. As a general
+            content standard, DITA cannot prohibit such nesting. However, implementations can
+            prevent such nesting through business processes or rule-based processing such as
+            Schematron.
+          </p>
+          <p class="p">
+            Another common accessibility recommendation is to avoid flashing or flickering video
+            content. The DITA
+            <code class="keyword markupname xmlelement">&lt;video&gt;</code> element is a general
+            mechanism for including video, and the content of that video is outside the scope of
+            this specification.
+          </p>
+        </dd>
+
+        <dt class="dt dlterm">Markup guidelines</dt>
+        <dd class="dd">
+          <p class="p">
+            Other accessibility guidelines require
+            <span style="color:red;" class="ph">the</span> use of specific DITA markup. Such
+            guidelines are addressed in this specification.
+          </p>
+          <p class="p">
+            For example, a requirement that images specify alternate text requires
+            <span style="color:red;" class="ph">the</span> use of the
+            <code class="keyword markupname xmlelement">&lt;alt&gt;</code> element within
+            <span style="color:red;" class="ph"
+              >the <code class="keyword markupname xmlelement">&lt;image&gt;</code> element</span
+            >. However, a guideline that the alternate text be <em class="ph i">meaningful</em> is
+            not something that can be enforced by DITA markup.
+          </p>
+        </dd>
+
+        <dt class="dt dlterm">Guidelines that require enablement by DITA processors</dt>
+        <dd class="dd">
+          <p class="p">
+            Some accessibility guidelines require processors to take advantage of specific DITA
+            markup.
+          </p>
+          <p class="p">
+            Authors can use specific markup to enable accessible output. For example, by specifying
+            a header row in a table, an author can define a header for every cell in the table body.
+            However, to make the relationship between the table cell and header cell specific in a
+            rendered format like HTML, the processor must make those relationships explicit in the
+            output
+          </p>
+        </dd>
+
+        <dt class="dt dlterm">Processor requirements outside the scope of DITA markup</dt>
+        <dd class="dd">
+          Processors have many other accessibility concerns that are outside the scope of this
+          specification.
+          <p class="p">
+            For example, WCAG has a requirement for contrast ratios when rendering
+            <span style="color:red;" class="ph">substantive</span> content. That requirement is
+            unrelated to the source content. Such requirements apply to rendering mechanisms such as
+            the CSS that is used to style DITA content in a browser.
+          </p>
+          <p class="p">
+            As another example, a DITA processor might generate automated headings or include
+            characters in output, such as:
+          </p>
+          <ul class="ul">
+            <li class="li">
+              A section heading for an element specialized from
+              <code class="keyword markupname xmlelement">&lt;section&gt;</code>, such as
+              <span class="keyword">Requirements</span> for the
+              <code class="keyword markupname xmlelement">&lt;prereq&gt;</code> element in a task
+              topic
+            </li>
+            <li class="li">
+              The greater-than character (&gt;) that is typically used between phrases that are part
+              of a menu navigation
+            </li>
+          </ul>
+          <p class="p">
+            It is up to the processor to use correct rendering for these cases, such as heading
+            markup and accessible text alternatives for character displays such as the menu
+            separator.
+          </p>
+        </dd>
+      </dl>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/accessibility.html"
+            title="DITA has markup and features that enable producing output that is accessible by all audiences."
+            >Accessibility</a
+          >
+        </div>
+      </div>
+      <div class="linklist relinfo">
+        <strong>Related information</strong><br />
+        <ul class="linklist">
+          <li class="linklist">
+            <a
+              class="link"
+              href="https://www.w3.org/TR/WCAG21/"
+              target="_blank"
+              rel="external noopener"
+              title="The currently effective versions of WCAG are 2.0 and 2.1. WCAG 2.1 extends the 2.0 standard."
+              >Web Content Accessibility Guidelines 2.0</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </article>
+</main>

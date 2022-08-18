@@ -1,0 +1,250 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Cascading of metadata attributes in a DITA map'
+description: 'Certain attributes cascade throughout a map, which facilitates
+  attribute and metadata management. When attributes cascade, they apply
+  to the elements that are children of the element where the attributes
+  were specified. Cascading applies to a containment hierarchy, as
+  opposed to a specialization
+  hierarchy.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li>
+      <a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a>
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/dita-maps-and-their-usage.html">DITA maps and their usage</a>
+        </li>
+        <li>
+          <a href="../../archSpec/base/subject-scheme-maps-and-usage.html"
+            >Subject scheme maps and their usage</a
+          >
+        </li>
+        <li>
+          <a href="../../archSpec/base/map-cascading.html">Metadata cascading</a>
+          <ul class="nav nav-list">
+            <li class="active">
+              <a href="../../archSpec/base/cascading-in-a-ditamap.html"
+                >Cascading of metadata attributes in a DITA map</a
+              >
+              <ul class="nav nav-list">
+                <li>
+                  <a href="../../archSpec/base/processing-cascading-attributes-in-a-map.html"
+                    >Processing cascading attributes in a map</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/merging-of-cascading-attributes.html"
+                    >Merging of cascading attributes</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="../../archSpec/base/reconciling-topic-and-map-metadata.html"
+                >Reconciling topic and map metadata elements</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/map-to-map-cascading-of-metadata.html"
+                >Map-to-map cascading behaviors</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/examples-of-cascading.html"
+                >Examples of metadata cascading</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/chunking.html">Chunking</a></li>
+      </ul>
+    </li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      <span class="ph">Cascading of metadata attributes in a DITA map</span>
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        Certain attributes cascade throughout a map, which facilitates attribute and metadata
+        management. When attributes cascade, they apply to the elements that are children of the
+        element where the attributes were specified. Cascading applies to a containment hierarchy,
+        as opposed to <span style="color:red;" class="ph">a specialization hierarchy</span>.
+      </p>
+      <p class="p">
+        The following attributes cascade when set on the
+        <code class="keyword markupname xmlelement">&lt;map&gt;</code> element or when set within a
+        map:
+      </p>
+      <ul class="ul" id="cascading-in-a-ditamap__ul_f2j_pwn_yl">
+        <li class="li"><code class="keyword markupname xmlatt">@rev</code></li>
+        <li class="li">
+          <span class="ph" id="cascading-in-a-ditamap__d1316e194"
+            ><code class="keyword markupname xmlatt">@props</code> and any attribute specialized
+            from <code class="keyword markupname xmlatt">@props</code>, including those integrated
+            by default in the OASIS-provided document-type shells:
+            <code class="keyword markupname xmlatt">@audience</code>,
+            <code class="keyword markupname xmlatt">@deliveryTarget</code>,
+            <code class="keyword markupname xmlatt">@platform</code>,
+            <code class="keyword markupname xmlatt">@product</code>,
+            <code class="keyword markupname xmlatt">@otherprops</code></span
+          >
+        </li>
+        <li class="li">
+          <code class="keyword markupname xmlatt">@linking</code>,
+          <code class="keyword markupname xmlatt">@toc</code>,
+          <code class="keyword markupname xmlatt">@search</code>
+        </li>
+        <li class="li">
+          <code class="keyword markupname xmlatt">@format</code>,
+          <code class="keyword markupname xmlatt">@scope</code>,
+          <code class="keyword markupname xmlatt">@type</code>
+        </li>
+        <li class="li">
+          <code class="keyword markupname xmlatt">@xml:lang</code>,
+          <code class="keyword markupname xmlatt">@dir</code>,
+          <code class="keyword markupname xmlatt">@translate</code>
+        </li>
+        <li class="li"><code class="keyword markupname xmlatt">@processing-role</code></li>
+        <li class="li"><code class="keyword markupname xmlatt">@cascade</code></li>
+      </ul>
+      <p class="p">
+        Cascading is additive for attributes that accept multiple values, except when
+        <span style="color:red;" class="ph"
+          ><code class="ph codeph">cascade="nomerge"</code> is specified.</span
+        >
+        For attributes that take a single value, the value
+        <span style="color:red;" class="ph">that is defined on the closest containing element</span>
+        takes effect.
+      </p>
+      <div style="color:red;" class="div">
+        <p class="p">
+          In a relationship table, metadata can be applied to entire rows or columns, as well as
+          individual cells. The metadata cascade operates differently due to the nature of this
+          tabular structure The cascade is not driven by a strict containment hierarchy because
+          <code class="keyword markupname xmlelement">&lt;relcolspec&gt;</code> elements do not
+          contain child elements.
+        </p>
+        <p class="p">
+          The following list illustrates how metadata cascades in a relationship table:
+        </p>
+        <ul class="ul" id="cascading-in-a-ditamap__containment">
+          <li class="li">
+            <code class="keyword markupname xmlelement">&lt;reltable&gt;</code>
+            <ul class="ul">
+              <li class="li">
+                <code class="keyword markupname xmlelement">&lt;relcolspec&gt;</code>
+                <ul class="ul">
+                  <li class="li">
+                    <code class="keyword markupname xmlelement">&lt;relrow&gt;</code>
+                    <ul class="ul" id="cascading-in-a-ditamap__ul_dsk_qj2_nsb">
+                      <li class="li">
+                        <code class="keyword markupname xmlelement">&lt;relcell&gt;</code>
+                        <ul class="ul" id="cascading-in-a-ditamap__ul_pyd_rj2_nsb">
+                          <li class="li">
+                            <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <ul class="ullinks">
+        <li class="link ulchildlink">
+          <strong
+            ><a href="../../archSpec/base/processing-cascading-attributes-in-a-map.html"
+              >Processing cascading attributes in a map</a
+            ></strong
+          ><br />Certain rules apply to processors when they process cascading attributes in a map.
+        </li>
+        <li class="link ulchildlink">
+          <strong
+            ><a href="../../archSpec/base/merging-of-cascading-attributes.html"
+              >Merging of cascading attributes</a
+            ></strong
+          ><br />The <code class="keyword markupname xmlatt">@cascade</code> attribute can be used
+          to modify the additive nature of attribute cascading<span style="color:red;" class="ph"
+            >, although</span
+          >
+          it does not turn off cascading altogether. The attribute has two predefined values:
+          <span class="keyword">merge</span> and <span class="keyword">nomerge</span>.
+        </li>
+      </ul>
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/map-cascading.html"
+            title="Metadata cascading is the process by which metadata elements and attributes specified for a map or for a topic reference cascade to nested references. This allows metadata properties to be set once and apply to an entire map or branch of a map."
+            >Metadata cascading</a
+          >
+        </div>
+      </div>
+      <div class="linklist relref">
+        <strong>Related reference</strong><br />
+        <ul class="linklist">
+          <li class="linklist">
+            <a
+              class="link"
+              href="../../langRef/base/topicmeta.html"
+              title="Topic metadata is metadata that applies to a topic based on its context in a map."
+              >topicmeta</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </article>
+</main>

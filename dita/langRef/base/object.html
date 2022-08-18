@@ -1,0 +1,332 @@
+---
+# Generated from DITA source
+layout: base
+title: 'object'
+description: 'The DITA object element corresponds to
+  the HTML object element, and the attribute
+  semantics derive from the HTML definitions. For example, the
+  type attribute differs from the
+  type attribute on many other DITA
+  elements.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      <code class="keyword markupname xmlelement">&lt;object&gt;</code>
+    </h1>
+
+    <div class="body refbody">
+      <p class="shortdesc">
+        The DITA <code class="keyword markupname xmlelement">&lt;object&gt;</code> element
+        corresponds to the HTML
+        <code class="keyword markupname xmlelement">&lt;object&gt;</code> element, and the attribute
+        semantics derive from the HTML definitions. For example, the
+        <code class="keyword markupname xmlatt">@type</code> attribute differs from the
+        <code class="keyword markupname xmlatt">@type</code> attribute on many other DITA elements.
+      </p>
+      <section class="section" id="object__usage-information">
+        <h2 class="title sectiontitle">Usage information</h2>
+
+        <p class="p">
+          The <code class="keyword markupname xmlelement">&lt;object&gt;</code> element enables
+          authors to include animated images, applets, plug-ins, video clips, and other multimedia
+          objects in a topic.
+        </p>
+      </section>
+      <section class="section" id="object__rendering-expectations">
+        <h2 class="title sectiontitle">Rendering expectations</h2>
+
+        <div class="p">
+          Processors <dfn class="term RFC-2119">SHOULD</dfn> scale the object when values are
+          provided for the <code class="keyword markupname xmlatt">@height</code> and
+          <code class="keyword markupname xmlatt">@width</code> attributes. The following
+          expectations apply:
+          <ul class="ul">
+            <li class="li">
+              If a height value is specified and no width value is specified, processors
+              <dfn class="term RFC-2119">SHOULD</dfn> scale the width by the same factor as the
+              height.
+            </li>
+            <li class="li">
+              If a width value is specified and no height value is specified, processors
+              <dfn class="term RFC-2119">SHOULD</dfn> scale the height by the same factor as the
+              width.
+            </li>
+            <li class="li">
+              If both a height value and width value are specified, implementations
+              <dfn class="term RFC-2119">MAY</dfn> ignore one of the two values when they are unable
+              to scale to each direction using different factors.
+            </li>
+          </ul>
+        </div>
+        <p class="p">
+          When an object cannot be rendered in a meaningful way, processors
+          <dfn class="term RFC-2119">SHOULD</dfn> present the contents of the
+          <code class="keyword markupname xmlelement">&lt;fallback&gt;</code> element, if it is
+          present.
+        </p>
+      </section>
+      <section class="section" id="object__attributes">
+        <h2 class="title sectiontitle">Attributes</h2>
+
+        <p class="p">
+          The following attributes are available on this element:
+          <span class="ph"
+            ><a
+              class="xref"
+              href="../../common/../langRef/attributes/universalAttributes.html"
+              title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang"
+              >universal attributes</a
+            ></span
+          >
+          and the attributes defined below.
+        </p>
+        <dl class="dl">
+          <dt class="dt dlterm" id="object__attr-data">
+            <a id="object__data"></a><code class="keyword markupname xmlatt">@data</code>
+          </dt>
+          <dd class="dd">
+            Contains a reference to the location of an object's data. If this attribute is a
+            relative URL, it is specified relative to the document containing the
+            <code class="keyword markupname xmlelement">&lt;object&gt;</code> element. If this
+            attribute is set, the <code class="keyword markupname xmlatt">@type</code> attribute
+            should also be set.
+          </dd>
+
+          <dt class="dt dlterm" id="object__attr-datakeyref">
+            <a id="object__datakeyref"></a
+            ><code class="keyword markupname xmlatt">@datakeyref</code>
+          </dt>
+          <dd class="dd">
+            Provides a key reference to the object. When specified and the key is resolvable, the
+            key-provided URI is used. A key that has no associated resource, only link text, is
+            considered to be unresolved. If <code class="keyword markupname xmlatt">@data</code> is
+            specified, it is used as a fallback when the key cannot be resolved to a resource.
+          </dd>
+
+          <dt class="dt dlterm" id="object__d1318e688">
+            <a id="object__height"></a><code class="keyword markupname xmlatt">@height</code>
+          </dt>
+          <dd class="dd">
+            Specifies the vertical dimension for the resulting display.
+            <span style="color:red;" class="ph"
+              >The value of this attribute is a real number expressed in decimal notation,
+              optionally followed by a unit of measure. The following units of measurement are
+              supported: cm, em, in, mm, pc, pt, and px (centimeters, ems, inches, millimeters,
+              picas, points, and pixels, respectively). The default unit is px (pixels). Possible
+              values include:<span class="keyword">5</span>, <span class="keyword">5in</span>, and
+              <span class="keyword">10.5cm</span>.</span
+            >
+          </dd>
+
+          <dt class="dt dlterm" id="object__attr-name">
+            <a id="object__name"></a><code class="keyword markupname xmlatt">@name</code>
+          </dt>
+          <dd class="dd">Defines a unique name for the object.</dd>
+
+          <dt class="dt dlterm" id="object__attr-tabindex">
+            <a id="object__tabindex"></a><code class="keyword markupname xmlatt">@tabindex</code>
+          </dt>
+          <dd class="dd">Specifies the position of the object in tabbing order.</dd>
+
+          <dt class="dt dlterm" id="object__attr-type">
+            <a id="object__type"></a><code class="keyword markupname xmlatt">@type</code>
+          </dt>
+          <dd class="dd">
+            Indicates the content type (MIME type) for the data specified by the
+            <code class="keyword markupname xmlatt">@data</code>
+            <span class="ph">or <code class="keyword markupname xmlatt">@datakeyref</code> </span>
+            attribute. This attribute should be set when the
+            <code class="keyword markupname xmlatt">@data</code> attribute is set to avoid loading
+            unsupported content types. Note that this differs from the
+            <code class="keyword markupname xmlatt">@type</code> attribute on many other DITA
+            elements (it specifies a MIME type rather than a content type).
+            <span class="ph"
+              >If <code class="keyword markupname xmlatt">@type</code> is not specified, the
+              effective type value for the key named by the
+              <code class="keyword markupname xmlatt">@datakeyref</code> attribute is used as the
+              this attribute's value.</span
+            >
+          </dd>
+
+          <dt class="dt dlterm" id="object__attr-usemap">
+            <a id="object__usemap"></a><code class="keyword markupname xmlatt">@usemap</code>
+          </dt>
+          <dd class="dd">
+            Indicates that a client-side image map is to be used. An image map specifies active
+            geometric regions of an included object and assigns a link to each region. When a link
+            is selected, a document <span class="ph">might</span> be retrieved or a program
+            <span class="ph">might</span> run on the server.
+          </dd>
+
+          <dt class="dt dlterm" id="object__d1318e700">
+            <a id="object__width"></a><code class="keyword markupname xmlatt">@width</code>
+          </dt>
+          <dd class="dd">
+            Specifies the horizontal dimension for the resulting display.
+            <span style="color:red;" class="ph"
+              >The value of this attribute is a real number expressed in decimal notation,
+              optionally followed by a unit of measure. The following units of measurement are
+              supported: cm, em, in, mm, pc, pt, and px (centimeters, ems, inches, millimeters,
+              picas, points, and pixels, respectively). The default unit is px (pixels). Possible
+              values include:<span class="keyword">5</span>, <span class="keyword">5in</span>, and
+              <span class="keyword">10.5cm</span>.</span
+            >
+          </dd>
+        </dl>
+      </section>
+      <div class="example" id="object__example">
+        <h2 class="title sectiontitle">Example</h2>
+
+        <p class="p">
+          This section contains examples of how the
+          <code class="keyword markupname xmlelement">&lt;object&gt;</code> element can be used.
+        </p>
+        <figure class="fig fignone">
+          <figcaption><span class="fig--title-label">Figure 1. </span>Referencing a PDF</figcaption>
+
+          <p class="p">
+            The following code sample shows how an
+            <code class="keyword markupname xmlelement">&lt;object&gt;</code> element can be used to
+            render a PDF as an inline object:
+          </p>
+          <pre class="pre codeblock"><code>
+&lt;object type="application/pdf"
+        data="resources/pdf/terms.pdf"
+        width="300"
+        height="200"
+        id="terms-and-conditions"&gt;
+   &lt;desc&gt;Terms and conditions for using the site.&lt;/desc&gt;
+   &lt;fallback&gt;PDF cannot be displayed; please download the terms and 
+             conditions from &lt;xref keyref="site-terms"/&gt;.&lt;/fallback&gt;
+&lt;/object&gt;</code></pre>
+        </figure>
+        <figure class="fig fignone" id="object__fig_o2l_bfb_4k">
+          <figcaption>
+            <span class="fig--title-label">Figure 2. </span>Object with reference to video using key
+            reference on the
+            <code class="keyword markupname xmlelement">&lt;param&gt;</code> elements
+          </figcaption>
+
+          <p class="p">
+            The following code sample shows how key definitions can be used to reference supporting
+            resources for an <code class="keyword markupname xmlelement">&lt;object&gt;</code>:
+          </p>
+          <pre class="pre codeblock"><code>&lt;object id="E5123_026.mp4"
+      width="300" height="300"&gt;
+  &lt;fallback&gt;Media not available.&lt;/fallback&gt;
+  &lt;param name="poster" <strong class="ph b">keyref="E5123_026_poster"</strong> /&gt;
+  &lt;param name="source" <strong class="ph b">keyref="E5123_026_video"</strong> /&gt;
+&lt;/object&gt;</code></pre>
+          <div class="p">
+            In this scenario, the keys could be defined as follows:
+            <pre class="pre codeblock"><code>&lt;map&gt;
+  &lt;!-- ... --&gt;
+  &lt;keydef keys="E5123_026_poster"
+      href="../images/E5123_026_poster.png"
+      type="video/mp4"
+  /&gt;
+  &lt;keydef keys="E5123_026_video"
+      href="../media/E5123_026_poster.mp4"
+      type="video/mp4"
+  /&gt;
+  &lt;!-- ... --&gt;
+&lt;/map&gt;</code></pre>
+          </div>
+        </figure>
+        <figure class="fig fignone">
+          <figcaption>
+            <span class="fig--title-label">Figure 3. </span>Object with indirect reference to a
+            flash file
+          </figcaption>
+
+          <p class="p">
+            The following code sample shows how key definitions can be used to reference the main
+            content for an <code class="keyword markupname xmlelement">&lt;object&gt;</code>:
+          </p>
+          <pre class="pre codeblock"><code>&lt;object id="cutkey370"
+    <strong class="ph b">datakeyref="cutkey370"</strong>
+    height="280"
+    width="370"&gt;
+  &lt;desc&gt;Video illustration of how to cut a key&lt;/desc&gt;
+  &lt;fallback&gt;Media not available.&lt;/fallback&gt;
+  &lt;param name="movie" <strong class="ph b">keyref="cutkey370"</strong>/&gt;
+  &lt;param name="quality" value="high"/&gt;
+  &lt;param name="bgcolor" value="#FFFFFF"/&gt;
+&lt;/object&gt;</code></pre>
+          <div class="p">
+            In this scenario, the keys could be defined as follows:
+            <pre class="pre codeblock"><code>&lt;map&gt;
+  &lt;!-- ... --&gt;
+
+  &lt;!-- Using @scope="external" here because the referenced URL is external. --&gt;
+  &lt;keydef keys="cutkey370"
+    href="https://www.example.com/cutkey370.swf"
+    type="application/x-shockwave-flash"
+    format="swf"
+    scope="external" /&gt;
+
+  &lt;!-- ... --&gt;
+&lt;/map&gt;</code></pre>
+          </div>
+        </figure>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../langRef/containers/body-elements.html"
+            title="The body elements support the most common types of content for topics: paragraphs, lists, phrases, figures, and other common document components."
+            >Body elements</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

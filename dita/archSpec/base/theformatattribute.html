@@ -1,0 +1,303 @@
+---
+# Generated from DITA source
+layout: base
+title: 'The format attribute'
+description: 'The format attribute identifies the format of
+  the referenced resource. '
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li>
+      <a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a>
+      <ul class="nav nav-list">
+        <li><a href="../../archSpec/base/id.html">ID attribute</a></li>
+        <li>
+          <a href="../../archSpec/base/dita-linking.html">DITA linking</a>
+          <ul class="nav nav-list">
+            <li class="active">
+              <a href="../../archSpec/base/theformatattribute.html">The format attribute</a>
+            </li>
+            <li><a href="../../archSpec/base/thehrefattribute.html">The href attribute</a></li>
+            <li><a href="../../archSpec/base/thescopeattribute.html">The scope attribute</a></li>
+            <li><a href="../../archSpec/base/thetypeattribute.html">The type attribute</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="../../archSpec/base/uri-based-addressing.html">URI-based (direct) addressing</a>
+        </li>
+        <li>
+          <a href="../../archSpec/base/key-based-addressing.html">Indirect key-based addressing</a>
+        </li>
+        <li>
+          <a href="../../archSpec/base/context-hooks-for-user-assistance.html"
+            >Context hooks for user assistance</a
+          >
+        </li>
+      </ul>
+    </li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      The <code class="keyword markupname xmlatt">@format</code> attribute
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        The <code class="keyword markupname xmlatt">@format</code> attribute identifies the format
+        of the <span style="color:red;" class="ph">referenced resource</span>.
+      </p>
+      <p class="p">The following values are explicitly supported:</p>
+      <dl class="dl">
+        <dt class="dt dlterm"><span class="keyword">dita</span></dt>
+        <dd class="dd">
+          Indicates that the target is a DITA topic or an element in a DITA topic. Unless otherwise
+          specified, when <code class="keyword markupname xmlatt">@format</code> is set to
+          <span class="keyword">dita</span>, the value for the
+          <code class="keyword markupname xmlatt">@type</code> attribute is treated as
+          <span class="keyword">topic</span>.
+        </dd>
+
+        <dt class="dt dlterm"><span class="keyword">ditamap</span></dt>
+        <dd class="dd">
+          Indicates that the target is a DITA map. References to submaps can occur at any point in a
+          map.
+        </dd>
+        <dd class="dd ddexpand">
+          <p class="p">
+            When a topic reference specifies <code class="ph codeph">format="ditamap"</code>, the
+            topic reference resolves in one of the following ways:
+          </p>
+          <table class="simpletable">
+            <colgroup>
+              <col style="width:25%" />
+              <col style="width:75%" />
+            </colgroup>
+            <thead>
+              <tr class="sthead">
+                <th class="stentry" scope="col" id="theformatattribute__stentry__1">
+                  Target of <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>
+                </th>
+                <th class="stentry" scope="col" id="theformatattribute__stentry__2">
+                  Resolution of <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="strow">
+                <td class="stentry" headers="theformatattribute__stentry__1">DITA map</td>
+                <td class="stentry" headers="theformatattribute__stentry__2">
+                  The hierarchy of <strong class="ph b">all</strong> the topic references in the
+                  targeted map
+                </td>
+              </tr>
+              <tr class="strow">
+                <td class="stentry" headers="theformatattribute__stentry__1">Map branch</td>
+                <td class="stentry" headers="theformatattribute__stentry__2">
+                  The hierarchy of the targeted map branch
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </dd>
+        <dd class="dd ddexpand">
+          <p class="p">
+            When a topic reference targets an entire DITA map and the referenced map contains a
+            relationship table, there are special processing implications. Because relationship
+            tables are only valid as direct children of the DITA map, referenced relationship tables
+            are treated as children of the referencing map.
+          </p>
+        </dd>
+        <dd class="dd ddexpand"></dd>
+        <dd class="dd ddexpand">
+          <div class="note note note_note">
+            <span class="note__title">Note:</span> If a
+            <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>
+            element that references a map contains child
+            <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements, the
+            processing behavior regarding the child
+            <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements is
+            undefined.
+          </div>
+        </dd>
+      </dl>
+      <div class="div" id="theformatattribute__sample-formats">
+        <p class="p">
+          For other formats, the file extension without the "." character typically represents the
+          format. For example, the following are all possible values for
+          <code class="keyword markupname xmlatt">@format</code>: <span class="keyword">html</span>,
+          <span class="keyword">pdf</span>, or <span class="keyword">txt</span>.
+        </p>
+      </div>
+      <p class="p">
+        If no value is explicitly specified for the
+        <code class="keyword markupname xmlatt">@format</code> attribute, the following precedence
+        rules apply:
+      </p>
+      <ol class="ol">
+        <li class="li">
+          If the <code class="keyword markupname xmlatt">@format</code> attribute is specified on a
+          containing element within the map or within the related-links section of
+          <span style="color:red;" class="ph">a topic</span>, the value cascades from the closest
+          containing element.
+        </li>
+        <li class="li">
+          If a value for the <code class="keyword markupname xmlatt">@format</code> attribute does
+          not cascade, the processing default is used. The processing default for the
+          <code class="keyword markupname xmlatt">@format</code> attribute is determined by
+          inspecting the value of the
+          <code class="keyword markupname xmlatt">@href</code> attribute:
+          <ol class="ol" type="a">
+            <li class="li">
+              If the <code class="keyword markupname xmlatt">@href</code> attribute specifies a file
+              extension, the processing default for the
+              <code class="keyword markupname xmlatt">@format</code> attribute is that extension,
+              after conversion to lower-case and with no leading period. The only exception to this
+              is if the extension is <span class="ph filepath">.xml</span>, in which case the
+              default value for <code class="keyword markupname xmlatt">@format</code> is
+              <span class="keyword">dita</span>.
+            </li>
+            <li class="li">
+              If there is no file extension, but the
+              <code class="keyword markupname xmlatt">@href</code>
+              value is an absolute URI whose scheme is
+              <span class="keyword">http</span> or <span class="keyword">https</span>, then the
+              processing default is <span class="keyword">html</span>.
+            </li>
+            <li class="li">
+              In all other cases where no file extension is available, the processing default is
+              <span class="keyword">dita</span>.
+            </li>
+          </ol>
+        </li>
+      </ol>
+
+      <p class="p">
+        If the actual format of the referenced content differs from the effective value of the
+        <code class="keyword markupname xmlatt">@format</code> attribute, and a processor is capable
+        of identifying such cases, it <dfn class="term RFC-2119">MAY</dfn> recover gracefully and
+        treat the content as its actual format. The processor
+        <dfn class="term RFC-2119">MAY</dfn> also issue a message.
+      </p>
+      <div class="div" id="theformatattribute__lwdita_formats">
+        <p class="p">
+          For processors that support Lightweight DITA, the following table summarizes values for
+          the <code class="keyword markupname xmlatt">@format</code> attribute:
+        </p>
+        <table class="table">
+          <caption></caption>
+          <colgroup>
+            <col />
+            <col />
+            <col />
+          </colgroup>
+          <thead class="thead">
+            <tr class="row">
+              <th class="entry" id="theformatattribute__lwdita_formats__entry__1">Document type</th>
+              <th class="entry" id="theformatattribute__lwdita_formats__entry__2">
+                Value of the <code class="keyword markupname xmlatt">@format</code> attribute
+              </th>
+              <th class="entry" id="theformatattribute__lwdita_formats__entry__3">Description</th>
+            </tr>
+          </thead>
+          <tbody class="tbody">
+            <tr class="row">
+              <td class="entry" headers="theformatattribute__lwdita_formats__entry__1" rowspan="3">
+                Map
+              </td>
+              <td class="entry" headers="theformatattribute__lwdita_formats__entry__2">hditamap</td>
+              <td class="entry" headers="theformatattribute__lwdita_formats__entry__3">
+                HDITA map
+              </td>
+            </tr>
+            <tr class="row">
+              <td class="entry" headers="theformatattribute__lwdita_formats__entry__2">mditamap</td>
+              <td class="entry" headers="theformatattribute__lwdita_formats__entry__3">
+                MDITA map
+              </td>
+            </tr>
+            <tr class="row">
+              <td class="entry" headers="theformatattribute__lwdita_formats__entry__2">xditamap</td>
+              <td class="entry" headers="theformatattribute__lwdita_formats__entry__3">
+                XDITA map
+              </td>
+            </tr>
+            <tr class="row">
+              <td class="entry" headers="theformatattribute__lwdita_formats__entry__1" rowspan="3">
+                Topic
+              </td>
+              <td class="entry" headers="theformatattribute__lwdita_formats__entry__2">hdita</td>
+              <td class="entry" headers="theformatattribute__lwdita_formats__entry__3">
+                HDITA topic
+              </td>
+            </tr>
+            <tr class="row">
+              <td class="entry" headers="theformatattribute__lwdita_formats__entry__2">mdita</td>
+              <td class="entry" headers="theformatattribute__lwdita_formats__entry__3">
+                MDITA topic
+              </td>
+            </tr>
+            <tr class="row">
+              <td class="entry" headers="theformatattribute__lwdita_formats__entry__2">xdita</td>
+              <td class="entry" headers="theformatattribute__lwdita_formats__entry__3">
+                XDITA topic
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/dita-linking.html"
+            title="DITA supports many different linking elements, but they all use the same set of attributes: format, href, scope, and type. These four attributes act as a unit."
+            >DITA linking</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

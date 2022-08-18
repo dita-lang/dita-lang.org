@@ -1,0 +1,196 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Metadata attributes'
+description: 'Metadata attributes specify properties
+  of the content that can be used to determine how the content is
+  processed. Specialized metadata attributes can be defined to enable
+  specific business-processing needs, such as semantic processing and
+  data mining.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li>
+      <a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a>
+      <ul class="nav nav-list">
+        <li><a href="../../archSpec/base/basic-concepts.html">Basic concepts</a></li>
+        <li>
+          <a href="../../archSpec/base/single-sourcing.html"
+            >Producing different deliverables from a single source</a
+          >
+        </li>
+        <li><a href="../../archSpec/base/topicover.html">DITA topics</a></li>
+        <li><a href="../../archSpec/base/ditamaps.html">DITA maps</a></li>
+        <li>
+          <a href="../../archSpec/base/dita-metadata.html">DITA metadata</a>
+          <ul class="nav nav-list">
+            <li><a href="../../archSpec/base/metadata-elements.html">Metadata elements</a></li>
+            <li class="active">
+              <a href="../../archSpec/base/metadata-attributes.html">Metadata attributes</a>
+            </li>
+            <li>
+              <a href="../../archSpec/base/metadata-in-maps-and-topics.html"
+                >Metadata in maps and topics</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/help-systems-and-other-user-assistance.html"
+                >Window metadata for user assistance</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Metadata attributes</h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        <span style="color:red;" class="ph">M</span>etadata attributes specify properties of the
+        content that can be used to determine how the content is processed. Specialized metadata
+        attributes can be defined to enable specific business-processing needs, such as semantic
+        processing and data mining.
+      </p>
+      <p class="p">Metadata attributes typically are used for the following purposes:</p>
+      <ul class="ul">
+        <li class="li">
+          Filtering content based on the attribute values, for example, to suppress or publish
+          profiled content
+        </li>
+        <li class="li">
+          Flagging content based on the attribute values, for example, to highlight specific content
+          on output
+        </li>
+        <li class="li">
+          Performing custom processing, for example, to extract business-critical data and store it
+          in a database
+        </li>
+      </ul>
+      <p class="p">
+        The base DITA vocabulary includes five specializations of the
+        <code class="keyword markupname xmlatt">@props</code> attribute as domains:
+        <code class="keyword markupname xmlatt">@audience</code>,
+        <code class="keyword markupname xmlatt">@deliveryTarget</code
+        ><span style="color:red;" class="ph">,</span>
+        <code class="keyword markupname xmlatt">@platform</code>,
+        <code class="keyword markupname xmlatt">@product</code>, and
+        <code class="keyword markupname xmlatt">@otherprops</code>. These five attributes are
+        included in all <span style="color:red;" class="ph">the</span> map and topic document-type
+        shells <span style="color:red;" class="ph">that are</span> provided with the specification.
+      </p>
+      <p class="p">
+        Metadata attributes fall into
+        <span style="color:red;" class="ph">the following</span> categories.
+      </p>
+      <dl class="dl">
+        <dt class="dt dlterm">Architectural attributes</dt>
+        <dd class="dd">
+          The <code class="keyword markupname xmlatt">@class</code>,
+          <code class="keyword markupname xmlatt">@DITAArchVersion</code>, and
+          <code class="keyword markupname xmlatt">@specializations</code> attributes provide
+          metadata about the DITA source itself, such as what version of the grammar is used. These
+          attributes are not intended for use in
+          <span style="color:red;" class="ph">authored content</span>.
+        </dd>
+
+        <dt class="dt dlterm">Filtering and flagging attributes</dt>
+        <dd class="dd">
+          <p class="p">
+            The <code class="keyword markupname xmlatt">@props</code> attribute and its
+            specializations are intended for filtering. This includes the five specializations added
+            to the OASIS document-type shells:
+            <code class="keyword markupname xmlatt">@audience</code>,
+            <code class="keyword markupname xmlatt">@deliveryTarget</code>,
+            <code class="keyword markupname xmlatt">@platform</code>,
+            <code class="keyword markupname xmlatt">@product</code>, and
+            <code class="keyword markupname xmlatt">@otherprops</code>.
+          </p>
+          <p class="p">
+            <span style="color:red;" class="ph">These</span> attributes plus the
+            <code class="keyword markupname xmlatt">@rev</code> attribute are intended for flagging.
+          </p>
+        </dd>
+
+        <dt class="dt dlterm">Other metadata attributes</dt>
+        <dd class="dd">
+          The <code class="keyword markupname xmlatt">@status</code> and
+          <code class="keyword markupname xmlatt">@importance</code> attributes,
+          <span style="color:red;" class="ph"
+            >many of the attributes available on the
+            <code class="keyword markupname xmlelement">&lt;ux-window&gt;</code> element,</span
+          >
+          as well as custom attributes specialized from
+          <code class="keyword markupname xmlatt">@base</code>, are intended for
+          application-specific behaviors.
+          <span style="color:red;" class="ph"
+            >Such behaviors include aiding in search and retrieval, as well as controlling how a
+            user assistance window is rendered.</span
+          >
+        </dd>
+
+        <dt class="dt dlterm">Translation and localization attributes</dt>
+        <dd class="dd">
+          The <code class="keyword markupname xmlatt">@dir</code>,
+          <code class="keyword markupname xmlatt">@translate</code>, and
+          <code class="keyword markupname xmlatt">@xml:lang</code> attributes are intended for use
+          with translating and localizing content.
+        </dd>
+      </dl>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/dita-metadata.html"
+            title="Metadata can be applied in both DITA topics and DITA maps. Metadata that is specified in DITA topics can be supplemented or overridden by metadata that is assigned in a DITA map. This design facilitates the reuse of DITA topics in different DITA maps and use-specific contexts."
+            >DITA metadata</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

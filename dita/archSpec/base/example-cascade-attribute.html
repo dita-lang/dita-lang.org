@@ -1,0 +1,275 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Example: How the
+  cascade
+  attribute affects attribute cascading'
+description: 'In this scenario, the cascade attribute is used to modify how metadata
+  attributes cascade within a map.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li>
+      <a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a>
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/dita-maps-and-their-usage.html">DITA maps and their usage</a>
+        </li>
+        <li>
+          <a href="../../archSpec/base/subject-scheme-maps-and-usage.html"
+            >Subject scheme maps and their usage</a
+          >
+        </li>
+        <li>
+          <a href="../../archSpec/base/map-cascading.html">Metadata cascading</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/cascading-in-a-ditamap.html"
+                >Cascading of metadata attributes in a DITA map</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/reconciling-topic-and-map-metadata.html"
+                >Reconciling topic and map metadata elements</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/map-to-map-cascading-of-metadata.html"
+                >Map-to-map cascading behaviors</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/examples-of-cascading.html"
+                >Examples of metadata cascading</a
+              >
+              <ul class="nav nav-list">
+                <li>
+                  <a href="../../archSpec/base/example-cascade-elements.html"
+                    >Example: How map-level metadata elements cascade to the referenced topics</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-cascade-map-to-map-elements.html"
+                    >Example: How metadata elements cascade from one map to another</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-cascade-map-to-map-attributes.html"
+                    >Example: How attributes cascade from one map to another</a
+                  >
+                </li>
+                <li class="active">
+                  <a href="../../archSpec/base/example-cascade-attribute.html"
+                    >Example: How the cascade attribute affects attribute cascading</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-cascading-topicref-roles.html"
+                    >Example: How topicref roles cascade to referenced maps</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/chunking.html">Chunking</a></li>
+      </ul>
+    </li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      Example: How <span style="color:red;" class="ph">the</span>
+      <code class="keyword markupname xmlatt">@cascade</code>
+      <span style="color:red;" class="ph">attribute</span> affects attribute cascading
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        In this scenario, the <code class="keyword markupname xmlatt">@cascade</code> attribute is
+        used to modify how metadata attributes cascade within a map.
+      </p>
+      <figure class="fig fignone" id="cascadeattribute__fig_z5z_mg5_nsb">
+        <figcaption>
+          <span class="fig--title-label">Figure 1. </span>Example of
+          <code class="ph codeph">cascade="merge"</code>
+        </figcaption>
+
+        <div class="p">
+          Consider the following code example:
+          <pre
+            class="pre codeblock"
+            id="cascadeattribute__codeblock_ptk_mg5_nsb"
+          ><code>&lt;map audience="a b" cascade="merge"&gt;
+     &lt;topicref href="topic.dita" audience="c"/&gt;
+&lt;/map&gt;
+</code></pre>
+        </div>
+        <p class="p">
+          In this map, the <code class="ph codeph">cascade="merge"</code> attribute instructs a
+          processor to merge attribute values while cascading. With
+          <code class="keyword markupname xmlatt">@audience</code> specified on both the
+          <code class="keyword markupname xmlelement">&lt;map&gt;</code> element and the
+          <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element, the effective
+          <code class="keyword markupname xmlatt">@audience</code> attribute value for the reference
+          to <span class="ph filepath">topic.dita</span> is <span class="keyword">a b c</span>.
+        </p>
+      </figure>
+      <figure class="fig fignone" id="cascadeattribute__fig_vjm_yg5_nsb">
+        <figcaption>
+          <span class="fig--title-label">Figure 2. </span>Example of
+          <code class="ph codeph">cascade="nomerge"</code>
+        </figcaption>
+
+        <div class="p">
+          Consider the following code example:
+          <pre
+            class="pre codeblock"
+            id="cascadeattribute__codeblock_qtk_mg5_nsb"
+          ><code>&lt;map audience="a b" cascade="nomerge"&gt;
+     &lt;topicref href="topic.dita" audience="c"/&gt;
+&lt;/map&gt;
+</code></pre>
+        </div>
+        <p class="p">
+          In this map, the <code class="ph codeph">cascade="nomerge"</code> attribute instructs a
+          processor <em class="ph i">not</em> to merge attribute values while cascading. With
+          <code class="keyword markupname xmlatt">@audience</code> specified on both the
+          <code class="keyword markupname xmlelement">&lt;map&gt;</code> element and the
+          <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element, the effective
+          <code class="keyword markupname xmlatt">@audience</code> attribute value on the reference
+          to <span class="ph filepath">topic.dita</span> is not merged with the value from the map
+          and remains <span class="keyword">c</span>.
+        </p>
+      </figure>
+      <figure class="fig fignone" id="cascadeattribute__fig_wl4_3h5_nsb">
+        <figcaption>
+          <span class="fig--title-label">Figure 3. </span>Example
+          <span style="color:red;" class="ph">of c</span>hanging the
+          <code class="keyword markupname xmlatt">@cascade</code> value within the map
+        </figcaption>
+
+        <div class="p">
+          Consider the following code example:
+          <pre
+            class="pre codeblock"
+            id="cascadeattribute__codeblock_rcw_lh5_nsb"
+          ><code>&lt;map platform="a" product="x" cascade="merge"&gt;
+  &lt;topicref href="one.dita" platform="b" product="y"&gt;
+    <span style="color:red;" class="ph">&lt;topicref href="two.dita"&gt;
+      &lt;topicref href="three.dita" cascade="nomerge" product="z"&gt;
+        &lt;topicref href="four.dita"/&gt;
+      &lt;/topicref&gt;
+    &lt;/topicref&gt;</span>
+  &lt;/topicref&gt;
+&lt;/map&gt;</code></pre>
+        </div>
+        <p class="p">
+          In this map, the <code class="keyword markupname xmlatt">@cascade</code> attribute is set
+          to <span class="keyword">merge</span> at the map level but changes to
+          <span class="keyword">nomerge</span> on a topic reference.
+        </p>
+        <ul class="ul" id="cascadeattribute__ul_sxj_f35_nsb">
+          <li class="li">
+            For the <span style="color:red;" class="ph">topic</span> reference to
+            <span class="ph filepath">one.dita</span>,
+            <code class="ph codeph">cascade="merge"</code>
+            <span style="color:red;" class="ph">is specified</span>. This results in an effective
+            <code class="keyword markupname xmlatt">@platform</code> value of
+            <span class="keyword">a b</span> and an effective
+            <code class="keyword markupname xmlatt">@product</code> value of
+            <span class="keyword" style="color:red;">x y</span>.
+          </li>
+          <li style="color:red;" class="li">
+            The topic reference to <span class="ph filepath">two.dita</span> does not specify any
+            additional attributes. The effective values for the
+            <code class="keyword markupname xmlatt">@platform</code> and
+            <code class="keyword markupname xmlatt">@product</code> attributes are the same as those
+            on the parent topic reference to <span class="ph filepath">one.dita</span>. The
+            effective value of of the
+            <code class="keyword markupname xmlatt">@platform</code> attribute is
+            <span class="keyword">a b</span>, and the effective value for the
+            <code class="keyword markupname xmlatt">@product</code> attribute is
+            <span class="keyword">x y</span>.
+          </li>
+          <li class="li">
+            The <span style="color:red;" class="ph">topic</span> reference to
+            <span style="color:red;" class="ph filepath">three.dita</span> specifies
+            <code class="ph codeph">cascade="nomerge"</code>, so attribute values from other
+            elements do not merge with anything specified on
+            <span style="color:red;" class="ph">the topic</span> reference. The
+            <code class="keyword markupname xmlatt">@platform</code> attribute is not specified, so
+            the effective value is <span class="keyword">a b</span>, which still cascades from the
+            parent element. The <code class="keyword markupname xmlatt">@product</code> value does
+            not merge with values from the parent, so the effective value is
+            <span class="keyword">z</span>.
+          </li>
+          <li style="color:red;" class="li">
+            The topic reference to <span class="ph filepath">four.dita</span> does not specify any
+            additional attributes. The effective values for the
+            <code class="keyword markupname xmlatt">@platform</code> and
+            <code class="keyword markupname xmlatt">@product</code> attributes are the same as those
+            on the parent topic reference to <span class="ph filepath">three.dita</span>. The
+            effective value of of the
+            <code class="keyword markupname xmlatt">@platform</code> attribute is
+            <span class="keyword">a b</span>, and the effective value for the
+            <code class="keyword markupname xmlatt">@product</code> attribute is
+            <span class="keyword">z</span>.
+          </li>
+        </ul>
+      </figure>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/examples-of-cascading.html"
+            title="These examples illustrate the processing expectations for cascading metadata. The processing examples use either before and after sample markup or expanded syntax that shows the equivalent markup withough cascading."
+            >Examples of metadata cascading</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

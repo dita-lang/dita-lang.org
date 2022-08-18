@@ -1,0 +1,213 @@
+---
+# Generated from DITA source
+layout: base
+title: 'DTD: Use of entities'
+description: 'DITA-based DTDs use entities to implement specialization and element
+  configuration. Therefore, an understanding of entities is critical when working with
+  DTD-based  document-type shells, vocabulary modules, or element-configuration
+  modules (constraint and expansion).'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/recognizedconstraintmechanisms.html"
+            >Recognized XML-document grammar mechanisms</a
+          >
+        </li>
+        <li>
+          <a href="../../archSpec/base/using-relax-ng.html"
+            >Normative versions of DITA grammar files</a
+          >
+        </li>
+        <li>
+          <a href="../../archSpec/base/dtd-requirements.html">DTD coding requirements</a>
+          <ul class="nav nav-list">
+            <li class="active">
+              <a href="../../archSpec/base/dtd-coding-overview.html">DTD: Use of entities</a>
+            </li>
+            <li>
+              <a href="../../archSpec/base/dtd-coding-doctype-shell.html"
+                >DTD: Coding requirements for document-type shells</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/dtd-coding-element-types.html"
+                >DTD: Coding requirements for element-type declarations</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/dtd-coding-structural-modules.html"
+                >DTD: Coding requirements for structural modules</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/dtd-coding-element-domains.html"
+                >DTD: Coding requirements for element-domain modules</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/dtd-coding-attribute-domains.html"
+                >DTD: Coding requirements for attribute domain modules</a
+              >
+            </li>
+            <li>
+              <a
+                href="../../archSpec/base/dtd-coding-requirements-for-element-configuration-modules.html"
+                >DTD: Coding requirements for element-configuration modules</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="../../archSpec/base/relax-ng-requirements.html">RELAX NG coding requirements</a>
+        </li>
+      </ul>
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">DTD: Use of entities</h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        DITA-based DTDs use entities to implement specialization and
+        <span style="color:red;" class="ph">element configuration.</span> Therefore, an
+        understanding of entities is critical when working with DTD-based document-type shells,
+        vocabulary modules, or
+        <span style="color:red;" class="ph"
+          >element-configuration modules (constraint and expansion).</span
+        >
+      </p>
+      <p class="p">
+        Entities can be defined multiple times within a single document type, but only the first
+        definition is effective. How entities work shapes DTD coding practices. The following list
+        describes a few of the more important entities that are used in DITA DTDs:
+      </p>
+      <dl class="dl">
+        <dt class="dt dlterm">Elements defined as entities</dt>
+        <dd class="dd">
+          <p class="p">
+            Every element in a DITA DTD is defined as an entity. When elements are added to a
+            content model, they are added using the entity. This enables extension with domain
+            specializations.
+          </p>
+          <div class="example">
+            <p class="p">
+              For example, the entity <code class="ph codeph">%ph;</code> usually just means the
+              <code class="keyword markupname xmlelement">&lt;ph&gt;</code> element, but it can be
+              defined in a document-type shell to mean "<code class="keyword markupname xmlelement"
+                >&lt;ph&gt;</code
+              >
+              plus the elements from the highlighting domain". Because the document-type shell
+              places that entity definition before the usual definition, every element that includes
+              <code class="ph codeph">%ph;</code> in its content model now includes
+              <code class="keyword markupname xmlelement">&lt;ph&gt;</code> plus every element in
+              the highlighting domain that is specialized from
+              <code class="keyword markupname xmlelement">&lt;ph&gt;</code>.
+            </p>
+          </div>
+        </dd>
+
+        <dt class="dt dlterm">Content models defined as entities</dt>
+        <dd class="dd">
+          <p class="p">
+            Every element in a DITA DTD defines its content model using an entity.
+            <span style="color:red;" class="ph">This enables element configuration.</span>
+          </p>
+          <div class="example">
+            For example, rather than directly setting what is allowed in
+            <code class="keyword markupname xmlelement">&lt;ph&gt;</code>, that element sets its
+            content model to <code class="ph codeph">%ph.content;</code>; that entity defines the
+            actual content model.
+            <span style="color:red;" class="ph"
+              >A constraint module can redefine the
+              <code class="ph codeph">%ph.content;</code> model to remove selected elements, or an
+              expansion module can redefine the <code class="ph codeph">%ph.content;</code> module
+              to add elements</span
+            >.
+          </div>
+        </dd>
+
+        <dt class="dt dlterm">Attribute sets defined as entities</dt>
+        <dd class="dd">
+          <p class="p">
+            Every element in a DITA DTD defines its attributes using an entity.
+            <span style="color:red;" class="ph">This enables element configuration.</span>
+          </p>
+          <div class="example">
+            For example, rather than directly defining attributes for
+            <code class="keyword markupname xmlelement">&lt;ph&gt;</code>, that element sets its
+            attributes using the <code class="ph codeph">%ph.attributes;</code> entity; that entity
+            defines the actual attributes.
+            <span style="color:red;" class="ph"
+              >A constraint module can remove attributes from the attribute list, or an expansion
+              module can add attributes to the attribute list.</span
+            >
+          </div>
+        </dd>
+      </dl>
+      <div class="note note note_note">
+        <span class="note__title">Note:</span>
+        <span class="ph"
+          >When constructing an element-configuration module or document-type shell, new entities
+          are usually viewed as "redefinitions" because they redefine entities that already exist. </span
+        >However, these new definitions only work because they are added to a document-type shell
+        before the existing definitions. Most topics about DITA DTDs, including others in this
+        specification, describe these overrides as redefinitions to ease understanding.
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/dtd-requirements.html"
+            title="This section explains how to implement DTD based document-type shells, specializations, and element-configuration modules (constraint and expansion)."
+            >DTD coding requirements</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

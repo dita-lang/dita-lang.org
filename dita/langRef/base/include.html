@@ -1,0 +1,265 @@
+---
+# Generated from DITA source
+layout: base
+title: 'include'
+description: 'Included content is a reference to non-DITA content outside the current document that
+  will be rendered at the location of the reference. The resource is specified using either a
+  URI or a key reference. Processing expectations for the referenced data can also be
+  specified.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      <code class="keyword markupname xmlelement">&lt;include&gt;</code>
+    </h1>
+
+    <div class="body refbody">
+      <p class="shortdesc">
+        Included content is a reference to non-DITA content outside the current document that will
+        be rendered at the location of the reference. The resource is specified using either a URI
+        or a key reference. Processing expectations for the referenced data can also be specified.
+      </p>
+      <section class="section" id="include__usage-information">
+        <h2 class="title sectiontitle">Usage information</h2>
+
+        <p class="p">
+          The <code class="keyword markupname xmlelement">&lt;include&gt;</code> element is intended
+          as a <span style="color:red;" class="ph">base for specialization</span> and for the
+          following use cases:
+        </p>
+        <ul class="ul">
+          <li class="li">
+            The transclusion of non-DITA XML within
+            <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> element using
+            <code class="ph codeph">parse="xml"</code>
+          </li>
+          <li class="li">
+            The transclusion of preformatted textual content within
+            <code class="keyword markupname xmlelement">&lt;pre&gt;</code> element using
+            <code class="ph codeph">parse="text"</code>
+          </li>
+          <li class="li">
+            The transclusion of plain-text prose within DITA elements using
+            <code class="ph codeph">parse="text"</code>
+          </li>
+        </ul>
+        <p style="color:red;" class="p">
+          In addition, processors can support additional values for the
+          <code class="keyword markupname xmlatt">@parse</code> attribute.
+        </p>
+        <p class="p">
+          For example, the
+          <code class="keyword markupname xmlelement">&lt;include&gt;</code> element can be
+          specialized to an element such as
+          <code class="keyword markupname xmlelement">&lt;coderef&gt;</code> as a way to include
+          preformatted sample programming code.
+        </p>
+        <p class="p">
+          The <code class="keyword markupname xmlelement">&lt;include&gt;</code> element is not
+          intended to reference DITA content. Use
+          <code class="keyword markupname xmlatt">@conref</code> or
+          <code class="keyword markupname xmlatt">@conkeyref</code> to reuse DITA content.
+        </p>
+      </section>
+      <section class="section" id="include__processing-expectations">
+        <h2 class="title sectiontitle">Processing expectations</h2>
+
+        <p class="p">
+          The <code class="keyword markupname xmlelement">&lt;include&gt;</code> element instructs
+          processors to insert the contents of the referenced resource at the location of the
+          <code class="keyword markupname xmlelement">&lt;include&gt;</code> element. If the content
+          is unavailable to the processor or cannot be processed using the specified
+          <code class="keyword markupname xmlatt">@parse</code> value, the contents of the
+          <code class="keyword markupname xmlelement">&lt;fallback&gt;</code> element, if any, are
+          presented instead.
+        </p>
+        <p class="p">
+          Processors <dfn class="term RFC-2119">SHOULD</dfn> support the
+          <code class="keyword markupname xmlatt">@parse</code> values
+          <span class="keyword">text</span> and <span class="keyword">xml</span>.
+        </p>
+        <p class="p">
+          Processors <dfn class="term RFC-2119">SHOULD</dfn> detect the encoding of the referenced
+          document based on the rules described for the
+          <a class="xref" href="../attributes/commonAttributes.html#common-atts__encoding"
+            ><code class="keyword markupname xmlatt">@encoding</code></a
+          >
+          attribute.
+        </p>
+      </section>
+      <section class="section" id="include__attributes">
+        <h2 class="title sectiontitle">Attributes</h2>
+
+        <p class="p">
+          The following attributes are available on this element:
+          <span class="ph"
+            ><a
+              class="xref"
+              href="../../common/../langRef/attributes/universalAttributes.html"
+              title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang"
+              >universal attributes</a
+            ></span
+          >,
+          <span class="ph"
+            ><a
+              class="xref"
+              href="../../common/../langRef/attributes/commonAttributes.html#common-atts__inclusionatts"
+              title="Inclusion attributes include: encoding and parse"
+              >inclusion attributes</a
+            ></span
+          >,
+          <span class="ph"
+            ><a
+              class="xref"
+              href="../../common/../langRef/attributes/commonAttributes.html#common-atts__linkatts"
+              title="Link relationship attributes include: format, href, type, and scope"
+              >link-relationship attributes</a
+            ></span
+          >, and
+          <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-keyref"
+            ><code class="keyword markupname xmlatt">@keyref</code></a
+          >.
+        </p>
+      </section>
+      <div class="example" id="include__example">
+        <h2 class="title sectiontitle">Examples</h2>
+
+        <p class="p">
+          For the most part, <code class="keyword markupname xmlelement">&lt;include&gt;</code> is
+          intended to be used as a base for specialization. The following examples use it directly
+          for purposes of illustration.
+        </p>
+        <figure class="fig fignone">
+          <figcaption>
+            <span class="fig--title-label">Figure 1. </span>Inclusion of XML markup other than SVG
+            or MathML
+          </figcaption>
+
+          <p class="p">
+            In the following code sample, the
+            <code class="keyword markupname xmlelement">&lt;include&gt;</code> element references a
+            tag library descriptor file:
+          </p>
+          <pre class="pre codeblock"><code>&lt;fig&gt;
+  &lt;title&gt;JSP Tag Library Elements and Attributes&lt;/title&gt;
+  &lt;foreign outputclass="tld"&gt;
+    &lt;include href="../src/main/webapp/WEB-INF/jsp-tag-library.tld"
+             parse="xml" format="tld"/&gt;
+  &lt;/foreign&gt;
+&lt;/fig&gt;</code></pre>
+        </figure>
+        <figure class="fig fignone">
+          <figcaption>
+            <span class="fig--title-label">Figure 2. </span>Inclusion of README text into a DITA
+            topic, with fallback
+          </figcaption>
+
+          <p class="p">
+            In the following code sample, a README text file is referenced in order to reuse a list
+            of changes to a set of source code:
+          </p>
+          <pre class="pre codeblock"><code>&lt;topic id="readme"&gt;
+  &lt;title&gt;Summary of changes&lt;/title&gt;
+  &lt;shortdesc&gt;This topic describes changes in the project source code.&lt;/shortdesc&gt;
+  &lt;body&gt;
+    &lt;section&gt;
+      &lt;include href="../src/README.txt" parse="text" encoding="UTF-8"&gt;
+        &lt;fallback&gt;See README.txt in the source package for a list of changes.&lt;/fallback&gt;
+      &lt;/include&gt;
+    &lt;/section&gt;
+  &lt;/body&gt;
+&lt;/topic&gt;</code></pre>
+        </figure>
+        <figure class="fig fignone">
+          <figcaption>
+            <span class="fig--title-label">Figure 3. </span>Inclusion of preformatted text
+          </figcaption>
+
+          <p class="p">
+            In the following code sample, the
+            <code class="keyword markupname xmlelement">&lt;include&gt;</code> element references a
+            JSON file:
+          </p>
+          <pre class="pre codeblock"><code>&lt;pre&gt;
+  &lt;include href="../src/config.json" format="json" parse="text" encoding="UTF-8"/&gt;
+&lt;/pre&gt;</code></pre>
+        </figure>
+        <figure class="fig fignone">
+          <figcaption>
+            <span class="fig--title-label">Figure 4. </span>Proprietary vendor handling for CSV
+            tables
+          </figcaption>
+
+          <p class="p">
+            In the following code sample, the
+            <code class="keyword markupname xmlelement">&lt;include&gt;</code> element specifies a
+            proprietary <code class="keyword markupname xmlatt">@parse</code> value that instructs a
+            processor how to render a
+            <span style="color:red;" class="ph">comma-separated</span> data set within the figure:
+          </p>
+          <pre class="pre codeblock"><code>&lt;fig&gt;
+  &lt;title&gt;Data Table&lt;/title&gt;
+  &lt;include href="data.csv" encoding="UTF-8"
+    parse="http://www.example.com/dita/includeParsers/csv-to-simpletable"/&gt;
+&lt;/fig&gt;</code></pre>
+        </figure>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../langRef/containers/body-elements.html"
+            title="The body elements support the most common types of content for topics: paragraphs, lists, phrases, figures, and other common document components."
+            >Body elements</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

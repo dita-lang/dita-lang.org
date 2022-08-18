@@ -1,0 +1,271 @@
+---
+# Generated from DITA source
+layout: base
+title: 'anchorref'
+description: 'An anchor reference integrates a map branch into a point (an anchor) in the same or
+  different DITA map. The contents of the map branch are rendered at the location of both the
+  anchorref and anchor
+  elements.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/determining-effective-attribute-values.html"
+        >Determining effective attribute values</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      <code class="keyword markupname xmlelement">&lt;anchorref&gt;</code>
+    </h1>
+
+    <div class="body refbody">
+      <p class="shortdesc">
+        An anchor reference integrates a map branch into a point (an anchor) in the same or
+        different DITA map. The contents of the map branch are rendered at the location of both the
+        <code class="keyword markupname xmlelement">&lt;anchorref&gt;</code> and
+        <code class="keyword markupname xmlelement">&lt;anchor&gt;</code> elements.
+      </p>
+      <section class="section" id="anchorref__usage-information">
+        <h2 class="title sectiontitle">Usage information</h2>
+
+        <p class="p">
+          The functionality of the
+          <code class="keyword markupname xmlelement">&lt;anchorref&gt;</code> element is similar to
+          that provided by the <code class="keyword markupname xmlatt">@anchorref</code> attribute
+          of the <code class="keyword markupname xmlelement">&lt;map&gt;</code> element. However,
+          instead of attaching an entire map to an anchor point, this element enables the map author
+          to attach only the contents of a single map branch. This enables map architects to reuse a
+          branch of content without reusing the entire map.
+        </p>
+        <p class="p">
+          To prevent the content of the map branch from being rendered at the location of the
+          <code class="keyword markupname xmlelement">&lt;anchorref&gt;</code> element, set
+          <code class="ph codeph">toc="no"</code> on the
+          <code class="keyword markupname xmlelement">&lt;anchorref&gt;</code> element, and then set
+          <code class="ph codeph">toc="yes"</code> on each of its children so that they will not
+          inherit the <code class="ph codeph">toc="no"</code> setting.
+        </p>
+      </section>
+      <section class="section" id="anchorref__rendering-expectations">
+        <h2 class="title sectiontitle">Rendering expectations</h2>
+
+        <p class="p">
+          When possible, the content of the
+          <code class="keyword markupname xmlelement">&lt;anchorref&gt;</code> element is rendered
+          at the referenced anchor when the map with that
+          <code class="keyword markupname xmlelement">&lt;anchor&gt;</code> element is displayed in
+          an authoring tool.
+        </p>
+      </section>
+      <section class="section" id="anchorref__processing-expectations">
+        <h2 class="title sectiontitle">Processing expectations</h2>
+
+        <p class="p">
+          If the rendering platform does not support runtime integration of the content at the
+          anchor point, processors treat the
+          <code class="keyword markupname xmlelement">&lt;anchorref&gt;</code> element similar to a
+          "conref push" instruction by pushing the content to the spot of the
+          <code class="keyword markupname xmlelement">&lt;anchor&gt;</code>. Note that many
+          <code class="keyword markupname xmlelement">&lt;anchorref&gt;</code> elements might push
+          content to the same point; the order in which items are pushed is left undefined, although
+          the order within a single
+          <code class="keyword markupname xmlelement">&lt;anchorref&gt;</code> element is preserved.
+        </p>
+        <p class="p">
+          Metadata cascading takes place in the original authored context, because the branch of
+          content defined with the
+          <code class="keyword markupname xmlelement">&lt;anchorref&gt;</code> remains independent
+          from the referenced map. The
+          <code class="keyword markupname xmlelement">&lt;anchorref&gt;</code> content does not take
+          on the cascading metadata at the
+          <code class="keyword markupname xmlelement">&lt;anchor&gt;</code> location. For example,
+          if the map containing the
+          <code class="keyword markupname xmlelement">&lt;anchorref&gt;</code> element sets a local
+          copyright, that copyright cascades to the
+          <code class="keyword markupname xmlelement">&lt;anchorref&gt;</code> element and its
+          children; it is retained after the content is rendered at the location of the
+          <code class="keyword markupname xmlelement">&lt;anchor&gt;</code> element.
+        </p>
+      </section>
+      <section class="section" id="anchorref__specialization-hierarchy">
+        <h2 class="title sectiontitle">Specialization hierarchy</h2>
+
+        <p class="p">
+          The <code class="keyword markupname xmlelement">&lt;anchoref&gt;</code> element is
+          specialized from <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>. It
+          is defined in the mapgroup module.
+        </p>
+      </section>
+      <section class="section" id="anchorref__attributes">
+        <h2 class="title sectiontitle">Attributes</h2>
+
+        <div class="div" id="anchorref__standard-topicref-attributes">
+          <p class="p">
+            The following attributes are available on this element:
+            <span class="ph"
+              ><a
+                class="xref"
+                href="../../common/../langRef/attributes/universalAttributes.html"
+                title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang"
+                >universal attributes</a
+              ></span
+            >,
+            <span class="ph"
+              ><a
+                class="xref"
+                href="../../common/../langRef/attributes/commonAttributes.html#common-atts__linkatts"
+                title="Link relationship attributes include: format, href, type, and scope"
+                >link-relationship attributes</a
+              ></span
+            >,
+            <span class="ph"
+              ><a
+                class="xref"
+                href="../../common/../langRef/attributes/commonAttributes.html#common-atts__commonmapatts"
+                title="Common map attributes include: cascade, chunk, collection-type, keyscope, linking, processing-role, search, and toc"
+                >common map attributes</a
+              ></span
+            >,
+            <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-keys"
+              ><code class="keyword markupname xmlatt">@keys</code></a
+            >, and
+            <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-keyref"
+              ><code class="keyword markupname xmlatt">@keyref</code></a
+            >.
+          </p>
+          <div class="p attr-exception" id="anchorref__attr-exception">
+            For this element:
+            <ul class="ul" id="anchorref__ul_bsg_4sq_ppb">
+              <li class="li">
+                The <code class="keyword markupname xmlatt">@href</code> attribute refers to an
+                <code class="keyword markupname xmlelement">&lt;anchor&gt;</code> element in this or
+                another DITA map.
+              </li>
+              <li class="li">
+                The <code class="keyword markupname xmlatt">@format</code> attribute has a default
+                value of <span class="keyword">ditamap</span>.
+              </li>
+              <li class="li">
+                The <code class="keyword markupname xmlatt">@type</code> attribute has a default
+                value of <span class="keyword">anchor</span>.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <div class="example" id="anchorref__example">
+        <h2 class="title sectiontitle">Example</h2>
+
+        <p class="p">
+          The section contains an example of how the
+          <code class="keyword markupname xmlelement">&lt;anchorref&gt;</code> element works.
+        </p>
+        <figure class="fig fignone">
+          <figcaption>
+            <span class="fig--title-label">Figure 1. </span>Map that contains
+            <code class="keyword markupname xmlelement">&lt;anchor&gt;</code> and
+            <code class="keyword markupname xmlelement">&lt;anchorref&gt;</code> elements
+          </figcaption>
+
+          <p class="p">
+            The following code sample shows a DITA map that contains both
+            <code class="keyword markupname xmlelement">&lt;anchor&gt;</code> and
+            <code class="keyword markupname xmlelement">&lt;anchorref&gt;</code> elements:
+          </p>
+          <pre class="pre codeblock"><code>&lt;topicref href="carPrep.dita"&gt;
+    &lt;topicref href="beforePrep.dita"/&gt;
+    <strong class="ph b">&lt;anchor id="prepDetail"/&gt;</strong>
+    &lt;topicref href="afterPrep.dita"/&gt;
+&lt;/topicref&gt;
+&lt;!-- ... --&gt;
+&lt;topicref href="astroTasks.dita"&gt;
+    &lt;topicref href="astroOverview.dita"/&gt;
+    <strong class="ph b">&lt;anchorref href="#prepDetail"&gt;</strong>
+        &lt;topicref href="astroChecklist.dita"/&gt;
+        &lt;topicref href="otherPreparation.dita"/&gt;
+    <strong class="ph b">&lt;/anchorref&gt;</strong>
+    &lt;topicref href="astroConclusion.dita"/&gt;
+&lt;/topicref&gt;</code></pre>
+        </figure>
+        <figure class="fig fignone">
+          <figcaption>
+            <span class="fig--title-label">Figure 2. </span>Effective result of evaluating the
+            <code class="keyword markupname xmlelement">&lt;anchorref&gt;</code> element
+          </figcaption>
+
+          <p class="p">
+            After the processor evaluates the contents of the
+            <code class="keyword markupname xmlelement">&lt;anchorref&gt;</code> element, the
+            effective result is as follows; the content of the anchor reference is rendered both at
+            its original location and at the location of the anchor:
+          </p>
+          <pre class="pre codeblock"><code>&lt;topicref href="carPrep.dita"&gt;
+    &lt;topicref href="beforePrep.dita"/&gt;
+    &lt;anchor id="prepDetail"/&gt;
+    <strong class="ph b">&lt;topicref href="astroChecklist.dita"/&gt;
+    &lt;topicref href="otherPreparation.dita"/&gt;</strong>
+    &lt;topicref href="afterPrep.dita"/&gt;
+&lt;/topicref&gt;
+&lt;!-- ... --&gt;
+&lt;topicref href="astroTasks.dita"&gt;
+    &lt;topicref href="astroOverview.dita"/&gt;
+    <strong class="ph b">&lt;topicref href="astroChecklist.dita"/&gt;
+    &lt;topicref href="otherPreparation.dita"/&gt;</strong>
+    &lt;topicref href="astroConclusion.dita"/&gt;
+&lt;/topicref&gt;</code></pre>
+        </figure>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../langRef/containers/mapgroup-d.html"
+            title="The mapgroup domain elements define, group, or reference content. Many of the mapgroup elements are convenience elements; they simply provide shortcuts for an author to use existing markup"
+            >Mapgroup domain elements</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

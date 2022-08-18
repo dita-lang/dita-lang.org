@@ -1,0 +1,149 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Element generalization'
+description: 'Elements are generalized by examining the class attribute. When a
+  generalization process detects that an element belongs to one of the modules that is being
+  generalized, the element is renamed to a more general form.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/ditaspecialization.html"
+            >Overview of DITA extension facilities</a
+          >
+        </li>
+        <li><a href="../../archSpec/base/configuration.html">Document-type configuration</a></li>
+        <li><a href="../../archSpec/base/specialization.html">Specialization</a></li>
+        <li>
+          <a href="../../archSpec/base/generalization.html">Generalization</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/generalization-overview.html"
+                >Overview of generalization</a
+              >
+            </li>
+            <li class="active">
+              <a href="../../archSpec/base/generalization-elements.html">Element generalization</a>
+            </li>
+            <li>
+              <a href="../../archSpec/base/generalization-processor-expectations.html"
+                >Processor expectations when generalizing elements</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/generalization-attributes.html"
+                >Attribute generalization</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/generalization-w-cross-specialization-dependencies.html"
+                >Generalization with cross-specialization dependencies</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/constraints.html">Constraints</a></li>
+        <li><a href="../../archSpec/base/expansion-modules.html">Expansion modules</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Element generalization</h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        Elements are generalized by examining the
+        <code class="keyword markupname xmlatt">@class</code> attribute. When a generalization
+        process detects that an element belongs to one of the modules that is being generalized, the
+        element is renamed to a more general form.
+      </p>
+      <p class="p">
+        For example, the <code class="keyword markupname xmlelement">&lt;step&gt;</code> element has
+        a <code class="keyword markupname xmlatt">@class</code> attribute value of
+        <code class="ph codeph">"- topic/li task/step "</code>. If the task module is generalized,
+        the <code class="keyword markupname xmlelement">&lt;step&gt;</code> element is renamed to
+        its more general form from the topic module:
+        <code class="keyword markupname xmlelement">&lt;li&gt;</code>.
+      </p>
+      <p class="p">
+        For specific concerns when generalizing structural types with dependencies on non-ancestor
+        modules, see
+        <a
+          class="xref"
+          href="generalization-w-cross-specialization-dependencies.html"
+          title="Dependencies across specializations limit generalization targets to those that either preserve the dependency or eliminate them. Some generalization targets will not be valid and need to be detected before generalization occurs."
+          >Generalization with cross-specialization dependencies</a
+        >.
+      </p>
+      <p class="p">
+        While the tag name of a given element is normally the same as the type name of the last
+        token in the <code class="keyword markupname xmlatt">@class</code> value, this is not
+        required.
+        <span class="ph"
+          >For example, if a generalization process has already run on the element, the
+          <code class="keyword markupname xmlatt">@class</code> attribute could contain tokens from
+          two or more modules based on the original specialization. In that case, the element name
+          could already match the first token or an intermediate token in the
+          <code class="keyword markupname xmlatt">@class</code> attribute. A second generalization
+          process could end up renaming the element again or could leave it alone, depending on the
+          target module or document type.</span
+        >
+      </p>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/generalization.html"
+            title="Generalization is the process of reversing a specialization. It converts specialized elements or attributes into the original types from which they were derived."
+            >Generalization</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

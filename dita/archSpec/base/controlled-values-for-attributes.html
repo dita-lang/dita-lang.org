@@ -1,0 +1,214 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Defining controlled values for attributes'
+description: 'Subject scheme maps can define controlled values for DITA attributes without having
+  to define specializations or constraints. The list of available values can be modified
+  quickly to adapt to new situations.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li>
+      <a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a>
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/dita-maps-and-their-usage.html">DITA maps and their usage</a>
+        </li>
+        <li>
+          <a href="../../archSpec/base/subject-scheme-maps-and-usage.html"
+            >Subject scheme maps and their usage</a
+          >
+          <ul class="nav nav-list">
+            <li><a href="../../archSpec/base/subjectSchema.html">Subject scheme maps</a></li>
+            <li class="active">
+              <a href="../../archSpec/base/controlled-values-for-attributes.html"
+                >Defining controlled values for attributes</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/binding-controlled-values-to-attribute.html"
+                >Binding controlled values to an attribute</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/processing-controlled-attribute-values.html"
+                >Processing controlled attribute values</a
+              >
+            </li>
+            <li><a href="../../archSpec/base/classification-maps.html">Classification maps</a></li>
+            <li>
+              <a href="../../archSpec/base/examples-subjectScheme-maps.html"
+                >Examples of subject scheme maps</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/map-cascading.html">Metadata cascading</a></li>
+        <li><a href="../../archSpec/base/chunking.html">Chunking</a></li>
+      </ul>
+    </li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      <span class="ph">Defining</span> controlled values for attributes
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        Subject scheme maps can define controlled values for DITA attributes without having to
+        define specializations or constraints. The list of available values can be modified quickly
+        to adapt to new situations.
+      </p>
+      <p class="p">
+        Each controlled value is defined using a
+        <code class="keyword markupname xmlelement">&lt;subjectdef&gt;</code> element, which is a
+        specialization of the
+        <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element. The
+        <code class="keyword markupname xmlelement">&lt;subjectdef&gt;</code> element is used to
+        define both a subject category and a list of controlled values. The parent
+        <code class="keyword markupname xmlelement">&lt;subjectdef&gt;</code> element defines the
+        category, and the children
+        <code class="keyword markupname xmlelement">&lt;subjectdef&gt;</code> elements define the
+        controlled values.
+      </p>
+      <div class="p">
+        The subject definitions can include additional information within a
+        <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> element to clarify the
+        meaning of a value:
+        <ul class="ul">
+          <li class="li">
+            A <code class="keyword markupname xmlelement">&lt;navtitle&gt;</code> (or a
+            <code class="keyword markupname xmlelement">&lt;titlealt&gt;</code> element with a
+            <code class="keyword markupname xmlatt">@title-role</code> of
+            <code class="ph codeph">navigation</code>) can provide a more readable name for the
+            controlled value.
+          </li>
+          <li class="li">
+            The <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code> element can
+            provide a definition.
+          </li>
+        </ul>
+      </div>
+      <p class="p">
+        In addition, the
+        <code class="keyword markupname xmlelement">&lt;subjectdef&gt;</code> element can reference
+        a more detailed definition of the subject, for example, another DITA topic or an external
+        resource.
+      </p>
+      <div class="p">
+        The following behavior is expected of processors in regard to subject scheme maps:
+        <ul class="ul">
+          <li class="li">
+            Authoring tools <dfn class="term RFC-2119">SHOULD</dfn> use these lists of controlled
+            values to provide lists from which authors can select values when they specify attribute
+            values.
+          </li>
+          <li class="li">
+            Authoring tools <dfn class="term RFC-2119">MAY</dfn> give an organization a list of
+            readable labels, a hierarchy of values to simplify selection, and a shared definition of
+            the value.
+          </li>
+          <li class="li">
+            Authoring tools <dfn class="term RFC-2119">MAY</dfn>
+            <span class="ph"
+              >support accessing and displaying the content of the subject definition resource in
+              order to provide users with</span
+            >
+            a detailed explanation of the subject.
+          </li>
+        </ul>
+      </div>
+      <div class="example" id="controlled-values-for-attributes__example">
+        <h2 class="title sectiontitle">
+          Example: Controlled values that provide additional information about the subject
+        </h2>
+
+        <p class="p">
+          The following code sample illustrates how a subject definition can provide a richer level
+          of information about a controlled value:
+        </p>
+        <pre
+          class="pre codeblock"
+        ><code>&lt;subjectdef keys="terminology" href="https://www.oasis-open.org/policies-guidelines/keyword-guidelines"&gt;
+  &lt;subjectdef keys="rfc2119" href="rfc-2119.dita"&gt;
+    &lt;topicmeta&gt;
+      &lt;navtitle&gt;RFC-2119 terminology&lt;/navtitle&gt;
+      &lt;shortdesc&gt;The normative terminology that the DITA TC uses for the DITA specification&lt;/shortdesc&gt;
+    &lt;/topicmeta&gt;
+  &lt;/subjectdef&gt;
+  &lt;subjectdef keys="iso" href="iso-terminology.dita"&gt;
+    &lt;topicmeta&gt;
+      &lt;navtitle&gt;ISO keywords&lt;/navtitle&gt;
+      &lt;shortdesc&gt;The normative terminology used by some other OASIS technical committees
+      &lt;/shortdesc&gt;
+    &lt;/topicmeta&gt;
+  &lt;/subjectdef&gt;
+&lt;/subjectdef&gt;</code></pre>
+        <p class="p">
+          The content of the <code class="keyword markupname xmlelement">&lt;navtitle&gt;</code> and
+          <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code> elements provide
+          additional information that a processor might display to users as they select attribute
+          values or classify content. The resources referenced by the
+          <code class="keyword markupname xmlatt">@href</code> attributes provide even more detailed
+          information. A processor might render expandable links as part of a user interface that
+          implements a progressive disclosure strategy, or an authoring tool might include the
+          navigation title and short description in a window where the user selects a controlled
+          value.
+        </p>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/subject-scheme-maps-and-usage.html"
+            title="Subject scheme maps can be used to define controlled values and subject definitions. The controlled values can be bound to attributes, as well as element and attribute pairs. The subject definitions can contain metadata and provide links to more detailed information; they can be used to classify content and provide semantics that can be used in taxonomies and ontologies."
+            >Subject scheme maps and their usage</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

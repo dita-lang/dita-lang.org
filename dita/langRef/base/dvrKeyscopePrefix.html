@@ -1,0 +1,158 @@
+---
+# Generated from DITA source
+layout: base
+title: 'dvrKeyscopePrefix'
+description: 'The dvrKeyscopePrefix element specifies the prefix to use when constructing the effective key scope names for the map branch that is implied by the ancestor ditavalref element.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      <code class="keyword markupname xmlelement">&lt;dvrKeyscopePrefix&gt;</code>
+    </h1>
+
+    <div class="body refbody">
+      <p class="shortdesc">
+        <span class="ph"
+          >The <code class="keyword markupname xmlelement">&lt;dvrKeyscopePrefix&gt;</code> element
+          specifies the prefix to use when constructing the effective key scope names for the map
+          branch that is implied by the ancestor
+          <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element.</span
+        >
+      </p>
+      <section class="section" id="dvrKeyscopePrefix__processing-expectations">
+        <h2 class="title sectiontitle">Processing expectations</h2>
+
+        <p class="p">
+          For map branches that are implied by
+          <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> elements, the value
+          of the
+          <code class="keyword markupname xmlelement">&lt;dvrKeyscopePrefix&gt;</code> element
+          contributes to the effective key scope names of the branch. The effective key scope names
+          start with the value of the
+          <code class="keyword markupname xmlelement">&lt;dvrKeyscopePrefix&gt;</code> element. Note
+          that if the branch as authored does not specify a
+          <code class="keyword markupname xmlatt">@keyscope</code> value, specifying
+          <code class="keyword markupname xmlelement">&lt;dvrKeyscopePrefix&gt;</code>
+          (without also specifying
+          <code class="keyword markupname xmlelement">&lt;dvrKeyscopeSuffix&gt;</code>) results in
+          the branch establishing a key scope whose name is the value of the
+          <code class="keyword markupname xmlelement">&lt;dvrKeyscopePrefix&gt;</code> element. The
+          full key scope names will also reflect the value of a
+          <code class="keyword markupname xmlelement">&lt;dvrKeyscopeSuffix&gt;</code> element if
+          one is specified, regardless of whether the branch as authored specifies a
+          <code class="keyword markupname xmlatt">@keyscope</code> value.
+        </p>
+      </section>
+      <section class="section" id="dvrKeyscopePrefix__specialization-hierachy">
+        <h2 class="title sectiontitle">Specialization hierarchy</h2>
+
+        <p class="p">
+          The <code class="keyword markupname xmlelement">&lt;dvrKeyscopePrefix&gt;</code> element
+          is specialized from <code class="keyword markupname xmlelement">&lt;data&gt;</code>. It is
+          defined in the DITAVAL-reference domain module.
+        </p>
+      </section>
+      <section class="section" id="dvrKeyscopePrefix__attributes">
+        <h2 class="title sectiontitle">Attributes</h2>
+
+        <p class="p">
+          The following attributes are available on this element:
+          <span class="ph"
+            ><a
+              class="xref"
+              href="../../common/../langRef/attributes/universalAttributes.html"
+              title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang"
+              >universal attributes</a
+            ></span
+          >
+          (except for <code class="keyword markupname xmlatt">@conkeyref</code>, which is removed
+          for all elements in this domain) and
+          <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-name"
+            ><code class="keyword markupname xmlatt">@name</code></a
+          >.
+        </p>
+        <p class="p attr-exception" id="dvrKeyscopePrefix__attr-exception">
+          For this element, the <code class="keyword markupname xmlatt">@name</code> attribute has a
+          default value of <span class="keyword">dvrKeyscopePrefix</span>.
+        </p>
+      </section>
+      <div class="example" id="dvrKeyscopePrefix__example">
+        <h2 class="title sectiontitle">Example</h2>
+
+        <div class="p">
+          The following code sample shows how
+          <code class="keyword markupname xmlelement">&lt;dvrKeyscopePrefix&gt;</code> supplements
+          the existing key scope name of <span class="keyword">branch-01</span> to establish an
+          effective key scope of <span class="keyword">cond01-branch-01</span>:
+          <pre class="pre codeblock"><code>&lt;topicref keys="branch-01"
+    href="branch-01.dita" 
+    keyscope="branch-01"
+  &gt;
+  &lt;ditavalref href="condition-01.ditaval"&gt;
+    &lt;ditavalmeta&gt;
+      &lt;dvrKeyscopePrefix&gt;cond01-&lt;/dvrKeyscopePrefix&gt;
+    &lt;/ditavalmeta&gt;
+  &lt;/ditavalref&gt;
+  &lt;topicref href="topics/subtopic-01.dita"/&gt;
+&lt;/topicref&gt;</code></pre>
+        </div>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../langRef/containers/ditaval-d.html"
+            title="The DITAVAL reference domain is used to reference a DITAVAL file that contains conditions that apply only to a subset of a DITA map. It also can be used to replicate a subset of a DITA map for multiple audiences."
+            >DITAVAL-reference domain element</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

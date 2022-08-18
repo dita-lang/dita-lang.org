@@ -1,0 +1,301 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Processor expectations when generalizing elements'
+description: 'Generalization processors convert elements from one or more modules into their less
+  specialized form. The list of modules can be supplied to a generalization processor, or it can be
+  inferred based on knowledge of a target document-type shell.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/ditaspecialization.html"
+            >Overview of DITA extension facilities</a
+          >
+        </li>
+        <li><a href="../../archSpec/base/configuration.html">Document-type configuration</a></li>
+        <li><a href="../../archSpec/base/specialization.html">Specialization</a></li>
+        <li>
+          <a href="../../archSpec/base/generalization.html">Generalization</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/generalization-overview.html"
+                >Overview of generalization</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/generalization-elements.html">Element generalization</a>
+            </li>
+            <li class="active">
+              <a href="../../archSpec/base/generalization-processor-expectations.html"
+                >Processor expectations when generalizing elements</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/generalization-attributes.html"
+                >Attribute generalization</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/generalization-w-cross-specialization-dependencies.html"
+                >Generalization with cross-specialization dependencies</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/constraints.html">Constraints</a></li>
+        <li><a href="../../archSpec/base/expansion-modules.html">Expansion modules</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      Processor expectations when generalizing elements
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        Generalization processors convert elements from one or more modules into their less
+        specialized form. The list of modules can be supplied to a generalization processor, or it
+        can be inferred based on knowledge of a target document-type shell.
+      </p>
+      <p class="p">
+        The person or application initiating a generalization process can supply the source and
+        target modules for each generalization, for example, "generalize from reference to topic".
+        Multiple target modules can be specified, for example, "generalize from reference to topic
+        and from user-interface domain to topic". When the source and target modules are not
+        supplied, the generalization process is assumed to be from all structural types to the base
+        (topic or map), and no generalization is performed for domains.
+      </p>
+      <p class="p">
+        The person or application initiating a generalization process also can supply the target
+        document-type shell. When the target document-type shell is not supplied, the generalized
+        document will not contain a reference to a document-type shell.
+      </p>
+
+      <div class="p">
+        A generalization processor <dfn class="term RFC-2119">SHOULD</dfn> be able to handle cases
+        where it is given:
+        <ul class="ul">
+          <li class="li">
+            Only source modules for generalization (in which case the designated source types are
+            generalized to topic or map)
+          </li>
+          <li class="li">
+            Only target modules for generalization (in which case all descendants of each target are
+            generalized to that target)
+          </li>
+          <li class="li">
+            Both (in which case only the specified descendants of each target are generalized to
+            that target)
+          </li>
+        </ul>
+      </div>
+      <p class="p">
+        For each structural type instance, the generalization processor checks whether the
+        structural type instance is a candidate for generalization, or whether it has domains that
+        are candidates for generalization. It is important to be selective about which structural
+        type instances to process; if the process simply generalizes every element based on its
+        <code class="keyword markupname xmlatt">@class</code> attribute values, an instruction to
+        generalize "reference" to "topic" could leave a specialization of reference with an invalid
+        content model, since any elements it reuses from "reference" would have been renamed to
+        topic-level equivalents.
+      </p>
+      <p class="p">
+        The <code class="keyword markupname xmlatt">@class</code> attribute for the root element of
+        the structural type is checked before generalizing structural types:
+      </p>
+      <table class="simpletable">
+        <colgroup>
+          <col style="width:33.33333333333333%" />
+          <col style="width:33.33333333333333%" />
+          <col style="width:33.33333333333333%" />
+        </colgroup>
+        <thead>
+          <tr class="sthead">
+            <th
+              class="stentry"
+              scope="col"
+              id="generalization-processor-expectations__stentry__1"
+            ></th>
+            <th class="stentry" scope="col" id="generalization-processor-expectations__stentry__2">
+              Source module unspecified
+            </th>
+            <th class="stentry" scope="col" id="generalization-processor-expectations__stentry__3">
+              Source module specified
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="strow">
+            <th
+              class="stentry"
+              scope="row"
+              headers="generalization-processor-expectations__stentry__1"
+            >
+              Target module unspecified
+            </th>
+            <td class="stentry" headers="generalization-processor-expectations__stentry__2">
+              Generalize this structural type to its base ancestor
+            </td>
+            <td class="stentry" headers="generalization-processor-expectations__stentry__3">
+              Check whether the root element of the topic type matches a specified source module;
+              generalize to its base ancestor if it does, otherwise ignore the structural type
+              instance unless it has domains to generalize.
+            </td>
+          </tr>
+          <tr class="strow">
+            <th
+              class="stentry"
+              scope="row"
+              headers="generalization-processor-expectations__stentry__1"
+            >
+              Target module specified
+            </th>
+            <td class="stentry" headers="generalization-processor-expectations__stentry__2">
+              Check whether the <code class="keyword markupname xmlatt">@class</code> attribute
+              contains the target module. If it does contain the target, rename the element to the
+              value associated with the target module. Otherwise, ignore the element.
+            </td>
+            <td class="stentry" headers="generalization-processor-expectations__stentry__3">
+              It is an error if the root element matches a specified source but its
+              <code class="keyword markupname xmlatt">@class</code> attribute does not contain the
+              target. If the root element matches a specified source module and its
+              <code class="keyword markupname xmlatt">@class</code> attribute does contain the
+              target module, generalize to the target module. Otherwise, ignore the structural type
+              instance unless it has domains to generalize.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="p">For each element in a candidate structural type instance:</p>
+      <table class="simpletable">
+        <colgroup>
+          <col style="width:33.33333333333333%" />
+          <col style="width:33.33333333333333%" />
+          <col style="width:33.33333333333333%" />
+        </colgroup>
+        <thead>
+          <tr class="sthead">
+            <th
+              class="stentry"
+              scope="col"
+              id="generalization-processor-expectations__stentry__10"
+            ></th>
+            <th class="stentry" scope="col" id="generalization-processor-expectations__stentry__11">
+              Source module unspecified
+            </th>
+            <th class="stentry" scope="col" id="generalization-processor-expectations__stentry__12">
+              Source module specified
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="strow">
+            <th
+              class="stentry"
+              scope="row"
+              headers="generalization-processor-expectations__stentry__10"
+            >
+              Target module unspecified
+            </th>
+            <td class="stentry" headers="generalization-processor-expectations__stentry__11">
+              If the <code class="keyword markupname xmlatt">@class</code> attribute starts with "-"
+              (part of a structural type), rename the element to its base ancestor equivalent.
+              Otherwise ignore it.
+            </td>
+            <td class="stentry" headers="generalization-processor-expectations__stentry__12">
+              Check whether the last value of the
+              <code class="keyword markupname xmlatt">@class</code> attribute matches a specified
+              source; generalize to its base ancestor if it does, otherwise ignore the element.
+            </td>
+          </tr>
+          <tr class="strow">
+            <th
+              class="stentry"
+              scope="row"
+              headers="generalization-processor-expectations__stentry__10"
+            >
+              Target module specified
+            </th>
+            <td class="stentry" headers="generalization-processor-expectations__stentry__11">
+              Check whether the <code class="keyword markupname xmlatt">@class</code> attribute
+              contains the target module; rename the element to the value associated with the target
+              module if it does contain the target, otherwise ignore the element.
+            </td>
+            <td class="stentry" headers="generalization-processor-expectations__stentry__12">
+              It is an error if the last value in the
+              <code class="keyword markupname xmlatt">@class</code> attribute matches a specified
+              source but the previous values do not include the target. If the last value in the
+              <code class="keyword markupname xmlatt">@class</code> attribute matches a specified
+              source module and the previous values do include the target module, rename the element
+              to the value associated with the target module. Otherwise, ignore the element.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="p">
+        When renaming elements during round-trip generalization, the generalization processor
+        <dfn class="term RFC-2119">SHOULD</dfn> preserve the values of all attributes. When renaming
+        elements during one-way or migration generalization, the process
+        <dfn class="term RFC-2119">SHOULD</dfn> preserve the values of all attributes except the
+        <code class="keyword markupname xmlatt">@class</code> attribute, which is supplied by the
+        target document type.
+      </p>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/generalization.html"
+            title="Generalization is the process of reversing a specialization. It converts specialized elements or attributes into the original types from which they were derived."
+            >Generalization</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

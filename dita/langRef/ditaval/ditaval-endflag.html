@@ -1,0 +1,154 @@
+---
+# Generated from DITA source
+layout: base
+title: 'endflag'
+description: 'The endflag element in a DITAVAL
+  document specifies information that identifies the end of flagged
+  content. The information can be an image, alternate text, or
+  both.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      <code class="keyword markupname xmlelement">&lt;endflag&gt;</code>
+    </h1>
+
+    <div class="body refbody">
+      <p class="shortdesc">
+        The <code class="keyword markupname xmlelement">&lt;endflag&gt;</code> element in a DITAVAL
+        document specifies information that identifies the end of flagged content. The information
+        can be an image, alternate text, or both.
+      </p>
+      <section class="section" id="ditaval-endflag__usage-information">
+        <h2 class="title sectiontitle">Usage information</h2>
+
+        <p class="p">
+          If the <code class="keyword markupname xmlelement">&lt;endflag&gt;</code> element does not
+          specify an image or provide alternate text, the element has no defined purpose.
+        </p>
+      </section>
+      <section class="section" id="ditaval-endflag__rendering-expectations">
+        <h2 class="title sectiontitle">Rendering expectations</h2>
+
+        <p class="p">
+          Processors treat the information provided by the
+          <code class="keyword markupname xmlelement">&lt;endflag&gt;</code> element in the
+          following way:
+        </p>
+        <ul class="ul">
+          <li class="li">
+            If an image is specified, the image is used as a flag to identify the end of the flagged
+            content. If the
+            <code class="keyword markupname xmlelement">&lt;alt-text&gt;</code> element contains
+            content, the content is used as alternate text for the image.
+          </li>
+          <li class="li">
+            If alternate text is specified but the
+            <code class="keyword markupname xmlelement">&lt;endflag&gt;</code> element does not
+            specify an image, the alternate text is used to indicate the end of the flagged content.
+          </li>
+        </ul>
+      </section>
+      <section class="section" id="ditaval-endflag__attributes">
+        <h2 class="title sectiontitle">Attributes</h2>
+
+        <p class="p">The following attribute is available on this element:</p>
+        <dl class="dl">
+          <dt class="dt dlterm" id="ditaval-endflag__d1314e1088">
+            <code class="keyword markupname xmlatt">@imageref</code>
+          </dt>
+          <dd class="dd">
+            Specifies a URI reference to the image, using the same syntax as the
+            <code class="keyword markupname xmlatt">@href</code> attribute. See
+            <a
+              class="xref"
+              href="../../common/../archSpec/base/thehrefattribute.html"
+              title="The href attribute specifies the URI of the resource that is addressed. The referenced resource can be another DITA topic or map, an element inside a DITA topic or map, or a non-DITA resource."
+              >The href attribute</a
+            >
+            for information on supported values and processing implications.
+          </dd>
+        </dl>
+      </section>
+      <div class="example" id="ditaval-endflag__example">
+        <h2 class="title sectiontitle">Example</h2>
+
+        <p class="p">
+          The following code sample shows a DITAVAL document that is used to flag content that
+          applies to administrators. The
+          <code style="color:red;" class="keyword markupname xmlelement">&lt;startflag&gt;</code>
+          and
+          <code style="color:red;" class="keyword markupname xmlelement">&lt;endflag&gt;</code>
+          elements provide text that is used to indicate the start and end point of the flagged
+          content.
+        </p>
+        <pre class="pre codeblock"><code>&lt;val&gt;
+  &lt;prop action="flag" att="audience" val="administrator"&gt;
+    &lt;startflag&gt;
+      &lt;alt-text&gt;Administrator content&lt;/alt-text&gt;
+    &lt;/startflag&gt;
+    &lt;endflag&gt;
+      &lt;alt-text&gt;End of administrator content&lt;/alt-text&gt;
+    &lt;/endflag&gt;
+  &lt;/prop&gt;
+&lt;/val&gt;</code></pre>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../langRef/containers/ditaval-elements.html"
+            title="A DITAVAL document identifies content that is filtered and flagged at rendering time. The DITAVAL document has an extension of .ditaval."
+            >DITAVAL elements</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

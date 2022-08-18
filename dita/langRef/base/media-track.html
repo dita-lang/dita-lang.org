@@ -1,0 +1,216 @@
+---
+# Generated from DITA source
+layout: base
+title: 'media-track'
+description: 'Media track settings
+  specify the location of supplemental, text-based data for the
+  referenced media, for example, subtitles or descriptions.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      <code class="keyword markupname xmlelement">&lt;media-track&gt;</code>
+    </h1>
+
+    <div class="body refbody">
+      <p class="shortdesc">
+        Media track settings specify the location of supplemental, text-based data for the
+        referenced media, for example, subtitles or descriptions.
+      </p>
+      <section class="section" id="media-track__usage-information">
+        <h2 class="title sectiontitle">Usage information</h2>
+
+        <p class="p">
+          The media track settings are modeled on the
+          <code class="keyword markupname xmlelement">&lt;track&gt;</code> element used in HTML5
+          media elements. They refer to track resources that use
+          <a
+            class="xref"
+            href="https://www.w3.org/TR/webvtt1/"
+            target="_blank"
+            rel="external noopener"
+            >Web Video Text Track Format (WebVTT)</a
+          >.
+        </p>
+      </section>
+      <section class="section" id="media-track__attributes">
+        <h2 class="title sectiontitle">Attributes</h2>
+
+        <div class="div">
+          <p style="color:red;" class="p">
+            The following attributes are available on this element:
+            <span class="ph"
+              ><a
+                class="xref"
+                href="../../common/reuse-w-lwdita/../../langRef/attributes/universalAttributes.html"
+                title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang"
+                >universal attributes</a
+              ></span
+            >,
+            <a
+              class="xref"
+              href="../../common/reuse-w-lwdita/../../langRef/attributes/commonAttributes.html#common-atts__attr-format"
+              >format (link-relationship attributes)</a
+            >,
+            <a
+              class="xref"
+              href="../../common/reuse-w-lwdita/../../langRef/attributes/commonAttributes.html#common-atts__attr-href"
+              >href (link-relationship attributes)</a
+            >,
+            <a
+              class="xref"
+              href="../../common/reuse-w-lwdita/../../langRef/attributes/commonAttributes.html#common-atts__attr-keyref"
+              >keyref</a
+            >,
+            <a
+              class="xref"
+              href="../../common/reuse-w-lwdita/../../langRef/attributes/commonAttributes.html#common-atts__attr-scope"
+              >scope (link-relationship attributes)</a
+            >, and the attributes defined below.
+          </p>
+          <dl class="dl">
+            <dt class="dt dlterm" id="media-track__d1415e87">
+              <code class="keyword markupname xmlatt">@kind</code>
+            </dt>
+            <dd class="dd">
+              Specifies the usage for the track resource. This attribute is modeled on the
+              <code class="keyword markupname xmlatt">@kind</code> attribute on the HTML5
+              <code class="keyword markupname xmlelement">&lt;track&gt;</code> element, as described
+              by the
+              <a
+                class="xref"
+                href="https://html.spec.whatwg.org/dev/media.html#dom-TrackList-getKind-categories"
+                target="_blank"
+                rel="external noopener"
+                ><cite class="cite">HTML specification, WHATWG version</cite></a
+              >. The values for this attribute are derived from the HTML5 standard:
+              <dl class="dl">
+                <dt class="dt dlterm">captions</dt>
+                <dd class="dd">
+                  Transcription or translation of the dialogue, sound effects, relevant musical
+                  cues, and other relevant audio information. This is intended for use when the
+                  soundtrack is unavailable, for example, because it is muted or because the user is
+                  hard-of-hearing. This information is rendered over the video and labeled as
+                  appropriate for hard-of-hearing users.
+                </dd>
+
+                <dt class="dt dlterm">chapters</dt>
+                <dd class="dd">
+                  Chapter titles, which are intended to be used for navigating the media resource.
+                  The chapter titles are rendered as an interactive list in the interface for the
+                  user agent.
+                </dd>
+
+                <dt class="dt dlterm">descriptions</dt>
+                <dd class="dd">
+                  Textual descriptions of the video component of the media resource. This is
+                  intended for audio synthesis when the visual component is unavailable, for
+                  example, because the user is interacting with the application without a screen or
+                  because the user is blind. Descriptions are synthesized as separate audio tracks.
+                </dd>
+
+                <dt class="dt dlterm">metadata</dt>
+                <dd class="dd">
+                  Tracks intended for use from script. This metadata is not displayed by the user
+                  agent.
+                </dd>
+
+                <dt class="dt dlterm">subtitles</dt>
+                <dd class="dd">
+                  Transcription or translation of the dialogue, suitable for when the sound is
+                  available but not understood, for example, because the user does not understand
+                  the language of the soundtrack. Subtitles are rendered over the video.
+                </dd>
+
+                <dt class="dt dlterm">-dita-use-conref-target</dt>
+                <dd class="dd">
+                  See
+                  <a
+                    class="xref"
+                    href="../../common/reuse-w-lwdita/../../archSpec/base/ditauseconreftarget.html"
+                    title="The value -dita-use-conref-target is available on enumerated attributes and can also be specified on other attributes. When an element uses conref to pull in content, for any of its attributes assigned a value of -dita-use-conref-target, the resulting value for those attributes is also pulled in from the referenced element."
+                    >Using the -dita-use-conref-target value</a
+                  >
+                  for more information.
+                </dd>
+              </dl>
+            </dd>
+
+            <dt class="dt dlterm" id="media-track__d1415e166">
+              <code class="keyword markupname xmlatt">@srclang</code>
+            </dt>
+            <dd class="dd">Specifies the language of the track resource.</dd>
+          </dl>
+          <p style="color:red;" class="p attr-exception" id="media-track__d1415e175">
+            For this element, the <code class="keyword markupname xmlatt">@href</code> attribute
+            specifies the URI of the track resource.
+          </p>
+        </div>
+      </section>
+      <div class="example" id="media-track__example">
+        <h2 class="title sectiontitle">Example</h2>
+
+        <p class="p">
+          See <a class="xref" href="video.html#video__example">Examples</a> in the
+          <code class="keyword markupname xmlelement">&lt;video&gt;</code> topic.
+        </p>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../langRef/containers/multimedia-elements.html"
+            title="The multimedia elements are used to reference audio or video content. The elements in this domain are modeled on the HTML5 audio and video elements."
+            >Multimedia elements</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

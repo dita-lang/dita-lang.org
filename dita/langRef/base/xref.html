@@ -1,0 +1,162 @@
+---
+# Generated from DITA source
+layout: base
+title: 'xref'
+description: 'A cross reference is
+  an inline link. A cross reference can link to a different location
+  within the current topic, another topic, a specific location in another
+  topic, or an external resource such as a PDF or web page.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      <code class="keyword markupname xmlelement">&lt;xref&gt;</code>
+    </h1>
+
+    <div class="body refbody">
+      <p class="shortdesc">
+        A cross reference is an inline link. A cross reference can link to a different location
+        within the current topic, another topic, a specific location in another topic, or an
+        external resource such as a PDF or <span style="color:red;" class="ph">web</span> page.
+      </p>
+      <section class="section" id="xref__attributes">
+        <h2 class="title sectiontitle">Attributes</h2>
+
+        <p class="p">
+          The following attributes are available on this element:
+          <span class="ph"
+            ><a
+              class="xref"
+              href="../../common/reuse-w-lwdita/../../langRef/attributes/universalAttributes.html"
+              title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang"
+              >universal attributes</a
+            ></span
+          >,
+          <span class="ph"
+            ><a
+              class="xref"
+              href="../../common/reuse-w-lwdita/../../langRef/attributes/commonAttributes.html#common-atts__linkatts"
+              title="Link relationship attributes include: format, href, type, and scope"
+              >link-relationship attributes</a
+            ></span
+          >, and
+          <a
+            class="xref"
+            href="../../common/reuse-w-lwdita/../../langRef/attributes/commonAttributes.html#common-atts__attr-keyref"
+            ><code class="keyword markupname xmlatt">@keyref</code></a
+          >.
+        </p>
+      </section>
+      <div class="example" id="xref__example">
+        <h2 class="title sectiontitle">Examples</h2>
+
+        <p class="p">
+          This section contains examples of how the
+          <code class="keyword markupname xmlelement">&lt;xref&gt;</code> element can be used.
+        </p>
+        <figure class="fig fignone" id="xref__fig_vgv_rnd_t2b">
+          <figcaption>
+            <span class="fig--title-label">Figure 1. </span>Cross reference to another topic,
+            without link text
+          </figcaption>
+
+          <p class="p">
+            The following code sample shows a cross reference to another topic. Link text is not
+            provided. Processor typically use the topic title as the link text.
+          </p>
+          <pre class="pre codeblock"><code>&lt;p&gt;Background information about DITA is provided in
+&lt;xref href="overview-of-dita.dita"/&gt;.&lt;/p&gt;</code></pre>
+          <p class="p">
+            The same cross reference could be created using
+            <code class="keyword markupname xmlatt">@keyref</code> instead of
+            <code class="keyword markupname xmlatt">@href</code>. Using
+            <code class="keyword markupname xmlatt">@keyref</code> allows the link to be redirected
+            to different resources when the topic is used in different contexts.
+          </p>
+        </figure>
+        <figure class="fig fignone" id="xref__fig_wgv_rnd_t2b">
+          <figcaption>
+            <span class="fig--title-label">Figure 2. </span>Cross references with link text
+            specified
+          </figcaption>
+          <p class="p">
+            The following code sample shows a cross reference that specifies link text:
+          </p>
+          <pre
+            class="pre codeblock"
+          ><code>&lt;p&gt;While this set of tutorials gives several simple examples of
+&lt;xref keyref="markup-examples"&gt;common DITA features&lt;/xref&gt;, a comprehensive
+list of DITA features is available in the DITA specification
+&lt;xref keyref="dita-conformance"&gt;conformance clause&lt;/xref&gt;.&lt;/p&gt;</code></pre>
+        </figure>
+        <figure class="fig fignone" style="color:red;">
+          <figcaption>
+            <span class="fig--title-label">Figure 3. </span>Cross reference to an external ressource
+          </figcaption>
+
+          <p class="p">The following code sample shows a cross reference to a web page:</p>
+          <pre
+            class="pre codeblock"
+          ><code>&lt;xref href="https://www.example.com/docview.wss?rs=757"
+scope="external" format="html"&gt;Part number SSVNX5&lt;/xref&gt;</code></pre>
+        </figure>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../langRef/containers/body-elements.html"
+            title="The body elements support the most common types of content for topics: paragraphs, lists, phrases, figures, and other common document components."
+            >Body elements</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

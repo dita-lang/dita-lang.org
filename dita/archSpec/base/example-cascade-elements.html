@@ -1,0 +1,175 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Example: How map-level metadata elements
+  cascade to the referenced topics'
+description: 'In this scenario, elements located in
+  thetopicmeta element
+  for a map cascade to the referenced topics.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li>
+      <a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a>
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/dita-maps-and-their-usage.html">DITA maps and their usage</a>
+        </li>
+        <li>
+          <a href="../../archSpec/base/subject-scheme-maps-and-usage.html"
+            >Subject scheme maps and their usage</a
+          >
+        </li>
+        <li>
+          <a href="../../archSpec/base/map-cascading.html">Metadata cascading</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/cascading-in-a-ditamap.html"
+                >Cascading of metadata attributes in a DITA map</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/reconciling-topic-and-map-metadata.html"
+                >Reconciling topic and map metadata elements</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/map-to-map-cascading-of-metadata.html"
+                >Map-to-map cascading behaviors</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/examples-of-cascading.html"
+                >Examples of metadata cascading</a
+              >
+              <ul class="nav nav-list">
+                <li class="active">
+                  <a href="../../archSpec/base/example-cascade-elements.html"
+                    >Example: How map-level metadata elements cascade to the referenced topics</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-cascade-map-to-map-elements.html"
+                    >Example: How metadata elements cascade from one map to another</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-cascade-map-to-map-attributes.html"
+                    >Example: How attributes cascade from one map to another</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-cascade-attribute.html"
+                    >Example: How the cascade attribute affects attribute cascading</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-cascading-topicref-roles.html"
+                    >Example: How topicref roles cascade to referenced maps</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/chunking.html">Chunking</a></li>
+      </ul>
+    </li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      Example: How <span style="color:red;" class="ph">map-level</span> metadata elements cascade to
+      <span style="color:red;" class="ph">the referenced</span> topics
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        In this scenario, elements <span style="color:red;" class="ph">located in the</span
+        ><code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code
+        ><span style="color:red;" class="ph"> element for a map</span> cascade
+        <span class="ph">to the referenced topics</span>.
+      </p>
+      <div class="p">
+        The following code sample illustrates how an information architect can apply certain
+        metadata to all the DITA topics in a map:
+        <pre
+          class="pre codeblock"
+          id="cascadeelements__codeblock_tgb_d45_nsb"
+        ><code>&lt;map xml:lang="en-us"&gt;
+  &lt;title&gt;DITA maps&lt;/title&gt;
+  &lt;topicmeta&gt;
+    &lt;author&gt;Kristen James Eberlein&lt;/author&gt;
+    &lt;copyright&gt;
+      &lt;copyryear year="2020"/&gt;
+	&lt;copyrholder&gt;OASIS&lt;/copyrholder&gt;
+    &lt;/copyright&gt;
+  &lt;/topicmeta&gt;
+  &lt;topicref href="dita-maps.dita"&gt;
+    &lt;topicref href="definition_ditamaps.dita"/&gt;
+    &lt;topicref href="purpose_ditamaps.dita"/&gt;
+    &lt;!-- ... --&gt;
+  &lt;/topicref&gt;
+&lt;/map&gt;</code></pre>
+      </div>
+      <p class="p">
+        The author and copyright information cascades to each of the DITA topics
+        <span style="color:red;" class="ph">that are</span> referenced in the DITA map. When the
+        DITA map is processed to HTML5, for example, the author and copyright metadata apply to each
+        <span style="color:red;" class="ph">generated</span> HTML5 file.
+      </p>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/examples-of-cascading.html"
+            title="These examples illustrate the processing expectations for cascading metadata. The processing examples use either before and after sample markup or expanded syntax that shows the equivalent markup withough cascading."
+            >Examples of metadata cascading</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

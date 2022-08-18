@@ -1,0 +1,215 @@
+---
+# Generated from DITA source
+layout: base
+title: 'The keyscope attribute'
+description: 'The keyscope attribute consists of one or more space-separated key
+    scope names. Map authors define the boundaries for key scopes by specifying the
+      keyscope attribute on map elements,
+      topicref elements, or elements that are specializations of
+      map or topicref. Such elements, their
+    contents, and any locally-scoped content referenced from within the element, are considered to
+    be part of the scope. Keys defined within a scope are only directly referenceable from within
+    the same scope. They can be referenced from the parent scope using the scope's name, followed by
+    a period, followed by the key name.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li>
+      <a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a>
+      <ul class="nav nav-list">
+        <li><a href="../../archSpec/base/id.html">ID attribute</a></li>
+        <li><a href="../../archSpec/base/dita-linking.html">DITA linking</a></li>
+        <li>
+          <a href="../../archSpec/base/uri-based-addressing.html">URI-based (direct) addressing</a>
+        </li>
+        <li>
+          <a href="../../archSpec/base/key-based-addressing.html">Indirect key-based addressing</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/keys-core-concepts.html"
+                >Core concepts for working with keys</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/thekeysattribute.html"
+                >Setting key names with the keys attribute</a
+              >
+            </li>
+            <li><a href="../../archSpec/base/thekeyrefattribute.html">The keyref attribute</a></li>
+            <li>
+              <a href="../../archSpec/base/using-keys-for-addressing.html"
+                >Using keys for addressing</a
+              >
+            </li>
+            <li><a href="../../archSpec/base/keyScopes.html">Key scopes</a></li>
+            <li class="active">
+              <a href="../../archSpec/base/the-key-scope-attribute.html">The keyscope attribute</a>
+            </li>
+            <li>
+              <a href="../../archSpec/base/using-keys-to-address-keys-across-scopes.html"
+                >Addressing keys across scopes</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/links-between-maps.html"
+                >Cross-deliverable addressing and linking</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/processing-key-references-general.html"
+                >Processing key references</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/processing-keyref-for-links.html"
+                >Processing key references for navigation links and images</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/processing-keyref-on-topicref.html"
+                >Processing key references on topicref elements</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/processing-keyref-for-text.html"
+                >Processing key references to generate text or link text</a
+              >
+            </li>
+            <li><a href="../../archSpec/base/examples-of-keys.html">Examples of keys</a></li>
+            <li>
+              <a href="../../archSpec/base/examples-of-scoped-keys.html">Examples of scoped keys</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="../../archSpec/base/context-hooks-for-user-assistance.html"
+            >Context hooks for user assistance</a
+          >
+        </li>
+      </ul>
+    </li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      The <code class="keyword markupname xmlatt">@keyscope</code> attribute
+    </h1>
+
+    <div class="body refbody">
+      <p class="shortdesc">
+        The <code class="keyword markupname xmlatt">@keyscope</code> attribute consists of one or
+        more space-separated key scope names. Map authors define the boundaries for key scopes by
+        specifying the <code class="keyword markupname xmlatt">@keyscope</code> attribute on
+        <code class="keyword markupname xmlelement">&lt;map&gt;</code> elements,
+        <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements, or elements
+        that are specializations of
+        <code class="keyword markupname xmlelement">&lt;map&gt;</code> or
+        <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>. Such elements, their
+        contents, and any locally-scoped content referenced from within the element, are considered
+        to be part of the scope. Keys defined within a scope are only directly referenceable from
+        within the same scope. They can be referenced from the parent scope using the scope's name,
+        followed by a period, followed by the key name.
+      </p>
+      <section class="section" id="keyscope-attribute__duplicate-scope">
+        <p class="p" id="keyscope-attribute__non-intersecting">
+          All key scopes are contiguous and non-intersecting. Within a root map, two distinct key
+          scopes with the same name have no relationship with each other aside from that implied by
+          their relative locations in the key scope hierarchy. They do not, for example, share key
+          definitions. The only processing impact of a key scope's names is in defining the prefixes
+          used when contributing qualified key names to the parent scope. For example, consider the
+          following map segment:
+        </p>
+        <pre class="pre codeblock"><code>&lt;map&gt;
+  &lt;topicgroup keyscope="xyz" id="scope1"&gt;
+    &lt;keydef keys="a" id="def1"/&gt;
+    &lt;!-- other topic references --&gt;
+  &lt;/topicgroup&gt;
+  &lt;topicgroup keyscope="xyz" id="scope2"&gt;
+    &lt;keydef keys="a" id="def2"/&gt;
+    &lt;!-- other topic references --&gt;
+  &lt;/topicgroup&gt;
+  &lt;!-- lots of other content --&gt;
+&lt;/map&gt;</code></pre>
+        <p class="p">
+          This map creates two distinct scopes that happen to use the same name (<span
+            class="keyword"
+            >xyz</span
+          >). This results in the following:
+        </p>
+        <ul class="ul">
+          <li class="li">
+            Each <code class="keyword markupname xmlelement">&lt;topicgroup&gt;</code> sets a scope
+            of <span class="keyword">xyz</span> and includes a key <span class="keyword">a</span>.
+            From outside of those two scopes, references to
+            <code class="ph codeph">keyref="xyz.a"</code> (key <span class="keyword">a</span> within
+            the scope <span class="keyword">xyz</span>) will always resolve to the first instance of
+            that value, which is in the first
+            <code class="keyword markupname xmlelement">&lt;topicgroup&gt;</code>.
+          </li>
+          <li class="li">
+            Within the first <code class="keyword markupname xmlelement">&lt;topicgroup&gt;</code>,
+            content uses <code class="ph codeph">keyref="a"</code> will resolve to the key in that
+            branch (defined on the element with <code class="ph codeph">id="def1"</code>).
+          </li>
+          <li class="li">
+            Within the second <code class="keyword markupname xmlelement">&lt;topicgroup&gt;</code>,
+            content uses <code class="ph codeph">keyref="a"</code> will resolve to the key in that
+            branch (defined on the element with <code class="ph codeph">id="def2"</code>).
+          </li>
+        </ul>
+      </section>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/key-based-addressing.html"
+            title="DITA keys provide an alternative to direct addressing. The key reference mechanism provides a layer of indirection so that resources (for example, URIs, metadata, or variable text strings) can be defined at the DITA map level instead of locally in each topic."
+            >Indirect key-based addressing</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

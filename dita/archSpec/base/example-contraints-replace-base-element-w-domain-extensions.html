@@ -1,0 +1,172 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Example: Replace a base element with the domain extensions using DTD'
+description: 'In this scenario, a DITA architect wants to
+  remove the ph element but allow the extensions
+  of ph that exist in the highlighting,
+  programming, software, and user interface domains.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/ditaspecialization.html"
+            >Overview of DITA extension facilities</a
+          >
+        </li>
+        <li><a href="../../archSpec/base/configuration.html">Document-type configuration</a></li>
+        <li><a href="../../archSpec/base/specialization.html">Specialization</a></li>
+        <li><a href="../../archSpec/base/generalization.html">Generalization</a></li>
+        <li>
+          <a href="../../archSpec/base/constraints.html">Constraints</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/constraints-overview.html">Overview of constraints</a>
+            </li>
+            <li><a href="../../archSpec/base/constraint-rules.html">Constraint rules</a></li>
+            <li>
+              <a href="../../archSpec/base/constraints-processing-interoperability.html"
+                >Constraints, processing, and interoperability</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/examples-constraints.html"
+                >Examples: Constraints implemented using DTDs</a
+              >
+              <ul class="nav nav-list">
+                <li>
+                  <a href="../../archSpec/base/example-contraints-redefine-content-model.html"
+                    >Example: Redefine the content model for the topic element using DTD</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../archSpec/base/example-contraints-redefine-content-model-attributes.html"
+                    >Example: Constrain attributes for the section element using DTD</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-contraints-subset-domain.html"
+                    >Example: Constrain a domain module using DTD</a
+                  >
+                </li>
+                <li class="active">
+                  <a
+                    href="../../archSpec/base/example-contraints-replace-base-element-w-domain-extensions.html"
+                    >Example: Replace a base element with the domain extensions using DTD</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-contraints-apply-multiple-constraints.html"
+                    >Example: Apply multiple constraints to a single document-type shell using
+                    DTD</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="../../archSpec/base/examples-constraints-implemented-using-rng.html"
+                >Examples: Constraints implemented using RNG</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/expansion-modules.html">Expansion modules</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      Example: Replace a base element with the domain extensions using DTD
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        In this scenario, <span style="color:red;" class="ph">a DITA</span> architect wants to
+        remove the <code class="keyword markupname xmlelement">&lt;ph&gt;</code> element but allow
+        the extensions of <code class="keyword markupname xmlelement">&lt;ph&gt;</code> that exist
+        in the highlighting, programming, software, and user interface domains.
+      </p>
+      <div class="example" id="reference_cfb_ck4_5p__example">
+        <ol class="ol">
+          <li class="li">
+            In the "DOMAIN EXTENSIONS" section,
+            <span style="color:red;" class="ph">the DITA architect</span> removes the reference to
+            the
+            <code class="keyword markupname xmlelement">&lt;ph&gt;</code>
+            element:
+            <pre
+              class="pre codeblock"
+            ><code>&lt;!-- Removed "ph | " so as to make &lt;ph&gt; not available, only the domain extensions. --&gt;
+&lt;!ENTITY % ph           "%pr-d-ph; |
+                         %sw-d-ph; | 
+                         %ui-d-ph;
+                        "&gt;</code></pre>
+          </li>
+        </ol>
+        <div class="note note note_note">
+          <span class="note__title">Note:</span> Because no other entities are modified or declared
+          outside of the usual "DOMAIN EXTENSIONS" section, this completes the architect's task.
+          Because no new grammar file or entity is created that would highlight this change, adding
+          a comment to highlight the constraint becomes particularly important (as shown in the
+          example above).
+        </div>
+      </div>
+    </div>
+
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/examples-constraints.html"
+            title="This section of the specification contains examples of constraints implemented using DTD."
+            >Examples: Constraints implemented using DTDs</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

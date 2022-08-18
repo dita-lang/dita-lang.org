@@ -1,0 +1,191 @@
+---
+# Generated from DITA source
+layout: base
+title: 'foreign'
+description: 'Foreign content is non-DITA content, such as MathML, SVG, or
+  Rich Text Format (RTF).'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      <code class="keyword markupname xmlelement">&lt;foreign&gt;</code>
+    </h1>
+
+    <div class="body refbody">
+      <div class="abstract">
+        <span class="shortdesc"
+          >Foreign content is non-DITA content, such as MathML, SVG, or Rich Text Format
+          (RTF).</span
+        >
+      </div>
+      <section class="section" id="foreign__usage-information">
+        <h2 class="title sectiontitle">Usage information</h2>
+
+        <p class="p">
+          The <code class="keyword markupname xmlelement">&lt;unknown&gt;</code> element is intended
+          primarily as a base for specialization. Specializations of the
+          <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> element are typically
+          implemented as domains, but it is also possible to implement foreign vocabularies as
+          structural specializations.
+        </p>
+        <p class="p">
+          The <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> element can contain
+          non-DITA content or a mix of DITA and non-DITA content.
+        </p>
+        <p class="p">
+          If alternate content is wanted, use or specialize the
+          <code class="keyword markupname xmlelement">&lt;desc&gt;</code> element inside of the
+          <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> specialization. Such
+          alternate content needs to be valid wherever the
+          <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> specialization is
+          valid. This way, if a processor is not able to recognize or render the
+          <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> content itself, it can
+          use the alternate content from
+          <code class="keyword markupname xmlelement">&lt;desc&gt;</code>.
+        </p>
+      </section>
+      <section class="section" id="foreign__processing-expectations">
+        <h2 class="title sectiontitle">Processing expectations</h2>
+
+        <p class="p">
+          Processors attempt to display
+          <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> content unless
+          otherwise instructed. If a processor cannot render the content, it
+          <dfn class="term RFC-2119">MAY</dfn> issue a warning.
+        </p>
+
+        <p class="p">
+          The enabler of the foreign vocabulary must provide the processing and override the base
+          processing for <code class="keyword markupname xmlelement">&lt;foreign&gt;</code>.
+        </p>
+        <ul class="ul" id="foreign__ul_f2h_3kf_bbb">
+          <li class="li">
+            If <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> contains more than
+            one alternative content element, they should all be processed. In the case of
+            <code class="keyword markupname xmlelement">&lt;desc&gt;</code> they should be
+            concatenated in a similar way to
+            <code class="keyword markupname xmlelement">&lt;section&gt;</code>, but with no title
+            (analogous to <code class="keyword markupname xmlelement">&lt;div&gt;</code> in HTML).
+          </li>
+          <li class="li">
+            If no <code class="keyword markupname xmlelement">&lt;desc&gt;</code>,
+            <code class="keyword markupname xmlelement">&lt;object&gt;</code>, or
+            <code class="keyword markupname xmlelement">&lt;image&gt;</code> element is found within
+            an instance of the
+            <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> element, the base
+            processing can emit a warning about the absence of processable content.
+          </li>
+          <li class="li">
+            The base processing for
+            <code class="keyword markupname xmlelement">&lt;object&gt;</code> might emit the content
+            of <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> as a file at the
+            location specified by the <code class="keyword markupname xmlatt">@data</code> attribute
+            of the <code class="keyword markupname xmlelement">&lt;object&gt;</code> element. The
+            <code class="keyword markupname xmlelement">&lt;object&gt;</code> element should have a
+            data attribute or a
+            <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> sub-element but not
+            both. In the event that an
+            <code class="keyword markupname xmlelement">&lt;object&gt;</code> element contains both
+            a data attribute and an
+            <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> sub-element the
+            processing system should ignore one of them.
+          </li>
+        </ul>
+      </section>
+      <section class="section" id="foreign__attributes">
+        <h2 class="title sectiontitle">Attributes</h2>
+
+        <p class="p">
+          The following attributes are available on this element:
+          <span class="ph"
+            ><a
+              class="xref"
+              href="../../common/../langRef/attributes/universalAttributes.html"
+              title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang"
+              >universal attributes</a
+            ></span
+          >.
+        </p>
+      </section>
+      <div class="example" id="foreign__example">
+        <h2 class="title sectiontitle">Example</h2>
+
+        <p class="p">
+          The following code sample shows a specialization of
+          <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> that is used to hold
+          SVG elements. For this to work, the specialization module that defines
+          <code class="keyword markupname xmlelement">&lt;svg&gt;</code> also needs to include the
+          definitions for the SVG elements.
+        </p>
+        <pre class="pre codeblock"><code>&lt;p&gt;... as in the formula 
+  &lt;svg&gt;
+    &lt;svg:svg width="100%" height="100%" version="1.1"
+xmlns="http://www.w3.org/2000/svg"&gt;
+
+&lt;ellipse cx="300" cy="150" rx="200" ry="80"
+style="fill:rgb(200,100,50);
+stroke:rgb(0,0,100);stroke-width:2"/&gt;
+
+    &lt;/svg:svg&gt;    
+  &lt;/svg&gt;.
+&lt;/p&gt; </code></pre>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../langRef/containers/specialization-elements.html"
+            title="Several DITA elements exist either for architectural reasons or for support of specialized markup yet to be designed. Although there is little need to use these elements unless you are directed to, some of them, such as state, can be used if your content makes use of these semantic distinctions. For example, a discussion of signals on a gate of an integrated logic circuit might use the state element to represent either on or off conditions of that gate."
+            >Specialization elements</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

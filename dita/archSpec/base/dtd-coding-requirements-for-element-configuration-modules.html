@@ -1,0 +1,290 @@
+---
+# Generated from DITA source
+layout: base
+title: 'DTD: Coding requirements for element-configuration modules'
+description: 'Element-configuration modules (constraint and expansion) have specific coding
+  requirements.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/recognizedconstraintmechanisms.html"
+            >Recognized XML-document grammar mechanisms</a
+          >
+        </li>
+        <li>
+          <a href="../../archSpec/base/using-relax-ng.html"
+            >Normative versions of DITA grammar files</a
+          >
+        </li>
+        <li>
+          <a href="../../archSpec/base/dtd-requirements.html">DTD coding requirements</a>
+          <ul class="nav nav-list">
+            <li><a href="../../archSpec/base/dtd-coding-overview.html">DTD: Use of entities</a></li>
+            <li>
+              <a href="../../archSpec/base/dtd-coding-doctype-shell.html"
+                >DTD: Coding requirements for document-type shells</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/dtd-coding-element-types.html"
+                >DTD: Coding requirements for element-type declarations</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/dtd-coding-structural-modules.html"
+                >DTD: Coding requirements for structural modules</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/dtd-coding-element-domains.html"
+                >DTD: Coding requirements for element-domain modules</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/dtd-coding-attribute-domains.html"
+                >DTD: Coding requirements for attribute domain modules</a
+              >
+            </li>
+            <li class="active">
+              <a
+                href="../../archSpec/base/dtd-coding-requirements-for-element-configuration-modules.html"
+                >DTD: Coding requirements for element-configuration modules</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="../../archSpec/base/relax-ng-requirements.html">RELAX NG coding requirements</a>
+        </li>
+      </ul>
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      DTD: Coding requirements for element-configuration modules
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        Element-configuration modules (constraint and expansion) have specific coding requirements.
+      </p>
+      <section class="section">
+        <h2 class="title sectiontitle">
+          The
+          <code class="ph codeph"><var class="keyword varname">tagname</var>.attributes</code>
+          parameter entity
+        </h2>
+
+        <p class="p">
+          When the attribute set for an element is constrained or expanded, there is a declaration
+          of the
+          <code class="ph codeph"><var class="keyword varname">tagname</var>.attributes</code>
+          parameter entity that defines the modified attributes.
+        </p>
+        <div class="example">
+          <p class="p">
+            The following list provides examples for both constraint and expansion modules:
+          </p>
+          <dl class="dl">
+            <dt class="dt dlterm">Constraint module</dt>
+            <dd class="dd">
+              <p class="p">
+                The following parameter entity defines a constrained set of attributes for the
+                <code class="keyword markupname xmlelement">&lt;note&gt;</code> element that removes
+                most of the values defined for <code class="keyword markupname xmlatt">@type</code>;
+                it also removes <code class="keyword markupname xmlatt">@othertype</code>:
+              </p>
+              <pre class="pre codeblock"><code>&lt;!ENTITY % note.attributes  
+       "type  (attention | caution | note ) #IMPLIED
+        %univ-atts;"&gt;</code></pre>
+              <p class="p">
+                The following parameter entity restricts the highlighting domain to
+                <code class="keyword markupname xmlelement">&lt;b&gt;</code> and
+                <code class="keyword markupname xmlelement">&lt;i&gt;</code>:
+              </p>
+              <pre class="pre codeblock"><code>
+&lt;!ENTITY % HighlightingDomain-c-ph     "b | i"  &gt;</code></pre>
+            </dd>
+
+            <dt class="dt dlterm">Expansion module</dt>
+            <dd class="dd">
+              <p class="p">
+                The following parameter entity defines a new attribute intended for use with various
+                table elements:
+              </p>
+              <pre
+                class="pre codeblock"
+              ><code>&lt;!ENTITY % cellPurposeAtt-d-attribute<strong class="ph b">-expansion</strong>
+  "cell-purpose  (sale | out-of-stock | new | last-chance | inherit | none)  #IMPLIED"
+&gt;</code></pre>
+            </dd>
+          </dl>
+        </div>
+        <p class="p">
+          For expansion modules, note the following considerations.The
+          <code class="ph codeph"><var class="keyword varname">tagname</var>.attributes</code>
+          parameter entity can be defined in an attribute specialization module, or it can be
+          defined directly in the expansion module.
+        </p>
+      </section>
+      <section class="section">
+        <h2 class="title sectiontitle">
+          The
+          <code class="ph codeph"><var class="keyword varname">tagname</var>.content</code>
+          parameter entity
+        </h2>
+
+        <p class="p">
+          When the content model for an element is constrained or expanded, there is a declaration
+          of the
+          <code class="ph codeph"><var class="keyword varname">tagname</var>.content</code>
+          parameter entity that defines the modified content model.
+        </p>
+        <div class="example">
+          <p class="p">
+            The following list provides examples for both constraint and expansion modules:
+          </p>
+          <dl class="dl">
+            <dt class="dt dlterm">Constraint module</dt>
+            <dd class="dd">
+              <p class="p">
+                The following parameter entity defines a more restricted content model for
+                <code class="keyword markupname xmlelement">&lt;topic&gt;</code>, in which the
+                <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code> element is
+                required.
+              </p>
+              <pre class="pre codeblock"><code>&lt;!ENTITY % topic.content 
+
+  "((%title;), 
+    (%titlealts;)?, 
+    (%shortdesc;), 
+    (%prolog;)?, 
+    (%body;)?, 
+    (%topic-info-types;)*)"
+&gt;</code></pre>
+              <p class="p">
+                Note that replacing a base element with domain extensions is a form of constraint
+                that can be accomplished directly in the document-type shell. No constraint module
+                is required.
+              </p>
+              <div class="p">
+                In the following example, the
+                <code class="keyword markupname xmlelement">&lt;pre&gt;</code> base type is removed
+                from the entity declaration, effectively allowing only specializations of
+                <code class="keyword markupname xmlelement">&lt;pre&gt;</code> but not
+                <code class="keyword markupname xmlelement">&lt;pre&gt;</code> itself.
+                <pre class="pre codeblock"><code>&lt;!ENTITY % pre
+    "%pr-d-pre; | 
+     %sw-d-pre; | 
+     %ui-d-pre;"&gt;</code></pre>
+              </div>
+            </dd>
+
+            <dt class="dt dlterm">Expansion module</dt>
+            <dd class="dd">
+              <p class="p">
+                The redefinition of the content model references the parameter entity that was
+                defined in the element specialization module.
+              </p>
+              <p class="p">
+                The following code sample shows the entity declaration file for an element
+                specialization module that defines a
+                <code class="keyword markupname xmlelement">&lt;section-shortdesc&gt;</code>
+                element, which is intended to be added to the content model of
+                <code class="keyword markupname xmlelement">&lt;section&gt;</code>:
+              </p>
+              <pre
+                class="pre codeblock"
+              ><code>&lt;!ENTITY sectionShortdesc-d-p-expansion "section-shortdesc"&gt;
+
+&lt;!ENTITY % section-shortdesc "section-shortdesc"&gt;</code></pre>
+              <p class="p">
+                When the content model for
+                <code class="keyword markupname xmlelement">&lt;section&gt;</code> is redefined in
+                the expansion module, it references the parameter entity defined in the entities
+                file for the element specialization:
+              </p>
+              <pre class="pre codeblock"><code>
+&lt;!ENTITY % section.content
+              "(#PCDATA |
+               %dl; |
+               %div; |
+               %fig; |
+               %image; |
+               %note; |
+               %ol; |
+               %p; |
+               %simpletable; |
+               %ul; |
+               %title; |
+               %draft-comment;<strong class="ph b">|
+               %sectionShortdesc-d-p-expansion;</strong>)*"
+&gt;
+</code></pre>
+              <p class="p">
+                Note that this expansion module also constrains the content model of
+                <code class="keyword markupname xmlelement">&lt;section&gt;</code> to only include
+                certain block elements.
+              </p>
+            </dd>
+          </dl>
+        </div>
+      </section>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/dtd-requirements.html"
+            title="This section explains how to implement DTD based document-type shells, specializations, and element-configuration modules (constraint and expansion)."
+            >DTD coding requirements</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

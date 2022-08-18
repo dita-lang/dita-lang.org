@@ -1,0 +1,141 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Processing expectations regarding the xml:lang
+  attribute'
+description: 'When the xml:lang attribute is specified as
+  recommended, a language for the content is clearly indicated. However,
+  when the xml:lang attribute is not specified,
+  processors might need to assign a default value.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+      <ul class="nav nav-list">
+        <li><a href="../../archSpec/base/accessibility.html">Accessibility</a></li>
+        <li>
+          <a href="../../archSpec/base/translation.html">Translation and localization</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/xmllang.html">The xml:lang attribute</a>
+              <ul class="nav nav-list">
+                <li>
+                  <a href="../../archSpec/base/location-of-the-xml-lang-attribute.html"
+                    >Recommendations for the xml:lang attribute</a
+                  >
+                </li>
+                <li class="active">
+                  <a
+                    href="../../archSpec/base/processing-expectations-regarding-the-xml-lang-attribute.html"
+                    >Processing expectations regarding the xml:lang attribute</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-of-conref-and-the-xml-lang-attribute.html"
+                    >Example: content reference and the xml:lang attribute</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li><a href="../../archSpec/base/diratt.html">The dir attribute</a></li>
+            <li>
+              <a href="../../archSpec/base/the-translate-attribute.html">The translate attribute</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      Processing expectations regarding the
+      <code class="keyword markupname xmlatt">@xml:lang</code> attribute
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        When the <code class="keyword markupname xmlatt">@xml:lang</code> attribute is specified as
+        recommended, a language for the content is clearly indicated. However, when the
+        <code class="keyword markupname xmlatt">@xml:lang</code> attribute is not specified,
+        processors might need to assign a default value.
+      </p>
+      <p class="p">
+        If the root element of a map or a top-level topic has no value for the
+        <code class="keyword markupname xmlatt">@xml:lang</code> attribute, a processor
+        <dfn class="term RFC-2119">SHOULD</dfn> assume a default value. The default value of the
+        processor can be either fixed, configurable, or derived from the content itself, such as the
+        <code class="keyword markupname xmlatt">@xml:lang</code> attribute on the root map.
+      </p>
+      <p class="p">
+        When a <code class="keyword markupname xmlatt">@conref</code> or
+        <code class="keyword markupname xmlatt">@conkeyref</code> attribute is used to include
+        content from one element into another, the processor
+        <dfn class="term RFC-2119">MUST</dfn> use the effective value of the
+        <code class="keyword markupname xmlatt">@xml:lang</code> attribute from the referenced
+        element.
+        <span style="color:red;" class="ph"
+          >If the referenced element does not have an explicit value for the
+          <code class="keyword markupname xmlatt">@xml:lang</code> attribute, the processor
+          <dfn class="term RFC-2119">SHOULD</dfn> use the default value.</span
+        >
+      </p>
+      <p class="p">
+        Processors <dfn class="term RFC-2119">SHOULD</dfn> render each element in a way that is
+        appropriate for its language as identified by the
+        <code class="keyword markupname xmlatt">@xml:lang</code> attribute.
+      </p>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/xmllang.html"
+            title="The xml:lang attribute specifies the language and optional locale of the content that is contained in an element. The xml:lang attribute is described in the XML Recommendation."
+            >The xml:lang attribute</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

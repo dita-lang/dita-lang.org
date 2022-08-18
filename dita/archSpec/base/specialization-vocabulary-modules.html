@@ -1,0 +1,193 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Vocabulary modules'
+description: 'A DITA element type or attribute is declared in exactly one vocabulary
+  module.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/ditaspecialization.html"
+            >Overview of DITA extension facilities</a
+          >
+        </li>
+        <li><a href="../../archSpec/base/configuration.html">Document-type configuration</a></li>
+        <li>
+          <a href="../../archSpec/base/specialization.html">Specialization</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/specialization-overview.html"
+                >Overview of specialization</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/specialization-modularization.html">Modularization</a>
+            </li>
+            <li class="active">
+              <a href="../../archSpec/base/specialization-vocabulary-modules.html"
+                >Vocabulary modules</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/specialization-rules-elements.html"
+                >Specialization rules for element types</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/specialization-rules-attributes.html"
+                >Specialization rules for attributes</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/specialization-class-attribute.html"
+                >class attribute rules and syntax</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/specialization-specializations-attribute.html"
+                >specializations attribute rules and syntax</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/specialization-including-non-dita-content.html"
+                >Specializing to include non-DITA content</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/specialization-sharing-elements-across-modules.html"
+                >Sharing elements across specializations</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/generalization.html">Generalization</a></li>
+        <li><a href="../../archSpec/base/constraints.html">Constraints</a></li>
+        <li><a href="../../archSpec/base/expansion-modules.html">Expansion modules</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Vocabulary modules</h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        A DITA element type or attribute is declared in exactly one vocabulary module.
+      </p>
+      <p class="p">The following terminology is used to refer to DITA vocabulary modules:</p>
+      <dl class="dl">
+        <dt class="dt dlterm">structural module</dt>
+        <dd class="dd">A vocabulary module that defines a top-level map or topic type.</dd>
+
+        <dt class="dt dlterm">element domain module</dt>
+        <dd class="dd">
+          A vocabulary module that defines one or more specialized element types that can be
+          integrated into maps or topics.
+        </dd>
+
+        <dt class="dt dlterm">attribute domain module</dt>
+        <dd class="dd">
+          A vocabulary module that defines exactly one specialization of either the
+          <code class="keyword markupname xmlatt">@base</code> or
+          <code class="keyword markupname xmlatt">@props</code> attribute.
+        </dd>
+      </dl>
+      <p class="p">
+        For structural types, the module name is typically the same as the root element. For
+        example, "task" is the name of the structural vocabulary module whose root element is
+        <code class="keyword markupname xmlelement">&lt;task&gt;</code>.
+      </p>
+      <p class="p">
+        For element domain modules, the module name is typically a name that reflects the subject
+        domain to which the domain applies, such as "highlight" or "software". Domain modules often
+        have an associated short name, such as <span class="keyword">hi-d</span> for the
+        highlighting domain or <span class="keyword">sw-d</span> for the software domain.
+      </p>
+      <p class="p">
+        The name (or short name) of an element domain module is used to identify the module in
+        <code class="keyword markupname xmlatt">@class</code> attribute values. While module names
+        need not be globally unique, module names must be unique within the scope of a given
+        specialization hierarchy. The short name must be a valid XML name token.
+      </p>
+      <p class="p">
+        Structural modules based on topic <dfn class="term RFC-2119">MAY</dfn> define additional
+        topic types that are then allowed to occur as subordinate topics within the top-level topic.
+        However, such subordinate topic types <dfn class="term RFC-2119">MAY NOT</dfn> be used as
+        the root elements of conforming DITA documents.
+      </p>
+      <p class="p">
+        For example, a top-level topic type might require the use of subordinate topic types that
+        would only ever be meaningful in the context of their containing type and thus would never
+        be candidates for standalone authoring or aggregation using maps. In that case, the
+        subordinate topic type can be declared in the module for the top-level topic type that uses
+        it. However, in most cases, potential subordinate topics are best defined in their own
+        vocabulary modules.
+      </p>
+      <p class="p">
+        Domain elements intended for use in topics <dfn class="term RFC-2119">MUST</dfn> ultimately
+        be specialized from elements that are defined in the topic module. Domain elements intended
+        for use in maps <dfn class="term RFC-2119">MUST</dfn> ultimately be specialized from
+        elements defined by or used in the map module. Maps share some element types with topics but
+        no map-specific elements can be used within topics.
+      </p>
+      <p class="p">
+        Structural modules also can define specializations of, or reuse elements from, domain or
+        other structural modules. When this happens, the structural module becomes dependent.
+      </p>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/specialization.html"
+            title="The specialization feature of DITA allows for the creation of new element types and attributes that are explicitly and formally derived from existing types. This facilitates interchange of conforming DITA content and ensures a minimum level of common processing for all DITA content. It also allows specialization-aware processors to add specialization-specific processing to existing base processing."
+            >Specialization</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

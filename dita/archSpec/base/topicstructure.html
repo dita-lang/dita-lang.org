@@ -1,0 +1,194 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Topic structure'
+description: 'All topics have the same basic structure, regardless of
+topic type: title,         description or abstract, prolog, body,
+related links, and nested topics.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li>
+      <a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a>
+      <ul class="nav nav-list">
+        <li><a href="../../archSpec/base/basic-concepts.html">Basic concepts</a></li>
+        <li>
+          <a href="../../archSpec/base/single-sourcing.html"
+            >Producing different deliverables from a single source</a
+          >
+        </li>
+        <li>
+          <a href="../../archSpec/base/topicover.html">DITA topics</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/topicdefined.html"
+                >The topic as the basic unit of information</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/topicbenefits.html"
+                >The benefits of a topic-based architecture</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/topicorientation.html"
+                >Disciplined, topic-oriented writing</a
+              >
+            </li>
+            <li><a href="../../archSpec/base/information-typing.html">Information typing</a></li>
+            <li><a href="../../archSpec/base/generictopics.html">Generic topics</a></li>
+            <li class="active">
+              <a href="../../archSpec/base/topicstructure.html">Topic structure</a>
+            </li>
+            <li><a href="../../archSpec/base/topiccontent.html">Topic content</a></li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/ditamaps.html">DITA maps</a></li>
+        <li><a href="../../archSpec/base/dita-metadata.html">DITA metadata</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Topic structure</h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        All topics have the same basic structure, regardless of topic type: title, description or
+        abstract, prolog, body, related links, and nested topics.
+      </p>
+
+      <div class="p">
+        All DITA topics must have an XML identifier (the
+        <code class="keyword markupname xmlatt">@id</code> attribute) and a title. The basic topic
+        structure consists of the following parts, some of which are optional:
+        <dl class="dl">
+          <dt class="dt dlterm">Topic element</dt>
+          <dd class="dd">
+            The topic element holds the required
+            <code class="keyword markupname xmlatt">@id</code> attribute and contains all other
+            elements.
+          </dd>
+
+          <dt class="dt dlterm">Title</dt>
+          <dd class="dd">The title contains the subject of the topic.</dd>
+
+          <dt class="dt dlterm">Alternate titles</dt>
+          <dd class="dd">
+            Titles specifically for use in navigation or search. When not provided, the base title
+            is used for all contexts.
+          </dd>
+
+          <dt class="dt dlterm">Short description or abstract</dt>
+          <dd class="dd">
+            A short description of the topic or a longer abstract with an embedded short
+            description. The short description might be used both in topic content (as the first
+            paragraph), in generated summaries that include the topic, and in links to the topic.
+            Alternatively, the abstract lets you create more complex introductory content and uses
+            an embedded short description element to define the part of the abstract that is
+            suitable for summaries and link previews.
+          </dd>
+
+          <dd class="dd ddexpand">
+            While short descriptions are not required, they can make a dramatic difference to the
+            usability of an information set and should generally be provided for all topics.
+          </dd>
+
+          <dt class="dt dlterm">Prolog</dt>
+          <dd class="dd">
+            The prolog is the container for topic metadata, such as change history, audience,
+            product, and so on.
+          </dd>
+
+          <dt class="dt dlterm">Body</dt>
+          <dd class="dd">
+            The topic body contains the topic content: paragraphs, lists, sections, and other
+            content that the information type permits.
+          </dd>
+
+          <dt class="dt dlterm">Related links</dt>
+          <dd class="dd">
+            Related links connect to other topics. When an author creates a link as part of a topic,
+            the topic becomes dependent on the other topic being available. To reduce dependencies
+            between topics and thereby increase the ability to reuse each topic, authors can use
+            DITA maps to define and manage links between topics, instead of embedding links directly
+            in each related topic.
+          </dd>
+
+          <dt class="dt dlterm">Nested topics</dt>
+          <dd class="dd">
+            Topics can be defined inside other topics. However, nesting requires special care
+            because it can result in complex documents that are less usable and less reusable.
+            Nesting might be appropriate for information that is first converted from desktop
+            publishing or word processing files or for topics that are unusable independent from
+            their parent or sibling topics.
+          </dd>
+          <dd class="dd ddexpand">
+            The rules for topic nesting can be configured in a document-type shells. For example,
+            the standard DITA configuration for concept topics only allows nested concept topics.
+            However, local configuration of the concept topic type could allow other topic types to
+            nest or disallow topic nesting entirely. In addition, the
+            <code class="keyword markupname xmlatt">@chunk</code> attribute enables topics to be
+            equally re-usable regardless of whether they are separate or nested. The standard DITA
+            configuration for ditabase document-type documents allows unrestricted topic nesting and
+            can be used for holding sets of otherwise unrelated topics that hold re-usable content.
+            It can also be used to convert DITA topics from non-DITA legacy source without first
+            determining how individual topics should be organized into separate XML documents.
+          </dd>
+        </dl>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/topicover.html"
+            title="DITA topics are the basic units of DITA content and the basic units of reuse. Each topic contains a single subject."
+            >DITA topics</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

@@ -1,0 +1,216 @@
+---
+# Generated from DITA source
+layout: base
+title: 'The type attribute'
+description: 'On linking elements, the type attribute
+  describes the target of a reference. The
+  type attribute is also used on several non-linking elements for other purposes.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li>
+      <a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a>
+      <ul class="nav nav-list">
+        <li><a href="../../archSpec/base/id.html">ID attribute</a></li>
+        <li>
+          <a href="../../archSpec/base/dita-linking.html">DITA linking</a>
+          <ul class="nav nav-list">
+            <li><a href="../../archSpec/base/theformatattribute.html">The format attribute</a></li>
+            <li><a href="../../archSpec/base/thehrefattribute.html">The href attribute</a></li>
+            <li><a href="../../archSpec/base/thescopeattribute.html">The scope attribute</a></li>
+            <li class="active">
+              <a href="../../archSpec/base/thetypeattribute.html">The type attribute</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="../../archSpec/base/uri-based-addressing.html">URI-based (direct) addressing</a>
+        </li>
+        <li>
+          <a href="../../archSpec/base/key-based-addressing.html">Indirect key-based addressing</a>
+        </li>
+        <li>
+          <a href="../../archSpec/base/context-hooks-for-user-assistance.html"
+            >Context hooks for user assistance</a
+          >
+        </li>
+      </ul>
+    </li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      The <code class="keyword markupname xmlatt">@type</code> attribute
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        On linking elements, the <code class="keyword markupname xmlatt">@type</code> attribute
+        describes the target of a reference.
+        <span style="color:red;" class="ph"
+          >The <code class="keyword markupname xmlatt">@type</code> attribute</span
+        >
+        is also used on several <span style="color:red;" class="ph">non-linking</span> elements for
+        <span style="color:red;" class="ph">other</span> purposes.
+      </p>
+      <p class="p">
+        This topic describes how to interpret the
+        <code class="keyword markupname xmlatt">@type</code> attribute when it is used on linking
+        elements. Usage information for the
+        <code class="keyword markupname xmlatt">@type</code> attribute on other elements, such as
+        <code class="keyword markupname xmlelement">&lt;note&gt;</code> or
+        <code class="keyword markupname xmlelement">&lt;copyright&gt;</code>, is described in the
+        element reference topics for those elements.
+      </p>
+      <p class="p">
+        If the <code class="keyword markupname xmlatt">@type</code> attribute is specified on a
+        linking element that references DITA content, the attribute value should reflect the
+        <code class="keyword markupname xmlatt">@class</code> attribute of the referenced element.
+        The value can be an unqualified local name, for example, <span class="keyword">fig</span>,
+        or a qualified name exactly as specified in the
+        <code class="keyword markupname xmlatt">@class</code> attribute, for example,
+        <span class="keyword">topic/fig</span>. Processors might ignore qualified names or consider
+        only the local name.
+      </p>
+      <p class="p">
+        If not explicitly specified on an element, the
+        <code class="keyword markupname xmlatt">@type</code> attribute value cascades from the
+        closest containing element. If there is no explicit value for the
+        <code class="keyword markupname xmlatt">@type</code> attribute specified on an ancestor
+        element, the processor should retrieve the type from the target resource, if it is
+        available. If the type cannot be determined, the processing default is
+        <span class="keyword">topic</span>.
+      </p>
+      <p class="p">
+        Applications <dfn class="term RFC-2119">MAY</dfn> issue a warning when the specified or
+        inherited <code class="keyword markupname xmlatt">@type</code> attribute value does not
+        match the target or a specialization ancestor of the target. Applications
+        <dfn class="term RFC-2119">MAY</dfn> recover from this error condition by using the correct
+        value detected.
+      </p>
+      <p class="p">
+        Only the <code class="keyword markupname xmlelement">&lt;xref&gt;</code> element can link to
+        content below the topic level. The other linking elements only can
+        <span style="color:red;" class="ph">link to</span> topics.
+      </p>
+      <p class="p">
+        The following table lists values for the
+        <code class="keyword markupname xmlatt">@type</code> attribute that are commonly used on
+        <code class="keyword markupname xmlelement">&lt;xref&gt;</code> elements:
+      </p>
+      <table class="simpletable">
+        <colgroup>
+          <col style="width:50%" />
+          <col style="width:50%" />
+        </colgroup>
+        <thead>
+          <tr class="sthead">
+            <th class="stentry" scope="col" id="thetypeattribute__stentry__1">Value</th>
+            <th class="stentry" scope="col" id="thetypeattribute__stentry__2">
+              <span style="color:red;" class="ph">Target element</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="strow">
+            <th class="stentry" scope="row" headers="thetypeattribute__stentry__1">fig</th>
+            <td class="stentry" headers="thetypeattribute__stentry__2">
+              <code class="keyword markupname xmlelement">&lt;fig&gt;</code>
+            </td>
+          </tr>
+          <tr class="strow">
+            <th class="stentry" scope="row" headers="thetypeattribute__stentry__1">fn</th>
+            <td class="stentry" headers="thetypeattribute__stentry__2">
+              <code class="keyword markupname xmlelement">&lt;fn&gt;</code>
+            </td>
+          </tr>
+          <tr class="strow">
+            <th class="stentry" scope="row" headers="thetypeattribute__stentry__1">li</th>
+            <td class="stentry" headers="thetypeattribute__stentry__2">
+              <code class="keyword markupname xmlelement">&lt;li&gt;</code>
+            </td>
+          </tr>
+          <tr class="strow">
+            <th class="stentry" scope="row" headers="thetypeattribute__stentry__1">section</th>
+            <td class="stentry" headers="thetypeattribute__stentry__2">
+              <code class="keyword markupname xmlelement">&lt;section&gt;</code>
+            </td>
+          </tr>
+          <tr class="strow">
+            <th class="stentry" scope="row" headers="thetypeattribute__stentry__1">table</th>
+            <td class="stentry" headers="thetypeattribute__stentry__2">
+              <code class="keyword markupname xmlelement">&lt;table&gt;</code>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="p">
+        An application might generate cross-reference text that is based the value of the
+        <code class="keyword markupname xmlatt">@format</code> attribute.
+      </p>
+      <p class="p">
+        <span class="keyword">-dita-use-conref-target</span> is also a valid value for the
+        <code class="keyword markupname xmlatt">@type</code> attribute. See
+        <a
+          class="xref"
+          href="ditauseconreftarget.html"
+          title="The value -dita-use-conref-target is available on enumerated attributes and can also be specified on other attributes. When an element uses conref to pull in content, for any of its attributes assigned a value of -dita-use-conref-target, the resulting value for those attributes is also pulled in from the referenced element."
+          >Using the -dita-use-conref-target value</a
+        >
+        for more information.
+      </p>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/dita-linking.html"
+            title="DITA supports many different linking elements, but they all use the same set of attributes: format, href, scope, and type. These four attributes act as a unit."
+            >DITA linking</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

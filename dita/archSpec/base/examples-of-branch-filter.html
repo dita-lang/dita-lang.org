@@ -1,0 +1,254 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Examples of branch filtering'
+description: 'The branch filtering examples illustrate the processing expectations
+  for various scenarios that involve ditavalref elements. Processing
+  examples use either before and after sample markup or expanded syntax that shows the
+  equivalent markup without the ditavalref elements.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li>
+      <a href="../../archSpec/base/behaviors.html">DITA processing</a>
+      <ul class="nav nav-list">
+        <li><a href="../../archSpec/base/navigation.html">Navigation</a></li>
+        <li><a href="../../archSpec/base/indexes.html">Indexes</a></li>
+        <li><a href="../../archSpec/base/conref.html">Content reference (conref)</a></li>
+        <li><a href="../../archSpec/base/condproc.html">Conditional processing</a></li>
+        <li>
+          <a href="../../archSpec/base/branch-filtering.html">Branch filtering</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/branch-filtering-overview.html"
+                >Overview of branch filtering</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/branch-filtering-interactions.html"
+                >How filtering rules interact</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/branch-filtering-single-set.html"
+                >Branch filtering: Single referenced DITAVAL document for a branch</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/branch-filtering-multiple-sets.html"
+                >Branch filtering: Multiple referenced DITAVAL documents for a branch</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/branch-filtering-resource-names.html"
+                >Branch filtering: Impact on resource and key names</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/branch-filtering-implications-of-processing-order.html"
+                >Branch filtering: Implications of processing order</a
+              >
+            </li>
+            <li class="active">
+              <a href="../../archSpec/base/examples-of-branch-filter.html"
+                >Examples of branch filtering</a
+              >
+              <ul class="nav nav-list">
+                <li>
+                  <a href="../../archSpec/base/example-single-ditavalref-on-branch.html"
+                    >Example: Single ditavalref on a branch</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-multiple-ditavalref.html"
+                    >Example: Multiple ditavalref elements on a branch</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-ditavalref-as-child-of-map.html"
+                    >Example: Single ditavalref as a child of map</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-ditavalref-with-mapref.html"
+                    >Example: Single ditavalref in a reference to a map</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-multiple-ditavalref-as-child-of-map.html"
+                    >Example: Multiple ditavalref elements as children of map in a root map</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-multiple-ditavalref-with-mapref.html"
+                    >Example: Multiple ditavalref elements in a reference to a map</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-ditavalref-in-filtered-branch.html"
+                    >Example: ditavalref within a branch that already uses ditavalref</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-ditavalref-error-conditions.html"
+                    >Example: ditavalref error conditions</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/sort-as-processing.html">Sorting</a></li>
+        <li>
+          <a href="../../archSpec/base/determining-effective-attribute-values.html"
+            >Determining effective attribute values</a
+          >
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Examples of branch filtering</h1>
+    <p class="shortdesc">
+      The branch filtering examples illustrate the processing expectations for various scenarios
+      that involve <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> elements.
+      Processing examples use either before and after sample markup or expanded syntax that shows
+      the equivalent markup without the
+      <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> elements.
+    </p>
+    <nav role="navigation" class="related-links">
+      <ul class="ullinks">
+        <li class="link ulchildlink">
+          <strong
+            ><a href="../../archSpec/base/example-single-ditavalref-on-branch.html"
+              >Example: Single ditavalref on a branch</a
+            ></strong
+          ><br />In this scenario, a single
+          <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element is used to
+          supply filtering conditions for a branch.
+        </li>
+        <li class="link ulchildlink">
+          <strong
+            ><a href="../../archSpec/base/example-multiple-ditavalref.html"
+              >Example: Multiple ditavalref elements on a branch</a
+            ></strong
+          ><br />In this scenario, multiple
+          <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> elements are used on
+          a single map branch to create multiple distinct copies of the branch.
+        </li>
+        <li class="link ulchildlink">
+          <strong
+            ><a href="../../archSpec/base/example-ditavalref-as-child-of-map.html"
+              >Example: Single ditavalref as a child of map</a
+            ></strong
+          ><br />In this scenario, a
+          <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element is a direct
+          child of the <code class="keyword markupname xmlelement">&lt;map&gt;</code> element, which
+          is equivalent to setting global filtering conditions for the map.
+        </li>
+        <li class="link ulchildlink">
+          <strong
+            ><a href="../../archSpec/base/example-ditavalref-with-mapref.html"
+              >Example: Single ditavalref in a reference to a map</a
+            ></strong
+          ><br />In this scenario, a
+          <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element is used when
+          referencing a map. This is equivalent to setting filtering conditions for the referenced
+          map.
+        </li>
+        <li class="link ulchildlink">
+          <strong
+            ><a href="../../archSpec/base/example-multiple-ditavalref-as-child-of-map.html"
+              >Example: Multiple ditavalref elements as children of map in a root map</a
+            ></strong
+          ><br />In this scenario, multiple instances of the
+          <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element are
+          specified as direct children of the
+          <code class="keyword markupname xmlelement">&lt;map&gt;</code> element in a root map. This
+          is equivalent to setting multiple sets of global filtering conditions for the root map.
+        </li>
+        <li class="link ulchildlink">
+          <strong
+            ><a href="../../archSpec/base/example-multiple-ditavalref-with-mapref.html"
+              >Example: Multiple ditavalref elements in a reference to a map</a
+            ></strong
+          ><br />In this scenario, multiple instances of the
+          <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element are
+          specified in a reference to a map. This is equivalent to referencing that map multiple
+          times, with each reference nesting one of the
+          <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> elements.
+        </li>
+        <li class="link ulchildlink">
+          <strong
+            ><a href="../../archSpec/base/example-ditavalref-in-filtered-branch.html"
+              >Example: ditavalref within a branch that already uses ditavalref</a
+            ></strong
+          ><br />In this scenario, a branch is filtered because a
+          <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element is present,
+          and another <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> deeper
+          within that branch supplies additional conditions for a subset of the branch.
+        </li>
+        <li class="link ulchildlink">
+          <strong
+            ><a href="../../archSpec/base/example-ditavalref-error-conditions.html"
+              >Example: ditavalref error conditions</a
+            ></strong
+          ><br />In this scenario, multiple, non-equivalent copies of the same resource name are
+          created as a result of branch filtering. In addition, the process results in duplicate key
+          names, making it impossible to reliably reference individual result topics.
+        </li>
+      </ul>
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/branch-filtering.html"
+            title="The branch filtering mechanism enables map authors to set filtering conditions for specific branches of a map. This makes it possible for multiple conditional-processing profiles to be applied within a single publication."
+            >Branch filtering</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

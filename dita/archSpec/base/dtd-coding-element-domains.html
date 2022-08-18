@@ -1,0 +1,183 @@
+---
+# Generated from DITA source
+layout: base
+title: 'DTD: Coding requirements for element-domain modules'
+description: 'The vocabulary modules that define element domains have an additional coding
+  requirement. The entity declaration file must include a parameter entity for each element that
+  the domain extends.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/recognizedconstraintmechanisms.html"
+            >Recognized XML-document grammar mechanisms</a
+          >
+        </li>
+        <li>
+          <a href="../../archSpec/base/using-relax-ng.html"
+            >Normative versions of DITA grammar files</a
+          >
+        </li>
+        <li>
+          <a href="../../archSpec/base/dtd-requirements.html">DTD coding requirements</a>
+          <ul class="nav nav-list">
+            <li><a href="../../archSpec/base/dtd-coding-overview.html">DTD: Use of entities</a></li>
+            <li>
+              <a href="../../archSpec/base/dtd-coding-doctype-shell.html"
+                >DTD: Coding requirements for document-type shells</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/dtd-coding-element-types.html"
+                >DTD: Coding requirements for element-type declarations</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/dtd-coding-structural-modules.html"
+                >DTD: Coding requirements for structural modules</a
+              >
+            </li>
+            <li class="active">
+              <a href="../../archSpec/base/dtd-coding-element-domains.html"
+                >DTD: Coding requirements for element-domain modules</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/dtd-coding-attribute-domains.html"
+                >DTD: Coding requirements for attribute domain modules</a
+              >
+            </li>
+            <li>
+              <a
+                href="../../archSpec/base/dtd-coding-requirements-for-element-configuration-modules.html"
+                >DTD: Coding requirements for element-configuration modules</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="../../archSpec/base/relax-ng-requirements.html">RELAX NG coding requirements</a>
+        </li>
+      </ul>
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      DTD: Coding requirements for element-domain modules
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        The vocabulary modules that define element domains have an additional coding requirement.
+        The entity declaration file must include a parameter entity for each element that the domain
+        extends.
+      </p>
+      <dl class="dl">
+        <dt class="dt dlterm">Parameter entity name</dt>
+        <dd class="dd">
+          <p class="p">
+            The name of the parameter entity is the abbreviation for the domain, followed by a
+            hyphen ("-"), and the name of the element that is extended.
+          </p>
+          <div class="example">
+            <p class="p">
+              For example, the name of the parameter entity for the highlight domain that extends
+              the <code class="keyword markupname xmlelement">&lt;ph&gt;</code> element is
+              <code class="ph codeph">hi-d-ph</code>.
+            </p>
+          </div>
+        </dd>
+
+        <dt class="dt dlterm">Parameter entity value</dt>
+        <dd class="dd">
+          <p class="p">
+            The value of the parameter entity is a list of the specialized elements that can occur
+            in the same locations as the extended element. Each element is separated by the vertical
+            line ( | ) symbol.
+          </p>
+          <div class="example">
+            <p class="p">
+              For example, the value of the
+              <code class="keyword markupname parameterentity">%hi-d-ph;</code> parameter entity is
+              <code class="ph codeph"
+                >"b | u | i | <span class="ph">line-through | overline |</span> tt | sup |
+                sub"</code
+              >.
+            </p>
+          </div>
+        </dd>
+      </dl>
+      <div class="example" id="domainpattern__example">
+        <h2 class="title sectiontitle">Example</h2>
+
+        <p class="p">
+          The following code sample shows the parameter entity for the highlight domain, as declared
+          in <span class="ph filepath">highlightDomain.ent</span>:
+        </p>
+        <pre
+          class="pre codeblock"
+        ><code>&lt;!-- ============================================================= --&gt;
+&lt;!--                    ELEMENT EXTENSION ENTITY DECLARATIONS      --&gt;
+&lt;!-- ============================================================= --&gt;
+
+&lt;!ENTITY % hi-d-ph "b | i | line-through | overline | sup | sub | tt | u"&gt;
+
+&lt;!-- ================ End DITA Highlight Domain ================== --&gt;</code></pre>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/dtd-requirements.html"
+            title="This section explains how to implement DTD based document-type shells, specializations, and element-configuration modules (constraint and expansion)."
+            >DTD coding requirements</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

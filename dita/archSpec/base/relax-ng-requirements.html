@@ -1,0 +1,196 @@
+---
+# Generated from DITA source
+layout: base
+title: 'RELAX NG coding requirements'
+description:
+  'This section explains how to implement RNG based document-type shells, specializations,
+  and element-configuration modules (constraints and expansions).'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/recognizedconstraintmechanisms.html"
+            >Recognized XML-document grammar mechanisms</a
+          >
+        </li>
+        <li>
+          <a href="../../archSpec/base/using-relax-ng.html"
+            >Normative versions of DITA grammar files</a
+          >
+        </li>
+        <li><a href="../../archSpec/base/dtd-requirements.html">DTD coding requirements</a></li>
+        <li class="active">
+          <a href="../../archSpec/base/relax-ng-requirements.html">RELAX NG coding requirements</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/relax-ng-coding-overview.html"
+                >RELAX NG: Overview of coding requirements</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/relax-ng-coding-doctype-shell.html"
+                >RELAX NG: Coding requirements for document-type shells</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/relax-ng-coding-element-types.html"
+                >RELAX NG: Coding requirements for element-type declarations</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/relax-ng-coding-structural-modules.html"
+                >RELAX NG: Coding requirements for structural modules</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/relax-ng-coding-element-domains.html"
+                >RELAX NG: Coding requirements for element-domain modules</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/relax-ng-coding-attribute-domains.html"
+                >RELAX NG: Coding requirements for attribute-domain modules</a
+              >
+            </li>
+            <li>
+              <a
+                href="../../archSpec/base/relax-ng-coding-requirements-for-element-configuration-modules.html"
+                >RELAX NG: Coding requirements for element-configuration modules</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">RELAX NG coding requirements</h1>
+    <p class="shortdesc">
+      This section explains how to implement RNG based document-type shells, specializations, and
+      <span style="color:red;" class="ph"
+        >element-configuration modules (constraints and expansions).</span
+      >
+    </p>
+    <nav role="navigation" class="related-links">
+      <ul class="ullinks">
+        <li class="link ulchildlink">
+          <strong
+            ><a href="../../archSpec/base/relax-ng-coding-overview.html"
+              >RELAX NG: Overview of coding requirements</a
+            ></strong
+          ><br />RELAX NG modules are self-integrating; they automatically add to the content models
+          and attribute lists that they extend. This means that information architects do not have
+          much work to do when integrating vocabulary modules
+          <span style="color:red;" class="ph"
+            >and element-configuration modules (constraints and expansion)</span
+          >
+          into document-type shells.
+        </li>
+        <li class="link ulchildlink">
+          <strong
+            ><a href="../../archSpec/base/relax-ng-coding-doctype-shell.html"
+              >RELAX NG: Coding requirements for document-type shells</a
+            ></strong
+          ><br />A RNG-based document-type shell is organized into sections; each section follows a
+          pattern. These patterns help ensure that the shell follows XML parsing rules for RELAX NG;
+          they also establish a modular design that simplifies creation of new document-type shells.
+        </li>
+        <li class="link ulchildlink">
+          <strong
+            ><a href="../../archSpec/base/relax-ng-coding-element-types.html"
+              >RELAX NG: Coding requirements for element-type declarations</a
+            ></strong
+          ><br />This topic covers general coding requirements for element types in structural and
+          element-domain vocabulary modules.
+        </li>
+        <li class="link ulchildlink">
+          <strong
+            ><a href="../../archSpec/base/relax-ng-coding-structural-modules.html"
+              >RELAX NG: Coding requirements for structural modules</a
+            ></strong
+          ><br />A structural vocabulary module defines a new topic or map type as a specialization
+          of a topic or map type.
+        </li>
+        <li class="link ulchildlink">
+          <strong
+            ><a href="../../archSpec/base/relax-ng-coding-element-domains.html"
+              >RELAX NG: Coding requirements for element-domain modules</a
+            ></strong
+          ><br />Element-domain modules declare an extension pattern for each element that is
+          extended by the domain. These patterns are used when including the domain module in
+          document-type shells.
+        </li>
+        <li class="link ulchildlink">
+          <strong
+            ><a href="../../archSpec/base/relax-ng-coding-attribute-domains.html"
+              >RELAX NG: Coding requirements for attribute-domain modules</a
+            ></strong
+          ><br />An attribute-domain vocabulary module declares a new attribute specialized from
+          either the <code class="keyword markupname xmlatt">@props</code> or
+          <code class="keyword markupname xmlatt">@base</code> attribute.
+        </li>
+        <li class="link ulchildlink">
+          <strong
+            ><a
+              href="../../archSpec/base/relax-ng-coding-requirements-for-element-configuration-modules.html"
+              >RELAX NG: Coding requirements for element-configuration modules</a
+            ></strong
+          ><br />An element-configuration module (constraint and expansion) redefines the content
+          model or attribute list for one or more elements.
+        </li>
+      </ul>
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/coding-requirements.html"
+            title="This section collects all of the rules for creating modular DTD or RELAX NG-based grammar files that represent DITA document types, specializations, constraints, and expansion modules."
+            >Coding practices for DITA grammar files</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

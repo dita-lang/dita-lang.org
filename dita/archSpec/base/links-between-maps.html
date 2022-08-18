@@ -1,0 +1,250 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Cross-deliverable addressing and linking'
+description: 'A map can use scoped keys to reference keys that are defined in a different root map.
+  This cross-deliverable addressing can support the production of deliverables that contain
+  working links to other deliverables.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li>
+      <a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a>
+      <ul class="nav nav-list">
+        <li><a href="../../archSpec/base/id.html">ID attribute</a></li>
+        <li><a href="../../archSpec/base/dita-linking.html">DITA linking</a></li>
+        <li>
+          <a href="../../archSpec/base/uri-based-addressing.html">URI-based (direct) addressing</a>
+        </li>
+        <li>
+          <a href="../../archSpec/base/key-based-addressing.html">Indirect key-based addressing</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/keys-core-concepts.html"
+                >Core concepts for working with keys</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/thekeysattribute.html"
+                >Setting key names with the keys attribute</a
+              >
+            </li>
+            <li><a href="../../archSpec/base/thekeyrefattribute.html">The keyref attribute</a></li>
+            <li>
+              <a href="../../archSpec/base/using-keys-for-addressing.html"
+                >Using keys for addressing</a
+              >
+            </li>
+            <li><a href="../../archSpec/base/keyScopes.html">Key scopes</a></li>
+            <li>
+              <a href="../../archSpec/base/the-key-scope-attribute.html">The keyscope attribute</a>
+            </li>
+            <li>
+              <a href="../../archSpec/base/using-keys-to-address-keys-across-scopes.html"
+                >Addressing keys across scopes</a
+              >
+            </li>
+            <li class="active">
+              <a href="../../archSpec/base/links-between-maps.html"
+                >Cross-deliverable addressing and linking</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/processing-key-references-general.html"
+                >Processing key references</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/processing-keyref-for-links.html"
+                >Processing key references for navigation links and images</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/processing-keyref-on-topicref.html"
+                >Processing key references on topicref elements</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/processing-keyref-for-text.html"
+                >Processing key references to generate text or link text</a
+              >
+            </li>
+            <li><a href="../../archSpec/base/examples-of-keys.html">Examples of keys</a></li>
+            <li>
+              <a href="../../archSpec/base/examples-of-scoped-keys.html">Examples of scoped keys</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="../../archSpec/base/context-hooks-for-user-assistance.html"
+            >Context hooks for user assistance</a
+          >
+        </li>
+      </ul>
+    </li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      <span class="ph">Cross-deliverable addressing and linking</span>
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        A map can use scoped keys to reference keys that are defined in a different root map. This
+        cross-deliverable addressing can support the production of deliverables that contain working
+        links to other deliverables.
+      </p>
+
+      <p class="p">
+        When maps are referenced and the value of the
+        <code class="keyword markupname xmlatt">@scope</code> attribute is set to "peer", the
+        implications are that the two maps are managed in tandem, and that the author of the
+        referencing map might have access to the referenced map. Adding a key scope to the reference
+        indicates that the peer map should be treated as a separate deliverable for the purposes of
+        linking.
+      </p>
+
+      <p class="p">
+        The keys that are defined by the peer map belong to
+        <span class="ph">any key scopes that are</span> declared on the
+        <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element that references
+        that map. Such keys can be referenced from content in the referencing map by using
+        scope-qualified key names. However, processors handle references to keys that are defined in
+        peer maps differently from how they handle references to keys that are defined in submaps.
+      </p>
+      <p class="p">
+        DITA processors are not required to resolve key references to peer maps. However, if all
+        resources are available in the same processing or management context, processors have the
+        potential to resolve key references to peer maps. There might be performance, scale, and
+        user interface challenges in implementing such systems, but the ability to resolve any given
+        reference is ensured when the source files are physically accessible.
+      </p>
+
+      <p class="p">
+        Note the inverse implication; if the peer map is not available, then it is impossible to
+        resolve the key reference. Processors that resolve key references to peer maps should
+        provide appropriate messages when a reference to a peer map cannot be resolved. Depending on
+        how DITA resources are authored, managed, and processed, references to peer maps might not
+        be resolvable at certain points in the content life cycle.
+      </p>
+      <p class="p">
+        The peer map might specify <code class="keyword markupname xmlatt">@keyscope</code> on its
+        root element. In that case, the <code class="keyword markupname xmlatt">@keyscope</code> on
+        the peer map is ignored for the purpose of resolving scoped key references from the
+        referencing map. This avoids the need for processors to have access to the peer map in order
+        to determine whether a given key definition comes from the peer map.
+      </p>
+      <div class="example" id="links-between-maps__example-root-declares-peer">
+        <h2 class="title sectiontitle">Example: A root map that declares a peer map</h2>
+
+        <p class="p">
+          Consider the DITA maps <span class="ph filepath">map-a.ditamap</span> and
+          <span class="ph filepath">map-b.ditamap</span>. Map A designates Map B as a peer map by
+          using the following markup:
+        </p>
+        <pre class="pre codeblock"><code>&lt;map&gt;
+  &lt;title&gt;Map A&lt;/title&gt;
+  &lt;topicref 
+    scope="peer"
+    format="ditamap"
+    keyscope="map-b"
+    href="../map-b/map-b.ditamap"
+    processing-role="resource-only"
+  /&gt;
+  &lt;!-- ... --&gt;
+&lt;/map&gt;</code></pre>
+        <p class="p">
+          In this example, <span class="ph filepath">map-b.ditamap</span> is not a submap of Map A;
+          it is a peer map.
+        </p>
+      </div>
+      <div class="example" id="links-between-maps__example-peer-keyscope">
+        <h2 class="title sectiontitle">
+          Example: Key resolution in a peer map that contains a
+          <code class="keyword markupname xmlatt">@keyscope</code> attribute on the root element
+        </h2>
+
+        <p class="p">Consider the map reference in map Map A:</p>
+        <pre class="pre codeblock"><code>&lt;mapref 
+  keyscope="scope-b"
+  scope="peer"  
+  href="map-b.ditamap"
+/&gt; </code></pre>
+        <p class="p">
+          where <span class="ph filepath">map-b.ditamap</span> contains the following markup:
+        </p>
+        <pre class="pre codeblock"><code>&lt;map keyscope="product-x"&gt;
+ &lt;!-- ... --&gt;
+&lt;/map&gt;</code></pre>
+        <p class="p">
+          From the context of Map A, key references of the form
+          <span class="keyword">scope-b.somekey</span> are resolved to keys that are defined in the
+          global scope of map B, but key references of the form
+          <span class="keyword">product-x.somekey</span> are not. The presence of a
+          <code class="keyword markupname xmlatt">@keyscope</code> attribute on the
+          <code class="keyword markupname xmlelement">&lt;map&gt;</code> element in Map B has no
+          effect. A key reference to the scope <span class="keyword">scope-b.somekey</span> is
+          equivalent to the unscoped reference <span class="keyword">somekey</span> when processed
+          in the context of Map B as the root map. In both cases, the presence of
+          <code class="keyword markupname xmlatt">@keyscope</code> on the root element of Map B has
+          no effect; in the first case it is explicitly ignored, and in the second case the key
+          reference is within the scope <span class="keyword">product-x</span> and so does not need
+          to be scope qualified.
+        </p>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/key-based-addressing.html"
+            title="DITA keys provide an alternative to direct addressing. The key reference mechanism provides a layer of indirection so that resources (for example, URIs, metadata, or variable text strings) can be defined at the DITA map level instead of locally in each topic."
+            >Indirect key-based addressing</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

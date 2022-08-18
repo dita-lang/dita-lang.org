@@ -1,0 +1,285 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Example: Constrain attributes for the section element using
+  DTD'
+description: 'In this scenario, a DITA architect wants to
+  redefine the attributes for the section
+  element. They want to make the id
+  attribute required.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/ditaspecialization.html"
+            >Overview of DITA extension facilities</a
+          >
+        </li>
+        <li><a href="../../archSpec/base/configuration.html">Document-type configuration</a></li>
+        <li><a href="../../archSpec/base/specialization.html">Specialization</a></li>
+        <li><a href="../../archSpec/base/generalization.html">Generalization</a></li>
+        <li>
+          <a href="../../archSpec/base/constraints.html">Constraints</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/constraints-overview.html">Overview of constraints</a>
+            </li>
+            <li><a href="../../archSpec/base/constraint-rules.html">Constraint rules</a></li>
+            <li>
+              <a href="../../archSpec/base/constraints-processing-interoperability.html"
+                >Constraints, processing, and interoperability</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/examples-constraints.html"
+                >Examples: Constraints implemented using DTDs</a
+              >
+              <ul class="nav nav-list">
+                <li>
+                  <a href="../../archSpec/base/example-contraints-redefine-content-model.html"
+                    >Example: Redefine the content model for the topic element using DTD</a
+                  >
+                </li>
+                <li class="active">
+                  <a
+                    href="../../archSpec/base/example-contraints-redefine-content-model-attributes.html"
+                    >Example: Constrain attributes for the section element using DTD</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-contraints-subset-domain.html"
+                    >Example: Constrain a domain module using DTD</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../archSpec/base/example-contraints-replace-base-element-w-domain-extensions.html"
+                    >Example: Replace a base element with the domain extensions using DTD</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-contraints-apply-multiple-constraints.html"
+                    >Example: Apply multiple constraints to a single document-type shell using
+                    DTD</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="../../archSpec/base/examples-constraints-implemented-using-rng.html"
+                >Examples: Constraints implemented using RNG</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/expansion-modules.html">Expansion modules</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      Example: Constrain attributes for the
+      <code class="keyword markupname xmlelement">&lt;section&gt;</code> element using DTD
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        In this scenario, a <span style="color:red;" class="ph">DITA architect</span> wants to
+        redefine the attributes for the
+        <code class="keyword markupname xmlelement">&lt;section&gt;</code> element.
+        <span style="color:red;" class="ph">They want</span> to make the
+        <code class="keyword markupname xmlatt">@id</code> attribute required.
+      </p>
+      <div class="example" id="reference_cfb_ck4_5p__example">
+        <ol class="ol">
+          <li style="color:red;" class="li">
+            The DITA architect creates a constraint module:
+            <span class="ph filepath">idRequiredSectionContraint.mod</span>.
+          </li>
+          <li class="li">
+            <span style="color:red;" class="ph">They add</span> the following content to
+            <span class="ph filepath">idRequiredSectionContraint.mod</span>:
+            <pre
+              class="pre codeblock"
+            ><code>&lt;!-- Declares the entities referenced in the constrained content  --&gt;
+&lt;!-- model.                                                       --&gt;
+
+&lt;!ENTITY % localization-atts
+              "translate
+                          (no |
+                           yes |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               xml:lang
+                          CDATA
+                                    #IMPLIED
+               dir
+                          (lro |
+                           ltr |
+                           rlo |
+                           rtl |
+                           -dita-use-conref-target)
+                                    #IMPLIED"
+&gt;
+&lt;!ENTITY % filter-atts
+              "props
+                          CDATA
+                                    #IMPLIED
+               %props-attribute-extensions;"
+&gt;
+&lt;!ENTITY % select-atts
+              "%filter-atts;
+               base
+                          CDATA
+                                    #IMPLIED
+               %base-attribute-extensions;
+               importance
+                          (default |
+                           deprecated |
+                           high |
+                           low |
+                           normal |
+                           obsolete |
+                           optional |
+                           recommended |
+                           required |
+                           urgent |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               rev
+                          CDATA
+                                    #IMPLIED
+               status
+                          (changed |
+                           deleted |
+                           new |
+                           unchanged |
+                           -dita-use-conref-target)
+                                    #IMPLIED"
+&gt;
+&lt;!ENTITY % conref-atts
+              "conref
+                          CDATA
+                                    #IMPLIED
+               conrefend
+                          CDATA
+                                    #IMPLIED
+               conaction
+                          (mark |
+                           pushafter |
+                           pushbefore |
+                           pushreplace |
+                           -dita-use-conref-target)
+                                    #IMPLIED
+               conkeyref
+                          CDATA
+                                    #IMPLIED"
+&gt;
+&lt;!-- Redefines the attributes available on section  --&gt;
+
+&lt;!ENTITY % section.attributes
+              "id
+                          ID
+                                    #REQUIRED
+               %conref-atts;
+               %select-atts;
+               %localization-atts;
+               outputclass
+                          CDATA
+                                    #IMPLIED"
+&gt;</code></pre>
+            <div class="note note note_note">
+              <span class="note__title">Note:</span> The DITA architect had to declare all the
+              parameter entities that are referenced in the redefined attributes for
+              <code class="keyword markupname xmlelement">&lt;section&gt;</code>. If
+              <span style="color:red;" class="ph">they</span> did not do so, none of the attributes
+              that are declared in the parameter entities would be available on the
+              <code class="keyword markupname xmlelement">&lt;section&gt;</code> element.
+              Furthermore, since the
+              <code class="keyword markupname parameterentity">%select-atts;</code>
+              parameter entity references the
+              <code class="keyword markupname parameterentity">%filter-atts;</code> parameter
+              entity, the <code class="keyword markupname parameterentity">%filter-atts;</code> must
+              be declared and it must precede the declaration for the
+              <code class="keyword markupname parameterentity">%select-atts;</code> parameter
+              entity. The
+              <code class="keyword markupname parameterentity">%props-attribute-extensions;</code>
+              and
+              <code class="keyword markupname parameterentity">%base-attribute-extensions;</code>
+              parameter entities do not need to be declared in the constraint module, because they
+              are declared in the document-type shells before the inclusion of the constraint
+              module.
+            </div>
+          </li>
+          <li class="li">
+            <span style="color:red;" class="ph">They add</span> the constraint module to the
+            <span class="ph filepath">catalog.xml</span> file.
+          </li>
+          <li class="li">
+            <span style="color:red;" class="ph">They then integrate</span> the constraint module
+            into the applicable document-type shells.
+          </li>
+          <li class="li">
+            After checking the test topics to ensure that the content model is modified as expected,
+            the work is done.
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/examples-constraints.html"
+            title="This section of the specification contains examples of constraints implemented using DTD."
+            >Examples: Constraints implemented using DTDs</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

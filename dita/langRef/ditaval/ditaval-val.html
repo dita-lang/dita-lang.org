@@ -1,0 +1,250 @@
+---
+# Generated from DITA source
+layout: base
+title: 'val'
+description: 'The val element is the root element of a DITAVAL
+  document.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      <code class="keyword markupname xmlelement">&lt;val&gt;</code>
+    </h1>
+
+    <div class="body refbody">
+      <p class="shortdesc">
+        The <code class="keyword markupname xmlelement">&lt;val&gt;</code> element is the root
+        element of a DITAVAL document.
+      </p>
+      <section class="section" id="ditaval-val__processing-expectations">
+        <h2 class="title sectiontitle">Processing expectations</h2>
+
+        <p class="p">
+          For information about processing DITAVAL
+          <span style="color:red;" class="ph">documents</span>, including how to filter or flag
+          elements with multiple property attributes or multiple properties within a single
+          attribute, see
+          <a
+            class="xref"
+            href="../../archSpec/base/condproc.html"
+            title="Conditional processing is the filtering or flagging of information based on processing-time criteria. Conditional processing is based on attributes specified in the DITA source."
+            >Conditional processing</a
+          >.
+        </p>
+      </section>
+
+      <div class="example" id="ditaval-val__example">
+        <h2 class="title sectiontitle">Example</h2>
+        <p class="p">
+          This section contains examples of DITAVAL documents and how they can be used.
+        </p>
+        <figure class="fig fignone">
+          <figcaption>
+            <span class="fig--title-label">Figure 1. </span>Sample DITAVAL document
+          </figcaption>
+          <p class="p">
+            The following code sample shows a DITAVAL document that
+            <span class="ph">excludes certain</span> content, flags certain content, flags certain
+            revisions, and provides a background color for when there are style conflicts:
+          </p>
+          <pre class="pre codeblock"><code>&lt;val&gt;
+  &lt;style-conflict background-conflict-color="red"/&gt;
+  &lt;prop <span style="color:red;" class="ph">action="exclude"</span> att="audience" <span style="color:red;" class="ph">val="internal-test"</span>/&gt;
+  &lt;prop action="flag" att="product" val="YourProd" backcolor="purple"/&gt;
+  &lt;prop action="flag" att="product" backcolor="blue"
+        color="yellow" style="underline" val="MyProd"&gt;
+    &lt;startflag imageref="startflag.jpg"&gt;
+      &lt;alt-text&gt;This is the start of my product info&lt;/alt-text&gt;
+    &lt;/startflag&gt;
+    &lt;endflag imageref="endflag.jpg"&gt;
+      &lt;alt-text&gt;This is the end of my product info&lt;/alt-text&gt;
+    &lt;/endflag&gt;
+  &lt;/prop&gt;
+  &lt;revprop action="flag" val="1.2"/&gt;
+&lt;/val&gt;</code></pre>
+          <div class="p">
+            This sample DITAVAL document performs the following actions:
+            <ul class="ul">
+              <li class="li">
+                Elements that specify
+                <code class="ph codeph"
+                  >audience=<span style="color:red;" class="ph">"internal-test"</span></code
+                >
+                are <span style="color:red;" class="ph">excluded</span>.
+              </li>
+              <li class="li">
+                Elements that specify <code class="ph codeph">product="YourProd"</code> are rendered
+                with a background color of purple.
+              </li>
+              <li class="li">
+                Elements with <code class="ph codeph">product="MyProd"</code> get the following
+                actions:
+                <ul class="ul">
+                  <li class="li">
+                    The image <span class="ph filepath">startflag.jpg</span> is placed at the start
+                    of the element.
+                  </li>
+                  <li class="li">
+                    The image <span class="ph filepath">endflag.jpg</span> is placed at the end of
+                    the element.
+                  </li>
+                  <li class="li">The element is rendered with a background color of blue.</li>
+                  <li class="li">
+                    The text in the element is rendered in yellow, and the text is underlined.
+                  </li>
+                </ul>
+              </li>
+              <li class="li">
+                Elements marked with <code class="ph codeph">rev="1.2"</code> are flagged with the
+                default revision flags, which are implementation dependent.
+              </li>
+              <li class="li">
+                When there are conflicts, for example, if an element is marked with
+                <code class="ph codeph">product="MyProd YourProd"</code>, it will be flagged with a
+                background color of red.
+              </li>
+            </ul>
+          </div>
+        </figure>
+        <figure class="fig fignone">
+          <figcaption>
+            <span class="fig--title-label">Figure 2. </span>DITAVAL document that overrides the
+            default <span class="keyword">include</span> action
+          </figcaption>
+          <p class="p">
+            The following code sample shows a DITAVAL document that sets a default value of
+            <span class="keyword">exclude</span> for every conditional-processing attribute. That
+            default value is then overriden by the
+            <code class="keyword markupname xmlelement">&lt;prop&gt;</code> elements with a value of
+            <span class="keyword">include.</span>
+          </p>
+          <pre class="pre codeblock"><code>&lt;val&gt;
+  &lt;prop action="exclude"/&gt;
+  &lt;prop action="include" att="audience" val="everybody"/&gt;
+  &lt;prop action="include" att="audience" val="novice"/&gt;
+  &lt;prop action="include" att="product" val="productA"/&gt;
+  &lt;prop action="include" att="product" val="productB"/&gt;
+&lt;/val&gt;</code></pre>
+          <div class="p">
+            This DITAVAL document performs the following actions:
+            <ul class="ul">
+              <li class="li">
+                The first <code class="keyword markupname xmlelement">&lt;prop&gt;</code> element
+                does not specify an attribute, which sets a default action of
+                <span class="keyword">exclude</span> for every conditional-processing attribute.
+                This means that, by default, any property value not otherwise defined in this
+                document evaluates to <span class="keyword">exclude</span>. Note that this same
+                behavior can be limited to a single attribute. The following
+                <code class="keyword markupname xmlelement">&lt;prop&gt;</code> element sets a
+                default action of <span class="keyword">exclude</span> for all properties specified
+                on the <code class="keyword markupname xmlatt">@platform</code> attribute:
+                <code class="ph codeph">&lt;prop action="exclude" att="platform"/&gt;</code>
+              </li>
+              <li class="li">
+                The second and third
+                <code class="keyword markupname xmlelement">&lt;prop&gt;</code> elements set an
+                action of <span class="keyword">include</span> for two values on the
+                <code class="keyword markupname xmlatt">@audience</code> attribute. All other values
+                on the <code class="keyword markupname xmlatt">@audience</code> attribute still
+                evaluate to <span class="keyword">exclude</span>.
+              </li>
+              <li class="li">
+                The fourth and fifth
+                <code class="keyword markupname xmlelement">&lt;prop&gt;</code> elements set an
+                action of <span class="keyword">include</span> for two values on the
+                <code class="keyword markupname xmlatt">@product</code> attribute. All other values
+                on the <code class="keyword markupname xmlatt">@product</code> attribute still
+                evaluate to <span class="keyword">exclude</span>.
+              </li>
+            </ul>
+          </div>
+        </figure>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../langRef/containers/ditaval-elements.html"
+            title="A DITAVAL document identifies content that is filtered and flagged at rendering time. The DITAVAL document has an extension of .ditaval."
+            >DITAVAL elements</a
+          >
+        </div>
+      </div>
+      <div class="linklist relconcepts">
+        <strong>Related concepts</strong><br />
+        <ul class="linklist">
+          <li class="linklist">
+            <a
+              class="link"
+              href="../../archSpec/base/filtering.html"
+              title="When rendering content, a conditional processing profile can be used to specify whether an element's content is filtered based on its conditional processing attributes."
+              >Filtering based on metadata attributes</a
+            >
+          </li>
+          <li class="linklist">
+            <a
+              class="link"
+              href="../../archSpec/base/flagging.html"
+              title="When rendering content, a conditional processing profile can be used to specify whether an element's content is flagged based on its conditional processing attributes."
+              >Flagging based on metadata attributes</a
+            >
+          </li>
+          <li class="linklist">
+            <a
+              class="link"
+              href="../../archSpec/base/examples-of-conditional-processing.html"
+              title="This section provides examples that illustrate the ways that conditional processing attributes can be set and used."
+              >Examples of conditional processing</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </article>
+</main>

@@ -1,0 +1,220 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Branch filtering: Impact on resource and key names'
+description: 'When map branches are cloned by a processor in order to support multiple condition
+  sets, processors must manage conflicting resource and key names. The DITAVALref domain
+  includes metadata elements that authors can use to specify how resource and key names are
+  renamed.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li>
+      <a href="../../archSpec/base/behaviors.html">DITA processing</a>
+      <ul class="nav nav-list">
+        <li><a href="../../archSpec/base/navigation.html">Navigation</a></li>
+        <li><a href="../../archSpec/base/indexes.html">Indexes</a></li>
+        <li><a href="../../archSpec/base/conref.html">Content reference (conref)</a></li>
+        <li><a href="../../archSpec/base/condproc.html">Conditional processing</a></li>
+        <li>
+          <a href="../../archSpec/base/branch-filtering.html">Branch filtering</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/branch-filtering-overview.html"
+                >Overview of branch filtering</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/branch-filtering-interactions.html"
+                >How filtering rules interact</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/branch-filtering-single-set.html"
+                >Branch filtering: Single referenced DITAVAL document for a branch</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/branch-filtering-multiple-sets.html"
+                >Branch filtering: Multiple referenced DITAVAL documents for a branch</a
+              >
+            </li>
+            <li class="active">
+              <a href="../../archSpec/base/branch-filtering-resource-names.html"
+                >Branch filtering: Impact on resource and key names</a
+              >
+              <ul class="nav nav-list">
+                <li>
+                  <a href="../../archSpec/base/branch-filtering-metadata-elements.html"
+                    >Using metadata elements in the DITAVAL reference domain</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/branch-filtering-renaming-multiple-times.html"
+                    >Renaming based on multiple ditavalref elements</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/branch-filtering-handling-conflicts.html"
+                    >Handling resource name conflicts caused by branch filtering</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="../../archSpec/base/branch-filtering-implications-of-processing-order.html"
+                >Branch filtering: Implications of processing order</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/examples-of-branch-filter.html"
+                >Examples of branch filtering</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/sort-as-processing.html">Sorting</a></li>
+        <li>
+          <a href="../../archSpec/base/determining-effective-attribute-values.html"
+            >Determining effective attribute values</a
+          >
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      Branch filtering: Impact on resource and key names
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        When map branches are cloned by a processor in order to support multiple condition sets,
+        processors must manage conflicting resource and key names. The DITAVALref domain includes
+        metadata elements that authors can use to specify how resource and key names are renamed.
+      </p>
+      <div class="note note note_note">
+        <span class="note__title">Note:</span> While the processing controls that are described here
+        are intended primarily for use with map branches that specify multiple condition sets, they
+        also can be used with map branches that include only a single
+        <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element.
+      </div>
+      <p class="p">
+        When a map branch uses multiple condition sets, processors create multiple effective copies
+        of the branch to support the different conditions. This results in potential conflicts for
+        resource names, key names, and key scopes. Metadata elements inside of the
+        <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element are available
+        to provide control over these values, so that keys, key scopes, and URIs can be individually
+        referenced within a branch.
+      </p>
+      <p class="p">For example, the following map branch references two DITAVAL documents:</p>
+      <pre
+        class="pre codeblock"
+      ><code>&lt;topicref href="productFeatures.dita" keys="features" keyscope="prodFeatures"&gt;
+  &lt;ditavalref href="novice.ditaval"/&gt;
+  &lt;ditavalref href="admin.ditaval"/&gt;
+  &lt;topicref href="newFeature.dita" keys="newThing"/&gt;
+&lt;/topicref&gt;</code></pre>
+      <p class="p">
+        In this case, the processor has two effective copies of
+        <span class="ph filepath">productFeatures.dita</span> and
+        <span class="ph filepath">newFeature.dita</span>. One copy of each topic is filtered using
+        the conditions specified in <span class="ph filepath">novice.ditaval</span>, and the other
+        copy is filtered using the conditions specified in
+        <span class="ph filepath">admin.ditaval</span>.
+      </p>
+      <p class="p">
+        If an author has referenced a topic using
+        <code class="ph codeph">keyref="features"</code> or
+        <code class="ph codeph">keyref="prodFeatures.features"</code>, a processor cannot
+        distinguish which filtered copy is the intended target. The metadata elements in the
+        DITAVALref domain provide a way to control this scenario.
+      </p>
+    </div>
+    <nav role="navigation" class="related-links">
+      <ul class="ullinks">
+        <li class="link ulchildlink">
+          <strong
+            ><a href="../../archSpec/base/branch-filtering-metadata-elements.html"
+              >Using metadata elements in the DITAVAL reference domain</a
+            ></strong
+          ><br />Metadata within the
+          <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element makes it
+          possible to control changes to resource names and key scope names, so that each distinct
+          filtered copy can be referenced in a predictable manner.
+        </li>
+        <li class="link ulchildlink">
+          <strong
+            ><a href="../../archSpec/base/branch-filtering-renaming-multiple-times.html"
+              >Renaming based on multiple ditavalref elements</a
+            ></strong
+          ><br />It is possible for a branch with
+          <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> already in effect to
+          specify an additional
+          <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code>, where each
+          <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> includes renaming
+          metadata.
+        </li>
+        <li class="link ulchildlink">
+          <strong
+            ><a href="../../archSpec/base/branch-filtering-handling-conflicts.html"
+              >Handling resource name conflicts caused by branch filtering</a
+            ></strong
+          ><br />It is possible to construct a root map where the branch filtering mechanism results
+          in resource name conflicts.
+        </li>
+      </ul>
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/branch-filtering.html"
+            title="The branch filtering mechanism enables map authors to set filtering conditions for specific branches of a map. This makes it possible for multiple conditional-processing profiles to be applied within a single publication."
+            >Branch filtering</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

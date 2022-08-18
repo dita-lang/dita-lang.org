@@ -1,0 +1,171 @@
+---
+# Generated from DITA source
+layout: base
+title: 'topicref'
+description: 'A topic reference is the
+  mechanism for referencing a topic (or another resource) from a DITA
+  map. It can nest, which enables the expression of navigation and
+  table-of-content hierarchies, as well as containment hierarchies and
+  parent-child relationships.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>
+    </h1>
+
+    <div class="body refbody">
+      <p class="shortdesc">
+        A topic reference is the mechanism for referencing a topic (or another resource) from a DITA
+        map. It can nest, which enables the expression of navigation and table-of-content
+        hierarchies, as well as containment hierarchies and parent-child relationships.
+      </p>
+      <section class="section" id="topicref__attributes">
+        <h2 class="title sectiontitle">Attributes</h2>
+
+        <p class="p">
+          The following attributes are available on this element:
+          <span class="ph"
+            ><a
+              class="xref"
+              href="../../common/reuse-w-lwdita/../../langRef/attributes/universalAttributes.html"
+              title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang"
+              >universal attributes</a
+            ></span
+          >,
+          <span class="ph"
+            ><a
+              class="xref"
+              href="../../common/reuse-w-lwdita/../../langRef/attributes/commonAttributes.html#common-atts__linkatts"
+              title="Link relationship attributes include: format, href, type, and scope"
+              >link-relationship attributes</a
+            ></span
+          >
+          (with a narrowed definition of <code class="keyword markupname xmlatt">@href</code>, given
+          below),
+          <span class="ph"
+            ><a
+              class="xref"
+              href="../../common/reuse-w-lwdita/../../langRef/attributes/commonAttributes.html#common-atts__commonmapatts"
+              title="Common map attributes include: cascade, chunk, collection-type, keyscope, linking, processing-role, search, and toc"
+              >common map attributes</a
+            ></span
+          >,
+          <a
+            class="xref"
+            href="../../common/reuse-w-lwdita/../../langRef/attributes/commonAttributes.html#common-atts__attr-keys"
+            ><code class="keyword markupname xmlatt">@keys</code></a
+          >, and
+          <a
+            class="xref"
+            href="../../common/reuse-w-lwdita/../../langRef/attributes/commonAttributes.html#common-atts__attr-keys"
+            ><code class="keyword markupname xmlatt">@keyref</code></a
+          >.
+        </p>
+
+        <dl class="dl">
+          <dt class="dt dlterm" id="topicref__d1349e52">
+            <a id="topicref__d1349e50"></a><code class="keyword markupname xmlatt">@href</code>
+          </dt>
+          <dd class="dd">
+            Points to the resource that is represented by the
+            <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>. See
+            <a
+              class="xref"
+              href="../../common/reuse-w-lwdita/../../archSpec/base/thehrefattribute.html"
+              title="The href attribute specifies the URI of the resource that is addressed. The referenced resource can be another DITA topic or map, an element inside a DITA topic or map, or a non-DITA resource."
+              >The href attribute</a
+            >
+            for detailed information on supported values and processing implications. References to
+            DITA content cannot be below the topic level: that is, you cannot reference individual
+            elements inside a topic. References to content other than DITA topics should use the
+            <code class="keyword markupname xmlatt">@format</code> attribute to identify the kind of
+            resource being referenced.
+          </dd>
+        </dl>
+      </section>
+      <div class="example" id="topicref__example">
+        <h2 class="title sectiontitle">Example</h2>
+
+        <p class="p">
+          The following code sample shows a simple map that organizes several topics about the
+          software product "Example Tool Builder". The
+          <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> that refers to
+          <span class="ph filepath">setup.dita</span> uses the
+          <code class="keyword markupname xmlatt">@collection-type</code> attribute to indicate that
+          the order of three children topics in that section is important.
+        </p>
+        <pre class="pre codeblock"><code>&lt;map&gt;
+  &lt;title&gt;Example Tool Builder version 1.2.3&lt;/title&gt;
+  <strong class="ph b">&lt;topicref href="setup.dita" collection-type="sequence"&gt;</strong>
+    &lt;topicref href="prerequisites.dita"/&gt;
+    &lt;topicref href="installing.dita"/&gt;
+    &lt;topicref href="validating.dita"/&gt;
+ <strong class="ph b"> &lt;/topicref&gt;</strong>
+  &lt;topicref href="everyday-use.dita"&gt;
+    &lt;!-- ... --&gt;
+  &lt;/topicref&gt;
+  &lt;topicref href="troubleshooting.dita"&gt;
+    &lt;!-- ... --&gt;
+  &lt;/topicref&gt;
+&lt;/map&gt;</code></pre>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../langRef/containers/basic-map-elements.html"
+            title="DITA maps are built from a few core elements that are used for referencing and organizing topics. In addition, the topicmeta element can be used to specify metadata for the map, individual topics, or groups of topics."
+            >Basic map elements</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

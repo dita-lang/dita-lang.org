@@ -1,0 +1,239 @@
+---
+# Generated from DITA source
+layout: base
+title: 'shortdesc'
+description: 'A short
+  description is a sentence or group of sentences that describes the
+  purpose or main point of the topic.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code>
+    </h1>
+
+    <div class="body refbody">
+      <p style="color:red;" class="shortdesc">
+        A short description is a sentence or group of sentences that describes the purpose or main
+        point of the topic.
+      </p>
+      <section class="section" id="shortdesc__usage-information">
+        <h2 class="title sectiontitle">Usage information</h2>
+
+        <p class="p">
+          When present in topics, the short description is the first paragraph of the topic.
+          <span style="color:red;" class="ph"
+            >It can also be used for hover text, link previews, search results, and more.</span
+          >
+        </p>
+        <div class="div">
+          <p class="p">
+            When present in maps, the
+            <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code> element is
+            associated with
+            <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements. This
+            enables map authors to accomplish the following goals:
+          </p>
+          <ul class="ul">
+            <li class="li">Associate a short description with a non-DITA object</li>
+            <li class="li">
+              Provide a short description that is specific to the map context and used for link
+              previews
+            </li>
+          </ul>
+          <p class="p">
+            When a <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code> element
+            applies to an entire DITA map, it serves
+            <span style="color:red;" class="ph"
+              >only as a description. DITA architects might use such a
+              <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code> element to store
+              information about the purpose of the DITA map.
+            </span>
+          </p>
+        </div>
+      </section>
+      <section class="section" id="shortdesc__rendering-expectations">
+        <h2 class="title sectiontitle">Rendering expectations</h2>
+
+        <p class="p">
+          Processors <dfn class="term RFC-2119">SHOULD</dfn> render the content of the
+          <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code> element as the
+          initial paragraph of the topic.
+        </p>
+        <div class="div">
+          <p class="p">
+            When processors generate link previews that are based on the map context, they
+            <dfn class="term RFC-2119">SHOULD</dfn> use the content of the
+            <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code> that is located in
+            the map rather than the
+            <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code> that is located in
+            the DITA topic. However, when processors render the topic itself, they
+            <dfn class="term RFC-2119">SHOULD</dfn> use the content of the
+            <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code> element
+            <span style="color:red;" class="ph">that is</span> located in the DITA topic.
+          </p>
+        </div>
+      </section>
+      <section class="section" id="shortdesc__processing-expectations">
+        <h2 class="title sectiontitle">Processing expectations</h2>
+
+        <p class="p">
+          When a <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code> element occurs
+          in a DITA map, it overrides the short description provided in the topic for the purpose of
+          generating map-based link previews. It does not replace the
+          <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code> in the rendered topic
+          itself. This means that generated map-based links to this topic will use the short
+          description from the map for any link previews provided with the link, while the rendered
+          topic continues to use the short description
+          <span style="color:red;" class="ph">located</span> in the topic.
+        </p>
+      </section>
+      <section class="section" id="shortdesc__attributes">
+        <h2 class="title sectiontitle">Attributes</h2>
+
+        <p class="p">
+          The following attributes are available on this element:
+          <span class="ph"
+            ><a
+              class="xref"
+              href="../../common/reuse-w-lwdita/../../langRef/attributes/universalAttributes.html"
+              title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang"
+              >universal attributes</a
+            ></span
+          >.
+        </p>
+      </section>
+      <div class="example" id="shortdesc__example">
+        <h2 class="title sectiontitle">Examples</h2>
+
+        <p class="p">
+          This section contains examples of how the
+          <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code> element can be used.
+        </p>
+        <figure class="fig fignone">
+          <figcaption>
+            <span class="fig--title-label">Figure 1. </span>Short description in a topic
+          </figcaption>
+
+          <p class="p">
+            The following code sample shows how a
+            <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code> element can be used
+            in a topic:
+          </p>
+          <pre
+            class="pre codeblock"
+            id="shortdesc__shortdesc-in-concept"
+          ><code>&lt;topic id="intro-to-bird-calling"&gt;
+ &lt;title&gt;Introduction to bird calling&lt;/title&gt;
+ &lt;shortdesc&gt;If you want to attract more birds to your Acme Bird Feeder,
+learn the art of bird calling. Bird calling is an efficient way
+to alert more birds to the presence of your bird feeder.&lt;/shortdesc&gt;
+ &lt;body&gt;
+   &lt;p&gt;Bird calling requires learning:&lt;/p&gt;
+   &lt;ul&gt;
+    &lt;li&gt;Popular and classical bird songs&lt;/li&gt;
+    &lt;li&gt;How to whistle like a bird&lt;/li&gt;
+   &lt;/ul&gt;
+ &lt;/body&gt;
+&lt;/topic&gt;</code></pre>
+        </figure>
+        <figure class="fig fignone">
+          <figcaption>
+            <span class="fig--title-label">Figure 2. </span>Short description in a map
+          </figcaption>
+
+          <p class="p">
+            The following code sample shows how a short description can be used in a DITA map to
+            provide information about a non-DITA resource. The content of the
+            <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code> element is used
+            when a link preview to the Web site for the American Birding Association is generated.
+          </p>
+          <pre class="pre codeblock"><code>&lt;map&gt;
+  &lt;title&gt;Enjoying birds&lt;/title&gt;
+    &lt;!-- ... --&gt;
+    &lt;topicref href="birds-in-colorado.dita"/&gt;
+    &lt;topicref href="bird-calling.dita"/&gt;
+    &lt;topicref href="https://www.birding.example.com/" format="external" type="html"&gt;
+      &lt;topicmeta&gt;
+        &lt;shortdesc&gt;The American Birding Association is the only organization 
+        in North America that specifically caters to recreational birders.
+        Its mission is to "inspire all people to enjoy and protect wild birds."
+      &lt;/topicmeta&gt;
+    &lt;/topicref&gt;
+    &lt;!-- ... --&gt;
+&lt;/map&gt;
+</code></pre>
+        </figure>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../langRef/containers/basic-topic-elements.html"
+            title="The basic topic elements provide the structural framework for a topic: title, short description, prolog, body, and related links."
+            >Basic topic elements</a
+          >
+        </div>
+      </div>
+      <div class="linklist relref">
+        <strong>Related reference</strong><br />
+        <ul class="linklist">
+          <li class="linklist">
+            <a
+              class="link"
+              href="../../langRef/base/abstract.html"
+              title="An abstract summarizes the content of the topic; it appears at the start of the topic. It can contain multiple short descriptions, as well as block-level content such as paragraphs, lists, and tables."
+              >abstract</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </article>
+</main>

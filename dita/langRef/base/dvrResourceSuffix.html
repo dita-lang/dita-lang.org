@@ -1,0 +1,247 @@
+---
+# Generated from DITA source
+layout: base
+title: 'dvrResourceSuffix'
+description: 'The dvrResourceSuffix element specifies the prefix to use when constructing the effective file names or resource IDs of the resources that are referenced from within the map branch that is implied by the ancestor ditavalref element.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      <code class="keyword markupname xmlelement">&lt;dvrResourceSuffix&gt;</code>
+    </h1>
+
+    <div class="body refbody">
+      <p class="shortdesc">
+        <span class="ph"
+          >The <code class="keyword markupname xmlelement">&lt;dvrResourceSuffix&gt;</code> element
+          specifies the prefix to use when constructing the effective file names or resource IDs of
+          the resources that are referenced from within the map branch that is implied by the
+          ancestor
+          <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element.</span
+        >
+      </p>
+      <section class="section" id="dvrResourceSuffix__processing-expectations">
+        <h2 class="title sectiontitle">Processing expectations</h2>
+
+        <p class="p">
+          For map branches that are implied by
+          <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> elements, the value
+          of the
+          <code class="keyword markupname xmlelement">&lt;dvrResourceSuffix&gt;</code> element
+          contributes to the effective file names and resource IDs of the resources that are
+          referenced within the branch. The base part of the effective resource file name ends with
+          the value of the
+          <code class="keyword markupname xmlelement">&lt;dvrResourceSuffix&gt;</code> element. The
+          base part of the resource file name consists of the portion of the file name after any
+          directory information, and before any period followed by the file extension. For example,
+          in the original file name <span class="ph filepath">task/install.dita</span>, the base
+          portion of the file name is "install".
+        </p>
+        <p class="p">
+          If a topic reference includes
+          <code class="keyword markupname xmlelement">&lt;resourceid&gt;</code> with the
+          <code class="keyword markupname xmlatt">@appid-role</code> attribute set to
+          <span class="keyword">deliverable-anchor</span>, the effective
+          <code class="keyword markupname xmlatt">@appid</code> value for that
+          <code class="keyword markupname xmlelement">&lt;resourceid&gt;</code> value ends with the
+          value of the
+          <code class="keyword markupname xmlelement">&lt;dvrResourceSuffix&gt;</code> element.
+        </p>
+        <p class="p">
+          Path information is not valid in
+          <code class="keyword markupname xmlelement">&lt;dvrResourceSuffix&gt;</code>.
+        </p>
+        <p class="p">
+          Some resources are not eligible for renaming, such as those marked with
+          <code class="ph codeph">scope="external"</code>.
+        </p>
+      </section>
+      <section class="section" id="dvrResourceSuffix__specialization-hierachy">
+        <h2 class="title sectiontitle">Specialization hierarchy</h2>
+
+        <p class="p">
+          The <code class="keyword markupname xmlelement">&lt;dvrResourceSuffix&gt;</code> element
+          is specialized from <code class="keyword markupname xmlelement">&lt;data&gt;</code>. It is
+          defined in the DITAVAL-reference domain module.
+        </p>
+      </section>
+      <section class="section" id="dvrResourceSuffix__attributes">
+        <h2 class="title sectiontitle">Attributes</h2>
+
+        <p class="p">
+          The following attributes are available on this element:
+          <span class="ph"
+            ><a
+              class="xref"
+              href="../../common/../langRef/attributes/universalAttributes.html"
+              title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang"
+              >universal attributes</a
+            ></span
+          >
+          (except for <code class="keyword markupname xmlatt">@conkeyref</code>, which is removed
+          for all elements in this domain) and
+          <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-name"
+            ><code class="keyword markupname xmlatt">@name</code></a
+          >.
+        </p>
+        <p class="p attr-exception" id="dvrResourceSuffix__attr-exception">
+          For this element, the <code class="keyword markupname xmlatt">@name</code> attribute has a
+          default value of <span class="keyword">dvrResourcSuffix</span>.
+        </p>
+        <dl class="dl">
+          <dt class="dt dlterm" id="dvrResourceSuffix__attr-name">
+            <code class="keyword markupname xmlatt">@name</code>
+          </dt>
+          <dd class="dd">
+            The name of the metadata item. For this element the default value is
+            "dvrResourceSuffix".
+          </dd>
+        </dl>
+      </section>
+      <div class="example" id="dvrResourceSuffix__example">
+        <h2 class="title sectiontitle">Example</h2>
+
+        <figure class="fig fignone" id="dvrResourceSuffix__fig_twy_5w1_ppb">
+          <figcaption>
+            <span class="fig--title-label">Figure 1. </span>How
+            <code class="keyword markupname xmlelement">&lt;dvrResourceSuffix&gt;</code> affects
+            resource file names
+          </figcaption>
+
+          <div class="p">
+            The following code sample shows a simple branch with a parent and child topic, where the
+            branch uses a
+            <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element and
+            <code class="keyword markupname xmlelement">&lt;dvrResourceSuffix&gt;</code>.
+            <pre class="pre codeblock"><code>&lt;topicref href="branch-01.dita"&gt;
+  &lt;ditavalref href="condition-01.ditaval"&gt;
+    &lt;ditavalmeta&gt;
+      &lt;dvrResourceSuffix&gt;-cond01&lt;/dvrResourceSuffix&gt;
+    &lt;/ditavalmeta&gt;
+  &lt;/ditavalref&gt;
+  &lt;topicref href="topics/subtopic-01.dita"/&gt;
+&lt;/topicref&gt;</code></pre>
+          </div>
+          <div class="p">
+            After the <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> is
+            evaluated:
+            <ul class="ul" id="dvrResourceSuffix__ul_syl_cy1_ppb">
+              <li class="li">
+                The effective file name of the resource
+                <span class="ph filepath">subtopic-01.dita</span> is
+                <span class="ph filepath">subtopic-01-cond01.dita</span>.
+              </li>
+              <li class="li">
+                The effective file name of resource
+                <span class="ph filepath">branch-01.dita</span> is
+                <span class="ph filepath">branch-01-cond01.dita</span>.
+              </li>
+            </ul>
+          </div>
+        </figure>
+        <figure class="fig fignone" id="dvrResourceSuffix__fig_s32_2y1_ppb">
+          <figcaption>
+            <span class="fig--title-label">Figure 2. </span>How
+            <code class="keyword markupname xmlelement">&lt;dvrResourceSuffix&gt;</code> interacts
+            with <code class="keyword markupname xmlelement">&lt;resourceid&gt;</code>
+          </figcaption>
+
+          <div class="p">
+            The following code sample shows the same branch with a parent and child topic, but in
+            this case the child topic specifies a deliverable anchor with
+            <code class="keyword markupname xmlelement">&lt;resourceid&gt;</code>.
+            <pre class="pre codeblock"><code>&lt;topicref href="branch-01.dita"&gt;
+  &lt;ditavalref href="condition-01.ditaval"&gt;
+    &lt;ditavalmeta&gt;
+      &lt;dvrResourceSuffix&gt;cond01-&lt;/dvrResourceSuffix&gt;
+    &lt;/ditavalmeta&gt;
+  &lt;/ditavalref&gt;
+  &lt;topicref href="topics/subtopic-01.dita"&gt;
+    &lt;topicmeta&gt;
+      &lt;resourceid appid="ae35-unit-fault" appid-role="deliverable-anchor"/&gt;
+    &lt;/topicmeta&gt;
+  &lt;/topicref&gt;
+&lt;/topicref&gt;</code></pre>
+          </div>
+          <div class="p">
+            After the <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> is
+            evaluated:
+            <ul class="ul" id="dvrResourceSuffix__ul_ybb_ly1_ppb">
+              <li class="li">
+                The effective file name of the resource
+                <span class="ph filepath">subtopic-01.dita</span> is
+                <span class="ph filepath">subtopic-01-cond01.dita</span>.
+              </li>
+              <li class="li">
+                The effective file name of resource
+                <span class="ph filepath">branch-01.dita</span> is
+                <span class="ph filepath">branch-01-cond01.dita</span>.
+              </li>
+              <li class="li">
+                The effective value of <code class="keyword markupname xmlatt">@appid</code> on
+                <code class="keyword markupname xmlelement">&lt;resourceid&gt;</code> for the child
+                topic is <span class="keyword">ae35-unit-fault-cond01</span>.
+              </li>
+            </ul>
+          </div>
+        </figure>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../langRef/containers/ditaval-d.html"
+            title="The DITAVAL reference domain is used to reference a DITAVAL file that contains conditions that apply only to a subset of a DITA map. It also can be used to replicate a subset of a DITA map for multiple audiences."
+            >DITAVAL-reference domain element</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

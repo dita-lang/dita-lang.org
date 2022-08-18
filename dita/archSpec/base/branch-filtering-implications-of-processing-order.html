@@ -1,0 +1,218 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Branch filtering: Implications of processing order'
+description:
+  'The branch filtering mechanism can result in changes to the global key space for a root
+  map. As a result, processors are required to evaluate branch filtering in order to construct the
+  key space.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li>
+      <a href="../../archSpec/base/behaviors.html">DITA processing</a>
+      <ul class="nav nav-list">
+        <li><a href="../../archSpec/base/navigation.html">Navigation</a></li>
+        <li><a href="../../archSpec/base/indexes.html">Indexes</a></li>
+        <li><a href="../../archSpec/base/conref.html">Content reference (conref)</a></li>
+        <li><a href="../../archSpec/base/condproc.html">Conditional processing</a></li>
+        <li>
+          <a href="../../archSpec/base/branch-filtering.html">Branch filtering</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/branch-filtering-overview.html"
+                >Overview of branch filtering</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/branch-filtering-interactions.html"
+                >How filtering rules interact</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/branch-filtering-single-set.html"
+                >Branch filtering: Single referenced DITAVAL document for a branch</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/branch-filtering-multiple-sets.html"
+                >Branch filtering: Multiple referenced DITAVAL documents for a branch</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/branch-filtering-resource-names.html"
+                >Branch filtering: Impact on resource and key names</a
+              >
+            </li>
+            <li class="active">
+              <a href="../../archSpec/base/branch-filtering-implications-of-processing-order.html"
+                >Branch filtering: Implications of processing order</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/examples-of-branch-filter.html"
+                >Examples of branch filtering</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/sort-as-processing.html">Sorting</a></li>
+        <li>
+          <a href="../../archSpec/base/determining-effective-attribute-values.html"
+            >Determining effective attribute values</a
+          >
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      Branch filtering: Implications of processing order
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        The branch filtering mechanism can result in changes to the global key space for a root map.
+        As a result, processors are required to evaluate branch filtering in order to construct the
+        key space.
+      </p>
+      <p class="p">
+        The full effects of the branch filtering process <dfn class="term RFC-2119">MUST</dfn> be
+        calculated by processors before they construct the effective map and key scope structure.
+        This requirement comes from the fact that the branch filtering process can result in new or
+        renamed keys, key scopes, or URIs that make up the key space.
+      </p>
+
+      <div class="note note note_note">
+        <span class="note__title">Note:</span> The
+        <code class="keyword markupname xmlatt">@keyref</code> attribute and related attributes are
+        explicitly disallowed on
+        <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code>. This prevents any
+        confusion resulting from a <code class="keyword markupname xmlatt">@keyref</code> that
+        resolves to additional key- or resource-renaming metadata.
+      </div>
+      <p class="p">
+        In general, the DITA specification refrains from mandating a processing order; thus
+        publication results can vary slightly depending on the order in which processes are run.
+        With branch filtering, processors are not required to apply filter conditions specified
+        outside of the map and filter conditions specified with
+        <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> at the same time in a
+        publishing process.
+      </p>
+      <p class="p">For example, a processor might use the following processing order:</p>
+      <ol class="ol">
+        <li class="li">Apply externally-specified filter conditions to maps</li>
+        <li class="li">
+          Apply filtering based on
+          <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> elements
+        </li>
+      </ol>
+      <p class="p">
+        Because externally-specified "exclude" conditions always take precedence over
+        branch-specific conditions, content excluded based on external conditions will always be
+        removed, regardless of the order in which processors evaluate conditions.
+      </p>
+
+      <p class="p">
+        Processors should consider the following points when determining a processing order:
+      </p>
+      <ul class="ul">
+        <li class="li">
+          If links are generated based on the map hierarchy, those links should be created using the
+          renamed keys and URIs that result from evaluating the
+          <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> filter conditions,
+          to ensure that the links are consistent within the modified branches. For example,
+          sequential links based on a map hierarchy should remain within the appropriate modified
+          branch.
+        </li>
+        <li class="li">
+          If URI-based content references are resolved in topics before the
+          <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> filtering conditions
+          are evaluated, content that applies to multiple audiences can be brought in and (later in
+          the process) selectively filtered by branch.
+          <span class="ph"
+            >For example, if a set of installation steps is pulled in with conref (from outside the
+            branch), it might contain information that is later filtered by platform based on
+            <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code>. This results in
+            copies of the steps that are specific to each operating system. If conref is processed
+            after the <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code>, content
+            might be pulled in that has not been appropriately filtered for the new context.</span
+          >
+        </li>
+        <li class="li">
+          The same scenario applies to conref values that push content into the branch.
+          <ul class="ul">
+            <li class="li">
+              Pushing content into a branch before resolving the
+              <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> conditions
+              allows content for multiple conditions to be pushed and then filtered by branch based
+              on the
+              <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> conditions.
+            </li>
+            <li class="li">
+              If the branch using
+              <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> pushes content
+              elsewhere, resolving
+              <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> first could
+              result in multiple copies of the content to be pushed (one for each branch), resulting
+              in multiple potentially conflicting copies pushed to the new destination.
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/branch-filtering.html"
+            title="The branch filtering mechanism enables map authors to set filtering conditions for specific branches of a map. This makes it possible for multiple conditional-processing profiles to be applied within a single publication."
+            >Branch filtering</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

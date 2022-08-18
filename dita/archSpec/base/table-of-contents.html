@@ -1,0 +1,157 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Table of contents'
+description:
+  'Processors can generate a table of contents (TOC) based on the hierarchy of the elements
+  in a DITA map. By default, each topicref element in a map represents a
+  node in the TOC. These topic references define a navigation tree.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li>
+      <a href="../../archSpec/base/behaviors.html">DITA processing</a>
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/navigation.html">Navigation</a>
+          <ul class="nav nav-list">
+            <li class="active">
+              <a href="../../archSpec/base/table-of-contents.html">Table of contents</a>
+            </li>
+            <li><a href="../../archSpec/base/alternative-titles.html">Alternative titles</a></li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/indexes.html">Indexes</a></li>
+        <li><a href="../../archSpec/base/conref.html">Content reference (conref)</a></li>
+        <li><a href="../../archSpec/base/condproc.html">Conditional processing</a></li>
+        <li><a href="../../archSpec/base/branch-filtering.html">Branch filtering</a></li>
+        <li><a href="../../archSpec/base/sort-as-processing.html">Sorting</a></li>
+        <li>
+          <a href="../../archSpec/base/determining-effective-attribute-values.html"
+            >Determining effective attribute values</a
+          >
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Table of contents</h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        Processors can generate a table of contents (TOC) based on the hierarchy of the elements in
+        a DITA map. By default, each
+        <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element in a map
+        represents a node in the TOC. These topic references define a navigation tree.
+      </p>
+      <p class="p">
+        When a map contains a topic reference to a map (often called a map reference), processors
+        integrate the navigation tree of the referenced map with the navigation tree of the
+        referencing map at the point of reference. In this way, a deliverable can be compiled from
+        multiple DITA maps.
+      </p>
+      <div class="note note note_note">
+        <span class="note__title">Note:</span> If a
+        <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>
+        element that references a map contains child
+        <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements, the processing
+        behavior regarding the child
+        <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements is undefined.
+      </div>
+      <p class="p">
+        The effective navigation title is used for the value of the TOC node. A TOC node is
+        generated for every
+        <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element that references
+        a topic or specifies a navigation title, except in the following cases:
+      </p>
+      <ul class="ul">
+        <li class="li">
+          The <code class="keyword markupname xmlatt">@processing-role</code> attribute that is
+          specified on the
+          <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element or an ancestor
+          element is set to "resource-only".
+        </li>
+        <li class="li">
+          Conditional processing is used to filter out the node or an ancestor node.
+        </li>
+        <li class="li">
+          There is no information from which a TOC entry can be constructed; there is no referenced
+          resource or navigation title.
+        </li>
+        <li class="li">
+          The node is a
+          <code class="keyword markupname xmlelement">&lt;topicgroup&gt;</code> element, even if it
+          specifies a navigation title.
+        </li>
+      </ul>
+      <p class="p">
+        To suppress a <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element
+        from appearing in the TOC, set the
+        <code class="keyword markupname xmlatt">@toc</code> attribute to "no". The value of the
+        <code class="keyword markupname xmlatt">@toc</code> attribute cascades to child
+        <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements, so if
+        <code class="keyword markupname xmlatt">@toc</code> is set to "no" on a particular
+        <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>, all children of the
+        <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element are also
+        excluded from the TOC. If a child
+        <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> overrides the cascading
+        operation by specifying <code class="ph codeph">toc="yes"</code>, then the node that
+        specifies <code class="ph codeph">toc="yes"</code> appears in the TOC (minus the
+        intermediate nodes that set <code class="keyword markupname xmlatt">@toc</code> to "no").
+      </p>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/navigation.html"
+            title="DITA includes markup that processors can use to generate reader navigation to or across DITA topics. Such navigation behaviors include table of contents (TOCs) and indexes."
+            >Navigation</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

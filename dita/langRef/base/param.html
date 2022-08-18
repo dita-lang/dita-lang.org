@@ -1,0 +1,171 @@
+---
+# Generated from DITA source
+layout: base
+title: 'param'
+description: 'The param (parameter) element
+  specifies a set of values that might be required by an
+  object at runtime.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      <code class="keyword markupname xmlelement">&lt;param&gt;</code>
+    </h1>
+
+    <div class="body refbody">
+      <p class="shortdesc">
+        The <code class="keyword markupname xmlelement">&lt;param&gt;</code> (parameter) element
+        specifies a set of values that might be required by an
+        <code class="keyword markupname xmlelement">&lt;object&gt;</code> at runtime.
+      </p>
+      <section class="section" id="param__usage-information">
+        <h2 class="title sectiontitle">Usage information</h2>
+
+        <p class="p">
+          Any number of <code class="keyword markupname xmlelement">&lt;param&gt;</code> elements
+          might appear in the content of an
+          <code class="keyword markupname xmlelement">&lt;object&gt;</code> in any order, but must
+          be placed at the start of the content of the enclosing object. This element is comparable
+          to the HMTL <code class="keyword markupname xmlelement">&lt;param&gt;</code> element, and
+          the <span style="color:red;" class="ph">attribute semantics</span> derive from their HTML
+          definitions. For example, the
+          <code class="keyword markupname xmlatt">@type</code> attribute differs from the
+          <code class="keyword markupname xmlatt">@type</code> attribute on many other DITA
+          elements.
+        </p>
+      </section>
+      <section class="section" id="param__processing-expectations">
+        <h2 class="title sectiontitle">Processing expectations</h2>
+
+        <div class="p">
+          The <code class="keyword markupname xmlatt">@keyref</code> attribute on
+          <code class="keyword markupname xmlelement">&lt;param&gt;</code> has the following
+          <span style="color:red;" class="ph">expectations</span>:
+          <ol class="ol" id="param__ol_tvg_2c2_z1b">
+            <li class="li">
+              When the key specified by <code class="keyword markupname xmlatt">@keyref</code> is
+              resolvable and has an associated URI, that URI is used as the value of this element
+              (overriding <code class="keyword markupname xmlatt">@value</code>, if that is
+              specified).
+            </li>
+            <li class="li">
+              When the key specified by <code class="keyword markupname xmlatt">@keyref</code> is
+              resolvable and has no associated resource (only link text), the
+              <code class="keyword markupname xmlatt">@keyref</code> attribute is considered to be
+              unresolvable for this element. If
+              <code class="keyword markupname xmlatt">@value</code> is specified, it is used as
+              <span style="color:red;" class="ph">a fallback</span>.
+            </li>
+            <li class="li">
+              When the key specified by <code class="keyword markupname xmlatt">@keyref</code> is
+              not resolvable, the value of the
+              <code class="keyword markupname xmlatt">@value</code> attribute is used as a fallback
+              target for the
+              <code class="keyword markupname xmlelement">&lt;param&gt;</code> element.
+            </li>
+          </ol>
+        </div>
+      </section>
+      <section class="section" id="param__attributes">
+        <h2 class="title sectiontitle">Attributes</h2>
+
+        <p class="p">
+          The following attributes are available on this element:
+          <span class="ph"
+            ><a
+              class="xref"
+              href="../../common/../langRef/attributes/universalAttributes.html"
+              title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang"
+              >universal attributes</a
+            ></span
+          >
+          and the attributes defined below.
+        </p>
+        <dl class="dl">
+          <dt class="dt dlterm" id="param__attr-keyref">
+            <code class="keyword markupname xmlatt">@keyref</code>
+          </dt>
+          <dd class="dd">Specifies a key reference to the thing the parameter references.</dd>
+
+          <dt class="dt dlterm" id="param__attr-name">
+            <code class="keyword markupname xmlatt">@name</code> <span class="ph">(REQUIRED)</span>
+          </dt>
+          <dd class="dd">Specifies the name of the parameter.</dd>
+
+          <dt class="dt dlterm" id="param__attr-value">
+            <code class="keyword markupname xmlatt">@value</code>
+          </dt>
+          <dd class="dd">
+            Specifies the value of a run-time parameter that is described by the
+            <code class="keyword markupname xmlatt">@name</code> attribute.
+          </dd>
+        </dl>
+      </section>
+      <div class="example" id="param__example">
+        <h2 class="title sectiontitle">Example</h2>
+        <p class="p">
+          See
+          <a class="xref" href="object.html#object__example"
+            ><code class="keyword markupname xmlelement">&lt;object&gt;</code></a
+          >.
+        </p>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../langRef/containers/body-elements.html"
+            title="The body elements support the most common types of content for topics: paragraphs, lists, phrases, figures, and other common document components."
+            >Body elements</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

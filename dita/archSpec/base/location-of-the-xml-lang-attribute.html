@@ -1,0 +1,188 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Recommendations for the xml:lang
+  attribute'
+description: 'Specifying the xml:lang attribute in the
+  DITA source facilitates translation and helps ensure that processors
+  will handle content appropriately. Accordingly, this specification
+  makes certain best-practices recommendations
+  for where the xml:lang attribute should be
+  set.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+      <ul class="nav nav-list">
+        <li><a href="../../archSpec/base/accessibility.html">Accessibility</a></li>
+        <li>
+          <a href="../../archSpec/base/translation.html">Translation and localization</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/xmllang.html">The xml:lang attribute</a>
+              <ul class="nav nav-list">
+                <li class="active">
+                  <a href="../../archSpec/base/location-of-the-xml-lang-attribute.html"
+                    >Recommendations for the xml:lang attribute</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="../../archSpec/base/processing-expectations-regarding-the-xml-lang-attribute.html"
+                    >Processing expectations regarding the xml:lang attribute</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-of-conref-and-the-xml-lang-attribute.html"
+                    >Example: content reference and the xml:lang attribute</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li><a href="../../archSpec/base/diratt.html">The dir attribute</a></li>
+            <li>
+              <a href="../../archSpec/base/the-translate-attribute.html">The translate attribute</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      Recommendations for the <code class="keyword markupname xmlatt">@xml:lang</code> attribute
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        Specifying the <code class="keyword markupname xmlatt">@xml:lang</code> attribute in the
+        DITA source facilitates translation and helps ensure that processors will handle content
+        appropriately. Accordingly, this specification makes certain
+        <span style="color:red;" class="ph">best-practices recommendations</span> for where the
+        <code class="keyword markupname xmlatt">@xml:lang</code> attribute should be set.
+      </p>
+      <p class="p">
+        Setting the <code class="keyword markupname xmlatt">@xml:lang</code> attribute in the
+        source-language document facilitates the translation process. Some translation tools do not
+        support adding new markup to the document that is being translated, so if the source
+        language content does not set the
+        <code class="keyword markupname xmlatt">@xml:lang</code> attribute, it might be difficult or
+        impossible for a translator to add the
+        <code class="keyword markupname xmlatt">@xml:lang</code> attribute to the translated
+        document.
+      </p>
+      <p class="p">
+        In addition, setting the <code class="keyword markupname xmlatt">@xml:lang</code> attribute
+        in the DITA source ensures that processors handle content in a language- and
+        locale-appropriate way. If the
+        <code class="keyword markupname xmlatt">@xml:lang</code> attribute is not set, processors
+        might assume a default value which is inappropriate for the DITA content.
+      </p>
+      <p class="p">
+        The following table outlines the recommended use of the
+        <code class="keyword markupname xmlatt">@xml:lang</code> attribute in topics and maps. These
+        recommendations ensure that DITA resources have an effective default language.
+      </p>
+      <table class="simpletable">
+        <colgroup>
+          <col style="width:50%" />
+          <col style="width:50%" />
+        </colgroup>
+        <thead>
+          <tr class="sthead">
+            <th class="stentry" scope="col" id="location-of-the-xml-lang-attribute__stentry__1">
+              <span style="color:red;" class="ph">DITA resource</span>
+            </th>
+            <th class="stentry" scope="col" id="location-of-the-xml-lang-attribute__stentry__2">
+              Recommended use
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="strow">
+            <td class="stentry" headers="location-of-the-xml-lang-attribute__stentry__1">
+              DITA topic document that contains a single language
+            </td>
+            <td class="stentry" headers="location-of-the-xml-lang-attribute__stentry__2">
+              Specify the <code class="keyword markupname xmlatt">@xml:lang</code> attribute on the
+              root element of the document.
+            </td>
+          </tr>
+          <tr class="strow">
+            <td class="stentry" headers="location-of-the-xml-lang-attribute__stentry__1">
+              DITA topic document that contains more than one language
+            </td>
+            <td class="stentry" headers="location-of-the-xml-lang-attribute__stentry__2">
+              Specify the primary language and locale that applies to the topic on the highest-level
+              element that contains content. If part of a topic is written in a different language,
+              enclose that content in an element with the
+              <code class="keyword markupname xmlatt">@xml:lang</code> attribute set appropriately.
+              This applies to both block and inline elements that use the alternate language.
+            </td>
+          </tr>
+          <tr class="strow">
+            <td class="stentry" headers="location-of-the-xml-lang-attribute__stentry__1">
+              DITA map
+            </td>
+            <td class="stentry" headers="location-of-the-xml-lang-attribute__stentry__2">
+              Specify the <code class="keyword markupname xmlatt">@xml:lang</code> attribute on the
+              root element of the map. This applies both to the root map and any submaps.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/xmllang.html"
+            title="The xml:lang attribute specifies the language and optional locale of the content that is contained in an element. The xml:lang attribute is described in the XML Recommendation."
+            >The xml:lang attribute</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

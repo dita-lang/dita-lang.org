@@ -1,0 +1,162 @@
+---
+# Generated from DITA source
+layout: base
+title: 'attributedef'
+description: 'The attributedef element specifies an attribute that is
+  bound to a set of controlled values. This binding restricts the permissible values for the
+  attribute to the set of controlled values.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      <code class="keyword markupname xmlelement">&lt;attributedef&gt;</code>
+    </h1>
+
+    <div class="body refbody">
+      <p class="shortdesc">
+        The <code class="keyword markupname xmlelement">&lt;attributedef&gt;</code> element
+        specifies an attribute that is bound to a set of controlled values. This binding restricts
+        the permissible values for the attribute to the set of controlled values.
+      </p>
+      <section class="section" id="attributedef__specialization-hierachy">
+        <h2 class="title sectiontitle">Specialization hierarchy</h2>
+
+        <p class="p">
+          The <code class="keyword markupname xmlelement">&lt;attributedef&gt;</code> element is
+          specialized from <code class="keyword markupname xmlelement">&lt;data&gt;</code>. It is
+          defined in the subject scheme module.
+        </p>
+      </section>
+      <section class="section" id="attributedef__attributes">
+        <h2 class="title sectiontitle">Attributes</h2>
+
+        <p class="p">
+          The following attributes are available on this element:
+          <span class="ph"
+            ><a
+              class="xref"
+              href="../../common/../langRef/attributes/universalAttributes.html#univ-atts__idatts"
+              title="ID and conref attributes include: conaction, conkeyref, conref, conrefend, and id"
+              >ID and conref attributes</a
+            ></span
+          >,
+          <a class="xref" href="../attributes/universalAttributes.html#univ-atts__attr-base"
+            ><code class="keyword markupname xmlatt">@base</code></a
+          >,
+          <a class="xref" href="../attributes/universalAttributes.html#univ-atts__class"
+            ><code class="keyword markupname xmlatt">@class</code></a
+          >,
+          <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-name"
+            ><code class="keyword markupname xmlatt">@name</code></a
+          >,
+          <a class="xref" href="../attributes/universalAttributes.html#univ-atts__outputclass"
+            ><code class="keyword markupname xmlatt">@outputclass</code></a
+          >,
+          <a class="xref" href="../attributes/universalAttributes.html#univ-atts__attr-status"
+            ><code class="keyword markupname xmlatt">@status</code></a
+          >, and
+          <a class="xref" href="../attributes/universalAttributes.html#univ-atts__attr-translate"
+            ><code class="keyword markupname xmlatt">@translate</code></a
+          >.
+        </p>
+        <div class="p attr-exception" id="attributedef__attr-exception">
+          For this element, the following considerations apply:
+          <ul class="ul">
+            <li class="li">
+              The <code class="keyword markupname xmlatt">@name</code> attribute is required. It
+              specifies the name of the attribute to which the controlled values are bound.
+            </li>
+            <li class="li">
+              The <code class="keyword markupname xmlatt">@translate</code> attribute has a default
+              value of <span class="keyword">no</span>.
+            </li>
+          </ul>
+        </div>
+      </section>
+      <div class="example" id="attributedef__example">
+        <h2 class="title sectiontitle">Example</h2>
+        <p class="p">
+          In the following code sample, the enumeration definition for the
+          <code class="keyword markupname xmlatt">@otherprops</code> attribute limits the
+          permissible values to the subject <span class="keyword">values-otherprops</span>:
+        </p>
+        <pre class="pre codeblock"><code>&lt;subjectScheme&gt;
+    &lt;!-- DEFINE SETS OF CONTROLLED VALUES --&gt;    
+    &lt;!-- Values for @otherprops --&gt;
+    &lt;subjectdef keys="values-otherprops"&gt;
+        &lt;subjectdef keys="examples"/&gt;
+    &lt;/subjectdef&gt;
+    
+    &lt;!-- BINDS SETS OF CONTROLLED VALUES --&gt;    
+    &lt;!-- Binding for @otherprops --&gt;
+    &lt;enumerationdef&gt;
+        <strong class="ph b">&lt;attributedef name="otherprops"/&gt;</strong>
+        &lt;subjectdef keyref="values-otherprops"/&gt;
+    &lt;/enumerationdef&gt;
+
+&lt;/subjectScheme&gt;</code></pre>
+        <p class="p">
+          This means that the only valid value for the
+          <code class="keyword markupname xmlatt">@otherprops</code> attribute is
+          <span class="keyword">examples</span>.
+        </p>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../langRef/containers/subjectScheme.html"
+            title="Subject scheme elements are used to define sets of controlled values and taxonomic subjects, bind controlled values to attributes as enumerations, and specify relationships among taxonomic subjects."
+            >Subject scheme elements</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

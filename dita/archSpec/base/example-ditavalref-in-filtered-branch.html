@@ -1,0 +1,317 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Example: ditavalref within a branch that already uses
+  ditavalref'
+description: 'In this scenario, a branch is filtered because a ditavalref
+  element is present, and another ditavalref deeper within that branch
+  supplies additional conditions for a subset of the branch.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li>
+      <a href="../../archSpec/base/behaviors.html">DITA processing</a>
+      <ul class="nav nav-list">
+        <li><a href="../../archSpec/base/navigation.html">Navigation</a></li>
+        <li><a href="../../archSpec/base/indexes.html">Indexes</a></li>
+        <li><a href="../../archSpec/base/conref.html">Content reference (conref)</a></li>
+        <li><a href="../../archSpec/base/condproc.html">Conditional processing</a></li>
+        <li>
+          <a href="../../archSpec/base/branch-filtering.html">Branch filtering</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/branch-filtering-overview.html"
+                >Overview of branch filtering</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/branch-filtering-interactions.html"
+                >How filtering rules interact</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/branch-filtering-single-set.html"
+                >Branch filtering: Single referenced DITAVAL document for a branch</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/branch-filtering-multiple-sets.html"
+                >Branch filtering: Multiple referenced DITAVAL documents for a branch</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/branch-filtering-resource-names.html"
+                >Branch filtering: Impact on resource and key names</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/branch-filtering-implications-of-processing-order.html"
+                >Branch filtering: Implications of processing order</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/examples-of-branch-filter.html"
+                >Examples of branch filtering</a
+              >
+              <ul class="nav nav-list">
+                <li>
+                  <a href="../../archSpec/base/example-single-ditavalref-on-branch.html"
+                    >Example: Single ditavalref on a branch</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-multiple-ditavalref.html"
+                    >Example: Multiple ditavalref elements on a branch</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-ditavalref-as-child-of-map.html"
+                    >Example: Single ditavalref as a child of map</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-ditavalref-with-mapref.html"
+                    >Example: Single ditavalref in a reference to a map</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-multiple-ditavalref-as-child-of-map.html"
+                    >Example: Multiple ditavalref elements as children of map in a root map</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-multiple-ditavalref-with-mapref.html"
+                    >Example: Multiple ditavalref elements in a reference to a map</a
+                  >
+                </li>
+                <li class="active">
+                  <a href="../../archSpec/base/example-ditavalref-in-filtered-branch.html"
+                    >Example: ditavalref within a branch that already uses ditavalref</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-ditavalref-error-conditions.html"
+                    >Example: ditavalref error conditions</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/sort-as-processing.html">Sorting</a></li>
+        <li>
+          <a href="../../archSpec/base/determining-effective-attribute-values.html"
+            >Determining effective attribute values</a
+          >
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      Example: <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> within a branch
+      that already uses <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code>
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        In this scenario, a branch is filtered because a
+        <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element is present,
+        and another <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> deeper
+        within that branch supplies additional conditions for a subset of the branch.
+      </p>
+      <div
+        class="example"
+        id="example-ditavalref-in-filtered-branch__ditavalref-in-branch-with-ditavalref"
+      >
+        <div class="p">
+          In the following map fragment, a set of operating system conditions applies to
+          installation instructions. Within that common branch, a subset of content applies to
+          different audiences.
+          <pre class="pre codeblock"><code>&lt;topicref href="install.dita"&gt;
+  &lt;ditavalref href="linux.ditaval"/&gt;
+  &lt;ditavalref href="mac.ditaval"&gt;
+    &lt;ditavalmeta&gt;
+      &lt;dvrResourceSuffix&gt;-mac&lt;/dvrResourceSuffix&gt;
+    &lt;/ditavalmeta&gt;
+  &lt;/ditavalref&gt;
+  &lt;ditavalref href="win.ditaval"&gt;
+    &lt;ditavalmeta&gt;
+      &lt;dvrResourceSuffix&gt;-win&lt;/dvrResourceSuffix&gt;
+    &lt;/ditavalmeta&gt;
+  &lt;/ditavalref&gt;
+  &lt;topicref href="perform-install.dita"&gt;
+    &lt;!-- other topics--&gt;
+  &lt;/topicref&gt;
+  <strong class="ph b">&lt;!-- Begin configuration sub-branch --&gt;</strong>
+  &lt;topicref href="configure.dita"&gt;
+    &lt;ditavalref href="novice.ditaval"&gt;
+      &lt;ditavalmeta&gt;
+        &lt;dvrResourceSuffix&gt;-novice&lt;/dvrResourceSuffix&gt;
+      &lt;/ditavalmeta&gt;
+    &lt;/ditavalref&gt;
+    &lt;ditavalref href="advanced.ditaval"&gt;
+      &lt;ditavalmeta&gt;
+        &lt;dvrResourceSuffix&gt;-admin&lt;/dvrResourceSuffix&gt;
+      &lt;/ditavalmeta&gt;
+    &lt;/ditavalref&gt;
+    &lt;!-- Other config topics --&gt;
+  &lt;/topicref&gt;
+  <strong class="ph b">&lt;!-- End configuration sub-branch --&gt;</strong>
+&lt;/topicref&gt;</code></pre>
+        </div>
+        <p class="p">
+          In this case, the effective map contains three copies of the complete branch. The branches
+          are filtered by operating system. Because topics in the branch are filtered in different
+          ways, processors are effectively required to handle three copies of the entire branch. The
+          map author uses the
+          <code class="keyword markupname xmlelement">&lt;dvrResourceSuffix&gt;</code>
+          elements to control naming for each copy. The Linux branch does not specify a
+          <code class="keyword markupname xmlelement">&lt;dvrResourceSuffix&gt;</code> element,
+          because it is the default copy of the branch; this allows documents such as
+          <span class="ph filepath">install.dita</span> to retain their original names.
+        </p>
+        <p class="p">
+          Within each operating system instance, the configuration sub-branch is repeated; it is
+          filtered once for novice users and then again for advanced users. As a result, there are
+          actually six instances of the configuration sub-branch. Additional
+          <code class="keyword markupname xmlelement">&lt;dvrResourceSuffix&gt;</code> elements are
+          used to control naming for each instance.
+        </p>
+        <ol class="ol">
+          <li class="li">
+            The first instance is filtered using the conditions in
+            <span class="ph filepath">linux.ditaval</span> and
+            <span class="ph filepath">novice.ditaval</span>. For this instance, the resource
+            <span class="ph filepath">configure.dita</span> is treated as the resource
+            <span class="ph filepath">configure-novice.dita</span>. There is no renaming based on
+            <span class="ph filepath">linux.ditaval</span>, and the
+            <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> the references
+            <span class="ph filepath">novice.ditaval</span> adds the
+            <code class="ph codeph">suffix -novice</code>.
+          </li>
+          <li class="li">
+            The second instance is filtered using the conditions in
+            <span class="ph filepath">linux.ditaval</span> and
+            <span class="ph filepath">advanced.ditaval</span>. For this instance, the resource
+            <span class="ph filepath">configure.dita</span> is treated as the resource
+            <span class="ph filepath">configure-admin.dita</span>. There is no renaming based on
+            <span class="ph filepath">linux.ditaval</span>, and the
+            <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> that references
+            <span class="ph filepath">advanced.ditaval</span> adds the suffix
+            <code class="ph codeph">-admin</code>.
+          </li>
+          <li class="li">
+            The third instance is filtered using the conditions in
+            <span class="ph filepath">mac.ditaval</span> and
+            <span class="ph filepath">novice.ditaval</span>. For this instance, the resource
+            <span class="ph filepath">configure.dita</span> is treated as the resource
+            <span class="ph filepath">configure-novice-mac.dita</span>. The
+            <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> that references
+            <span class="ph filepath">novice.ditaval</span> adds the suffix
+            <code class="ph codeph">-novice</code>, resulting in
+            <span class="ph filepath">configure-novice.dita</span>, and then the
+            <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> that references
+            <span class="ph filepath">mac.ditaval</span> adds the additional suffix
+            <code class="ph codeph">-mac</code>.
+          </li>
+          <li class="li">
+            The fourth instance is filtered using the conditions in
+            <span class="ph filepath">mac.ditaval</span> and
+            <span class="ph filepath">advanced.ditaval</span>. For this instance, the resource
+            <span class="ph filepath">configure.dita</span> is treated as the resource
+            <span class="ph filepath">configure-admin-mac.dita</span>. The
+            <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> that references
+            <span class="ph filepath">admin.ditaval</span> adds the suffix
+            <code class="ph codeph">-admin</code>, resulting in
+            <span class="ph filepath">configure-admin.dita</span>, and then the
+            <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> that references
+            <span class="ph filepath">mac.ditaval</span> adds the additional suffix
+            <code class="ph codeph">-mac</code>.
+          </li>
+          <li class="li">
+            The fifth instance is filtered using the conditions in
+            <span class="ph filepath">win.ditaval</span> and
+            <span class="ph filepath">novice.ditaval</span>. For this instance, the resource
+            <span class="ph filepath">configure.dita</span> is treated as the resource
+            <span class="ph filepath">configure-novice-win.dita</span>. The
+            <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> that references
+            <span class="ph filepath">novice.ditaval</span> adds the suffix
+            <code class="ph codeph">-novice</code>, resulting in
+            <span class="ph filepath">configure-novice.dita</span>, and then the
+            <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> that references
+            <span class="ph filepath">win.ditaval</span> adds the additional suffix
+            <code class="ph codeph">-win</code>.
+          </li>
+          <li class="li">
+            The sixth instance is filtered using the conditions in
+            <span class="ph filepath">win.ditaval</span> and
+            <span class="ph filepath">advanced.ditaval</span>. For this instance, the resource
+            <span class="ph filepath">configure.dita</span> is treated as the resource
+            <span class="ph filepath">configure-admin-win.dita</span>. The
+            <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> that references
+            <span class="ph filepath">admin.ditaval</span> adds the suffix
+            <code class="ph codeph">-admin</code>, resulting in
+            <span class="ph filepath">configure-admin.dita</span>, and then the
+            <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> that references
+            <span class="ph filepath">win.ditaval</span> adds the additional suffix
+            <code class="ph codeph">-win</code>.
+          </li>
+        </ol>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/examples-of-branch-filter.html"
+            title="The branch filtering examples illustrate the processing expectations for various scenarios that involve ditavalref elements. Processing examples use either before and after sample markup or expanded syntax that shows the equivalent markup without the ditavalref elements."
+            >Examples of branch filtering</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

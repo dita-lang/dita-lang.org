@@ -1,0 +1,180 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Example: Index range defined in a topic prolog'
+description: 'In this scenario, an index range is defined in the topic prolog. Ranges defined in a
+  prolog cover subtopics, including those nested based on a map.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li>
+      <a href="../../archSpec/base/behaviors.html">DITA processing</a>
+      <ul class="nav nav-list">
+        <li><a href="../../archSpec/base/navigation.html">Navigation</a></li>
+        <li>
+          <a href="../../archSpec/base/indexes.html">Indexes</a>
+          <ul class="nav nav-list">
+            <li><a href="../../archSpec/base/index-elements.html">Index elements</a></li>
+            <li>
+              <a href="../../archSpec/base/location-of-indexterm-elements.html"
+                >Location of indexterm elements</a
+              >
+            </li>
+            <li><a href="../../archSpec/base/index-page-references.html">Index locators</a></li>
+            <li><a href="../../archSpec/base/index-redirection.html">Index redirection</a></li>
+            <li><a href="../../archSpec/base/index-ranges.html">Index ranges</a></li>
+            <li><a href="../../archSpec/base/index-sorting.html">Index sorting</a></li>
+            <li>
+              <a href="../../archSpec/base/merging-index-elements.html">Merging index elements</a>
+            </li>
+            <li>
+              <a href="../../archSpec/base/examples-indexing.html">Examples of indexing</a>
+              <ul class="nav nav-list">
+                <li>
+                  <a href="../../archSpec/base/example-of-nested-indexterm-elements.html"
+                    >Example: Merging indexterm elements</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-index-range-in-a-single-topic.html"
+                    >Example: Index range defined in a single topic</a
+                  >
+                </li>
+                <li class="active">
+                  <a href="../../archSpec/base/example-index-range-defined-in-a-topic-prolog.html"
+                    >Example: Index range defined in a topic prolog</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/example-index-range-defined-in-a-map.html"
+                    >Example: Index range defined in a map</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/conref.html">Content reference (conref)</a></li>
+        <li><a href="../../archSpec/base/condproc.html">Conditional processing</a></li>
+        <li><a href="../../archSpec/base/branch-filtering.html">Branch filtering</a></li>
+        <li><a href="../../archSpec/base/sort-as-processing.html">Sorting</a></li>
+        <li>
+          <a href="../../archSpec/base/determining-effective-attribute-values.html"
+            >Determining effective attribute values</a
+          >
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      Example: Index range defined in a topic prolog
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        In this scenario, an index range is defined in the topic prolog. Ranges defined in a prolog
+        cover subtopics, including those nested based on a map.
+      </p>
+      <p class="p">
+        Specifying an index range in a topic prolog is useful for defining an index range that
+        contains a topic and its children.
+      </p>
+      <p class="p">
+        Consider the following DITA map which contains topics about a small company's operating
+        procedures. The map contains a topic about accounting (<span class="ph filepath"
+          >acct.dita</span
+        >), which has child topics: <span class="ph filepath">procedures.dita</span> and
+        <span class="ph filepath">forms.dita</span>.
+      </p>
+      <pre class="pre codeblock"><code>&lt;map&gt;
+  &lt;title&gt;Company procedures&lt;/title&gt;
+  &lt;topicref href="acct.dita"&gt;
+    &lt;topicref href="procedures.dita"/&gt;
+    &lt;topicref href="forms.dita"/&gt;
+  &lt;/topicref&gt;
+  &lt;!-- ... --&gt;
+&lt;/map&gt;</code></pre>
+      <p class="p">
+        The information developer wants an index entry that will span
+        <span class="ph filepath">acct.dita</span> and its children. He uses the following markup in
+        <span class="ph filepath">acct.dita</span>:
+      </p>
+      <pre class="pre codeblock"><code>&lt;topic id="accounting-at-acme"&gt;
+  &lt;title&gt;Accounting at Acme&lt;/title&gt;
+  &lt;prolog&gt;
+    &lt;metadata&gt;
+      &lt;keywords&gt;
+        &lt;indexterm start="acct"&gt;accounting&lt;/indexterm&gt;
+      &lt;/keywords&gt;
+    &lt;/metadata&gt;
+  &lt;/prolog&gt;
+  &lt;!-- ... --&gt;
+&lt;/topic&gt;</code></pre>
+      <p class="p">
+        This markup specifies that the index range begins with the start of the topic title, and the
+        end of the range is the end of the <span class="ph filepath">forms.dita</span> topic. The
+        index range includes the "Accounting at Acme" topic and its two child topics.
+      </p>
+      <p class="p">
+        The information developer could have included an end element (for example,
+        <code class="ph codeph">&lt;indexterm end="acct"/&gt;</code>) in the topic prolog, but it is
+        not necessary. If the topic prolog had included an end element, the effective index range
+        would be identical.
+      </p>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/examples-indexing.html"
+            title="This section contains examples and scenarios that illustrate the use and processing of indexing elements."
+            >Examples of indexing</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

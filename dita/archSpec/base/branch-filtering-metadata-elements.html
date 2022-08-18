@@ -1,0 +1,297 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Using metadata elements in the DITAVAL reference domain'
+description: 'Metadata within the ditavalref element makes it possible to
+  control changes to resource names and key scope names, so that each distinct filtered copy
+  can be referenced in a predictable manner.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li>
+      <a href="../../archSpec/base/behaviors.html">DITA processing</a>
+      <ul class="nav nav-list">
+        <li><a href="../../archSpec/base/navigation.html">Navigation</a></li>
+        <li><a href="../../archSpec/base/indexes.html">Indexes</a></li>
+        <li><a href="../../archSpec/base/conref.html">Content reference (conref)</a></li>
+        <li><a href="../../archSpec/base/condproc.html">Conditional processing</a></li>
+        <li>
+          <a href="../../archSpec/base/branch-filtering.html">Branch filtering</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/branch-filtering-overview.html"
+                >Overview of branch filtering</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/branch-filtering-interactions.html"
+                >How filtering rules interact</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/branch-filtering-single-set.html"
+                >Branch filtering: Single referenced DITAVAL document for a branch</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/branch-filtering-multiple-sets.html"
+                >Branch filtering: Multiple referenced DITAVAL documents for a branch</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/branch-filtering-resource-names.html"
+                >Branch filtering: Impact on resource and key names</a
+              >
+              <ul class="nav nav-list">
+                <li class="active">
+                  <a href="../../archSpec/base/branch-filtering-metadata-elements.html"
+                    >Using metadata elements in the DITAVAL reference domain</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/branch-filtering-renaming-multiple-times.html"
+                    >Renaming based on multiple ditavalref elements</a
+                  >
+                </li>
+                <li>
+                  <a href="../../archSpec/base/branch-filtering-handling-conflicts.html"
+                    >Handling resource name conflicts caused by branch filtering</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="../../archSpec/base/branch-filtering-implications-of-processing-order.html"
+                >Branch filtering: Implications of processing order</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/examples-of-branch-filter.html"
+                >Examples of branch filtering</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/sort-as-processing.html">Sorting</a></li>
+        <li>
+          <a href="../../archSpec/base/determining-effective-attribute-values.html"
+            >Determining effective attribute values</a
+          >
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      Using metadata elements in the DITAVAL reference domain
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        Metadata within the
+        <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element makes it
+        possible to control changes to resource names and key scope names, so that each distinct
+        filtered copy can be referenced in a predictable manner.
+      </p>
+      <p class="p">
+        The DITAVALref domain defines four elements to control URI and key scope values within
+        filtered map branches.
+      </p>
+      <dl class="dl">
+        <dt class="dt dlterm">
+          <code class="keyword markupname xmlelement">&lt;dvrResourcePrefix&gt;</code>
+        </dt>
+        <dd class="dd">
+          <span class="ph"
+            >The
+            <code class="keyword markupname xmlelement">&lt;dvrResourcePrefix&gt;</code> element
+            specifies the prefix to use when constructing the effective file names or resource IDs
+            of the resources that are referenced from within the map branch that is implied by the
+            ancestor
+            <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element.</span
+          >
+          This enables a map author to specify a prefix that is added to the start of resource names
+          for each resource in the branch.
+        </dd>
+
+        <dt class="dt dlterm">
+          <code class="keyword markupname xmlelement">&lt;dvrResourceSuffix&gt;</code>
+        </dt>
+        <dd class="dd">
+          <span class="ph"
+            >The
+            <code class="keyword markupname xmlelement">&lt;dvrResourceSuffix&gt;</code> element
+            specifies the prefix to use when constructing the effective file names or resource IDs
+            of the resources that are referenced from within the map branch that is implied by the
+            ancestor
+            <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element.</span
+          >
+          This enables a map author to specify a suffix that is added to the end of resource names
+          (before any extension) for each resource in the branch.
+        </dd>
+
+        <dt class="dt dlterm">
+          <code class="keyword markupname xmlelement">&lt;dvrKeyscopePrefix&gt;</code>
+        </dt>
+        <dd class="dd">
+          <span class="ph"
+            >The
+            <code class="keyword markupname xmlelement">&lt;dvrKeyscopePrefix&gt;</code> element
+            specifies the prefix to use when constructing the effective key scope names for the map
+            branch that is implied by the ancestor
+            <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element.</span
+          >
+          This enables a map author to specify a prefix that is added to the start of key scope
+          names for each key scope in the branch. If no key scope is specified for the branch, this
+          can be used to establish a new key scope, optionally combined with a value specified in
+          <code class="keyword markupname xmlelement">&lt;dvrKeyscopeSuffix&gt;</code>.
+        </dd>
+
+        <dt class="dt dlterm">
+          <code class="keyword markupname xmlelement">&lt;dvrKeyscopeSuffix&gt;</code>
+        </dt>
+        <dd class="dd">
+          <span class="ph"
+            >The
+            <code class="keyword markupname xmlelement">&lt;dvrKeyscopeSuffix&gt;</code> element
+            specifies the suffix to use when constructing the effective key scope names for the map
+            branch that is implied by the ancestor
+            <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element.</span
+          >
+          This enables a map author to specify a suffix that is added to the end of key scope names
+          for each key scope in the branch.
+        </dd>
+      </dl>
+      <p class="p">
+        For example, the previous code sample can be modified as follows to create predictable
+        resource names and key scopes for the copy of the branch that is filtered using the
+        conditions that are specified in <span class="ph filepath">admin.ditaval</span>.
+      </p>
+      <pre
+        class="pre codeblock"
+      ><code>&lt;topicref href="productFeatures.dita" keys="features" keyscope="prodFeatures"&gt;
+  &lt;ditavalref href="novice.ditaval"/&gt;
+  &lt;ditavalref href="admin.ditaval"&gt;
+    &lt;ditavalmeta&gt;
+      &lt;dvrResourcePrefix&gt;admin-&lt;/dvrResourcePrefix&gt;
+      &lt;dvrKeyscopePrefix&gt;adminscope-&lt;/dvrKeyscopePrefix&gt;
+    &lt;/ditavalmeta&gt;
+  &lt;/ditavalref&gt;
+  &lt;topicref href="newFeature.dita" keys="newThing"/&gt;
+&lt;/topicref&gt;</code></pre>
+      <p class="p">
+        The novice branch does not use any renaming, which allows it to be treated as the default
+        copy of the branch. As a result, when the topics are filtered using the conditions that are
+        specified in <span class="ph filepath">novice.ditaval</span>, the resource names and key
+        names are unmodified, so that references to the original resource name and key name will
+        resolve to topics in the novice copy of the branch. This has the following effect on topics
+        that are filtered using the conditions specified in
+        <span class="ph filepath">admin.ditaval</span>:
+      </p>
+      <ul class="ul" id="branch_filtering_metadata_elements__ul_gyv_2km_ctb">
+        <li class="li">
+          The prefix <code class="ph codeph">admin-</code> is added to the beginning of each
+          resource name in the admin branch.
+          <ul class="ul" id="branch_filtering_metadata_elements__ul_hyv_2km_ctb">
+            <li class="li">
+              The resource <span class="ph filepath">productFeatures.dita</span> becomes
+              <span class="ph filepath">admin-productFeatures.dita</span>
+            </li>
+            <li class="li">
+              The resource <span class="ph filepath">newFeature.dita</span> becomes
+              <span class="ph filepath">admin-newFeature.dita</span>
+            </li>
+          </ul>
+        </li>
+        <li class="li">
+          The prefix <code class="ph codeph">adminscope-</code> is added to the existing key scope
+          "prodFeatures".
+          <ul class="ul" id="branch_filtering_metadata_elements__ul_iyv_2km_ctb">
+            <li class="li">
+              The attribute value
+              <code class="ph codeph">keyref="adminscope-prodFeatures.features"</code> refers
+              explicitly to the admin copy of <span class="ph filepath">productFeatures.dita</span>
+            </li>
+            <li class="li">
+              The attribute <code class="ph codeph">keyref="adminscope-prodFeatures.newThing"</code>
+              refers explicitly to the admin copy of
+              <span class="ph filepath">newFeature.dita</span>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <div class="note note note_note">
+        <span class="note__title">Note:</span> In general, the best way to reference a topic that
+        will be modified based on branch filtering is to use a key rather than a URI. Key scopes and
+        key names (including those modified based on the elements above) must be calculated by
+        processors before other processing. This means that in the example above, a key reference to
+        <code class="ph codeph">adminscope-prodFeatures.features</code> will always refer explicitly
+        to the instance of <span class="ph filepath">productFeatures.dita</span> filtered against
+        the conditions in <span class="ph filepath">admin.ditaval</span>, regardless of whether a
+        processor has performed the filtering yet. References that use the URI
+        <span class="ph filepath">productFeatures.dita</span> or
+        <span class="ph filepath">admin-productFeatures.dita</span> could resolve differently (or
+        fail to resolve), as discussed in
+        <a
+          class="xref"
+          href="branch-filtering-implications-of-processing-order.html"
+          title="The branch filtering mechanism can result in changes to the global key space for a root map. As a result, processors are required to evaluate branch filtering in order to construct the key space."
+          >Branch filtering: Implications of processing order</a
+        >.
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/branch-filtering-resource-names.html"
+            title="When map branches are cloned by a processor in order to support multiple condition sets, processors must manage conflicting resource and key names. The DITAVALref domain includes metadata elements that authors can use to specify how resource and key names are renamed."
+            >Branch filtering: Impact on resource and key names</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

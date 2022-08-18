@@ -1,0 +1,168 @@
+---
+# Generated from DITA source
+layout: base
+title: 'The conkeyref attribute'
+description: 'The conkeyref attribute provides an indirect content reference to
+  topic elements, map elements, or elements within maps or topics. When the DITA content is
+  processed, the key references are resolved using key definitions from DITA maps.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li>
+      <a href="../../archSpec/base/behaviors.html">DITA processing</a>
+      <ul class="nav nav-list">
+        <li><a href="../../archSpec/base/navigation.html">Navigation</a></li>
+        <li><a href="../../archSpec/base/indexes.html">Indexes</a></li>
+        <li>
+          <a href="../../archSpec/base/conref.html">Content reference (conref)</a>
+          <ul class="nav nav-list">
+            <li><a href="../../archSpec/base/conref-overview.html">Conref overview</a></li>
+            <li>
+              <a href="../../archSpec/base/theconactionattribute.html">The conaction attribute</a>
+            </li>
+            <li>
+              <a href="../../archSpec/base/theconrefendattribute.html">The conrefend attribute</a>
+            </li>
+            <li class="active">
+              <a href="../../archSpec/base/theconkeyrefattribute.html">The conkeyref attribute</a>
+            </li>
+            <li><a href="../../archSpec/base/theconrefattribute.html">The conref attribute</a></li>
+            <li>
+              <a href="../../archSpec/base/ditauseconreftarget.html"
+                >Using the -dita-use-conref-target value</a
+              >
+            </li>
+            <li><a href="../../archSpec/base/conref-processing.html">Processing conrefs</a></li>
+            <li>
+              <a href="../../archSpec/base/conref-attributes-specified-on-elements.html"
+                >Processing attributes when resolving conrefs</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/handling-xref-and-conref-within-topics.html"
+                >Processing xrefs and conrefs within a conref</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li><a href="../../archSpec/base/condproc.html">Conditional processing</a></li>
+        <li><a href="../../archSpec/base/branch-filtering.html">Branch filtering</a></li>
+        <li><a href="../../archSpec/base/sort-as-processing.html">Sorting</a></li>
+        <li>
+          <a href="../../archSpec/base/determining-effective-attribute-values.html"
+            >Determining effective attribute values</a
+          >
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      The <code class="keyword markupname xmlatt">@conkeyref</code> attribute
+    </h1>
+
+    <div class="body refbody">
+      <p class="shortdesc">
+        The <code class="keyword markupname xmlatt">@conkeyref</code> attribute provides an indirect
+        content reference to topic elements, map elements, or elements within maps or topics. When
+        the DITA content is processed, the key references are resolved using key definitions from
+        DITA maps.
+      </p>
+      <section class="section" id="theconkeyrefattribute__section_nsw_5xy_qpb"></section>
+      <section class="section" id="theconkeyrefattribute__section-1">
+        <p class="p">
+          For content references from map elements to map elements or topic elements to topic
+          elements, the value of the
+          <code class="keyword markupname xmlatt">@conkeyref</code> attribute is a key name, where
+          the key must be bound to a map element (for references from map elements) or a topic
+          element (for references from topic elements). For all other elements, the value of the
+          <code class="keyword markupname xmlatt">@conkeyref</code> attribute is a key name, an
+          optional <span class="ph">slash</span> ("/"), and the ID of the target element, where the
+          key name must be bound to the map or topic that contains the topic element.
+        </p>
+        <p class="p">
+          When the key name specified by the
+          <code class="keyword markupname xmlatt">@conkeyref</code> attribute is not defined and the
+          element also specifies a <code class="keyword markupname xmlatt">@conref</code> attribute,
+          the <code class="keyword markupname xmlatt">@conref</code>
+          attribute is used to determine the content reference relationship. If no
+          <code class="keyword markupname xmlatt">@conref</code> attribute is specified there is no
+          content reference relationship.
+        </p>
+        <p class="p">
+          Processors <dfn class="term RFC-2119">SHOULD</dfn> issue a warning when a
+          <code class="keyword markupname xmlatt">@conkeyref</code> reference cannot be resolved and
+          there is no <code class="keyword markupname xmlatt">@conref</code> attribute to use as a
+          fallback. Processors <dfn class="term RFC-2119">MAY</dfn> issue a warning when a
+          <code class="keyword markupname xmlatt">@conkeyref</code> cannot be resolved to an element
+          and a specified <code class="keyword markupname xmlatt">@conref</code> is used as a
+          fallback.
+        </p>
+        <p class="p">
+          The <code class="keyword markupname xmlatt">@conrefend</code> attribute, which defines the
+          end of a conref range, cannot include a key. Instead the map or topic element addressed by
+          the key name component of the <code class="keyword markupname xmlatt">@conkeyref</code> is
+          used in place of whatever map or topic element is addressed by the
+          <code class="keyword markupname xmlatt">@conrefend</code> attribute. See
+          <a class="xref" href="theconrefendattribute.html#theconrefendattribute__conkeyref"
+            >Using conrefend together with conkeyref</a
+          >
+          for more information and for examples of this behavior.
+        </p>
+      </section>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/conref.html"
+            title="The DITA conref attributes provide mechanisms for reusing content. DITA content references support reuse scenarios that are difficult or impossible to implement using other XML-based inclusion mechanisms like XInclude and entities. Additionally, DITA content references have rules that help ensure that the results of content inclusion remain valid after resolution"
+            >Content reference (conref)</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

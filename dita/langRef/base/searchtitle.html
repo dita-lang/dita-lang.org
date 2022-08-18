@@ -1,0 +1,182 @@
+---
+# Generated from DITA source
+layout: base
+title: 'searchtitle'
+description: 'A search title is an alternative title that is displayed by
+  search tools.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      <code class="keyword markupname xmlelement">&lt;searchtitle&gt;</code>
+    </h1>
+
+    <div class="body refbody">
+      <p class="shortdesc">
+        A search title is an alternative title that is displayed by search tools.
+      </p>
+      <section class="section" id="searchtitle__usage-information">
+        <h2 class="title sectiontitle">Usage information</h2>
+
+        <p class="p">
+          A search title is useful when the topic has a title that makes sense in the context of a
+          single information set, but might be too general in a list of search results. For example,
+          a topic title of <q class="q">Markup example</q> makes sense as part of a guide about
+          DITA, but when found among thousands of unrelated topics, a search title of
+          <q class="q">DITA markup example</q> is more useful.
+        </p>
+        <p class="p">
+          The <code class="keyword markupname xmlelement">&lt;searchtitle&gt;</code> element is a
+          convenience element. It is equivalent to a
+          <code class="keyword markupname xmlelement">&lt;titlealt&gt;</code> element with
+          <code class="keyword markupname xmlatt">@title-role</code> set to
+          <span class="keyword">search</span>.
+        </p>
+      </section>
+      <section class="section" id="searchtitle__processing-expectations">
+        <h2 class="title sectiontitle">Processing expectations</h2>
+
+        <p class="p">
+          Processing expectations are dictated by the rules for the
+          <code class="keyword markupname xmlelement">&lt;titlealt&gt;</code> element.
+        </p>
+      </section>
+      <section class="section" id="searchtitle__specialization-hierachy">
+        <h2 class="title sectiontitle">Specialization hierarchy</h2>
+
+        <p class="p">
+          The <code class="keyword markupname xmlelement">&lt;searchtitle&gt;</code> element is
+          specialized from <code class="keyword markupname xmlelement">&lt;titlealt&gt;</code>. It
+          is defined in the alternative-titles domain module.
+        </p>
+      </section>
+      <section class="section" id="searchtitle__attributes">
+        <h2 class="title sectiontitle">Attributes</h2>
+
+        <p class="p">
+          The following attributes are available on this element:
+          <span class="ph"
+            ><a
+              class="xref"
+              href="../../common/../langRef/attributes/universalAttributes.html"
+              title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang"
+              >universal attributes</a
+            ></span
+          >
+          and
+          <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-title-role"
+            ><code class="keyword markupname xmlatt">@title-role</code></a
+          >.
+        </p>
+        <p class="p attr-exception" id="searchtitle__attr-exception">
+          For this element, <code class="keyword markupname xmlatt">@title-role</code> has a default
+          value of <span class="keyword">search</span>.
+        </p>
+      </section>
+      <div class="example" id="searchtitle__example">
+        <h2 class="title sectiontitle">Examples</h2>
+        <p class="p">
+          This section contains examples of how the
+          <code class="keyword markupname xmlelement">&lt;searchtitle&gt;</code> element can be
+          used.
+        </p>
+        <figure class="fig fignone">
+          <figcaption>
+            <span class="fig--title-label">Figure 1. </span>Search title used in a topic
+          </figcaption>
+
+          <p class="p">
+            In the following code sample, the title "Programming Example" is useful in a set of
+            information about XSLT basics; however, the same title is not helpful among a set of
+            search results from the entire Internet. In the latter case, a title of "Example of
+            basic programming in XSLT" is more useful:
+          </p>
+          <pre class="pre codeblock"><code>&lt;topic id="programming-example"&gt;
+  &lt;title&gt;Programming example&lt;/title&gt;
+  &lt;prolog&gt;
+    &lt;searchtitle&gt;Example of basic programming in XSLT&lt;/searchtitle&gt;
+  &lt;/prolog&gt;
+  &lt;body&gt; 
+    &lt;!-- ... --&gt;  
+  &lt;/body&gt;
+&lt;/topic&gt;</code></pre>
+        </figure>
+        <figure class="fig fignone">
+          <figcaption>
+            <span class="fig--title-label">Figure 2. </span>Search title used in a map
+          </figcaption>
+
+          <p class="p">
+            When <code class="keyword markupname xmlelement">&lt;searchtitle&gt;</code> is used in
+            maps, the element provides a new search title for the topic when used in that specific
+            context. For example, if the following code sample is from a map that includes
+            information about programming in many languages, searches among that information set
+            will be most useful when they return "Example of programming in XSLT":
+          </p>
+          <pre class="pre codeblock"><code>&lt;topicref href="programming-example.dita"&gt;
+  &lt;topicmeta&gt;
+    &lt;navtitle&gt;Programming example&lt;/navtitle&gt;
+    &lt;searchtitle&gt;Example of programming in XSLT&lt;/searchtitle&gt;
+  &lt;/topicmeta&gt;
+&lt;/topicref&gt;</code></pre>
+        </figure>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../langRef/containers/alternativeTitles-d.html"
+            title="The alternative title elements are designed to provide alternative titles for resources. The elements in the alternative-titles domain are specialized from the titlealt element."
+            >Alternative-titles domain elements</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

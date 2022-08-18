@@ -1,0 +1,368 @@
+---
+# Generated from DITA source
+layout: base
+title: 'RELAX NG: Coding requirements for element-type declarations'
+description: 'This topic covers general coding requirements for element types in structural and
+  element-domain vocabulary modules.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+      <ul class="nav nav-list">
+        <li>
+          <a href="../../archSpec/base/recognizedconstraintmechanisms.html"
+            >Recognized XML-document grammar mechanisms</a
+          >
+        </li>
+        <li>
+          <a href="../../archSpec/base/using-relax-ng.html"
+            >Normative versions of DITA grammar files</a
+          >
+        </li>
+        <li><a href="../../archSpec/base/dtd-requirements.html">DTD coding requirements</a></li>
+        <li>
+          <a href="../../archSpec/base/relax-ng-requirements.html">RELAX NG coding requirements</a>
+          <ul class="nav nav-list">
+            <li>
+              <a href="../../archSpec/base/relax-ng-coding-overview.html"
+                >RELAX NG: Overview of coding requirements</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/relax-ng-coding-doctype-shell.html"
+                >RELAX NG: Coding requirements for document-type shells</a
+              >
+            </li>
+            <li class="active">
+              <a href="../../archSpec/base/relax-ng-coding-element-types.html"
+                >RELAX NG: Coding requirements for element-type declarations</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/relax-ng-coding-structural-modules.html"
+                >RELAX NG: Coding requirements for structural modules</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/relax-ng-coding-element-domains.html"
+                >RELAX NG: Coding requirements for element-domain modules</a
+              >
+            </li>
+            <li>
+              <a href="../../archSpec/base/relax-ng-coding-attribute-domains.html"
+                >RELAX NG: Coding requirements for attribute-domain modules</a
+              >
+            </li>
+            <li>
+              <a
+                href="../../archSpec/base/relax-ng-coding-requirements-for-element-configuration-modules.html"
+                >RELAX NG: Coding requirements for element-configuration modules</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      RELAX NG: Coding requirements for element-type declarations
+    </h1>
+
+    <div class="body conbody">
+      <p class="shortdesc">
+        This topic covers general coding requirements for element types in structural and
+        element-domain vocabulary modules.
+      </p>
+      <section class="section" id="concept_yvl_ncv_dn__files">
+        <h2 class="title sectiontitle">Module files</h2>
+
+        <p class="p">Each RELAX NG vocabulary module consists of a single module file.</p>
+      </section>
+      <section class="section" id="concept_yvl_ncv_dn__element-definitions">
+        <h2 class="title sectiontitle">Element definitions</h2>
+
+        <p class="p">
+          A structural or element-domain vocabulary module contains a declaration for each element
+          type that is named in the module. While the XML standard allows content models to refer to
+          undeclared element types, the DITA standard does not permit it. All element types or
+          attribute lists that are named in a vocabulary module are declared in one of the following
+          objects:
+        </p>
+        <ul class="ul">
+          <li class="li">The vocabulary module</li>
+          <li class="li">
+            A base module of which the vocabulary module is a direct or indirect specialization
+          </li>
+          <li class="li">
+            (If the vocabulary module is a structural module) A required domain or structural module
+          </li>
+        </ul>
+        <p class="p">The element type patterns are organized into the following sections:</p>
+        <dl class="dl">
+          <dt class="dt dlterm">Element type name patterns</dt>
+          <dd class="dd">
+            <p class="p">
+              For each element type that is declared in the vocabulary module, there is a pattern
+              whose name is the element type name and whose content is a reference to the
+              element-type
+              <code class="ph codeph"><var class="keyword varname">tagname</var>.element</code>
+              pattern.
+            </p>
+            <div class="example">
+              <p class="p">For example:</p>
+              <pre class="pre codeblock"><code>&lt;div&gt;
+  &lt;a:documentation&gt;ELEMENT TYPE NAME PATTERNS&lt;/a:documentation&gt;
+  &lt;define name="b"&gt;
+    &lt;ref name="b.element"/&gt;
+  &lt;/define&gt;
+  &lt;!-- ... --&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            <p class="p">
+              The element-type name pattern provides a layer of abstraction that facilitates
+              redefinition. The element-type name patterns are referenced from content model and
+              domain extension patterns. Specialization modules can re-declare the patterns to
+              include specializations of the type, allowing the specialized types in all contexts
+              where the base type is allowed.
+            </p>
+            <p class="p">The declarations can occur in any order.</p>
+          </dd>
+
+          <dt class="dt dlterm">Common content-model patterns</dt>
+          <dd class="dd">
+            Structural and element-domain modules can include a section that defines the patterns
+            that contribute to the content models of the element types that are defined in the
+            module.
+          </dd>
+
+          <dt class="dt dlterm">Common attribute sets</dt>
+          <dd class="dd">
+            Structural and element-domain modules can include a section that defines patterns for
+            attribute sets that are common to one or more of the element types that are defined in
+            the module.
+          </dd>
+
+          <dt class="dt dlterm">Element type declarations</dt>
+          <dd class="dd">
+            <p class="p">
+              For each element type that is declared in the vocabulary module, the following set of
+              patterns are used to define the content model and attributes for the element type.
+              Each set of patterns typically is grouped within a
+              <code class="keyword markupname xmlelement">&lt;div&gt;</code> element.
+            </p>
+            <dl class="dl">
+              <dt class="dt dlterm">
+                <code class="ph codeph"><var class="keyword varname">tagname</var>.content</code>
+              </dt>
+              <dd class="dd">
+                Defines the complete content model for the element
+                <var class="keyword varname">tagname</var>. The content model pattern can be
+                overridden in
+                <span style="color:red;" class="ph"
+                  >element-configuration modules (constraint and expansion)</span
+                >.
+              </dd>
+
+              <dt class="dt dlterm">
+                <code class="ph codeph"><var class="keyword varname">tagname</var>.attributes</code>
+              </dt>
+              <dd class="dd">
+                Defines the complete attribute list for the element
+                <var class="keyword varname">tagname</var>, except for
+                <code class="keyword markupname xmlatt">@class</code>. The attribute list
+                declaration can be overridden in
+                <span style="color:red;" class="ph"
+                  >element-configuration modules (constraint and expansion)</span
+                >.
+              </dd>
+
+              <dt class="dt dlterm">
+                <code class="ph codeph"><var class="keyword varname">tagname</var>.element</code>
+              </dt>
+              <dd class="dd">
+                Provides the actual element-type definition. It contains an
+                <code class="keyword markupname xmlelement">&lt;element&gt;</code> element whose
+                <code class="keyword markupname xmlatt">@name</code> value is the element type name
+                and whose content is a reference to the
+                <code class="ph codeph"><var class="keyword varname">tagname</var>.content</code>
+                and
+                <code class="ph codeph"><var class="keyword varname">tagname</var>.attlist</code>
+                patterns.
+              </dd>
+
+              <dt class="dt dlterm">
+                <code class="ph codeph"><var class="keyword varname">tagname</var>.attlist</code>
+              </dt>
+              <dd class="dd">
+                An additional attribute-list pattern with a
+                <code class="keyword markupname xmlatt">@combine</code> attribute set to the value
+                <span class="keyword">interleave</span>. This pattern contains only a reference to
+                the
+                <code class="ph codeph"><var class="keyword varname">tagname</var>.attributes</code>
+                pattern.
+              </dd>
+            </dl>
+            <div class="example">
+              <p class="p">
+                The following example shows the declaration for the
+                <code class="keyword markupname xmlelement">&lt;topichead&gt;</code> element,
+                including the definition for each pattern described above.
+              </p>
+              <pre class="pre codeblock"><code>    &lt;div&gt;
+      &lt;a:documentation&gt;Topic Head&lt;/a:documentation&gt;
+      <strong class="ph b">&lt;define name="topichead.content"&gt;</strong>
+        &lt;optional&gt;
+          &lt;ref name="topicmeta"/&gt;
+        &lt;/optional&gt;
+        &lt;zeroOrMore&gt;
+          &lt;choice&gt;
+            &lt;ref name="data.elements.incl"/&gt;
+            &lt;ref name="navref"/&gt;
+            &lt;ref name="topicref"/&gt;
+          &lt;/choice&gt;
+        &lt;/zeroOrMore&gt;
+      &lt;/define&gt;
+      <strong class="ph b">&lt;define name="topichead.attributes"&gt;
+</strong>        &lt;optional&gt;
+          &lt;attribute name="keys"/&gt;
+        &lt;/optional&gt;
+        &lt;ref name="topicref-atts"/&gt;
+        &lt;ref name="univ-atts"/&gt;
+      &lt;/define&gt;
+      <strong class="ph b">&lt;define name="topichead.element"&gt;</strong>
+        &lt;element name="topichead"&gt;
+          &lt;a:documentation&gt;The &amp;lt;topichead&gt; element provides a title-only entry in a navigation map, as an alternative to the fully-linked title provided by the &amp;lt;topicref&gt; element. Category:
+            Mapgroup elements&lt;/a:documentation&gt;
+          &lt;ref name="topichead.attlist"/&gt;
+          &lt;ref name="topichead.content"/&gt;
+        &lt;/element&gt;
+      &lt;/define&gt;
+      <strong class="ph b">&lt;define name="topichead.attlist" combine="interleave"&gt;
+</strong>        &lt;ref name="topichead.attributes"/&gt;
+      &lt;/define&gt;
+
+    &lt;/div&gt;</code></pre>
+            </div>
+          </dd>
+
+          <dt class="dt dlterm">idElements pattern contribution</dt>
+          <dd class="dd">
+            <p class="p">
+              Element types that declare the
+              <code class="keyword markupname xmlatt">@id</code> attribute as type "ID", including
+              all topic and map element types, provide a declaration for the
+              <code class="ph codeph">idElements</code> pattern. This is required to correctly
+              configure the <span class="keyword">any</span> pattern override in document-type
+              shells and avoid errors from RELAX NG parsers. The declaration is specified with a
+              <code class="keyword markupname xmlatt">@combine</code> attribute set to the value
+              <span class="keyword">choice</span>.
+            </p>
+            <div style="color:red;" class="div">
+              <p class="p">For example:</p>
+              <pre class="pre codeblock"><code>&lt;div&gt;
+  &lt;a:documentation&gt;LONG NAME: Map&lt;/a:documentation&gt;
+  &lt;!-- ... --&gt;
+  &lt;define name="idElements" combine="choice"&gt;
+    &lt;ref name="map.element"/&gt;
+  &lt;/define&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </dd>
+
+          <dt class="dt dlterm">Specialization attribute declarations</dt>
+          <dd class="dd">
+            <p class="p">
+              A vocabulary module must define a
+              <code class="keyword markupname xmlatt">@class</code> attribute for every specialized
+              element. This is done in a section at the end of each module that includes a
+              <code class="ph codeph"><var class="keyword varname">tagname</var>.attlist</code>
+              pattern for each element type that is defined in the module. The declarations can
+              occur in any order.
+            </p>
+            <p class="p">
+              The
+              <code class="ph codeph"><var class="keyword varname">tagname</var>.attlist</code>
+              pattern for each element defines that element's
+              <code class="keyword markupname xmlatt">@class</code> attribute.
+              <code class="keyword markupname xmlatt">@class</code> is declared as an optional
+              attribute; the default value is declared using the
+              <code class="keyword markupname xmlatt">@a:defaultValue</code> attribute, and the
+              value of the attribute is constructed according to the rules in
+              <a
+                class="xref"
+                href="specialization-class-attribute.html"
+                title="The specialization hierarchy of each DITA element is declared as the value of the class attribute. The class attribute provides a mapping from the current name of the element to its more general equivalents, but it also can provide a mapping from the current name to more specialized equivalents. All specialization-aware processing can be defined in terms of class attribute values."
+                >class attribute rules and syntax</a
+              >.
+            </p>
+            <div class="p">
+              For example:
+              <pre
+                class="pre codeblock"
+              ><code>&lt;define name="topichead.attlist" combine="interleave"&gt;
+  &lt;optional&gt;
+    &lt;attribute name="class" 
+        a:defaultValue="+ map/topicref mapgroup-d/topichead "
+    /&gt;
+  &lt;/optional&gt;
+&lt;/define&gt;</code></pre>
+            </div>
+          </dd>
+        </dl>
+      </section>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../archSpec/base/relax-ng-requirements.html"
+            title="This section explains how to implement RNG based document-type shells, specializations, and element-configuration modules (constraints and expansions)."
+            >RELAX NG coding requirements</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>

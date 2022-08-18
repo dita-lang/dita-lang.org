@@ -1,0 +1,190 @@
+---
+# Generated from DITA source
+layout: base
+title: 'keytext'
+description: 'Key text is variable or
+  link text that is used when resolving key references. It also specifies
+  alternate text for images that are referenced by keys.'
+index: '../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3">
+  <ul>
+    <li><a href="../../introduction/dita-release-overview.html">Introduction</a></li>
+    <li>
+      <a href="../../archSpec/base/dita-terminology.html"
+        >DITA terminology, notation, and conventions</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li>
+    <li>
+      <a href="../../archSpec/base/accessibility-and-translation.html"
+        >Accessibility and translation</a
+      >
+    </li>
+    <li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li>
+    <li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li>
+    <li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li>
+    <li>
+      <a href="../../archSpec/base/configuration-specialization-and-constraints.html"
+        >Configuration, specialization, generalization, constraints, and expansion
+      </a>
+    </li>
+    <li>
+      <a href="../../archSpec/base/coding-requirements.html"
+        >Coding practices for DITA grammar files</a
+      >
+    </li>
+    <li><a href="../../langRef/langRef-base.html">Element reference</a></li>
+    <li><a href="../../conformance/conformance.html">Conformance</a></li>
+    <li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li>
+    <li>
+      <a href="../../non-normative/aggregated-RFC-2119-statements.html"
+        >Aggregated RFC-2119 statements</a
+      >
+    </li>
+    <li>
+      <a href="../../non-normative/non-normative-information.html">Non-normative information</a>
+    </li>
+    <li><a href="../../non-normative/revision-history.html">Revision history</a></li>
+  </ul>
+</nav>
+<main role="main" class="col-lg-9">
+  <article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">
+      <code class="keyword markupname xmlelement">&lt;keytext&gt;</code>
+    </h1>
+
+    <div class="body refbody">
+      <p class="shortdesc">
+        Key text is variable or link text that is used when resolving key references. It also
+        specifies alternate text for images that are referenced by keys.
+      </p>
+
+      <section class="section" id="keytext__processing-expectations">
+        <h2 class="title sectiontitle">Processing expectations</h2>
+
+        <p class="p">
+          See
+          <a
+            class="xref"
+            href="../../archSpec/base/processing-keyref-for-text.html"
+            title="Variable text can be specified by key definitions. Processors determine the effective text by retrieving the content of elements in a specific sequence."
+            >Processing key references to generate text or link text</a
+          >.
+        </p>
+      </section>
+      <section class="section" id="keytext__attributes">
+        <h2 class="title sectiontitle">Attributes</h2>
+
+        <p class="p">
+          The following attributes are available on this element:
+          <span class="ph"
+            ><a
+              class="xref"
+              href="../../common/reuse-w-lwdita/../../langRef/attributes/universalAttributes.html"
+              title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang"
+              >universal attributes</a
+            ></span
+          >.
+        </p>
+      </section>
+      <div class="example" id="keytext__example">
+        <h2 class="title sectiontitle">Examples</h2>
+
+        <p class="p">
+          <span style="color:red;" class="ph">This</span> section contains examples of how the
+          <code class="keyword markupname xmlelement">&lt;keytext&gt;</code> element can be used.
+        </p>
+
+        <figure class="fig fignone" id="keytext__fig_nrm_52w_bpb">
+          <figcaption><span class="fig--title-label">Figure 1. </span>Simple example</figcaption>
+
+          <p class="p">
+            The following code sample shows a variable-text definition that includes highlighting
+            elements:
+          </p>
+          <pre class="pre codeblock"><code>&lt;keydef keys="company-name"&gt;
+  &lt;topicmeta&gt;
+    &lt;keytext translate="no"&gt;
+      &lt;i&gt;Super&lt;/i&gt; Widget Squared&lt;sup&gt;2&lt;/sup&gt;
+    &lt;/keytext&gt;
+  &lt;/topicmeta&gt;
+&lt;/keydef&gt;</code></pre>
+        </figure>
+        <figure class="fig fignone" id="keytext__fig_orm_52w_bpb">
+          <figcaption>
+            <span class="fig--title-label">Figure 2. </span>Alternate text for an image
+          </figcaption>
+
+          <p class="p">
+            DITA implementations often reference images using keys. In such cases, the
+            <code class="keyword markupname xmlelement">&lt;keytext&gt;</code> element provides the
+            alternate text for the image. The following code sample shows the markup for the
+            <code class="keyword markupname xmlelement">&lt;keytext&gt;</code> element:
+          </p>
+          <pre
+            class="pre codeblock"
+          ><code>&lt;keydef keys="company-logo" href="images/logo.jpg" format="jpg"&gt;
+  &lt;topicmeta&gt;
+    &lt;keytext&gt;Acme Widgets logo&lt;/keytext&gt;
+  &lt;/topicmeta&gt;
+&lt;/keydef&gt;</code></pre>
+          <p class="p">
+            The image can be referenced by
+            <code class="ph codeph">&lt;image keyref="company-logo"/&gt;</code>. When rendered to
+            mediums that support alternate text, the effective alternative text for the image is
+            "Acme Widgets logo" as though a literal
+            <code class="keyword markupname xmlelement">&lt;alt&gt;</code> element had been a child
+            of the <code class="keyword markupname xmlelement">&lt;image&gt;</code>.
+          </p>
+        </figure>
+
+        <figure class="fig fignone" id="keytext__fig_qrm_52w_bpb">
+          <figcaption><span class="fig--title-label">Figure 3. </span>Processing logic</figcaption>
+
+          <p class="p">
+            The following code sample shows a key definition that includes several elements within
+            the <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> element:
+          </p>
+          <pre
+            class="pre codeblock"
+          ><code>&lt;keydef href="http://www.example.com" keys="company-name" format="html" scope="external"&gt;
+  &lt;topicmeta&gt;
+    &lt;keytext&gt;Acme Tools&lt;/keytext&gt;
+    &lt;navtitle&gt;Acme Tools web site&lt;/navtitle&gt;
+    &lt;linktitle&gt;Acme Tools Web Portal&lt;/linktitle&gt;
+  &lt;/topicmeta&gt;
+&lt;/keydef&gt;</code></pre>
+          <p class="p">
+            Once processed, the effective text content of both
+            <code class="ph codeph">&lt;ph keyref="company-name"/&gt;</code> and
+            <code class="ph codeph">&lt;xref keyref="company-name"/&gt;</code> is
+            <span class="keyword">Acme Tools</span>.
+            <span style="color:red;" class="ph"
+              >This is because of the rules for how processors resolve key references to generate
+              text or link text.</span
+            >
+          </p>
+          <p style="color:red;" class="p">
+            To set distinct text values for both the company name and the link text that is
+            associated with the company Web site, use two different keys.
+          </p>
+        </figure>
+      </div>
+    </div>
+    <nav role="navigation" class="related-links">
+      <div class="familylinks">
+        <div class="parentlink">
+          <strong>Parent topic:</strong>
+          <a
+            class="link"
+            href="../../langRef/containers/basic-map-elements.html"
+            title="DITA maps are built from a few core elements that are used for referencing and organizing topics. In addition, the topicmeta element can be used to specify metadata for the map, individual topics, or groups of topics."
+            >Basic map elements</a
+          >
+        </div>
+      </div>
+    </nav>
+  </article>
+</main>
