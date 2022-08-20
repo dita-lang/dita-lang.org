@@ -1,0 +1,121 @@
+---
+# Generated from DITA source
+layout: base
+title: 'The format attribute'
+description: 'The format attribute identifies the format of the resource that is
+        referenced. If no value is
+                                        specified, but the attribute is specified on an ancestor
+                                        within a map or within the related-links section, the value
+                                        will cascade from the closest ancestor.'
+index: '../../../../toc.html'
+---
+
+<nav role="toc" class="col-lg-3"><ul><li><a href="../../../../introduction/introduction-lwdita-spec.html">Introduction</a></li><li><a href="../../../../introduction/introduction.html">Introduction</a></li><li><a href="../../../../authoring-formats/formats-introduction.html">LwDITA authoring formats</a></li><li><a href="../../../../components/component-reference.html">Component reference</a></li><li><a href="../../../../attributes/lwdita-attributes.html">DITA 1.3 attributes in LwDITA</a></li><li><a href="../../../../attributes/lw-universalAttributes.html">LwDITA universal attribute group</a></li><li><a href="../../../../conformance/conformance.html">Conformance</a></li><li><a href="../../../../complex-attributes/complex-attribute-topics.html">Complex attribute topics</a><ul class="nav nav-list"><li><a href="../../../../commonspec/specification/archSpec/base/ditauseconreftarget.html">Using the -dita-use-conref-target value</a></li><li><a href="../../../../commonspec/specification/archSpec/base/theconrefattribute.html">The conref attribute</a></li><li class="active"><a href="../../../../commonspec/specification/archSpec/base/theformatattribute.html">The format attribute</a></li><li><a href="../../../../commonspec/specification/archSpec/base/thehrefattribute.html">The href attribute</a></li><li><a href="../../../../commonspec/specification/archSpec/base/thekeyrefattribute.html">The keyref attribute</a></li><li><a href="../../../../commonspec/specification/archSpec/base/thekeysattribute.html">Setting key names with the keys attribute</a></li><li><a href="../../../../commonspec/specification/archSpec/base/the-key-scope-attribute.html">The keyscope attribute</a></li></ul></li><li><a href="../../../../acknowledgements/acknowledgements.html">Acknowledgements</a></li><li><a href="../../../../introduction/revision-history.html">Revision history</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
+<h1 class="title topictitle1" id="ariaid-title1">The <code class="keyword markupname xmlatt">@format</code> attribute</h1>
+
+      
+<div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlatt">@format</code> attribute identifies the format of the resource that is
+        referenced. <span class="ph">If no value is
+                                        specified, but the attribute is specified on an ancestor
+                                        within a map or within the related-links section, the value
+                                        will cascade from the closest ancestor.</span></p>
+<section class="section" id="theformatattribute__section-1"><p class="p">The following values for <code class="keyword markupname xmlatt">@format</code> have special processing
+                        implications: </p><dl class="dl">
+                        
+                              <dt class="dt dlterm"><span class="keyword">dita</span></dt>
+                              <dd class="dd">The destination uses DITA topic markup or markup specialized from
+                        a DITA topic. Unless otherwise specified, when <code class="keyword markupname xmlatt">@format</code> is
+                        set to <span class="keyword">dita</span>, the value for the <code class="keyword markupname xmlatt">@type</code>
+                        attribute will be treated as topic<span class="keyword"></span>.</dd>
+                        
+                        
+                              <dt class="dt dlterm"><span class="keyword">ditamap</span></dt>
+                              <dd class="dd">The linked-to resource is a DITA map. It represents the referenced
+                        hierarchy at the current point in the referencing map. References to other
+                        maps can occur at any point in a map, but because relationship tables are
+                        only valid as children of a map, referenced relationship tables are treated
+                        as children of the referencing map. <div class="note note note_note"><span class="note__title">Note:</span> If a <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>
+                                element that references a map contains child
+                                        <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements, the processing
+                                behavior regarding the child <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>
+                                elements is undefined.</div></dd>
+                        
+                        
+                              <dt class="dt dlterm">(no value)</dt>
+                              <dd class="dd">The processing default is used. The processing default for the
+                            <code class="keyword markupname xmlatt">@format</code> attribute is determined by inspecting the value
+                        of the <code class="keyword markupname xmlatt">@href</code> attribute. If the <code class="keyword markupname xmlatt">@href</code>
+                        attribute specifies a file extension, the processing default for the
+                            <code class="keyword markupname xmlatt">@format</code> attribute is that extension, after conversion to
+                        lower-case and with no leading period. The only exception to this is if the
+                        extension is <span class="ph filepath">.xml</span>, in which case the default value for
+                            <code class="keyword markupname xmlatt">@format</code> is <span class="keyword">dita</span>. If there is no
+                        extension, but the <code class="keyword markupname xmlatt">@href</code> value is an absolute URI whose
+                        scheme is <span class="keyword">http</span> or <span class="keyword">https</span>, then the
+                        processing default is <span class="keyword">html</span>. In all other cases where no
+                        extension is available, the processing default is
+                            <span class="keyword">dita.</span><p class="p">If the actual format of the referenced
+                            content differs from the effective value of the <code class="keyword markupname xmlatt">@format</code>
+                            attribute, and a processor is capable of identifying such cases, it
+                                <dfn class="term RFC-2119">MAY</dfn> recover gracefully and treat
+                            the content as its actual format, but <dfn class="term RFC-2119">SHOULD</dfn> also issue a message.</p></dd>
+                        
+                  </dl>
+             <div class="div" id="theformatattribute__lwdita_formats">
+                <p class="p" id="theformatattribute__p_ckq_jxh_nhb">For DITA processors that support Lightweight DITA, the
+                    following values for <code class="keyword markupname xmlatt">@format</code> have special processing
+                    implications: </p>
+                <dl class="dl">
+                    
+                        <dt class="dt dlterm"><span class="keyword">xdita</span></dt>
+                        <dd class="dd">The format of the resource is XDITA.</dd>
+                    
+                    
+                        <dt class="dt dlterm"><span class="keyword">mdita</span></dt>
+                        <dd class="dd">The format of the resource is MDITA.</dd>
+                    
+                    
+                        <dt class="dt dlterm"><span class="keyword">hdita</span></dt>
+                        <dd class="dd">The format of the resource is HDITA. </dd>
+                    
+                    
+                        <dt class="dt dlterm"><span class="keyword">xditamap</span></dt>
+                        <dd class="dd">The resource is an XDITA map.</dd>
+                    
+                </dl>
+                <dl class="dl">
+                    
+                        <dt class="dt dlterm"><span class="keyword">hditamap</span></dt>
+                        <dd class="dd">The resource is an HDITA map.</dd>
+                    
+                </dl>
+                <dl class="dl">
+                    
+                        <dt class="dt dlterm"><span class="keyword">mditamap</span></dt>
+                        <dd class="dd">The resource is an MDITA map.</dd>
+                    
+                </dl>
+            </div>
+            <div class="div" id="theformatattribute__sample-formats">
+                        <p class="p">For other formats, using the file extension without the "." character
+                              typically represents the format. For example, the following values are
+                              all possible values for <code class="keyword markupname xmlatt">@format</code>:</p>
+                        <dl class="dl">
+                              
+                                    <dt class="dt dlterm"><span class="keyword">html</span></dt>
+                                    <dd class="dd">The format of the linked-to resource is HTML or XHTML.</dd>
+                              
+                              
+                                    <dt class="dt dlterm"><span class="keyword">pdf</span></dt>
+                                    <dd class="dd">The format of the linked-to resource is PDF.
+                                          </dd>
+                              
+                              
+                                    <dt class="dt dlterm"><span class="keyword">txt</span></dt>
+                                    <dd class="dd">The format of the linked-to resource is a text file.</dd>
+                              
+                        </dl>
+                  </div>
+            </section>
+</div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../complex-attributes/complex-attribute-topics.html" title="This is a temporary chapter, used as a placeholder so we can figure out how certain key references should resolve.">Complex attribute topics</a></div></div></nav></article></main>
