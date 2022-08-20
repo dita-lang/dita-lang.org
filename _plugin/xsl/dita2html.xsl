@@ -12,6 +12,7 @@
               indent="no"
               omit-xml-declaration="yes"/>
 
+  <xsl:param name="repository"/>
   <xsl:param name="commit"/>
   <xsl:param name="layout" select="'base'" as="xs:string"/>
 
@@ -51,6 +52,11 @@
     <xsl:if test="normalize-space($commit)">
       <xsl:text>commit: '</xsl:text>
       <xsl:value-of select="normalize-space($commit)"/>
+      <xsl:text>'&#xA;</xsl:text>
+    </xsl:if>
+    <xsl:if test="normalize-space($repository)">
+      <xsl:text>repository: '</xsl:text>
+      <xsl:value-of select="normalize-space($repository)"/>
       <xsl:text>'&#xA;</xsl:text>
     </xsl:if>
     <xsl:if test="(/* | /*/*[contains(@class, ' topic/title ')])[tokenize(@outputclass, '\s+') = 'generated']">
