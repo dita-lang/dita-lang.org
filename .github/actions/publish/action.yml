@@ -6,6 +6,8 @@ inputs:
     required: true
   DIR:
     required: true
+  REPOSITORY:
+    required: true
 runs:
   using: 'composite'
   steps:
@@ -53,10 +55,11 @@ runs:
           git config user.name "DITA-OT Bot"
           git add --all
           # Commit generated site output
-          git commit -a -m "Deploy oasis-tcs/dita@${GITHUB_SHA:0:7}"
+          readonly SHA=$(git rev-parse HEAD)
+          git commit -a -m "Deploy ${{ inputs.REPOSITORY }}@${SHA:0:7}"
           git log HEAD^1...HEAD
           # push
-          git push -v origin master
+          git push -v origin main
         else
           echo "Nothing to commit"
         fi
