@@ -34,12 +34,15 @@
                           *[contains(@class, ' topic/abstract ')]/*[contains(@class, ' topic/shortdesc ')]"/>
     <xsl:if test="exists($shortdescs)">
       <xsl:text>description: '</xsl:text>
-      <xsl:for-each select="$shortdescs">
-        <xsl:if test="position() ne 1">
-          <xsl:text> </xsl:text>
-        </xsl:if>
-        <xsl:apply-templates select="." mode="text-only"/>
-      </xsl:for-each>
+      <xsl:variable name="shortdesc-text-only">
+        <xsl:for-each select="$shortdescs">
+          <xsl:if test="position() ne 1">
+            <xsl:text> </xsl:text>
+          </xsl:if>
+          <xsl:apply-templates select="." mode="text-only"/>
+        </xsl:for-each>
+      </xsl:variable>
+      <xsl:value-of select="normalize-space($shortdesc-text-only)"/>
       <xsl:text>'&#xA;</xsl:text>
     </xsl:if>
     <xsl:text>index: '</xsl:text>
@@ -62,7 +65,7 @@
     <!--
     <body>
       <xsl:apply-templates select="." mode="addAttributesToHtmlBodyElement"/>
-      <xsl:call-template name="setaname"/>  <!-\- For HTML4 compatibility, if needed -\-> 
+      <xsl:call-template name="setaname"/>  <!-\- For HTML4 compatibility, if needed -\->
       -->
       <xsl:apply-templates select="." mode="addHeaderToHtmlBodyElement"/>
 
