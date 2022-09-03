@@ -4,7 +4,8 @@ layout: base
 title: 'Expansion module rules'
 description: 'There are certain rules that apply to the design and implementation of expansion modules. These rules all stem from the requirement that the content model of a specialized element must be consistent with the content model of the specialization base. After generalization, the content model of an element affected by an expansion module must match the original content model for that element.'
 index: '../../toc.html'
-commit: '24378269843d41939ea382e135b8f8c519b6a6cf'
+notices: '../../resources/oasis-notices.html'
+commit: '11627d87128af236f65de83e0ae65f1e5ab84fe8'
 repository: 'oasis-tcs/dita'
 ---
 
@@ -64,8 +65,9 @@ repository: 'oasis-tcs/dita'
                 <code class="keyword markupname xmlelement">&lt;ol&gt;</code>, the redefined content model
               for <code class="keyword markupname xmlelement">&lt;ol&gt;</code> cannot make the
                 <code class="keyword markupname xmlelement">&lt;li&gt;</code> element optional.</p>
-            <p class="p">However, a expansion module that adds a
-              specialization of <code class="keyword markupname xmlelement">&lt;li&gt;</code>
+            <p class="p">However, <span style="color:red;" class="ph">an</span> expansion
+              module that adds a specialization of
+                <code class="keyword markupname xmlelement">&lt;li&gt;</code>
                 (<code class="keyword markupname xmlelement">&lt;listIntro&gt;</code>) to
                 <code class="keyword markupname xmlelement">&lt;ol&gt;</code> can redefine the content model
               of <code class="keyword markupname xmlelement">&lt;ol&gt;</code> in the following ways:</p>
@@ -85,22 +87,23 @@ repository: 'oasis-tcs/dita'
         </dd>
       
       
-        <dt class="dt dlterm">Aggregation of expansion modules</dt>
-        <dd class="dd">
-          <p class="p">The content model of an element can be modified by either of
-            the following element-configuration modules:</p>
-          <ul class="ul">
-            <li class="li">Constraint module</li>
-            <li class="li">Expansion module</li>
-          </ul>
-          <p class="p">The content model of an element can be modified only by a
-            single element-type configuration module. If multiple
-            constraints or extensions need to be applied to a single
-            element, the element configurations must be combined into a
-            single module that reflects all the constraints and expansions
-            that were defined in the original separate modules.</p>
-        </dd>
-      
+          <dt class="dt dlterm">Aggregation of constraint modules</dt>
+          <dd class="dd">
+            <p class="p">The content model of an element can be modified by either of
+              the following element-configuration modules:</p>
+            <ul class="ul">
+              <li class="li">Constraint module</li>
+              <li class="li">Expansion module</li>
+            </ul>
+            <p class="p"><span style="color:red;" class="ph">For any document-type shell, the</span>
+              content model of an element can only be modified by a single
+              element-type configuration module. If multiple constraints or
+              extensions need to be applied to a single element, the
+              element configurations must be combined into a single module
+              that reflects all the constraints and expansions that were
+              defined in the original separate modules.</p>
+          </dd>
+        
     </dl>
   </div>
 <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/expansion-modules.html" title="Expansion modules enable the extension of content models and attribute lists for individual elements. Expansion modules are the opposite of constraints. They add elements and attributes to specific content models and attribute lists, rather than removing them.">Expansion modules</a></div></div></nav></article></main>

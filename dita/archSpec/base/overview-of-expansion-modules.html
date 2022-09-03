@@ -2,9 +2,10 @@
 # Generated from DITA source
 layout: base
 title: 'Overview of expansion modules'
-description: 'Expansion modules enable information architects to include specialized attributes or elements in specific element types, without making them globally available.'
+description: 'Expansion modules enable information architects to include specialized attributes or elements in specific element types, without making the specialized attributes or elements globally available.'
 index: '../../toc.html'
-commit: '24378269843d41939ea382e135b8f8c519b6a6cf'
+notices: '../../resources/oasis-notices.html'
+commit: '11627d87128af236f65de83e0ae65f1e5ab84fe8'
 repository: 'oasis-tcs/dita'
 ---
 
@@ -14,25 +15,33 @@ repository: 'oasis-tcs/dita'
   
   <div class="body conbody"><p class="shortdesc">Expansion modules enable information architects to include
     specialized attributes or elements in specific element types, without
-    making them globally available.</p>
-    <p class="p">An expansion module can perform the following functions:</p>
+    making <span style="color:red;" class="ph">the specialized attributes or elements</span>
+    globally available.</p>
+    <p class="p"><span style="color:red;" class="ph">An expansion module works in conjunction with an
+        element or attribute specialization.</span> An expansion module can
+      perform the following functions:</p>
     <dl class="dl">
       
         <dt class="dt dlterm">Expand content models</dt>
         <dd class="dd">
-          <p class="p">Expansion modules extend the content models of specific
-            elements, without making the specialized elements available
-            wherever the specialization base is permitted.</p>
-          <p class="p">For example, an expansion for
-              <code class="keyword markupname xmlelement">&lt;section&gt;</code> can make a new element
-              (<code class="keyword markupname xmlelement">&lt;sectionDesc&gt;</code>) available as an
-            optional, child element. The
-              <code class="keyword markupname xmlelement">&lt;sectionDesc&gt;</code> element is specialized
-            from <code class="keyword markupname xmlelement">&lt;p&gt;</code>, but it is available only
-            within <code class="keyword markupname xmlelement">&lt;section&gt;</code>.</p>
-          <p class="p">The elements are defined in a separate element domain that
-            declares the content models and attribute lists for the new
-            elements.</p>
+          
+          <p style="color:red;" class="p">Expansion modules can work in conjunction with
+            element-specialization modules to extend the content models of
+            specific elements. When an element-specialization module is
+            combined with an extension module, the specialized elements can
+            be made available <em class="ph i">only</em> in specific contexts, rather than
+            wherever the specialization bases are allowed.</p>
+          <p style="color:red;" class="p">For example, a DITA
+            architect creates a new element-domain specialization that
+            declares a new element specialized from
+              <code class="keyword markupname xmlelement">&lt;p&gt;</code>:
+              <code class="keyword markupname xmlelement">&lt;sectionDesc&gt;</code>. Using an extension
+            module, the DITA architect can make
+              <code class="keyword markupname xmlelement">&lt;sectionDesc&gt;</code> available <em class="ph i">only</em> as
+            an optional child of <code class="keyword markupname xmlelement">&lt;section&gt;</code>, rather
+            than wherever <code class="keyword markupname xmlelement">&lt;p&gt;</code> is permitted. </p>
+          
+          
         </dd>
       
       
@@ -47,11 +56,12 @@ repository: 'oasis-tcs/dita'
               <code class="keyword markupname xmlatt">@cell-purpose</code> available only on those
             elements. The <code class="keyword markupname xmlatt">@cell-purpose</code> attribute is
             specialized from <code class="keyword markupname xmlatt">@base</code>.</p>
-          <p class="p">The additional attribute can be either defined directly within
-            the expansion module, or it can be defined in a separate
-            attribute-specialization module. In either case, the token used
-            as value for the <code class="keyword markupname xmlatt">@specializations</code> attribute
-            must be defined.</p>
+          <p class="p">The <span style="color:red;" class="ph">additional</span> attribute can be either
+            defined directly within the expansion module, or it can be
+            defined in a separate attribute-specialization module. In
+            either case, the token used as <span style="color:red;" class="ph">a</span> value
+            for the <code class="keyword markupname xmlatt">@specializations</code> attribute must be
+            defined.</p>
         </dd>
       
     </dl>

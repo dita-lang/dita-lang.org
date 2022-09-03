@@ -5,7 +5,8 @@ title: 'Example: Adding an element to the section
     element using DTDs'
 description: 'In this scenario, a DITA architect wants to modify the content model for the section element. The DITA architect wants to add an optional sectionDesc element that is specialized from p.'
 index: '../../toc.html'
-commit: '24378269843d41939ea382e135b8f8c519b6a6cf'
+notices: '../../resources/oasis-notices.html'
+commit: '11627d87128af236f65de83e0ae65f1e5ab84fe8'
 repository: 'oasis-tcs/dita'
 ---
 
@@ -24,8 +25,9 @@ repository: 'oasis-tcs/dita'
         following modules and integrate them into the document-type
         shell:</p>
       <ul class="ul">
-        <li class="li">An element specialization module that defines the
-            <code class="keyword markupname xmlelement">&lt;sectionDesc&gt;</code> element</li>
+        <li class="li">An <span style="color:red;" class="ph">element-domain</span> specialization module
+          that defines the <code class="keyword markupname xmlelement">&lt;sectionDesc&gt;</code>
+          element</li>
         <li class="li">An expansion module that adds the
             <code class="keyword markupname xmlelement">&lt;sectionDesc&gt;</code> element to the content
           model for <code class="keyword markupname xmlelement">&lt;section&gt;</code></li>
@@ -46,7 +48,7 @@ repository: 'oasis-tcs/dita'
 &lt;!ELEMENT sectionDesc %sectionDesc.content;&gt;
 &lt;!ATTLIST sectionDesc %sectionDesc.attributes;&gt;
 
-&lt;!ATTLIST sectionDesc    class CDATA "+ topic/p sectionShortdesc-d/sectionDesc "&gt;</code></pre></li>
+&lt;!ATTLIST sectionDesc    class CDATA "+ topic/p <span style="color:red;" class="ph">sectionDesc-d</span>/sectionDesc "&gt;</code></pre></li>
         <li class="li">The DITA architect adds the element specialization module to
           the <span class="ph filepath">catalog.xml</span> file.</li>
         <li class="li">Next, the DITA architect modifies the applicable document-type
@@ -105,7 +107,7 @@ repository: 'oasis-tcs/dita'
 &lt;!ENTITY % fn "fn"&gt;
 &lt;!ENTITY % indexterm "indexterm"&gt;
 &lt;!ENTITY % required-cleanup "required-cleanup"&gt;
-&lt;!ENTITY % sectionDesc "sectionDesc"&gt;
+<strong class="ph b">&lt;!ENTITY % sectionDesc "sectionDesc"&gt;</strong>
 
 &lt;!-- Defines the modified content model for &lt;section&gt;.       --&gt;
 
@@ -144,7 +146,7 @@ repository: 'oasis-tcs/dita'
                %fn; |
                %indexterm; |
                %required-cleanup; |
-               %sectionDesc;)*"
+               <strong class="ph b">%sectionDesc;</strong>)*"
 &gt;</code></pre>
           <p class="p">Note that the DITA architect needed to explicitly declare all
             the elements, rather than using the
@@ -168,7 +170,8 @@ repository: 'oasis-tcs/dita'
          "acme-SectionExpansion.mod"
 &gt;%acmeSection-def;</strong></code></pre></li>
         <li class="li">After updating the <span class="ph filepath">catalog.xml</span> file to
-          include the expansion module and testing, the work is done.</li>
+          include the expansion module and <span style="color:red;" class="ph">testing
+            it</span>, the work is done.</li>
       </ol>
     </div>
   </div>
