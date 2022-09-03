@@ -43,6 +43,16 @@ runs:
       run: |
         echo "SHA=$(git rev-parse HEAD)" >> $GITHUB_ENV
       working-directory: ${{ inputs.DIR }}
+    - name: Add custom filter
+      shell: bash
+      run: |
+        cat <<EOF > ${{ inputs.FILTER }}.external-publishing-engine.ditaval
+        <val>
+          <prop att="platform" val="dita-tc-publishing" action="exclude"/>
+          <prop att="platform" val="external-publishing-engine" action="include"/>
+        </val>
+        EOF
+      working-directory: ${{ inputs.DIR }}
     - name: Run DITA-OT
       shell: bash
       run: |
@@ -50,6 +60,7 @@ runs:
           -i ${{ inputs.MAP }} \
           -o dita-draft-website/${{ inputs.DIR }} \
           -f org.dita-ot.html \
+          --filter=${{ inputs.FILTER }}.external-publishing-engine.ditaval \
           --filter=${{ inputs.FILTER }} \
           -Dcommit=$SHA \
           -Drepository=${{ inputs.REPOSITORY }} \
