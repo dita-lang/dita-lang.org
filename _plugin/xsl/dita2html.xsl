@@ -49,6 +49,9 @@
     <xsl:text>index: '</xsl:text>
     <xsl:value-of select="concat($PATH2PROJ, 'toc', $OUTEXT)"/>
     <xsl:text>'&#xA;</xsl:text>
+    <xsl:text>notices: '</xsl:text>
+    <xsl:value-of select="concat($PATH2PROJ, 'resources/oasis-notices', $OUTEXT)"/>
+    <xsl:text>'&#xA;</xsl:text>
     <xsl:if test="normalize-space($commit)">
       <xsl:text>commit: '</xsl:text>
       <xsl:value-of select="normalize-space($commit)"/>
