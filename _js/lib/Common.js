@@ -163,7 +163,11 @@ function Common(index) {
 
   function isLocal() {
     const $a = $(this)
-    const abs = URI($a.attr('href'))
+    const href = $a.attr('href')
+    if (href.startsWith('mailto:')) {
+      return false
+    }
+    const abs = URI(href)
       .absoluteTo(window.location.href)
       .href()
     return abs.indexOf(base) !== -1
