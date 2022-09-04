@@ -107,4 +107,40 @@
     <xsl:attribute name="class">nav nav-list</xsl:attribute>
   </xsl:attribute-set>
 
+  <xsl:template match="*[contains(@class, ' topic/link ')][@role = ('child', 'descendant')]" priority="2" name="topic.link_child">
+    <li>
+      <xsl:call-template name="commonattributes">
+        <xsl:with-param name="default-output-class" select="'ulchildlink'"/>
+      </xsl:call-template>
+      <!-- Allow for unknown metadata (future-proofing) -->
+      <xsl:apply-templates select="*[contains(@class, ' topic/data ') or contains(@class, ' topic/foreign ')]"/>
+      <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]" mode="out-of-line"/>
+      <strong>
+        <xsl:apply-templates select="." mode="related-links:unordered.child.prefix"/>
+        <xsl:apply-templates select="." mode="add-link-highlight-at-start"/>
+        <a>
+          <xsl:apply-templates select="." mode="add-linking-attributes"/>
+          <xsl:apply-templates select="." mode="add-hoverhelp-to-child-links"/>
+
+          <!--use linktext as linktext if it exists, otherwise use href as linktext-->
+          <xsl:choose>
+            <xsl:when test="*[contains(@class, ' topic/linktext ')]">
+              <xsl:apply-templates select="*[contains(@class, ' topic/linktext ')]"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <!--use href-->
+              <xsl:call-template name="href"/>
+            </xsl:otherwise>
+          </xsl:choose>
+        </a>
+        <xsl:apply-templates select="." mode="add-link-highlight-at-end"/>
+      </strong>
+      <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-endprop ')]" mode="out-of-line"/>
+      <div class="desc">
+        <!--add the description on the next line, like a summary-->
+        <xsl:apply-templates select="*[contains(@class, ' topic/desc ')]"/>
+      </div>
+    </li>
+  </xsl:template>
+
 </xsl:stylesheet>
