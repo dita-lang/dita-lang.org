@@ -5,11 +5,11 @@ title: 'RELAX NG: Coding requirements for document-type shells'
 description: 'A RNG-based document-type shell is organized into sections; each section follows a pattern. These patterns help ensure that the shell follows XML parsing rules for RELAX NG; they also establish a modular design that simplifies creation of new document-type shells.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '11627d87128af236f65de83e0ae65f1e5ab84fe8'
+commit: 'cf15594a21977d8c67e4173586cdd2df6b00c3ed'
 repository: 'oasis-tcs/dita'
 ---
 
-<nav role="toc" class="col-lg-3"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction</a></li><li><a href="../../archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="../../archSpec/base/accessibility-and-translation.html">Accessibility and translation</a></li><li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration, specialization, generalization, constraints, and expansion  </a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a><ul class="nav nav-list"><li><a href="../../archSpec/base/dtd-requirements.html">DTD coding requirements</a></li><li><a href="../../archSpec/base/relax-ng-requirements.html">RELAX NG coding requirements</a><ul class="nav nav-list"><li><a href="../../archSpec/base/relax-ng-coding-overview.html">RELAX NG: Overview of coding requirements</a></li><li class="active"><a href="../../archSpec/base/relax-ng-coding-doctype-shell.html">RELAX NG: Coding requirements for document-type shells</a></li><li><a href="../../archSpec/base/relax-ng-coding-element-types.html">RELAX NG: Coding requirements for element-type declarations</a></li><li><a href="../../archSpec/base/relax-ng-coding-structural-modules.html">RELAX NG: Coding requirements for structural modules</a></li><li><a href="../../archSpec/base/relax-ng-coding-element-domains.html">RELAX NG: Coding requirements for element-domain modules</a></li><li><a href="../../archSpec/base/relax-ng-coding-attribute-domains.html">RELAX NG: Coding requirements for attribute-domain modules</a></li><li><a href="../../archSpec/base/relax-ng-coding-requirements-for-element-configuration-modules.html">RELAX NG: Coding requirements for element-configuration modules</a></li></ul></li></ul></li><li><a href="../../langRef/langRef-base.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../non-normative/revision-history.html">Revision history</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
+<nav role="toc" class="col-lg-3"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction</a></li><li><a href="../../archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="../../archSpec/base/accessibility-and-translation.html">Accessibility and translation</a></li><li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a></li><li><a href="../../langRef/langRef-base.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a><ul class="nav nav-list"><li><a href="../../non-normative/file-naming-conventions.html">File naming conventions</a></li><li><a href="../../archSpec/base/dtd-requirements.html">DTD coding requirements</a></li><li><a href="../../archSpec/base/relax-ng-requirements.html">RELAX NG coding requirements</a><ul class="nav nav-list"><li><a href="../../archSpec/base/relax-ng-coding-overview.html">RELAX NG: Overview of coding requirements</a></li><li class="active"><a href="../../archSpec/base/relax-ng-coding-doctype-shell.html">RELAX NG: Coding requirements for document-type shells</a></li><li><a href="../../archSpec/base/relax-ng-coding-element-types.html">RELAX NG: Coding requirements for structural and element-domain modules</a></li><li><a href="../../archSpec/base/relax-ng-coding-structural-modules.html">RELAX NG: Coding requirements for structural modules</a></li><li><a href="../../archSpec/base/relax-ng-coding-element-domains.html">RELAX NG: Coding requirements for element-domain modules</a></li><li><a href="../../archSpec/base/relax-ng-coding-attribute-domains.html">RELAX NG: Coding requirements for attribute-domain modules</a></li><li><a href="../../archSpec/base/relax-ng-coding-requirements-for-element-configuration-modules.html">RELAX NG: Coding requirements for element-configuration modules</a></li></ul></li></ul></li><li><a href="../../non-normative/developing-constraint-and-expansion-modules.html">Developing constraint and expansion modules</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../non-normative/formatting-expectations.html">Formatting expectations</a></li><li><a href="../../non-normative/migrating-to-dita-2.0.html">Migrating to DITA 2.0</a></li><li><a href="../../non-normative/basedoctypes.html">OASIS grammar files</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../non-normative/revision-history.html">Revision history</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
   <h1 class="title topictitle1" id="ariaid-title1">RELAX NG: Coding requirements for document-type shells</h1>
   
   
@@ -17,9 +17,6 @@ repository: 'oasis-tcs/dita'
     pattern. These patterns help ensure that the shell follows XML parsing rules for RELAX NG; they
     also establish a modular design that simplifies creation of new document-type
     shells.</p>
-    <p class="p">Because RELAX NG modules are self-integrating, RNG-based
-      document-type shells need only to include vocabulary modules<span class="ph"> and element-configuration modules (constraint and
-        expansion)</span>.</p>
     <p class="p">An RNG-based document-type shell contains the following sections:</p>
     <ol class="ol">
       <li class="li"><a class="xref" href="#concept_rrq_p45_dn__root-element-declarations">Root element declaration</a></li>
@@ -69,15 +66,20 @@ repository: 'oasis-tcs/dita'
       
         <dt class="dt dlterm" id="concept_rrq_p45_dn__content-constraint">Element-type configuration integration</dt>
         <dd class="dd">
-          <p class="p">This section of the document-type shell contains includes for <span class="ph">element-type configuration modules (constraint and expansion)</span>.
+          <p class="p">This section of the document-type shell contains includes for
+              <span class="ph">element-type configuration modules (constraint
+              and expansion)</span>.
             
-            Because the element-configuration module imports the module that it override, any module
-            that is<span class="ph"> configured</span> in this section (including the base topic or map
-            modules) is left out of the following "Module inclusion" section.</p>
+              Because<span class="ph"> an</span> element-configuration
+            module imports the module that it <span class="ph">overrides,</span> any module that is<span class="ph">
+              configured</span> in this section (including the base topic or
+            map modules) is left out of the following "Module inclusion"
+            section.</p>
           <div class="div">
-            <p class="p">For example, the following code sample shows the section of an RNG-based
-              document-type shell that redefines the <code class="keyword markupname xmlelement">&lt;taskbody&gt;</code> element to
-              create the strict task topic.</p>
+            <p class="p">The following code sample shows the section of an RNG-based
+              document-type shell that redefines the
+                <code class="keyword markupname xmlelement">&lt;taskbody&gt;</code> element to create the
+              strict task topic.</p>
             <pre class="pre codeblock"><code>&lt;div&gt;
 &lt;a:documentation&gt;ELEMENT-TYPE CONFIGURATION INTEGRATION&lt;/a:documentation&gt;
   &lt;include href="strictTaskbodyConstraintMod.rng"&gt;
@@ -124,12 +126,15 @@ repository: 'oasis-tcs/dita'
             MathML, this section also includes exclusions for the namespaces used by those
             domains.</p>
           <div class="div">
-            <div class="p">For example, the following code sample is from an RNG-based document-type shell for a
-              task topic. It declares that both the <code class="keyword markupname xmlelement">&lt;topic&gt;</code> and
-                <code class="keyword markupname xmlelement">&lt;task&gt;</code> elements have an <code class="keyword markupname xmlatt">@id</code> attribute with a
-              XML data type of ID. These elements and any elements in the SVG or MathML namespaces
-              are excluded from the "any" pattern by being placed within the
-                <code class="keyword markupname xmlelement">&lt;except&gt;</code> element:<pre class="pre codeblock"><code>  &lt;div&gt;
+            <div class="p">For example, the following code sample is from an RNG-based
+              document-type shell for a task topic. It declares that both
+              the <code class="keyword markupname xmlelement">&lt;topic&gt;</code> and
+                <code class="keyword markupname xmlelement">&lt;task&gt;</code> elements have an
+                <code class="keyword markupname xmlatt">@id</code> attribute with <span class="ph">an</span> XML data type of ID. These elements and any
+              elements in the SVG or MathML namespaces are excluded from
+              the "any" pattern by being placed within the
+                <code class="keyword markupname xmlelement">&lt;except&gt;</code>
+              element:<pre class="pre codeblock"><code>  &lt;div&gt;
       &lt;a:documentation&gt; ID-DEFINING-ELEMENT OVERRIDES &lt;/a:documentation&gt;
       &lt;define name="any"&gt;
          &lt;zeroOrMore&gt;
@@ -163,4 +168,4 @@ repository: 'oasis-tcs/dita'
       
     </dl>
   </div>
-<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/relax-ng-requirements.html" title="This section explains how to implement RNG based document-type shells, specializations, and element-configuration modules (constraints and expansions).">RELAX NG coding requirements</a></div></div></nav></article></main>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/relax-ng-requirements.html" title="This section explains how to implement RNG-based document-type shells, specializations, and element-configuration modules (constraints and expansions).">RELAX NG coding requirements</a></div></div></nav></article></main>
