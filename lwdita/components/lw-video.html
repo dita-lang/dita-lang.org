@@ -5,14 +5,15 @@ title: 'Video'
 description: 'A video is a recording of moving visual images.'
 index: '../toc.html'
 notices: '../resources/oasis-notices.html'
-commit: 'df6a327b4177c954d66c4139ceb9e2661fcaae22'
+commit: 'f827578d6fcda2f1be9af829ca6560045254908b'
 repository: 'oasis-tcs/dita-lwdita'
 ---
 
 <nav role="toc" class="col-lg-3"><ul><li><a href="../introduction/introduction.html">Introduction</a></li><li><a href="../authoring-formats/formats-introduction.html">LwDITA authoring formats</a></li><li><a href="../components/component-reference.html">Component reference</a></li><li><a href="../attributes/attributes.html">Attributes</a></li><li><a href="../conformance/conformance.html">Conformance</a></li><li><a href="../acknowledgements/acknowledgements.html">Acknowledgements</a></li><li><a href="../commonspec/specification/non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../introduction/revision-history.html">Revision history</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
   <h1 class="title topictitle1" id="ariaid-title1">Video</h1>
   
-    <div class="body refbody"><p class="shortdesc">A video is a recording of moving visual
+    <div class="body refbody"><p class="shortdesc">A video is a recording
+    of moving visual
     images.</p>
     <section class="section"><h2 class="title sectiontitle">Syntax</h2>
       
@@ -41,101 +42,155 @@ repository: 'oasis-tcs/dita-lwdita'
         <p class="p">The video component is modeled on the HTML5 <code class="keyword markupname xmlelement">&lt;video&gt;</code> element.</p>
         <p class="p">A video resource can be referenced by <code class="keyword markupname xmlatt">@href</code>, <code class="keyword markupname xmlatt">@keyref</code>, and
           nested media-source components.</p>
-        <p class="p">Behaviors such as auto-playing, looping, and muting are determined by attributes. When
-          not specified, the default behavior is determined by the user agent that is used to
-          present the media.</p>
+        <p class="p">Playback behaviors such as auto-playing, looping, and muting are
+          determined by attributes. When not specified, the default
+          behavior is determined by the user agent that is used to present
+          the media.</p>
       </div>
     </section>
       <section class="section"><h2 class="title sectiontitle">Rendering expectations</h2>
       
-      <p class="p">The video resource typically is rendered in the main flow of the content.</p>
-      <div class="p">Processors <dfn class="term RFC-2119">SHOULD</dfn> scale the video resource when values
-        are provided for the <code class="keyword markupname xmlatt">@height</code> and <code class="keyword markupname xmlatt">@width</code> attributes. The
-        following expectations apply:<ul class="ul">
-          <li class="li">If a height value is specified and no width value is specified, processors <dfn class="term RFC-2119">SHOULD</dfn> scale the width by the same factor as the
+      <p class="p">The video resource typically is rendered in
+        the main flow of the content.</p>
+      <div class="p">Processors <dfn class="term RFC-2119">SHOULD</dfn> scale the video resource when values are provided
+        for the <code class="keyword markupname xmlatt">@height</code> and <code class="keyword markupname xmlatt">@width</code>
+        attributes. The following expectations apply:<ul class="ul">
+          <li class="li">If a height value is specified and no width value is
+            specified, processors <dfn class="term RFC-2119">SHOULD</dfn> scale the width by the same factor as the
             height.</li>
-          <li class="li">If a width value is specified and no height value is specified, processors <dfn class="term RFC-2119">SHOULD</dfn> scale the height by the same factor as the
+          <li class="li">If a width value is specified and no height value is
+            specified, processors <dfn class="term RFC-2119">SHOULD</dfn> scale the height by the same factor as the
             width.</li>
-          <li class="li">If both a height value and width value are specified, implementations <dfn class="term RFC-2119">MAY</dfn> ignore one of the two values when they are unable to
-            scale to each direction using different factors.</li>
+          <li class="li">If both a height value and width value are specified,
+            implementations <dfn class="term RFC-2119">MAY</dfn> ignore
+            one of the two values when they are unable to scale to each
+            direction using different factors.</li>
         </ul></div>
-      
+      <p class="p">When a video resource cannot be rendered in
+        a meaningful way, processors <dfn class="term RFC-2119">SHOULD</dfn> render the contents of the
+          <code class="keyword markupname xmlelement">&lt;fallback&gt;</code> element, if it is present.</p>
     </section>
 
 
       <section class="section"><h2 class="title sectiontitle">Attributes</h2>
       
-      <p class="p">The following attributes are available on this element: <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
-                                                  attributes</a></span> and the attributes defined below.</p>
       
+      <div class="div">
+        <p class="p">The available attributes vary based on the
+        authoring format:</p>
+        <dl class="dl">
+          
+            <dt class="dt dlterm">XDITA</dt>
+            <dd class="dd">The following attributes are available on this element: <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__id-attributes" title="ID and conref attributes include conref and id.">ID
+                  attributes</a></span>, <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__link-relationship-attributes" title="Link relationship attributes include format, href, and scope.">link relationship attributes</a></span>, <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__localization-attributes" title="Localization attributes include dir, translate, and xml:lang.">localization attributes</a></span>, <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__universal-attributes" title="Universal attributes include class and outputclass..">universal
+                  attributes</a></span>,
+                <a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/lwdita-common-attributes.html#lwdita-common-attributes__props"><code class="keyword markupname xmlatt">@props</code></a>, and the attributes listed
+              below.</dd>
+          
+          
+            <dt class="dt dlterm">HDITA</dt>
+            <dd class="dd">The following attributes are available on this element: <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__id-attributes" title="ID and conref attributes include conref and id.">ID
+                  attributes</a></span>, <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__link-relationship-attributes" title="Link relationship attributes include format, href, and scope.">link relationship attributes</a></span>, <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__localization-attributes" title="Localization attributes include dir, translate, and xml:lang.">localization attributes</a></span>, <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__universal-attributes" title="Universal attributes include class and outputclass..">universal
+                  attributes</a></span>,
+                <a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/lwdita-common-attributes.html#lwdita-common-attributes__props"><code class="keyword markupname xmlatt">@props</code></a>, and the attributes listed
+              below the definition list.</dd>
+          
+          
+            <dt class="dt dlterm">MDITA</dt>
+            <dd class="dd"><span class="ph">There is no attribute support for
+          the MDITA core profile. For the MDITA extended profile,
+          attributes can be specified by using the HDITA
+          representation.</span></dd>
+          
+        </dl>
+      </div>
       <dl class="dl">
         
-          <dt class="dt dlterm" id="lw-video__d248e170"><code class="keyword markupname xmlatt">@autoplay</code></dt>
-          <dd class="dd">Specifies whether the resource automatically plays when it is presented. The following
-            values are recognized: <span class="keyword">true</span>, <span class="keyword">false</span>, and
-              <span class="keyword">-dita-use-conref-target </span>. The default value is
-              <span class="keyword">true</span>.</dd>
+          <dt class="dt dlterm" id="lw-video__d276e256"><code class="keyword markupname xmlatt">@autoplay</code></dt>
+          <dd class="dd">Specifies whether the resource automatically plays when it is
+            presented. <span class="ph">The following values are recognized:
+                <span class="keyword">true</span> and <span class="keyword">false</span>.</span>
+            The default value is <span class="keyword">true</span>.</dd>
         
         
-          <dt class="dt dlterm" id="lw-video__d248e192"><code class="keyword markupname xmlatt">@controls</code></dt>
-          <dd class="dd">Specifies whether the presentation of the resource includes user interface controls.
-            The following values are recognized: <span class="keyword">true</span>, <span class="keyword">false</span>,
-            and <span class="keyword">-dita-use-conref-target </span>. The default value is
-              <span class="keyword">true</span>.</dd>
+          <dt class="dt dlterm" id="lw-video__d276e278"><code class="keyword markupname xmlatt">@controls</code></dt>
+          <dd class="dd">Specifies whether the presentation of the resource includes
+            user interface controls. <span class="ph">The following values are recognized:
+                <span class="keyword">true</span> and <span class="keyword">false</span>.</span>
+            The default value is <span class="keyword">true</span>.</dd>
         
         
-        
-          <dt class="dt dlterm" id="lw-video__d248e214"><code class="keyword markupname xmlatt">@height</code></dt>
-          <dd class="dd">Indicates the vertical dimension for the resulting display. The value of this
-            attribute is a real number (expressed in decimal notation) optionally followed by a unit
-            of measure from the set of cm, em, in, mm, pc, pt, px, and Q (centimeters, ems, inches,
-            picas, points, pixels, millimeters, and quarter-millimeters, respectively). The default
-            unit is px (pixels). Possible values include: "5", "5in", and "10.5cm". </dd>
-        
-        
-        
-        
-          <dt class="dt dlterm" id="lw-video__d248e224"><code class="keyword markupname xmlatt">@loop</code></dt>
-          <dd class="dd">Specifies whether the resource loops when played. The following values are recognized:
-              <span class="keyword">true</span>, <span class="keyword">false</span>, and
-              <span class="keyword">-dita-use-conref-target </span>. The default value is
-              <span class="keyword">true</span>.</dd>
+          <dt class="dt dlterm" id="lw-video__d276e300"><code class="keyword markupname xmlatt">@height</code></dt>
+          <dd class="dd">Indicates the vertical dimension for the resulting display.
+              <span class="ph">The value of this attribute
+          is a real number expressed in decimal notation, optionally
+          followed by a unit of measure. The following units of measurement
+          are supported: cm, em, in, mm, pc, pt, and px (centimeters, ems,
+          inches, millimeters, picas, points, and pixels, respectively).
+          The default unit is px (pixels). Possible values
+            include:<span class="keyword">5</span>, <span class="keyword">5in</span>, and
+            <span class="keyword">10.5cm</span>.</span></dd>
         
         
-          <dt class="dt dlterm" id="lw-video__d248e246"><code class="keyword markupname xmlatt">@muted</code></dt>
-          <dd class="dd">Specifies whether the resource is muted. The following values are recognized:
-              <span class="keyword">true</span>, <span class="keyword">false</span>, and
-              <span class="keyword">-dita-use-conref-target </span>. The default value is
-              <span class="keyword">true</span>.</dd>
+          <dt class="dt dlterm" id="lw-video__d276e321"><code class="keyword markupname xmlatt">@loop</code></dt>
+          <dd class="dd">Specifies whether the resource loops when played. <span class="ph">The following values are recognized:
+                <span class="keyword">true</span> and <span class="keyword">false</span>.</span>
+            The default value is <span class="keyword">true</span>.</dd>
         
         
-          <dt class="dt dlterm" id="lw-video__d248e269"><code class="keyword markupname xmlatt">@poster</code></dt>
-          <dd class="dd">Specifies the absolute or relative URI of the image that is rendered before video
-            playback begins.</dd>
+          <dt class="dt dlterm" id="lw-video__d276e343"><code class="keyword markupname xmlatt">@muted</code></dt>
+          <dd class="dd">Specifies whether the resource is muted. <span class="ph">The following values are recognized:
+                <span class="keyword">true</span> and <span class="keyword">false</span>.</span>
+            The default value is <span class="keyword">true</span>.</dd>
         
         
-          <dt class="dt dlterm" id="lw-video__d248e279"><code class="keyword markupname xmlatt">@posterkeyref</code></dt>
+          <dt class="dt dlterm" id="lw-video__d276e366"><code class="keyword markupname xmlatt">@poster</code></dt>
+          <dd class="dd">Specifies the absolute or relative URI of the image that is
+            rendered before video playback begins.</dd>
+        
+        
+          <dt class="dt dlterm" id="lw-video__d276e376"><code class="keyword markupname xmlatt">@posterkeyref</code></dt>
           <dd class="dd">Specifies a key reference for the poster image.</dd>
         
         
-          <dt class="dt dlterm" id="lw-video__d248e289"><code class="keyword markupname xmlatt">@scope</code></dt>
-          <dd class="dd">The <code class="keyword markupname xmlatt">@scope</code> attribute describes the closeness of the relationship
-            between the current document and the target resource. Resources in the same information
-            unit are considered <code class="ph codeph">"local"</code>; resources in the same system as the
-            referencing content but not part of the same information unit are considered
-              <code class="ph codeph">"peer"</code>; and resources outside the system, such as Web pages, are
-            considered <code class="ph codeph">"external"</code>.</dd>
+          <dt class="dt dlterm" id="lw-video__d276e386"><code class="keyword markupname xmlatt">@tabindex</code></dt>
+          <dd class="dd">Specifies whether the video resource can be focused and where
+            it participates in sequential keyboard navigation. See <a class="xref" href="https://html.spec.whatwg.org/#the-tabindex-attribute" target="_blank" rel="external noopener"><code class="keyword markupname xmlatt">@tabindex</code></a> in the HTML specification
+            (WHATWG version).</dd>
         
         
-        
-          <dt class="dt dlterm" id="lw-video__d248e311"><code class="keyword markupname xmlatt">@width</code></dt>
-          <dd class="dd">Indicates the horizontal dimension for the resulting display. The value of this
-            attribute is a real number (expressed in decimal notation) optionally followed by a unit
-            of measure from the set of cm, em, in, mm, pc, pt, px, and Q (centimeters, ems, inches,
-            picas, points, pixels, millimeters, and quarter-millimeters, respectively). The default
-            unit is px (pixels). Possible values include: "5", "5in", and "10.5cm". </dd>
+          <dt class="dt dlterm" id="lw-video__d276e400"><code class="keyword markupname xmlatt">@width</code></dt>
+          <dd class="dd">Indicates the horizontal dimension for the resulting display.
+              <span class="ph">The value of this attribute
+          is a real number expressed in decimal notation, optionally
+          followed by a unit of measure. The following units of measurement
+          are supported: cm, em, in, mm, pc, pt, and px (centimeters, ems,
+          inches, millimeters, picas, points, and pixels, respectively).
+          The default unit is px (pixels). Possible values
+            include:<span class="keyword">5</span>, <span class="keyword">5in</span>, and
+            <span class="keyword">10.5cm</span>.</span></dd>
         
       </dl>
+      <div class="div">
+        <p class="p attr-exception" id="lw-video__d276e422">For this element, the
+          following considerations apply:</p>
+        <ul class="ul">
+          <li class="li">The <code class="keyword markupname xmlatt">@format</code> attribute specifies the MIME type
+            for the resource. This attribute enables processors to avoid
+            loading unsupported resources. If <code class="keyword markupname xmlatt">@format</code> is
+            not specified and <code class="keyword markupname xmlatt">@keyref</code> is specified, the
+            effective type for the key named by the <code class="keyword markupname xmlatt">@keyref</code>
+            attribute is used as the value. If an explicit
+              <code class="keyword markupname xmlatt">@format</code> is not specified on either the
+              <code class="keyword markupname xmlelement">&lt;video&gt;</code> element or key definition,
+            processors can use other means, such the URI file extension, to
+            determine the effective MIME type of the resource.</li>
+          <li class="li">The <code class="keyword markupname xmlatt">@href</code> attribute specifies the absolute or
+            relative URI of the video resource. If <code class="keyword markupname xmlatt">@href</code> is
+            specified, also specify
+            <code class="keyword markupname xmlatt">@format</code>.</li>
+        </ul>
+      </div>
     </section>
         <div class="example"><h2 class="title sectiontitle">Examples</h2>
           
