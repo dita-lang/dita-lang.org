@@ -1,0 +1,24 @@
+name: Build DITA
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      DITA_OT_VERSION: '3.6.1'
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          path: dita-draft-website
+      - uses: actions/checkout@v3
+        with:
+          repository: 'oasis-tcs/dita-techcomm'
+          ref: 'DITA-2.0'
+          path: dita-techcomm
+      - name: Deploy online
+        uses: ./dita-draft-website/.github/actions/publish
+        with:
+          MAP: dita-techcomm/specification/dita-2.0-technical-content-specification.ditamap
+          FILTER: dita-techcomm/specification/resources/DITA2.0-tc-spec.ditaval
+          DIR: dita-techcomm
+          REPOSITORY: oasis-tcs/dita-techcomm
