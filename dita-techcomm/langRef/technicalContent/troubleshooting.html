@@ -1,0 +1,102 @@
+---
+# Generated from DITA source
+layout: base
+title: 'troubleshooting'
+description: 'The troubleshooting element is the top-level element for a troubleshooting topic.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '2600b4578c62d7c1918ef0143cad30d5e24d3756'
+repository: 'oasis-tcs/dita-techcomm'
+---
+
+<nav role="toc" class="col-lg-3"><ul><li><a href="../../introduction/specIntroTechnicalContent.html">Introduction</a></li><li><a href="../../archSpec/technicalContent/dita-technicalContent-InformationTypes.html">Topic and map document types</a></li><li><a href="../../archSpec/technicalContent/technical-content-domains.html">Domain specializations</a></li><li><a href="../../langRef/langRef-technicalContent.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../baseSpec/specification/langRef/attributes/attributes.html">Attributes</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../non-normative/formatting-expectations.html">Formatting expectations</a></li><li><a href="../../revision-history/revision-history.html">Revision history</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;troubleshooting&gt;</code></h1>
+  
+  
+  
+  <div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;troubleshooting&gt;</code> element is the top-level element for a
+    troubleshooting topic.</p>
+    <section class="section" id="troubleshooting__usage-information"><h2 class="title sectiontitle">Usage information</h2>
+      
+      <p class="p">Troubleshooting topics begin with a description of a condition that the reader might want
+        to correct, followed by one or more cause-remedy pairs. Each cause-remedy pair is a
+        potential solution to the trouble described in the condition. Troubleshooting topics
+        represent the kind of information that users typically consult to fix a problem.</p>
+    </section>
+    <section class="section" id="troubleshooting__specialization-hierarchy"><h2 class="title sectiontitle">Specialization hierarchy</h2>
+      
+      <p class="p">The <code class="keyword markupname xmlelement">&lt;troubleshooting&gt;</code> element is specialized from
+          <code class="keyword markupname xmlelement">&lt;topic&gt;</code>. It is defined in the troubleshooting module.</p>
+    </section>
+    <section class="section" id="troubleshooting__attributes"><h2 class="title sectiontitle">Attributes</h2>
+      
+      <div class="div">
+        <p class="p">The following attributes are available on this
+          element: <span class="ph"><a class="xref" href="../../baseSpec/specification/common/../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
+                                                  attributes</a></span> and
+            <span class="ph"><a class="xref" href="../../baseSpec/specification/common/../langRef/attributes/commonAttributes.html#common-atts__architecturalatts" title="Architectural attributes include: DITAArchVersion, specializations, and xmlns:ditaarch">architectural
+                                                  attributes</a></span>.</p>
+        <p class="p attr-exception" id="troubleshooting__d937e458">For
+          this element, the <code class="keyword markupname xmlatt">@id</code> attribute is required.</p>
+      </div>
+    </section>
+    <div class="example" id="troubleshooting__example"><h2 class="title sectiontitle">Example</h2>
+      
+      <pre class="pre codeblock"><code>
+&lt;troubleshooting id="resolve" xml:lang="en-us"&gt;
+  &lt;title&gt;E247 - Memory fault has occured&lt;/title&gt;
+  &lt;shortdesc&gt;The system has detected a problem in memory.
+  &lt;/shortdesc&gt;
+  &lt;troublebody&gt;
+    &lt;condition&gt;
+      &lt;p&gt;The fault indicator flashes on the front panel, and
+        the error log contains the following message:
+        &lt;msgph&gt;E247 - Memory fault has occured&lt;/msgph&gt;&lt;/p&gt;
+    &lt;/condition&gt;
+    &lt;troubleSolution&gt;
+      &lt;cause&gt;
+        &lt;p&gt;Transient memory fault.&lt;/p&gt;
+      &lt;/cause&gt;
+      &lt;remedy&gt;
+        &lt;responsibleParty&gt;System administrator&lt;/responsibleParty&gt;
+        &lt;steps&gt;
+          &lt;step&gt;
+            &lt;cmd&gt;Reset the alarm&lt;/cmd&gt;
+          &lt;/step&gt;
+          &lt;step&gt;
+            &lt;cmd&gt;Monitor the system periodically to see whether
+               the alarm recurs&lt;/cmd&gt;
+          &lt;/step&gt;
+        &lt;/steps&gt;
+      &lt;/remedy&gt;
+    &lt;/troubleSolution&gt;
+    &lt;troubleSolution&gt;
+      &lt;cause&gt;
+        &lt;p&gt;Recurring memory fault indicates possible problem
+          with the system memory board. Reseating the board
+          may fix the problem.&lt;/p&gt;
+      &lt;/cause&gt;
+      &lt;remedy&gt;
+        &lt;responsibleParty&gt;Maintenance technician&lt;/responsibleParty&gt;
+        &lt;steps conref="BoardReseat.dita#BoardReseatg/steps"&gt;
+          &lt;step&gt;&lt;cmd/&gt;&lt;/step&gt;
+        &lt;/steps&gt;
+      &lt;/remedy&gt;
+    &lt;/troubleSolution&gt;
+    &lt;troubleSolution&gt;
+      &lt;cause&gt;
+        &lt;p&gt;Reseating the system memory board did not fix
+          the problem. Replacing the board may fix the problem.&lt;/p&gt;
+      &lt;/cause&gt;
+      &lt;remedy&gt;
+        &lt;responsibleParty&gt;Maintenance technician&lt;/responsibleParty&gt;
+        &lt;steps conref="BoardReplace.dita#BoardReplac/steps"&gt;
+          &lt;step&gt;&lt;cmd/&gt;&lt;/step&gt;
+        &lt;/steps&gt;
+      &lt;/remedy&gt;
+    &lt;/troubleSolution&gt;
+  &lt;/troublebody&gt;
+&lt;/troubleshooting&gt;</code></pre>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/troubleshooting-elements.html" title="Troubleshooting topics document corrective action such as troubleshooting or alarm clearing.">Troubleshooting elements</a></div></div></nav></article></main>

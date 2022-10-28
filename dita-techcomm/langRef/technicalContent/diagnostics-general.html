@@ -1,0 +1,166 @@
+---
+# Generated from DITA source
+layout: base
+title: 'diagnostics-general'
+description: 'The diagnostics-general element includes non-procedural information that can help determine which of multiple cause-remedy pairs apply to a specific situation. Results of the diagnostics might link to the specific cause-remedy section that applies to each result.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '2600b4578c62d7c1918ef0143cad30d5e24d3756'
+repository: 'oasis-tcs/dita-techcomm'
+---
+
+<nav role="toc" class="col-lg-3"><ul><li><a href="../../introduction/specIntroTechnicalContent.html">Introduction</a></li><li><a href="../../archSpec/technicalContent/dita-technicalContent-InformationTypes.html">Topic and map document types</a></li><li><a href="../../archSpec/technicalContent/technical-content-domains.html">Domain specializations</a></li><li><a href="../../langRef/langRef-technicalContent.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../baseSpec/specification/langRef/attributes/attributes.html">Attributes</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../non-normative/formatting-expectations.html">Formatting expectations</a></li><li><a href="../../revision-history/revision-history.html">Revision history</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;diagnostics-general&gt;</code></h1>
+    
+    
+    <div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;diagnostics-general&gt;</code> element includes non-procedural
+    information that can help determine which of multiple cause-remedy pairs apply to a specific
+    situation. Results of the diagnostics might link to the specific cause-remedy section that
+    applies to each result. </p>
+        <section class="section"><h2 class="title sectiontitle">Usage information</h2>
+            
+            <p class="p">Use this element when presenting non-procedural diagnostic information; for example,
+                when including a diagnostic table or a flowchart. Often in these cases, the symptoms are
+                observable without users having to take a specific action – they can simply observe that
+                the symptom exists; for example, if a particular light is on or off.</p>
+        </section>
+        <section class="section"><h2 class="title sectiontitle">Specialization hierarchy</h2>
+            
+            <p class="p">The <code class="keyword markupname xmlelement">&lt;diagnostics-general&gt;</code> element is specialized from
+                <code class="keyword markupname xmlelement">&lt;section&gt;</code>. It is defined in the troubleshooting module.</p>
+        </section>
+        <section class="section"><h2 class="title sectiontitle">Attributes</h2>
+            
+      <p class="p">The following attributes are
+        available on this element: <span class="ph"><a class="xref" href="../../baseSpec/specification/common/../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
+                                                  attributes</a></span>.</p>
+        </section>
+        <div class="example"><h2 class="title sectiontitle">Example</h2>
+            
+            <p class="p">The following code sample shows how a troubleshooting topic would provide a diagnostic
+                table to help a user determine which cause and therefore which solution applies to
+                them.</p>
+            <pre class="pre codeblock"><code>&lt;troubleshooting&gt;
+    &lt;title&gt;Car is making funny noises.&lt;/title&gt;
+    &lt;shortdesc/&gt;
+    &lt;prolog/&gt;
+    &lt;troublebody&gt;
+       &lt;condition&gt;
+           &lt;p&gt;You probably know how your vehicle sounds when it’s running properly. Listening to your 
+              car can help you troubleshoot problems. If you hear a strange sound, pay attention and 
+              react accordingly.
+           &lt;/p&gt;
+        &lt;/condition&gt;
+       &lt;diagnostics&gt;
+           &lt;diagnostics-general&gt;
+              &lt;table frame="all"&gt;
+            	&lt;tgroup cols="2"&gt;
+              	  &lt;colspec colname="c1" colnum="1" colwidth="1*"/&gt;
+              	  &lt;colspec colname="c2" colnum="2" colwidth="1*"/&gt;
+               	 &lt;thead&gt;
+               	     &lt;row&gt;
+                	        &lt;entry&gt;Symptom&lt;/entry&gt;
+                	        &lt;entry&gt;Probable Cause&lt;/entry&gt;
+                 	   &lt;/row&gt;
+                	&lt;/thead&gt;
+                	&lt;tbody&gt;
+                	    &lt;row&gt;
+                	        &lt;entry&gt;Clunking noise on bumps only&lt;/entry&gt;
+                	        &lt;entry&gt;&lt;xref href="#./checkstruts"/&gt;&lt;/entry&gt;
+                	    &lt;/row&gt;
+                	    &lt;row&gt;
+                	        &lt;entry&gt;Continuous clunking noise&lt;/entry&gt;
+                	        &lt;entry&gt;&lt;xref href="#./checkballjoints"/&gt;&lt;/entry&gt;
+                	    &lt;/row&gt;
+                	    &lt;row&gt;
+                	        &lt;entry&gt;Ticks when in neutral&lt;/entry&gt;
+                	        &lt;entry&gt;&lt;xref href="#./checkexhaust"/&gt;&lt;/entry&gt;
+                	    &lt;/row&gt;
+                	    &lt;row&gt;
+                	        &lt;entry&gt;Ticks only in reverse&lt;/entry&gt;
+                	        &lt;entry&gt;&lt;xref href="#./checkbrakes"/&gt;&lt;/entry&gt;
+                	    &lt;/row&gt;
+                	    &lt;row&gt;
+                	        &lt;entry&gt;Ticks in turns and curves&lt;/entry&gt;
+                	        &lt;entry&gt;&lt;xref href="#./checkcvjoint"/&gt;&lt;/entry&gt;
+                	    &lt;/row&gt;
+                	    &lt;row&gt;
+                	        &lt;entry&gt;Only ticks when cold&lt;/entry&gt;
+                	        &lt;entry&gt;&lt;xref href="#./checkcatalyticconverter"/&gt;&lt;/entry&gt;
+                	    &lt;/row&gt;
+                	    &lt;row&gt;
+                	        &lt;entry&gt;Ticks only at slow speed&lt;/entry&gt;
+                	        &lt;entry&gt;xref href="#./checkwheels"/&gt;&lt;/entry&gt;
+                	    &lt;/row&gt;
+                	&lt;/tbody&gt;
+           	 &lt;/tgroup&gt;
+        	&lt;/table&gt;
+            &lt;/diagnostics-general&gt;
+       &lt;/diagnostics&gt;
+       &lt;troubleSolution&gt;
+            &lt;remedy id="checkstruts"&gt;
+              &lt;title&gt;Checking your struts&lt;/title&gt;
+              &lt;steps&gt;
+                &lt;step&gt; &lt;cmd&gt;...&lt;/cmd&gt; &lt;/step&gt;
+                &lt;!-- ... --&gt;
+              &lt;/steps&gt;
+            &lt;/remedy&gt;
+       &lt;/troubleSolution&gt;
+       &lt;troubleSolution&gt;
+            &lt;remedy id="checkballjoints"&gt;
+              &lt;title&gt;Checking your ball joints&lt;/title&gt;
+		&lt;steps&gt;
+                &lt;step&gt; &lt;cmd&gt;...&lt;/cmd&gt; &lt;/step&gt;
+                &lt;!-- ... --&gt;
+              &lt;/steps&gt;
+            &lt;/remedy&gt;
+       &lt;/troubleSolution&gt;
+	&lt;troubleSolution&gt;
+            &lt;remedy id="checkexhaust"&gt;
+              &lt;title&gt;Checking your exhaust&lt;/title&gt;
+		&lt;steps&gt;
+                &lt;step&gt; &lt;cmd&gt;...&lt;/cmd&gt; &lt;/step&gt;
+                &lt;!-- ... --&gt;
+              &lt;/steps&gt;
+            &lt;/remedy&gt;
+       &lt;/troubleSolution&gt;
+	&lt;troubleSolution&gt;
+            &lt;remedy id="checkbrakes"&gt;
+              &lt;title&gt;Checking your brakes&lt;/title&gt;
+		&lt;steps&gt;
+                &lt;step&gt; &lt;cmd&gt;...&lt;/cmd&gt; &lt;/step&gt;
+                &lt;!-- ... --&gt;
+              &lt;/steps&gt;
+            &lt;/remedy&gt;
+       &lt;/troubleSolution&gt;
+	&lt;troubleSolution&gt;
+            &lt;remedy id="checkcvjoint"&gt;
+              &lt;title&gt;Checking your CV joints&lt;/title&gt;
+		&lt;steps&gt;
+                &lt;step&gt; &lt;cmd&gt;...&lt;/cmd&gt; &lt;/step&gt;
+                &lt;!-- ... --&gt;
+              &lt;/steps&gt;
+            &lt;/remedy&gt;
+       &lt;/troubleSolution&gt;
+	&lt;troubleSolution&gt;
+            &lt;remedy id="checkcatalyticconverter"&gt;
+              &lt;title&gt;Checking your catalytic converter&lt;/title&gt;
+		&lt;steps&gt;
+                &lt;step&gt; &lt;cmd&gt;...&lt;/cmd&gt; &lt;/step&gt;
+                &lt;!-- ... --&gt;
+              &lt;/steps&gt;
+            &lt;/remedy&gt;
+       &lt;/troubleSolution&gt;
+	&lt;troubleSolution&gt;
+            &lt;remedy id="checkwheels"&gt;
+              &lt;title&gt;Checking your wheels&lt;/title&gt;
+		&lt;steps&gt;
+                &lt;step&gt; &lt;cmd&gt;...&lt;/cmd&gt; &lt;/step&gt;
+                &lt;!-- ... --&gt;
+              &lt;/steps&gt;
+            &lt;/remedy&gt;
+       &lt;/troubleSolution&gt;
+&lt;/troubleshooting&gt;</code></pre>
+        </div>
+    </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/troubleshooting-elements.html" title="Troubleshooting topics document corrective action such as troubleshooting or alarm clearing.">Troubleshooting elements</a></div></div></nav></article></main>

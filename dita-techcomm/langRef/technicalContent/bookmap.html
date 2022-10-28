@@ -1,0 +1,78 @@
+---
+# Generated from DITA source
+layout: base
+title: 'bookmap'
+description: 'The bookmap element is a map specialization used to describe the relationships among a set of DITA topics intended to be configured as a traditional book.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '2600b4578c62d7c1918ef0143cad30d5e24d3756'
+repository: 'oasis-tcs/dita-techcomm'
+---
+
+<nav role="toc" class="col-lg-3"><ul><li><a href="../../introduction/specIntroTechnicalContent.html">Introduction</a></li><li><a href="../../archSpec/technicalContent/dita-technicalContent-InformationTypes.html">Topic and map document types</a></li><li><a href="../../archSpec/technicalContent/technical-content-domains.html">Domain specializations</a></li><li><a href="../../langRef/langRef-technicalContent.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../baseSpec/specification/langRef/attributes/attributes.html">Attributes</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../non-normative/formatting-expectations.html">Formatting expectations</a></li><li><a href="../../revision-history/revision-history.html">Revision history</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;bookmap&gt;</code></h1>
+  
+  
+  <div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;bookmap&gt;</code> element is a map specialization used to describe
+    the relationships among a set of DITA topics intended to be configured as a traditional
+    book.</p>
+    <section class="section" id="bookmap__usage-information"><h2 class="title sectiontitle">Usage information</h2>
+      
+      <p class="p">Book maps consist of references to topics organized as book content. The topic references
+        therefore are labeled according to the book components they point to, such as book title,
+        front matter, chapter, and appendix.</p>
+    </section>
+    <section class="section" id="bookmap__specialization-hierarchy"><h2 class="title sectiontitle">Specialization hierarchy</h2>
+      <p class="p">The <code class="keyword markupname xmlelement">&lt;bookmap&gt;</code> element is specialized from
+          <code class="keyword markupname xmlelement">&lt;map&gt;</code>. It is defined in the bookmap module.</p></section>
+    <section class="section" id="bookmap__attributes"><h2 class="title sectiontitle">Attributes</h2>
+      <p class="p">The following attributes are
+          available on this element: <span class="ph"><a class="xref" href="../../baseSpec/specification/common/../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
+                                                  attributes</a></span>, <span class="ph"><a class="xref" href="../../baseSpec/specification/common/../langRef/attributes/commonAttributes.html#common-atts__commonmapatts" title="Common map attributes include: cascade, chunk, collection-type, keyscope, linking, processing-role, search, and toc">common map attributes</a></span>, <span class="ph"><a class="xref" href="../../baseSpec/specification/common/../langRef/attributes/commonAttributes.html#common-atts__architecturalatts" title="Architectural attributes include: DITAArchVersion, specializations, and xmlns:ditaarch">architectural
+                                                  attributes</a></span>, <a class="xref" href="../../baseSpec/specification/common/../langRef/attributes/commonAttributes.html#common-atts__attr-format"><code class="keyword markupname xmlatt">@format</code></a>, <a class="xref" href="../../baseSpec/specification/common/../langRef/attributes/commonAttributes.html#common-atts__attr-scope"><code class="keyword markupname xmlatt">@scope</code></a>, and <a class="xref" href="../../baseSpec/specification/common/../langRef/attributes/commonAttributes.html#common-atts__attr-type"><code class="keyword markupname xmlatt">@type</code></a>.</p>
+    </section>
+    <div class="example" id="bookmap__example"><h2 class="title sectiontitle">Example</h2><pre class="pre codeblock"><code>&lt;bookmap xml:lang="en-us"&gt;
+  &lt;booktitle&gt;
+    &lt;booklibrary&gt;Books about stuff&lt;/booklibrary&gt;
+    &lt;mainbooktitle&gt;A book about one thing&lt;/mainbooktitle&gt;
+  &lt;/booktitle&gt;
+  &lt;bookmeta&gt;
+    &lt;bookrights&gt;
+      &lt;copyrfirst&gt;&lt;year&gt;2016&lt;/year&gt;&lt;/copyrfirst&gt;
+      &lt;copyrlast&gt;&lt;year&gt;2020&lt;/year&gt;&lt;/copyrlast&gt;
+      &lt;bookowner&gt;
+        &lt;organization&gt;OASIS&lt;/organization&gt;
+      &lt;/bookowner&gt;
+    &lt;/bookrights&gt;
+  &lt;/bookmeta&gt;
+  &lt;frontmatter&gt;
+    &lt;booklists&gt;
+      &lt;toc/&gt;
+      &lt;figurelist/&gt;
+      &lt;tablelist/&gt;
+    &lt;/booklists&gt;
+    &lt;bookabstract href="MyBookAbstract.dita"/&gt;
+    &lt;preface href="preface.dita"&gt;&lt;/preface&gt;
+  &lt;/frontmatter&gt;
+  &lt;chapter href="chapter1.dita"&gt;
+    &lt;topicref href="subchap1.dita"&gt;&lt;/topicref&gt;
+  &lt;/chapter&gt;
+  &lt;chapter href="chapter2.dita"&gt;
+    &lt;topicref href="subchap2.dita"&gt;&lt;/topicref&gt;
+  &lt;/chapter&gt;
+  &lt;appendix href="app1.dita"&gt;
+    &lt;topicref href="insideApp1.dita"&gt;&lt;/topicref&gt;
+  &lt;/appendix&gt;
+  &lt;appendix href="app2.dita"&gt;
+    &lt;topicref href="insideApp2.dita"&gt;&lt;/topicref&gt;
+  &lt;/appendix&gt;
+  &lt;backmatter&gt;
+    &lt;amendments href="updatesToTheBook.dita"/&gt;
+    &lt;booklists&gt;
+      &lt;trademarklist href="listoftrademarks.dita"/&gt;
+      &lt;indexlist/&gt;
+    &lt;/booklists&gt;
+  &lt;/backmatter&gt;
+&lt;/bookmap&gt;</code></pre></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/bookmap-content-elements.html" title="The Bookmap specialization of map supports standard book production for collections of DITA topics.">Bookmap content elements</a></div></div></nav></article></main>

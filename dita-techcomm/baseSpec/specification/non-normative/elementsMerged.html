@@ -1,0 +1,1098 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Element-by-element recommendations for translators'
+description: 'This topic contains a list of all elements in the base DITA edition. It includes recommendations on how to present the element type to translators, whether the element contents are likely to be suitable for translation, and whether the element has attributes with values that are likely to be suitable for translation. Examples of content that is not suitable for translation include code fragments and mailing addresses.'
+index: '../../../toc.html'
+notices: '../../../resources/oasis-notices.html'
+commit: '2600b4578c62d7c1918ef0143cad30d5e24d3756'
+repository: 'oasis-tcs/dita-techcomm'
+---
+
+<nav role="toc" class="col-lg-3"><ul></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Element-by-element recommendations for translators</h1>
+  
+  <div class="body refbody"><p class="shortdesc">This topic contains a list of all elements in the base DITA
+    edition. It includes recommendations on how to present the element type
+    to translators, whether the element contents are likely to be suitable
+    for translation, and whether the element has attributes <span style="color:red;" class="ph">with values that</span> are likely to be suitable for
+    translation. Examples of content that is not suitable for translation
+    include code fragments and mailing addresses.</p>
+    <section class="section" id="elements__notes"><h2 class="title sectiontitle">Notes on the tables below</h2>
+      
+      <ul class="ul">
+        <li class="li">Note that an element might be a block element in one context
+          and an inline element in another. In addition, specialized
+          element types might be rendered in a way that varies from their
+          specialization base. Accordingly, the distinctions presented in
+          the tables are provided only as a guide to known behavior with
+          the base DITA. For element specializations that are not
+          distributed by OASIS, the suggested default is to fall back to
+          the closest ancestor element that is part of the OASIS
+          distribution.</li>
+        <li class="li">For all elements, the <code class="keyword markupname xmlatt">@translate</code> attribute
+          overrides the suggested defaults specified in the tables
+          below.</li>
+        <li class="li" id="elements__subflow">Certain block-level elements might appear in the
+          middle of a translation segment. They are considered
+            <dfn class="term">subflow</dfn> elements in regard to translation. When
+          located in the middle of a translation segment, these element
+          should not be translated as part of that segment. Whenever
+          possible, such elements should be placed only at sentence
+          boundaries in order to aid translation. The subflow elements in
+          base DITA are <code class="keyword markupname xmlelement">&lt;draft-comment&gt;</code>,
+            <code class="keyword markupname xmlelement">&lt;fn&gt;</code>, <code class="keyword markupname xmlelement">&lt;idex-see&gt;</code>,
+            <code class="keyword markupname xmlelement">&lt;index-see-also&gt;</code>,
+            <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code>, and
+            <code class="keyword markupname xmlelement">&lt;required-cleanup&gt;</code></li>
+        <li class="li">The <code class="keyword markupname xmlelement">&lt;keyword&gt;</code> element (as well as
+          specializations of <code class="keyword markupname xmlelement">&lt;keyword&gt;</code>) is an
+          inline, phrase-like element when it appears in the body of a
+          document. It can also appear in the
+            <code class="keyword markupname xmlelement">&lt;keywords&gt;</code> element in
+            <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> (for maps) or in the
+            <code class="keyword markupname xmlelement">&lt;prolog&gt;</code> (for topic). When it appears in
+          the <code class="keyword markupname xmlelement">&lt;keywords&gt;</code> element, each
+            <code class="keyword markupname xmlelement">&lt;keyword&gt;</code> represents an individual
+          segment. In that location, <code class="keyword markupname xmlelement">&lt;keyword&gt;</code> is
+          considered a subflow element.</li>
+      </ul>
+    </section>
+    <section class="section"><h2 class="title sectiontitle">Explanation of column headers</h2>
+      
+      <p class="p">The following list explains the headers for the columns:</p>
+      <dl class="dl">
+        
+          <dt class="dt dlterm">Element name</dt>
+          <dd class="dd">The name of the element.</dd>
+        
+        
+          <dt class="dt dlterm">Specialization base</dt>
+          <dd class="dd">The element from which the current element is specialized.
+            This column only appears in tables for the domain
+            elements.</dd>
+        
+        
+          <dt class="dt dlterm">Same behavior as specialization base?</dt>
+          <dd class="dd">Indicates whether the element has the same behaviors in
+            regard to translation as its specialization base. The behaviors
+            are whether the element is formatted as a single block or as an
+            inline element, whether the element represents a complete
+            translatable segment, and whether the element contains
+            translatable content. This column only appears in tables for
+            the domain elements.</dd>
+        
+        
+        
+          <dt class="dt dlterm">Block/inline translation</dt>
+          <dd class="dd">Specifies whether the element represents a complete
+            translatable segment. The value <span class="keyword">block</span>
+            indicates that the element is a single segment, while the value
+              <span class="keyword">inline</span> indicates that the element is part
+            of a larger
+            segment.</dd>
+        
+        
+          <dt class="dt dlterm">Translatable content?</dt>
+          <dd class="dd">Whether the element contains one or both of the following:<ul class="ul">
+              <li class="li">Text content that can be translated</li>
+              <li class="li">Child elements that contain content that can be
+                translated</li>
+            </ul></dd>
+        
+        
+          <dt class="dt dlterm">Notes</dt>
+          <dd class="dd">This column contains any additional information, including
+            the following items.This column only appears in tables when it
+            is needed.<ul class="ul">
+              <li class="li">Whether the element has any attributes with values that
+                might need translation</li>
+              <li class="li">If specializations of the element might need
+                translation,</li>
+              <li class="li">If the element is a "subflow" element for the purposes of
+                translation</li>
+            </ul></dd>
+        
+      </dl>
+    </section>
+    <section class="section" id="elements__section-topic"><h2 class="title sectiontitle">Topic elements</h2>
+      
+      <p class="p">The following table contains information about elements that are
+        available within topics. Some elements are also available in DITA
+        maps.</p>
+      <table class="simpletable" id="elements__simpletable_body"><colgroup><col style="width:23.809523809523807%"><col style="width:19.047619047619047%"><col style="width:19.047619047619047%"><col style="width:38.095238095238095%"></colgroup><thead><tr class="sthead">
+          <th class="stentry" scope="col" id="elements__simpletable_body__stentry__1">Element name</th>
+          <th class="stentry" scope="col" id="elements__simpletable_body__stentry__2">Block/inline (translation)</th>
+          <th class="stentry" scope="col" id="elements__simpletable_body__stentry__3">Translatable content?</th>
+          <th class="stentry" scope="col" id="elements__simpletable_body__stentry__4">Notes</th>
+        </tr></thead><tbody><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;abstract&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;alt&gt;</code>
+          </td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4">This element is considered a<a class="xref" href="#elements__subflow"> subflow</a> element.</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;audience&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;audio&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;author&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;body&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;bodydiv&gt;</code>
+          </td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;brand&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;category&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;cite&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">inline</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;colspec&gt;</code></td>
+          <td style="color:red;" class="stentry" headers="elements__simpletable_body__stentry__2">n/a (empty)</td>
+          <td style="color:red;" class="stentry" headers="elements__simpletable_body__stentry__3">n/a (empty)</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;component&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;copyrholder&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;copyright&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;copyryear&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;created&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;critdates&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;data&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">no</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4">Specializations of <code class="keyword markupname xmlelement">&lt;data&gt;</code> might
+            contain translatable content.</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;dd&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;ddhd&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;desc&gt;</code>
+          </td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;div&gt;</code>
+          </td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;dl&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;dlentry&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;dlhead&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;draft-comment&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">no</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4">This element is considered a<a class="xref" href="#elements__subflow"> subflow</a> element.</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;dt&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;dthd&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;entry&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;example&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;fallback&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;featnum&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;fig&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;figgroup&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;fn&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4">This element is considered a<a class="xref" href="#elements__subflow"> subflow</a> element.</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;foreign&gt;</code>
+          </td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td style="color:red;" class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"><p class="p">The block vs. inline designation for the
+                <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> element is likely to
+              change for some specializations.</p><p class="p">The
+                <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> element might contain DITA
+              elements, such </p><code class="keyword markupname xmlelement">&lt;desc&gt;</code>,
+              <code class="keyword markupname xmlelement">&lt;object&gt;</code>, and
+              <code class="keyword markupname xmlelement">&lt;image&gt;</code>, in addition to non-DITA
+            elements. Such elements can contain translatable content; they
+            provide an alternative display if the foreign content cannot be
+            processed.</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;image&gt;</code>
+            </td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block when <code class="keyword markupname xmlatt">@placement</code>= break, otherwise
+            inline</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;include&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">inline</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;index-see&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4">This element is considered a<a class="xref" href="#elements__subflow"> subflow</a> element.</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;index-see-also&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4">This element is considered a<a class="xref" href="#elements__subflow"> subflow</a> element.</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;indexterm&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4">This element is considered a<a class="xref" href="#elements__subflow"> subflow</a> element.</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;keytext&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;keyword&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">inline (except when within
+              <code class="keyword markupname xmlelement">&lt;keywords&gt;</code> – see note above the
+            table)</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;keywords&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;li&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;lines&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;link&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;linkinfo&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;linklist&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;linkpool&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;linktext&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;lq&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"><code class="keyword markupname xmlatt">@reftitle</code> can specify translatable
+            content.</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;media-source&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">n/a</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;media-track&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">n/a</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;metadata&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;no-topic-nesting&gt;</code></td>
+          <td style="color:red;" class="stentry" headers="elements__simpletable_body__stentry__2">n/a (empty)</td>
+          <td style="color:red;" class="stentry" headers="elements__simpletable_body__stentry__3">n/a (empty)</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;note&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"><code class="keyword markupname xmlatt">@othertype</code> can specify translatable
+            content.</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;object&gt;</code>
+            </td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;ol&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;othermeta&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"><code class="keyword markupname xmlatt">@content</code> can specify translatable
+            content.</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;p&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;param&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">n/a</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;permissions&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;ph&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">inline</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;platform&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;pre&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;prodinfo&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;prodname&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;prognum&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;prolog&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;publisher&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;q&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">inline</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;related-links&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;required-cleanup&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">no</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4">This element is considered a<a class="xref" href="#elements__subflow"> subflow</a> element.</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;resourceid&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;revised&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;row&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;section&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;series&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;simpletable&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;sl&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;sli&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;source&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;state&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">inline</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"><code class="keyword markupname xmlatt">@value</code> can specify translatable
+            content.</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;stentry&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;sthead&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;strow&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;table&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;tbody&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;term&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">inline</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;text&gt;</code>
+          </td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">inline</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;tgroup&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;thead&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;title&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;titlealt&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;tm&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">inline</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;topic&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;ul&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;unknown&gt;</code>
+          </td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">no</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;video&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;vrm&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;vrmlist&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;xref&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">inline</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+        </tr></tbody></table>
+      
+    </section>
+    <section class="section" id="elements__section-map"><h2 class="title sectiontitle">Map elements</h2>
+      
+      <p class="p">The following table contains information about the elements that
+        are defined in the map module.</p>
+      <table class="simpletable"><colgroup><col style="width:38.46153846153847%"><col style="width:30.76923076923077%"><col style="width:30.76923076923077%"></colgroup><thead><tr class="sthead">
+          <th class="stentry" scope="col" id="elements__section-map__stentry__1">Element name</th>
+          <th class="stentry" scope="col" id="elements__section-map__stentry__2">Block/inline (translation)</th>
+          <th class="stentry" scope="col" id="elements__section-map__stentry__3">Translatable content?</th>
+        </tr></thead><tbody><tr class="strow">
+          <td class="stentry" headers="elements__section-map__stentry__1"><code class="keyword markupname xmlelement">&lt;map&gt;</code></td>
+          <td class="stentry" headers="elements__section-map__stentry__2">block</td>
+          <td class="stentry" headers="elements__section-map__stentry__3">yes</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__section-map__stentry__1"><code class="keyword markupname xmlelement">&lt;navref&gt;</code></td>
+          <td style="color:red;" class="stentry" headers="elements__section-map__stentry__2">n/a (empty)</td>
+          <td style="color:red;" class="stentry" headers="elements__section-map__stentry__3">n/a (empty)</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__section-map__stentry__1"><code class="keyword markupname xmlelement">&lt;relcell&gt;</code></td>
+          <td class="stentry" headers="elements__section-map__stentry__2">block</td>
+          <td class="stentry" headers="elements__section-map__stentry__3">yes</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__section-map__stentry__1"><code class="keyword markupname xmlelement">&lt;relcolspec&gt;</code></td>
+          <td class="stentry" headers="elements__section-map__stentry__2">block</td>
+          <td class="stentry" headers="elements__section-map__stentry__3">yes</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__section-map__stentry__1"><code class="keyword markupname xmlelement">&lt;relheader&gt;</code></td>
+          <td class="stentry" headers="elements__section-map__stentry__2">block</td>
+          <td class="stentry" headers="elements__section-map__stentry__3">yes</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__section-map__stentry__1"><code class="keyword markupname xmlelement">&lt;relrow&gt;</code></td>
+          <td class="stentry" headers="elements__section-map__stentry__2">block</td>
+          <td class="stentry" headers="elements__section-map__stentry__3">yes</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__section-map__stentry__1"><code class="keyword markupname xmlelement">&lt;reltable&gt;</code></td>
+          <td class="stentry" headers="elements__section-map__stentry__2">block</td>
+          <td class="stentry" headers="elements__section-map__stentry__3">yes</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__section-map__stentry__1"><code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code></td>
+          <td class="stentry" headers="elements__section-map__stentry__2">block</td>
+          <td class="stentry" headers="elements__section-map__stentry__3">yes</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__section-map__stentry__1"><code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code></td>
+          <td class="stentry" headers="elements__section-map__stentry__2">block</td>
+          <td class="stentry" headers="elements__section-map__stentry__3">yes</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__section-map__stentry__1"><code class="keyword markupname xmlelement">&lt;topicref&gt;</code></td>
+          <td class="stentry" headers="elements__section-map__stentry__2">block</td>
+          <td class="stentry" headers="elements__section-map__stentry__3">yes</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__section-map__stentry__1"><code class="keyword markupname xmlelement">&lt;ux-window&gt;</code></td>
+          <td class="stentry" headers="elements__section-map__stentry__2">n/a (empty)</td>
+          <td style="color:red;" class="stentry" headers="elements__section-map__stentry__3">n/a (empty)</td>
+        </tr></tbody></table>
+    </section>
+    <section class="section" id="elements__section_j3d_lrh_rnb"><h2 class="title sectiontitle">Alternative title domain elements
+        (alternativetitles-d)</h2>
+      
+      <p class="p">There are no translatable attributes or other special
+        considerations for elements in this domain. With the exception of
+        the <code class="keyword markupname xmlelement">&lt;subtitle&gt;</code> element, all elements
+        represent metadata.</p>
+      <table class="simpletable" id="elements__simpletable_k3d_lrh_rnb"><colgroup><col style="width:20%"><col style="width:20%"><col style="width:20%"><col style="width:20%"><col style="width:20%"></colgroup><thead><tr class="sthead">
+          <th class="stentry" scope="col" id="elements__simpletable_k3d_lrh_rnb__stentry__1">Element name</th>
+          <th class="stentry" scope="col" id="elements__simpletable_k3d_lrh_rnb__stentry__2">Specialization base</th>
+          <th class="stentry" scope="col" id="elements__simpletable_k3d_lrh_rnb__stentry__3">Same behavior as specialization base?</th>
+          <th class="stentry" scope="col" id="elements__simpletable_k3d_lrh_rnb__stentry__4">Block/inline (translation)</th>
+          <th class="stentry" scope="col" id="elements__simpletable_k3d_lrh_rnb__stentry__5">Translatable content?</th>
+        </tr></thead><tbody><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_k3d_lrh_rnb__stentry__1"><code class="keyword markupname xmlelement">&lt;linktitle&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_k3d_lrh_rnb__stentry__2"><code class="keyword markupname xmlelement">&lt;titlealt&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_k3d_lrh_rnb__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_k3d_lrh_rnb__stentry__4">block</td>
+          <td class="stentry" headers="elements__simpletable_k3d_lrh_rnb__stentry__5">yes</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_k3d_lrh_rnb__stentry__1"><code class="keyword markupname xmlelement">&lt;navtitle&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_k3d_lrh_rnb__stentry__2"><code class="keyword markupname xmlelement">&lt;titlealt&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_k3d_lrh_rnb__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_k3d_lrh_rnb__stentry__4">block</td>
+          <td class="stentry" headers="elements__simpletable_k3d_lrh_rnb__stentry__5">yes</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_k3d_lrh_rnb__stentry__1"><code class="keyword markupname xmlelement">&lt;searchtitle&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_k3d_lrh_rnb__stentry__2"><code class="keyword markupname xmlelement">&lt;titlealt&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_k3d_lrh_rnb__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_k3d_lrh_rnb__stentry__4">block</td>
+          <td class="stentry" headers="elements__simpletable_k3d_lrh_rnb__stentry__5">yes</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_k3d_lrh_rnb__stentry__1"><code class="keyword markupname xmlelement">&lt;subtitle&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_k3d_lrh_rnb__stentry__2"><code class="keyword markupname xmlelement">&lt;titlealt&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_k3d_lrh_rnb__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_k3d_lrh_rnb__stentry__4">block</td>
+          <td class="stentry" headers="elements__simpletable_k3d_lrh_rnb__stentry__5">yes</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_k3d_lrh_rnb__stentry__1"><code class="keyword markupname xmlelement">&lt;titlehint&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_k3d_lrh_rnb__stentry__2"><code class="keyword markupname xmlelement">&lt;titlealt&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_k3d_lrh_rnb__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_k3d_lrh_rnb__stentry__4">block</td>
+          <td class="stentry" headers="elements__simpletable_k3d_lrh_rnb__stentry__5">yes</td>
+        </tr></tbody></table>
+    </section>
+    <section class="section" id="elements__section-emphasis-d"><h2 class="title sectiontitle">Emphasis domain elements (emphasis-d)</h2>
+      
+      <p class="p">There are no translatable attributes or other special
+        considerations for elements in this domain.</p>
+      <table class="simpletable" id="elements__simpletable_hpm_cm1_knb"><colgroup><col style="width:20%"><col style="width:20%"><col style="width:20%"><col style="width:20%"><col style="width:20%"></colgroup><thead><tr class="sthead">
+          <th class="stentry" scope="col" id="elements__simpletable_hpm_cm1_knb__stentry__1">Element name</th>
+          <th class="stentry" scope="col" id="elements__simpletable_hpm_cm1_knb__stentry__2">Specialization base</th>
+          <th class="stentry" scope="col" id="elements__simpletable_hpm_cm1_knb__stentry__3">Same behavior as specialization base?</th>
+          <th class="stentry" scope="col" id="elements__simpletable_hpm_cm1_knb__stentry__4">Block/inline (translation)</th>
+          <th class="stentry" scope="col" id="elements__simpletable_hpm_cm1_knb__stentry__5">Translatable content?</th>
+        </tr></thead><tbody><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_hpm_cm1_knb__stentry__1"><code class="keyword markupname xmlelement">&lt;em&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_hpm_cm1_knb__stentry__2"><code class="keyword markupname xmlelement">&lt;ph&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_hpm_cm1_knb__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_hpm_cm1_knb__stentry__4">inline</td>
+          <td class="stentry" headers="elements__simpletable_hpm_cm1_knb__stentry__5">yes</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_hpm_cm1_knb__stentry__1"><code class="keyword markupname xmlelement">&lt;strong&gt;</code>
+          </td>
+          <td class="stentry" headers="elements__simpletable_hpm_cm1_knb__stentry__2"><code class="keyword markupname xmlelement">&lt;ph&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_hpm_cm1_knb__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_hpm_cm1_knb__stentry__4">inline</td>
+          <td class="stentry" headers="elements__simpletable_hpm_cm1_knb__stentry__5">yes</td>
+        </tr></tbody></table>
+    </section>
+    <section class="section" id="elements__section-hazard-d"><h2 class="title sectiontitle">Hazard statement domain elements (hazard-d)</h2>
+      
+      <p class="p">There are no translatable attributes or other special
+        considerations for elements in this domain.</p>
+      <table class="simpletable"><colgroup><col style="width:20%"><col style="width:20%"><col style="width:20%"><col style="width:20%"><col style="width:20%"></colgroup><thead><tr class="sthead">
+          <th class="stentry" scope="col" id="elements__section-hazard-d__stentry__1">Element name</th>
+          <th class="stentry" scope="col" id="elements__section-hazard-d__stentry__2">Specialization base</th>
+          <th class="stentry" scope="col" id="elements__section-hazard-d__stentry__3">Same behavior as specialization base?</th>
+          <th class="stentry" scope="col" id="elements__section-hazard-d__stentry__4">Block/inline (translation)</th>
+          <th class="stentry" scope="col" id="elements__section-hazard-d__stentry__5">Translatable content?</th>
+        </tr></thead><tbody><tr class="strow">
+          <td class="stentry" headers="elements__section-hazard-d__stentry__1"><code class="keyword markupname xmlelement">&lt;consequence&gt;</code></td>
+          <td class="stentry" headers="elements__section-hazard-d__stentry__2"><code class="keyword markupname xmlelement">&lt;div&gt;</code></td>
+          <td class="stentry" headers="elements__section-hazard-d__stentry__3">yes</td>
+          <td class="stentry" headers="elements__section-hazard-d__stentry__4">block</td>
+          <td class="stentry" headers="elements__section-hazard-d__stentry__5">yes</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__section-hazard-d__stentry__1"><code class="keyword markupname xmlelement">&lt;hazardstatement&gt;</code></td>
+          <td class="stentry" headers="elements__section-hazard-d__stentry__2"><code class="keyword markupname xmlelement">&lt;note&gt;</code></td>
+          <td class="stentry" headers="elements__section-hazard-d__stentry__3">yes</td>
+          <td class="stentry" headers="elements__section-hazard-d__stentry__4">block</td>
+          <td class="stentry" headers="elements__section-hazard-d__stentry__5">yes</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__section-hazard-d__stentry__1"><code class="keyword markupname xmlelement">&lt;hazardsymbol&gt;</code></td>
+          <td class="stentry" headers="elements__section-hazard-d__stentry__2"><code class="keyword markupname xmlelement">&lt;image&gt;</code></td>
+          <td class="stentry" headers="elements__section-hazard-d__stentry__3">yes</td>
+          <td class="stentry" headers="elements__section-hazard-d__stentry__4">block when <code class="keyword markupname xmlatt">@placement</code>= break, otherwise
+            inline</td>
+          <td class="stentry" headers="elements__section-hazard-d__stentry__5">yes</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__section-hazard-d__stentry__1"><code class="keyword markupname xmlelement">&lt;howtoavoid&gt;</code></td>
+          <td class="stentry" headers="elements__section-hazard-d__stentry__2"><code class="keyword markupname xmlelement">&lt;div&gt;</code></td>
+          <td class="stentry" headers="elements__section-hazard-d__stentry__3">yes</td>
+          <td class="stentry" headers="elements__section-hazard-d__stentry__4">block</td>
+          <td class="stentry" headers="elements__section-hazard-d__stentry__5">yes</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__section-hazard-d__stentry__1"><code class="keyword markupname xmlelement">&lt;messagepanel&gt;</code></td>
+          <td class="stentry" headers="elements__section-hazard-d__stentry__2"><code class="keyword markupname xmlelement">&lt;div&gt;</code></td>
+          <td class="stentry" headers="elements__section-hazard-d__stentry__3">yes</td>
+          <td class="stentry" headers="elements__section-hazard-d__stentry__4">block</td>
+          <td class="stentry" headers="elements__section-hazard-d__stentry__5">yes</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__section-hazard-d__stentry__1"><code class="keyword markupname xmlelement">&lt;typeofhazard&gt;</code></td>
+          <td class="stentry" headers="elements__section-hazard-d__stentry__2"><code class="keyword markupname xmlelement">&lt;div&gt;</code></td>
+          <td class="stentry" headers="elements__section-hazard-d__stentry__3">yes</td>
+          <td class="stentry" headers="elements__section-hazard-d__stentry__4">block</td>
+          <td class="stentry" headers="elements__section-hazard-d__stentry__5">yes</td>
+        </tr></tbody></table>
+    </section>
+    <section class="section" id="elements__section-hi-d"><h2 class="title sectiontitle">Highlight domain elements (hi-d)</h2>
+      
+      <p class="p">There are no translatable attributes or other special
+        considerations for elements in this domain.</p>
+      <table class="simpletable"><colgroup><col style="width:20%"><col style="width:20%"><col style="width:20%"><col style="width:20%"><col style="width:20%"></colgroup><thead><tr class="sthead">
+          <th class="stentry" scope="col" id="elements__section-hi-d__stentry__1">Element name</th>
+          <th class="stentry" scope="col" id="elements__section-hi-d__stentry__2">Specialization base</th>
+          <th class="stentry" scope="col" id="elements__section-hi-d__stentry__3">Same behavior as specialization base?</th>
+          <th class="stentry" scope="col" id="elements__section-hi-d__stentry__4">Block/inline (translation)</th>
+          <th class="stentry" scope="col" id="elements__section-hi-d__stentry__5">Translatable content?</th>
+        </tr></thead><tbody><tr class="strow">
+          <td class="stentry" headers="elements__section-hi-d__stentry__1"><code class="keyword markupname xmlelement">&lt;b&gt;</code></td>
+          <td class="stentry" headers="elements__section-hi-d__stentry__2"><code class="keyword markupname xmlelement">&lt;ph&gt;</code></td>
+          <td class="stentry" headers="elements__section-hi-d__stentry__3">yes</td>
+          <td class="stentry" headers="elements__section-hi-d__stentry__4">inline</td>
+          <td class="stentry" headers="elements__section-hi-d__stentry__5">yes</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__section-hi-d__stentry__1"><code class="keyword markupname xmlelement">&lt;line-through&gt;</code>
+          </td>
+          <td class="stentry" headers="elements__section-hi-d__stentry__2"><code class="keyword markupname xmlelement">&lt;ph&gt;</code></td>
+          <td class="stentry" headers="elements__section-hi-d__stentry__3">yes</td>
+          <td class="stentry" headers="elements__section-hi-d__stentry__4">inline</td>
+          <td class="stentry" headers="elements__section-hi-d__stentry__5">yes</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__section-hi-d__stentry__1"><code class="keyword markupname xmlelement">&lt;i&gt;</code></td>
+          <td class="stentry" headers="elements__section-hi-d__stentry__2"><code class="keyword markupname xmlelement">&lt;ph&gt;</code></td>
+          <td class="stentry" headers="elements__section-hi-d__stentry__3">yes</td>
+          <td class="stentry" headers="elements__section-hi-d__stentry__4">inline</td>
+          <td class="stentry" headers="elements__section-hi-d__stentry__5">yes</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__section-hi-d__stentry__1"><code class="keyword markupname xmlelement">&lt;overline&gt;</code>
+          </td>
+          <td class="stentry" headers="elements__section-hi-d__stentry__2"><code class="keyword markupname xmlelement">&lt;ph&gt;</code></td>
+          <td class="stentry" headers="elements__section-hi-d__stentry__3">yes</td>
+          <td class="stentry" headers="elements__section-hi-d__stentry__4">inline</td>
+          <td class="stentry" headers="elements__section-hi-d__stentry__5">yes</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__section-hi-d__stentry__1"><code class="keyword markupname xmlelement">&lt;sub&gt;</code></td>
+          <td class="stentry" headers="elements__section-hi-d__stentry__2"><code class="keyword markupname xmlelement">&lt;ph&gt;</code></td>
+          <td class="stentry" headers="elements__section-hi-d__stentry__3">yes</td>
+          <td class="stentry" headers="elements__section-hi-d__stentry__4">inline</td>
+          <td class="stentry" headers="elements__section-hi-d__stentry__5">yes</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__section-hi-d__stentry__1"><code class="keyword markupname xmlelement">&lt;sup&gt;</code></td>
+          <td class="stentry" headers="elements__section-hi-d__stentry__2"><code class="keyword markupname xmlelement">&lt;ph&gt;</code></td>
+          <td class="stentry" headers="elements__section-hi-d__stentry__3">yes</td>
+          <td class="stentry" headers="elements__section-hi-d__stentry__4">inline</td>
+          <td class="stentry" headers="elements__section-hi-d__stentry__5">yes</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__section-hi-d__stentry__1"><code class="keyword markupname xmlelement">&lt;tt&gt;</code></td>
+          <td class="stentry" headers="elements__section-hi-d__stentry__2"><code class="keyword markupname xmlelement">&lt;ph&gt;</code></td>
+          <td class="stentry" headers="elements__section-hi-d__stentry__3">yes</td>
+          <td class="stentry" headers="elements__section-hi-d__stentry__4">inline</td>
+          <td class="stentry" headers="elements__section-hi-d__stentry__5">yes</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__section-hi-d__stentry__1"><code class="keyword markupname xmlelement">&lt;u&gt;</code></td>
+          <td class="stentry" headers="elements__section-hi-d__stentry__2"><code class="keyword markupname xmlelement">&lt;ph&gt;</code></td>
+          <td class="stentry" headers="elements__section-hi-d__stentry__3">yes</td>
+          <td class="stentry" headers="elements__section-hi-d__stentry__4">inline</td>
+          <td class="stentry" headers="elements__section-hi-d__stentry__5">yes</td>
+        </tr></tbody></table>
+    </section>
+    <section class="section" id="elements__section-ut-d"><h2 class="title sectiontitle">Utilities domain elements (ut-d)</h2>
+      
+      <p class="p">There are no translatable attributes for elements in this
+        domain.</p>
+      <table class="simpletable"><colgroup><col style="width:16.666666666666664%"><col style="width:16.666666666666664%"><col style="width:16.666666666666664%"><col style="width:16.666666666666664%"><col style="width:16.666666666666664%"><col style="width:16.666666666666664%"></colgroup><thead><tr class="sthead">
+          <th class="stentry" scope="col" id="elements__section-ut-d__stentry__1">Element name</th>
+          <th class="stentry" scope="col" id="elements__section-ut-d__stentry__2">Specialization base</th>
+          <th class="stentry" scope="col" id="elements__section-ut-d__stentry__3">Same behavior as specialization base?</th>
+          <th class="stentry" scope="col" id="elements__section-ut-d__stentry__4">Block/inline (translation)</th>
+          <th class="stentry" scope="col" id="elements__section-ut-d__stentry__5">Translatable content?</th>
+          <th class="stentry" scope="col" id="elements__section-ut-d__stentry__6">Notes</th>
+        </tr></thead><tbody><tr class="strow">
+          <td class="stentry" headers="elements__section-ut-d__stentry__1"><code class="keyword markupname xmlelement">&lt;area&gt;</code></td>
+          <td class="stentry" headers="elements__section-ut-d__stentry__2"><code class="keyword markupname xmlelement">&lt;figgroup&gt;</code></td>
+          <td class="stentry" headers="elements__section-ut-d__stentry__3">yes</td>
+          <td class="stentry" headers="elements__section-ut-d__stentry__4">block</td>
+          <td class="stentry" headers="elements__section-ut-d__stentry__5">yes</td>
+          <td class="stentry" headers="elements__section-ut-d__stentry__6"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__section-ut-d__stentry__1"><code class="keyword markupname xmlelement">&lt;coords&gt;</code></td>
+          <td class="stentry" headers="elements__section-ut-d__stentry__2"><code class="keyword markupname xmlelement">&lt;ph&gt;</code></td>
+          <td class="stentry" headers="elements__section-ut-d__stentry__3">no</td>
+          <td class="stentry" headers="elements__section-ut-d__stentry__4">inline</td>
+          <td class="stentry" headers="elements__section-ut-d__stentry__5">no</td>
+          <td class="stentry" headers="elements__section-ut-d__stentry__6"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__section-ut-d__stentry__1"><code class="keyword markupname xmlelement">&lt;imagemap&gt;</code></td>
+          <td class="stentry" headers="elements__section-ut-d__stentry__2"><code class="keyword markupname xmlelement">&lt;fig&gt;</code></td>
+          <td class="stentry" headers="elements__section-ut-d__stentry__3">yes</td>
+          <td class="stentry" headers="elements__section-ut-d__stentry__4">block</td>
+          <td class="stentry" headers="elements__section-ut-d__stentry__5">yes</td>
+          <td class="stentry" headers="elements__section-ut-d__stentry__6">This element can contain translatable alternate
+            text.</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__section-ut-d__stentry__1"><code class="keyword markupname xmlelement">&lt;shape&gt;</code></td>
+          <td class="stentry" headers="elements__section-ut-d__stentry__2"><code class="keyword markupname xmlelement">&lt;keyword&gt;</code></td>
+          <td class="stentry" headers="elements__section-ut-d__stentry__3">no</td>
+          <td class="stentry" headers="elements__section-ut-d__stentry__4">inline</td>
+          <td class="stentry" headers="elements__section-ut-d__stentry__5">no</td>
+          <td class="stentry" headers="elements__section-ut-d__stentry__6"></td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__section-ut-d__stentry__1"><code class="keyword markupname xmlelement">&lt;sort-as&gt;</code>
+          </td>
+          <td class="stentry" headers="elements__section-ut-d__stentry__2"><code class="keyword markupname xmlelement">&lt;data&gt;</code></td>
+          <td class="stentry" headers="elements__section-ut-d__stentry__3">no</td>
+          <td class="stentry" headers="elements__section-ut-d__stentry__4">block</td>
+          <td class="stentry" headers="elements__section-ut-d__stentry__5">yes</td>
+          <td class="stentry" headers="elements__section-ut-d__stentry__6">This element is considered a<a class="xref" href="#elements__subflow"> subflow</a> element.</td>
+        </tr></tbody></table>
+    </section>
+    <section class="section" id="elements__section-ditavalref-d"><h2 class="title sectiontitle">DITAVALref domain elements (ditavalref-d)</h2>
+      
+      <table class="simpletable"><colgroup><col style="width:20%"><col style="width:20%"><col style="width:20%"><col style="width:20%"><col style="width:20%"></colgroup><thead><tr class="sthead">
+          <th class="stentry" scope="col" id="elements__section-ditavalref-d__stentry__1">Element name</th>
+          <th class="stentry" scope="col" id="elements__section-ditavalref-d__stentry__2">Specialization base</th>
+          <th class="stentry" scope="col" id="elements__section-ditavalref-d__stentry__3">Same behavior as specialization base?</th>
+          <th class="stentry" scope="col" id="elements__section-ditavalref-d__stentry__4">Block/inline (translation)</th>
+          <th class="stentry" scope="col" id="elements__section-ditavalref-d__stentry__5">Translatable content?</th>
+        </tr></thead><tbody><tr class="strow">
+          <td class="stentry" headers="elements__section-ditavalref-d__stentry__1"><code class="keyword markupname xmlelement">&lt;ditavalmeta&gt;</code>
+          </td>
+          <td class="stentry" headers="elements__section-ditavalref-d__stentry__2"><code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code></td>
+          <td class="stentry" headers="elements__section-ditavalref-d__stentry__3">yes</td>
+          <td class="stentry" headers="elements__section-ditavalref-d__stentry__4">block</td>
+          <td class="stentry" headers="elements__section-ditavalref-d__stentry__5">yes</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__section-ditavalref-d__stentry__1"><code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code>
+          </td>
+          <td class="stentry" headers="elements__section-ditavalref-d__stentry__2"><code class="keyword markupname xmlelement">&lt;topicref&gt;</code></td>
+          <td class="stentry" headers="elements__section-ditavalref-d__stentry__3">yes</td>
+          <td class="stentry" headers="elements__section-ditavalref-d__stentry__4">block</td>
+          <td class="stentry" headers="elements__section-ditavalref-d__stentry__5">yes</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__section-ditavalref-d__stentry__1"><code class="keyword markupname xmlelement">&lt;dvrKeyscopePrefix&gt;</code>
+          </td>
+          <td class="stentry" headers="elements__section-ditavalref-d__stentry__2"><code class="keyword markupname xmlelement">&lt;data&gt;</code></td>
+          <td class="stentry" headers="elements__section-ditavalref-d__stentry__3">yes</td>
+          <td class="stentry" headers="elements__section-ditavalref-d__stentry__4">block</td>
+          <td class="stentry" headers="elements__section-ditavalref-d__stentry__5">no</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__section-ditavalref-d__stentry__1"><code class="keyword markupname xmlelement">&lt;dvrKeyscopeSuffix&gt;</code>
+          </td>
+          <td class="stentry" headers="elements__section-ditavalref-d__stentry__2"><code class="keyword markupname xmlelement">&lt;data&gt;</code></td>
+          <td class="stentry" headers="elements__section-ditavalref-d__stentry__3">yes</td>
+          <td class="stentry" headers="elements__section-ditavalref-d__stentry__4">block</td>
+          <td class="stentry" headers="elements__section-ditavalref-d__stentry__5">no</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__section-ditavalref-d__stentry__1"><code class="keyword markupname xmlelement">&lt;dvrResourcePrefix&gt;</code>
+          </td>
+          <td class="stentry" headers="elements__section-ditavalref-d__stentry__2"><code class="keyword markupname xmlelement">&lt;data&gt;</code></td>
+          <td class="stentry" headers="elements__section-ditavalref-d__stentry__3">yes</td>
+          <td class="stentry" headers="elements__section-ditavalref-d__stentry__4">block</td>
+          <td class="stentry" headers="elements__section-ditavalref-d__stentry__5">no</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__section-ditavalref-d__stentry__1"><code class="keyword markupname xmlelement">&lt;dvrResourceSuffix&gt;</code>
+          </td>
+          <td class="stentry" headers="elements__section-ditavalref-d__stentry__2"><code class="keyword markupname xmlelement">&lt;data&gt;</code></td>
+          <td class="stentry" headers="elements__section-ditavalref-d__stentry__3">yes</td>
+          <td class="stentry" headers="elements__section-ditavalref-d__stentry__4">block</td>
+          <td class="stentry" headers="elements__section-ditavalref-d__stentry__5">no</td>
+        </tr></tbody></table>
+    </section>
+    <section class="section" id="elements__section-mapgroup-d"><h2 class="title sectiontitle">Map group domain elements (mapgroup-d)</h2>
+      
+      <p class="p">There are no translatable attributes or other special
+        considerations for elements in this domain.</p>
+      <table class="simpletable" id="elements__simpletable_C7DA2F9DD1804D4CA09B7BB04EB13076"><colgroup><col style="width:20%"><col style="width:20%"><col style="width:20%"><col style="width:20%"><col style="width:20%"></colgroup><thead><tr class="sthead">
+          <th class="stentry" scope="col" id="elements__simpletable_C7DA2F9DD1804D4CA09B7BB04EB13076__stentry__1">Element name</th>
+          <th class="stentry" scope="col" id="elements__simpletable_C7DA2F9DD1804D4CA09B7BB04EB13076__stentry__2">Specialization base</th>
+          <th class="stentry" scope="col" id="elements__simpletable_C7DA2F9DD1804D4CA09B7BB04EB13076__stentry__3">Same behavior as specialization base?</th>
+          <th class="stentry" scope="col" id="elements__simpletable_C7DA2F9DD1804D4CA09B7BB04EB13076__stentry__4">Block/inline (translation)</th>
+          <th class="stentry" scope="col" id="elements__simpletable_C7DA2F9DD1804D4CA09B7BB04EB13076__stentry__5">Translatable content?</th>
+        </tr></thead><tbody><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_C7DA2F9DD1804D4CA09B7BB04EB13076__stentry__1"><code class="keyword markupname xmlelement">&lt;keydef&gt;</code>
+          </td>
+          <td class="stentry" headers="elements__simpletable_C7DA2F9DD1804D4CA09B7BB04EB13076__stentry__2"><code class="keyword markupname xmlelement">&lt;topicref&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_C7DA2F9DD1804D4CA09B7BB04EB13076__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_C7DA2F9DD1804D4CA09B7BB04EB13076__stentry__4">block</td>
+          <td class="stentry" headers="elements__simpletable_C7DA2F9DD1804D4CA09B7BB04EB13076__stentry__5">yes</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_C7DA2F9DD1804D4CA09B7BB04EB13076__stentry__1"><code class="keyword markupname xmlelement">&lt;mapref&gt;</code>
+          </td>
+          <td class="stentry" headers="elements__simpletable_C7DA2F9DD1804D4CA09B7BB04EB13076__stentry__2"><code class="keyword markupname xmlelement">&lt;topicref&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_C7DA2F9DD1804D4CA09B7BB04EB13076__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_C7DA2F9DD1804D4CA09B7BB04EB13076__stentry__4">block</td>
+          <td class="stentry" headers="elements__simpletable_C7DA2F9DD1804D4CA09B7BB04EB13076__stentry__5">yes</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_C7DA2F9DD1804D4CA09B7BB04EB13076__stentry__1"><code class="keyword markupname xmlelement">&lt;mapresources&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_C7DA2F9DD1804D4CA09B7BB04EB13076__stentry__2"><code class="keyword markupname xmlelement">&lt;topicref&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_C7DA2F9DD1804D4CA09B7BB04EB13076__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_C7DA2F9DD1804D4CA09B7BB04EB13076__stentry__4">block</td>
+          <td class="stentry" headers="elements__simpletable_C7DA2F9DD1804D4CA09B7BB04EB13076__stentry__5">yes</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_C7DA2F9DD1804D4CA09B7BB04EB13076__stentry__1"><code class="keyword markupname xmlelement">&lt;topicgroup&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_C7DA2F9DD1804D4CA09B7BB04EB13076__stentry__2"><code class="keyword markupname xmlelement">&lt;topicref&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_C7DA2F9DD1804D4CA09B7BB04EB13076__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_C7DA2F9DD1804D4CA09B7BB04EB13076__stentry__4">block</td>
+          <td class="stentry" headers="elements__simpletable_C7DA2F9DD1804D4CA09B7BB04EB13076__stentry__5">yes</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_C7DA2F9DD1804D4CA09B7BB04EB13076__stentry__1"><code class="keyword markupname xmlelement">&lt;topichead&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_C7DA2F9DD1804D4CA09B7BB04EB13076__stentry__2"><code class="keyword markupname xmlelement">&lt;topicref&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_C7DA2F9DD1804D4CA09B7BB04EB13076__stentry__3">yes</td>
+          <td class="stentry" headers="elements__simpletable_C7DA2F9DD1804D4CA09B7BB04EB13076__stentry__4">block</td>
+          <td class="stentry" headers="elements__simpletable_C7DA2F9DD1804D4CA09B7BB04EB13076__stentry__5">yes</td>
+        </tr></tbody></table>
+    </section>
+    <section class="section" id="elements__section-ditaval"><h2 class="title sectiontitle">DITAVAL elements</h2>
+      
+      <p class="p">There are no translatable attributes in the DITAVAL element set.
+        The only element that directly contains translatable text is
+          <code class="keyword markupname xmlelement">&lt;alt-text&gt;</code>.</p>
+      <table class="simpletable" id="elements__simpletable_ditaval"><colgroup><col style="width:33.33333333333333%"><col style="width:33.33333333333333%"><col style="width:33.33333333333333%"></colgroup><thead><tr class="sthead">
+          <th class="stentry" scope="col" id="elements__simpletable_ditaval__stentry__1">Element name</th>
+          <th class="stentry" scope="col" id="elements__simpletable_ditaval__stentry__2">Block/inline (translation)</th>
+          <th class="stentry" scope="col" id="elements__simpletable_ditaval__stentry__3">Translatable content?</th>
+        </tr></thead><tbody><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_ditaval__stentry__1"><code class="keyword markupname xmlelement">&lt;alt-text&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_ditaval__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_ditaval__stentry__3">yes</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_ditaval__stentry__1"><code class="keyword markupname xmlelement">&lt;endflag&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_ditaval__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_ditaval__stentry__3">yes</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_ditaval__stentry__1"><code class="keyword markupname xmlelement">&lt;prop&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_ditaval__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_ditaval__stentry__3">yes</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_ditaval__stentry__1"><code class="keyword markupname xmlelement">&lt;revprop&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_ditaval__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_ditaval__stentry__3">yes</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_ditaval__stentry__1"><code class="keyword markupname xmlelement">&lt;startflag&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_ditaval__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_ditaval__stentry__3">yes</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_ditaval__stentry__1"><code class="keyword markupname xmlelement">&lt;style-conflict&gt;</code></td>
+          <td style="color:red;" class="stentry" headers="elements__simpletable_ditaval__stentry__2">n/a (empty)</td>
+          <td class="stentry" headers="elements__simpletable_ditaval__stentry__3">n/a (empty element)</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="elements__simpletable_ditaval__stentry__1"><code class="keyword markupname xmlelement">&lt;val&gt;</code></td>
+          <td class="stentry" headers="elements__simpletable_ditaval__stentry__2">block</td>
+          <td class="stentry" headers="elements__simpletable_ditaval__stentry__3">yes</td>
+        </tr></tbody></table>
+    </section>
+  </div>
+</article></main>
