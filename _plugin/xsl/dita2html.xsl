@@ -104,7 +104,7 @@
       </xsl:call-template>
       <xsl:attribute name="id"><xsl:apply-templates select="." mode="return-aria-label-id"/></xsl:attribute>
       <xsl:choose>
-        <xsl:when test="$headinglevel eq = 1 and $FILENAME eq 'oasis-cover.dita'">
+        <xsl:when test="$headinglevel eq 1 and $FILENAME eq 'oasis-cover.dita'">
           <xsl:apply-templates select="$input.map/*/*[contains(@class, ' bookmap/booktitle ')]/*[contains(@class, ' bookmap/mainbooktitle ')]/node()"/>
         </xsl:when>
         <xsl:otherwise>
