@@ -90,6 +90,30 @@
     <xsl:text>&#xA;</xsl:text>
   </xsl:template>
 
+  <xsl:template match="*[contains(@class, ' topic/topic ')]/*[contains(@class, ' topic/title ')]">
+    <xsl:param name="headinglevel" as="xs:integer">
+      <xsl:choose>
+        <xsl:when test="count(ancestor::*[contains(@class, ' topic/topic ')]) > 6">6</xsl:when>
+        <xsl:otherwise><xsl:sequence select="count(ancestor::*[contains(@class, ' topic/topic ')])"/></xsl:otherwise>
+      </xsl:choose>
+    </xsl:param>
+    <xsl:element name="h{$headinglevel}">
+      <xsl:attribute name="class" select="concat('topictitle', $headinglevel)"/>
+      <xsl:call-template name="commonattributes">
+        <xsl:with-param name="default-output-class">topictitle<xsl:value-of select="$headinglevel"/></xsl:with-param>
+      </xsl:call-template>
+      <xsl:attribute name="id"><xsl:apply-templates select="." mode="return-aria-label-id"/></xsl:attribute>
+      <xsl:choose>
+        <xsl:when test="$headinglevel eq = 1 and $FILENAME eq 'oasis-cover.dita'">
+          <xsl:apply-templates select="$input.map/*/*[contains(@class, ' bookmap/booktitle ')]/*[contains(@class, ' bookmap/mainbooktitle ')]/node()"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:apply-templates/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:element>
+  </xsl:template>
+
   <xsl:template match="node()" mode="jekyll-layout" as="xs:string">
     <xsl:value-of select="$layout"/>
   </xsl:template>
