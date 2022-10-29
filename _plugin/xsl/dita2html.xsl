@@ -32,7 +32,7 @@
     <xsl:variable name="title-text-only">
       <xsl:apply-templates select="*[contains(@class, ' topic/title ')]" mode="text-only"/>
     </xsl:variable>
-    <xsl:value-of select="replace(normalize-space($title-text-only), &quot;'&quot;, &quot;\\'&quot;)"/>
+    <xsl:value-of select="replace(normalize-space($title-text-only), &quot;'&quot;, &quot;''&quot;)"/>
     <xsl:text>'&#xA;</xsl:text>
     <xsl:variable name="shortdescs" as="element()*"
                   select="*[contains(@class, ' topic/shortdesc ')] |
@@ -47,7 +47,7 @@
           <xsl:apply-templates select="." mode="text-only"/>
         </xsl:for-each>
       </xsl:variable>
-      <xsl:value-of select="replace(normalize-space($shortdesc-text-only), &quot;'&quot;, &quot;\\'&quot;)"/>
+      <xsl:value-of select="replace(normalize-space($shortdesc-text-only), &quot;'&quot;, &quot;''&quot;)"/>
       <xsl:text>'&#xA;</xsl:text>
     </xsl:if>
     <xsl:text>index: '</xsl:text>
