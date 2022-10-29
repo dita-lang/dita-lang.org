@@ -5,11 +5,11 @@ title: 'image'
 description: 'An image is a reference to artwork that is stored outside of the content.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: 'cf15594a21977d8c67e4173586cdd2df6b00c3ed'
+commit: 'd7ccc5c7f8b64f25e59766f45688e5b0c1ca9946'
 repository: 'oasis-tcs/dita'
 ---
 
-<nav role="toc" class="col-lg-3"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction</a></li><li><a href="../../archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="../../archSpec/base/accessibility-and-translation.html">Accessibility and translation</a></li><li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a></li><li><a href="../../langRef/langRef-base.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../non-normative/developing-constraint-and-expansion-modules.html">Developing constraint and expansion modules</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../non-normative/formatting-expectations.html">Formatting expectations</a></li><li><a href="../../non-normative/migrating-to-dita-2.0.html">Migrating to DITA 2.0</a></li><li><a href="../../non-normative/basedoctypes.html">OASIS grammar files</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../non-normative/revision-history.html">Revision history</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
+<nav role="toc" class="col-lg-3"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction</a></li><li><a href="../../archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="../../archSpec/base/accessibility-and-translation.html">Accessibility and translation</a></li><li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a></li><li><a href="../../langRef/langRef-base.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../non-normative/developing-constraint-and-expansion-modules.html">Constraint modules</a></li><li><a href="../../non-normative/expansion-modules.html">Expansion modules</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../non-normative/formatting-expectations.html">Formatting expectations</a></li><li><a href="../../non-normative/migrating-to-dita-2.0.html">Migrating to DITA 2.0</a></li><li><a href="../../non-normative/basedoctypes.html">OASIS grammar files</a></li><li><a href="../../non-normative/interoperability-considerations.html">Processing interoperability considerations</a></li><li><a href="../../non-normative/revision-history.html">Revision history</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
 <h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;image&gt;</code></h1>
   
   
@@ -17,37 +17,43 @@ repository: 'oasis-tcs/dita'
     to artwork that is stored outside of the content. </p>
     <section class="section" id="image__rendering-expectations"><h2 class="title sectiontitle">Rendering expectations</h2>
       
-      <p class="p">The referenced  image typically is rendered in the main flow of the content.</p>
-      <div class="p">Processors <dfn class="term RFC-2119">SHOULD</dfn> scale the
-                object when values are provided for the <code class="keyword markupname xmlatt">@height</code> and
-                    <code class="keyword markupname xmlatt">@width</code> attributes. The following expectations apply:<ul class="ul">
-                    <li class="li">If a height value is specified and no width value is specified, processors
-                            <dfn class="term RFC-2119">SHOULD</dfn> scale the width by the same
-                        factor as the height.</li>
-                    <li class="li">If a width value is specified and no height value is specified, processors
-                            <dfn class="term RFC-2119">SHOULD</dfn> scale the height by the same
-                        factor as the width.</li>
-                    <li class="li">If both a height value and width value are specified, implementations <dfn class="term RFC-2119">MAY</dfn> ignore one of the two values when they
-                        are unable to scale to each direction using different factors.</li>
-                </ul></div>
+      <p class="p">The referenced image typically is rendered
+        in the main flow of the content.</p>
+      <div class="p">Processors <dfn class="term RFC-2119">SHOULD</dfn> scale the object when values
+        are provided for the <code class="keyword markupname xmlatt">@height</code> and
+          <code class="keyword markupname xmlatt">@width</code> attributes. The following expectations apply:<ul class="ul">
+          <li class="li">If a height value is specified and no width value is
+            specified, processors <dfn class="term RFC-2119">SHOULD</dfn> scale the width by the same factor as the
+            height.</li>
+          <li class="li">If a width value is specified and no height value is
+            specified, processors <dfn class="term RFC-2119">SHOULD</dfn> scale the height by the same factor as the
+            width.</li>
+          <li class="li">If both a height value and width value are specified,
+            implementations <dfn class="term RFC-2119">MAY</dfn> ignore
+            one of the two values when they are unable to scale to each
+            direction using different factors.</li>
+        </ul></div>
     </section>
     <section class="section" id="image__attributes"><h2 class="title sectiontitle">Attributes</h2>
       
-      <p class="p">The following attributes are available on this
-        element: <span class="ph"><a class="xref" href="../../common/reuse-w-lwdita/../../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
-                                                  attributes</a></span>,
-          <a class="xref" href="../../common/reuse-w-lwdita/../../langRef/attributes/commonAttributes.html#common-atts__attr-href">href (link-relationship attributes)</a>, <a class="xref" href="../../common/reuse-w-lwdita/../../langRef/attributes/commonAttributes.html#common-atts__attr-format">format (link-relationship attributes)</a>, <a class="xref" href="../../common/reuse-w-lwdita/../../langRef/attributes/commonAttributes.html#common-atts__attr-scope">scope (link-relationship attributes)</a>, <a class="xref" href="../../common/reuse-w-lwdita/../../langRef/attributes/commonAttributes.html#common-atts__attr-keyref"><code class="keyword markupname xmlatt">@keyref</code></a>, and the attributes defined
-        below.</p>
+      <div class="div">
+        <p class="p">The following attributes are available on this element: <span class="ph"><a class="xref" href="../../common/reuse-w-lwdita/../../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
+                                                  attributes</a></span>, <a class="xref" href="../../common/reuse-w-lwdita/../../langRef/attributes/commonAttributes.html#common-atts__attr-format"><code class="keyword markupname xmlatt">@format</code></a>, <a class="xref" href="../../common/reuse-w-lwdita/../../langRef/attributes/commonAttributes.html#common-atts__attr-href"><code class="keyword markupname xmlatt">@href</code></a>, <a class="xref" href="../../common/reuse-w-lwdita/../../langRef/attributes/commonAttributes.html#common-atts__attr-keyref"><code class="keyword markupname xmlatt">@keyref</code></a>, <a class="xref" href="../../common/reuse-w-lwdita/../../langRef/attributes/commonAttributes.html#common-atts__attr-scope"><code class="keyword markupname xmlatt">@scope</code></a>, and the attributes
+          defined below.</p>
+      </div>
+      
       
       <dl class="dl">
         
-          <dt class="dt dlterm" id="image__d1390e54"><code class="keyword markupname xmlatt">@align</code></dt>
-          <dd class="dd">Controls the horizontal alignment of an image when <code class="keyword markupname xmlatt">@placement</code> is
-            specified as <span class="keyword">break</span>. Common values include <span class="keyword">left</span>,
-              <span class="keyword">right</span>, and <span class="keyword">center</span>.</dd>
+          <dt class="dt dlterm" id="image__d1392e63"><code class="keyword markupname xmlatt">@align</code></dt>
+          <dd class="dd">Controls the horizontal alignment of an image when
+              <code class="keyword markupname xmlatt">@placement</code> is specified as
+              <span class="keyword">break</span>. Common values include
+              <span class="keyword">left</span>, <span class="keyword">right</span>, and
+              <span class="keyword">center</span>.</dd>
         
         
-                                        <dt class="dt dlterm" id="image__d1270e688"><a id="image__height"></a><code class="keyword markupname xmlatt">@height</code></dt>
+                                        <dt class="dt dlterm" id="image__d1277e720"><code class="keyword markupname xmlatt">@height</code></dt>
                                         <dd class="dd">Specifies the vertical
             dimension for the resulting display. <span style="color:red;" class="ph">The value of this attribute
           is a real number expressed in decimal notation, optionally
@@ -60,13 +66,14 @@ repository: 'oasis-tcs/dita'
           </dd>
                                 
         
-          <dt class="dt dlterm" id="image__d1390e86"><code class="keyword markupname xmlatt">@placement</code></dt>
-          <dd class="dd">Indicates whether an image is displayed inline or on a separate line. The default
-            value is inline. Allowable values are <span class="keyword">inline</span>,
-              <span class="keyword">break</span>, and <a class="xref" href="../../common/reuse-w-lwdita/../../archSpec/base/ditauseconreftarget.html" title="The value -dita-use-conref-target is available on enumerated attributes and can also be specified on other attributes. When an element uses conref to pull in content, for any of its attributes assigned a value of -dita-use-conref-target, the resulting value for those attributes is also pulled in from the referenced element.">"-dita-use-conref-target"</a>.</dd>
+          <dt class="dt dlterm" id="image__d1392e95"><code class="keyword markupname xmlatt">@placement</code></dt>
+          <dd class="dd">Indicates whether an image is displayed inline or on a
+            separate line. The default value is inline. Allowable values
+            are <span class="keyword">inline</span>, <span class="keyword">break</span>, and
+              <a class="xref" href="../../common/reuse-w-lwdita/../../archSpec/base/ditauseconreftarget.html" title="The value -dita-use-conref-target is available on enumerated attributes and can also be specified on other attributes. When an element uses conref to pull in content, for any of its attributes assigned a value of -dita-use-conref-target, the resulting value for those attributes is also pulled in from the referenced element.">"-dita-use-conref-target"</a>.</dd>
         
         
-          <dt class="dt dlterm" id="image__d1390e105"><code class="keyword markupname xmlatt">@scale</code></dt>
+          <dt class="dt dlterm" id="image__d1392e114"><code class="keyword markupname xmlatt">@scale</code></dt>
           <dd class="dd">Specifies a percentage as an unsigned integer by which to
             scale the image in the absence of any specified image height or
             width; a value of 100 implies that the image should be
@@ -77,7 +84,7 @@ repository: 'oasis-tcs/dita'
           </dd>
         
         
-          <dt class="dt dlterm" id="image__d1390e124"><code class="keyword markupname xmlatt">@scalefit</code></dt>
+          <dt class="dt dlterm" id="image__d1392e133"><code class="keyword markupname xmlatt">@scalefit</code></dt>
           <dd class="dd">
             <p class="p">Specifies whether an image is scaled up or down to fit
               within available space. The allowable values are
@@ -99,7 +106,7 @@ repository: 'oasis-tcs/dita'
           </dd>
         
         
-                                        <dt class="dt dlterm" id="image__d1270e700"><a id="image__width"></a><code class="keyword markupname xmlatt">@width</code></dt>
+                                        <dt class="dt dlterm" id="image__d1277e732"><a id="image__width"></a><code class="keyword markupname xmlatt">@width</code></dt>
                                         <dd class="dd">Specifies the horizontal
             dimension for the resulting display. <span style="color:red;" class="ph">The value of this attribute
           is a real number expressed in decimal notation, optionally

@@ -5,11 +5,11 @@ title: 'Normative versions of DITA grammar files'
 description: 'DITA document types and vocabulary modules can be constructed using several XML-document grammar mechanisms. The DITA specification provides coding requirements for DTDs and RNG, and it also includes grammar files that are constructed using those mechanisms. The RNG grammar files are normative.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: 'cf15594a21977d8c67e4173586cdd2df6b00c3ed'
+commit: 'd7ccc5c7f8b64f25e59766f45688e5b0c1ca9946'
 repository: 'oasis-tcs/dita'
 ---
 
-<nav role="toc" class="col-lg-3"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction</a><ul class="nav nav-list"><li><a href="../../introduction/terminology.html">Terminology</a></li><li><a href="../../introduction/ipr-policy.html">IPR policy</a></li><li><a href="../../introduction/references.html">References</a></li><li class="active"><a href="../../archSpec/base/using-relax-ng.html">Normative versions of DITA grammar files</a></li><li><a href="../../non-normative/about-specification-source.html">About the specification source</a></li></ul></li><li><a href="../../archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="../../archSpec/base/accessibility-and-translation.html">Accessibility and translation</a></li><li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a></li><li><a href="../../langRef/langRef-base.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../non-normative/developing-constraint-and-expansion-modules.html">Developing constraint and expansion modules</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../non-normative/formatting-expectations.html">Formatting expectations</a></li><li><a href="../../non-normative/migrating-to-dita-2.0.html">Migrating to DITA 2.0</a></li><li><a href="../../non-normative/basedoctypes.html">OASIS grammar files</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../non-normative/revision-history.html">Revision history</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
+<nav role="toc" class="col-lg-3"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction</a><ul class="nav nav-list"><li><a href="../../introduction/terminology.html">Terminology</a></li><li><a href="../../introduction/references.html">References</a></li><li class="active"><a href="../../archSpec/base/using-relax-ng.html">Normative versions of DITA grammar files</a></li><li><a href="../../non-normative/about-specification-source.html">About the specification source</a></li></ul></li><li><a href="../../archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="../../archSpec/base/accessibility-and-translation.html">Accessibility and translation</a></li><li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a></li><li><a href="../../langRef/langRef-base.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../non-normative/developing-constraint-and-expansion-modules.html">Constraint modules</a></li><li><a href="../../non-normative/expansion-modules.html">Expansion modules</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../non-normative/formatting-expectations.html">Formatting expectations</a></li><li><a href="../../non-normative/migrating-to-dita-2.0.html">Migrating to DITA 2.0</a></li><li><a href="../../non-normative/basedoctypes.html">OASIS grammar files</a></li><li><a href="../../non-normative/interoperability-considerations.html">Processing interoperability considerations</a></li><li><a href="../../non-normative/revision-history.html">Revision history</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
  <h1 class="title topictitle1" id="ariaid-title1">Normative versions of DITA grammar files</h1>
  
   
@@ -26,7 +26,10 @@ repository: 'oasis-tcs/dita'
           <p class="p">The DITA grammar files maintained by OASIS depend on this
             feature of RELAX NG in order to capture metadata about
             document-type shells and modules.</p>
-          
+          <p class="p">The foreign vocabulary feature can be used to include
+            metadata. The DITA 1.3 RNG-based grammar files contained
+            metadata that was used when DTD- and XSD-based grammar files
+            were generated.</p>
           <p class="p">The foreign vocabulary feature can also be used to include
             Schematron rules directly in RELAX NG grammars. Schematron
             rules can check for patterns that either are not expressible
@@ -39,8 +42,7 @@ repository: 'oasis-tcs/dita'
         <dd class="dd">This general grouping element allows for arbitrary organization
           and grouping of patterns within grammar documents. Such grouping
           tends to make the grammar documents easier to work with,
-          especially in XML-aware
-          editors.</dd>
+          especially in XML-aware editors.</dd>
       
       
         <dt class="dt dlterm">Capability of expressing precise restrictions</dt>

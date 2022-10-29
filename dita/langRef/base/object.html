@@ -5,11 +5,11 @@ title: 'object'
 description: 'The DITA object element corresponds to the HTML object element, and the attribute semantics derive from the HTML definitions. Because of this, the type attribute on object differs from the type attribute on many other DITA elements.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: 'cf15594a21977d8c67e4173586cdd2df6b00c3ed'
+commit: 'd7ccc5c7f8b64f25e59766f45688e5b0c1ca9946'
 repository: 'oasis-tcs/dita'
 ---
 
-<nav role="toc" class="col-lg-3"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction</a></li><li><a href="../../archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="../../archSpec/base/accessibility-and-translation.html">Accessibility and translation</a></li><li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a></li><li><a href="../../langRef/langRef-base.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../non-normative/developing-constraint-and-expansion-modules.html">Developing constraint and expansion modules</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../non-normative/formatting-expectations.html">Formatting expectations</a></li><li><a href="../../non-normative/migrating-to-dita-2.0.html">Migrating to DITA 2.0</a></li><li><a href="../../non-normative/basedoctypes.html">OASIS grammar files</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../non-normative/revision-history.html">Revision history</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
+<nav role="toc" class="col-lg-3"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction</a></li><li><a href="../../archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="../../archSpec/base/accessibility-and-translation.html">Accessibility and translation</a></li><li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a></li><li><a href="../../langRef/langRef-base.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../non-normative/developing-constraint-and-expansion-modules.html">Constraint modules</a></li><li><a href="../../non-normative/expansion-modules.html">Expansion modules</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../non-normative/formatting-expectations.html">Formatting expectations</a></li><li><a href="../../non-normative/migrating-to-dita-2.0.html">Migrating to DITA 2.0</a></li><li><a href="../../non-normative/basedoctypes.html">OASIS grammar files</a></li><li><a href="../../non-normative/interoperability-considerations.html">Processing interoperability considerations</a></li><li><a href="../../non-normative/revision-history.html">Revision history</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
 <h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;object&gt;</code></h1>
 
 
@@ -27,18 +27,20 @@ repository: 'oasis-tcs/dita'
         </section>
         <section class="section" id="object__rendering-expectations"><h2 class="title sectiontitle">Rendering expectations</h2>
             
-            <div class="p">Processors <dfn class="term RFC-2119">SHOULD</dfn> scale the
-                object when values are provided for the <code class="keyword markupname xmlatt">@height</code> and
-                    <code class="keyword markupname xmlatt">@width</code> attributes. The following expectations apply:<ul class="ul">
-                    <li class="li">If a height value is specified and no width value is specified, processors
-                            <dfn class="term RFC-2119">SHOULD</dfn> scale the width by the same
-                        factor as the height.</li>
-                    <li class="li">If a width value is specified and no height value is specified, processors
-                            <dfn class="term RFC-2119">SHOULD</dfn> scale the height by the same
-                        factor as the width.</li>
-                    <li class="li">If both a height value and width value are specified, implementations <dfn class="term RFC-2119">MAY</dfn> ignore one of the two values when they
-                        are unable to scale to each direction using different factors.</li>
-                </ul></div>
+            <div class="p">Processors <dfn class="term RFC-2119">SHOULD</dfn> scale the object when values
+        are provided for the <code class="keyword markupname xmlatt">@height</code> and
+          <code class="keyword markupname xmlatt">@width</code> attributes. The following expectations apply:<ul class="ul">
+          <li class="li">If a height value is specified and no width value is
+            specified, processors <dfn class="term RFC-2119">SHOULD</dfn> scale the width by the same factor as the
+            height.</li>
+          <li class="li">If a width value is specified and no height value is
+            specified, processors <dfn class="term RFC-2119">SHOULD</dfn> scale the height by the same factor as the
+            width.</li>
+          <li class="li">If both a height value and width value are specified,
+            implementations <dfn class="term RFC-2119">MAY</dfn> ignore
+            one of the two values when they are unable to scale to each
+            direction using different factors.</li>
+        </ul></div>
             <p class="p">When an object cannot be rendered in a meaningful way, processors <dfn class="term RFC-2119">SHOULD</dfn> present the contents of the
                     <code class="keyword markupname xmlelement">&lt;fallback&gt;</code> element, if it is present.</p>
         </section>
@@ -64,7 +66,7 @@ repository: 'oasis-tcs/dita'
                         key cannot be resolved to a resource.</dd>
                 
                 
-                                        <dt class="dt dlterm" id="object__d1264e688"><a id="object__height"></a><code class="keyword markupname xmlatt">@height</code></dt>
+                                        <dt class="dt dlterm" id="object__d1271e720"><a id="object__height"></a><code class="keyword markupname xmlatt">@height</code></dt>
                                         <dd class="dd">Specifies the vertical
             dimension for the resulting display. <span style="color:red;" class="ph">The value of this attribute
           is a real number expressed in decimal notation, optionally
@@ -105,7 +107,7 @@ repository: 'oasis-tcs/dita'
                         program <span class="ph">might</span> run on the server.</dd>
                 
                 
-                                        <dt class="dt dlterm" id="object__d1264e700"><a id="object__width"></a><code class="keyword markupname xmlatt">@width</code></dt>
+                                        <dt class="dt dlterm" id="object__d1271e732"><a id="object__width"></a><code class="keyword markupname xmlatt">@width</code></dt>
                                         <dd class="dd">Specifies the horizontal
             dimension for the resulting display. <span style="color:red;" class="ph">The value of this attribute
           is a real number expressed in decimal notation, optionally
