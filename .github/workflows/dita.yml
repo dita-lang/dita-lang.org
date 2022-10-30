@@ -10,15 +10,21 @@ jobs:
       - uses: actions/checkout@v3
         with:
           path: dita-draft-website
+      - name: Init
+        uses: ./dita-draft-website/.github/actions/init
       - uses: actions/checkout@v3
         with:
           repository: 'oasis-tcs/dita'
           ref: 'DITA-2.0'
           path: dita
-      - name: Deploy online
+      - name: Publish DITA
         uses: ./dita-draft-website/.github/actions/publish
         with:
           MAP: dita/specification/dita-2.0-specification.ditamap
           FILTER: dita/specification/resources/DITA2.0-spec.ditaval
           DIR: dita
           REPOSITORY: oasis-tcs/dita
+      - name: Push changes
+        run: |
+          git push -v origin main
+        working-directory: dita-draft-website

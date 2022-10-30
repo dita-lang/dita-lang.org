@@ -11,33 +11,6 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - name: Set up JDK 1.8
-      uses: actions/setup-java@v3
-      with:
-        distribution: 'temurin'
-        java-version: '8'
-    - name: Cache DITA-OT
-      uses: actions/cache@v2
-      with:
-        path: |
-          dita-ot-${{ env.DITA_OT_VERSION }}.zip
-        key: ${{ runner.os }}-${{ env.DITA_OT_VERSION }}
-    - name: Set up DITA-OT
-      shell: bash
-      run: |
-        set -e
-        if [ -f "dita-ot-$DITA_OT_VERSION.zip" ]; then
-          echo "Use cached $PWD/dita-ot-$DITA_OT_VERSION.zip"
-        else
-          curl -sfL https://github.com/dita-ot/dita-ot/releases/download/$DITA_OT_VERSION/dita-ot-$DITA_OT_VERSION.zip -o dita-ot-$DITA_OT_VERSION.zip
-        fi
-        unzip -q dita-ot-$DITA_OT_VERSION.zip
-        echo "DITA_HOME=$PWD/dita-ot-$DITA_OT_VERSION" >> $GITHUB_ENV
-    - name: Install plug-ins
-      shell: bash
-      run: |
-        cp -r dita-draft-website/_plugin $DITA_HOME/plugins/org.dita-ot.html
-        $DITA_HOME/bin/dita install
     - name: Get source commit
       shell: bash
       run: |
@@ -73,8 +46,6 @@ runs:
           git add --all
           # Commit generated site output
           git commit -a -m "Deploy ${{ inputs.REPOSITORY }}@${SHA:0:7}"
-          # push
-          git push -v origin main
         else
           echo "Nothing to commit"
         fi
