@@ -1,4 +1,4 @@
-name: Build DITA TC
+name: Build all drafts
 on:
   workflow_dispatch:
 jobs:
@@ -14,6 +14,18 @@ jobs:
         uses: ./dita-draft-website/.github/actions/init
       - uses: actions/checkout@v3
         with:
+          repository: 'oasis-tcs/dita'
+          ref: 'DITA-2.0'
+          path: dita
+      - name: Publish DITA
+        uses: ./dita-draft-website/.github/actions/publish
+        with:
+          MAP: dita/specification/dita-2.0-specification.ditamap
+          FILTER: dita/specification/resources/DITA2.0-spec.ditaval
+          DIR: dita
+          REPOSITORY: oasis-tcs/dita
+      - uses: actions/checkout@v3
+        with:
           repository: 'oasis-tcs/dita-techcomm'
           ref: 'DITA-2.0'
           path: dita-techcomm
@@ -25,6 +37,19 @@ jobs:
           FILTER: dita-techcomm/specification/resources/DITA2.0-tc-spec.ditaval
           DIR: dita-techcomm
           REPOSITORY: oasis-tcs/dita-techcomm
+      - uses: actions/checkout@v3
+        with:
+          repository: 'oasis-tcs/dita-lwdita'
+          ref: 'spec'
+          path: lwdita
+          submodules: recursive
+      - name: Publish LwDITA
+        uses: ./dita-draft-website/.github/actions/publish
+        with:
+          MAP: lwdita/Spec/lwdita.ditamap
+          FILTER: lwdita/Spec/resources/lwdita.ditaval
+          DIR: lwdita
+          REPOSITORY: oasis-tcs/dita-lwdita
       - name: Push changes
         run: |
           git push -v origin main
