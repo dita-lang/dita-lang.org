@@ -37,6 +37,18 @@ runs:
           -Dcommit=$SHA \
           -Drepository=${{ inputs.REPOSITORY }} \
           -v
+    - name: Reset unchanged
+      shell: bash
+      run: |
+        git diff --name-only | while read i; do
+          diff="$(git diff -U0 "$i")"
+          lines="$(echo $diff | wc -l)"
+          if [ $lines -eq 7 ]; then
+            if [ "$(echo $diff | sed -n '6p')" =~ '^-commit:*' ] && [ "$(echo $diff | sed -n '7p')" =~ '^\+commit:*' ]; then
+              git checkout -- "$i"
+            fi
+          fi
+        done
     - name: Commit changes
       shell: bash
       run: |
