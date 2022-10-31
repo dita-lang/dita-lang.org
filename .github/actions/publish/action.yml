@@ -25,7 +25,7 @@ runs:
           <prop att="platform" val="external-publishing-engine" action="include"/>
         </val>
         EOF
-    - name: Run DITA-OT
+    - name: Run single page DITA-OT
       shell: bash
       run: |
         $DITA_HOME/bin/dita \
@@ -36,7 +36,18 @@ runs:
           --filter=${{ inputs.FILTER }} \
           -Dcommit=$SHA \
           -Drepository=${{ inputs.REPOSITORY }} \
-          -v
+          --root-chunk-override=to-content
+    - name: Run multi-page DITA-OT
+      shell: bash
+      run: |
+        $DITA_HOME/bin/dita \
+          -i ${{ inputs.MAP }} \
+          -o dita-draft-website/${{ inputs.DIR }} \
+          -f org.dita-ot.html \
+          --filter=${{ inputs.FILTER }}.external-publishing-engine.ditaval \
+          --filter=${{ inputs.FILTER }} \
+          -Dcommit=$SHA \
+          -Drepository=${{ inputs.REPOSITORY }}
     - name: Reset unchanged
       shell: bash
       run: |
