@@ -4,7 +4,7 @@ layout: base
 title: ''
 index: 'toc.html'
 notices: 'resources/oasis-notices.html'
-commit: '45a98cee3f9dd8468ac57c55a92f4b1ff24f18be'
+commit: '9d8cb218569a5265e4e8d120ef2143dab12f8ca0'
 repository: 'oasis-tcs/dita-techcomm'
 ---
 
@@ -532,38 +532,53 @@ http://www.w3.org/TR/2006/REC-xml11-20060816/. <a class="xref" href="http://www.
       <p class="p">The body of a concept topic can contain the following document
         structures:</p>
       <ul class="ul">
-        <li class="li">Basic document structures: divisions, paragraphs, lists,
-          tables, figures, etc.</li>
+        <li class="li">Basic <span style="color:red;" class="ph">block elements</span>: divisions,
+          paragraphs, lists, tables, figures, etc.</li>
         <li class="li">Concept body divisions: <a class="xref" href="#conbodydiv" title="The conbodydiv element provides an container for content that might be grouped within a concept topic."><code class="keyword markupname xmlelement">&lt;conbodydiv&gt;</code></a></li>
         <li class="li">Examples</li>
         <li class="li">Sections</li>
       </ul>
-      <p class="p">However, after a section or example is introduced into the topic
-        structure, it can be followed only by a section, example, or
-        concept body division.</p>
-      
+      <p class="p">However, after a <span style="color:red;" class="ph">section, example, or concept
+          body division</span> is introduced into the topic structure, it can
+        be followed only by a section, example, or concept body
+        division.</p>
+      <div style="color:red;" class="div">
+        <p class="p">This design supports the following best practices and use
+          cases:</p>
+        <ul class="ul">
+          <li class="li">Ensures that there are clear boundaries between sections</li>
+          <li class="li">Enables creation of short concept topics that only include a
+            few basic block elements, for example, a paragraph, list, and
+            image</li>
+        </ul>
+      </div>
     </section>
     
     
     
-    <div class="example" id="concept-topic__example"><h3 class="title sectiontitle">Example</h3>
-      
+    <div class="example" style="color:red;" id="concept-topic__example"><h3 class="title sectiontitle">Example</h3>
       
       <p class="p">The following code sample contains a simple concept topic:</p>
-      <pre class="pre codeblock"><code>&lt;concept id="concept"&gt;
-  &lt;title&gt;Bird Songs&lt;/title&gt;
-  &lt;shortdesc&gt;Bird songs are complex vocalizations used to attract mates or defend 
-             territories.&lt;/shortdesc&gt;
+      <pre class="pre codeblock"><code>&lt;concept id="color_triads"&gt;
+  &lt;title&gt;Color triads&lt;/title&gt;
+  &lt;shortdesc&gt;A basic concept in color theory is the use of triads, colors that are three 
+             steps apart on the color wheel.&lt;/shortdesc&gt;
   &lt;conbody&gt;
-    &lt;p&gt;Bird songs vary widely among species, from simple songs that are genetically 
-       imprinted to complex songs that are learned over a lifetime.&lt;/p&gt;
-  &lt;example&gt;
-    &lt;p&gt;Flycatchers know their songs from birth:&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Flycatcher songs are simple sequences of notes.&lt;/li&gt;
-      &lt;li&gt;Flycatcher songs never vary but are unique to each member of the Flycatcher 
-         family.&lt;/li&gt;
-    &lt;/ul&gt;
+    &lt;p&gt;If you have difficulty picking colors when designing, you can use a color triad. Use 
+       one color as the main color and then the other two as accent colors.&lt;/p&gt;
+    &lt;example&gt;
+      &lt;p&gt;The most simple color wheel contains 12 colors: red, red-orange, orange, 
+         yellow-orange, yellow, yellow-green, green, blue-green, blue, blue-violet, 
+         violet (purple), and red-violet.&lt;/p&gt;
+      &lt;fig&gt;
+        &lt;title&gt;Basic color wheel&lt;/title&gt;
+        &lt;image href="colorwheel.jpg" placement="break"&gt;
+          &lt;alt&gt;Circle divided into twelve parts, each part a different color.&lt;/alt&gt;
+        &lt;/image&gt; 
+      &lt;/fig&gt;
+      &lt;p&gt;Start with the first color green. Skip the next three colors, and the second color 
+         of the triad is violet. Skip the next three colors, and the third color of the triad 
+         is orange. This gives you the triad of green, violet, and orange.&lt;/p&gt;
     &lt;/example&gt;
   &lt;/conbody&gt;
 &lt;/concept&gt;</code></pre>
@@ -650,11 +665,10 @@ http://www.w3.org/TR/2006/REC-xml11-20060816/. <a class="xref" href="http://www.
       
       <p class="p">Reference topics serve the following purposes:</p>
       <ul class="ul">
-        <li class="li">Provide data that supports novice users as they perform a
-          task</li>
+        <li class="li">Provide data that supports users as they perform a task</li>
         <li class="li">Provide quick access to fact-based information</li>
-        <li class="li">Contain information that advanced users look up
-          infrequently</li>
+        <li class="li">Contain <span style="color:red;" class="ph">detailed</span> information that users
+          look up infrequently</li>
       </ul>
       <p class="p">Reference topics are used for the following types of information
         and more:</p>
@@ -676,11 +690,11 @@ http://www.w3.org/TR/2006/REC-xml11-20060816/. <a class="xref" href="http://www.
         structures:</p>
       <ul class="ul">
         <li class="li">Examples: <code class="keyword markupname xmlelement">&lt;example&gt;</code></li>
-        <li class="li">Property lists: <a class="xref" href="#properties" title="A properties table describes the properties of something. Each property can include the type, value, and a description."><code class="keyword markupname xmlelement">&lt;properties&gt;</code></a></li>
+        <li class="li">Property lists: <a class="xref" href="#properties" title="A properties table describes the properties of a thing, such as an object, part, or category. Each property can include the type, value, and a description."><code class="keyword markupname xmlelement">&lt;properties&gt;</code></a></li>
         <li class="li">Reference body divisions: <a class="xref" href="#refbodydiv" title="The refbodydiv element provides a container for contiguous content in a reference topic. There is no additional semantic meaning."><code class="keyword markupname xmlelement">&lt;refbodydiv&gt;</code></a>
           </li>
         <li class="li">Sections: <code class="keyword markupname xmlelement">&lt;section&gt;</code></li>
-        <li class="li">Syntax sections: <a class="xref" href="#refsyn" title="The refsyn element describes the syntax of something, for example, a command-line utility or an API signature."><code class="keyword markupname xmlelement">&lt;refsyn&gt;</code></a></li>
+        <li class="li">Syntax sections: <a class="xref" href="#refsyn" title="The refsyn element contains content that describes the syntax of a command."><code class="keyword markupname xmlelement">&lt;refsyn&gt;</code></a></li>
         <li class="li">Tables: <code class="keyword markupname xmlelement">&lt;simpletable&gt;</code> and
             <code class="keyword markupname xmlelement">&lt;table&gt;</code></li>
       </ul>
@@ -1666,14 +1680,14 @@ http://www.w3.org/TR/2006/REC-xml11-20060816/. <a class="xref" href="http://www.
         <li class="sli"><a class="xref" href="#preface" title="The preface element references a topic or map containing introductory information about a book, such as the purpose and structure of the document.">preface</a></li>
         <li class="sli"><a class="xref" href="#prereq" title="Prerequisites are things that people need to know or preliminary tasks that people need to perform before starting the current task.">prereq</a></li>
         <li class="sli"><a class="xref" href="#printlocation" title="The printlocation element indicates the location where the book was printed.">printlocation</a></li>
-        <li class="sli"><a class="xref" href="#propdesc" title="The propdesc element contains the content of the third column in a properties table. This content describes the property type and its values.">propdesc</a></li>
+        <li class="sli"><a class="xref" href="#propdesc" title="The propdesc element contains content that describes the property type and its values.">propdesc</a></li>
         <li class="sli"><a class="xref" href="#propdeschd" title="The propdeschd element provides a label for the description column in a properties table.">propdeschd</a></li>
-        <li class="sli"><a class="xref" href="#properties" title="A properties table describes the properties of something. Each property can include the type, value, and a description.">properties</a></li>
+        <li class="sli"><a class="xref" href="#properties" title="A properties table describes the properties of a thing, such as an object, part, or category. Each property can include the type, value, and a description.">properties</a></li>
         <li class="sli"><a class="xref" href="#property" title="The property element represents a single property in a properties table.">property</a></li>
         <li class="sli"><a class="xref" href="#prophead" title="The prophead element contains elements that provide labels for the columns in a properties table.">prophead</a></li>
-        <li class="sli"><a class="xref" href="#proptype" title="The proptype element contains the content of the first cell in a properties table row. The content describes the type of the property.">proptype</a></li>
+        <li class="sli"><a class="xref" href="#proptype" title="The proptype element contains content that describes the type of the property.">proptype</a></li>
         <li class="sli"><a class="xref" href="#proptypehd" title="The proptypehd element provides a label for the type column in a properties table.">proptypehd</a></li>
-        <li class="sli"><a class="xref" href="#propvalue" title="The propvalue element contains the content of the second cell in a properties table row. This content indicates a value for the property type.">propvalue</a></li>
+        <li class="sli"><a class="xref" href="#propvalue" title="The propvalue element contains content that indicates a value for the property type.">propvalue</a></li>
         <li class="sli"><a class="xref" href="#propvaluehd" title="The propvaluehd element provides a label for the value column in a properties table.">propvaluehd</a></li>
         <li class="sli"><a class="xref" href="#pt" title="The pt element specifies a parameter term within a parameter list entry.">pt</a></li>
         <li class="sli"><a class="xref" href="#published" title="The published element contains information about the person or organization publishing the book, the dates when it was started and completed, and any special restrictions associated with it.">published</a></li>
@@ -1681,8 +1695,8 @@ http://www.w3.org/TR/2006/REC-xml11-20060816/. <a class="xref" href="http://www.
         <li class="sli"><a class="xref" href="#publishtype" title="The publishtype element indicates whether the book is generally available from the publisher or is restricted in some way.">publishtype</a></li>
         <li class="sli"><a class="xref" href="#refbody" title="The refbody element contains the main content of a reference topic.">refbody</a></li>
         <li class="sli"><a class="xref" href="#refbodydiv" title="The refbodydiv element provides a container for contiguous content in a reference topic. There is no additional semantic meaning.">refbodydiv</a></li>
-        <li class="sli"><a class="xref" href="#reference" title="The reference element is the top-level element for a reference topic. A reference topic includes special sections for programming syntax and property lists, as well as sections, tables, and examples.">reference</a></li>
-        <li class="sli"><a class="xref" href="#refsyn" title="The refsyn element describes the syntax of something, for example, a command-line utility or an API signature.">refsyn</a></li>
+        <li class="sli"><a class="xref" href="#reference" title="The reference element is the top-level element for a reference topic. A reference topic can include specialized sections for programming syntax and property tables, as well as standard sections, tables, and examples.">reference</a></li>
+        <li class="sli"><a class="xref" href="#refsyn" title="The refsyn element contains content that describes the syntax of a command.">refsyn</a></li>
         <li class="sli"><a class="xref" href="#remedy" title="The remedy element contains steps that are a potential solution for the problem described in the troubleshooting topic.">remedy</a></li>
         <li class="sli"><a class="xref" href="#repsep" title="The repsep element identifies a character used in a syntax diagram to indicate that a group of syntax elements can (or should) be repeated.">repsep</a></li>
         <li class="sli"><a class="xref" href="#responsibleParty" title="The responsibleParty element identifies the individual or team whose task it is to perform a remedy procedure.">responsibleParty</a></li>
@@ -1711,7 +1725,7 @@ http://www.w3.org/TR/2006/REC-xml11-20060816/. <a class="xref" href="http://www.
         <li class="sli"><a class="xref" href="#syntaxdiagram" title="The syntaxdiagram element represents the syntax of a command, function call, or programming language statement.">syntaxdiagram</a></li>
         <li class="sli"><a class="xref" href="#systemoutput" title="The systemoutput element identifies computer output or responses to a command or situation.">systemoutput</a></li>
         <li class="sli"><a class="xref" href="#tablelist" title="The tablelist element references a topic that contains a list of tables within the book.">tablelist</a></li>
-        <li class="sli"><a class="xref" href="#unique_614289409" title="The task element is the top-level element for a task topic. Task topics provide the instructions that guide people to perform a task.">task</a></li>
+        <li class="sli"><a class="xref" href="#unique_170874058" title="The task element is the top-level element for a task topic. Task topics provide the instructions that guide people to perform a task.">task</a></li>
         <li class="sli"><a class="xref" href="#taskbody" title="The taskbody element contains the body of a task topic. The task body can include prerequisites, contextual information, steps, results, examples, troubleshooting information, and post-requisites. General task topics can also contain generic sections.">taskbody</a></li>
         <li class="sli"><a class="xref" href="#tasktroubleshooting" title="Task troubleshooting information is information that is intended to help people respond to the situation if a task does not complete as expected.">tasktroubleshooting</a></li>
         <li class="sli"><a class="xref" href="#tested" title="The tested element contains information about when and by whom the book was tested during its publication history.">tested</a></li>
@@ -3679,11 +3693,11 @@ Name and Address Language, or xNAL.</p>
     the top-level element for a topic that answers the question <q class="q">what is?</q></p>
     <section class="section" id="concept__usage-information"><h5 class="title sectiontitle">Usage information</h5>
       
+      
       <p class="p">Concepts provide background information that users must know
         before they can successfully work with a product or interface.
         Often, a concept is an extended definition of a major abstraction
-        such as a process or function. It might also have an example or a
-        graphic.</p>
+        such as a process or function. It might also <span style="color:red;" class="ph">contain an example, image, or diagram</span>.</p>
     </section>
     <section class="section" id="concept__specialization-hierarchy"><h5 class="title sectiontitle">Specialization hierarchy</h5>
       
@@ -3756,14 +3770,12 @@ Name and Address Language, or xNAL.</p>
       
       <p class="p">There are no additional semantics attached to the
           <code class="keyword markupname xmlelement">&lt;conbodydiv&gt;</code> element. It is purely a
-        grouping element that provided to help organize content for
-        reuse.</p>
-      <p class="p">The parent <code class="keyword markupname xmlelement">&lt;conbody&gt;</code> element has a restriction that
-          <code class="keyword markupname xmlelement">&lt;section&gt;</code> or <code class="keyword markupname xmlelement">&lt;example&gt;</code> elements can only be
-        followed by other sections or examples. The <code class="keyword markupname xmlelement">&lt;conbodydiv&gt;</code> element,
-        which allows groupings of sections and examples, keeps the same restriction in place; once
-        used, only sections, examples, or other <code class="keyword markupname xmlelement">&lt;conbodydiv&gt;</code> groups are
-        allowed.</p>
+        grouping element that <span style="color:red;" class="ph">is</span> provided to help
+        organize content for reuse.</p>
+      <p style="color:red;" class="p">The content model of the
+          <code class="keyword markupname xmlelement">&lt;conbodydiv&gt;</code> element only permits
+          <code class="keyword markupname xmlelement">&lt;section&gt;</code> and
+          <code class="keyword markupname xmlelement">&lt;example&gt;</code>.</p>
     </section>
     <section class="section" id="conbodydiv__specialization-hierarchy"><h5 class="title sectiontitle">Specialization hierarchy</h5>
       
@@ -4355,8 +4367,8 @@ themselves.  Examples include RedHat, SuSE, and Ubuntu. &lt;/glossScopeNote&gt;
     <section class="section" id="glossSymbol__attributes"><h6 class="title sectiontitle">Attributes</h6>
       
       <p class="p">The following attributes are available on this element: <span class="ph"><a class="xref" href="#univ-atts" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
-                                                  attributes</a></span>, <a class="xref" href="#common-atts__attr-keyref"><code class="keyword markupname xmlatt">@keyref</code></a>, and the
-        attributes defined below.</p>
+                                                  attributes</a></span>, <a class="xref" href="#common-atts__attr-format"><code class="keyword markupname xmlatt">@format</code></a>, <a class="xref" href="#common-atts__attr-keyref"><code class="keyword markupname xmlatt">@keyref</code></a>, and the attributes
+        defined below.</p>
       <dl class="dl">
         
           <dt class="dt dlterm" id="glossSymbol__d948e684"><code class="keyword markupname xmlatt">@href</code></dt>
@@ -4780,9 +4792,8 @@ and expanded versions of that acronym.</p>
 <h4 class="title topictitle4" id="ariaid-title121"><code class="keyword markupname xmlelement">&lt;propdesc&gt;</code></h4>
 
 
-<div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;propdesc&gt;</code> element contains the
-    content of the third column in a properties table. This content
-    describes the property type and its values.</p>
+<div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;propdesc&gt;</code> element <span style="color:red;" class="ph">contains content that describes the property type and its
+      values.</span></p>
       <section class="section" id="propdesc__specialization-hierarchy"><h5 class="title sectiontitle">Specialization hierarchy</h5>
          
          <p class="p">The <code class="keyword markupname xmlelement">&lt;propdesc&gt;</code> element is specialized from
@@ -4805,7 +4816,7 @@ and expanded versions of that acronym.</p>
       </section>
     <div class="example" id="propdesc__example"><h5 class="title sectiontitle">Example</h5>
       
-      <p class="p">See <a class="xref" href="#properties" title="A properties table describes the properties of something. Each property can include the type, value, and a description."><code class="keyword markupname xmlelement">&lt;properties&gt;</code></a>.</p>
+      <p class="p">See <a class="xref" href="#properties" title="A properties table describes the properties of a thing, such as an object, part, or category. Each property can include the type, value, and a description."><code class="keyword markupname xmlelement">&lt;properties&gt;</code></a>.</p>
     </div>
 </div>
 </article><article class="topic reference nested3" aria-labelledby="ariaid-title122" lang="en-us" id="propdeschd">
@@ -4829,32 +4840,32 @@ and expanded versions of that acronym.</p>
     </section>
     <div class="example" id="propdeschd__example"><h5 class="title sectiontitle">Example</h5>
       
-      <p class="p">See <a class="xref" href="#properties" title="A properties table describes the properties of something. Each property can include the type, value, and a description."><code class="keyword markupname xmlelement">&lt;properties&gt;</code></a>.</p>
+      <p class="p">See <a class="xref" href="#properties" title="A properties table describes the properties of a thing, such as an object, part, or category. Each property can include the type, value, and a description."><code class="keyword markupname xmlelement">&lt;properties&gt;</code></a>.</p>
     </div>
   </div>
 </article><article class="topic reference nested3" aria-labelledby="ariaid-title123" lang="en-us" id="properties">
 <h4 class="title topictitle4" id="ariaid-title123"><code class="keyword markupname xmlelement">&lt;properties&gt;</code></h4>
   
 
-<div class="body refbody"><div class="abstract">
-     <span class="shortdesc">A properties table describes the properties of something.
-      Each property can include the type, value, and a
-      description.</span>
-    
-    
-  </div>
+<div class="body refbody"><p class="shortdesc">A properties table describes the properties of <span style="color:red;" class="ph">a thing, such as an object, part, or category</span>.
+    Each property can include the type, value, and a
+    description.</p>
     <section class="section" id="properties__usage-information"><h5 class="title sectiontitle">Usage information</h5>
       
       <p class="p">A properties table typically is represented as a simple table with
-        three columns. The first cell in a row lists the property type, the
-        second cell in the row lists a value for the property, and the
-        third cell in the row lists a description,</p>
+          <span style="color:red;" class="ph">a maximum of </span>three columns. The first <span style="color:red;" class="ph">column is for</span> the property type, the second
+          <span style="color:red;" class="ph">column can contain</span> a value <span style="color:red;" class="ph">or values</span> for the property, and the third <span style="color:red;" class="ph">column can contain</span> a description.</p>
       <p class="p">An optional header row can provide labels for the columns, if an
         author does not want to use the default labels that might be
         provided by stylesheets.</p>
-      
     </section>
-    
+    <section class="section" id="properties__rendering-expectations"><h5 class="title sectiontitle">Rendering expectations</h5>
+      
+      <p style="color:red;" class="p">If a properties table does not contain a header
+        row, processors typically auto-generate labels for the columns in
+        the properties table. The text for the labels is specified in
+        stylesheets.</p>
+    </section>
     <section class="section" id="properties__specialization-hierarchy"><h5 class="title sectiontitle">Specialization hierarchy</h5>
       
       <p class="p">The <code class="keyword markupname xmlelement">&lt;properties&gt;</code> element is specialized from
@@ -4871,7 +4882,7 @@ and expanded versions of that acronym.</p>
       
       <p class="p">This section contains examples of how the
           <code class="keyword markupname xmlelement">&lt;properties&gt;</code> element can be used.</p>
-      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 5. </span>Simple properties list</figcaption>
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 5. </span>Simple properties <span style="color:red;" class="ph">table</span></figcaption>
         
         <p class="p">The following code sample shows a
             <code class="keyword markupname xmlelement">&lt;properties&gt;</code> element that describes
@@ -4893,7 +4904,8 @@ and expanded versions of that acronym.</p>
     &lt;propdesc&gt;Two-cylinder engines&lt;/propdesc&gt;
   &lt;/property&gt;
 <strong class="ph b">&lt;/properties&gt;</strong></code></pre>
-        <p class="p">The properties list might be rendered as follows:</p>
+        <p class="p">The properties <span style="color:red;" class="ph">table</span> might be rendered
+          as follows:</p>
         <br><img class="image" src="images/properties.jpg" height="145" width="635"><br>
       </figure>
       <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 6. </span>Properties table with spanned cells </figcaption>
@@ -4907,7 +4919,7 @@ and expanded versions of that acronym.</p>
     &lt;propdeschd&gt;What it does&lt;/propdeschd&gt;
   &lt;/prophead&gt;
   &lt;property&gt;
-    &lt;proptype&gt;Color&lt;/proptype&gt;
+    &lt;proptype <strong class="ph b"><span style="color:red;" class="ph">rowspan="3"</span></strong>&gt;Color&lt;/proptype&gt;
     &lt;propvalue&gt;Red&lt;/propvalue&gt;
     &lt;propdesc&gt;Indicates an error&lt;/propdesc&gt;
   &lt;/property&gt;
@@ -4925,7 +4937,8 @@ and expanded versions of that acronym.</p>
     &lt;propdesc&gt;Use to add contrast and depth&lt;/propdesc&gt;
   &lt;/property&gt;
 <strong class="ph b">&lt;/properties&gt;</strong></code></pre>
-        <p class="p">The properties list might be rendered as follows:</p>
+        <p class="p">The properties <span style="color:red;" class="ph">table</span> might be rendered
+          as follows:</p>
         <br><img class="image" src="images/properties-2.jpg" height="202" width="753"><br>
       </figure>
     </div>
@@ -4949,7 +4962,7 @@ and expanded versions of that acronym.</p>
       </section>
     <div class="example" id="property__example"><h5 class="title sectiontitle">Example</h5>
       
-      <p class="p">See <a class="xref" href="#properties" title="A properties table describes the properties of something. Each property can include the type, value, and a description."><code class="keyword markupname xmlelement">&lt;properties&gt;</code></a>.</p>
+      <p class="p">See <a class="xref" href="#properties" title="A properties table describes the properties of a thing, such as an object, part, or category. Each property can include the type, value, and a description."><code class="keyword markupname xmlelement">&lt;properties&gt;</code></a>.</p>
     </div>
 </div>
 </article><article class="topic reference nested3" aria-labelledby="ariaid-title125" lang="en-us" id="prophead">
@@ -4958,9 +4971,11 @@ and expanded versions of that acronym.</p>
 
 <div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;prophead&gt;</code> element contains elements
     that provide labels for the columns in a properties table.</p>
-    <section class="section" id="prophead__rendering-expectations"><h5 class="title sectiontitle">Rendering expectations</h5>
+    <section class="section" style="color:red;" id="prophead__rendering-expectations"><h5 class="title sectiontitle">Rendering expectations</h5>
       
-      
+      <p class="p">If a properties table does not contain a header row, processors
+        typically auto-generate labels for the columns in the properties
+        table. The text for the labels is specified in stylesheets.</p>
     </section>
       <section class="section" id="prophead__specialization-hierarchy"><h5 class="title sectiontitle">Specialization hierarchy</h5>
          
@@ -4975,16 +4990,15 @@ and expanded versions of that acronym.</p>
       </section>
       <div class="example" id="prophead__example"><h5 class="title sectiontitle">Example</h5>
          
-         <p class="p">See <a class="xref" href="#properties" title="A properties table describes the properties of something. Each property can include the type, value, and a description."><code class="keyword markupname xmlelement">&lt;properties&gt;</code></a>.</p>
+         <p class="p">See <a class="xref" href="#properties" title="A properties table describes the properties of a thing, such as an object, part, or category. Each property can include the type, value, and a description."><code class="keyword markupname xmlelement">&lt;properties&gt;</code></a>.</p>
       </div>
 </div>
 </article><article class="topic reference nested3" aria-labelledby="ariaid-title126" lang="en-us" id="proptype">
 <h4 class="title topictitle4" id="ariaid-title126"><code class="keyword markupname xmlelement">&lt;proptype&gt;</code></h4>
 
 
-<div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;proptype&gt;</code> element contains the
-    content of the first cell in a properties table row. The content
-    describes the type of the property.</p>
+<div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;proptype&gt;</code> element <span style="color:red;" class="ph">contains content that describes the type of the
+    property.</span></p>
       <section class="section" id="proptype__specialization-hierarchy"><h5 class="title sectiontitle">Specialization hierarchy</h5>
          
          <p class="p">The <code class="keyword markupname xmlelement">&lt;proptype&gt;</code> element is specialized from
@@ -5007,7 +5021,7 @@ and expanded versions of that acronym.</p>
     </section>
     <div class="example" id="proptype__example"><h5 class="title sectiontitle">Example</h5>
       
-      <p class="p">See <a class="xref" href="#properties" title="A properties table describes the properties of something. Each property can include the type, value, and a description."><code class="keyword markupname xmlelement">&lt;properties&gt;</code></a>.</p>
+      <p class="p">See <a class="xref" href="#properties" title="A properties table describes the properties of a thing, such as an object, part, or category. Each property can include the type, value, and a description."><code class="keyword markupname xmlelement">&lt;properties&gt;</code></a>.</p>
     </div>
 </div>
 </article><article class="topic reference nested3" aria-labelledby="ariaid-title127" lang="en-us" id="proptypehd">
@@ -5032,23 +5046,15 @@ and expanded versions of that acronym.</p>
     </section>
     <div class="example" id="proptypehd__example"><h5 class="title sectiontitle">Example</h5>
       
-      <p class="p">See <a class="xref" href="#properties" title="A properties table describes the properties of something. Each property can include the type, value, and a description."><code class="keyword markupname xmlelement">&lt;properties&gt;</code></a>.</p>
+      <p class="p">See <a class="xref" href="#properties" title="A properties table describes the properties of a thing, such as an object, part, or category. Each property can include the type, value, and a description."><code class="keyword markupname xmlelement">&lt;properties&gt;</code></a>.</p>
     </div>
 </div>
 </article><article class="topic reference nested3" aria-labelledby="ariaid-title128" lang="en-us" id="propvalue">
 <h4 class="title topictitle4" id="ariaid-title128"><code class="keyword markupname xmlelement">&lt;propvalue&gt;</code></h4>
 
 
-<div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;propvalue&gt;</code> element contains the
-    content of the second cell in a properties table row. This content
-    indicates a value for the property type.</p>
-      <section class="section" id="propvalue__usage-information"><h5 class="title sectiontitle">Usage information</h5>
-         
-         <p class="p">Values can be placed in separate <code class="keyword markupname xmlelement">&lt;property&gt;</code> elements if they need
-            separate descriptions. The <code class="keyword markupname xmlelement">&lt;proptype&gt;</code> element need not be
-            repeated.</p>
-         
-      </section>
+<div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;propvalue&gt;</code> element <span style="color:red;" class="ph">contains content that indicates a value for the
+      property type.</span></p>
       <section class="section" id="propvalue__specialization-hierarchy"><h5 class="title sectiontitle">Specialization hierarchy</h5>
          
          <p class="p">The <code class="keyword markupname xmlelement">&lt;propvalue&gt;</code> element is specialized from
@@ -5071,7 +5077,7 @@ and expanded versions of that acronym.</p>
     </section>
     <div class="example" id="propvalue__example"><h5 class="title sectiontitle">Example</h5>
       
-      <p class="p">See <a class="xref" href="#properties" title="A properties table describes the properties of something. Each property can include the type, value, and a description."><code class="keyword markupname xmlelement">&lt;properties&gt;</code></a>.</p>
+      <p class="p">See <a class="xref" href="#properties" title="A properties table describes the properties of a thing, such as an object, part, or category. Each property can include the type, value, and a description."><code class="keyword markupname xmlelement">&lt;properties&gt;</code></a>.</p>
     </div>
 </div>
 </article><article class="topic reference nested3" aria-labelledby="ariaid-title129" lang="en-us" id="propvaluehd">
@@ -5095,7 +5101,7 @@ and expanded versions of that acronym.</p>
     </section>
     <div class="example" id="propvaluehd__example"><h5 class="title sectiontitle">Example</h5>
       
-      <p class="p">See <a class="xref" href="#properties" title="A properties table describes the properties of something. Each property can include the type, value, and a description."><code class="keyword markupname xmlelement">&lt;properties&gt;</code></a>.</p>
+      <p class="p">See <a class="xref" href="#properties" title="A properties table describes the properties of a thing, such as an object, part, or category. Each property can include the type, value, and a description."><code class="keyword markupname xmlelement">&lt;properties&gt;</code></a>.</p>
     </div>
 </div>
 </article><article class="topic reference nested3" aria-labelledby="ariaid-title130" lang="en-us" id="refbody">
@@ -5118,7 +5124,7 @@ and expanded versions of that acronym.</p>
       </section>
       <div class="example" id="refbody__example"><h5 class="title sectiontitle">Example</h5>
          
-         <p class="p">See <a class="xref" href="#reference" title="The reference element is the top-level element for a reference topic. A reference topic includes special sections for programming syntax and property lists, as well as sections, tables, and examples."><code class="keyword markupname xmlelement">&lt;reference&gt;</code></a>.</p>
+         <p class="p">See <a class="xref" href="#reference" title="The reference element is the top-level element for a reference topic. A reference topic can include specialized sections for programming syntax and property tables, as well as standard sections, tables, and examples."><code class="keyword markupname xmlelement">&lt;reference&gt;</code></a>.</p>
       </div>
 </div>
 </article><article class="topic reference nested3" aria-labelledby="ariaid-title131" lang="en-us" id="refbodydiv">
@@ -5174,8 +5180,15 @@ and expanded versions of that acronym.</p>
 
 <div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;reference&gt;</code> element is the top-level
     element for a reference topic. <span style="color:red;" class="ph">A</span> reference
-    topic includes special sections for programming syntax and property
-    lists, as well as sections, tables, and examples.</p>
+    topic can include <span style="color:red;" class="ph">specialized</span> sections for
+    programming syntax and property <span style="color:red;" class="ph">tables</span>, as well
+    as <span style="color:red;" class="ph">standard</span> sections, tables, and
+    examples.</p>
+    <section class="section" style="color:red;" id="reference__usage-information"><h5 class="title sectiontitle">Usage information</h5>
+      
+      <p class="p">For information about the purpose and content model of a reference
+        topic, see <a class="xref" href="#reference-topic" title="Reference topics contain reference information that users might need to consult occasionally, for example, product specifications, part lists, API calls, and programming language commands.">Reference</a>.</p>
+    </section>
     <section class="section" id="reference__specialization-hierarchy"><h5 class="title sectiontitle">Specialization hierarchy</h5>
       
       <p class="p">The <code class="keyword markupname xmlelement">&lt;reference&gt;</code> element is specialized from
@@ -5224,9 +5237,8 @@ and expanded versions of that acronym.</p>
 <h4 class="title topictitle4" id="ariaid-title133"><code class="keyword markupname xmlelement">&lt;refsyn&gt;</code></h4>
 
 
-<div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;refsyn&gt;</code> element describes the syntax
-    of something, for example, a command-line utility or an API signature.
-      </p>
+<div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;refsyn&gt;</code> element <span style="color:red;" class="ph">contains content that describes the syntax of a
+    command.</span></p>
     <section class="section" id="refsyn__specialization-hierarchy"><h5 class="title sectiontitle">Specialization hierarchy</h5>
       
       <p class="p">The <code class="keyword markupname xmlelement">&lt;refsyn&gt;</code> element is specialized from
@@ -5409,7 +5421,7 @@ and expanded versions of that acronym.</p>
     </section>
     <section class="section" id="choicetable__rendering-expectations"><h5 class="title sectiontitle">Rendering expectations</h5>
       
-      <p style="color:red;" class="p">If choice table does not contain a header row,
+      <p style="color:red;" class="p">If a choice table does not contain a header row,
         processors typically auto-generate labels for the columns in the
         choice table. The text for the labels is specified in
         stylesheets.</p>
@@ -6113,14 +6125,14 @@ and expanded versions of that acronym.</p>
       
     </div>
 </div>
-</article><article class="topic reference nested3" aria-labelledby="ariaid-title158" lang="en-us" id="unique_614289409">
+</article><article class="topic reference nested3" aria-labelledby="ariaid-title158" lang="en-us" id="unique_170874058">
 <h4 class="title topictitle4" id="ariaid-title158"><code class="keyword markupname xmlelement">&lt;task&gt;</code></h4>
   
 
 <div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;task&gt;</code> element is the top-level
     element for a task topic. Task topics provide <span style="color:red;" class="ph">the</span> instructions that <span style="color:red;" class="ph"> guide people</span> to
     perform a task.</p>
-  <section class="section" id="unique_614289409__usage-information"><h5 class="title sectiontitle">Usage information</h5>
+  <section class="section" id="unique_170874058__usage-information"><h5 class="title sectiontitle">Usage information</h5>
       
       <p class="p">The OASIS DITA Technical Committee distributes two document-type
         shells for task topics: general task and strict task.</p>
@@ -6142,12 +6154,12 @@ and expanded versions of that acronym.</p>
       </dl>
       
     </section>
-  <section class="section" id="unique_614289409__specialization-hierarchy"><h5 class="title sectiontitle">Specialization hierarchy</h5>
+  <section class="section" id="unique_170874058__specialization-hierarchy"><h5 class="title sectiontitle">Specialization hierarchy</h5>
    
    <p class="p">The <code class="keyword markupname xmlelement">&lt;task&gt;</code> element is specialized from <code class="keyword markupname xmlelement">&lt;topic&gt;</code>.
         It is defined in the task module.</p>
   </section>
-  <section class="section" id="unique_614289409__attributes"><h5 class="title sectiontitle">Attributes</h5>
+  <section class="section" id="unique_170874058__attributes"><h5 class="title sectiontitle">Attributes</h5>
    
       <div class="div">
         <p class="p">The following attributes are available on this
@@ -6155,12 +6167,12 @@ and expanded versions of that acronym.</p>
                                                   attributes</a></span>
           and <span class="ph"><a class="xref" href="#univ-atts" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
                                                   attributes</a></span>.</p>
-        <p class="p attr-exception" id="unique_614289409__d987e33">For this element, the <code class="keyword markupname xmlatt">@id</code> attribute is
+        <p class="p attr-exception" id="unique_170874058__d987e33">For this element, the <code class="keyword markupname xmlatt">@id</code> attribute is
           required.</p>
       </div>
       
   </section>
-  <div class="example" id="unique_614289409__example"><h5 class="title sectiontitle">Example</h5>
+  <div class="example" id="unique_170874058__example"><h5 class="title sectiontitle">Example</h5>
    
       <p class="p">The following code sample shows that <code class="keyword markupname xmlelement">&lt;task&gt;</code>
         is the topic-level element for a task topic:</p>
@@ -14948,111 +14960,88 @@ OASIS only include it in the bookmap document type.</p>
     </section>
   </div>
 </article><article class="topic reference nested0" aria-labelledby="ariaid-title289" id="formatting-expectations">
-    <h1 class="title topictitle1" id="ariaid-title289">Formatting expectations</h1>
-    
-    <div class="body refbody"><p class="shortdesc">DITA is a standard that supports the creation of
-    human-readable content. Accordingly, DITA defines fundamental document
-    components. Since there is a reasonable expectation that such document
-    components be formatted consistently, we suggest the following
-    conventions.</p>
+    <h1 class="title topictitle1" id="ariaid-title289">Formatting <span style="color:red;" class="ph">conventions</span></h1>
+  
+  
+    <div class="body refbody"><p style="color:red;" class="shortdesc">Although how DITA elements are formatted is
+    ultimately implementation-specific, certain conventions are
+    common.</p>
         <section class="section">
-            <div class="p">
-                
-            </div>
-        </section>
-        <table class="table frame-all"><caption><span class="table--title-label">Table 2. </span><span class="title">Formatting expectations for DITA elements</span></caption><colgroup><col style="width:20%"><col style="width:80%"></colgroup><thead class="thead">
-                    <tr class="row">
-                        <th class="entry colsep-1 rowsep-1" id="formatting-expectations__entry__1">Element</th>
-                        <th class="entry colsep-1 rowsep-1" id="formatting-expectations__entry__2">Suggested formatting</th>
-                    </tr>
-                </thead><tbody class="tbody">
-                    <tr class="row">
-                        <td class="entry colsep-1 rowsep-1" headers="formatting-expectations__entry__1"><code class="keyword markupname xmlelement">&lt;chdeschd&gt;</code></td>
-                        <td class="entry colsep-1 rowsep-1" headers="formatting-expectations__entry__2">Apply bold highlighting to the contents of the
+            <p class="p"></p>
+        </section><table class="simpletable frame-all"><colgroup><col style="width:20%"><col style="width:80%"></colgroup><thead><tr class="sthead">
+                        <th class="stentry" scope="col" id="formatting-expectations__stentry__1">Element</th>
+                        <th class="stentry" scope="col" id="formatting-expectations__stentry__2">Suggested formatting</th>
+                    </tr></thead><tbody><tr class="strow">
+                        <td class="stentry" headers="formatting-expectations__stentry__1"><code class="keyword markupname xmlelement">&lt;chdeschd&gt;</code></td>
+                        <td class="stentry" headers="formatting-expectations__stentry__2">Apply bold highlighting to the contents of the
                                 <code class="keyword markupname xmlelement">&lt;chdeschd&gt;</code> element.</td>
-                    </tr>
-                    <tr class="row">
-                        <td class="entry colsep-1 rowsep-1" headers="formatting-expectations__entry__1"><code class="keyword markupname xmlelement">&lt;choicetable&gt;</code></td>
-                        <td class="entry colsep-1 rowsep-1" headers="formatting-expectations__entry__2">
+                    </tr><tr class="strow">
+                        <td class="stentry" headers="formatting-expectations__stentry__1"><code class="keyword markupname xmlelement">&lt;choicetable&gt;</code></td>
+                        <td class="stentry" headers="formatting-expectations__stentry__2">
                             <p class="p">Unless the <code class="keyword markupname xmlatt">@keycol</code> attribute is set to
                                     <span class="keyword">0</span>, processors typically apply bold
                                 highlighting to the contents of the "Option" column.</p>
                         </td>
-                    </tr>
-                    <tr class="row">
-                        <td class="entry colsep-1 rowsep-1" headers="formatting-expectations__entry__1"><code class="keyword markupname xmlelement">&lt;choptionhd&gt;</code></td>
-                        <td class="entry colsep-1 rowsep-1" headers="formatting-expectations__entry__2">Apply bold highlighting to the contents of the
+                    </tr><tr class="strow">
+                        <td class="stentry" headers="formatting-expectations__stentry__1"><code class="keyword markupname xmlelement">&lt;choptionhd&gt;</code></td>
+                        <td class="stentry" headers="formatting-expectations__stentry__2">Apply bold highlighting to the contents of the
                                 <code class="keyword markupname xmlelement">&lt;choptionhd&gt;</code> element.</td>
-                    </tr>
-                    <tr class="row">
-                        <td class="entry colsep-1 rowsep-1" headers="formatting-expectations__entry__1"><code class="keyword markupname xmlelement">&lt;codeblock&gt;</code></td>
-                        <td class="entry colsep-1 rowsep-1" headers="formatting-expectations__entry__2">Use a monospaced font for the contents of the
+                    </tr><tr class="strow">
+                        <td class="stentry" headers="formatting-expectations__stentry__1"><code class="keyword markupname xmlelement">&lt;codeblock&gt;</code></td>
+                        <td class="stentry" headers="formatting-expectations__stentry__2">Use a monospaced font for the contents of the
                                 <code class="keyword markupname xmlelement">&lt;codeblock&gt;</code> element.</td>
-                    </tr>
-                    <tr class="row">
-                        <td class="entry colsep-1 rowsep-1" headers="formatting-expectations__entry__1"><code class="keyword markupname xmlelement">&lt;codeph&gt;</code></td>
-                        <td class="entry colsep-1 rowsep-1" headers="formatting-expectations__entry__2">Use a monospaced font for the contents of the
+                    </tr><tr class="strow">
+                        <td class="stentry" headers="formatting-expectations__stentry__1"><code class="keyword markupname xmlelement">&lt;codeph&gt;</code></td>
+                        <td class="stentry" headers="formatting-expectations__stentry__2">Use a monospaced font for the contents of the
                                 <code class="keyword markupname xmlelement">&lt;codeph&gt;</code> element.</td>
-                    </tr>
-                    <tr class="row">
-                        <td class="entry colsep-1 rowsep-1" headers="formatting-expectations__entry__1"><code class="keyword markupname xmlelement">&lt;menucascade&gt;</code></td>
-                        <td class="entry colsep-1 rowsep-1" headers="formatting-expectations__entry__2">Separate <code class="keyword markupname xmlelement">&lt;uicontrol&gt;</code> elements with a character
+                    </tr><tr class="strow">
+                        <td class="stentry" headers="formatting-expectations__stentry__1"><code class="keyword markupname xmlelement">&lt;menucascade&gt;</code></td>
+                        <td class="stentry" headers="formatting-expectations__stentry__2">Separate <code class="keyword markupname xmlelement">&lt;uicontrol&gt;</code> elements with a character
                             to represent the menu cascade.</td>
-                    </tr>
-                    <tr class="row">
-                        <td class="entry colsep-1 rowsep-1" headers="formatting-expectations__entry__1"><code class="keyword markupname xmlelement">&lt;numcharref&gt;</code></td>
-                        <td class="entry colsep-1 rowsep-1" headers="formatting-expectations__entry__2">Surround the contents of the <code class="keyword markupname xmlelement">&lt;numcharref&gt;</code>
+                    </tr><tr class="strow">
+                        <td class="stentry" headers="formatting-expectations__stentry__1"><code class="keyword markupname xmlelement">&lt;numcharref&gt;</code></td>
+                        <td class="stentry" headers="formatting-expectations__stentry__2">Surround the contents of the <code class="keyword markupname xmlelement">&lt;numcharref&gt;</code>
                             element with a leading ampersand (&amp;) and a trailing semi-colon
                             (;).</td>
-                    </tr>
-                    <tr class="row">
-                        <td class="entry colsep-1 rowsep-1" headers="formatting-expectations__entry__1"><code class="keyword markupname xmlelement">&lt;parameterentity&gt;</code></td>
-                        <td class="entry colsep-1 rowsep-1" headers="formatting-expectations__entry__2">Surround the contents of the <code class="keyword markupname xmlelement">&lt;numcharref&gt;</code>
+                    </tr><tr class="strow">
+                        <td class="stentry" headers="formatting-expectations__stentry__1"><code class="keyword markupname xmlelement">&lt;parameterentity&gt;</code></td>
+                        <td class="stentry" headers="formatting-expectations__stentry__2">Surround the contents of the <code class="keyword markupname xmlelement">&lt;numcharref&gt;</code>
                             element with a leading percentage sign (%) and a trailing semi-colon
                             (;).</td>
-                    </tr>
-                    <tr class="row">
-                        <td class="entry colsep-1 rowsep-1" headers="formatting-expectations__entry__1"><code class="keyword markupname xmlelement">&lt;screen&gt;</code></td>
-                        <td class="entry colsep-1 rowsep-1" headers="formatting-expectations__entry__2">Enclose the contents of the <code class="keyword markupname xmlelement">&lt;screen&gt;</code> element
+                    </tr><tr class="strow">
+                        <td class="stentry" headers="formatting-expectations__stentry__1"><code class="keyword markupname xmlelement">&lt;screen&gt;</code></td>
+                        <td class="stentry" headers="formatting-expectations__stentry__2">Enclose the contents of the <code class="keyword markupname xmlelement">&lt;screen&gt;</code> element
                             with a box to suggest a computer display screen.</td>
-                    </tr>
-                    <tr class="row">
-                        <td class="entry colsep-1 rowsep-1" headers="formatting-expectations__entry__1"><code class="keyword markupname xmlelement">&lt;shortcut&gt;</code></td>
-                        <td class="entry colsep-1 rowsep-1" headers="formatting-expectations__entry__2">Highlight the keyboard shortcut with underlining.</td>
-                    </tr>
-                    <tr class="row">
-                        <td class="entry colsep-1 rowsep-1" headers="formatting-expectations__entry__1"><code class="keyword markupname xmlelement">&lt;syntaxdiagram&gt;</code></td>
-                        <td class="entry colsep-1 rowsep-1" headers="formatting-expectations__entry__2">Traditionally, the syntax diagram is formatted with "railroad tracks"
+                    </tr><tr class="strow">
+                        <td class="stentry" headers="formatting-expectations__stentry__1"><code class="keyword markupname xmlelement">&lt;shortcut&gt;</code></td>
+                        <td class="stentry" headers="formatting-expectations__stentry__2">Highlight the keyboard shortcut with underlining.</td>
+                    </tr><tr class="strow">
+                        <td class="stentry" headers="formatting-expectations__stentry__1"><code class="keyword markupname xmlelement">&lt;syntaxdiagram&gt;</code></td>
+                        <td class="stentry" headers="formatting-expectations__stentry__2">Traditionally, the syntax diagram is formatted with "railroad tracks"
                             that connect the units of the syntax together, but the presentation
                             might differ depending on the output media.</td>
-                    </tr>
-
-                    <tr class="row">
-                        <td class="entry colsep-1 rowsep-1" headers="formatting-expectations__entry__1"><code class="keyword markupname xmlelement">&lt;textentity&gt;</code></td>
-                        <td class="entry colsep-1 rowsep-1" headers="formatting-expectations__entry__2">Surround the contents of the <code class="keyword markupname xmlelement">&lt;textentity&gt;</code>
+                    </tr><tr class="strow">
+                        <td class="stentry" headers="formatting-expectations__stentry__1"><code class="keyword markupname xmlelement">&lt;textentity&gt;</code></td>
+                        <td class="stentry" headers="formatting-expectations__stentry__2">Surround the contents of the <code class="keyword markupname xmlelement">&lt;textentity&gt;</code>
                             element with a leading ampersand (&amp;) and a trailing semi-colon
                             (;).</td>
-                    </tr>
-                    <tr class="row">
-                        <td class="entry colsep-1 rowsep-1" headers="formatting-expectations__entry__1"><code class="keyword markupname xmlelement">&lt;var&gt;</code></td>
-                        <td class="entry colsep-1 rowsep-1" headers="formatting-expectations__entry__2">Apply italic highlighting to the contents of the
+                    </tr><tr class="strow">
+                        <td class="stentry" headers="formatting-expectations__stentry__1"><code class="keyword markupname xmlelement">&lt;var&gt;</code></td>
+                        <td class="stentry" headers="formatting-expectations__stentry__2">Apply italic highlighting to the contents of the
                                 <code class="keyword markupname xmlelement">&lt;var&gt;</code> element.</td>
-                    </tr>
-                    <tr class="row">
-                        <td class="entry colsep-1 rowsep-1" headers="formatting-expectations__entry__1"><code class="keyword markupname xmlelement">&lt;xmlatt&gt;</code></td>
-                        <td class="entry colsep-1 rowsep-1" headers="formatting-expectations__entry__2">Precede the contents of the <code class="keyword markupname xmlelement">&lt;xmlatt&gt;</code> element
-                            with a commercial at symbol (@) or equals character (=) .</td>
-                    </tr>
-                    <tr class="row">
-                        <td class="entry colsep-1 rowsep-1" headers="formatting-expectations__entry__1"><code class="keyword markupname xmlelement">&lt;xmlelement&gt;</code></td>
-                        <td class="entry colsep-1 rowsep-1" headers="formatting-expectations__entry__2">Surround the contents of the <code class="keyword markupname xmlelement">&lt;xmlelement&gt;</code>
+                    </tr><tr class="strow">
+                        <td class="stentry" headers="formatting-expectations__stentry__1"><code class="keyword markupname xmlelement">&lt;xmlatt&gt;</code></td>
+                        <td class="stentry" headers="formatting-expectations__stentry__2">Precede the contents of the
+            <code class="keyword markupname xmlelement">&lt;xmlatt&gt;</code> element with a commercial at
+          symbol (@).</td>
+                    </tr><tr class="strow">
+                        <td class="stentry" headers="formatting-expectations__stentry__1"><code class="keyword markupname xmlelement">&lt;xmlelement&gt;</code></td>
+                        <td class="stentry" headers="formatting-expectations__stentry__2">Surround the contents of the <code class="keyword markupname xmlelement">&lt;xmlelement&gt;</code>
                             element with leading (&lt;) and trailing (&gt;) angle brackets.</td>
-                    </tr>
-                    <tr class="row">
-                        <td class="entry colsep-1 rowsep-1" headers="formatting-expectations__entry__1"><code class="keyword markupname xmlelement">&lt;&gt;</code></td>
-                        <td class="entry colsep-1 rowsep-1" headers="formatting-expectations__entry__2"></td>
-                    </tr>
-                </tbody></table>
+                    </tr><tr class="strow">
+                        <td class="stentry" headers="formatting-expectations__stentry__1"><code class="keyword markupname xmlelement">&lt;&gt;</code></td>
+                        <td class="stentry" headers="formatting-expectations__stentry__2"></td>
+                    </tr></tbody></table>
     </div>
 </article><article class="topic reference nested0" aria-labelledby="ariaid-title290" id="revision-history">
     <h1 class="title topictitle1" id="ariaid-title290">Revision history</h1>
