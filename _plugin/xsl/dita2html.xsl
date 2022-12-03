@@ -125,7 +125,7 @@
   </xsl:template>
 
   <xsl:attribute-set name="main">
-    <xsl:attribute name="class">col-lg-9</xsl:attribute>
+    <xsl:attribute name="class" separator=" " select="('col-lg-9', /*/@outputclass)"/>
     <xsl:attribute name="role">main</xsl:attribute>
   </xsl:attribute-set>
 
