@@ -10,34 +10,105 @@ repository: 'oasis-tcs/dita'
 ---
 
 <nav role="toc" class="col-lg-3"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction</a></li><li><a href="../../archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="../../archSpec/base/accessibility-and-translation.html">Accessibility and translation</a></li><li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a></li><li><a href="../../langRef/langRef-base.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../non-normative/developing-constraint-and-expansion-modules.html">Constraint modules</a></li><li><a href="../../non-normative/expansion-modules.html">Expansion modules</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../non-normative/formatting-expectations.html">Formatting expectations</a></li><li><a href="../../non-normative/migrating-to-dita-2.0.html">Migrating to DITA 2.0</a></li><li><a href="../../non-normative/basedoctypes.html">OASIS grammar files</a></li><li><a href="../../non-normative/interoperability-considerations.html">Processing interoperability considerations</a></li><li><a href="../../non-normative/revision-history.html">Revision history</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
-<h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;defaultSubject&gt;</code></h1>
-
-
-<div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;defaultSubject&gt;</code> element specifies the default value for the
+   <h1 class="title topictitle1" id="ariaid-title1">
+      <code class="keyword markupname xmlelement">&lt;defaultSubject&gt;</code>
+   </h1>
+   
+   
+   <div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;defaultSubject&gt;</code> element specifies the default value for the
     attribute in cases where no value is specified. The default value must be one of the controlled
     values that are bound to the attribute.</p>
-    <section class="section" id="defaultSubject__processing-expectations"><h2 class="title sectiontitle">Processing expectations</h2>
-      
-      
-      
-    </section>
-    <section class="section" id="defaultSubject__specialization-hierachy"><h2 class="title sectiontitle">Specialization hierarchy</h2>
-      
-      <p class="p">The <code class="keyword markupname xmlelement">&lt;defaultSubject&gt;</code> element is specialized from
-          <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>. It is defined in the subject scheme module.</p>
-    </section>
-    <section class="section" id="defaultSubject__attributes"><h2 class="title sectiontitle">Attributes</h2>
-      
-      <p class="p">The following attributes are available on this element: <span class="ph"><a class="xref" href="../../common/../langRef/attributes/commonAttributes.html#common-atts__linkatts" title="Link relationship attributes include: format, href, type, and scope">link-relationship attributes</a></span>, <span class="ph"><a class="xref" href="../../common/../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
-                                                  attributes</a></span>, <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-keyref"><code class="keyword markupname xmlatt">@keyref</code></a>, <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-keys"><code class="keyword markupname xmlatt">@keys</code></a>, <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-processing-role"><code class="keyword markupname xmlatt">@processing-role</code></a>,
-        and <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-toc"><code class="keyword markupname xmlatt">@toc</code></a>.</p>
-    </section>
-    <div class="example" id="defaultSubject__example"><h2 class="title sectiontitle">Example</h2>
-      
-      <p class="p">The following code sample limits the values for
-          <code class="keyword markupname xmlatt">@platform</code> to the <span class="keyword">os</span> subject
-        and sets the default value to <span class="keyword">linux</span>:</p>
-      <pre class="pre codeblock"><code>&lt;subjectScheme&gt;
+      <span class="undefined_element">
+         <span class="undefined_element">Processing expectations</span>
+         <span class="undefined_element">
+            <span class="undefined_element">Do we want to make a normative statement about how processors
+          should handle default values for attributes when they are
+          specified by <span class="undefined_element">defaultSubject</span>?</span>
+         </span>
+         <span class="undefined_element">
+            <span class="undefined_element">Comments from review D:</span>
+            <span class="undefined_element">
+               <span class="undefined_element">Frank Wegmann:</span> Let's assume, in the DTD or a
+          specialization there is an attribute defined with an enumeration
+          data type and some default value. Now a subject scheme imposes
+          maybe different controlled values for that attribute with a
+          different default value? How is an implementation supposed to
+          validate a document instance? My naive understanding would be
+          that the DTD/schema definitions have precedence. This would mean
+          that if the subject scheme defines a set of controlled values
+          none of which are in the attribute definition of the schema, then
+          the default value of the DTD would be taken. But what is a tool
+          like Oxygen supposed to be doing then? Maybe I ask this, because
+          I have (apparently) no idea what's going on behind the scenes,
+          but then I wonder if this is worth discussing in the spec? Not
+          necessarily here, but earlier in the usage chapter.</span>
+            <span class="undefined_element">
+               <span class="undefined_element">Robert Anderson: </span>I think we should add this as a draft
+          comment in this page, and then make sure it is covered in the
+          section about how to determine values:
+          https://github.com/oasis-tcs/dita/blob/DITA-2.0/specification/archSpec/base/determining-effective-attribute-values.dita</span>
+            <span class="undefined_element">I think the answer is implied by the language today, but it's
+          not directly addressed. <span class="ph error-statement"></span>The spec says that if your scheme tells
+          you "a" and "b" are the only valid values in an attribute, then
+          specifying "x" and "y" are both in error, and processors /
+          applications can treat that as an error. If you set up that
+          scheme but your grammar files only allow "x" and "y", then you've
+          set up a scheme that means every usage of that element is
+          automatically an error condition.</span>
+         </span>
+      </span>
+      <span class="undefined_element">
+         <span class="undefined_element">Specialization hierarchy</span>
+         <span class="undefined_element">The <span class="undefined_element">defaultSubject</span> element is specialized from
+          <span class="undefined_element">topicref</span>. It is defined in the subject scheme module.</span>
+      </span>
+      <span class="undefined_element">
+         <span class="undefined_element">Attributes</span>
+         <span class="undefined_element">The following attributes are available on this element: <span class="undefined_element">
+               <span class="undefined_element">link-relationship attributes<span class="undefined_element">Link relationship
+                                                  attributes include: <span class="undefined_element">format</span>,
+                                                  <span class="undefined_element">href</span>, <span class="undefined_element">type</span>, and
+                                                  <span class="undefined_element">scope</span>
+                  </span>
+               </span>
+            </span>, <span class="undefined_element">
+               <span class="undefined_element">universal
+                                                  attributes<span class="undefined_element">Universal attributes include:
+                                                  <span class="undefined_element">audience</span>, <span class="undefined_element">base</span>,
+                                                  <span class="undefined_element">class</span>,
+                                                  <span class="undefined_element">conaction</span>,
+                                                  <span class="undefined_element">conkeyref</span>,
+                                                  <span class="undefined_element">conref</span>,
+                                                  <span class="undefined_element">conrefend</span>,
+                                                  <span class="undefined_element">deliveryTarget</span>,
+                                                  <span class="undefined_element">dir</span>, <span class="undefined_element">id</span>,
+                                                  <span class="undefined_element">importance</span>,
+                                                  <span class="undefined_element">otherprops</span>,
+                                                  <span class="undefined_element">outputclass</span>,
+                                                  <span class="undefined_element">platform</span>,
+                                                  <span class="undefined_element">product</span>, <span class="undefined_element">props</span>,
+                                                  <span class="undefined_element">rev</span>, <span class="undefined_element">status</span>,
+                                                  <span class="undefined_element">translate</span>, and
+                                                  <span class="undefined_element">xml:lang</span>
+                  </span>
+               </span>
+            </span>, <span class="undefined_element">
+               <span class="undefined_element">keyref</span>
+            </span>, <span class="undefined_element">
+               <span class="undefined_element">keys</span>
+            </span>, <span class="undefined_element">
+               <span class="undefined_element">processing-role</span>
+            </span>,
+        and <span class="undefined_element">
+               <span class="undefined_element">toc</span>
+            </span>.</span>
+      </span>
+      <span class="undefined_element">
+         <span class="undefined_element">Example</span>
+         <span class="undefined_element">The following code sample limits the values for
+          <span class="undefined_element">platform</span> to the <span class="undefined_element">os</span> subject
+        and sets the default value to <span class="undefined_element">linux</span>:</span>
+         <span class="undefined_element">&lt;subjectScheme&gt;
   &lt;subjectdef keys="os"&gt;
     &lt;subjectdef keys="linux"/&gt;
     &lt;subjectdef keys="mswin"/&gt;
@@ -47,20 +118,29 @@ repository: 'oasis-tcs/dita'
   &lt;enumerationdef&gt;
     &lt;attributedef name="platform"/&gt;
     &lt;subjectdef keyref="os"/&gt;
-    <strong class="ph b">&lt;defaultSubject keyref="linux"/&gt;</strong>
+    <span class="undefined_element">&lt;defaultSubject keyref="linux"/&gt;</span>
   &lt;/enumerationdef&gt;
-&lt;/subjectScheme&gt;</code></pre>
-      <p class="p">The result is that only the following values are permitted for
-          <code class="keyword markupname xmlatt">@platform</code>:</p>
-      <ul class="ul">
-        <li class="li"><code class="ph codeph">linux</code></li>
-        <li class="li"><code class="ph codeph">macos</code></li>
-        <li class="li"><code class="ph codeph">mswin</code></li>
-        <li class="li"><code class="ph codeph">zos</code></li>
-      </ul>
-      <p class="p">If no value is specified for the <code class="keyword markupname xmlatt">@platform</code>
+&lt;/subjectScheme&gt;</span>
+         <span class="undefined_element">The result is that only the following values are permitted for
+          <span class="undefined_element">platform</span>:</span>
+         <span class="undefined_element">
+            <span class="undefined_element">
+               <span class="undefined_element">linux</span>
+            </span>
+            <span class="undefined_element">
+               <span class="undefined_element">macos</span>
+            </span>
+            <span class="undefined_element">
+               <span class="undefined_element">mswin</span>
+            </span>
+            <span class="undefined_element">
+               <span class="undefined_element">zos</span>
+            </span>
+         </span>
+         <span class="undefined_element">If no value is specified for the <span class="undefined_element">platform</span>
         attribute in the DITA source, the value is assumed to be
-          <span class="keyword">linux</span>.</p>
-    </div>
-  </div>
-<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/subjectScheme.html" title="Subject scheme elements are used to define sets of controlled values and taxonomic subjects, bind controlled values to attributes as enumerations, and specify relationships among taxonomic subjects.">Subject scheme elements</a></div></div></nav></article></main>
+          <span class="undefined_element">linux</span>.</span>
+      </span>
+   </div>
+   <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/subjectScheme.html" title="Subject scheme elements are used to define sets of controlled values and taxonomic subjects, bind controlled values to attributes as enumerations, and specify relationships among taxonomic subjects.">Subject scheme elements</a></div></div></nav>
+</article></main>
