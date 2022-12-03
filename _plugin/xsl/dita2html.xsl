@@ -174,8 +174,13 @@
     </li>
   </xsl:template>
 
-  <xsl:template match="processing-instruction('error-statement')">
-    <span class="error-statement" id="error-statement-{generate-id(.)}"/>
+  <xsl:template match="processing-instruction('sentence')">
+    <xsl:if test=". = 'error-statement'">
+<!--      <xsl:variable name="next" select="(following::processing-instruction('sentence'))[1]" as="processing-instruction()?"/>-->
+<!--      <xsl:if test="not($next = 'error-statement')">-->
+        <span class="error-statement" id="error-statement-{generate-id(.)}"/>
+<!--      </xsl:if>-->
+    </xsl:if>
   </xsl:template>
 
 </xsl:stylesheet>
