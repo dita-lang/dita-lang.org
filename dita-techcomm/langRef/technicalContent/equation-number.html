@@ -10,21 +10,23 @@ repository: 'oasis-tcs/dita-techcomm'
 ---
 
 <nav role="toc" class="col-lg-3"><ul><li><a href="../../introduction/specIntroTechnicalContent.html">Introduction</a></li><li><a href="../../archSpec/technicalContent/dita-technicalContent-InformationTypes.html">Topic and map document types</a></li><li><a href="../../archSpec/technicalContent/technical-content-domains.html">Domain specializations</a></li><li><a href="../../langRef/langRef-technicalContent.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../baseSpec/specification/langRef/attributes/attributes.html">Attributes</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../non-normative/formatting-expectations.html">Formatting conventions</a></li><li><a href="../../revision-history/revision-history.html">Revision history</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
-  <h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;equation-number&gt;</code></h1>
-  
-  
-  <div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;equation-number&gt;</code> element indicates that a block equation is
+   <h1 class="title topictitle1" id="ariaid-title1">
+      <code class="keyword markupname xmlelement">&lt;equation-number&gt;</code>
+   </h1>
+   
+   
+   <div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;equation-number&gt;</code> element indicates that a block equation is
     numbered and, optionally, specifies the number to use for the block equation.</p>
-    <section class="section" id="equation-number__usage-information"><h2 class="title sectiontitle">Usage information</h2>
-      
-      <p class="p">In normal usage a block equation will have at most one number. However,
+      <section class="section" id="equation-number__usage-information"><h2 class="title sectiontitle">Usage information</h2>
+         
+         <p class="p">In normal usage a block equation will have at most one number. However,
           <code class="keyword markupname xmlelement">&lt;equation-number&gt;</code> can occur multiple times within
           <code class="keyword markupname xmlelement">&lt;equation-block&gt;</code>, for example, to allow numbers with different (and
         exclusive) conditional properties.</p>
-    </section>
-    <section class="section" id="equation-number__rendering-expectations"><h2 class="title sectiontitle">Rendering expectations</h2>
-      
-      <p class="p">When the <code class="keyword markupname xmlelement">&lt;equation-number&gt;</code> element has empty or whitespace-only
+      </section>
+      <section class="section" id="equation-number__rendering-expectations"><h2 class="title sectiontitle">Rendering expectations</h2>
+         
+         <p class="p">When the <code class="keyword markupname xmlelement">&lt;equation-number&gt;</code> element has empty or whitespace-only
         content, the equation number <dfn class="term RFC-2119">SHOULD</dfn> be generated. When
         the <code class="keyword markupname xmlelement">&lt;equation-number&gt;</code> element has non-whitespace-only content the
         content <dfn class="term RFC-2119">SHOULD</dfn> be used as the equation number. For
@@ -32,40 +34,46 @@ repository: 'oasis-tcs/dita-techcomm'
         the number value without any surrounding punctuation, for example, "3.2a" rather than
         "(3.2a)". Processors <dfn class="term RFC-2119">SHOULD</dfn> add punctuation or
         decoration to the number as appropriate.</p>
-      <p class="p">The details of equation numbering and number presentation are processor-specific. However,
+         <p class="p">The details of equation numbering and number presentation are processor-specific. However,
         common practice is to present the equation number to the right of the equation, centered
         vertically within the vertical extent of the block equation.</p>
-      
-    </section>
-    <section class="section" id="equation-number__specialization-hierarchy"><h2 class="title sectiontitle">Specialization hierarchy</h2>
-      
-      <p class="p">The <code class="keyword markupname xmlelement">&lt;equation-number&gt;</code> element is specialized from
+         
+      </section>
+      <section class="section" id="equation-number__specialization-hierarchy"><h2 class="title sectiontitle">Specialization hierarchy</h2>
+         
+         <p class="p">The <code class="keyword markupname xmlelement">&lt;equation-number&gt;</code> element is specialized from
           <code class="keyword markupname xmlelement">&lt;ph&gt;</code>. It is defined in the equation domain module.</p>
-    </section>
-    <section class="section" id="equation-number__attributes"><h2 class="title sectiontitle">Attributes</h2>
-      
-      <p class="p">The following attributes are
-        available on this element: <span class="ph"><a class="xref" href="../../baseSpec/specification/common/../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
-                                                  attributes</a></span>.</p>
-    </section>
-    <div class="example" id="equation-number__example"><h2 class="title sectiontitle">Example</h2>
-      
-      <div class="p">The following code sample shows an equation with a generated
+      </section>
+      <section class="section" id="equation-number__attributes"><h2 class="title sectiontitle">Attributes</h2>
+         
+         <p class="p">The following attributes are
+        available on this element: <span class="ph">
+               <a class="xref" href="../../baseSpec/specification/common/../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
+                                                  attributes
+               </a>
+            </span>.</p>
+      </section>
+      <div class="example" id="equation-number__example"><h2 class="title sectiontitle">Example</h2>
+         
+         <div class="p">The following code sample shows an equation with a generated
         number:<pre class="pre codeblock"><code>&lt;p&gt;A block equation using an image:&lt;/p&gt;
 &lt;equation-block id="eq-001"&gt;
   &lt;equation-number/&gt;
   &lt;image keyref="equation-image-01"&gt;
     &lt;alt&gt;a squared plus b squared.&lt;/alt&gt;
   &lt;/image&gt;
-&lt;/equation-block&gt;</code></pre></div>
-      <div class="p">The following code sample shows an equation with an explicit
+&lt;/equation-block&gt;</code></pre>
+         </div>
+         <div class="p">The following code sample shows an equation with an explicit
         number:<pre class="pre codeblock"><code>&lt;p&gt;A block equation using an image:&lt;/p&gt;
 &lt;equation-block id="eq-3.2a"&gt;
   &lt;equation-number&gt;3.2a&lt;/equation-number&gt;
   &lt;image keyref="equation-image-01"&gt;
     &lt;alt&gt;a squared plus b squared.&lt;/alt&gt;
   &lt;/image&gt;
-&lt;/equation-block&gt;</code></pre></div>
-    </div>
-  </div>
-<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/equation-elements.html" title="The elements in the equation domain enable authors to clearly distinguish equations from other type of content. These markup distinctions can enable formatting distinctions, numbering of equations, and more. This domain can be used independently of the MathML domain.">Equation domain</a></div></div></nav></article></main>
+&lt;/equation-block&gt;</code></pre>
+         </div>
+      </div>
+   </div>
+   <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/equation-elements.html" title="The elements in the equation domain enable authors to clearly distinguish equations from other type of content. These markup distinctions can enable formatting distinctions, numbering of equations, and more. This domain can be used independently of the MathML domain.">Equation domain</a></div></div></nav>
+</article></main>
