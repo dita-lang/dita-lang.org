@@ -12,7 +12,18 @@
                    html5.init,
                    build-init,
                    preprocess,
+                   add-markup,
                    html5.topic,
                    html5.map"/>
   
+  <target name="add-markup">
+    <pipeline taskname="add-markup">
+      <xslt basedir="${dita.temp.dir}"
+            style="${dita.plugin.org.dita-ot.html.dir}/xsl/add-markup.xsl"
+            parallel="${parallel}">
+        <ditafileset format="dita" processingRole="normal"/>
+      </xslt>
+    </pipeline>
+  </target>
+
 </project>
