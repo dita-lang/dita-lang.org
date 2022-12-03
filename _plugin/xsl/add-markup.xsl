@@ -64,7 +64,7 @@
 
   <xsl:template match="@* | node()" mode="mark-error">
     <xsl:copy>
-      <xsl:apply-templates select="node()" mode="#current"/>
+      <xsl:apply-templates select="@* | node()" mode="#current"/>
     </xsl:copy>
   </xsl:template>
 
