@@ -11,75 +11,74 @@ classes: ''
 ---
 
 <nav role="toc" class="col-lg-3"><ul></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
-   <h1 class="title topictitle1" id="ariaid-title1">
-      <code class="keyword markupname xmlatt">@id</code> attribute</h1>
-   
-   <div class="body conbody"><p class="shortdesc">The <code class="keyword markupname xmlatt">@id</code> attribute assigns an identifier to DITA elements so that the
+  <h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlatt">@id</code> attribute</h1>
+  
+  <div class="body conbody"><p class="shortdesc">The <code class="keyword markupname xmlatt">@id</code> attribute assigns an identifier to DITA elements so that the
     elements can be referenced.</p>
-      <p class="p">The <code class="keyword markupname xmlatt">@id</code> attribute is available for most elements. An element must have a
+    <p class="p"><span></span>The <code class="keyword markupname xmlatt">@id</code> attribute is available for most elements. <span></span>An element must have a
       valid value for the <code class="keyword markupname xmlatt">@id</code> attribute  before it can be referenced using a
-      fragment identifier. The requirements for the <code class="keyword markupname xmlatt">@id</code> attribute differ depending
+      fragment identifier. <span></span>The requirements for the <code class="keyword markupname xmlatt">@id</code> attribute differ depending
       on whether it is used on a topic element, a map element, or an element within a topic or
       map.</p>
-      <p class="p">All values for the <code class="keyword markupname xmlatt">@id</code> attribute must be XML name tokens.</p>
-      <p class="p">The <code class="keyword markupname xmlatt">@id</code> attributes for <code class="keyword markupname xmlelement">&lt;topic&gt;</code> and
+    <p class="p"><span></span>All values for the <code class="keyword markupname xmlatt">@id</code> attribute must be XML name tokens.</p>
+    <p class="p"><span></span>The <code class="keyword markupname xmlatt">@id</code> attributes for <code class="keyword markupname xmlelement">&lt;topic&gt;</code> and
         <code class="keyword markupname xmlelement">&lt;map&gt;</code> elements are declared as XML attribute type ID; therefore, they
       must be unique with respect to other XML IDs within the XML document that contains the topic
-      or map element. The <code class="keyword markupname xmlatt">@id</code> attribute for most other elements within topics and
+      or map element. <span></span>The <code class="keyword markupname xmlatt">@id</code> attribute for most other elements within topics and
       maps is not declared to be XML ID; this means that XML parsers do not require that the values
-      of those <code class="keyword markupname xmlatt">@id</code> attributes be unique. However, the DITA specification requires
-      that all IDs be unique within the context of a topic. For this reason, tools might provide an
+      of those <code class="keyword markupname xmlatt">@id</code> attributes be unique. <span></span>However, the DITA specification requires
+      that all IDs be unique within the context of a topic. <span></span>For this reason, tools might provide an
       additional layer of validation to flag violations of this rule.</p>
-      <p class="p">Within documents that contain multiple topics, the values of the <code class="keyword markupname xmlatt">@id</code>
+    <p class="p"><span></span>Within documents that contain multiple topics, the values of the <code class="keyword markupname xmlatt">@id</code>
       attribute for all non-topic elements that have the same nearest-ancestor-topic element need to
-      be unique with respect to each other. The values of the <code class="keyword markupname xmlatt">@id</code> attribute for
+      be unique with respect to each other. <span></span>The values of the <code class="keyword markupname xmlatt">@id</code> attribute for
       non-topic elements can be the same as non-topic elements with different nearest-ancestor-topic
-      elements. Therefore, within a single DITA document that contains more than one topic, the
+      elements. <span></span>Therefore, within a single DITA document that contains more than one topic, the
       values of the <code class="keyword markupname xmlatt">@id</code> attribute of the non-topic elements need only to be unique
       within each topic.</p>
-      <p class="p">Within a map document, the values of the <code class="keyword markupname xmlatt">@id</code> attributes for all elements
-        <dfn class="term RFC-2119">SHOULD</dfn> be unique. When two elements
+    <p class="p"><span></span>Within a map document, the values of the <code class="keyword markupname xmlatt">@id</code> attributes for all elements
+        <dfn class="term RFC-2119">SHOULD</dfn> be unique. <span></span>When two elements
       within a map have the same value for the <code class="keyword markupname xmlatt">@id</code> attribute, processors <dfn class="term RFC-2119">MUST</dfn> resolve references to that ID to the
       first element with the given ID value in document order.</p>
-      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Summary of requirements for the <code class="keyword markupname xmlatt">@id</code> attribute</figcaption>
-         
-         <table class="simpletable frame-all"><colgroup><col style="width:25%"><col style="width:25%"><col style="width:25%"><col style="width:25%"></colgroup><thead><tr class="sthead">
-               <th class="stentry" scope="col" id="id__stentry__1">Element</th>
-               <th class="stentry" scope="col" id="id__stentry__2">XML attribute type for <code class="keyword markupname xmlatt">@id</code>
-               </th>
-               <th class="stentry" scope="col" id="id__stentry__3">Must be unique within</th>
-               <th class="stentry" scope="col" id="id__stentry__4">Required?</th>
-            </tr></thead><tbody><tr class="strow">
-               <td class="stentry" headers="id__stentry__1">
-                  <code class="keyword markupname xmlelement">&lt;map&gt;</code>
-               </td>
-               <td class="stentry" headers="id__stentry__2">ID</td>
-               <td class="stentry" headers="id__stentry__3">document</td>
-               <td class="stentry" headers="id__stentry__4">No</td>
-            </tr><tr class="strow">
-               <td class="stentry" headers="id__stentry__1">
-                  <code class="keyword markupname xmlelement">&lt;topic&gt;</code>
-               </td>
-               <td class="stentry" headers="id__stentry__2">ID</td>
-               <td class="stentry" headers="id__stentry__3">document</td>
-               <td class="stentry" headers="id__stentry__4">Yes</td>
-            </tr><tr class="strow">
-               <td class="stentry" headers="id__stentry__1">sub-map (elements nested within a map)</td>
-               <td class="stentry" headers="id__stentry__2">NMTOKEN</td>
-               <td class="stentry" headers="id__stentry__3">document</td>
-               <td class="stentry" headers="id__stentry__4">Usually no, with some exceptions</td>
-            </tr><tr class="strow">
-               <td class="stentry" headers="id__stentry__1">sub-topic (elements nested within a topic)</td>
-               <td class="stentry" headers="id__stentry__2">NMTOKEN</td>
-               <td class="stentry" headers="id__stentry__3">individual topic</td>
-               <td class="stentry" headers="id__stentry__4">Usually no, with some exceptions</td>
-            </tr></tbody></table>
-      </figure>
+    <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Summary of requirements for the <code class="keyword markupname xmlatt">@id</code> attribute</figcaption><span></span>
       
-      <div class="note note note_note non-normative"><span class="note__title">Note:</span> For all elements other than footnote (<code class="keyword markupname xmlelement">&lt;fn&gt;</code>), the presence of a
+      <table class="simpletable frame-all"><colgroup><col style="width:25%"><col style="width:25%"><col style="width:25%"><col style="width:25%"></colgroup><thead><tr class="sthead">
+          <th class="stentry" scope="col" id="id__stentry__1"><span></span>Element</th>
+          <th class="stentry" scope="col" id="id__stentry__2"><span></span>XML attribute type for <code class="keyword markupname xmlatt">@id</code></th>
+          <th class="stentry" scope="col" id="id__stentry__3"><span></span>Must be unique within</th>
+          <th class="stentry" scope="col" id="id__stentry__4"><span></span>Required?</th>
+         
+        </tr></thead><tbody><tr class="strow">
+          <td class="stentry" headers="id__stentry__1"><span></span><code class="keyword markupname xmlelement">&lt;map&gt;</code></td>
+          <td class="stentry" headers="id__stentry__2"><span></span>ID</td>
+          <td class="stentry" headers="id__stentry__3"><span></span>document</td>
+          <td class="stentry" headers="id__stentry__4"><span></span>No</td>
+          
+        </tr><tr class="strow">
+          <td class="stentry" headers="id__stentry__1"><span></span><code class="keyword markupname xmlelement">&lt;topic&gt;</code></td>
+          <td class="stentry" headers="id__stentry__2"><span></span>ID</td>
+          <td class="stentry" headers="id__stentry__3"><span></span>document</td>
+          <td class="stentry" headers="id__stentry__4"><span></span>Yes</td>
+          
+        </tr><tr class="strow">
+          <td class="stentry" headers="id__stentry__1"><span></span>sub-map (elements nested within a map)</td>
+          <td class="stentry" headers="id__stentry__2"><span></span>NMTOKEN</td>
+          <td class="stentry" headers="id__stentry__3"><span></span>document</td>
+          <td class="stentry" headers="id__stentry__4"><span></span>Usually no, with some exceptions</td>
+         
+        </tr><tr class="strow">
+          <td class="stentry" headers="id__stentry__1"><span></span>sub-topic (elements nested within a topic)</td>
+          <td class="stentry" headers="id__stentry__2"><span></span>NMTOKEN</td>
+          <td class="stentry" headers="id__stentry__3"><span></span>individual topic</td>
+          <td class="stentry" headers="id__stentry__4"><span></span>Usually no, with some exceptions</td>
+         
+        </tr></tbody></table>
+    </figure>
+    
+    <div class="note note note_note non-normative"><span class="note__title">Note:</span> For all elements other than footnote (<code class="keyword markupname xmlelement">&lt;fn&gt;</code>), the presence of a
       value for the <code class="keyword markupname xmlatt">@id</code> attribute has no impact on processing. For
         <code class="keyword markupname xmlelement">&lt;fn&gt;</code>, the presence or absence of a valid <code class="keyword markupname xmlatt">@id</code>
       attribute affects how the element is processed. This is important for tools that automatically
       assign <code class="keyword markupname xmlatt">@id</code> attributes to all elements.</div>
-   </div>
+  </div>
 </article></main>
