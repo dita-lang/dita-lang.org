@@ -16,11 +16,11 @@ repository: 'oasis-tcs/dita'
    <div class="body conbody"><p class="shortdesc">In this scenario, multiple, non-equivalent copies of the same resource name are created
     as a result of branch filtering. In addition, the process results in duplicate key names, making
     it impossible to reliably reference individual result topics.</p>
-      <span class="undefined_element">
-         <span class="undefined_element">
+      <div class="example" id="example-ditavalref-error-conditions__ditavalref-error-conditions">
+         <p class="p">
             <span class="ph error-statement"></span>The following map fragment contains several error conditions that result in name
-        clashes:</span>
-         <span class="undefined_element">&lt;topicref href="a.dita" keys="a"&gt;
+        clashes:</p>
+         <pre class="pre codeblock"><code>&lt;topicref href="a.dita" keys="a"&gt;
   &lt;ditavalref href="one.ditaval"/&gt;
   &lt;ditavalref href="two.ditaval"/&gt;
   &lt;topicref href="b.dita" keys="b"/&gt;
@@ -38,14 +38,14 @@ repository: 'oasis-tcs/dita'
     &lt;/ditavalmeta&gt;
   &lt;/ditavalref&gt;
 &lt;/topicref&gt;
-</span>
-         <span class="undefined_element">In this sample, the effective map that results from evaluating the filter conditions has
+</code></pre>
+         <div class="p">In this sample, the effective map that results from evaluating the filter conditions has
         several clashes. In some cases the same document must be processed with conflicting
         conditions, using the same URI. In addition, because no key scope is added or modified, keys
         in the branch are duplicated in such a way that only one version is available for use. When
         the branches are evaluated to create distinct copies, the filtered branches result in the
         following equivalent
-        map:<span class="undefined_element">&lt;topicref href="a.dita" keys="a"&gt; &lt;!-- a.dita to be filtered by one.ditaval --&gt;
+        map:<pre class="pre codeblock"><code>&lt;topicref href="a.dita" keys="a"&gt; &lt;!-- a.dita to be filtered by one.ditaval --&gt;
   &lt;topicref href="b.dita" keys="b"/&gt;  &lt;!-- b.dita to be filtered by one.ditaval --&gt;
 &lt;/topicref&gt;
 &lt;topicref href="a.dita" keys="a"&gt; &lt;!-- a.dita to be filtered by two.ditaval; key "a" ignored --&gt;
@@ -57,37 +57,37 @@ repository: 'oasis-tcs/dita'
 &lt;/topicref&gt;
 &lt;topicref href="c-token.dita" keys="c"&gt; 
   &lt;!-- c-token.ditaval to be filtered by two.ditaval, key "c" ignored --&gt;
-&lt;/topicref&gt;</span>
-         </span>
-         <span class="undefined_element">
-            <span class="ph error-statement"></span>The equivalent map highlights several problems with the original source:<span class="undefined_element">
-               <span class="undefined_element">The key names "a" and "b" are present in a branch that will be duplicated. No key
+&lt;/topicref&gt;</code></pre>
+         </div>
+         <div class="p">
+            <span class="ph error-statement"></span>The equivalent map highlights several problems with the original source:<ul class="ul">
+               <li class="li">The key names "a" and "b" are present in a branch that will be duplicated. No key
             scope is introduced for either version of the branch, meaning that the keys will be
             duplicated. Because there can only be one effective key definition for "a" or "b", it
-            only is possible to reference one version of the topic using keys.</span>
-               <span class="undefined_element">The key name "c" is present on another branch that will be duplicated, resulting in
-            the same problem.</span>
-               <span class="undefined_element">The file <span class="undefined_element">c.dita</span> is filtered with two sets of conditions, each of
-            which explicitly maps the filtered resource to <span class="undefined_element">c-token.dita</span>. <span class="ph error-statement"></span>This
-            is an error condition that processors need to report.</span>
-               <span class="undefined_element">In situations where resource names map directly to output file names, such as an HTML5
+            only is possible to reference one version of the topic using keys.</li>
+               <li class="li">The key name "c" is present on another branch that will be duplicated, resulting in
+            the same problem.</li>
+               <li class="li">The file <span class="ph filepath">c.dita</span> is filtered with two sets of conditions, each of
+            which explicitly maps the filtered resource to <span class="ph filepath">c-token.dita</span>. <span class="ph error-statement"></span>This
+            is an error condition that processors need to report.</li>
+               <li class="li">In situations where resource names map directly to output file names, such as an HTML5
             rendering that creates files based on the original resource name, the following name
             conflicts also occur. <span class="ph error-statement"></span>In this case a processor would need to report an error, use an
-            alternate naming scheme, or both:<span class="undefined_element">
-                     <span class="undefined_element">
-                        <span class="undefined_element">a.dita</span> generates <span class="undefined_element">a.html</span> using three
-                alternate set of conditions. One version uses <span class="undefined_element">one.ditaval</span>, one
-                version uses <span class="undefined_element">two.ditaval</span>, and the third version uses no
-                filtering.</span>
-                     <span class="undefined_element">
-                        <span class="undefined_element">b.dita</span> generates <span class="undefined_element">b.html</span> using two
-                alternate set of conditions. One version uses <span class="undefined_element">one.ditaval</span>, and
-                the other version uses <span class="undefined_element">two.ditaval</span>.</span>
-                  </span>
-               </span>
-            </span>
-         </span>
-      </span>
+            alternate naming scheme, or both:<ol class="ol">
+                     <li class="li">
+                        <span class="ph filepath">a.dita</span> generates <span class="ph filepath">a.html</span> using three
+                alternate set of conditions. One version uses <span class="ph filepath">one.ditaval</span>, one
+                version uses <span class="ph filepath">two.ditaval</span>, and the third version uses no
+                filtering.</li>
+                     <li class="li">
+                        <span class="ph filepath">b.dita</span> generates <span class="ph filepath">b.html</span> using two
+                alternate set of conditions. One version uses <span class="ph filepath">one.ditaval</span>, and
+                the other version uses <span class="ph filepath">two.ditaval</span>.</li>
+                  </ol>
+               </li>
+            </ul>
+         </div>
+      </div>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/examples-of-branch-filter.html" title="The branch filtering examples illustrate the processing expectations for various scenarios that involve ditavalref elements. Processing examples use either before and after sample markup or expanded syntax that shows the equivalent markup without the ditavalref elements.">Examples of branch filtering</a></div></div></nav>
 </article></main>

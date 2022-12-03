@@ -15,100 +15,90 @@ repository: 'oasis-tcs/dita'
    
    <div class="body conbody"><p class="shortdesc">An attribute-domain vocabulary module declares a new attribute specialized from either
     the <code class="keyword markupname xmlatt">@props</code> or <code class="keyword markupname xmlatt">@base</code> attribute.</p>
-      <span class="undefined_element">The name of an attribute domain is the name of the attribute
-        plus <span class="undefined_element">Att</span>. For example, for the attribute named
-          <span class="undefined_element">deliveryTarget</span>, the attribute-domain name is "deliveryTargetAtt". The
-        attribute-domain name is used to construct pattern names for the domain. </span>
-      <span class="undefined_element">An attribute-domain module consists of a single file, which has three sections:</span>
-      <span class="undefined_element">
-         <span class="undefined_element">
-            <span class="undefined_element">Specializations attribute contribution</span>
-            <span class="undefined_element">
-               <span class="undefined_element">The contribution to the <span class="undefined_element">specializations</span> attribute is documented in the
-            module. The value is constructed according to the rules found in <span class="undefined_element">The specializations attribute rules and syntax<span class="undefined_element">The <span class="undefined_element">specializations</span> attribute enables     processors to determine what attribute specializations are available in     a document. The attribute is declared on the root element for each     topic or map type. Each attribute domain defines a token to declare the       extension<span class="undefined_element">
-                           <span class="undefined_element">
-                              <span class="undefined_element"></span>
-                           </span>. The <span class="undefined_element">
-                              <span class="undefined_element"></span>
-                           </span>
-                        </span>effective value of the       <span class="undefined_element">specializations</span> attribute is composed of these     tokens.</span>
-                  </span>.</span>
-               <span class="undefined_element">The OASIS grammar files use a <span class="undefined_element">domainsContribution</span> element to
+      <p class="p">The name of an attribute domain is the name of the attribute
+        plus <span class="keyword">Att</span>. For example, for the attribute named
+          <code class="keyword markupname xmlatt">@deliveryTarget</code>, the attribute-domain name is "deliveryTargetAtt". The
+        attribute-domain name is used to construct pattern names for the domain. </p>
+      <p class="p">An attribute-domain module consists of a single file, which has three sections:</p>
+      <dl class="dl">
+         
+            <dt class="dt dlterm">Specializations attribute contribution</dt>
+            <dd class="dd">
+               <p class="p">The contribution to the <code class="keyword markupname xmlatt">@specializations</code> attribute is documented in the
+            module. The value is constructed according to the rules found in <a class="xref" href="specialization-specializations-attribute.html" title="The specializations attribute enables processors to determine what attribute specializations are available in a document. The attribute is declared on the root element for each topic or map type. Each attribute domain defines a token to declare the extension . The effective value of the specializations attribute is composed of these tokens.">The specializations attribute rules and syntax
+                  </a>.</p>
+               <p class="p">The OASIS grammar files use a <code class="keyword markupname xmlelement">&lt;domainsContribution&gt;</code> element to
             document the contribution; this element is used to help enable generation of DTD and XSD
-            grammar files. An XML comment or <span class="undefined_element">a:documentation</span> element also
-            can be used.</span>
-            </span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">Attribute declaration pattern</span>
-            <span class="undefined_element">
-               <span class="undefined_element">The specialized attribute is declared in a pattern named
-                <span class="undefined_element">
-                     <span class="undefined_element">domainName</span>-d-attribute</span>. The attribute is defined
-            as optional.</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">For example, the following code samples shows the the <span class="undefined_element">audience</span>
-              specialization of <span class="undefined_element">props</span>:</span>
-                  <span class="undefined_element">&lt;define name="audienceAtt-d-attribute"&gt;
+            grammar files. An XML comment or <code class="keyword markupname xmlelement">&lt;a:documentation&gt;</code> element also
+            can be used.</p>
+            </dd>
+         
+         
+            <dt class="dt dlterm">Attribute declaration pattern</dt>
+            <dd class="dd">
+               <p class="p">The specialized attribute is declared in a pattern named
+                <code class="ph codeph">
+                     <var class="keyword varname">domainName</var>-d-attribute</code>. The attribute is defined
+            as optional.</p>
+               <div class="div">
+                  <p class="p">For example, the following code samples shows the the <code class="keyword markupname xmlatt">@audience</code>
+              specialization of <code class="keyword markupname xmlatt">@props</code>:</p>
+                  <pre class="pre codeblock"><code>&lt;define name="audienceAtt-d-attribute"&gt;
   &lt;optional&gt;
     &lt;attribute name="audience" dita:since="2.0"&gt;
       &lt;a:documentation&gt;Specifies the audience to which an element applies.&lt;/a:documentation&gt;
     &lt;/attribute&gt;
   &lt;/optional&gt;    
-&lt;/define&gt;</span>
-               </span>
-            </span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">Attribute extension pattern</span>
-            <span class="undefined_element">
-               <span class="undefined_element">The attribute extension pattern extends either the
-              <span class="undefined_element">props</span> or <span class="undefined_element">base</span>
-                  <span class="undefined_element">
-                     <span class="undefined_element">
-                        <span class="undefined_element"></span>
-                     </span>attribute-list<span class="undefined_element">
-                        <span class="undefined_element"></span>
-                     </span>
+&lt;/define&gt;</code></pre>
+               </div>
+            </dd>
+         
+         
+            <dt class="dt dlterm">Attribute extension pattern</dt>
+            <dd class="dd">
+               <p class="p">The attribute extension pattern extends either the
+              <code class="keyword markupname xmlatt">@props</code> or <code class="keyword markupname xmlatt">@base</code>
+                  <span style="color:red;" class="ph">
+                     attribute-list
                   </span> pattern to include the
-            attribute specialization.</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">
-                     <span class="undefined_element">Specializations of <span class="undefined_element">props</span>
-                     </span>
-                     <span class="undefined_element">
-                        <span class="undefined_element">The pattern is named <span class="undefined_element">props-attribute-extensions</span>. The pattern
-                  specifies a <span class="undefined_element">combine</span> value of <span class="undefined_element">interleave</span>, and
+            attribute specialization.</p>
+               <dl class="dl">
+                  
+                     <dt class="dt dlterm">Specializations of <code class="keyword markupname xmlatt">@props</code>
+                     </dt>
+                     <dd class="dd">
+                        <p class="p">The pattern is named <code class="ph codeph">props-attribute-extensions</code>. The pattern
+                  specifies a <code class="keyword markupname xmlatt">@combine</code> value of <span class="keyword">interleave</span>, and
                   the content of the pattern is a reference to the specialized-attribute declaration
-                  pattern.</span>
-                        <span class="undefined_element">
-                           <span class="undefined_element">For example:</span>
-                           <span class="undefined_element">&lt;define name="props-attribute-extensions" combine="interleave"&gt;
+                  pattern.</p>
+                        <div class="div">
+                           <p class="p">For example:</p>
+                           <pre class="pre codeblock"><code>&lt;define name="props-attribute-extensions" combine="interleave"&gt;
   &lt;ref name="audienceAtt-d-attribute"/&gt;
-&lt;/define&gt;</span>
-                        </span>
-                     </span>
-                  </span>
-                  <span class="undefined_element">
-                     <span class="undefined_element">Specializations of <span class="undefined_element">base</span>
-                     </span>
-                     <span class="undefined_element">
-                        <span class="undefined_element">The pattern is named <span class="undefined_element">base-attribute-extensions</span>. The pattern
-                  specifies a <span class="undefined_element">combine</span> value of <span class="undefined_element">interleave</span>, and
+&lt;/define&gt;</code></pre>
+                        </div>
+                     </dd>
+                  
+                  
+                     <dt class="dt dlterm">Specializations of <code class="keyword markupname xmlatt">@base</code>
+                     </dt>
+                     <dd class="dd">
+                        <p class="p">The pattern is named <code class="ph codeph">base-attribute-extensions</code>. The pattern
+                  specifies a <code class="keyword markupname xmlatt">@combine</code> value of <span class="keyword">interleave</span>, and
                   the content of the pattern is a reference to the specialized-attribute declaration
-                  pattern.</span>
-                        <span class="undefined_element">
-                           <span class="undefined_element">For example:</span>
-                           <span class="undefined_element">&lt;define name="base-attribute-extensions" combine="interleave"&gt;
+                  pattern.</p>
+                        <div class="div">
+                           <p class="p">For example:</p>
+                           <pre class="pre codeblock"><code>&lt;define name="base-attribute-extensions" combine="interleave"&gt;
     &lt;ref name="myBaseSpecializationAtt-d-attribute"/&gt;
-&lt;/define&gt;</span>
-                        </span>
-                     </span>
-                  </span>
-               </span>
-            </span>
-         </span>
-      </span>
+&lt;/define&gt;</code></pre>
+                        </div>
+                     </dd>
+                  
+               </dl>
+            </dd>
+         
+      </dl>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/relax-ng-requirements.html" title="This section explains how to implement RNG-based document-type shells, specializations, and element-configuration modules (constraints and expansions).">RELAX NG coding requirements</a></div></div></nav>
 </article></main>

@@ -19,47 +19,47 @@ repository: 'oasis-tcs/dita'
       <span class="ph">and the effect of filtering applied to the key
     definitions.</span>
    </p>
-      <span class="undefined_element">In the following example, a map contains two definitions for the key "load-toner":</span>
-      <span class="undefined_element">&lt;map&gt;
+      <p class="p">In the following example, a map contains two definitions for the key "load-toner":</p>
+      <pre class="pre codeblock"><code>&lt;map&gt;
   &lt;!--... --&gt;
   &lt;keydef keys="load-toner" href="model-1235-load-toner-proc.dita"/&gt;
   &lt;keydef keys="load-toner" href="model-4545-load-toner-proc.dita"
   /&gt;
   &lt;!--... --&gt;
-&lt;/map&gt;</span>
-      <span class="undefined_element">In this example, only the first key definition (in document order) of the "load-toner" key is
+&lt;/map&gt;</code></pre>
+      <p class="p">In this example, only the first key definition (in document order) of the "load-toner" key is
       effective. All references to the key within the scope of the map resolve to the topic
-        <span class="undefined_element">model-1235-load-toner-proc.dita</span>.</span>
-      <span class="undefined_element">In the following example, a map contains two definitions for the "file-chooser-dialog" key;
-   each key definition specifies a different value for the <span class="undefined_element">platform</span> attribute.</span>
-      <span class="undefined_element">&lt;map&gt;
+        <span class="ph filepath">model-1235-load-toner-proc.dita</span>.</p>
+      <p class="p">In the following example, a map contains two definitions for the "file-chooser-dialog" key;
+   each key definition specifies a different value for the <code class="keyword markupname xmlatt">@platform</code> attribute.</p>
+      <pre class="pre codeblock"><code>&lt;map&gt;
   &lt;!--... --&gt;
-  &lt;keydef keys="file-chooser-dialog" href="file-chooser-osx.dita" <span class="undefined_element">platform="osx"</span>/&gt;
-  &lt;keydef keys="file-chooser-dialog" href="file-chooser-win7.dita" <span class="undefined_element">platform="windows7"</span>/&gt;
+  &lt;keydef keys="file-chooser-dialog" href="file-chooser-osx.dita" <strong class="ph b">platform="osx"</strong>/&gt;
+  &lt;keydef keys="file-chooser-dialog" href="file-chooser-win7.dita" <strong class="ph b">platform="windows7"</strong>/&gt;
   &lt;!--... --&gt;
-&lt;/map&gt;</span>
-      <span class="undefined_element">In this case, the effective key definition is determined not only by the order in which the
+&lt;/map&gt;</code></pre>
+      <p class="p">In this case, the effective key definition is determined not only by the order in which the
       definitions occur, but also by whether the active value of the platform condition is
-        <span class="undefined_element">osx</span> or <span class="undefined_element">windows7</span>. Both key definitions are
-        <span class="undefined_element">potentially</span> effective because they have distinct values for the conditional
-      attribute. Note that if no active value is specified for the <span class="undefined_element">platform</span>
+        <span class="keyword">osx</span> or <span class="keyword">windows7</span>. Both key definitions are
+        <em class="ph i">potentially</em> effective because they have distinct values for the conditional
+      attribute. Note that if no active value is specified for the <code class="keyword markupname xmlatt">@platform</code>
       attribute at processing time, then both of the key definitions are present and so the first
-      one in document order is the effective definition. </span>
-      <span class="undefined_element">If the DITAVAL settings are defined so that both <span class="undefined_element">osx</span> and
-        <span class="undefined_element">windows7</span> values for the <span class="undefined_element">platform</span> attribute are excluded,
+      one in document order is the effective definition. </p>
+      <div class="p">If the DITAVAL settings are defined so that both <span class="keyword">osx</span> and
+        <span class="keyword">windows7</span> values for the <code class="keyword markupname xmlatt">@platform</code> attribute are excluded,
       then neither definition is effective and the key is undefined. That case can be avoided by
       specifying an unconditional key definition after any conditional key definitions, for
-      example:<span class="undefined_element">&lt;map&gt;
+      example:<pre class="pre codeblock"><code>&lt;map&gt;
   &lt;!--... --&gt;
   &lt;keydef keys="file-chooser-dialog" href="file-chooser-osx.dita" platform="osx"/&gt;
   &lt;keydef keys="file-chooser-dialog" href="file-chooser-win7.dita" platform="windows7"/&gt;
-  <span class="undefined_element">&lt;keydef keys="file-chooser-dialog" href="file-chooser-generic.dita"/&gt;</span>
+  <strong class="ph b">&lt;keydef keys="file-chooser-dialog" href="file-chooser-generic.dita"/&gt;</strong>
   &lt;!--... --&gt;
-&lt;/map&gt;</span>
-      </span>
-      <span class="undefined_element">If the above map is processed with both <span class="undefined_element">osx</span> and <span class="undefined_element">windows7</span>
-      values for the <span class="undefined_element">platform</span> attribute excluded, then the effective key definition
-      for "file-chooser-dialog" is the <span class="undefined_element">file-chooser-generic.dita</span> resource.</span>
+&lt;/map&gt;</code></pre>
+      </div>
+      <p class="p">If the above map is processed with both <span class="keyword">osx</span> and <span class="keyword">windows7</span>
+      values for the <code class="keyword markupname xmlatt">@platform</code> attribute excluded, then the effective key definition
+      for "file-chooser-dialog" is the <span class="ph filepath">file-chooser-generic.dita</span> resource.</p>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/examples-of-keys.html" title="This section of the specification contains examples and scenarios. They illustrate a wide variety of ways that keys can be used.">Examples of keys</a></div></div></nav>
 </article></main>

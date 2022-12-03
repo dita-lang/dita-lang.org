@@ -18,18 +18,18 @@ repository: 'oasis-tcs/dita'
    <div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element references a DITAVAL document that
     specifies filter conditions to be used when processing a map or map
     branch.</p>
-      <span class="undefined_element">
-         <span class="undefined_element">Processing expectations</span>
-         <span class="undefined_element">When a <span class="undefined_element">ditavalref</span> element is included in a map, the conditions in
+      <section class="section" id="ditavalref__processing-expectations"><h2 class="title sectiontitle">Processing expectations</h2>
+         
+         <p class="p">When a <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element is included in a map, the conditions in
         the referenced DITAVAL document are used to filter the elements in the branch. The branch
-        includes the parent element that contains the <span class="undefined_element">ditavalref</span> element,
+        includes the parent element that contains the <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element,
         any child elements, and all resources that are referenced by the parent element or its
         children. While there is no technical restriction that forces
-          <span class="undefined_element">ditavalref</span> to appear before peer topic references, placing them
+          <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> to appear before peer topic references, placing them
         first is considered a best practice and all examples in the specification will use this
-        convention.</span>
-         <span class="undefined_element">In the simple case, a map can use <span class="undefined_element">ditavalref</span> as
-        follows:<span class="undefined_element">&lt;map&gt;
+        convention.</p>
+         <div class="p">In the simple case, a map can use <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> as
+        follows:<pre class="pre codeblock"><code>&lt;map&gt;
   &lt;topicref href="sampleBranch.dita" audience="admin"&gt;
     &lt;topicmeta&gt;
       &lt;navtitle&gt;Navigation title for branch&lt;/navtitle&gt;
@@ -38,146 +38,119 @@ repository: 'oasis-tcs/dita'
     &lt;topicref href="insideBranch.dita" platform="win linux mac"/&gt;
   &lt;/topicref&gt;
   &lt;!-- Other branches not affected by conditions.ditaval --&gt;
-&lt;/map&gt;</span>
-         </span>
-         <span class="undefined_element">The filtering conditions specified in the <span class="undefined_element">conditions.ditaval</span> file
-        apply to the following:<span class="undefined_element">
-               <span class="undefined_element">The <span class="undefined_element">topicref</span> element that references
-              <span class="undefined_element">sampleBranch.dita</span> and all child elements:
-              <span class="undefined_element">topicmeta</span>, <span class="undefined_element">navtitle</span>, and
-              <span class="undefined_element">topicref</span> elements</span>
-               <span class="undefined_element">The <span class="undefined_element">sampleBranch.dita</span> topic</span>
-               <span class="undefined_element">The <span class="undefined_element">insideBranch.dita</span> topic</span>
-            </span>
-         </span>
-         <span class="undefined_element">When more than one <span class="undefined_element">ditavalref</span> element is specified in the same
+&lt;/map&gt;</code></pre>
+         </div>
+         <div class="p">The filtering conditions specified in the <span class="ph filepath">conditions.ditaval</span> file
+        apply to the following:<ul class="ul">
+               <li class="li">The <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element that references
+              <span class="ph filepath">sampleBranch.dita</span> and all child elements:
+              <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code>, <code class="keyword markupname xmlelement">&lt;navtitle&gt;</code>, and
+              <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements</li>
+               <li class="li">The <span class="ph filepath">sampleBranch.dita</span> topic</li>
+               <li class="li">The <span class="ph filepath">insideBranch.dita</span> topic</li>
+            </ul>
+         </div>
+         <p class="p">When more than one <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element is specified in the same
         branch at the same level, the effective result is one copy of the branch for each
-          <span class="undefined_element">ditavalref</span> element. If the example above contains a reference to
-          <span class="undefined_element">otherConditions.ditaval</span> as a peer to the existing
-          <span class="undefined_element">ditavalref</span> element, the rendered version of this map would
+          <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element. If the example above contains a reference to
+          <span class="ph filepath">otherConditions.ditaval</span> as a peer to the existing
+          <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element, the rendered version of this map would
         reflect two copies of "Sample branch", each reflecting the conditions that are specified in
         the corresponding DITAVAL document. One copy is created using the conditions in
-          <span class="undefined_element">conditions.ditaval</span>, while the other copy uses the conditions from
-          <span class="undefined_element">otherConditions.ditaval</span>. Map authors can use specific elements from
-        the DITAVAL reference domain to indicate how resources <span class="undefined_element">are</span>
-        renamed, or processors <span class="undefined_element">can</span> recover from naming collisions by
-        using an alternate naming scheme. See <span class="undefined_element">Limitations</span>
-        below for more information.</span>
-         <span class="undefined_element">If DITAVAL conditions are specified at multiple levels within a single branch, "exclude"
-        conditions that are specified at a higher level take precedence. <span class="undefined_element">In the following branch, assume alternate rules are specified for the condition
-            <span class="undefined_element">audience="novice"</span>, with the value set to "exclude" in
-            <span class="undefined_element">highLevel.ditaval</span> and "include" in
-            <span class="undefined_element">lowLevel.ditaval</span>. In that case, the "exclude" condition specified
-          in <span class="undefined_element">highLevel.ditaval</span> takes precedence and so applies to the entire
+          <span class="ph filepath">conditions.ditaval</span>, while the other copy uses the conditions from
+          <span class="ph filepath">otherConditions.ditaval</span>. Map authors can use specific elements from
+        the DITAVAL reference domain to indicate how resources <span class="ph">are</span>
+        renamed, or processors <span class="ph">can</span> recover from naming collisions by
+        using an alternate naming scheme. See <a class="xref" href="#ditavalref__limitations">Limitations</a>
+        below for more information.</p>
+         <div class="p">If DITAVAL conditions are specified at multiple levels within a single branch, "exclude"
+        conditions that are specified at a higher level take precedence. <span class="ph">In the following branch, assume alternate rules are specified for the condition
+            <code class="ph codeph">audience="novice"</code>, with the value set to "exclude" in
+            <span class="ph filepath">highLevel.ditaval</span> and "include" in
+            <span class="ph filepath">lowLevel.ditaval</span>. In that case, the "exclude" condition specified
+          in <span class="ph filepath">highLevel.ditaval</span> takes precedence and so applies to the entire
           branch. This is true regardless of how the "exclude" condition is specified within
-            <span class="undefined_element">highLevel.ditaval</span>. That is, there <span class="undefined_element">might</span> be a specific rule for <span class="undefined_element">audience="novice"</span>; alternatively,
-          the <span class="undefined_element">audience</span> attribute <span class="undefined_element">might</span> be set to
+            <span class="ph filepath">highLevel.ditaval</span>. That is, there <span class="ph">might</span> be a specific rule for <code class="ph codeph">audience="novice"</code>; alternatively,
+          the <code class="keyword markupname xmlatt">@audience</code> attribute <span class="ph">might</span> be set to
           "exclude" by default, with no specific condition specified for the value
-            <span class="undefined_element">audience="novice"</span>.</span>
-            <span class="undefined_element">&lt;topicref href="ancestor.dita"&gt;
+            <code class="ph codeph">audience="novice"</code>.</span>
+            <pre class="pre codeblock"><code>&lt;topicref href="ancestor.dita"&gt;
   &lt;ditavalref href="highLevel.ditaval"/&gt;
   &lt;topicref href="descendent.dita"&gt;
     &lt;ditavalref href="lowLevel.ditaval"/&gt;
     &lt;!-- Other topicrefs --&gt;
   &lt;/topicref&gt;
-&lt;/topicref&gt;</span>
-         </span>
-         <span class="undefined_element">If a <span class="undefined_element">ditavalref</span> element is used that does not specify the
-          <span class="undefined_element">href</span> attribute, the element is still processed but no additional
+&lt;/topicref&gt;</code></pre>
+         </div>
+         <p class="p">If a <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element is used that does not specify the
+          <code class="keyword markupname xmlatt">@href</code> attribute, the element is still processed but no additional
         filtering is applied. This can be used to create an unfiltered copy of a map branch
-        alongside other filtered copies; other aspects of the <span class="undefined_element">ditavalref</span>
+        alongside other filtered copies; other aspects of the <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code>
         (such as any specified key scope or modified resource name) will still be applied to the
-        branch.</span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Limitations</span>
-         <span class="undefined_element">This topic overall has far more processing information than
-        seems appropriate for an element reference topic; there is likely a lot of overlap /
-        duplication of information contained in the Branch Filtering section of the arch spec. Most
-        of this information should be moved there, likely including the full set of
-        Limitations.</span>
-         <span class="undefined_element">The following limitations apply when using the <span class="undefined_element">ditavalref</span> element;
-        these limitations cannot be enforced in a DTD or other XML grammar files.</span>
-         <span class="undefined_element">When the use of the <span class="undefined_element">ditavalref</span> element results in multiple copies
+        branch.</p>
+      </section>
+      <section class="section" id="ditavalref__limitations"><h2 class="title sectiontitle">Limitations</h2>
+         
+         
+         <p class="p">The following limitations apply when using the <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element;
+        these limitations cannot be enforced in a DTD or other XML grammar files.</p>
+         <div class="p">When the use of the <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element results in multiple copies
         of a branch, resource names within that branch can be controlled with sub-elements of the
-        effective <span class="undefined_element">ditavalref</span>. <span class="ph error-statement"></span>For situations where resource names are
-        relevant, it is an error condition for multiple <span class="undefined_element">ditavalref</span> elements
+        effective <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code>. <span class="ph error-statement"></span>For situations where resource names are
+        relevant, it is an error condition for multiple <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> elements
         to result in conflicting resource names for different content. For example, the following
-        map fragment would result in two distinct copies of  the <span class="undefined_element">c.dita</span> topic
+        map fragment would result in two distinct copies of  the <span class="ph filepath">c.dita</span> topic
         with the same file
-        name:<span class="undefined_element">&lt;topicref href="c.dita"&gt;
+        name:<pre class="pre codeblock"><code>&lt;topicref href="c.dita"&gt;
   &lt;ditavalref href="one.ditaval"/&gt;
   &lt;ditavalref href="two.ditaval"/&gt;
 &lt;/topicref&gt;
-</span>
-         </span>
-         <span class="undefined_element">Processors <span class="undefined_element">MAY</span> recover by using an alternate naming
-        scheme for the conflicting copies. <span class="undefined_element">
-               <span class="undefined_element">Need more information about what situation the processor is recovering from ...</span>
-            </span>
-            <span class="undefined_element">For the above, it would be recovering from
-          a map that instructs it to create two files of the same name, with different filter
-          conditions applied.</span>
-         </span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Specialization hierarchy</span>
-         <span class="undefined_element">The <span class="undefined_element">ditavalref</span> element is specialized from
-          <span class="undefined_element">topicref</span>. It is defined in the DITAVAL-reference domain
-        module.</span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Attributes</span>
-         <span class="undefined_element">The following attributes are available on this element: <span class="undefined_element">
-               <span class="undefined_element">universal
-                                                  attributes<span class="undefined_element">Universal attributes include:
-                                                  <span class="undefined_element">audience</span>, <span class="undefined_element">base</span>,
-                                                  <span class="undefined_element">class</span>,
-                                                  <span class="undefined_element">conaction</span>,
-                                                  <span class="undefined_element">conkeyref</span>,
-                                                  <span class="undefined_element">conref</span>,
-                                                  <span class="undefined_element">conrefend</span>,
-                                                  <span class="undefined_element">deliveryTarget</span>,
-                                                  <span class="undefined_element">dir</span>, <span class="undefined_element">id</span>,
-                                                  <span class="undefined_element">importance</span>,
-                                                  <span class="undefined_element">otherprops</span>,
-                                                  <span class="undefined_element">outputclass</span>,
-                                                  <span class="undefined_element">platform</span>,
-                                                  <span class="undefined_element">product</span>, <span class="undefined_element">props</span>,
-                                                  <span class="undefined_element">rev</span>, <span class="undefined_element">status</span>,
-                                                  <span class="undefined_element">translate</span>, and
-                                                  <span class="undefined_element">xml:lang</span>
-                  </span>
-               </span>
-            </span> (except for <span class="undefined_element">conkeyref</span>,
-        which is removed for all elements in this domain), <span class="undefined_element">
-               <span class="undefined_element">format</span>
-            </span>, <span class="undefined_element">
-               <span class="undefined_element">href</span>
-            </span>, and <span class="undefined_element">
-               <span class="undefined_element">scope</span>
-            </span>.</span>
-         <span class="undefined_element">For this element:<span class="undefined_element">
-               <span class="undefined_element">The <span class="undefined_element">format</span> attribute has a default value of
-              <span class="undefined_element">ditaval</span>.</span>
-               <span class="undefined_element">The <span class="undefined_element">href</span> attribute specivies a reference to a DITAVAL document. If
-            the <span class="undefined_element">href</span> attribute is unspecified, this
-              <span class="undefined_element">ditavalref</span> will not result in any new filtering behavior, but
-            other aspects of the element are still evaluated.</span>
-               <span class="undefined_element">The <span class="undefined_element">processing-role</span> attribute has a default value of
-              <span class="undefined_element">resource-only</span>.</span>
-            </span>
-            <span class="undefined_element">DITA 1.3 said that format MUST be ditaval, and that no
-          value other than "resource-only" is valid for processing role. Should these be #FIXED in
-          the grammar files?</span>
-         </span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Example</span>
-         <span class="undefined_element">See <span class="undefined_element">Examples of branch filtering<span class="undefined_element">The branch filtering examples illustrate the processing expectations         for various scenarios that involve <span class="undefined_element">ditavalref</span> elements. Processing         examples use either before and after sample markup or expanded syntax that shows the         equivalent markup without the <span class="undefined_element">ditavalref</span> elements.</span>
-            </span> for several examples of
-the <span class="undefined_element">ditavalref</span> element.</span>
-      </span>
+</code></pre>
+         </div>
+         <div class="p">Processors <dfn class="term RFC-2119">MAY</dfn> recover by using an alternate naming
+        scheme for the conflicting copies. 
+            
+         </div>
+      </section>
+      <section class="section" id="ditavalref__specialization-hierachy"><h2 class="title sectiontitle">Specialization hierarchy</h2>
+         
+         <p class="p">The <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element is specialized from
+          <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>. It is defined in the DITAVAL-reference domain
+        module.</p>
+      </section>
+      <section class="section" id="ditavalref__attributes"><h2 class="title sectiontitle">Attributes</h2>
+         
+         <p class="p">The following attributes are available on this element: <span class="ph">
+               <a class="xref" href="../../common/../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
+                                                  attributes
+               </a>
+            </span> (except for <code class="keyword markupname xmlatt">@conkeyref</code>,
+        which is removed for all elements in this domain), <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-format">
+               <code class="keyword markupname xmlatt">@format</code>
+            </a>, <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-href">
+               <code class="keyword markupname xmlatt">@href</code>
+            </a>, and <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-scope">
+               <code class="keyword markupname xmlatt">@scope</code>
+            </a>.</p>
+         <div class="p">For this element:<ul class="ul" id="ditavalref__ul_xlk_gc4_qpb">
+               <li class="li">The <code class="keyword markupname xmlatt">@format</code> attribute has a default value of
+              <span class="keyword">ditaval</span>.</li>
+               <li class="li">The <code class="keyword markupname xmlatt">@href</code> attribute specivies a reference to a DITAVAL document. If
+            the <code class="keyword markupname xmlatt">@href</code> attribute is unspecified, this
+              <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> will not result in any new filtering behavior, but
+            other aspects of the element are still evaluated.</li>
+               <li class="li">The <code class="keyword markupname xmlatt">@processing-role</code> attribute has a default value of
+              <span class="keyword">resource-only</span>.</li>
+            </ul>
+            
+         </div>
+      </section>
+      <div class="example" id="ditavalref__example"><h2 class="title sectiontitle">Example</h2>
+         
+         <p class="p">See <a class="xref" href="../../common/../archSpec/base/examples-of-branch-filter.html" title="The branch filtering examples illustrate the processing expectations for various scenarios that involve ditavalref elements. Processing examples use either before and after sample markup or expanded syntax that shows the equivalent markup without the ditavalref elements.">Examples of branch filtering
+            </a> for several examples of
+the <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element.</p>
+      </div>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/ditaval-d.html" title="The DITAVAL reference domain is used to reference a DITAVAL file that contains conditions that apply only to a subset of a DITA map. It also can be used to replicate a subset of a DITA map for multiple audiences.">DITAVAL-reference domain element</a></div></div></nav>
 </article></main>

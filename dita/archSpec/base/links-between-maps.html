@@ -18,47 +18,40 @@ repository: 'oasis-tcs/dita'
    <div class="body conbody"><p class="shortdesc">A map can use scoped keys to reference keys that are defined in a different root map.
         This cross-deliverable addressing can support the production of deliverables that contain
         working links to other deliverables.</p>
-      <span class="undefined_element">When maps are referenced and the value of the
-                <span class="undefined_element">scope</span> attribute is set to "peer", the implications are that the two
+      <p class="p">When maps are referenced and the value of the
+                <code class="keyword markupname xmlatt">@scope</code> attribute is set to "peer", the implications are that the two
             maps are managed in tandem, and that the author of the referencing map might have access
             to the referenced map. Adding a key scope to the reference indicates that the peer map
-            should be treated as a separate deliverable for the purposes of linking.</span>
-      <span class="undefined_element">
-         <span class="undefined_element">When this topic is reviewed, we should also check the definition
-        of <span class="undefined_element">scope="peer"</span> in the <span class="undefined_element">scope</span>
-        topic.</span>
-      </span>
-      <span class="undefined_element">The keys that are defined by the peer map belong to <span class="undefined_element">any key scopes
-                that are</span> declared on the <span class="undefined_element">topicref</span> element that
+            should be treated as a separate deliverable for the purposes of linking.</p>
+      
+      <p class="p">The keys that are defined by the peer map belong to <span class="ph">any key scopes
+                that are</span> declared on the <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element that
             references that map. Such keys can be referenced from content in the referencing map by
             using scope-qualified key names. However, processors handle references to keys that are
             defined in peer maps differently from how they handle references to keys that are
-            defined in submaps.</span>
-      <span class="undefined_element">DITA processors are not required to resolve key references to peer maps. However, if all
+            defined in submaps.</p>
+      <p class="p">DITA processors are not required to resolve key references to peer maps. However, if all
             resources are available in the same processing or management context, processors have
             the potential to resolve key references to peer maps. There might be performance, scale,
             and user interface challenges in implementing such systems, but the ability to resolve
-            any given reference is ensured when the source files are physically accessible.</span>
-      <span class="undefined_element">
-         <span class="undefined_element">Should the following statement about what processors do "when a reference to a peer
-                map cannot be resolved" contain RFC-2119 language?</span>
-      </span>
-      <span class="undefined_element">Note the inverse implication; if the peer map is not available, then it is impossible to
+            any given reference is ensured when the source files are physically accessible.</p>
+      
+      <p class="p">Note the inverse implication; if the peer map is not available, then it is impossible to
             resolve the key reference. Processors that resolve key references to peer maps should
             provide appropriate messages when a reference to a peer map cannot be resolved.
             Depending on how DITA resources are authored, managed, and processed, references to peer
-            maps might not be resolvable at certain points in the content life cycle.</span>
-      <span class="undefined_element">The peer map might specify <span class="undefined_element">keyscope</span> on its root element. In that case, the
-                <span class="undefined_element">keyscope</span> on the peer map is ignored for the purpose of resolving
+            maps might not be resolvable at certain points in the content life cycle.</p>
+      <p class="p">The peer map might specify <code class="keyword markupname xmlatt">@keyscope</code> on its root element. In that case, the
+                <code class="keyword markupname xmlatt">@keyscope</code> on the peer map is ignored for the purpose of resolving
             scoped key references from the referencing map. This avoids the need for processors to
             have access to the peer map in order to determine whether a given key definition comes
-            from the peer map.</span>
-      <span class="undefined_element">
-         <span class="undefined_element">Example: A root map that declares a peer map</span>
-         <span class="undefined_element">Consider the DITA maps <span class="undefined_element">map-a.ditamap</span> and
-                    <span class="undefined_element">map-b.ditamap</span>. Map A designates Map B as a peer map by
-                using the following markup:</span>
-         <span class="undefined_element">&lt;map&gt;
+            from the peer map.</p>
+      <div class="example" id="links-between-maps__example-root-declares-peer"><h2 class="title sectiontitle">Example: A root map that declares a peer map</h2>
+         
+         <p class="p">Consider the DITA maps <span class="ph filepath">map-a.ditamap</span> and
+                    <span class="ph filepath">map-b.ditamap</span>. Map A designates Map B as a peer map by
+                using the following markup:</p>
+         <pre class="pre codeblock"><code>&lt;map&gt;
   &lt;title&gt;Map A&lt;/title&gt;
   &lt;topicref 
     scope="peer"
@@ -68,36 +61,36 @@ repository: 'oasis-tcs/dita'
     processing-role="resource-only"
   /&gt;
   &lt;!-- ... --&gt;
-&lt;/map&gt;</span>
-         <span class="undefined_element">In this example, <span class="undefined_element">map-b.ditamap</span> is not a submap of Map A; it is a
-                peer map.</span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Example: Key resolution in a peer map that contains a <span class="undefined_element">keyscope</span>
-                attribute on the root element</span>
-         <span class="undefined_element">Consider the map reference in map Map A:</span>
-         <span class="undefined_element">&lt;mapref 
+&lt;/map&gt;</code></pre>
+         <p class="p">In this example, <span class="ph filepath">map-b.ditamap</span> is not a submap of Map A; it is a
+                peer map.</p>
+      </div>
+      <div class="example" id="links-between-maps__example-peer-keyscope"><h2 class="title sectiontitle">Example: Key resolution in a peer map that contains a <code class="keyword markupname xmlatt">@keyscope</code>
+                attribute on the root element</h2>
+         
+         <p class="p">Consider the map reference in map Map A:</p>
+         <pre class="pre codeblock"><code>&lt;mapref 
   keyscope="scope-b"
   scope="peer"  
   href="map-b.ditamap"
-/&gt; </span>
-         <span class="undefined_element">where <span class="undefined_element">map-b.ditamap</span> contains the following markup:</span>
-         <span class="undefined_element">&lt;map keyscope="product-x"&gt;
+/&gt; </code></pre>
+         <p class="p">where <span class="ph filepath">map-b.ditamap</span> contains the following markup:</p>
+         <pre class="pre codeblock"><code>&lt;map keyscope="product-x"&gt;
  &lt;!-- ... --&gt;
-&lt;/map&gt;</span>
-         <span class="undefined_element">From the context of Map A, key references of the form
-                    <span class="undefined_element">scope-b.somekey</span> are resolved to keys that are defined in the
+&lt;/map&gt;</code></pre>
+         <p class="p">From the context of Map A, key references of the form
+                    <span class="keyword">scope-b.somekey</span> are resolved to keys that are defined in the
                 global scope of map B, but key references of the form
-                    <span class="undefined_element">product-x.somekey</span> are not. The presence of a
-                    <span class="undefined_element">keyscope</span> attribute on the <span class="undefined_element">map</span> element
+                    <span class="keyword">product-x.somekey</span> are not. The presence of a
+                    <code class="keyword markupname xmlatt">@keyscope</code> attribute on the <code class="keyword markupname xmlelement">&lt;map&gt;</code> element
                 in Map B has no effect. A key reference to the scope
-                    <span class="undefined_element">scope-b.somekey</span> is equivalent to the unscoped reference
-                    <span class="undefined_element">somekey</span> when processed in the context of Map B as the root
-                map. In both cases, the presence of <span class="undefined_element">keyscope</span> on the root element of
+                    <span class="keyword">scope-b.somekey</span> is equivalent to the unscoped reference
+                    <span class="keyword">somekey</span> when processed in the context of Map B as the root
+                map. In both cases, the presence of <code class="keyword markupname xmlatt">@keyscope</code> on the root element of
                 Map B has no effect; in the first case it is explicitly ignored, and in the second
-                case the key reference is within the scope <span class="undefined_element">product-x</span> and so does
-                not need to be scope qualified.</span>
-      </span>
+                case the key reference is within the scope <span class="keyword">product-x</span> and so does
+                not need to be scope qualified.</p>
+      </div>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/key-based-addressing.html" title="DITA keys provide an alternative to direct addressing. The key reference mechanism provides a layer of indirection so that resources (for example, URIs, metadata, or variable text strings) can be defined at the DITA map level instead of locally in each topic.">Indirect key-based addressing</a></div></div></nav>
 </article></main>

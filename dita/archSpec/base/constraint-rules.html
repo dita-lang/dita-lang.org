@@ -15,66 +15,62 @@ repository: 'oasis-tcs/dita'
    
    <div class="body conbody"><p class="shortdesc">There are certain rules that apply to the design and implementation of
   constraints.</p>
-      <span class="undefined_element">
-         <span class="undefined_element">
-            <span class="undefined_element">Content model</span>
-            <span class="undefined_element">
-               <span class="undefined_element">The content model for a constrained element must be at least as restrictive as the
+      <dl class="dl">
+         
+            <dt class="dt dlterm">Content model</dt>
+            <dd class="dd">
+               <p class="p">The content model for a constrained element must be at least as restrictive as the
       unconstrained content model for the element.
-      </span>
-            </span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">Domain constraints</span>
-            <span class="undefined_element">
-               <span class="undefined_element">When a domain module is integrated into a document-type shell, the base domain element can
+      </p>
+            </dd>
+         
+         
+            <dt class="dt dlterm">Domain constraints</dt>
+            <dd class="dd">
+               <p class="p">When a domain module is integrated into a document-type shell, the base domain element can
       be omitted from the domain extension group or parameter entity. In such a case, there is no
       separate constraint declaration, because the content model is configured directly in the
-      document-type shell.</span>
-               <span class="undefined_element">A domain module can be constrained by only one constraint module. This means that all
+      document-type shell.</p>
+               <p class="p">A domain module can be constrained by only one constraint module. This means that all
       restrictions for the extension elements that are defined in the domain must be contained
-      within that one constraint module.</span>
-            </span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">Structural constraints</span>
-            <span class="undefined_element">
-               <span class="undefined_element">Each constraint module can constrain elements from only one vocabulary module. For example,
-      a single constraint module that constrains <span class="undefined_element">refsyn</span> from
-       <span class="undefined_element">reference.mod</span> and constrains <span class="undefined_element">context</span> from
-       <span class="undefined_element">task.mod</span> is not allowed. This rule maintains granularity of reuse at the
-      module level.</span>
-               <span class="undefined_element">Constraint modules that restrict different elements from within the same vocabulary module
+      within that one constraint module.</p>
+            </dd>
+         
+         
+            <dt class="dt dlterm">Structural constraints</dt>
+            <dd class="dd">
+               <p class="p">Each constraint module can constrain elements from only one vocabulary module. For example,
+      a single constraint module that constrains <code class="keyword markupname xmlelement">&lt;refsyn&gt;</code> from
+       <span class="ph filepath">reference.mod</span> and constrains <code class="keyword markupname xmlelement">&lt;context&gt;</code> from
+       <span class="ph filepath">task.mod</span> is not allowed. This rule maintains granularity of reuse at the
+      module level.</p>
+               <p class="p">Constraint modules that restrict different elements from within the same vocabulary module
       can be combined with one another. Such combinations of constraints on a single vocabulary
-      module have no meaningful order or precedence.</span>
-            </span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">Aggregation of constraint modules</span>
-            <span class="undefined_element">
-               <span class="undefined_element">The content model of an element can be modified by either of
-              the following element-configuration modules:</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">Constraint module</span>
-                  <span class="undefined_element">Expansion module</span>
-               </span>
-               <span class="undefined_element">
-                  <span class="undefined_element">
-                     <span class="undefined_element">
-                        <span class="undefined_element"></span>
-                     </span>For any document-type shell, the<span class="undefined_element">
-                        <span class="undefined_element"></span>
-                     </span>
+      module have no meaningful order or precedence.</p>
+            </dd>
+         
+         
+            <dt class="dt dlterm">Aggregation of constraint modules</dt>
+            <dd class="dd">
+               <p class="p">The content model of an element can be modified by either of
+              the following element-configuration modules:</p>
+               <ul class="ul">
+                  <li class="li">Constraint module</li>
+                  <li class="li">Expansion module</li>
+               </ul>
+               <p class="p">
+                  <span style="color:red;" class="ph">
+                     For any document-type shell, the
                   </span>
               content model of an element can only be modified by a single
               element-type configuration module. If multiple constraints or
               extensions need to be applied to a single element, the
               element configurations must be combined into a single module
               that reflects all the constraints and expansions that were
-              defined in the original separate modules.</span>
-            </span>
-         </span>
-      </span>
+              defined in the original separate modules.</p>
+            </dd>
+         
+      </dl>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/constraints.html" title="Constraint modules restrict content models or attribute lists for specific element types, remove certain extension elements from an integrated domain module, or replace base element types with domain-provided, extension element types.">Constraints</a></div></div></nav>
 </article></main>

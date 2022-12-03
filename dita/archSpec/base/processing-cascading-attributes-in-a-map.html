@@ -15,92 +15,58 @@ repository: 'oasis-tcs/dita'
    
    <div class="body conbody"><p class="shortdesc">Certain rules apply to processors when they process cascading attributes in a
         map.</p>
-      <span class="undefined_element">When determining the value of an attribute, processors <span class="undefined_element">MUST</span> evaluate each attribute on each
-      individual element in a specific order<span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element"></span>
-            </span>. This<span class="undefined_element">
-               <span class="undefined_element"></span>
-            </span>
+      <p class="p">When determining the value of an attribute, processors <dfn class="term RFC-2119">MUST</dfn> evaluate each attribute on each
+      individual element in a specific order<span style="color:red;" class="ph">
+            . This
          </span>
-      order is specified in the following list. Applications <span class="undefined_element">MUST</span> continue through the list until
+      order is specified in the following list. Applications <dfn class="term RFC-2119">MUST</dfn> continue through the list until
       a value is established or until the end of the list is reached, at
       which point no value is established for the attribute. In essence,
       the list provides instructions on how processors can construct a map
-      where all attribute values are set and all cascading is complete.</span>
-      <span class="undefined_element">For attributes within a map, the following processing order <span class="undefined_element">MUST</span> occur:<span class="undefined_element">
-            <span class="undefined_element">The <span class="undefined_element">conref</span> and <span class="undefined_element">keyref</span>
-                    attributes are evaluated.</span>
-            <span class="undefined_element">The explicit values specified in the document instance are
-                    evaluated. For example, a <span class="undefined_element">topicref</span> element with the
-                        <span class="undefined_element">toc</span> attribute set to "no" will use that value.</span>
-            <span class="undefined_element">The default or fixed attribute values are evaluated. For example, the
-                        <span class="undefined_element">toc</span> attribute on the <span class="undefined_element">reltable</span>
-                    element has a default value of "no".</span>
-            <span class="undefined_element">The default values that are supplied by a controlled values file
-                    are evaluated.</span>
-            <span class="undefined_element">The attributes cascade. </span>
-            <span class="undefined_element">The processing-supplied default values are applied.</span>
-            <span class="undefined_element">After the attributes are resolved within the map, <span class="undefined_element">any values that do not come
-                        from processing-supplied defaults</span> will cascade to referenced maps.
-                        <span class="undefined_element">For example, most processors will supply a default value of
-                            <span class="undefined_element">toc="yes"</span> when no <span class="undefined_element">toc</span> attribute is
+      where all attribute values are set and all cascading is complete.</p>
+      <div class="p">For attributes within a map, the following processing order <dfn class="term RFC-2119">MUST</dfn> occur:<ol class="ol" id="processing-cascading-attributes-in-a-map__ol_6eb4fb9c-b56f-4471-bb2d-b183fef5980c">
+            <li class="li" id="processing-cascading-attributes-in-a-map__common-start">The <code class="keyword markupname xmlatt">@conref</code> and <code class="keyword markupname xmlatt">@keyref</code>
+                    attributes are evaluated.</li>
+            <li class="li" id="processing-cascading-attributes-in-a-map__explicit-values">The explicit values specified in the document instance are
+                    evaluated. For example, a <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element with the
+                        <code class="keyword markupname xmlatt">@toc</code> attribute set to "no" will use that value.</li>
+            <li class="li">The default or fixed attribute values are evaluated. For example, the
+                        <code class="keyword markupname xmlatt">@toc</code> attribute on the <code class="keyword markupname xmlelement">&lt;reltable&gt;</code>
+                    element has a default value of "no".</li>
+            <li class="li" id="processing-cascading-attributes-in-a-map__common-end">The default values that are supplied by a controlled values file
+                    are evaluated.</li>
+            <li class="li" id="processing-cascading-attributes-in-a-map__attributes-cascade">The attributes cascade. </li>
+            <li class="li">The processing-supplied default values are applied.</li>
+            <li class="li">After the attributes are resolved within the map, <em class="ph i">any values that do not come
+                        from processing-supplied defaults</em> will cascade to referenced maps.
+                        <p class="p">For example, most processors will supply a default value of
+                            <code class="ph codeph">toc="yes"</code> when no <code class="keyword markupname xmlatt">@toc</code> attribute is
                         specified. However, a processor-supplied default of
-                            <span class="undefined_element">toc="yes"</span> does not override a value of
-                            <span class="undefined_element">toc="no"</span> that is set on a referenced map. If the
-                            <span class="undefined_element">toc="yes"</span> value is explicitly specified, is given as a
+                            <code class="ph codeph">toc="yes"</code> does not override a value of
+                            <code class="ph codeph">toc="no"</code> that is set on a referenced map. If the
+                            <code class="ph codeph">toc="yes"</code> value is explicitly specified, is given as a
                         default through a DTD, RNG, or controlled values file, or cascades from a
-                        containing element in the map, it will override a <span class="undefined_element">toc="no"</span>
-                        setting on the referenced map. See <span class="undefined_element">Map-to-map cascading behaviors<span class="undefined_element">When a DITA map or <span class="undefined_element">
-                           <span class="undefined_element">
-                              <span class="undefined_element"></span>
-                           </span>map branch<span class="undefined_element">
-                              <span class="undefined_element"></span>
-                           </span>
-                        </span> is     referenced by another DITA map, by default certain rules apply. These     rules pertain to the cascading behaviors of attributes, metadata     elements, and <span class="undefined_element">
-                           <span class="undefined_element">
-                              <span class="undefined_element"></span>
-                           </span>the<span class="undefined_element">
-                              <span class="undefined_element"></span>
-                           </span>
-                        </span> roles <span class="undefined_element">
-                           <span class="undefined_element">
-                              <span class="undefined_element"></span>
-                           </span>that       are<span class="undefined_element">
-                              <span class="undefined_element"></span>
-                           </span>
-                        </span> assigned to content <span class="undefined_element">
-                           <span class="undefined_element">
-                              <span class="undefined_element"></span>
-                           </span>, for<span class="undefined_element">
-                              <span class="undefined_element"></span>
-                           </span>
-                        </span> example,     the role of "Chapter" <span class="undefined_element">
-                           <span class="undefined_element">
-                              <span class="undefined_element"></span>
-                           </span>that is<span class="undefined_element">
-                              <span class="undefined_element"></span>
-                           </span>
-                        </span> assigned by a       <span class="undefined_element">chapter</span> element. Attributes and elements     that cascade within a map generally follow the same rules when     cascading from one map to another map, but there are some exceptions     and additional rules that apply.</span>
-                  </span> for more
-                    details.</span>
-            </span>
-            <span class="undefined_element">Repeat steps <span class="undefined_element">1</span> to
-                        <span class="undefined_element">4</span> for each
-                    referenced map.</span>
-            <span class="undefined_element">The attributes cascade within each referenced map.</span>
-            <span class="undefined_element">The processing-supplied default values are applied within each referenced
-                    map.</span>
-            <span class="undefined_element">Repeat the process for maps referenced within the referenced maps.</span>
-         </span>
-      </span>
-      <span class="undefined_element">For example, in the case of <span class="undefined_element">&lt;topicref toc="yes"&gt;</span>, applications must
-            stop at item <span class="undefined_element">2</span> in the list; a value is specified for <span class="undefined_element">toc</span> in the
-            document instance, so <span class="undefined_element">toc</span> values from containing elements will not
-            cascade to that specific <span class="undefined_element">topicref</span> element. The
-                <span class="undefined_element">toc="yes"</span> setting on that <span class="undefined_element">topicref</span> element
-            will cascade to contained elements, provided those elements reach item <span class="undefined_element">5</span>
-            when evaluating the <span class="undefined_element">toc</span> attribute.</span>
+                        containing element in the map, it will override a <code class="ph codeph">toc="no"</code>
+                        setting on the referenced map. See <a class="xref" href="map-to-map-cascading-of-metadata.html" title="When a DITA map or map branch is referenced by another DITA map, by default certain rules apply. These rules pertain to the cascading behaviors of attributes, metadata elements, and the roles that are assigned to content , for example, the role of &#34;Chapter&#34; that is assigned by a chapter element. Attributes and elements that cascade within a map generally follow the same rules when cascading from one map to another map, but there are some exceptions and additional rules that apply.">Map-to-map cascading behaviors
+                  </a> for more
+                    details.</p>
+            </li>
+            <li class="li">Repeat steps <a class="xref" href="#processing-cascading-attributes-in-a-map__common-start">1</a> to
+                        <a class="xref" href="#processing-cascading-attributes-in-a-map__common-end">4</a> for each
+                    referenced map.</li>
+            <li class="li">The attributes cascade within each referenced map.</li>
+            <li class="li">The processing-supplied default values are applied within each referenced
+                    map.</li>
+            <li class="li">Repeat the process for maps referenced within the referenced maps.</li>
+         </ol>
+      </div>
+      <p class="p">For example, in the case of <code class="ph codeph">&lt;topicref toc="yes"&gt;</code>, applications must
+            stop at item <a class="xref" href="#processing-cascading-attributes-in-a-map__explicit-values">2</a> in the list; a value is specified for <code class="keyword markupname xmlatt">@toc</code> in the
+            document instance, so <code class="keyword markupname xmlatt">@toc</code> values from containing elements will not
+            cascade to that specific <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element. The
+                <code class="ph codeph">toc="yes"</code> setting on that <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element
+            will cascade to contained elements, provided those elements reach item <a class="xref" href="#processing-cascading-attributes-in-a-map__attributes-cascade">5</a>
+            when evaluating the <code class="keyword markupname xmlatt">@toc</code> attribute.</p>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/cascading-in-a-ditamap.html" title="Certain attributes cascade throughout a map, which facilitates attribute and metadata management. When attributes cascade, they apply to the elements that are children of the element where the attributes were specified. Cascading applies to a containment hierarchy, as opposed to a specialization hierarchy .">Cascading of metadata attributes in a DITA map</a></div></div></nav>
 </article></main>

@@ -18,125 +18,89 @@ repository: 'oasis-tcs/dita'
     the self-integrating aspect of domain specialization modules, RELAX NG
     grammar files, and the two RNG syntaxes
    </p>
-      <span class="undefined_element">
-         <span class="undefined_element">Self-integration of RELAX NG <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>domain
-          modules<span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>
+      <section class="section"><h2 class="title sectiontitle">Self-integration of RELAX NG <span style="color:red;" class="ph">
+               domain
+          modules
             </span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>Domain modules coded in RELAX NG<span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>
+         </h2>
+         
+         <p class="p">
+            <span style="color:red;" class="ph">
+               Domain modules coded in RELAX NG
             </span> are
         self-integrating; they automatically add to the content models and
         attribute lists that they extend. This aspect of RELAX NG results
-        in the following coding practices:</span>
-         <span class="undefined_element">
-            <span class="undefined_element">Each <span class="undefined_element">
-                  <span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>domain<span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>
+        in the following coding practices:</p>
+         <ul class="ul">
+            <li class="li">Each <span style="color:red;" class="ph">
+                  domain
                </span> module consists of a single
-          file, unlike the two required for DTDs.</span>
-            <span class="undefined_element">The domain modules directly extend elements, unlike DTDs, which
+          file, unlike the two required for DTDs.</li>
+            <li class="li">The domain modules directly extend elements, unlike DTDs, which
           rely on an extra file and extensions within the document-type
-          shell.</span>
-            <span class="undefined_element">Element-configuration modules (constraint and
+          shell.</li>
+            <li class="li">Element-configuration modules (constraint and
           expansion) directly include the modules that they extend, which
           means that just by referencing an element-configuration module,
           the document-type shell gets everything it needs to redefine a
-          vocabulary module.</span>
-         </span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element"></span>
-            </span>General RELAX NG information<span class="undefined_element">
-               <span class="undefined_element"></span>
-            </span>
-         </span>
-         <span class="undefined_element">RELAX NG grammars for DITA document-type shells, vocabulary
-        modules, and <span class="undefined_element">element-configuration modules
+          vocabulary module.</li>
+         </ul>
+      </section>
+      <section class="section"><h2 class="title sectiontitle" style="color:red;">
+            General RELAX NG information
+         </h2>
+         
+         <div class="p">RELAX NG grammars for DITA document-type shells, vocabulary
+        modules, and <span class="ph">element-configuration modules
           (constraint and expansion) </span>
-            <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>can<span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>
-            </span> do the following:<span class="undefined_element">
-               <span class="undefined_element">Use the <span class="undefined_element">a:documentation</span> element
+            <span style="color:red;" class="ph">
+               can
+            </span> do the following:<ul class="ul">
+               <li class="li">Use the <code class="keyword markupname xmlelement">&lt;a:documentation&gt;</code> element
             anywhere that foreign elements are allowed by RELAX NG. The
-              <span class="undefined_element">a:documentation</span> element refers to
-            the <span class="undefined_element">documentation</span> element type from
+              <code class="keyword markupname xmlelement">&lt;a:documentation&gt;</code> element refers to
+            the <code class="keyword markupname xmlelement">&lt;documentation&gt;</code> element type from
             the
-              <span class="undefined_element">http://relaxng.org/ns/compatibility/annotations/1.0</span>
+              <code class="keyword markupname xmlnsname">http://relaxng.org/ns/compatibility/annotations/1.0</code>
             as defined by the DTD compatibility specification. The prefix
-            "a" is used by convention.</span>
-               <span class="undefined_element">Use <span class="undefined_element">div</span> to group pattern
-            declarations.</span>
-               <span class="undefined_element">Include embedded Schematron rules or any other foreign
+            "a" is used by convention.</li>
+               <li class="li">Use <code class="keyword markupname xmlelement">&lt;div&gt;</code> to group pattern
+            declarations.</li>
+               <li class="li">Include embedded Schematron rules or any other foreign
             vocabulary. Processors can ignore any foreign vocabularies
             within DITA grammars that are not in the
-              <span class="undefined_element">http://relaxng.org/ns/compatibility/annotations/1.0</span>
+              <code class="keyword markupname xmlnsname">http://relaxng.org/ns/compatibility/annotations/1.0</code>
             or
-              <span class="undefined_element">http://dita.oasis-open.org/architecture/2005/</span>
-            namespaces.</span>
-            </span>
-         </span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>Syntaxes<span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>
-            </span> for RELAX NG grammars</span>
-         <span class="undefined_element">The RELAX NG specification defines two syntaxes for RELAX NG grammars: the XML syntax and the
+              <code class="keyword markupname xmlnsname">http://dita.oasis-open.org/architecture/2005/</code>
+            namespaces.</li>
+            </ul>
+         </div>
+      </section>
+      <section class="section" id="rng-requirements-overview__complex-vs-xml-syntax"><h2 class="title sectiontitle">
+            <span style="color:red;" class="ph">
+               Syntaxes
+            </span> for RELAX NG grammars</h2>
+         
+         <p class="p">The RELAX NG specification defines two syntaxes for RELAX NG grammars: the XML syntax and the
     compact syntax. The two syntaxes are functionally equivalent, and either syntax can be reliably
-    converted into the other by using, for example, the open-source Trang tool. </span>
-         <span class="undefined_element">The DITA coding requirements are defined for the RELAX NG XML
-        syntax. <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>Document-type<span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>
+    converted into the other by using, for example, the open-source Trang tool. </p>
+         <p class="p">The DITA coding requirements are defined for the RELAX NG XML
+        syntax. <span style="color:red;" class="ph">
+               Document-type
             </span> shells, vocabulary
-        modules, and <span class="undefined_element">element-configuration modules
+        modules, and <span class="ph">element-configuration modules
           (constraints and expansion)</span> that use the RELAX NG compact
-        syntax can use the same <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>organizational
-          structures<span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>
-            </span> as those defined for the RELAX NG XML syntax. </span>
-         <span class="undefined_element">DITA practitioners can author DITA modules using one RELAX NG syntax,
+        syntax can use the same <span style="color:red;" class="ph">
+               organizational
+          structures
+            </span> as those defined for the RELAX NG XML syntax. </p>
+         <p class="p">DITA practitioners can author DITA modules using one RELAX NG syntax,
         and then use tools to generate modules in the other syntax. The
-        resulting RELAX NG modules are <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>equivalent<span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>
+        resulting RELAX NG modules are <span style="color:red;" class="ph">
+               equivalent
             </span>
-        if there is a one-to-one file correspondence. </span>
-      </span>
+        if there is a one-to-one file correspondence. </p>
+      </section>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/relax-ng-requirements.html" title="This section explains how to implement RNG-based document-type shells, specializations, and element-configuration modules (constraints and expansions).">RELAX NG coding requirements</a></div></div></nav>
 </article></main>

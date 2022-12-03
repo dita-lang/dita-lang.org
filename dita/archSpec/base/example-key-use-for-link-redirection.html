@@ -19,50 +19,50 @@ repository: 'oasis-tcs/dita'
         <code class="keyword markupname xmlelement">&lt;keyword&gt;</code> or <code class="keyword markupname xmlelement">&lt;term&gt;</code>) that become navigation
       links.</span>
    </p>
-      <span class="undefined_element">A company wants to use a common DITA topic for information about recycling:
-    <span class="undefined_element">recycling.dita</span>. However, the topic contains a cross-reference to a topic
+      <p class="p">A company wants to use a common DITA topic for information about recycling:
+    <span class="ph filepath">recycling.dita</span>. However, the topic contains a cross-reference to a topic
    that needs to be unique for each product line; each such topic contains product-specific
-   URLs.</span>
-      <span class="undefined_element">
-         <span class="undefined_element">
-            <span class="undefined_element">The editing team creates a <span class="undefined_element">recycling.dita</span> topic that includes a
+   URLs.</p>
+      <ol class="ol">
+         <li class="li">
+            <p class="p">The editing team creates a <span class="ph filepath">recycling.dita</span> topic that includes a
      cross-reference to the product-specific topic. The cross reference is implemented using a key
-     reference:</span>
-            <span class="undefined_element">&lt;xref keyref="product-recycling-info" href="generic-recycling-info.dita"/&gt;</span>
-            <span class="undefined_element">The value of the <span class="undefined_element">href</span> attribute provides a fallback in the event that a
-     product team forgets to include a key definition for "product-recycling-info".</span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">Each product documentation group creates a unique key definition for
-     "product-recycling-info". Each group authors the key definition in a DITA map, for example:</span>
-            <span class="undefined_element">&lt;map&gt;
+     reference:</p>
+            <pre class="pre codeblock"><code>&lt;xref keyref="product-recycling-info" href="generic-recycling-info.dita"/&gt;</code></pre>
+            <p class="p">The value of the <code class="keyword markupname xmlatt">@href</code> attribute provides a fallback in the event that a
+     product team forgets to include a key definition for "product-recycling-info".</p>
+         </li>
+         <li class="li">
+            <p class="p">Each product documentation group creates a unique key definition for
+     "product-recycling-info". Each group authors the key definition in a DITA map, for example:</p>
+            <pre class="pre codeblock"><code>&lt;map&gt;
   &lt;!-- ... --&gt;
   &lt;keydef keys="product-recycling-info" href="acme-server-recycling.dita"/&gt;
   &lt;!-- ... --&gt;
-&lt;/map&gt;</span>
-            <span class="undefined_element">Each team can use the <span class="undefined_element">recycling.dita</span> topic, and the cross reference in
-     the topic resolves differently for each team.</span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">A year later, there is an acquisition. The newly-acquired team wants to reuse Acme's common
+&lt;/map&gt;</code></pre>
+            <p class="p">Each team can use the <span class="ph filepath">recycling.dita</span> topic, and the cross reference in
+     the topic resolves differently for each team.</p>
+         </li>
+         <li class="li">
+            <p class="p">A year later, there is an acquisition. The newly-acquired team wants to reuse Acme's common
      material, but it needs to direct its users to an external Web site that lists the URLs, rather
-     than a topic in the product documentation. Their key definition looks like the following:</span>
-            <span class="undefined_element">&lt;topicref  keys="product-recycling-info" 
+     than a topic in the product documentation. Their key definition looks like the following:</p>
+            <pre class="pre codeblock"><code>&lt;topicref  keys="product-recycling-info" 
                   href="http://acme.example.com/server/recycling" 
                   scope="external" format="html"/&gt;
- </span>
-            <span class="undefined_element">When newly-acquired team uses the <span class="undefined_element">recycling.dita</span> topic, it resolves to
+ </code></pre>
+            <p class="p">When newly-acquired team uses the <span class="ph filepath">recycling.dita</span> topic, it resolves to
      the external Web site; however for all other teams, the cross reference in the topic continues
-     to resolves to their product-specific topic.</span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">A new product team is formed, and the team forgets to include a key definition for
+     to resolves to their product-specific topic.</p>
+         </li>
+         <li class="li">
+            <p class="p">A new product team is formed, and the team forgets to include a key definition for
      "product-recycling-info" in one of their root maps. Because the cross reference in the
-      <span class="undefined_element">recycling.dita</span> topic contains a value for the <span class="undefined_element">href</span>
-     attribute, the link falls back to <span class="undefined_element">generic-recycling-info.dita</span>, thus
-     avoiding a broken cross reference in the output.</span>
-         </span>
-      </span>
+      <span class="ph filepath">recycling.dita</span> topic contains a value for the <code class="keyword markupname xmlatt">@href</code>
+     attribute, the link falls back to <span class="ph filepath">generic-recycling-info.dita</span>, thus
+     avoiding a broken cross reference in the output.</p>
+         </li>
+      </ol>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/examples-of-keys.html" title="This section of the specification contains examples and scenarios. They illustrate a wide variety of ways that keys can be used.">Examples of keys</a></div></div></nav>
 </article></main>

@@ -15,14 +15,14 @@ repository: 'oasis-tcs/dita'
    
    <div class="body conbody"><p class="shortdesc">In this scenario, a single <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element is used to
     supply filtering conditions for a branch.</p>
-      <span class="undefined_element">
-         <span class="undefined_element">Consider the following DITA map and the DITAVAL document that is referenced from the
-          <span class="undefined_element">ditavalref</span> element:</span>
-         <span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element">input.ditamap:</span>
-            </span>
-            <span class="undefined_element">
+      <div class="example" id="example-single-ditavalref__ditaval-specific-to-branch">
+         <p class="p">Consider the following DITA map and the DITAVAL document that is referenced from the
+          <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element:</p>
+         <figure class="fig fignone" id="example-single-ditavalref__fig_bcv_nhj_ln"><figcaption><span class="fig--title-label">Figure 1. </span>
+               <span class="ph filepath">input.ditamap:</span>
+            </figcaption>
+            
+            <pre class="pre codeblock"><code>
 &lt;map&gt;
   &lt;topicref href="intro.dita"/&gt;
   &lt;topicref href="install.dita"&gt;
@@ -33,37 +33,37 @@ repository: 'oasis-tcs/dita'
   &lt;/topicref&gt;
   &lt;!-- Several chapters worth of other material --&gt;
 &lt;/map&gt;
-</span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">Contents of <span class="undefined_element">novice.ditaval</span>
-            </span>
-            <span class="undefined_element">&lt;val&gt;
+</code></pre>
+         </figure>
+         <figure class="fig fignone" id="example-single-ditavalref__fig_b3v_nhj_ln"><figcaption><span class="fig--title-label">Figure 2. </span>Contents of <span class="ph filepath">novice.ditaval</span>
+            </figcaption>
+            
+            <pre class="pre codeblock"><code>&lt;val&gt;
   &lt;prop att="audience" val="novice" action="include"/&gt;
   &lt;prop att="audience" val="admin" action="exclude"/&gt;
-&lt;/val&gt;</span>
-         </span>
-         <span class="undefined_element">When this content is published, the following processing occurs:</span>
-         <span class="undefined_element">
-            <span class="undefined_element">The first topic (<span class="undefined_element">intro.dita</span>) does not use any of the conditions
-          that are specified in <span class="undefined_element">novice.ditaval</span>. It is published normally,
-          potentially using other DITAVAL conditions that are specified externally.</span>
-            <span class="undefined_element">The second topic (<span class="undefined_element">install.dita</span>) is filtered using any external
+&lt;/val&gt;</code></pre>
+         </figure>
+         <p class="p">When this content is published, the following processing occurs:</p>
+         <ul class="ul">
+            <li class="li">The first topic (<span class="ph filepath">intro.dita</span>) does not use any of the conditions
+          that are specified in <span class="ph filepath">novice.ditaval</span>. It is published normally,
+          potentially using other DITAVAL conditions that are specified externally.</li>
+            <li class="li">The second topic (<span class="ph filepath">install.dita</span>) is filtered using any external
           conditions as well as the conditions that are specified in
-            <span class="undefined_element">novice.ditaval</span>.</span>
-            <span class="undefined_element">The third topic (<span class="undefined_element">do-stuff.dita</span>) is filtered using any external
+            <span class="ph filepath">novice.ditaval</span>.</li>
+            <li class="li">The third topic (<span class="ph filepath">do-stuff.dita</span>) is filtered using any external
           conditions as well as the conditions that are specified in
-            <span class="undefined_element">novice.ditaval</span>.</span>
-            <span class="undefined_element">The fourth topic (<span class="undefined_element">advanced-stuff.dita</span>) is removed from the map
+            <span class="ph filepath">novice.ditaval</span>.</li>
+            <li class="li">The fourth topic (<span class="ph filepath">advanced-stuff.dita</span>) is removed from the map
           entirely, because it is filtered out with the conditions that are specified for the
-          branch.</span>
-         </span>
-         <span class="undefined_element">In this example, no resources are renamed based on the
-          <span class="undefined_element">ditavalref</span> processing.</span>
-         <span class="undefined_element">In cases where the original resource names map directly to names or anchors in a
+          branch.</li>
+         </ul>
+         <p class="p">In this example, no resources are renamed based on the
+          <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> processing.</p>
+         <div class="note note note_note"><span class="note__title">Note:</span> In cases where the original resource names map directly to names or anchors in a
         deliverable, the absence of renaming ensures that external links to those topics are stable
-        regardless of whether a DITAVAL document is used.</span>
-      </span>
+        regardless of whether a DITAVAL document is used.</div>
+      </div>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/examples-of-branch-filter.html" title="The branch filtering examples illustrate the processing expectations for various scenarios that involve ditavalref elements. Processing examples use either before and after sample markup or expanded syntax that shows the equivalent markup without the ditavalref elements.">Examples of branch filtering</a></div></div></nav>
 </article></main>

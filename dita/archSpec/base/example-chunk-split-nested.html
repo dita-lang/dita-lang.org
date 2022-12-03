@@ -21,10 +21,10 @@ repository: 'oasis-tcs/dita'
          documents that
       contain
       </span> nested topics.</p>
-      <span class="undefined_element">
-         <span class="undefined_element">Source DITA map with chunking specified</span>
-         <span class="undefined_element">Consider the following DITA map:</span>
-         <span class="undefined_element">&lt;map <span class="undefined_element">chunk="split"</span>&gt;
+      <figure class="fig fignone" id="concept_nl2_m4j_1gb__fig_ol2_m4j_1gb"><figcaption><span class="fig--title-label">Figure 1. </span>Source DITA map with chunking specified</figcaption>
+         
+         <p class="p">Consider the following DITA map:</p>
+         <pre class="pre codeblock"><code>&lt;map <strong class="ph b">chunk="split"</strong>&gt;
   &lt;title&gt;Generation example&lt;/title&gt;
   &lt;topicref href="ancestor.dita"&gt;
     &lt;topicref href="middle.dita"&gt;
@@ -32,19 +32,18 @@ repository: 'oasis-tcs/dita'
     &lt;/topicref&gt;
   &lt;/topicref&gt;
 &lt;/map&gt;
-</span>
-         <span class="undefined_element">Here, the <span class="undefined_element">chunk</span> attribute instructs a processor
+</code></pre>
+         <p class="p">Here, the <code class="keyword markupname xmlatt">@chunk</code> attribute instructs a processor
         to render every topic in each of the three documents as its own
-        document, while preserving any hierarchy from those documents.</span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Source topic documents with nested or peer topics</span>
-         <span class="undefined_element">Now consider the following three topic documents, each of which
-        includes nested or peer topics:</span>
-         <span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element">&lt;!-- ancestor.dita --&gt;</span>
+        document, while preserving any hierarchy from those documents.</p>
+      </figure>
+      <figure class="fig fignone" id="concept_nl2_m4j_1gb__fig_pl2_m4j_1gb"><figcaption><span class="fig--title-label">Figure 2. </span>Source topic documents with nested or peer topics</figcaption>
+         
+         <p class="p">Now consider the following three topic documents, each of which
+        includes nested or peer topics:</p>
+         <div class="p">
+            <figure class="fig fignone">
+               <pre class="pre codeblock"><code><strong class="ph b">&lt;!-- ancestor.dita --&gt;</strong>
 &lt;dita&gt;
   &lt;topic id="ancestor-first"&gt;
     &lt;title&gt;First major topic in ancestor composite document&lt;/title&gt;
@@ -59,10 +58,9 @@ repository: 'oasis-tcs/dita'
       &lt;!-- ... Topic content ... --&gt;
     &lt;/topic&gt;
   &lt;/topic&gt;
-&lt;/dita&gt;</span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">&lt;!-- middle.dita --&gt;</span>
+&lt;/dita&gt;</code></pre>
+            </figure>
+            <pre class="pre codeblock"><code><strong class="ph b">&lt;!-- middle.dita --&gt;</strong>
 &lt;topic id="middle-root"&gt;
   &lt;title&gt;Root topic in middle document&lt;/title&gt;
   &lt;body&gt;
@@ -72,53 +70,48 @@ repository: 'oasis-tcs/dita'
     &lt;title&gt;Child of root topic in middle document&lt;/title&gt;
     &lt;!-- ... Body content, maybe more children topics ... --&gt;
   &lt;/topic&gt;
-&lt;/topic&gt;</span>
-            <span class="undefined_element">
-               <span class="undefined_element">&lt;!-- child.dita --&gt;</span>
+&lt;/topic&gt;</code></pre>
+            <pre class="pre codeblock"><code><strong class="ph b">&lt;!-- child.dita --&gt;</strong>
 &lt;topic id="child"&gt;
   &lt;title&gt;Small child topic&lt;/title&gt;
   &lt;!-- ... Topic content ... --&gt;
-&lt;/topic&gt;</span>
-         </span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Evaluating <span class="undefined_element">chunk="split"</span>
-         </span>
-         <span class="undefined_element">When <span class="undefined_element">chunk="split"</span> is evaluated, both
-          <span class="undefined_element">ancestor.dita</span> and
-          <span class="undefined_element">middle.dita</span> are split and treated as
-        multiple topic documents. <span class="undefined_element">child.dita</span> is only a
-        single topic and has nothing to split.</span>
-         <span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element"></span>
-            </span>The following list addresses how the split
-        operation effects the map hierarchy:<span class="undefined_element">
-               <span class="undefined_element"></span>
-            </span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element">ancestor.dita</span> has a root
-            <span class="undefined_element">dita</span> element, so it results in
+&lt;/topic&gt;</code></pre>
+         </div>
+      </figure>
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 3. </span>Evaluating <code class="ph codeph">chunk="split"</code>
+         </figcaption>
+         
+         <p class="p">When <code class="ph codeph">chunk="split"</code> is evaluated, both
+          <span class="ph filepath">ancestor.dita</span> and
+          <span class="ph filepath">middle.dita</span> are split and treated as
+        multiple topic documents. <span class="ph filepath">child.dita</span> is only a
+        single topic and has nothing to split.</p>
+         <p style="color:red;" class="p">
+            The following list addresses how the split
+        operation effects the map hierarchy:
+         </p>
+         <ul class="ul" id="concept_nl2_m4j_1gb__ul_n3y_wng_thb">
+            <li class="li">
+               <span class="ph filepath">ancestor.dita</span> has a root
+            <code class="keyword markupname xmlelement">&lt;dita&gt;</code> element, so it results in
           multiple peer topic references (or branches) in the map. Topic
           references that were nested within the original reference to
-            <span class="undefined_element">ancestor.dita</span> are now located within the
+            <span class="ph filepath">ancestor.dita</span> are now located within the
           reference to "ancestor-last" (the last topic child of the
-            <span class="undefined_element">dita</span> element).</span>
-            <span class="undefined_element">
-               <span class="undefined_element">middle.dita</span> has nested topics, so it
+            <code class="keyword markupname xmlelement">&lt;dita&gt;</code> element).</li>
+            <li class="li">
+               <span class="ph filepath">middle.dita</span> has nested topics, so it
           results in its own new hierarchy within the map. Content from the
           nested topic reference is now located within the reference to the
-          root topic from <span class="undefined_element">middle.dita</span>, but after any
-          references to child topics.</span>
-         </span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Equivalent content of source documents after evaluation</span>
-         <span class="undefined_element">The result of evaluating the <span class="undefined_element">chunk</span> attribute is
-        equivalent to the following DITA map:</span>
-         <span class="undefined_element">&lt;map chunk="split"&gt;
+          root topic from <span class="ph filepath">middle.dita</span>, but after any
+          references to child topics.</li>
+         </ul>
+      </figure>
+      <figure class="fig fignone" id="concept_nl2_m4j_1gb__fig_ql2_m4j_1gb"><figcaption><span class="fig--title-label">Figure 4. </span>Equivalent content of source documents after evaluation</figcaption>
+         
+         <p class="p">The result of evaluating the <code class="keyword markupname xmlatt">@chunk</code> attribute is
+        equivalent to the following DITA map:</p>
+         <pre class="pre codeblock"><code>&lt;map chunk="split"&gt;
   &lt;title&gt;Generation example&lt;/title&gt;
   &lt;topicref href="ancestor-first.dita"/&gt;
   &lt;!-- More topics in ancestor composite document --&gt;
@@ -134,8 +127,8 @@ repository: 'oasis-tcs/dita'
     &lt;/topicref&gt;
   &lt;/topicref&gt;
 &lt;/map&gt;
-</span>
-      </span>
+</code></pre>
+      </figure>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/examples-of-chunking.html" title="These examples illustrate the processing expectations for various scenarios that involve the chunk attribute. The processing examples use either before and after sample markup or expanded syntax that shows the equivalent markup without the chunk attribute.">Examples of the chunk attribute</a></div></div></nav>
 </article></main>

@@ -20,23 +20,23 @@ repository: 'oasis-tcs/dita'
     specialized from <code class="keyword markupname xmlelement">&lt;p&gt;</code>; the
       <code class="keyword markupname xmlelement">&lt;sectionDesc&gt;</code> can occur once and must be
     directly after the section title.</p>
-      <span class="undefined_element">
-         <span class="undefined_element">To accomplish this, the DITA architect needs to create the
+      <div class="example">
+         <p class="p">To accomplish this, the DITA architect needs to create the
         following modules and integrate them into the document-type
-        shells:</span>
-         <span class="undefined_element">
-            <span class="undefined_element">An element domain module that defines the
-            <span class="undefined_element">sectionDesc</span> element</span>
-            <span class="undefined_element">An expansion module that adds the
-            <span class="undefined_element">sectionDesc</span> element to the content
-          model for <span class="undefined_element">section</span>
-            </span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">First, the DITA architect creates the element domain module:
-            <span class="undefined_element">sectionDescDomain.rng</span>. It contains the
+        shells:</p>
+         <ul class="ul">
+            <li class="li">An element domain module that defines the
+            <code class="keyword markupname xmlelement">&lt;sectionDesc&gt;</code> element</li>
+            <li class="li">An expansion module that adds the
+            <code class="keyword markupname xmlelement">&lt;sectionDesc&gt;</code> element to the content
+          model for <code class="keyword markupname xmlelement">&lt;section&gt;</code>
+            </li>
+         </ul>
+         <ol class="ol">
+            <li class="li">First, the DITA architect creates the element domain module:
+            <span class="ph filepath">sectionDescDomain.rng</span>. It contains the
           following
-          code:<span class="undefined_element">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+          code:<pre class="pre codeblock"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;?xml-model href="urn:pubid:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng"
                          schematypens="http://relaxng.org/ns/structure/1.0"?&gt;
 &lt;grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
@@ -83,29 +83,29 @@ repository: 'oasis-tcs/dita'
       &lt;/optional&gt;
     &lt;/define&gt;
   &lt;/div&gt;
-&lt;/grammar&gt;</span>
-            </span>
-            <span class="undefined_element">The DITA architect adds the element domain module to the
-            <span class="undefined_element">catalog.xml</span> file.</span>
-            <span class="undefined_element">
-               <span class="undefined_element">Next, the DITA architect modifies the document-type shell (in
+&lt;/grammar&gt;</code></pre>
+            </li>
+            <li class="li">The DITA architect adds the element domain module to the
+            <span class="ph filepath">catalog.xml</span> file.</li>
+            <li class="li">
+               <p class="p">Next, the DITA architect modifies the document-type shell (in
             this example, the one for topic) to integrate the element
-            domain module:</span>
-               <span class="undefined_element">  &lt;div&gt;
+            domain module:</p>
+               <pre class="pre codeblock"><code>  &lt;div&gt;
     &lt;a:documentation&gt;MODULE INCLUSIONS&lt;/a:documentation&gt;
     ...
-    <span class="undefined_element">&lt;include href="urn:pubid:example:names:tc:dita:rng:sectionDescDomain.rng:2.0"/&gt;</span>
-  &lt;/div&gt;</span>
-               <span class="undefined_element">At this point, the new domain is integrated into the
+    <strong class="ph b">&lt;include href="urn:pubid:example:names:tc:dita:rng:sectionDescDomain.rng:2.0"/&gt;</strong>
+  &lt;/div&gt;</code></pre>
+               <p class="p">At this point, the new domain is integrated into the
             document-type shell. However, the new element is not added to
-            the content model for <span class="undefined_element">section</span>.</span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">Next, the DITA architect created an expansion module
-              (<span class="undefined_element">sectionExpansionMod.rng</span>) that adds the
-              <span class="undefined_element">sectionDesc</span> element to the content
-            model of <span class="undefined_element">section</span>:</span>
-               <span class="undefined_element">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+            the content model for <code class="keyword markupname xmlelement">&lt;section&gt;</code>.</p>
+            </li>
+            <li class="li">
+               <p class="p">Next, the DITA architect created an expansion module
+              (<span class="ph filepath">sectionExpansionMod.rng</span>) that adds the
+              <code class="keyword markupname xmlelement">&lt;sectionDesc&gt;</code> element to the content
+            model of <code class="keyword markupname xmlelement">&lt;section&gt;</code>:</p>
+               <pre class="pre codeblock"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;?xml-model href="urn:pubid:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng"
                          schematypens="http://relaxng.org/ns/structure/1.0"?&gt;
 &lt;grammar xmlns="http://relaxng.org/ns/structure/1.0"
@@ -132,33 +132,33 @@ repository: 'oasis-tcs/dita'
     &lt;/include&gt;
   &lt;/div&gt;
 &lt;/grammar&gt;
-</span>
-               <span class="undefined_element">Note that the expansion module directly integrates
-              <span class="undefined_element">topicMod.rng</span>.</span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">Finally, the DITA architect integrates the expansion module
+</code></pre>
+               <p class="p">Note that the expansion module directly integrates
+              <span class="ph filepath">topicMod.rng</span>.</p>
+            </li>
+            <li class="li">
+               <p class="p">Finally, the DITA architect integrates the expansion module
             into the document-type shell and removes the inclusion
-            statement for <span class="undefined_element">topicMod.rng</span>:</span>
-               <span class="undefined_element">  &lt;div&gt;
+            statement for <span class="ph filepath">topicMod.rng</span>:</p>
+               <pre class="pre codeblock"><code>  &lt;div&gt;
     &lt;a:documentation&gt;ELEMENT-TYPE CONFIGURATION INTEGRATION&lt;/a:documentation&gt;
-    <span class="undefined_element">&lt;include href="sectionExpansionMod.rng"/&gt;</span>
+    <strong class="ph b">&lt;include href="sectionExpansionMod.rng"/&gt;</strong>
   &lt;/div&gt;
   &lt;div&gt;
     &lt;a:documentation&gt;MODULE INCLUSIONS&lt;/a:documentation&gt;
-    <span class="undefined_element">&lt;include href="urn:pubid:oasis:names:tc:dita:rng:topicMod.rng:2.0"&gt;
+    <span class="ph line-through">&lt;include href="urn:pubid:oasis:names:tc:dita:rng:topicMod.rng:2.0"&gt;
       &lt;define name="topic-info-types"&gt;
         &lt;ref name="topic.element"/&gt;
       &lt;/define&gt;
     &lt;/include&gt;</span>
     ... 
     &lt;include href="urn:pubid:example:names:tc:dita:rng:sectionDescDomain.rng:2.0"/&gt;
-  &lt;/div&gt;</span>
-            </span>
-            <span class="undefined_element">After updating the <span class="undefined_element">catalog.xml</span> file to
-          include the expansion module and testing, the work is done.</span>
-         </span>
-      </span>
+  &lt;/div&gt;</code></pre>
+            </li>
+            <li class="li">After updating the <span class="ph filepath">catalog.xml</span> file to
+          include the expansion module and testing, the work is done.</li>
+         </ol>
+      </div>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/examples-expansion-implemented-using-rng.html" title="This section of the specification contains examples of extension modules implemented using RNG.">Examples: Expansion implemented using RNG</a></div></div></nav>
 </article></main>

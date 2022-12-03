@@ -19,154 +19,132 @@ repository: 'oasis-tcs/dita'
       can be  
       </span> another DITA topic or map, an element inside a DITA
     topic or map, or a non-DITA resource.</p>
-      <span class="undefined_element">The value of the <span class="undefined_element">href</span> attribute <span class="undefined_element">MUST</span> be a valid URI reference [<span class="undefined_element">RFC 3986</span>]. <span class="ph error-statement"></span>If the value of the
-        <span class="undefined_element">href</span> attribute is not a valid URI reference, an
-      implementation <span class="undefined_element">MAY</span> generate an
-      error message. <span class="ph error-statement"></span>It <span class="undefined_element">MAY</span> also
+      <p class="p">The value of the <code class="keyword markupname xmlatt">@href</code> attribute <dfn class="term RFC-2119">MUST</dfn> be a valid URI reference [<a class="xref" href="http://www.ietf.org/rfc/rfc3986.txt" target="_blank" rel="external noopener">RFC 3986</a>]. <span class="ph error-statement"></span>If the value of the
+        <code class="keyword markupname xmlatt">@href</code> attribute is not a valid URI reference, an
+      implementation <dfn class="term RFC-2119">MAY</dfn> generate an
+      error message. <span class="ph error-statement"></span>It <dfn class="term RFC-2119">MAY</dfn> also
       recover from this error condition by attempting to convert the value
-      to a valid URI reference. </span>
-      <span class="undefined_element">The value of the <span class="undefined_element">href</span>
-         <span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element"></span>
-            </span>attribute<span class="undefined_element">
-               <span class="undefined_element"></span>
-            </span>
+      to a valid URI reference. </p>
+      <p class="p">The value of the <code class="keyword markupname xmlatt">@href</code>
+         <span style="color:red;" class="ph">
+            attribute
          </span> can optionally contain a fragment
-      identifier.</span>
-      <span class="undefined_element">When an <span class="undefined_element">href</span> attribute references a DITA resource
+      identifier.</p>
+      <p class="p">When an <code class="keyword markupname xmlatt">@href</code> attribute references a DITA resource
       using a URI without a fragment identifier, the URI resolves to the
       root element in the referenced document. For the purposes of
       rendering, such as when a topic reference to a DITA document is used
-      to render the content as HTML, this means that <span class="undefined_element">all</span> topics in
+      to render the content as HTML, this means that <strong class="ph b">all</strong> topics in
       the target document are included in the reference. For the purpose of
-      linking, the reference resolves to the first topic in the document. </span>
-      <span class="undefined_element">When an <span class="undefined_element">href</span> attribute references a DITA resource
+      linking, the reference resolves to the first topic in the document. </p>
+      <p class="p">When an <code class="keyword markupname xmlatt">@href</code> attribute references a DITA resource
       using a URI with a fragment identifier, the portion after the hash
       must be a DITA local identifier. A DITA local identifier takes the
-      following forms:</span>
-      <span class="undefined_element">
-         <span class="undefined_element">
-            <span class="undefined_element">Target</span>
-            <span class="undefined_element">Syntax</span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">Topic element</span>
-            <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element">topicID</span>
-               </span>
-            </span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">Element in a topic</span>
-            <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element">topicID</span>/<span class="undefined_element">elementID</span>
-               </span>
-            </span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">Element in a map</span>
-            <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element">mapElementID</span>
-               </span>
-            </span>
-         </span>
-      </span>
-      <span class="undefined_element">Where:</span>
-      <span class="undefined_element">
-         <span class="undefined_element">
-            <span class="undefined_element">topicID</span> is the value of the
-          <span class="undefined_element">id</span> attribute of the DITA topic. If the topic
+      following forms:</p>
+      <table class="simpletable"><colgroup><col style="width:50%"><col style="width:50%"></colgroup><thead><tr class="sthead">
+            <th class="stentry" scope="col" id="thehrefattribute__stentry__1">Target</th>
+            <th class="stentry" scope="col" id="thehrefattribute__stentry__2">Syntax</th>
+         </tr></thead><tbody><tr class="strow">
+            <td class="stentry" headers="thehrefattribute__stentry__1">Topic element</td>
+            <td class="stentry" headers="thehrefattribute__stentry__2">
+               <code class="ph codeph">
+                  <var class="keyword varname">topicID</var>
+               </code>
+            </td>
+         </tr><tr class="strow">
+            <td class="stentry" headers="thehrefattribute__stentry__1">Element in a topic</td>
+            <td class="stentry" headers="thehrefattribute__stentry__2">
+               <code class="ph codeph">
+                  <var class="keyword varname">topicID</var>/<var class="keyword varname">elementID</var>
+               </code>
+            </td>
+         </tr><tr class="strow">
+            <td class="stentry" headers="thehrefattribute__stentry__1">Element in a map</td>
+            <td class="stentry" headers="thehrefattribute__stentry__2">
+               <code class="ph codeph">
+                  <var class="keyword varname">mapElementID</var>
+               </code>
+            </td>
+         </tr></tbody></table>
+      <p class="p">Where:</p>
+      <ul class="ul">
+         <li class="li">
+            <var class="keyword varname">topicID</var> is the value of the
+          <code class="keyword markupname xmlatt">@id</code> attribute of the DITA topic. If the topic
         referenced by a DITA local identifier is the same topic that
-        includes the reference, then <span class="undefined_element">topicID</span> can be
-        replaced by a period.</span>
-         <span class="undefined_element">
-            <span class="undefined_element">elementID</span> is the value of the
-          <span class="undefined_element">id</span> attribute of the <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>non-topic<span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>
-            </span> element within a DITA topic.</span>
-         <span class="undefined_element">
-            <span class="undefined_element">mapElementID</span> is the value of the
-          <span class="undefined_element">id</span> attribute of the element within a DITA map
-        document.</span>
-      </span>
-      <span class="undefined_element">See <span class="undefined_element">Processing xrefs and conrefs within a conref<span class="undefined_element">When referenced content contains a content reference or cross reference, the effective     target of the reference depends on the form of address that is used in the referenced content.     It also might depend on the map context, especially when key scopes are present.</span>
-         </span> for
-      more information on how this syntax relates to conref resolution.</span>
-      <span class="undefined_element">
-         <span class="undefined_element">Example: Common syntax for the <span class="undefined_element">href</span> attribute</span>
-         <span class="undefined_element">The following table includes some examples of common <span class="undefined_element">href</span> syntax. Note that
-    these examples represent only a few common scenarios and are not all-inclusive.</span>
-         <span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element">Target</span>
-               <span class="undefined_element">Syntax</span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">The first topic in a DITA document</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">href="file.dita"</span>
-               </span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">A specific topic in a DITA document</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">href="file.dita#<span class="undefined_element">topicid</span>"</span>
-               </span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">A non-topic element inside a DITA topic</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">href="<span class="undefined_element">file.dita#</span>
-                     <span class="undefined_element">topicid</span>/<span class="undefined_element">elementid</span>"</span>
-               </span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">A non-topic element inside the same DITA topic as the
-            reference</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">href="#./<span class="undefined_element">elementid</span>"</span>
-               </span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">An element in a DITA map</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">href="myMap.ditamap#<span class="undefined_element">map-branch</span>"</span>
-               </span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">An image</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">href="exampleImage.jpg"</span>
-               </span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">An external resource</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">href="http://www.example.org"</span>
-               </span>
-            </span>
-         </span>
-         <span class="undefined_element">where:</span>
-         <span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element">topicid</span> is the value of the <span class="undefined_element">id</span> attribute on the
-     referenced DITA topic.</span>
-            <span class="undefined_element">
-               <span class="undefined_element">elementid</span> is the value of the <span class="undefined_element">id</span> attribute on the
-     referenced (non-topic) DITA element.</span>
-            <span class="undefined_element">
-               <span class="undefined_element">map-branch</span> is the value of the <span class="undefined_element">id</span> attribute on the
-     referenced DITA map element.</span>
-         </span>
-      </span>
+        includes the reference, then <var class="keyword varname">topicID</var> can be
+        replaced by a period.</li>
+         <li class="li">
+            <var class="keyword varname">elementID</var> is the value of the
+          <code class="keyword markupname xmlatt">@id</code> attribute of the <span style="color:red;" class="ph">
+               non-topic
+            </span> element within a DITA topic.</li>
+         <li class="li">
+            <var class="keyword varname">mapElementID</var> is the value of the
+          <code class="keyword markupname xmlatt">@id</code> attribute of the element within a DITA map
+        document.</li>
+      </ul>
+      <p class="p">See <a class="xref" href="handling-xref-and-conref-within-topics.html" title="When referenced content contains a content reference or cross reference, the effective target of the reference depends on the form of address that is used in the referenced content. It also might depend on the map context, especially when key scopes are present.">Processing xrefs and conrefs within a conref
+         </a> for
+      more information on how this syntax relates to conref resolution.</p>
+      <div class="example" id="thehrefattribute__example"><h2 class="title sectiontitle">Example: Common syntax for the <code class="keyword markupname xmlatt">@href</code> attribute</h2>
+         
+         <p class="p">The following table includes some examples of common <code class="keyword markupname xmlatt">@href</code> syntax. Note that
+    these examples represent only a few common scenarios and are not all-inclusive.</p>
+         <table class="simpletable frame-all"><colgroup><col style="width:50%"><col style="width:50%"></colgroup><thead><tr class="sthead">
+               <th class="stentry" scope="col" id="thehrefattribute__example__stentry__1">Target</th>
+               <th class="stentry" scope="col" id="thehrefattribute__example__stentry__2">Syntax</th>
+            </tr></thead><tbody><tr class="strow">
+               <td class="stentry" headers="thehrefattribute__example__stentry__1">The first topic in a DITA document</td>
+               <td class="stentry" headers="thehrefattribute__example__stentry__2">
+                  <code class="ph codeph">href="file.dita"</code>
+               </td>
+            </tr><tr class="strow">
+               <td class="stentry" headers="thehrefattribute__example__stentry__1">A specific topic in a DITA document</td>
+               <td class="stentry" headers="thehrefattribute__example__stentry__2">
+                  <code class="ph codeph">href="file.dita#<var class="keyword varname">topicid</var>"</code>
+               </td>
+            </tr><tr class="strow">
+               <td class="stentry" headers="thehrefattribute__example__stentry__1">A non-topic element inside a DITA topic</td>
+               <td class="stentry" headers="thehrefattribute__example__stentry__2">
+                  <code class="ph codeph">href="<span class="ph">file.dita#</span>
+                     <var class="keyword varname">topicid</var>/<var class="keyword varname">elementid</var>"</code>
+               </td>
+            </tr><tr class="strow">
+               <td class="stentry" headers="thehrefattribute__example__stentry__1">A non-topic element inside the same DITA topic as the
+            reference</td>
+               <td class="stentry" headers="thehrefattribute__example__stentry__2">
+                  <code class="ph codeph">href="#./<var class="keyword varname">elementid</var>"</code>
+               </td>
+            </tr><tr class="strow">
+               <td class="stentry" headers="thehrefattribute__example__stentry__1">An element in a DITA map</td>
+               <td class="stentry" headers="thehrefattribute__example__stentry__2">
+                  <code class="ph codeph">href="myMap.ditamap#<var class="keyword varname">map-branch</var>"</code>
+               </td>
+            </tr><tr class="strow">
+               <td class="stentry" headers="thehrefattribute__example__stentry__1">An image</td>
+               <td class="stentry" headers="thehrefattribute__example__stentry__2">
+                  <code class="ph codeph">href="exampleImage.jpg"</code>
+               </td>
+            </tr><tr class="strow">
+               <td class="stentry" headers="thehrefattribute__example__stentry__1">An external resource</td>
+               <td class="stentry" headers="thehrefattribute__example__stentry__2">
+                  <code class="ph codeph">href="http://www.example.org"</code>
+               </td>
+            </tr></tbody></table>
+         <p class="p">where:</p>
+         <ul class="ul">
+            <li class="li">
+               <var class="keyword varname">topicid</var> is the value of the <code class="keyword markupname xmlatt">@id</code> attribute on the
+     referenced DITA topic.</li>
+            <li class="li">
+               <var class="keyword varname">elementid</var> is the value of the <code class="keyword markupname xmlatt">@id</code> attribute on the
+     referenced (non-topic) DITA element.</li>
+            <li class="li">
+               <var class="keyword varname">map-branch</var> is the value of the <code class="keyword markupname xmlatt">@id</code> attribute on the
+     referenced DITA map element.</li>
+         </ul>
+      </div>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/dita-linking.html" title="DITA supports many different linking elements, but they all use the same set of attributes: format, href, scope, and type. These four attributes act as a unit.">DITA linking</a></div></div></nav>
 </article></main>

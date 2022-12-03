@@ -18,9 +18,9 @@ repository: 'oasis-tcs/dita'
     Once defined, the subjects can be referenced by specifying a
       <code class="keyword markupname xmlatt">@subjectrefs</code> attribute on a
       <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element.</p>
-      <span class="undefined_element">The following subject scheme map defines a set of subjects that are
-      used to classify content:</span>
-      <span class="undefined_element">&lt;subjectScheme&gt;
+      <p class="p">The following subject scheme map defines a set of subjects that are
+      used to classify content:</p>
+      <pre class="pre codeblock"><code>&lt;subjectScheme&gt;
   &lt;subjectdef keys="content-types"&gt;
     &lt;subjectdef keys="conceptual-material"/&gt;
     &lt;subjectdef keys="reference"/&gt;
@@ -37,25 +37,25 @@ repository: 'oasis-tcs/dita'
     &lt;subjectdef keys="installing"/&gt;
     &lt;subjectdef keys="troubleshooting"/&gt;
   &lt;/subjectdef&gt;
-&lt;/subjectScheme&gt;</span>
-      <span class="undefined_element">The keys assigned to the subject definitions can be referenced by
-      specifying the <span class="undefined_element">subjectrefs</span> attribute on topic
-      references in a navigation map:</span>
-      <span class="undefined_element">&lt;map&gt;
+&lt;/subjectScheme&gt;</code></pre>
+      <p class="p">The keys assigned to the subject definitions can be referenced by
+      specifying the <code class="keyword markupname xmlatt">@subjectrefs</code> attribute on topic
+      references in a navigation map:</p>
+      <pre class="pre codeblock"><code>&lt;map&gt;
 &lt;title&gt;User assistance for the Acme Widget&lt;/title&gt;
 &lt;!-- ... --&gt;
-&lt;topicref keyref="install-overview" <span class="undefined_element">subjectrefs="installing"</span>&gt;
+&lt;topicref keyref="install-overview" <strong class="ph b">subjectrefs="installing"</strong>&gt;
   &lt;topicref keyref="install-linux"/&gt;
   &lt;topicref keyref="install-macosx"/&gt;
   &lt;topicref keyref="install-windows"/&gt;
-  &lt;topicref keyref="install-troubleshooting" <span class="undefined_element">subjectrefs="troubleshooting"</span>/&gt;
+  &lt;topicref keyref="install-troubleshooting" <strong class="ph b">subjectrefs="troubleshooting"</strong>/&gt;
 &lt;/topicref&gt;
 &lt;!-- ... --&gt;
-&lt;/map&gt;</span>
-      <span class="undefined_element">Because the <span class="undefined_element">subjectrefs</span> attribute cascades, the
+&lt;/map&gt;</code></pre>
+      <p class="p">Because the <code class="keyword markupname xmlatt">@subjectrefs</code> attribute cascades, the
       effective value of the above markup is the same as the following
-      markup:</span>
-      <span class="undefined_element">&lt;map&gt;
+      markup:</p>
+      <pre class="pre codeblock"><code>&lt;map&gt;
 &lt;title&gt;User assistance for the Acme Widget&lt;/title&gt;
 &lt;!-- ... --&gt;
 &lt;topicref keyref="install-overview" subjectrefs="installing"&gt;
@@ -65,7 +65,7 @@ repository: 'oasis-tcs/dita'
   &lt;topicref keyref="install-troubleshooting" subjectrefs="installing troubleshooting"/&gt;
 &lt;/topicref&gt;
 &lt;!-- ... --&gt;
-&lt;/map&gt;</span>
+&lt;/map&gt;</code></pre>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/examples-subjectScheme-maps.html" title="This section contains examples and scenarios that illustrate the use of subject scheme maps.">Examples of subject scheme maps</a></div></div></nav>
 </article></main>

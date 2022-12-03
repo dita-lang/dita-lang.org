@@ -19,49 +19,46 @@ repository: 'oasis-tcs/dita'
     content is pushed from the current topic into another, rather than
     pulled from another topic into the current
     one.</p>
-      <span class="undefined_element">
-         <span class="undefined_element">This topic is moving into the arch spec,
-        but needs further editing to split overview / conceptual info from processing info; this and
-        other conref-attribute topics currently have a bunch of processing info that is missing from
-        the actual "Processing conref" arch spec topics.</span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">In the descriptions below, the word <span class="undefined_element">target</span> always refers to the element referenced by a
-          <span class="undefined_element">conref</span> attribute.</span>
-         <span class="undefined_element">There are three possible functions using the <span class="undefined_element">conaction</span> attribute: replacing an
+      <section class="section">
+         
+      </section>
+      <section class="section" id="theconactionattribute__section-1">
+         <div class="note note note_note"><span class="note__title">Note:</span> In the descriptions below, the word <em class="ph i">target</em> always refers to the element referenced by a
+          <code class="keyword markupname xmlatt">@conref</code> attribute.</div>
+         <p class="p">There are three possible functions using the <code class="keyword markupname xmlatt">@conaction</code> attribute: replacing an
         element, pushing content before an element, and pushing content after an element. The
-          <span class="undefined_element">conaction</span> attribute always declares the desired function while the
-          <span class="undefined_element">conref</span> attribute provides the target of the reference using the standard
-          <span class="undefined_element">conref</span> syntax.</span>
-         <span class="undefined_element">In each case, an element pushed using <span class="undefined_element">conref</span> must be of the same type as, or
+          <code class="keyword markupname xmlatt">@conaction</code> attribute always declares the desired function while the
+          <code class="keyword markupname xmlatt">@conref</code> attribute provides the target of the reference using the standard
+          <code class="keyword markupname xmlatt">@conref</code> syntax.</p>
+         <p class="p">In each case, an element pushed using <code class="keyword markupname xmlatt">@conref</code> must be of the same type as, or
         more specialized than, its target. If the pushed element is more specialized than the
-        target, then it should be generalized when the <span class="undefined_element">conref</span> is resolved. This
-        ensures that the content will be valid in the target topic.</span>
-         <span class="undefined_element">
-            <span class="undefined_element">It is valid to push using <span class="undefined_element">conref</span> when the two elements involved are of the same
-          type. For example, a <span class="undefined_element">step</span> element can use the conref push feature
-          with another <span class="undefined_element">step</span> as the target of the
-          <span class="undefined_element">conref</span>.</span>
-            <span class="undefined_element">The target element can be more general than the source. For example, it is legal to push a
-            <span class="undefined_element">step</span> element to replace a general list item
-            (<span class="undefined_element">li</span>); the <span class="undefined_element">step</span> element should be
-          generalized back to a list item during the process.</span>
-            <span class="undefined_element">It is not possible to push a more general element into a specialized context. For example, it is
-          not legal to push a list item (<span class="undefined_element">li</span>) in order to replace a
-            <span class="undefined_element">step</span>, because the list item allows many items that are not
-          valid in the specialized context.</span>
-         </span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Replacing content in another topic</span>
-         <span class="undefined_element">When the <span class="undefined_element">conaction</span> attribute is set to <span class="undefined_element">pushreplace</span>, the
-        source element will replace the target specified on the <span class="undefined_element">conref</span> attribute.
-        The pushed content remains in the source topic where it was originally authored.</span>
-         <span class="undefined_element">For example, assume that a task in <span class="undefined_element">example.dita</span> has the
-          <span class="undefined_element">id</span> set to example<span class="undefined_element"></span>, and it contains a
-          <span class="undefined_element">step</span> element with the <span class="undefined_element">id</span> set to
-          <span class="undefined_element">b</span>:</span>
-         <span class="undefined_element">&lt;task id="example" xml:lang="en"&gt;
+        target, then it should be generalized when the <code class="keyword markupname xmlatt">@conref</code> is resolved. This
+        ensures that the content will be valid in the target topic.</p>
+         <ul class="ul">
+            <li class="li">It is valid to push using <code class="keyword markupname xmlatt">@conref</code> when the two elements involved are of the same
+          type. For example, a <code class="keyword markupname xmlelement">&lt;step&gt;</code> element can use the conref push feature
+          with another <code class="keyword markupname xmlelement">&lt;step&gt;</code> as the target of the
+          <code class="keyword markupname xmlatt">@conref</code>.</li>
+            <li class="li">The target element can be more general than the source. For example, it is legal to push a
+            <code class="keyword markupname xmlelement">&lt;step&gt;</code> element to replace a general list item
+            (<code class="keyword markupname xmlelement">&lt;li&gt;</code>); the <code class="keyword markupname xmlelement">&lt;step&gt;</code> element should be
+          generalized back to a list item during the process.</li>
+            <li class="li">It is not possible to push a more general element into a specialized context. For example, it is
+          not legal to push a list item (<code class="keyword markupname xmlelement">&lt;li&gt;</code>) in order to replace a
+            <code class="keyword markupname xmlelement">&lt;step&gt;</code>, because the list item allows many items that are not
+          valid in the specialized context.</li>
+         </ul>
+      </section>
+      <section class="section" id="theconactionattribute__replacing-content"><h2 class="title sectiontitle">Replacing content in another topic</h2>
+         
+         <p class="p">When the <code class="keyword markupname xmlatt">@conaction</code> attribute is set to <span class="keyword">pushreplace</span>, the
+        source element will replace the target specified on the <code class="keyword markupname xmlatt">@conref</code> attribute.
+        The pushed content remains in the source topic where it was originally authored.</p>
+         <p class="p">For example, assume that a task in <span class="ph filepath">example.dita</span> has the
+          <code class="keyword markupname xmlatt">@id</code> set to example<span class="keyword"></span>, and it contains a
+          <code class="keyword markupname xmlelement">&lt;step&gt;</code> element with the <code class="keyword markupname xmlatt">@id</code> set to
+          <span class="keyword">b</span>:</p>
+         <pre class="pre codeblock" id="theconactionattribute__codeblock_scr_wqh_psb"><code>&lt;task id="example" xml:lang="en"&gt;
   &lt;title&gt;Example topic&lt;/title&gt;
   &lt;taskbody&gt;
     &lt;steps&gt;
@@ -70,22 +67,22 @@ repository: 'oasis-tcs/dita'
       &lt;step id="c"&gt;&lt;cmd&gt;C&lt;/cmd&gt;&lt;/step&gt;
     &lt;/steps&gt;
   &lt;/taskbody&gt;
-&lt;/task&gt;</span>
-         <span class="undefined_element">In order to replace the step with <span class="undefined_element">id="b"</span>, another topic must combine a
-          <span class="undefined_element">conaction</span> value of <span class="undefined_element">pushreplace</span> with a
-          <span class="undefined_element">conref</span> attribute that references this
-        <span class="undefined_element">step</span>:<span class="undefined_element">&lt;!-- Steps element within another task --&gt;
+&lt;/task&gt;</code></pre>
+         <div class="p">In order to replace the step with <code class="ph codeph">id="b"</code>, another topic must combine a
+          <code class="keyword markupname xmlatt">@conaction</code> value of <span class="keyword">pushreplace</span> with a
+          <code class="keyword markupname xmlatt">@conref</code> attribute that references this
+        <code class="keyword markupname xmlelement">&lt;step&gt;</code>:<pre class="pre codeblock"><code>&lt;!-- Steps element within another task --&gt;
 &lt;steps&gt;
   &lt;step conaction="pushreplace" 
         conref="example.dita#example/b"&gt;
     &lt;cmd&gt;Updated B&lt;/cmd&gt;
   &lt;/step&gt;
 &lt;/steps&gt;
-&lt;/task&gt;</span>
-         </span>
-         <span class="undefined_element">The result will be an updated version of <span class="undefined_element">example.dita</span> which contains
+&lt;/task&gt;</code></pre>
+         </div>
+         <div class="p">The result will be an updated version of <span class="ph filepath">example.dita</span> which contains
         the pushed
-        <span class="undefined_element">step</span>:<span class="undefined_element">&lt;task id="example" xml:lang="en"&gt;
+        <code class="keyword markupname xmlelement">&lt;step&gt;</code>:<pre class="pre codeblock"><code>&lt;task id="example" xml:lang="en"&gt;
   &lt;title&gt;Example topic&lt;/title&gt;
   &lt;taskbody&gt;
     &lt;steps&gt;
@@ -94,81 +91,81 @@ repository: 'oasis-tcs/dita'
       &lt;step id="c"&gt;&lt;cmd&gt;C&lt;/cmd&gt;&lt;/step&gt;
     &lt;/steps&gt;
   &lt;/taskbody&gt;
-&lt;/task&gt;</span>
-         </span>
-         <span class="undefined_element">When resolving a conref push action, attributes are resolved using the same precedence as
-        for normal <span class="undefined_element">conref</span>, with one exception. Attributes on the element with the
-          <span class="undefined_element">conref</span> attribute (in this case, the source doing the push) will take
+&lt;/task&gt;</code></pre>
+         </div>
+         <p class="p">When resolving a conref push action, attributes are resolved using the same precedence as
+        for normal <code class="keyword markupname xmlatt">@conref</code>, with one exception. Attributes on the element with the
+          <code class="keyword markupname xmlatt">@conref</code> attribute (in this case, the source doing the push) will take
         priority over those on the referenced element. The exception is that if the source element
         does not specify an ID, the ID on the referenced element remains; if the source element does
-        specify an ID then that replaces the ID on the referenced element.</span>
-         <span class="undefined_element">
-            <span class="ph error-statement"></span>It is an error for two source topics to replace the same element. Applications <span class="undefined_element">MAY</span> warn users if more than one element
-        attempts to replace a single target.</span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Pushing content before or after another element</span>
-         <span class="undefined_element">Setting the <span class="undefined_element">conaction</span> attribute to <span class="undefined_element">pushbefore</span> allows an
-        element to be pushed before the element referenced by the <span class="undefined_element">conref</span> attribute.
-        Likewise, setting the <span class="undefined_element">conaction</span> attribute to <span class="undefined_element">pushafter</span>
-        allows an element to be pushed after the element referenced by the <span class="undefined_element">conref</span>
+        specify an ID then that replaces the ID on the referenced element.</p>
+         <p class="p">
+            <span class="ph error-statement"></span>It is an error for two source topics to replace the same element. Applications <dfn class="term RFC-2119">MAY</dfn> warn users if more than one element
+        attempts to replace a single target.</p>
+      </section>
+      <section class="section" id="theconactionattribute__pushing-content"><h2 class="title sectiontitle">Pushing content before or after another element</h2>
+         
+         <p class="p">Setting the <code class="keyword markupname xmlatt">@conaction</code> attribute to <span class="keyword">pushbefore</span> allows an
+        element to be pushed before the element referenced by the <code class="keyword markupname xmlatt">@conref</code> attribute.
+        Likewise, setting the <code class="keyword markupname xmlatt">@conaction</code> attribute to <span class="keyword">pushafter</span>
+        allows an element to be pushed after the element referenced by the <code class="keyword markupname xmlatt">@conref</code>
         attribute. Multiple sources can push content before or after the same target; the order in
-        which that content is pushed is undefined.</span>
-         <span class="undefined_element">When an element is pushed before or after a target, the resulting document will have at
+        which that content is pushed is undefined.</p>
+         <p class="p">When an element is pushed before or after a target, the resulting document will have at
         least two of that element. Because this is not always valid, a document attempting to push
         content before or after a target must take an extra step to ensure that the result will be
-        valid. The extra step makes use of the <span class="undefined_element">conaction="mark"</span> value.</span>
-         <span class="undefined_element">When pushing before, the <span class="undefined_element">conref</span> attribute itself looks just as it did when
-        replacing, but the <span class="undefined_element">conaction</span> attribute is set to mark<span class="undefined_element"></span> because it
+        valid. The extra step makes use of the <code class="ph codeph">conaction="mark"</code> value.</p>
+         <p class="p">When pushing before, the <code class="keyword markupname xmlatt">@conref</code> attribute itself looks just as it did when
+        replacing, but the <code class="keyword markupname xmlatt">@conaction</code> attribute is set to mark<span class="keyword"></span> because it
         is marking the target element. This element remains empty; its purpose is to ensure that it
         is legal to have more than one of the current element. Immediately before the element which
         marks the target, you will place the content that you actually want to push. This element
-        will set the <span class="undefined_element">conaction</span> attribute to <span class="undefined_element">pushbefore</span>.</span>
-         <span class="undefined_element">When pushing after, the procedure is the same, except that the order of the elements is
-        reversed. The element with <span class="undefined_element">conaction="pushafter"</span> comes immediately after
-        the element which marks the target.</span>
-         <span class="undefined_element">Attributes on the element which is pushed (the one with
-          <span class="undefined_element">conaction="pushbefore"</span>) must be retained on the target, apart from the
-          <span class="undefined_element">conaction</span> attribute itself. If this causes the result document to end up
+        will set the <code class="keyword markupname xmlatt">@conaction</code> attribute to <span class="keyword">pushbefore</span>.</p>
+         <p class="p">When pushing after, the procedure is the same, except that the order of the elements is
+        reversed. The element with <code class="ph codeph">conaction="pushafter"</code> comes immediately after
+        the element which marks the target.</p>
+         <p class="p">Attributes on the element which is pushed (the one with
+          <code class="ph codeph">conaction="pushbefore"</code>) must be retained on the target, apart from the
+          <code class="keyword markupname xmlatt">@conaction</code> attribute itself. If this causes the result document to end up
         with duplicate IDs, an application can recover by dropping the duplicate ID, modifying it to
-        ensure uniqueness, or warning the user.</span>
-         <span class="undefined_element">The following restrictions apply when pushing content before or after an element: <span class="undefined_element">
-               <span class="undefined_element">The elements that use <span class="undefined_element">conaction="mark"</span> and
-              <span class="undefined_element">conaction="pushbefore"</span> are the same type as each other and appear in
+        ensure uniqueness, or warning the user.</p>
+         <div class="p">The following restrictions apply when pushing content before or after an element: <ul class="ul">
+               <li class="li">The elements that use <code class="ph codeph">conaction="mark"</code> and
+              <code class="ph codeph">conaction="pushbefore"</code> are the same type as each other and appear in
             sequence. This restriction prevents a topic from trying to push a
-              <span class="undefined_element">body</span> element before or after another
-              <span class="undefined_element">body</span> element, because it is not valid to have two body
-            elements in sequence.</span>
-               <span class="undefined_element">Either the container elements of the source and target match, or the container of the
+              <code class="keyword markupname xmlelement">&lt;body&gt;</code> element before or after another
+              <code class="keyword markupname xmlelement">&lt;body&gt;</code> element, because it is not valid to have two body
+            elements in sequence.</li>
+               <li class="li">Either the container elements of the source and target match, or the container of the
             source element is be a specialization of the target's container. This is also to ensure
             validity of the target; for example, while it is possible to include multiple titles in
-            a <span class="undefined_element">section</span>, it is not possible to do so in a figure. Comparing
-            the parents prevents a second <span class="undefined_element">section</span> title from being pushed
+            a <code class="keyword markupname xmlelement">&lt;section&gt;</code>, it is not possible to do so in a figure. Comparing
+            the parents prevents a second <code class="keyword markupname xmlelement">&lt;section&gt;</code> title from being pushed
             before a figure title (the resulting figure would not be valid DITA). This restriction
-            only applies to the <span class="undefined_element">pushbefore</span> or<span class="undefined_element"> pushafter</span>
-            actions, not to the <span class="undefined_element">pushreplace</span> action.</span>
-            </span>
-         </span>
-         <span class="undefined_element">When content is pushed from one topic to another, it is still rendered in the original
+            only applies to the <span class="keyword">pushbefore</span> or<span class="keyword"> pushafter</span>
+            actions, not to the <span class="keyword">pushreplace</span> action.</li>
+            </ul>
+         </div>
+         <p class="p">When content is pushed from one topic to another, it is still rendered in the original
         context. Processors might delete the empty element that has the
-          <span class="undefined_element">conaction="mark"</span> attribute. In order to push content from a topic without
+          <code class="ph codeph">conaction="mark"</code> attribute. In order to push content from a topic without
         actually rendering that topic on its own, the topic should be referenced from the map with
-        the <span class="undefined_element">processing-role</span> attribute set to "resource-only".</span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Example: pushing an element before the target</span>
-         <span class="undefined_element">The following example pushes a <span class="undefined_element">step</span> before "b" in the
-          <span class="undefined_element">example.dita</span> file shown above. <span class="undefined_element">&lt;steps&gt;
+        the <code class="keyword markupname xmlatt">@processing-role</code> attribute set to "resource-only".</p>
+      </section>
+      <div class="example" id="theconactionattribute__example-pushbefore"><h2 class="title sectiontitle">Example: pushing an element before the target</h2>
+         
+         <div class="p">The following example pushes a <code class="keyword markupname xmlelement">&lt;step&gt;</code> before "b" in the
+          <span class="ph filepath">example.dita</span> file shown above. <pre class="pre codeblock"><code>&lt;steps&gt;
   &lt;step conaction="pushbefore"&gt;
     &lt;cmd&gt;Do this before B&lt;/cmd&gt;
   &lt;/step&gt;
   &lt;step conaction="mark" conref="example.dita#example/b"&gt;
     &lt;cmd/&gt;
   &lt;/step&gt;
-&lt;/steps&gt;</span>
-         </span>
-         <span class="undefined_element">The result contains the pushed <span class="undefined_element">step</span> element before
-        "b".<span class="undefined_element">&lt;task id="example" xml:lang="en"&gt;
+&lt;/steps&gt;</code></pre>
+         </div>
+         <div class="p">The result contains the pushed <code class="keyword markupname xmlelement">&lt;step&gt;</code> element before
+        "b".<pre class="pre codeblock"><code>&lt;task id="example" xml:lang="en"&gt;
   &lt;title&gt;Example topic&lt;/title&gt;
   &lt;taskbody&gt;
     &lt;steps&gt;
@@ -178,24 +175,24 @@ repository: 'oasis-tcs/dita'
       &lt;step id="c"&gt;&lt;cmd&gt;C&lt;/cmd&gt;&lt;/step&gt;
     &lt;/steps&gt;
   &lt;/taskbody&gt;
-&lt;/task&gt;</span>
-         </span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Example: pushing an element after the target</span>
-         <span class="undefined_element">Pushing an element after a target is exactly the same as pushing before, except that the
-        order of the "mark" element and the pushed element are reversed.<span class="undefined_element">&lt;steps&gt;
+&lt;/task&gt;</code></pre>
+         </div>
+      </div>
+      <div class="example" id="theconactionattribute__example-pushafter"><h2 class="title sectiontitle">Example: pushing an element after the target</h2>
+         
+         <div class="p">Pushing an element after a target is exactly the same as pushing before, except that the
+        order of the "mark" element and the pushed element are reversed.<pre class="pre codeblock"><code>&lt;steps&gt;
   &lt;step conaction="mark" conref="example.dita#example/b"&gt;
     &lt;cmd/&gt;
   &lt;/step&gt;
   &lt;step conaction="pushafter"&gt;
     &lt;cmd&gt;Do this AFTER B&lt;/cmd&gt;
   &lt;/step&gt;
-&lt;/steps&gt;</span>
-         </span>
-         <span class="undefined_element">In this case the resulting document has the pushed content after
-          <span class="undefined_element">step</span>
-        b:<span class="undefined_element">&lt;task id="example" xml:lang="en"&gt;
+&lt;/steps&gt;</code></pre>
+         </div>
+         <div class="p">In this case the resulting document has the pushed content after
+          <code class="keyword markupname xmlelement">&lt;step&gt;</code>
+        b:<pre class="pre codeblock"><code>&lt;task id="example" xml:lang="en"&gt;
   &lt;title&gt;Example topic&lt;/title&gt;
   &lt;taskbody&gt;
     &lt;steps&gt;
@@ -205,25 +202,25 @@ repository: 'oasis-tcs/dita'
       &lt;step id="c"&gt;&lt;cmd&gt;C&lt;/cmd&gt;&lt;/step&gt;
     &lt;/steps&gt;
   &lt;/taskbody&gt;
-&lt;/task&gt;</span>
-         </span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Combining <span class="undefined_element">conaction</span> with <span class="undefined_element">conkeyref</span> or
-          <span class="undefined_element">conrefend</span>
-         </span>
-         <span class="undefined_element">The <span class="undefined_element">conkeyref</span> attribute can be used as an indirect way to specify a
-          <span class="undefined_element">conref</span> target. If the <span class="undefined_element">conkeyref</span> attribute is specified
-        on an element that also uses the <span class="undefined_element">conaction</span> attribute, the
-          <span class="undefined_element">conkeyref</span> attribute is used to determine the target of the conref push
-        (as it would normally be used to determine the target of <span class="undefined_element">conref</span>).</span>
-         <span class="undefined_element">
+&lt;/task&gt;</code></pre>
+         </div>
+      </div>
+      <section class="section" id="theconactionattribute__combining-conref-actions"><h2 class="title sectiontitle">Combining <code class="keyword markupname xmlatt">@conaction</code> with <code class="keyword markupname xmlatt">@conkeyref</code> or
+          <code class="keyword markupname xmlatt">@conrefend</code>
+         </h2>
+         
+         <p class="p">The <code class="keyword markupname xmlatt">@conkeyref</code> attribute can be used as an indirect way to specify a
+          <code class="keyword markupname xmlatt">@conref</code> target. If the <code class="keyword markupname xmlatt">@conkeyref</code> attribute is specified
+        on an element that also uses the <code class="keyword markupname xmlatt">@conaction</code> attribute, the
+          <code class="keyword markupname xmlatt">@conkeyref</code> attribute is used to determine the target of the conref push
+        (as it would normally be used to determine the target of <code class="keyword markupname xmlatt">@conref</code>).</p>
+         <p class="p">
             <span class="ph error-statement"></span>The conref push function does not provide the ability to push a range of elements, so it is
-        an error to specify the <span class="undefined_element">conrefend</span> attribute together with the
-          <span class="undefined_element">conaction</span> attribute. If the two are specified together an application can
-        recover by warning the user, ignoring the <span class="undefined_element">conrefend</span> attribute, or with some
-        other implementation strategy.</span>
-      </span>
+        an error to specify the <code class="keyword markupname xmlatt">@conrefend</code> attribute together with the
+          <code class="keyword markupname xmlatt">@conaction</code> attribute. If the two are specified together an application can
+        recover by warning the user, ignoring the <code class="keyword markupname xmlatt">@conrefend</code> attribute, or with some
+        other implementation strategy.</p>
+      </section>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/conref.html" title="The DITA conref attributes provide mechanisms for reusing content. DITA content references support reuse scenarios that are difficult or impossible to implement using other XML-based inclusion mechanisms like XInclude and entities. Additionally, DITA content references have rules that help ensure that the results of content inclusion remain valid after resolution">Content reference (conref)</a></div></div></nav>
 </article></main>

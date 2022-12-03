@@ -18,10 +18,10 @@ repository: 'oasis-tcs/dita'
    <div class="body conbody"><p class="shortdesc">In this scenario, a branch is filtered because a <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code>
     element is present, and another <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> deeper within that branch
     supplies additional conditions for a subset of the branch.</p>
-      <span class="undefined_element">
-         <span class="undefined_element">In the following map fragment, a set of operating system conditions applies to installation
+      <div class="example" id="example-ditavalref-in-filtered-branch__ditavalref-in-branch-with-ditavalref">
+         <div class="p">In the following map fragment, a set of operating system conditions applies to installation
         instructions. Within that common branch, a subset of content applies to different
-        audiences.<span class="undefined_element">&lt;topicref href="install.dita"&gt;
+        audiences.<pre class="pre codeblock"><code>&lt;topicref href="install.dita"&gt;
   &lt;ditavalref href="linux.ditaval"/&gt;
   &lt;ditavalref href="mac.ditaval"&gt;
     &lt;ditavalmeta&gt;
@@ -36,7 +36,7 @@ repository: 'oasis-tcs/dita'
   &lt;topicref href="perform-install.dita"&gt;
     &lt;!-- other topics--&gt;
   &lt;/topicref&gt;
-  <span class="undefined_element">&lt;!-- Begin configuration sub-branch --&gt;</span>
+  <strong class="ph b">&lt;!-- Begin configuration sub-branch --&gt;</strong>
   &lt;topicref href="configure.dita"&gt;
     &lt;ditavalref href="novice.ditaval"&gt;
       &lt;ditavalmeta&gt;
@@ -50,69 +50,69 @@ repository: 'oasis-tcs/dita'
     &lt;/ditavalref&gt;
     &lt;!-- Other config topics --&gt;
   &lt;/topicref&gt;
-  <span class="undefined_element">&lt;!-- End configuration sub-branch --&gt;</span>
-&lt;/topicref&gt;</span>
-         </span>
-         <span class="undefined_element">In this case, the effective map contains three copies of the complete
+  <strong class="ph b">&lt;!-- End configuration sub-branch --&gt;</strong>
+&lt;/topicref&gt;</code></pre>
+         </div>
+         <p class="p">In this case, the effective map contains three copies of the complete
         branch. The branches are filtered by operating system. Because topics in the branch are
         filtered in different ways, processors are effectively required to handle three copies of
-        the entire branch. The map author uses the <span class="undefined_element">dvrResourceSuffix</span>
+        the entire branch. The map author uses the <code class="keyword markupname xmlelement">&lt;dvrResourceSuffix&gt;</code>
         elements to control naming for each copy. The Linux branch does not specify a
-          <span class="undefined_element">dvrResourceSuffix</span> element, because it is the default copy of the
-        branch; this allows documents such as <span class="undefined_element">install.dita</span> to retain their
-        original names. </span>
-         <span class="undefined_element">Within each operating system instance, the configuration sub-branch
+          <code class="keyword markupname xmlelement">&lt;dvrResourceSuffix&gt;</code> element, because it is the default copy of the
+        branch; this allows documents such as <span class="ph filepath">install.dita</span> to retain their
+        original names. </p>
+         <p class="p">Within each operating system instance, the configuration sub-branch
         is repeated; it is filtered once for novice users and then again for advanced users. As a
         result, there are actually six instances of the configuration sub-branch. Additional
-          <span class="undefined_element">dvrResourceSuffix</span> elements are used to control naming for each
-        instance.</span>
-         <span class="undefined_element">
-            <span class="undefined_element">The first instance is filtered using the conditions in
-            <span class="undefined_element">linux.ditaval</span> and <span class="undefined_element">novice.ditaval</span>. For this
-          instance, the resource <span class="undefined_element">configure.dita</span> is treated as the resource
-            <span class="undefined_element">configure-novice.dita</span>. There is no renaming based on
-            <span class="undefined_element">linux.ditaval</span>, and the <span class="undefined_element">ditavalref</span> the
-          references <span class="undefined_element">novice.ditaval</span> adds the <span class="undefined_element">suffix -novice</span>. </span>
-            <span class="undefined_element">The second instance is filtered using the conditions in
-            <span class="undefined_element">linux.ditaval</span> and <span class="undefined_element">advanced.ditaval</span>. For this
-          instance, the resource <span class="undefined_element">configure.dita</span> is treated as the resource
-            <span class="undefined_element">configure-admin.dita</span>. There is no renaming based on
-            <span class="undefined_element">linux.ditaval</span>, and the <span class="undefined_element">ditavalref</span> that
-          references <span class="undefined_element">advanced.ditaval</span> adds the suffix <span class="undefined_element">-admin</span>. </span>
-            <span class="undefined_element">The third instance is filtered using the conditions in <span class="undefined_element">mac.ditaval</span>
-          and <span class="undefined_element">novice.ditaval</span>. For this instance, the resource
-            <span class="undefined_element">configure.dita</span> is treated as the resource
-            <span class="undefined_element">configure-novice-mac.dita</span>. The <span class="undefined_element">ditavalref</span>
-          that references <span class="undefined_element">novice.ditaval</span> adds the suffix
-            <span class="undefined_element">-novice</span>, resulting in <span class="undefined_element">configure-novice.dita</span>, and
-          then the <span class="undefined_element">ditavalref</span> that references
-            <span class="undefined_element">mac.ditaval</span> adds the additional suffix <span class="undefined_element">-mac</span>. </span>
-            <span class="undefined_element">The fourth instance is filtered using the conditions in <span class="undefined_element">mac.ditaval</span>
-          and <span class="undefined_element">advanced.ditaval</span>. For this instance, the resource
-            <span class="undefined_element">configure.dita</span> is treated as the resource
-            <span class="undefined_element">configure-admin-mac.dita</span>. The <span class="undefined_element">ditavalref</span>
-          that references <span class="undefined_element">admin.ditaval</span> adds the suffix
-          <span class="undefined_element">-admin</span>, resulting in <span class="undefined_element">configure-admin.dita</span>, and then
-          the <span class="undefined_element">ditavalref</span> that references <span class="undefined_element">mac.ditaval</span>
-          adds the additional suffix <span class="undefined_element">-mac</span>. </span>
-            <span class="undefined_element">The fifth instance is filtered using the conditions in <span class="undefined_element">win.ditaval</span>
-          and <span class="undefined_element">novice.ditaval</span>. For this instance, the resource
-            <span class="undefined_element">configure.dita</span> is treated as the resource
-            <span class="undefined_element">configure-novice-win.dita</span>. The <span class="undefined_element">ditavalref</span>
-          that references <span class="undefined_element">novice.ditaval</span> adds the suffix
-            <span class="undefined_element">-novice</span>, resulting in <span class="undefined_element">configure-novice.dita</span>, and
-          then the <span class="undefined_element">ditavalref</span> that references
-            <span class="undefined_element">win.ditaval</span> adds the additional suffix <span class="undefined_element">-win</span>. </span>
-            <span class="undefined_element">The sixth instance is filtered using the conditions in <span class="undefined_element">win.ditaval</span>
-          and <span class="undefined_element">advanced.ditaval</span>. For this instance, the resource
-            <span class="undefined_element">configure.dita</span> is treated as the resource
-            <span class="undefined_element">configure-admin-win.dita</span>. The <span class="undefined_element">ditavalref</span>
-          that references <span class="undefined_element">admin.ditaval</span> adds the suffix
-          <span class="undefined_element">-admin</span>, resulting in <span class="undefined_element">configure-admin.dita</span>, and then
-          the <span class="undefined_element">ditavalref</span> that references <span class="undefined_element">win.ditaval</span>
-          adds the additional suffix <span class="undefined_element">-win</span>. </span>
-         </span>
-      </span>
+          <code class="keyword markupname xmlelement">&lt;dvrResourceSuffix&gt;</code> elements are used to control naming for each
+        instance.</p>
+         <ol class="ol">
+            <li class="li">The first instance is filtered using the conditions in
+            <span class="ph filepath">linux.ditaval</span> and <span class="ph filepath">novice.ditaval</span>. For this
+          instance, the resource <span class="ph filepath">configure.dita</span> is treated as the resource
+            <span class="ph filepath">configure-novice.dita</span>. There is no renaming based on
+            <span class="ph filepath">linux.ditaval</span>, and the <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> the
+          references <span class="ph filepath">novice.ditaval</span> adds the <code class="ph codeph">suffix -novice</code>. </li>
+            <li class="li">The second instance is filtered using the conditions in
+            <span class="ph filepath">linux.ditaval</span> and <span class="ph filepath">advanced.ditaval</span>. For this
+          instance, the resource <span class="ph filepath">configure.dita</span> is treated as the resource
+            <span class="ph filepath">configure-admin.dita</span>. There is no renaming based on
+            <span class="ph filepath">linux.ditaval</span>, and the <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> that
+          references <span class="ph filepath">advanced.ditaval</span> adds the suffix <code class="ph codeph">-admin</code>. </li>
+            <li class="li">The third instance is filtered using the conditions in <span class="ph filepath">mac.ditaval</span>
+          and <span class="ph filepath">novice.ditaval</span>. For this instance, the resource
+            <span class="ph filepath">configure.dita</span> is treated as the resource
+            <span class="ph filepath">configure-novice-mac.dita</span>. The <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code>
+          that references <span class="ph filepath">novice.ditaval</span> adds the suffix
+            <code class="ph codeph">-novice</code>, resulting in <span class="ph filepath">configure-novice.dita</span>, and
+          then the <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> that references
+            <span class="ph filepath">mac.ditaval</span> adds the additional suffix <code class="ph codeph">-mac</code>. </li>
+            <li class="li">The fourth instance is filtered using the conditions in <span class="ph filepath">mac.ditaval</span>
+          and <span class="ph filepath">advanced.ditaval</span>. For this instance, the resource
+            <span class="ph filepath">configure.dita</span> is treated as the resource
+            <span class="ph filepath">configure-admin-mac.dita</span>. The <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code>
+          that references <span class="ph filepath">admin.ditaval</span> adds the suffix
+          <code class="ph codeph">-admin</code>, resulting in <span class="ph filepath">configure-admin.dita</span>, and then
+          the <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> that references <span class="ph filepath">mac.ditaval</span>
+          adds the additional suffix <code class="ph codeph">-mac</code>. </li>
+            <li class="li">The fifth instance is filtered using the conditions in <span class="ph filepath">win.ditaval</span>
+          and <span class="ph filepath">novice.ditaval</span>. For this instance, the resource
+            <span class="ph filepath">configure.dita</span> is treated as the resource
+            <span class="ph filepath">configure-novice-win.dita</span>. The <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code>
+          that references <span class="ph filepath">novice.ditaval</span> adds the suffix
+            <code class="ph codeph">-novice</code>, resulting in <span class="ph filepath">configure-novice.dita</span>, and
+          then the <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> that references
+            <span class="ph filepath">win.ditaval</span> adds the additional suffix <code class="ph codeph">-win</code>. </li>
+            <li class="li">The sixth instance is filtered using the conditions in <span class="ph filepath">win.ditaval</span>
+          and <span class="ph filepath">advanced.ditaval</span>. For this instance, the resource
+            <span class="ph filepath">configure.dita</span> is treated as the resource
+            <span class="ph filepath">configure-admin-win.dita</span>. The <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code>
+          that references <span class="ph filepath">admin.ditaval</span> adds the suffix
+          <code class="ph codeph">-admin</code>, resulting in <span class="ph filepath">configure-admin.dita</span>, and then
+          the <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> that references <span class="ph filepath">win.ditaval</span>
+          adds the additional suffix <code class="ph codeph">-win</code>. </li>
+         </ol>
+      </div>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/examples-of-branch-filter.html" title="The branch filtering examples illustrate the processing expectations for various scenarios that involve ditavalref elements. Processing examples use either before and after sample markup or expanded syntax that shows the equivalent markup without the ditavalref elements.">Examples of branch filtering</a></div></div></nav>
 </article></main>

@@ -21,139 +21,97 @@ repository: 'oasis-tcs/dita'
    
    <div class="body conbody"><p class="shortdesc">In this scenario, the <code class="keyword markupname xmlatt">@cascade</code> attribute is used to modify how metadata
     attributes cascade within a map.</p>
-      <span class="undefined_element">
-         <span class="undefined_element">Example of <span class="undefined_element">cascade="merge"</span>
-         </span>
-         <span class="undefined_element">Consider the following code
-        example:<span class="undefined_element">&lt;map audience="a b" cascade="merge"&gt;
+      <figure class="fig fignone" id="cascadeattribute__fig_z5z_mg5_nsb"><figcaption><span class="fig--title-label">Figure 1. </span>Example of <code class="ph codeph">cascade="merge"</code>
+         </figcaption>
+         
+         <div class="p">Consider the following code
+        example:<pre class="pre codeblock" id="cascadeattribute__codeblock_ptk_mg5_nsb"><code>&lt;map audience="a b" cascade="merge"&gt;
      &lt;topicref href="topic.dita" audience="c"/&gt;
 &lt;/map&gt;
-</span>
-         </span>
-         <span class="undefined_element">In this map, the <span class="undefined_element">cascade="merge"</span> attribute instructs a processor to merge
-        attribute values while cascading. With <span class="undefined_element">audience</span> specified on both the
-          <span class="undefined_element">map</span> element and the <span class="undefined_element">topicref</span> element,
-        the effective <span class="undefined_element">audience</span> attribute value for the reference to
-          <span class="undefined_element">topic.dita</span> is <span class="undefined_element">a b c</span>.</span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Example of <span class="undefined_element">cascade="nomerge"</span>
-         </span>
-         <span class="undefined_element">Consider the following code
-        example:<span class="undefined_element">&lt;map audience="a b" cascade="nomerge"&gt;
+</code></pre>
+         </div>
+         <p class="p">In this map, the <code class="ph codeph">cascade="merge"</code> attribute instructs a processor to merge
+        attribute values while cascading. With <code class="keyword markupname xmlatt">@audience</code> specified on both the
+          <code class="keyword markupname xmlelement">&lt;map&gt;</code> element and the <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element,
+        the effective <code class="keyword markupname xmlatt">@audience</code> attribute value for the reference to
+          <span class="ph filepath">topic.dita</span> is <span class="keyword">a b c</span>.</p>
+      </figure>
+      <figure class="fig fignone" id="cascadeattribute__fig_vjm_yg5_nsb"><figcaption><span class="fig--title-label">Figure 2. </span>Example of <code class="ph codeph">cascade="nomerge"</code>
+         </figcaption>
+         
+         <div class="p">Consider the following code
+        example:<pre class="pre codeblock" id="cascadeattribute__codeblock_qtk_mg5_nsb"><code>&lt;map audience="a b" cascade="nomerge"&gt;
      &lt;topicref href="topic.dita" audience="c"/&gt;
 &lt;/map&gt;
-</span>
-         </span>
-         <span class="undefined_element">In this map, the <span class="undefined_element">cascade="nomerge"</span> attribute instructs a processor
-          <span class="undefined_element">not</span> to merge attribute values while cascading. With <span class="undefined_element">audience</span>
-        specified on both the <span class="undefined_element">map</span> element and the
-          <span class="undefined_element">topicref</span> element, the effective <span class="undefined_element">audience</span>
-        attribute value on the reference to <span class="undefined_element">topic.dita</span> is not merged with the
-        value from the map and remains <span class="undefined_element">c</span>.</span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Example <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>of c<span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>
+</code></pre>
+         </div>
+         <p class="p">In this map, the <code class="ph codeph">cascade="nomerge"</code> attribute instructs a processor
+          <em class="ph i">not</em> to merge attribute values while cascading. With <code class="keyword markupname xmlatt">@audience</code>
+        specified on both the <code class="keyword markupname xmlelement">&lt;map&gt;</code> element and the
+          <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element, the effective <code class="keyword markupname xmlatt">@audience</code>
+        attribute value on the reference to <span class="ph filepath">topic.dita</span> is not merged with the
+        value from the map and remains <span class="keyword">c</span>.</p>
+      </figure>
+      <figure class="fig fignone" id="cascadeattribute__fig_wl4_3h5_nsb"><figcaption><span class="fig--title-label">Figure 3. </span>Example <span style="color:red;" class="ph">
+               of c
             </span>hanging the
-          <span class="undefined_element">cascade</span> value within the map</span>
-         <span class="undefined_element">Consider the following code
-        example:<span class="undefined_element">&lt;map platform="a" product="x" cascade="merge"&gt;
+          <code class="keyword markupname xmlatt">@cascade</code> value within the map</figcaption>
+         
+         <div class="p">Consider the following code
+        example:<pre class="pre codeblock" id="cascadeattribute__codeblock_rcw_lh5_nsb"><code>&lt;map platform="a" product="x" cascade="merge"&gt;
   &lt;topicref href="one.dita" platform="b" product="y"&gt;
-    <span class="undefined_element">
-                  <span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>&lt;topicref href="two.dita"&gt;
+    <span style="color:red;" class="ph">&lt;topicref href="two.dita"&gt;
       &lt;topicref href="three.dita" cascade="nomerge" product="z"&gt;
         &lt;topicref href="four.dita"/&gt;
       &lt;/topicref&gt;
-    &lt;/topicref&gt;<span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>
-               </span>
+    &lt;/topicref&gt;</span>
   &lt;/topicref&gt;
-&lt;/map&gt;</span>
-         </span>
-         <span class="undefined_element">In this map, the <span class="undefined_element">cascade</span> attribute is set to <span class="undefined_element">merge</span> at
-        the map level but changes to <span class="undefined_element">nomerge</span> on a topic reference.</span>
-         <span class="undefined_element">
-            <span class="undefined_element">For the <span class="undefined_element">
-                  <span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>topic<span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>
-               </span> reference to <span class="undefined_element">one.dita</span>,
-            <span class="undefined_element">cascade="merge"</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>is specified<span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>
+&lt;/map&gt;</code></pre>
+         </div>
+         <p class="p">In this map, the <code class="keyword markupname xmlatt">@cascade</code> attribute is set to <span class="keyword">merge</span> at
+        the map level but changes to <span class="keyword">nomerge</span> on a topic reference.</p>
+         <ul class="ul" id="cascadeattribute__ul_sxj_f35_nsb">
+            <li class="li">For the <span style="color:red;" class="ph">
+                  topic
+               </span> reference to <span class="ph filepath">one.dita</span>,
+            <code class="ph codeph">cascade="merge"</code>
+               <span style="color:red;" class="ph">
+                  is specified
                </span>. This results in an effective
-            <span class="undefined_element">platform</span> value of <span class="undefined_element">a b</span> and an effective
-            <span class="undefined_element">product</span> value of <span class="undefined_element">
-                  <span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>x y<span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>
-               </span>.</span>
-            <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>The topic reference to <span class="undefined_element">two.dita</span> does not specify any
-          additional attributes. The effective values for the <span class="undefined_element">platform</span> and
-            <span class="undefined_element">product</span> attributes are the same as those on the parent topic reference
-          to <span class="undefined_element">one.dita</span>. The effective value of of the <span class="undefined_element">platform</span>
-          attribute is <span class="undefined_element">a b</span>, and the effective value for the
-            <span class="undefined_element">product</span> attribute is <span class="undefined_element">x y</span>.<span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>
-            </span>
-            <span class="undefined_element">The <span class="undefined_element">
-                  <span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>topic<span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>
-               </span> reference to <span class="undefined_element">
-                  <span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>three.dita<span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>
-               </span> specifies <span class="undefined_element">cascade="nomerge"</span>, so attribute values
-          from other elements do not merge with anything specified on <span class="undefined_element">
-                  <span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>the
-            topic<span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>
-               </span> reference. The <span class="undefined_element">platform</span> attribute is not specified, so the
-          effective value is <span class="undefined_element">a b</span>, which still cascades from the parent element.
-          The <span class="undefined_element">product</span> value does not merge with values from the parent, so the
-          effective value is <span class="undefined_element">z</span>.</span>
-            <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>The topic reference to <span class="undefined_element">four.dita</span> does not specify
-          any additional attributes. The effective values for the <span class="undefined_element">platform</span> and
-            <span class="undefined_element">product</span> attributes are the same as those on the parent topic reference
-          to <span class="undefined_element">three.dita</span>. The effective value of of the
-            <span class="undefined_element">platform</span> attribute is <span class="undefined_element">a b</span>, and the effective value
-          for the <span class="undefined_element">product</span> attribute is <span class="undefined_element">z</span>.<span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>
-            </span>
-         </span>
-      </span>
+            <code class="keyword markupname xmlatt">@platform</code> value of <span class="keyword">a b</span> and an effective
+            <code class="keyword markupname xmlatt">@product</code> value of <span class="keyword" style="color:red;">
+                  x y
+               </span>.</li>
+            <li style="color:red;" class="li">
+               The topic reference to <span class="ph filepath">two.dita</span> does not specify any
+          additional attributes. The effective values for the <code class="keyword markupname xmlatt">@platform</code> and
+            <code class="keyword markupname xmlatt">@product</code> attributes are the same as those on the parent topic reference
+          to <span class="ph filepath">one.dita</span>. The effective value of of the <code class="keyword markupname xmlatt">@platform</code>
+          attribute is <span class="keyword">a b</span>, and the effective value for the
+            <code class="keyword markupname xmlatt">@product</code> attribute is <span class="keyword">x y</span>.
+            </li>
+            <li class="li">The <span style="color:red;" class="ph">
+                  topic
+               </span> reference to <span style="color:red;" class="ph filepath">
+                  three.dita
+               </span> specifies <code class="ph codeph">cascade="nomerge"</code>, so attribute values
+          from other elements do not merge with anything specified on <span style="color:red;" class="ph">
+                  the
+            topic
+               </span> reference. The <code class="keyword markupname xmlatt">@platform</code> attribute is not specified, so the
+          effective value is <span class="keyword">a b</span>, which still cascades from the parent element.
+          The <code class="keyword markupname xmlatt">@product</code> value does not merge with values from the parent, so the
+          effective value is <span class="keyword">z</span>.</li>
+            <li style="color:red;" class="li">
+               The topic reference to <span class="ph filepath">four.dita</span> does not specify
+          any additional attributes. The effective values for the <code class="keyword markupname xmlatt">@platform</code> and
+            <code class="keyword markupname xmlatt">@product</code> attributes are the same as those on the parent topic reference
+          to <span class="ph filepath">three.dita</span>. The effective value of of the
+            <code class="keyword markupname xmlatt">@platform</code> attribute is <span class="keyword">a b</span>, and the effective value
+          for the <code class="keyword markupname xmlatt">@product</code> attribute is <span class="keyword">z</span>.
+            </li>
+         </ul>
+      </figure>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/examples-of-cascading.html" title="These examples illustrate the processing expectations for cascading metadata. The processing examples use either before and after sample markup or expanded syntax that shows the equivalent markup withough cascading.">Examples of metadata cascading</a></div></div></nav>
 </article></main>

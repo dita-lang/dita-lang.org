@@ -15,28 +15,24 @@ repository: 'oasis-tcs/dita'
    
    <div class="body conbody"><p class="shortdesc">This topic covers general coding requirements for DTD-based
     structural modules.</p>
-      <span class="undefined_element">
-         <span class="undefined_element">Required topic and map element attributes</span>
-         <span class="undefined_element">The topic or map element type sets the <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>ditaarch:DITAArchVersion<span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>
-            </span> attribute to the version of
+      <section class="section" id="dtdStructuralCoding__architectural-attributes"><h2 class="title sectiontitle">Required topic and map element attributes</h2>
+         
+         <p class="p">The topic or map element type sets the <code style="color:red;" class="keyword markupname xmlatt">@
+               ditaarch:DITAArchVersion
+            </code> attribute to the version of
         DITA in use, typically by referencing the
-          <span class="undefined_element">arch-atts</span> parameter entity. It also sets the
-          <span class="undefined_element">specializations</span> attribute to the
-          <span class="undefined_element">included-domains</span> entity.</span>
-         <span class="undefined_element">The <span class="undefined_element">DITAArchVersion</span> and <span class="undefined_element">specializations</span> attributes give
+          <code class="ph codeph">arch-atts</code> parameter entity. It also sets the
+          <code class="keyword markupname xmlatt">@specializations</code> attribute to the
+          <code class="ph codeph">included-domains</code> entity.</p>
+         <p class="p">The <code class="keyword markupname xmlatt">@DITAArchVersion</code> and <code class="keyword markupname xmlatt">@specializations</code> attributes give
         processors a reliable way to check the architecture version and look up the list of
-        attribute domains that are available in the document type.</span>
-         <span class="undefined_element">
-            <span class="undefined_element">The following example shows how the <span class="undefined_element">DITAArchVersion</span> and
-            <span class="undefined_element">specializations</span> attributes are defined for the
-            <span class="undefined_element">concept</span> element in DITA 2.0. Ellipses indicate where the code
-          is snipped for brevity:</span>
-            <span class="undefined_element">&lt;!-- ============================================================= --&gt;
+        attribute domains that are available in the document type.</p>
+         <div class="example">
+            <p class="p">The following example shows how the <code class="keyword markupname xmlatt">@DITAArchVersion</code> and
+            <code class="keyword markupname xmlatt">@specializations</code> attributes are defined for the
+            <code class="keyword markupname xmlelement">&lt;concept&gt;</code> element in DITA 2.0. Ellipses indicate where the code
+          is snipped for brevity:</p>
+            <pre class="pre codeblock"><code>&lt;!-- ============================================================= --&gt;
 &lt;!--                    ELEMENT DECLARATIONS                       --&gt;
 &lt;!-- ============================================================= --&gt;
 
@@ -48,111 +44,101 @@ repository: 'oasis-tcs/dita'
 
 &lt;!ATTLIST concept    
   %concept.attributes;
-  <span class="undefined_element">%arch-atts;
-  specializations  CDATA  "&amp;included-domains;</span>"&gt;</span>
-         </span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Controlling nesting in topic types</span>
-         <span class="undefined_element">
-            <span class="undefined_element">A structural module that defines a new topic
+  <strong class="ph b">%arch-atts;
+  specializations  CDATA  "&amp;included-domains;</strong>"&gt;</code></pre>
+         </div>
+      </section>
+      <section class="section" id="dtdStructuralCoding__topic-nesting"><h2 class="title sectiontitle">Controlling nesting in topic types</h2>
+         
+         <p class="p">
+            <span class="ph">A structural module that defines a new topic
           type</span> typically uses a parameter entity to define a default
         for what topic types are permitted to nest. When this is done
         consistently, a shell that includes multiple structural modules can
         set common nesting rules for all topic types by setting
-          <span class="undefined_element">%info-types;</span> entity. </span>
-         <span class="undefined_element">The following rules apply when using parameter entities to control
-        nesting.</span>
-         <span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element">Parameter entity name</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">The name of the parameter entity is the topic element name plus the
-                <span class="undefined_element">-info-types</span> suffix.</span>
-                  <span class="undefined_element">
-                     <span class="undefined_element">For example, the name of the parameter entity for the concept topic is
-                  <span class="undefined_element">concept-info-types</span>. </span>
-                  </span>
-               </span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">Parameter entity value</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">To set up default topic nesting rules, set the entity to the desired topic elements.
+          <code class="ph codeph">%info-types;</code> entity. </p>
+         <p class="p">The following rules apply when using parameter entities to control
+        nesting.</p>
+         <dl class="dl">
+            
+               <dt class="dt dlterm">Parameter entity name</dt>
+               <dd class="dd">
+                  <p class="p">The name of the parameter entity is the topic element name plus the
+                <code class="ph codeph">-info-types</code> suffix.</p>
+                  <div class="example">
+                     <p class="p">For example, the name of the parameter entity for the concept topic is
+                  <code class="ph codeph">concept-info-types</code>. </p>
+                  </div>
+               </dd>
+            
+            
+               <dt class="dt dlterm">Parameter entity value</dt>
+               <dd class="dd">
+                  <p class="p">To set up default topic nesting rules, set the entity to the desired topic elements.
               The default topic nesting is used when a document-type shell does not set up different
-              rules. </span>
-                  <span class="undefined_element">
-                     <span class="undefined_element">For example, the following parameter entity sets up default nesting so that
-                  <span class="undefined_element">concept</span> will nest only other
-                  <span class="undefined_element">concept</span> topics:</span>
-                     <span class="undefined_element">&lt;!-- ============================================================= --&gt;
+              rules. </p>
+                  <div class="example">
+                     <p class="p">For example, the following parameter entity sets up default nesting so that
+                  <code class="keyword markupname xmlelement">&lt;concept&gt;</code> will nest only other
+                  <code class="keyword markupname xmlelement">&lt;concept&gt;</code> topics:</p>
+                     <pre class="pre codeblock"><code>&lt;!-- ============================================================= --&gt;
 &lt;!--                    ELEMENT DECLARATIONS                       --&gt;
 &lt;!-- ============================================================= --&gt;
 
 &lt;!ENTITY % concept-info-types
               "%info-types;"
-&gt;</span>
-                  </span>
-                  <span class="undefined_element">
-                     <span class="undefined_element">As an additional example, the following parameter entity sets up a default that
-                will not allow any nesting:</span>
-                     <span class="undefined_element">&lt;!ENTITY % glossentry-info-types "no-topic-nesting"&gt;</span>
-                  </span>
-               </span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">Content model of the root element</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">The last position in the content model defined for the root
+&gt;</code></pre>
+                  </div>
+                  <div class="example">
+                     <p class="p">As an additional example, the following parameter entity sets up a default that
+                will not allow any nesting:</p>
+                     <pre class="pre codeblock"><code>&lt;!ENTITY % glossentry-info-types "no-topic-nesting"&gt;</code></pre>
+                  </div>
+               </dd>
+            
+            
+               <dt class="dt dlterm">Content model of the root element</dt>
+               <dd class="dd">
+                  <p class="p">The last position in the content model defined for the root
               element of a topic type should be the
-                  <span class="undefined_element">
-                        <span class="undefined_element">topictype</span>-info-types</span>
-              parameter entity.</span>
-                  <span class="undefined_element">A document-type shell then can control how topics are
+                  <code class="ph codeph">
+                        <var class="keyword varname">topictype</var>-info-types</code>
+              parameter entity.</p>
+                  <p class="p">A document-type shell then can control how topics are
               allowed to nest for this specific topic type by redefining
-              the <span class="undefined_element">
-                        <span class="undefined_element">topictype</span>-info-types</span>
-              entity for each topic type.</span>
-                  <span class="undefined_element">
-                     <span class="undefined_element">For example, with the following content model defined for
-                  <span class="undefined_element">concept</span>, a document-type shell that uses the concept
+              the <code class="ph codeph">
+                        <var class="keyword varname">topictype</var>-info-types</code>
+              entity for each topic type.</p>
+                  <div class="example">
+                     <p class="p">For example, with the following content model defined for
+                  <code class="keyword markupname xmlelement">&lt;concept&gt;</code>, a document-type shell that uses the concept
                 specialization can control which topics are nested in
-                  <span class="undefined_element">concept</span> by redefining the
-                  <span class="undefined_element">concept-info-types</span> parameter entity:</span>
-                     <span class="undefined_element">
-                        <span class="undefined_element">
-                           <span class="undefined_element"></span>
-                        </span>&lt;!ENTITY % concept.content
+                  <code class="keyword markupname xmlelement">&lt;concept&gt;</code> by redefining the
+                  <code class="ph codeph">concept-info-types</code> parameter entity:</p>
+                     <pre style="color:red;" class="pre codeblock"><code>&lt;!ENTITY % concept.content
   "((%title;),
     (%abstract; | %shortdesc;)?, 
     (%prolog;)?, 
     (%conbody;)?, 
     (%related-links;)?,
-    <span class="undefined_element">(%concept-info-types;)*</span>)"
-&gt;<span class="undefined_element">
-                           <span class="undefined_element"></span>
-                        </span>
-                     </span>
-                  </span>
-               </span>
-            </span>
-         </span>
-         <span class="undefined_element">In certain cases, you do not need to use an <span class="undefined_element">info-types</span> parameter entity to
-        control topic nesting:</span>
-         <span class="undefined_element">
-            <span class="undefined_element">If you want a specialized topic type to <span class="undefined_element">
-                  <span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>disallow<span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>
+    <strong class="ph b">(%concept-info-types;)*</strong>)"
+&gt;</code></pre>
+                  </div>
+               </dd>
+            
+         </dl>
+         <p class="p">In certain cases, you do not need to use an <code class="ph codeph">info-types</code> parameter entity to
+        control topic nesting:</p>
+         <ul class="ul">
+            <li class="li">If you want a specialized topic type to <span style="color:red;" class="ph">
+                  disallow
                </span> nested topics, regardless of context, it can be
-          defined without any entity or any nested topics.</span>
-            <span class="undefined_element">If you want a specialized topic type to only allow specific nesting patterns, such as
+          defined without any entity or any nested topics.</li>
+            <li class="li">If you want a specialized topic type to only allow specific nesting patterns, such as
           allowing only other topic types that are defined in the same module, it can nest those
-          topics directly in the same way that other nested elements are defined.</span>
-         </span>
-      </span>
+          topics directly in the same way that other nested elements are defined.</li>
+         </ul>
+      </section>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/dtd-requirements.html" title="This section explains how to implement DTD - based document-type shells, specializations, and element-configuration modules (constraint and expansion).">DTD coding requirements</a></div></div></nav>
 </article></main>

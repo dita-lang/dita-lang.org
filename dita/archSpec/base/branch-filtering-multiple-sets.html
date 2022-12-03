@@ -16,31 +16,31 @@ repository: 'oasis-tcs/dita'
    <div class="body conbody"><p class="shortdesc">Using multiple <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> elements as the children of a map
         or map branch indicates that the map or map branch will be independently filtered using the
         rules that are specified in each referenced DITAVAL document.</p>
-      <span class="undefined_element">When multiple <span class="undefined_element">ditavalref</span> elements occur as children of the same
+      <p class="p">When multiple <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> elements occur as children of the same
             element, the rules in the referenced DITAVAL documents are processed independently. This
             effectively requires a processor to maintain one copy of the branch for each
-                <span class="undefined_element">ditavalref</span>, so that each copy can be filtered using
-            different conditions.</span>
-      <span class="undefined_element">In most cases, it is possible to create a valid, fully-resolved view of
-            a map with branches copied to reflect the different <span class="undefined_element">ditavalref</span>
+                <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code>, so that each copy can be filtered using
+            different conditions.</p>
+      <div class="note note note_note"><span class="note__title">Note:</span> In most cases, it is possible to create a valid, fully-resolved view of
+            a map with branches copied to reflect the different <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code>
             conditions. However, this might not be the case when multiple
-                <span class="undefined_element">ditavalref</span> elements occur as direct children of a root map.
+                <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> elements occur as direct children of a root map.
             In this case, it is possible that the map could be filtered in a manner that results in
-            two or more distinct versions of the <span class="undefined_element">title</span> or metadata. How
-            this is handled is processor dependent. <span class="undefined_element">For example, when a
-                root map has three <span class="undefined_element">ditavalref</span> elements as children of
-                    <span class="undefined_element">map</span>, a conversion to EPUB could produce an EPUB with
+            two or more distinct versions of the <code class="keyword markupname xmlelement">&lt;title&gt;</code> or metadata. How
+            this is handled is processor dependent. <span class="ph">For example, when a
+                root map has three <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> elements as children of
+                    <code class="keyword markupname xmlelement">&lt;map&gt;</code>, a conversion to EPUB could produce an EPUB with
                 three versions of the content, or it could produce three distinct EPUB
                 documents.</span>
-      </span>
-      <span class="undefined_element">When a processor maintains multiple copies of a branch for different condition sets, it
+      </div>
+      <p class="p">When a processor maintains multiple copies of a branch for different condition sets, it
             has to manage situations where a single resource with a single key name results in two
             distinct resources. Key names must be modified in order to allow references to a
             specific filtered copy of the resource; without renaming, key references could only be
             used to refer to a single filtered copy of the resource, chosen by the processor. See
-                <span class="undefined_element">Branch filtering: Impact on resource and key names<span class="undefined_element">When map branches are cloned by a processor in order to support multiple condition         sets, processors must manage conflicting resource and key names. The DITAVALref domain         includes metadata elements that authors can use to specify how resource and key names are         renamed.</span>
-         </span> for details on how to manage
-            resource names and key names.</span>
+                <a class="xref" href="branch-filtering-resource-names.html" title="When map branches are cloned by a processor in order to support multiple condition sets, processors must manage conflicting resource and key names. The DITAVALref domain includes metadata elements that authors can use to specify how resource and key names are renamed.">Branch filtering: Impact on resource and key names
+         </a> for details on how to manage
+            resource names and key names.</p>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/branch-filtering.html" title="The branch filtering mechanism enables map authors to set filtering conditions for specific branches of a map. This makes it possible for multiple conditional-processing profiles to be applied within a single publication.">Branch filtering</a></div></div></nav>
 </article></main>

@@ -16,9 +16,9 @@ repository: 'oasis-tcs/dita'
    <div class="body conbody"><p class="shortdesc">When a key definition also specifies a key reference, the key reference also must be
     resolved in order to determine the effective resources that are bound to that key
     definition.</p>
-      <span class="undefined_element">In the following example, a <span class="undefined_element">topicref</span> element references the key
-      "widget". The definition for "widget" in turn references the key "mainProduct".</span>
-      <span class="undefined_element">&lt;map&gt;
+      <p class="p">In the following example, a <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element references the key
+      "widget". The definition for "widget" in turn references the key "mainProduct".</p>
+      <pre class="pre codeblock"><code>&lt;map&gt;
   &lt;topicref keyref="widget" id="example"/&gt;
   &lt;keydef keys="widget" href="widgetInfo.dita" scope="local" format="dita" rev="v1r2"
           keyref="mainProduct"&gt;
@@ -29,27 +29,27 @@ repository: 'oasis-tcs/dita'
     &lt;topicmeta&gt;&lt;navtitle&gt;Generic product page&lt;/navtitle&gt;&lt;/topicmeta&gt;
   &lt;/keydef&gt;
 &lt;/map&gt;
-  </span>
-      <span class="undefined_element">For this example, the key reference to "widget" pulls resources from that key definition,
-      which in turn pulls resources from "mainProduct".</span>
-      <span class="undefined_element">The resources from the key definitions are combined as follows:</span>
-      <span class="undefined_element">
-         <span class="undefined_element">The metadata resources from "mainProduct" are combined with the resources already
+  </code></pre>
+      <p class="p">For this example, the key reference to "widget" pulls resources from that key definition,
+      which in turn pulls resources from "mainProduct".</p>
+      <p class="p">The resources from the key definitions are combined as follows:</p>
+      <ul class="ul">
+         <li class="li">The metadata resources from "mainProduct" are combined with the resources already
         specified on the "widget" key definition, resulting in the addition of
-          <span class="undefined_element">product</span> and <span class="undefined_element">audience</span> values.</span>
-         <span class="undefined_element">The navigation title on the "widget" key definition overrides those on the "mainProduct"
-        key definition.</span>
-         <span class="undefined_element">The <span class="undefined_element">href</span>, <span class="undefined_element">scope</span>, and <span class="undefined_element">format</span> attributes
-        on the "mainProduct" key definition override those on "widget".</span>
-      </span>
-      <span class="undefined_element"> Thus after key references are resolved, the original <span class="undefined_element">topicref</span>
-      element is equivalent to the following:</span>
-      <span class="undefined_element">&lt;topicref id="example"
+          <code class="keyword markupname xmlatt">@product</code> and <code class="keyword markupname xmlatt">@audience</code> values.</li>
+         <li class="li">The navigation title on the "widget" key definition overrides those on the "mainProduct"
+        key definition.</li>
+         <li class="li">The <code class="keyword markupname xmlatt">@href</code>, <code class="keyword markupname xmlatt">@scope</code>, and <code class="keyword markupname xmlatt">@format</code> attributes
+        on the "mainProduct" key definition override those on "widget".</li>
+      </ul>
+      <p class="p"> Thus after key references are resolved, the original <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>
+      element is equivalent to the following:</p>
+      <pre class="pre codeblock"><code>&lt;topicref id="example"
           href="http://example.com/productPage" scope="external" format="html" 
           rev="v1r2"
           product="prodCode" audience="sysadmin"&gt;
    &lt;topicmeta&gt;&lt;navtitle&gt;Information about Widget&lt;/navtitle&gt;&lt;/topicmeta&gt;
-&lt;/topicref&gt;</span>
+&lt;/topicref&gt;</code></pre>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/examples-of-keys.html" title="This section of the specification contains examples and scenarios. They illustrate a wide variety of ways that keys can be used.">Examples of keys</a></div></div></nav>
 </article></main>

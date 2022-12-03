@@ -17,59 +17,54 @@ repository: 'oasis-tcs/dita'
    <div class="body conbody"><p class="shortdesc">The DITA architect wants to add some extension modules to the
     document-type shell for topic. The document-type shell already
     integrates a constraint module.</p>
-      <span class="undefined_element">The following table lists the constraint module and the extension
+      <p class="p">The following table lists the constraint module and the extension
       modules that the DITA architect wants to integrate into the
-      document-type shell for topic.</span>
-      <span class="undefined_element">
-         <span class="undefined_element">
-            <span class="undefined_element">Type of element configuration</span>
-            <span class="undefined_element">File name</span>
-            <span class="undefined_element">What it does</span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">Constraint</span>
-            <span class="undefined_element">
-               <span class="undefined_element">topicSectionConstraint.rng</span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">Constrains <span class="undefined_element">topic</span>:</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">Removes <span class="undefined_element">abstract</span>
-                  </span>
-                  <span class="undefined_element">Makes <span class="undefined_element">shortdesc</span> required</span>
-                  <span class="undefined_element">Removes <span class="undefined_element">related-links</span>
-                  </span>
-                  <span class="undefined_element">Disallows topic nesting</span>
-               </span>
-               <span class="undefined_element">Constrains <span class="undefined_element">section</span>:</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">Makes <span class="undefined_element">id</span> required</span>
-               </span>
-            </span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">Expansion</span>
-            <span class="undefined_element">
-               <span class="undefined_element">sectionExpansionMod.rng</span>
-            </span>
-            <span class="undefined_element">Adds <span class="undefined_element">sectionDesc</span> to the content
-          model of <span class="undefined_element">section</span>
-            </span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">Expansion</span>
-            <span class="undefined_element">
-               <span class="undefined_element">tableCellAttExpansion.rng</span>
-            </span>
-            <span class="undefined_element">Adds <span class="undefined_element">cellPurpose</span> to the attribute lists
-          for certain table elements</span>
-         </span>
-      </span>
-      <span class="undefined_element">Because all of these element-configuration modules target elements
-      declared in <span class="undefined_element">topicMod.rng</span>, the DITA architect
+      document-type shell for topic.</p>
+      <table class="simpletable frame-all"><colgroup><col style="width:20%"><col style="width:40%"><col style="width:40%"></colgroup><thead><tr class="sthead">
+            <th class="stentry" scope="col" id="rng_aggregating_constraint_and_expansion_modules__stentry__1">Type of element configuration</th>
+            <th class="stentry" scope="col" id="rng_aggregating_constraint_and_expansion_modules__stentry__2">File name</th>
+            <th class="stentry" scope="col" id="rng_aggregating_constraint_and_expansion_modules__stentry__3">What it does</th>
+         </tr></thead><tbody><tr class="strow">
+            <td class="stentry" headers="rng_aggregating_constraint_and_expansion_modules__stentry__1">Constraint</td>
+            <td class="stentry" headers="rng_aggregating_constraint_and_expansion_modules__stentry__2">
+               <span class="ph filepath">topicSectionConstraint.rng</span>
+            </td>
+            <td class="stentry" headers="rng_aggregating_constraint_and_expansion_modules__stentry__3">
+               <p class="p">Constrains <code class="keyword markupname xmlelement">&lt;topic&gt;</code>:</p>
+               <ul class="ul">
+                  <li class="li">Removes <code class="keyword markupname xmlelement">&lt;abstract&gt;</code>
+                  </li>
+                  <li class="li">Makes <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code> required</li>
+                  <li class="li">Removes <code class="keyword markupname xmlelement">&lt;related-links&gt;</code>
+                  </li>
+                  <li class="li">Disallows topic nesting</li>
+               </ul>
+               <p class="p">Constrains <code class="keyword markupname xmlelement">&lt;section&gt;</code>:</p>
+               <ul class="ul">
+                  <li class="li">Makes <code class="keyword markupname xmlatt">@id</code> required</li>
+               </ul>
+            </td>
+         </tr><tr class="strow">
+            <td class="stentry" headers="rng_aggregating_constraint_and_expansion_modules__stentry__1">Expansion</td>
+            <td class="stentry" headers="rng_aggregating_constraint_and_expansion_modules__stentry__2">
+               <span class="ph filepath">sectionExpansionMod.rng</span>
+            </td>
+            <td class="stentry" headers="rng_aggregating_constraint_and_expansion_modules__stentry__3">Adds <code class="keyword markupname xmlelement">&lt;sectionDesc&gt;</code> to the content
+          model of <code class="keyword markupname xmlelement">&lt;section&gt;</code>
+            </td>
+         </tr><tr class="strow">
+            <td class="stentry" headers="rng_aggregating_constraint_and_expansion_modules__stentry__1">Expansion</td>
+            <td class="stentry" headers="rng_aggregating_constraint_and_expansion_modules__stentry__2">
+               <span class="ph filepath">tableCellAttExpansion.rng</span>
+            </td>
+            <td class="stentry" headers="rng_aggregating_constraint_and_expansion_modules__stentry__3">Adds <code class="keyword markupname xmlatt">@cellPurpose</code> to the attribute lists
+          for certain table elements</td>
+         </tr></tbody></table>
+      <p class="p">Because all of these element-configuration modules target elements
+      declared in <span class="ph filepath">topicMod.rng</span>, the DITA architect
       needs to combine them into a single element-configuration module like
-      the following:</span>
-      <span class="undefined_element">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+      the following:</p>
+      <pre class="pre codeblock"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;?xml-model href="urn:pubid:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng"
                          schematypens="http://relaxng.org/ns/structure/1.0"?&gt;
 &lt;grammar xmlns="http://relaxng.org/ns/structure/1.0"
@@ -79,7 +74,7 @@ repository: 'oasis-tcs/dita'
   &lt;div&gt;
     &lt;a:documentation&gt;CONTENT MODEL AND ATTRIBUTE LIST OVERRIDES&lt;/a:documentation&gt;
     &lt;include href="urn:pubid:oasis:names:tc:dita:rng:topicMod.rng:2.0"&gt;
-      <span class="undefined_element">&lt;!-- Redefines attribute list for section: Makes @id required --&gt;</span>
+      <strong class="ph b">&lt;!-- Redefines attribute list for section: Makes @id required --&gt;</strong>
       &lt;define name="section.attributes"&gt;
         &lt;attribute name="id"&gt;
           &lt;data type="ID"/&gt;
@@ -91,7 +86,7 @@ repository: 'oasis-tcs/dita'
           &lt;attribute name="outputclass"/&gt;
         &lt;/optional&gt;
       &lt;/define&gt;
-      <span class="undefined_element">&lt;!-- Adds sectionDesc to the content model of section --&gt;</span>
+      <strong class="ph b">&lt;!-- Adds sectionDesc to the content model of section --&gt;</strong>
       &lt;define name="section.content"&gt;
         &lt;optional&gt;
           &lt;ref name="title"/&gt;
@@ -103,7 +98,7 @@ repository: 'oasis-tcs/dita'
           &lt;ref name="section.cnt"/&gt;
         &lt;/zeroOrMore&gt;
       &lt;/define&gt;
-      <span class="undefined_element">&lt;!-- Adds @cellPurpose to certain table and simple table elements --&gt;</span>
+      <strong class="ph b">&lt;!-- Adds @cellPurpose to certain table and simple table elements --&gt;</strong>
       &lt;define name="colspec.attributes" combine="interleave"&gt;
         &lt;optional&gt;
           &lt;attribute name="cellPurpose"/&gt;
@@ -129,8 +124,8 @@ repository: 'oasis-tcs/dita'
           &lt;attribute name="cellPurpose"/&gt;
         &lt;/optional&gt;
       &lt;/define&gt;
-      <span class="undefined_element">&lt;!-- Redefines topic: removes abstract and related-links; makes shortdesc --&gt;
-      &lt;!--                  required; disallows topic nesting                   --&gt;</span>
+      <strong class="ph b">&lt;!-- Redefines topic: removes abstract and related-links; makes shortdesc --&gt;
+      &lt;!--                  required; disallows topic nesting                   --&gt;</strong>
       &lt;define name="topic.content"&gt;
         &lt;ref name="title"/&gt;
         &lt;ref name="shortdesc"/&gt;
@@ -144,17 +139,17 @@ repository: 'oasis-tcs/dita'
     &lt;/include&gt;
   &lt;/div&gt;
 &lt;/grammar&gt;
-</span>
-      <span class="undefined_element">When the DITA architect edits the document-type shell to integrate
-      the element configuration module, <span class="undefined_element">they also need</span>
-      to do the following:</span>
-      <span class="undefined_element">
-         <span class="undefined_element">Remove the include statement for
-          <span class="undefined_element">topicMod.rng</span>
-         </span>
-         <span class="undefined_element">Add <span class="undefined_element">section</span> to the "ID-DEFINING ELEMENT
-        OVERRIDES" division</span>
-      </span>
+</code></pre>
+      <p class="p">When the DITA architect edits the document-type shell to integrate
+      the element configuration module, <span class="ph">they also need</span>
+      to do the following:</p>
+      <ul class="ul">
+         <li class="li">Remove the include statement for
+          <span class="ph filepath">topicMod.rng</span>
+         </li>
+         <li class="li">Add <code class="keyword markupname xmlelement">&lt;section&gt;</code> to the "ID-DEFINING ELEMENT
+        OVERRIDES" division</li>
+      </ul>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/examples-expansion-implemented-using-rng.html" title="This section of the specification contains examples of extension modules implemented using RNG.">Examples: Expansion implemented using RNG</a></div></div></nav>
 </article></main>

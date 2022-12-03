@@ -15,17 +15,13 @@ repository: 'oasis-tcs/dita'
    
    
    <div class="body conbody"><p class="shortdesc"></p>
-      <span class="undefined_element">
-         <span class="undefined_element">The following is content that Eliot Kimber suggested be included
-        in the DITA 2.0 specification as part of the review of proposal
-        #647. It has not been edited.</span>
-      </span>
-      <span class="undefined_element">A subject scheme map may be included in a map as either a normal sub
+      
+      <p class="p">A subject scheme map may be included in a map as either a normal sub
       map or as a peer root map and associated with a key scope on the map
-      reference.</span>
-      <span class="undefined_element">
-         <span class="undefined_element">A subject scheme map included as a sub map with a key scope: </span>
-         <span class="undefined_element">&lt;map&gt;
+      reference.</p>
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>A subject scheme map included as a sub map with a key scope: </figcaption>
+         
+         <pre class="pre codeblock"><code>&lt;map&gt;
  &lt;title&gt;User assistance for the Acme Widget&lt;/title&gt;
  &lt;!-- ... --&gt;
  &lt;mapref keyscope="subjects" href="subjectschemes/subject-scheme-01.ditamap"/&gt;
@@ -36,18 +32,18 @@ repository: 'oasis-tcs/dita'
    &lt;topicref keyref="install-troubleshooting" subjectrefs="subjects.troubleshooting"/&gt;
  &lt;/topicref&gt;
  &lt;!-- ... --&gt; 
-&lt;/map&gt;</span>
-      </span>
-      <span class="undefined_element"> The keys defined in referenced subject scheme map are included in
+&lt;/map&gt;</code></pre>
+      </figure>
+      <p class="p"> The keys defined in referenced subject scheme map are included in
       the referencing map's key space. References to the subject keys must
       be scope qualified (i.e., "subjects.installing"). Putting the subject
       scheme keys in a key scope ensures that the keys defined in the
       subject scheme do not conflict with any keys defined elsewhere in the
       referencing map (although the referencing map could still override
-      any keys defined in the subject scheme map).</span>
-      <span class="undefined_element">The subject scheme map can also be referenced as a peer-scope root
-      map in a key scope:</span>
-      <span class="undefined_element">&lt;map&gt;
+      any keys defined in the subject scheme map).</p>
+      <p class="p">The subject scheme map can also be referenced as a peer-scope root
+      map in a key scope:</p>
+      <pre class="pre codeblock"><code>&lt;map&gt;
  &lt;title&gt;User assistance for the Acme Widget&lt;/title&gt;
  &lt;!-- ... --&gt;
  &lt;mapref keyscope="subjects" scope="peer" href="subjectschemes/subject-scheme-01.ditamap"/&gt;
@@ -58,14 +54,14 @@ repository: 'oasis-tcs/dita'
    &lt;topicref keyref="install-troubleshooting" subjectrefs="subjects.troubleshooting"/&gt;
  &lt;/topicref&gt;
  &lt;!-- ... --&gt; 
-&lt;/map&gt;</span>
-      <span class="undefined_element">As a peer map, the keys defined in the subject scheme map are not
+&lt;/map&gt;</code></pre>
+      <p class="p">As a peer map, the keys defined in the subject scheme map are not
       included in the referencing map's key space but may be resolved using
       normal cross-deliverable key reference resolution. Processors that
       support cross-deliverable linking may also choose to resolve
       references from @"subjectrefs" to keys in peer subject scheme maps,
       for example to report keys specified on @"subjectrefs" that cannot be
-      found in the peer subject scheme map.</span>
+      found in the peer subject scheme map.</p>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/examples-of-scoped-keys.html" title="This section of the specification contains examples and scenarios. They illustrate how scoped keys can be used.">Examples of scoped keys</a></div></div></nav>
 </article></main>

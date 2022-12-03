@@ -17,49 +17,49 @@ repository: 'oasis-tcs/dita'
     pattern. These patterns help ensure that the shell follows XML parsing rules for RELAX NG; they
     also establish a modular design that simplifies creation of new document-type
     shells.</p>
-      <span class="undefined_element">An RNG-based document-type shell contains the following sections:</span>
-      <span class="undefined_element">
-         <span class="undefined_element">
-            <span class="undefined_element">Root element declaration</span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">specializations attribute</span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">Element-type configuration integration</span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">Module inclusions</span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">ID-defining element overrides</span>
-         </span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">
-            <span class="undefined_element">Root element declaration</span>
-            <span class="undefined_element">
-               <span class="undefined_element">Document-type shells use the RELAX NG start declaration to specify the root element of
-            the document type. The <span class="undefined_element">start</span> element defines the root element,
-            using a reference to a <span class="undefined_element">
-                     <span class="undefined_element">tagname</span>.element</span> pattern.</span>
-               <span class="undefined_element">For example:<span class="undefined_element">&lt;div&gt;
+      <p class="p">An RNG-based document-type shell contains the following sections:</p>
+      <ol class="ol">
+         <li class="li">
+            <a class="xref" href="#concept_rrq_p45_dn__root-element-declarations">Root element declaration</a>
+         </li>
+         <li class="li">
+            <a class="xref" href="#concept_rrq_p45_dn__specializations-attribute">specializations attribute</a>
+         </li>
+         <li class="li">
+            <a class="xref" href="#concept_rrq_p45_dn__content-constraint">Element-type configuration integration</a>
+         </li>
+         <li class="li">
+            <a class="xref" href="#concept_rrq_p45_dn__module-inclusion">Module inclusions</a>
+         </li>
+         <li class="li">
+            <a class="xref" href="#concept_rrq_p45_dn__id-defining-element-overrides">ID-defining element overrides</a>
+         </li>
+      </ol>
+      <dl class="dl">
+         
+            <dt class="dt dlterm" id="concept_rrq_p45_dn__root-element-declarations">Root element declaration</dt>
+            <dd class="dd">
+               <p class="p">Document-type shells use the RELAX NG start declaration to specify the root element of
+            the document type. The <code class="keyword markupname xmlelement">&lt;start&gt;</code> element defines the root element,
+            using a reference to a <code class="ph codeph">
+                     <var class="keyword varname">tagname</var>.element</code> pattern.</p>
+               <div class="p">For example:<pre class="pre codeblock"><code>&lt;div&gt;
   &lt;a:documentation&gt;ROOT ELEMENT DECLARATION&lt;/a:documentation&gt;
   &lt;start combine="choice"&gt;
     &lt;ref name="topic.element"/&gt;
   &lt;/start&gt;
-&lt;/div&gt;</span>
-               </span>
-            </span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element">specializations</span> attribute</span>
-            <span class="undefined_element">
-               <span class="undefined_element">This section lists the tokens that attribute-domain <span class="undefined_element">and
-              element-configuration</span> modules contribute to the <span class="undefined_element">specializations</span>
-            attribute.</span>
-               <span class="undefined_element">For example:<span class="undefined_element">&lt;div&gt;
+&lt;/div&gt;</code></pre>
+               </div>
+            </dd>
+         
+         
+            <dt class="dt dlterm" id="concept_rrq_p45_dn__specializations-attribute">
+               <code class="keyword markupname xmlatt">@specializations</code> attribute</dt>
+            <dd class="dd">
+               <p class="p">This section lists the tokens that attribute-domain <span class="ph">and
+              element-configuration</span> modules contribute to the <code class="keyword markupname xmlatt">@specializations</code>
+            attribute.</p>
+               <div class="p">For example:<pre class="pre codeblock"><code>&lt;div&gt;
   &lt;a:documentation&gt;SPECIALIZATIONS ATTRIBUTE&lt;/a:documentation&gt;
   &lt;define name="specializations-att"&gt;
     &lt;optional&gt;
@@ -72,58 +72,44 @@ repository: 'oasis-tcs/dita'
       /&gt;
     &lt;/optional&gt;
   &lt;/define&gt;
-&lt;/div&gt;</span>
-               </span>
-            </span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">Element-type configuration integration</span>
-            <span class="undefined_element">
-               <span class="undefined_element">This section of the document-type shell contains includes for
-              <span class="undefined_element">element-type configuration modules (constraint
+&lt;/div&gt;</code></pre>
+               </div>
+            </dd>
+         
+         
+            <dt class="dt dlterm" id="concept_rrq_p45_dn__content-constraint">Element-type configuration integration</dt>
+            <dd class="dd">
+               <p class="p">This section of the document-type shell contains includes for
+              <span class="ph">element-type configuration modules (constraint
               and expansion)</span>.
             
-              Because<span class="undefined_element">
-                     <span class="undefined_element">
-                        <span class="undefined_element"></span>
-                     </span> an<span class="undefined_element">
-                        <span class="undefined_element"></span>
-                     </span>
+              Because<span style="color:red;" class="ph">
+                      an
                   </span> element-configuration
-            module imports the module that it <span class="undefined_element">
-                     <span class="undefined_element">
-                        <span class="undefined_element"></span>
-                     </span>overrides,<span class="undefined_element">
-                        <span class="undefined_element"></span>
-                     </span>
-                  </span> any module that is<span class="undefined_element">
+            module imports the module that it <span style="color:red;" class="ph">
+                     overrides,
+                  </span> any module that is<span class="ph">
               configured</span> in this section (including the base topic or
             map modules) is left out of the following "Module inclusion"
-            section.</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">The following code sample shows the section of an RNG-based
+            section.</p>
+               <div class="div">
+                  <p class="p">The following code sample shows the section of an RNG-based
               document-type shell that redefines the
-                <span class="undefined_element">taskbody</span> element to create the
-              strict task topic.</span>
-                  <span class="undefined_element">
-                     <span class="undefined_element">
-                        <span class="undefined_element"></span>
-                     </span>&lt;div&gt;
+                <code class="keyword markupname xmlelement">&lt;taskbody&gt;</code> element to create the
+              strict task topic.</p>
+                  <pre style="color:red;" class="pre codeblock"><code>&lt;div&gt;
 &lt;a:documentation&gt;ELEMENT-TYPE CONFIGURATION INTEGRATION&lt;/a:documentation&gt;
   &lt;include href="strictTaskbodyConstraintMod.rng"/&gt;            
-&lt;/div&gt;<span class="undefined_element">
-                        <span class="undefined_element"></span>
-                     </span>
-                  </span>
-               </span>
-            </span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">Module inclusions</span>
-            <span class="undefined_element">
-               <span class="undefined_element">This section of the RNG-based document-type shell includes all unconstrained domain or
-            structural modules.</span>
-               <span class="undefined_element">For example:<span class="undefined_element">  &lt;div&gt;
+&lt;/div&gt;</code></pre>
+               </div>
+            </dd>
+         
+         
+            <dt class="dt dlterm" id="concept_rrq_p45_dn__module-inclusion">Module inclusions</dt>
+            <dd class="dd">
+               <p class="p">This section of the RNG-based document-type shell includes all unconstrained domain or
+            structural modules.</p>
+               <div class="p">For example:<pre class="pre codeblock"><code>  &lt;div&gt;
     &lt;a:documentation&gt;MODULE INCLUSIONS&lt;/a:documentation&gt;
     &lt;include href="topicMod.rng"&gt;
       &lt;define name="topic-info-types"&gt;
@@ -140,36 +126,32 @@ repository: 'oasis-tcs/dita'
     &lt;include href="hazardstatementDomain.rng"/&gt;
     &lt;include href="highlightDomain.rng"/&gt;
     &lt;include href="utilitiesDomain.rng"/&gt;
-  &lt;/div&gt;</span>
-               </span>
-            </span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">ID-defining element overrides</span>
-            <span class="undefined_element">
+  &lt;/div&gt;</code></pre>
+               </div>
+            </dd>
+         
+         
+            <dt class="dt dlterm" id="concept_rrq_p45_dn__id-defining-element-overrides">ID-defining element overrides</dt>
+            <dd class="dd">
                <span class="ph error-statement"></span>
-               <span class="undefined_element">This section declares any element in the document type that uses an <span class="undefined_element">id</span>
-            attribute with an XML data type of <span class="undefined_element">ID</span>. <span class="ph error-statement"></span>This declaration is required
-            in order to prevent RELAX NG parsers from issuing errors.</span>
-               <span class="undefined_element">If the document-type shell includes domains for foreign vocabularies such as SVG or
+               <p class="p">This section declares any element in the document type that uses an <code class="keyword markupname xmlatt">@id</code>
+            attribute with an XML data type of <span class="keyword">ID</span>. <span class="ph error-statement"></span>This declaration is required
+            in order to prevent RELAX NG parsers from issuing errors.</p>
+               <p class="p">If the document-type shell includes domains for foreign vocabularies such as SVG or
             MathML, this section also includes exclusions for the namespaces used by those
-            domains.</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">For example, the following code sample is from an RNG-based
+            domains.</p>
+               <div class="div">
+                  <div class="p">For example, the following code sample is from an RNG-based
               document-type shell for a task topic. It declares that both
-              the <span class="undefined_element">topic</span> and
-                <span class="undefined_element">task</span> elements have an
-                <span class="undefined_element">id</span> attribute with <span class="undefined_element">
-                        <span class="undefined_element">
-                           <span class="undefined_element"></span>
-                        </span>an<span class="undefined_element">
-                           <span class="undefined_element"></span>
-                        </span>
+              the <code class="keyword markupname xmlelement">&lt;topic&gt;</code> and
+                <code class="keyword markupname xmlelement">&lt;task&gt;</code> elements have an
+                <code class="keyword markupname xmlatt">@id</code> attribute with <span style="color:red;" class="ph">
+                        an
                      </span> XML data type of ID. These elements and any
               elements in the SVG or MathML namespaces are excluded from
               the "any" pattern by being placed within the
-                <span class="undefined_element">except</span>
-              element:<span class="undefined_element">  &lt;div&gt;
+                <code class="keyword markupname xmlelement">&lt;except&gt;</code>
+              element:<pre class="pre codeblock"><code>  &lt;div&gt;
       &lt;a:documentation&gt; ID-DEFINING-ELEMENT OVERRIDES &lt;/a:documentation&gt;
       &lt;define name="any"&gt;
          &lt;zeroOrMore&gt;
@@ -196,12 +178,12 @@ repository: 'oasis-tcs/dita'
          &lt;/zeroOrMore&gt;
       &lt;/define&gt;
   &lt;/div&gt;
-</span>
-                  </span>
-               </span>
-            </span>
-         </span>
-      </span>
+</code></pre>
+                  </div>
+               </div>
+            </dd>
+         
+      </dl>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/relax-ng-requirements.html" title="This section explains how to implement RNG-based document-type shells, specializations, and element-configuration modules (constraints and expansions).">RELAX NG coding requirements</a></div></div></nav>
 </article></main>

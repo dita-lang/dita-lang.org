@@ -18,13 +18,13 @@ repository: 'oasis-tcs/dita'
     redefine the attributes for the <code class="keyword markupname xmlelement">&lt;section&gt;</code>
     element. <span class="ph">They want</span> to make the <code class="keyword markupname xmlatt">@id</code>
     attribute required.</p>
-      <span class="undefined_element">
-         <span class="undefined_element">
-            <span class="undefined_element">The DITA architect creates a constraint module:
-            <span class="undefined_element">idRequiredSectionContraint.mod</span>.</span>
-            <span class="undefined_element">
-               <span class="undefined_element">They add</span> the following content to
-            <span class="undefined_element">idRequiredSectionContraint.mod</span>:<span class="undefined_element">&lt;!-- Declares the entities referenced in the constrained content  --&gt;
+      <div class="example" id="reference_cfb_ck4_5p__example">
+         <ol class="ol">
+            <li class="li">The DITA architect creates a constraint module:
+            <span class="ph filepath">idRequiredSectionContraint.mod</span>.</li>
+            <li class="li">
+               <span class="ph">They add</span> the following content to
+            <span class="ph filepath">idRequiredSectionContraint.mod</span>:<pre class="pre codeblock"><code>&lt;!-- Declares the entities referenced in the constrained content  --&gt;
 &lt;!-- model.                                                       --&gt;
 
 &lt;!ENTITY % localization-atts
@@ -110,75 +110,56 @@ repository: 'oasis-tcs/dita'
                outputclass
                           CDATA
                                     #IMPLIED"
-&gt;</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">
-                     <span class="undefined_element">
-                        <span class="undefined_element"></span>
-                     </span>Note that the<span class="undefined_element">
-                        <span class="undefined_element"></span>
-                     </span>
+&gt;</code></pre>
+               <p class="p">
+                  <span style="color:red;" class="ph">
+                     Note that the
                   </span> DITA
             architect had to declare all the parameter entities that are
             referenced in the redefined attributes for
-              <span class="undefined_element">section</span>. If <span class="undefined_element">they</span>
+              <code class="keyword markupname xmlelement">&lt;section&gt;</code>. If <span class="ph">they</span>
             did not do so, none of the attributes that are declared in the
             parameter entities would be available on the
-              <span class="undefined_element">section</span> element. Furthermore, since
-            the <span class="undefined_element">select-atts</span> parameter
+              <code class="keyword markupname xmlelement">&lt;section&gt;</code> element. Furthermore, since
+            the <code class="keyword markupname parameterentity">%select-atts;</code> parameter
             entity references the
-              <span class="undefined_element">filter-atts</span> parameter
-            entity, the <span class="undefined_element">filter-atts</span> must
+              <code class="keyword markupname parameterentity">%filter-atts;</code> parameter
+            entity, the <code class="keyword markupname parameterentity">%filter-atts;</code> must
             be declared and it must precede the declaration for the
-              <span class="undefined_element">select-atts</span> parameter
+              <code class="keyword markupname parameterentity">%select-atts;</code> parameter
             entity. The
-              <span class="undefined_element">props-attribute-extensions</span>
+              <code class="keyword markupname parameterentity">%props-attribute-extensions;</code>
             and
-              <span class="undefined_element">base-attribute-extensions</span>
+              <code class="keyword markupname parameterentity">%base-attribute-extensions;</code>
             parameter entities do not need to be declared in the constraint
             module, because they are declared in the document-type shells
-            before the inclusion of the constraint module.</span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">They add</span> the constraint module to the
-            <span class="undefined_element">catalog.xml</span> file.</span>
-            <span class="undefined_element">
-               <span class="undefined_element">They then integrate</span> the constraint module
-          into the applicable document-type shells<span class="undefined_element">
-                  <span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span> by
+            before the inclusion of the constraint module.</p>
+            </li>
+            <li class="li">
+               <span class="ph">They add</span> the constraint module to the
+            <span class="ph filepath">catalog.xml</span> file.</li>
+            <li class="li">
+               <span class="ph">They then integrate</span> the constraint module
+          into the applicable document-type shells<span style="color:red;" class="ph">
+                   by
             adding the following
-          code<span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>
-               </span>:<span class="undefined_element">
-                  <span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>&lt;!-- ============================================================= --&gt;
+          code
+               </span>:<pre style="color:red;" class="pre codeblock"><code>&lt;!-- ============================================================= --&gt;
 &lt;!--           ELEMENT-TYPE CONFIGURATION INTEGRATION              --&gt;
 &lt;!-- ============================================================= --&gt;
 
-<span class="undefined_element">&lt;!ENTITY % section-constraints-c-def  
+<strong class="ph b">&lt;!ENTITY % section-constraints-c-def  
   PUBLIC "-//ACME//ELEMENTS DITA 2.0 Section Constraint//EN" 
   "idRequiredSectionContraint.mod"&gt;
-%section-constraints-c-def;</span>
-                  <span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>
-               </span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>They check their<span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>
+%section-constraints-c-def;</strong></code></pre>
+            </li>
+            <li class="li">
+               <span style="color:red;" class="ph">
+                  They check their
                </span> test topic to ensure
-          that the attribute list is modified as expected.</span>
-         </span>
-      </span>
+          that the attribute list is modified as expected.</li>
+         </ol>
+      </div>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/examples-constraints.html" title="This section of the specification contains examples of constraints implemented using DTD.">Examples: Constraints implemented using DTDs</a></div></div></nav>
 </article></main>

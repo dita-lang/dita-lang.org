@@ -16,29 +16,29 @@ repository: 'oasis-tcs/dita'
    <div class="body conbody"><p class="shortdesc">The following example illustrates how the <code class="keyword markupname xmlatt">@cascade</code> attribute can be used
   to fine tune how the values for the <code class="keyword markupname xmlatt">@platform</code> attribute apply to topics referenced
   in a DITA map.</p>
-      <span class="undefined_element">Here a DITA map contains a collection of topics that apply to Windows, Linux, and Macintosh OS;
-   it also contains a topic that is only applicable to users running the application on Linux. </span>
-      <span class="undefined_element">&lt;map product="PuffinTracker" platform="win linux mac" <span class="undefined_element">cascade="nomerge"</span>&gt;
+      <p class="p">Here a DITA map contains a collection of topics that apply to Windows, Linux, and Macintosh OS;
+   it also contains a topic that is only applicable to users running the application on Linux. </p>
+      <pre class="pre codeblock"><code>&lt;map product="PuffinTracker" platform="win linux mac" <strong class="ph b">cascade="nomerge"</strong>&gt;
   &lt;title&gt;Puffin Tracking Software&lt;/title&gt;
   &lt;topicref href="introduction.dita"/&gt;
   &lt;topicref href="setting-up-the-product.dita"/&gt;
   &lt;topicref href="linux-instructions.dita" platform="linux"/&gt;
-&lt;/map&gt;</span>
-      <span class="undefined_element">The values of the <span class="undefined_element">platform</span> attribute set at the map level cascade throughout
-   the map and apply to the <span class="undefined_element">introduction.dita</span> and
-    <span class="undefined_element">setting-up-the-product.dita</span> topics. However, since the value of the
-    <span class="undefined_element">cascade</span> attribute is set to <span class="undefined_element">nomerge</span>, the value of the
-    <span class="undefined_element">platform</span> attribute for the <span class="undefined_element">linux-instructions.dita</span> topic
+&lt;/map&gt;</code></pre>
+      <p class="p">The values of the <code class="keyword markupname xmlatt">@platform</code> attribute set at the map level cascade throughout
+   the map and apply to the <span class="ph filepath">introduction.dita</span> and
+    <span class="ph filepath">setting-up-the-product.dita</span> topics. However, since the value of the
+    <code class="keyword markupname xmlatt">@cascade</code> attribute is set to <span class="keyword">nomerge</span>, the value of the
+    <code class="keyword markupname xmlatt">@platform</code> attribute for the <span class="ph filepath">linux-instructions.dita</span> topic
    does not merge with the values that cascade from above in the DITA map. The effective value of
-   the <span class="undefined_element">platform</span> attribute for <span class="undefined_element">linux-instructions.dita</span> is
-    <span class="undefined_element">linux</span>.</span>
-      <span class="undefined_element">The same results are produced by the following mark-up:</span>
-      <span class="undefined_element">&lt;map product="PuffinTracker" platform="win linux mac"&gt;
+   the <code class="keyword markupname xmlatt">@platform</code> attribute for <span class="ph filepath">linux-instructions.dita</span> is
+    <span class="keyword">linux</span>.</p>
+      <p class="p">The same results are produced by the following mark-up:</p>
+      <pre class="pre codeblock"><code>&lt;map product="PuffinTracker" platform="win linux mac"&gt;
   &lt;title&gt;Puffin Tracking Software&lt;/title&gt;
   &lt;topicref href="introduction.dita"/&gt;
   &lt;topicref href="setting-up-the-product.dita"/&gt;
   &lt;topicref href="linux-instructions.dita" platform="linux" cascade="nomerge"/&gt;
-&lt;/map&gt;</span>
+&lt;/map&gt;</code></pre>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/example-ditamaps.html" title="This section of the specification contains simple examples of DITA maps. The examples illustrate a few of the ways that DITA maps are used.">Examples of DITA maps</a></div></div></nav>
 </article></main>

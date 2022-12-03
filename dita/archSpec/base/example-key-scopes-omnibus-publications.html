@@ -16,46 +16,46 @@ repository: 'oasis-tcs/dita'
    <div class="body conbody"><p class="shortdesc">Key scopes enable you to create omnibus publications that include multiple submaps that
     define the same key names for common items, such as product names or common topic
     clusters.</p>
-      <span class="undefined_element">In this scenario, a training organization wants to produce a deliverable that includes all of
+      <p class="p">In this scenario, a training organization wants to produce a deliverable that includes all of
    their training course materials. Each course manual uses common keys for standard parts of the
-   course materials, including "prerequisites," "overview", "assessment", and "summary.</span>
-      <span class="undefined_element">An information architect creates a root map that contains the following markup:</span>
-      <span class="undefined_element">&lt;map xml:lang="en"&gt;
+   course materials, including "prerequisites," "overview", "assessment", and "summary.</p>
+      <p class="p">An information architect creates a root map that contains the following markup:</p>
+      <pre class="pre codeblock"><code>&lt;map xml:lang="en"&gt;
   &lt;title&gt;Training courses&lt;/title&gt;
   &lt;mapref href="course-1.ditamap"/&gt;
   &lt;mapref href="course-2.ditamap"/&gt;
   &lt;mapref href="course-3.ditamap"/&gt;
   &lt;topicref href="omnibus-summary.dita"/&gt;
-&lt;/map&gt;</span>
-      <span class="undefined_element">Each of the submaps contain <span class="undefined_element">topicref</span> elements that refer to resources
-      using the <span class="undefined_element">keyref</span> attribute. Each submap uses common keys for standard parts
+&lt;/map&gt;</code></pre>
+      <p class="p">Each of the submaps contain <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements that refer to resources
+      using the <code class="keyword markupname xmlatt">@keyref</code> attribute. Each submap uses common keys for standard parts
       of the course materials, including "prerequisites," "overview", "assessment", and "summary",
-      and their key definitions bind the key names to course-specific resources. For example:</span>
-      <span class="undefined_element">&lt;map xml:lang="en"&gt;
+      and their key definitions bind the key names to course-specific resources. For example:</p>
+      <pre class="pre codeblock"><code>&lt;map xml:lang="en"&gt;
   &lt;title&gt;Training course #1&lt;/title&gt;
   &lt;mapref href="course-1/key-definitions.ditamap"/&gt;
   &lt;topicref keyref="prerequisites"/&gt;
   &lt;topicref keyref="overview"/&gt;
   &lt;topicref keyref="assessment"/&gt;
   &lt;topicref keyref="summary"/&gt;
-&lt;/map&gt;</span>
-      <span class="undefined_element">Without using key scopes, the effective key definitions for the common keys resolve to those
-   found in <span class="undefined_element">course-1.ditamap</span>. This is not the desired outcome. By adding key
+&lt;/map&gt;</code></pre>
+      <p class="p">Without using key scopes, the effective key definitions for the common keys resolve to those
+   found in <span class="ph filepath">course-1.ditamap</span>. This is not the desired outcome. By adding key
    scopes to the submaps, however, the information architect can ensure that the key references in
-   the submaps resolve to the course-specific key definitions.</span>
-      <span class="undefined_element">&lt;map xml:lang="en"&gt;
+   the submaps resolve to the course-specific key definitions.</p>
+      <pre class="pre codeblock"><code>&lt;map xml:lang="en"&gt;
   &lt;title&gt;Training courses&lt;/title&gt;
-  &lt;mapref href="course-1.ditamap" <span class="undefined_element">keyscope="course-1"</span>/&gt;
-  &lt;mapref href="course-2.ditamap" <span class="undefined_element">keyscope="course-2"</span>/&gt;
-  &lt;mapref href="course-3.ditamap" <span class="undefined_element">keyscope="course-3"</span>/&gt;
+  &lt;mapref href="course-1.ditamap" <strong class="ph b">keyscope="course-1"</strong>/&gt;
+  &lt;mapref href="course-2.ditamap" <strong class="ph b">keyscope="course-2"</strong>/&gt;
+  &lt;mapref href="course-3.ditamap" <strong class="ph b">keyscope="course-3"</strong>/&gt;
   &lt;topicref href="omnibus-summary.dita"/&gt;
-&lt;/map&gt;</span>
-      <span class="undefined_element">The information architect does <span class="undefined_element">not</span> set <span class="undefined_element">keys="summary"</span> on the
-        <span class="undefined_element">topicref</span> element in the root map. Doing so would mean that all key
+&lt;/map&gt;</code></pre>
+      <p class="p">The information architect does <strong class="ph b">not</strong> set <code class="ph codeph">keys="summary"</code> on the
+        <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element in the root map. Doing so would mean that all key
       references to "summary" in the submaps would resolve to
-        <span class="undefined_element">omnibus-summary.dita</span>, rather than the course-specific summary topics.
+        <span class="ph filepath">omnibus-summary.dita</span>, rather than the course-specific summary topics.
       This is because key definitions located in parent scopes override those located in child
-      scopes.</span>
+      scopes.</p>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/examples-of-scoped-keys.html" title="This section of the specification contains examples and scenarios. They illustrate how scoped keys can be used.">Examples of scoped keys</a></div></div></nav>
 </article></main>

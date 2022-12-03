@@ -16,59 +16,54 @@ repository: 'oasis-tcs/dita'
    <div class="body conbody"><p class="shortdesc">In this scenario, the root map contains references to two submaps,
     each of which defines the same key. The effective key definition depends upon the document order
     of the direct URI references to the maps.</p>
-      <span class="undefined_element">In the following example, a root map contains a key definition for the <span class="undefined_element">key
+      <p class="p">In the following example, a root map contains a key definition for the <span class="ph">key
     "toner-specs" and references to two submaps.</span>
-      </span>
-      <span class="undefined_element">&lt;map&gt;
-  <span class="undefined_element">&lt;keydef keys="toner-specs" href="toner-type-a-specs.dita"/&gt;</span>
+      </p>
+      <pre class="pre codeblock"><code>&lt;map&gt;
+  <strong class="ph b">&lt;keydef keys="toner-specs" href="toner-type-a-specs.dita"/&gt;</strong>
   &lt;mapref href="submap-01.ditamap"/&gt;
   &lt;mapref href="submap-02.ditamap"/&gt;
 &lt;/map&gt;
-</span>
-      <span class="undefined_element">The first submap, <span class="undefined_element">submap-01.ditamap</span>, contains definitions for the <span class="undefined_element">keys "toner-specs" and "toner-handling":</span>
-      </span>
-      <span class="undefined_element">&lt;map&gt;
+</code></pre>
+      <p class="p">The first submap, <span class="ph filepath">submap-01.ditamap</span>, contains definitions for the <span class="ph">keys "toner-specs" and "toner-handling":</span>
+      </p>
+      <pre class="pre codeblock"><code>&lt;map&gt;
   &lt;keydef keys="toner-specs" href="toner-type-b-specs.dita"/&gt;
-  <span class="undefined_element">&lt;keydef keys="toner-handling" href="toner-type-b-handling.dita"/&gt;</span>
-&lt;/map&gt;</span>
-      <span class="undefined_element">The second submap, <span class="undefined_element">submap-02.ditamap</span>, contains definitions for the <span class="undefined_element">keys "toner-specs", "toner-handling", and "toner-disposal":</span>
-      </span>
-      <span class="undefined_element">&lt;map&gt;
+  <strong class="ph b">&lt;keydef keys="toner-handling" href="toner-type-b-handling.dita"/&gt;</strong>
+&lt;/map&gt;</code></pre>
+      <p class="p">The second submap, <span class="ph filepath">submap-02.ditamap</span>, contains definitions for the <span class="ph">keys "toner-specs", "toner-handling", and "toner-disposal":</span>
+      </p>
+      <pre class="pre codeblock"><code>&lt;map&gt;
   &lt;keydef keys="toner-specs" href="toner-type-c-specs.dita"/&gt;
   &lt;keydef keys="toner-handling" href="toner-type-c-handling.dita"/&gt;
-  <span class="undefined_element">&lt;keydef keys="toner-disposal" href="toner-type-c-disposal.dita"/&gt;</span>
-&lt;/map&gt;</span>
-      <span class="undefined_element">For this example, the effective key definitions are listed in the following table.</span>
-      <span class="undefined_element">
-         <span class="undefined_element">
-            <span class="undefined_element">Key</span>
-            <span class="undefined_element">Bound resource</span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">toner-specs</span>
-            <span class="undefined_element">
-               <span class="undefined_element">toner-type-a-specs.dita</span>
-            </span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">toner-handling</span>
-            <span class="undefined_element">
-               <span class="undefined_element">toner-type-b-handling.dita</span>
-            </span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">toner-disposal</span>
-            <span class="undefined_element">
-               <span class="undefined_element">toner-type-c-disposal.dita</span>
-            </span>
-         </span>
-      </span>
-      <span class="undefined_element">The key definition for "toner-specs" in the root map is effective, because it is the first
+  <strong class="ph b">&lt;keydef keys="toner-disposal" href="toner-type-c-disposal.dita"/&gt;</strong>
+&lt;/map&gt;</code></pre>
+      <p class="p">For this example, the effective key definitions are listed in the following table.</p>
+      <table class="simpletable frame-topbot" id="concept_zpw_51z_lp__simpletable_a459d096-5695-474b-9e7f-3797b458437c"><colgroup><col style="width:50%"><col style="width:50%"></colgroup><thead><tr class="sthead">
+            <th class="stentry" scope="col" id="concept_zpw_51z_lp__simpletable_a459d096-5695-474b-9e7f-3797b458437c__stentry__1">Key</th>
+            <th class="stentry" scope="col" id="concept_zpw_51z_lp__simpletable_a459d096-5695-474b-9e7f-3797b458437c__stentry__2">Bound resource</th>
+         </tr></thead><tbody><tr class="strow">
+            <td class="stentry" headers="concept_zpw_51z_lp__simpletable_a459d096-5695-474b-9e7f-3797b458437c__stentry__1">toner-specs</td>
+            <td class="stentry" headers="concept_zpw_51z_lp__simpletable_a459d096-5695-474b-9e7f-3797b458437c__stentry__2">
+               <span class="ph filepath">toner-type-a-specs.dita</span>
+            </td>
+         </tr><tr class="strow">
+            <td class="stentry" headers="concept_zpw_51z_lp__simpletable_a459d096-5695-474b-9e7f-3797b458437c__stentry__1">toner-handling</td>
+            <td class="stentry" headers="concept_zpw_51z_lp__simpletable_a459d096-5695-474b-9e7f-3797b458437c__stentry__2">
+               <span class="ph filepath">toner-type-b-handling.dita</span>
+            </td>
+         </tr><tr class="strow">
+            <td class="stentry" headers="concept_zpw_51z_lp__simpletable_a459d096-5695-474b-9e7f-3797b458437c__stentry__1">toner-disposal</td>
+            <td class="stentry" headers="concept_zpw_51z_lp__simpletable_a459d096-5695-474b-9e7f-3797b458437c__stentry__2">
+               <span class="ph filepath">toner-type-c-disposal.dita</span>
+            </td>
+         </tr></tbody></table>
+      <p class="p">The key definition for "toner-specs" in the root map is effective, because it is the first
       encountered in a breadth-first traversal of the root map. The key definition for
-      "toner-handling" in <span class="undefined_element">submap-01.ditamap</span> is effective, because submap-01 is
+      "toner-handling" in <span class="ph filepath">submap-01.ditamap</span> is effective, because submap-01 is
       included before submap-02 and so comes first in a breadth-first traversal of the submaps. The
       key definition for "toner-disposal" is effective because it is the only definition of the
-      key.</span>
+      key.</p>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/examples-of-keys.html" title="This section of the specification contains examples and scenarios. They illustrate a wide variety of ways that keys can be used.">Examples of keys</a></div></div></nav>
 </article></main>

@@ -15,102 +15,82 @@ repository: 'oasis-tcs/dita'
    
    <div class="body conbody"><p class="shortdesc">The <code class="keyword markupname xmlatt">@scope</code> attribute identifies the closeness of the relationship between
         the current document and the target resource.</p>
-      <span class="undefined_element">The <span class="undefined_element">scope</span> attribute takes the following values:</span>
-      <span class="undefined_element">
-         <span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element">external</span>
-            </span>
-            <span class="undefined_element">Indicates that the resource is not part of the current <span class="undefined_element">
-                  <span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>set of content.<span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>
+      <p class="p">The <code class="keyword markupname xmlatt">@scope</code> attribute takes the following values:</p>
+      <dl class="dl">
+         
+            <dt class="dt dlterm">
+               <span class="keyword">external</span>
+            </dt>
+            <dd class="dd">Indicates that the resource is not part of the current <span style="color:red;" class="ph">
+                  set of content.
                </span>
-            </span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element">local</span>
-            </span>
-            <span class="undefined_element">Indicates that the resource is part of the current set of
-          content.</span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element">peer</span>
-            </span>
-            <span class="undefined_element">Indicates one of the following:</span>
-            <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element">The resource is part of the current set of content, but it
-              might not <span class="undefined_element">
-                        <span class="undefined_element">
-                           <span class="undefined_element"></span>
-                        </span>be<span class="undefined_element">
-                           <span class="undefined_element"></span>
-                        </span>
+            </dd>
+         
+         
+            <dt class="dt dlterm">
+               <span class="keyword">local</span>
+            </dt>
+            <dd class="dd">Indicates that the resource is part of the current set of
+          content.</dd>
+         
+         
+            <dt class="dt dlterm">
+               <span class="keyword">peer</span>
+            </dt>
+            <dd class="dd">Indicates one of the following:</dd>
+            <dd class="dd ddexpand">
+               <ul class="ul">
+                  <li class="li">The resource is part of the current set of content, but it
+              might not <span style="color:red;" class="ph">
+                        be
                      </span> accessible at build
-              time.</span>
-                  <span class="undefined_element">The resource should be treated as a root map for the
+              time.</li>
+                  <li class="li">The resource should be treated as a root map for the
               purpose of creating map-to-map key references (peer
-              maps).</span>
-                  <span class="undefined_element">
-                     <span class="undefined_element">
-                        <span class="undefined_element"></span>
-                     </span>The resource is a peer map. If
-                <span class="undefined_element">keyscope</span> is also specified on the
+              maps).</li>
+                  <li style="color:red;" class="li">
+                     The resource is a peer map. If
+                <code class="keyword markupname xmlatt">@keyscope</code> is also specified on the
               reference, it indicates that the map should be treated as a
-              separate deliverable for the purposes of linking.<span class="undefined_element">
-                        <span class="undefined_element"></span>
-                     </span>
-                  </span>
-               </span>
-            </span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element">-dita-use-conref-target</span>
-            </span>
-            <span class="undefined_element">See <span class="undefined_element">Using the -dita-use-conref-target value<span class="undefined_element">The value <span class="undefined_element">-dita-use-conref-target</span> is available on enumerated     attributes and can also be specified on other attributes. When an element uses       <span class="undefined_element">conref</span> to pull in content, for any of its attributes assigned a value of       <span class="undefined_element">-dita-use-conref-target</span>, the resulting value for those attributes is also     pulled in from the referenced element.</span>
-               </span> for more
-          information on <span class="undefined_element">-dita-use-conref-target</span>
-            </span>
-         </span>
-      </span>
-      <span class="undefined_element">If no value is specified for the <span class="undefined_element">scope</span> attribute,
-      the following considerations apply:</span>
-      <span class="undefined_element">
-         <span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>If the <span class="undefined_element">scope</span> attribute<span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>
+              separate deliverable for the purposes of linking.
+                  </li>
+               </ul>
+            </dd>
+         
+         
+            <dt class="dt dlterm">
+               <span class="keyword">-dita-use-conref-target</span>
+            </dt>
+            <dd class="dd">See <a class="xref" href="ditauseconreftarget.html" title="The value -dita-use-conref-target is available on enumerated attributes and can also be specified on other attributes. When an element uses conref to pull in content, for any of its attributes assigned a value of -dita-use-conref-target, the resulting value for those attributes is also pulled in from the referenced element.">Using the -dita-use-conref-target value
+               </a> for more
+          information on <span class="keyword">-dita-use-conref-target</span>
+            </dd>
+         
+      </dl>
+      <p class="p">If no value is specified for the <code class="keyword markupname xmlatt">@scope</code> attribute,
+      the following considerations apply:</p>
+      <ul class="ul">
+         <li class="li">
+            <span style="color:red;" class="ph">
+               If the <code class="keyword markupname xmlatt">@scope</code> attribute
             </span>
         is specified on a containing element within a map or within the
         related-links section, the value cascades from the closest
-        containing element.</span>
-         <span class="undefined_element">In most cases, the processing default is
-        <span class="undefined_element">local</span>. However the processing default is
-          <span class="undefined_element">external</span> whenever the absolute URI in the
-          <span class="undefined_element">href</span> attribute begins with one of the following
-        schemes: <span class="undefined_element">http</span>, <span class="undefined_element">https</span>,
-          <span class="undefined_element">ftp</span>, or <span class="undefined_element">mailto</span>
-         </span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element"></span>
-            </span>For the <span class="undefined_element">scope</span> attribute,
-      p<span class="undefined_element">
-               <span class="undefined_element"></span>
-            </span>
+        containing element.</li>
+         <li class="li">In most cases, the processing default is
+        <span class="keyword">local</span>. However the processing default is
+          <span class="keyword">external</span> whenever the absolute URI in the
+          <code class="keyword markupname xmlatt">@href</code> attribute begins with one of the following
+        schemes: <span class="keyword">http</span>, <span class="keyword">https</span>,
+          <span class="keyword">ftp</span>, or <span class="keyword">mailto</span>
+         </li>
+      </ul>
+      <p class="p">
+         <span style="color:red;" class="ph">
+            For the <code class="keyword markupname xmlatt">@scope</code> attribute,
+      p
          </span>rocessors can consider additional URI schemes as
-        <span class="undefined_element">external</span> by default. Processors <span class="undefined_element">MUST</span> always consider relative URIs as
-        <span class="undefined_element">local</span> by default.</span>
+        <span class="keyword">external</span> by default. Processors <dfn class="term RFC-2119">MUST</dfn> always consider relative URIs as
+        <span class="keyword">local</span> by default.</p>
    </div>
 </article></main>

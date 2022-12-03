@@ -15,12 +15,12 @@ repository: 'oasis-tcs/dita'
    
    <div class="body conbody"><p class="shortdesc">You can address scoped keys from outside the key scope in which the keys are
   defined.</p>
-      <span class="undefined_element">&lt;map xml:lang="en"&gt;
+      <pre class="pre codeblock"><code>&lt;map xml:lang="en"&gt;
   &lt;title&gt;Examples of scoped key references&lt;/title&gt;
 
   &lt;!-- Key scope #1 --&gt;
   &lt;topicgroup keyscope="scope-1"&gt;
-    <span class="undefined_element">&lt;keydef keys="key-1" href="topic-1.dita"/&gt;</span>
+    <strong class="ph b">&lt;keydef keys="key-1" href="topic-1.dita"/&gt;</strong>
     &lt;topicref keyref="key-1"/&gt;
     &lt;topicref keyref="scope-1.key-1"/&gt;
     &lt;topicref keyref="scope-2.key-1"/&gt;
@@ -28,7 +28,7 @@ repository: 'oasis-tcs/dita'
 
   &lt;!-- Key scope #2 --&gt;
   &lt;topicgroup keyscope="scope-2"&gt;
-    <span class="undefined_element">&lt;keydef keys="key-1" href="topic-2.dita"/&gt;</span>
+    <strong class="ph b">&lt;keydef keys="key-1" href="topic-2.dita"/&gt;</strong>
     &lt;topicref keyref="key-1"/&gt;
     &lt;topicref keyref="scope-1.key-1"/&gt;
     &lt;topicref keyref="scope-2.key-1" /&gt;
@@ -38,87 +38,72 @@ repository: 'oasis-tcs/dita'
   &lt;topicref keyref="scope-1.key-1" /&gt;
   &lt;topicref keyref="scope-2.key-1" /&gt;
 
-&lt;/map&gt;</span>
-      <span class="undefined_element">For this example, the effective key definitions are listed in the following tables.</span>
-      <span class="undefined_element">
-         <span class="undefined_element">Effective key definitions for scope-1</span>
-         <span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element">Key reference</span>
-               <span class="undefined_element">Resource</span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">key-1</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">topic-1.dita</span>
-               </span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">scope-1.key-1</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">topic-1.dita</span>
-               </span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">scope-2.key-1</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">topic-2.dita</span>
-               </span>
-            </span>
-         </span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Effective key definitions for scope-2</span>
-         <span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element">Key reference</span>
-               <span class="undefined_element">Resource</span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">key-1</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">topic-2.dita</span>
-               </span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">scope-1.key-1</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">topic-1.dita</span>
-               </span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">scope-2.key-1</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">topic-2.dita</span>
-               </span>
-            </span>
-         </span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Effective key definitions for the key scope associated with the root map</span>
-         <span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element">Key reference</span>
-               <span class="undefined_element">Resource</span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">key-1</span>
-               <span class="undefined_element">Undefined</span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">scope-1.key-1</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">topic-1.dita</span>
-               </span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">scope-2.key-1</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">topic-2.dita</span>
-               </span>
-            </span>
-         </span>
-      </span>
+&lt;/map&gt;</code></pre>
+      <p class="p">For this example, the effective key definitions are listed in the following tables.</p>
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Effective key definitions for scope-1</figcaption>
+         
+         <table class="simpletable frame-topbot"><colgroup><col style="width:50%"><col style="width:50%"></colgroup><thead><tr class="sthead">
+               <th class="stentry" scope="col" id="concept_zms_tw1_mp__stentry__1">Key reference</th>
+               <th class="stentry" scope="col" id="concept_zms_tw1_mp__stentry__2">Resource</th>
+            </tr></thead><tbody><tr class="strow">
+               <td class="stentry" headers="concept_zms_tw1_mp__stentry__1">key-1</td>
+               <td class="stentry" headers="concept_zms_tw1_mp__stentry__2">
+                  <span class="ph filepath">topic-1.dita</span>
+               </td>
+            </tr><tr class="strow">
+               <td class="stentry" headers="concept_zms_tw1_mp__stentry__1">scope-1.key-1</td>
+               <td class="stentry" headers="concept_zms_tw1_mp__stentry__2">
+                  <span class="ph filepath">topic-1.dita</span>
+               </td>
+            </tr><tr class="strow">
+               <td class="stentry" headers="concept_zms_tw1_mp__stentry__1">scope-2.key-1</td>
+               <td class="stentry" headers="concept_zms_tw1_mp__stentry__2">
+                  <span class="ph filepath">topic-2.dita</span>
+               </td>
+            </tr></tbody></table>
+      </figure>
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>Effective key definitions for scope-2</figcaption>
+         
+         <table class="simpletable frame-topbot"><colgroup><col style="width:50%"><col style="width:50%"></colgroup><thead><tr class="sthead">
+               <th class="stentry" scope="col" id="concept_zms_tw1_mp__stentry__9">Key reference</th>
+               <th class="stentry" scope="col" id="concept_zms_tw1_mp__stentry__10">Resource</th>
+            </tr></thead><tbody><tr class="strow">
+               <td class="stentry" headers="concept_zms_tw1_mp__stentry__9">key-1</td>
+               <td class="stentry" headers="concept_zms_tw1_mp__stentry__10">
+                  <span class="ph filepath">topic-2.dita</span>
+               </td>
+            </tr><tr class="strow">
+               <td class="stentry" headers="concept_zms_tw1_mp__stentry__9">scope-1.key-1</td>
+               <td class="stentry" headers="concept_zms_tw1_mp__stentry__10">
+                  <span class="ph filepath">topic-1.dita</span>
+               </td>
+            </tr><tr class="strow">
+               <td class="stentry" headers="concept_zms_tw1_mp__stentry__9">scope-2.key-1</td>
+               <td class="stentry" headers="concept_zms_tw1_mp__stentry__10">
+                  <span class="ph filepath">topic-2.dita</span>
+               </td>
+            </tr></tbody></table>
+      </figure>
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 3. </span>Effective key definitions for the key scope associated with the root map</figcaption>
+         
+         <table class="simpletable frame-topbot"><colgroup><col style="width:50%"><col style="width:50%"></colgroup><thead><tr class="sthead">
+               <th class="stentry" scope="col" id="concept_zms_tw1_mp__stentry__17">Key reference</th>
+               <th class="stentry" scope="col" id="concept_zms_tw1_mp__stentry__18">Resource</th>
+            </tr></thead><tbody><tr class="strow">
+               <td class="stentry" headers="concept_zms_tw1_mp__stentry__17">key-1</td>
+               <td class="stentry" headers="concept_zms_tw1_mp__stentry__18">Undefined</td>
+            </tr><tr class="strow">
+               <td class="stentry" headers="concept_zms_tw1_mp__stentry__17">scope-1.key-1</td>
+               <td class="stentry" headers="concept_zms_tw1_mp__stentry__18">
+                  <span class="ph filepath">topic-1.dita</span>
+               </td>
+            </tr><tr class="strow">
+               <td class="stentry" headers="concept_zms_tw1_mp__stentry__17">scope-2.key-1</td>
+               <td class="stentry" headers="concept_zms_tw1_mp__stentry__18">
+                  <span class="ph filepath">topic-2.dita</span>
+               </td>
+            </tr></tbody></table>
+      </figure>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/examples-of-scoped-keys.html" title="This section of the specification contains examples and scenarios. They illustrate how scoped keys can be used.">Examples of scoped keys</a></div></div></nav>
 </article></main>

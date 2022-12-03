@@ -24,167 +24,88 @@ repository: 'oasis-tcs/dita'
       </span> is already in
     effect, it is possible to use <code class="ph codeph">chunk="combine"</code> when
       <code class="ph codeph">chunk="split"</code> is in effect.</p>
-      <span class="undefined_element">
-         <span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element"></span>
-            </span>Source DITA map<span class="undefined_element">
-               <span class="undefined_element"></span>
-            </span>
-         </span>
-         <span class="undefined_element">Consider the following DITA map, where
-          <span class="undefined_element">chunk="split"</span>
-            <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>is specified<span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>
-            </span> on the root element. <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>The effect of this operation<span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>
+      <figure class="fig fignone" id="chunkedge__fig_htr_jyd_1gb"><figcaption><span class="fig--title-label">Figure 1. </span>
+            Source DITA map
+         </figcaption>
+         
+         <p class="p">Consider the following DITA map, where
+          <code class="ph codeph">chunk="split"</code>
+            <span style="color:red;" class="ph">
+               is specified
+            </span> on the root element. <span style="color:red;" class="ph">
+               The effect of this operation
             </span> is that all
-        topic documents within <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>the<span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>
+        topic documents within <span style="color:red;" class="ph">
+               the
             </span> map structure
-        are split by default. <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>However, a map branch also
-          specifies <span class="undefined_element">chunk="combine"</span>:<span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>
+        are split by default. <span style="color:red;" class="ph">
+               However, a map branch also
+          specifies <code class="ph codeph">chunk="combine"</code>:
             </span>
-         </span>
-         <span class="undefined_element">&lt;map <span class="undefined_element">chunk="split"</span>&gt;
+         </p>
+         <pre class="pre codeblock"><code>&lt;map <strong class="ph b">chunk="split"</strong>&gt;
   &lt;title&gt;Split most, but not one branch&lt;/title&gt;
   &lt;topicref href="splitme.dita"&gt;
     &lt;!-- More topic references --&gt;
   &lt;/topicref&gt;
-  &lt;topicref href="exception.dita" <span class="undefined_element">chunk="combine"</span>&gt;
+  &lt;topicref href="exception.dita" <strong class="ph b">chunk="combine"</strong>&gt;
     &lt;!-- More topic references --&gt;
   &lt;/topicref&gt;
   &lt;topicref href="splitmetoo.dita"&gt;
     &lt;!-- More topic references --&gt;
-  &lt;/topicref&gt;<span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>
-&lt;/map&gt;<span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>
-            </span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>Assume also<span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>
+  &lt;/topicref&gt;<span style="color:red;" class="ph">
+&lt;/map&gt;</span></code></pre>
+         <p class="p">
+            <span style="color:red;" class="ph">
+               Assume also
             </span> that no other
-          <span class="undefined_element">chunk</span> attributes are specified in the map.</span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Evaluation of <span class="undefined_element">chunk</span> attributes in the
-        map</span>
-         <span class="undefined_element">The following points are true when <span class="undefined_element">chunk</span> is
-        evaluated:</span>
-         <span class="undefined_element">
-            <span class="undefined_element">The document <span class="undefined_element">splitme.dita</span> is <span class="undefined_element">
-                  <span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>rendered<span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>
-               </span> as <span class="undefined_element">
-                  <span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>one result
-            document for each topic.<span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>
+          <code class="keyword markupname xmlatt">@chunk</code> attributes are specified in the map.</p>
+      </figure>
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>Evaluation of <code class="keyword markupname xmlatt">@chunk</code> attributes in the
+        map</figcaption>
+         
+         <p class="p">The following points are true when <code class="keyword markupname xmlatt">@chunk</code> is
+        evaluated:</p>
+         <ul class="ul" id="chunkedge__ol_p3y_wng_thb">
+            <li class="li">The document <span class="ph filepath">splitme.dita</span> is <span style="color:red;" class="ph">
+                  rendered
+               </span> as <span style="color:red;" class="ph">
+                  one result
+            document for each topic.
                </span>. The same is true for any other
-            <span class="undefined_element">
-                  <span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>topic<span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>
+            <span style="color:red;" class="ph">
+                  topic
                </span> document within the map
-          branch.</span>
-            <span class="undefined_element">The second <span class="undefined_element">
-                  <span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>map<span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>
-               </span> branch<span class="undefined_element">
-                  <span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>, where the outermost <span class="undefined_element">topicref</span>
-            elements references <span class="undefined_element">exception.dita</span>,
-          <span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>
-               </span>is <span class="undefined_element">
-                  <span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>rendered<span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>
-               </span> as a single <span class="undefined_element">
-                  <span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>result<span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>
-               </span> document <span class="undefined_element">
-                  <span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>that
-            combines all topic documents<span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>
-               </span> within <span class="undefined_element">
-                  <span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>the
-            map<span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>
-               </span> branch.</span>
-            <span class="undefined_element">The document <span class="undefined_element">splitmetoo.dita</span> is <span class="undefined_element">
-                  <span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>rendered<span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>
-               </span> as <span class="undefined_element">
-                  <span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>one result
-            document for each topic.<span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>
+          branch.</li>
+            <li class="li">The second <span style="color:red;" class="ph">
+                  map
+               </span> branch<span style="color:red;" class="ph">
+                  , where the outermost <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>
+            elements references <span class="ph filepath">exception.dita</span>,
+          
+               </span>is <span style="color:red;" class="ph">
+                  rendered
+               </span> as a single <span style="color:red;" class="ph">
+                  result
+               </span> document <span style="color:red;" class="ph">
+                  that
+            combines all topic documents
+               </span> within <span style="color:red;" class="ph">
+                  the
+            map
+               </span> branch.</li>
+            <li class="li">The document <span class="ph filepath">splitmetoo.dita</span> is <span style="color:red;" class="ph">
+                  rendered
+               </span> as <span style="color:red;" class="ph">
+                  one result
+            document for each topic.
                </span>. The same is true for any other
-            <span class="undefined_element">
-                  <span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>topic<span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>
+            <span style="color:red;" class="ph">
+                  topic
                </span> document within the map
-          branch.</span>
-         </span>
-      </span>
+          branch.</li>
+         </ul>
+      </figure>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/examples-of-chunking.html" title="These examples illustrate the processing expectations for various scenarios that involve the chunk attribute. The processing examples use either before and after sample markup or expanded syntax that shows the equivalent markup without the chunk attribute.">Examples of the chunk attribute</a></div></div></nav>
 </article></main>

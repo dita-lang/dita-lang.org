@@ -16,24 +16,24 @@ repository: 'oasis-tcs/dita'
    <div class="body conbody"><p class="shortdesc">Scoped key definitions can be used for variable text. This enables you to use the same
     DITA topic multiple times in a DITA map, and in each instance the variable text can resolve
     differently.</p>
-      <span class="undefined_element">The Acme Tractor Company produces two models of tractor: X and Y. Their product manual
+      <p class="p">The Acme Tractor Company produces two models of tractor: X and Y. Their product manual
       contains sets of instructions for each model; until now, the maintenance procedures have been
       different for each model. Now, the product manual needs to add instructions for changing the
       oil, and the procedure is identical for both model X and model Y. While most maintenance
       procedures are different for each model, the instructions for changing the oil are identical
       for both model X and model Y. The company policies call for including the specific model
       number in each topic, so a generic topic that could be used for both models is not permitted.
-      Scoped keys can solve this problem.</span>
-      <span class="undefined_element">
-         <span class="undefined_element">
-            <span class="undefined_element">The authoring team creates the new <span class="undefined_element">changing-the-oil.dita</span>. The new
-          topic uses the following markup to reference the product model:</span>
-            <span class="undefined_element">&lt;keyword keyref="model"/&gt;</span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">The information architect examines the root map for the manual, and decides how to define key
-          scopes. Originally, the map looked like the following:</span>
-            <span class="undefined_element">&lt;map&gt;
+      Scoped keys can solve this problem.</p>
+      <ol class="ol">
+         <li class="li">
+            <p class="p">The authoring team creates the new <span class="ph filepath">changing-the-oil.dita</span>. The new
+          topic uses the following markup to reference the product model:</p>
+            <pre class="pre codeblock"><code>&lt;keyword keyref="model"/&gt;</code></pre>
+         </li>
+         <li class="li">
+            <p class="p">The information architect examines the root map for the manual, and decides how to define key
+          scopes. Originally, the map looked like the following:</p>
+            <pre class="pre codeblock"><code>&lt;map&gt;
   &lt;!-- Model X: Maintenance procedures --&gt;
   &lt;topicref href="model-x-procedures.dita"&gt;
     &lt;topicref href="model-x/replacing-a-tire.dita"/&gt;
@@ -45,15 +45,15 @@ repository: 'oasis-tcs/dita'
     &lt;topicref href="model-y/replacing-a-tire.dita"/&gt;
     &lt;topicref href="model-y/adding-fluid.dita"/&gt;
   &lt;/topicref&gt;
-&lt;/map&gt;</span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">The information architect wraps each set of procedures in a
-      <span class="undefined_element">topicgroup</span> element and sets the <span class="undefined_element">keyscope</span>
-     attribute.</span>
-            <span class="undefined_element">&lt;map&gt;
+&lt;/map&gt;</code></pre>
+         </li>
+         <li class="li">
+            <p class="p">The information architect wraps each set of procedures in a
+      <code class="keyword markupname xmlelement">&lt;topicgroup&gt;</code> element and sets the <code class="keyword markupname xmlatt">@keyscope</code>
+     attribute.</p>
+            <pre class="pre codeblock"><code>&lt;map&gt;
   &lt;!-- Model X: Maintenance procedures --&gt;
-  &lt;topicgroup <span class="undefined_element">keyscope="model-x"</span>&gt;
+  &lt;topicgroup <strong class="ph b">keyscope="model-x"</strong>&gt;
     &lt;topicref href="model-x-procedures.dita"&gt;
       &lt;topicref href="model-x/replacing-a-tire.dita"/&gt;
       &lt;topicref href="model-x/adding-fluid.dita"/&gt;
@@ -61,54 +61,54 @@ repository: 'oasis-tcs/dita'
   &lt;/topicgroup&gt;
 
 &lt;!-- Model Y: Maintenance procedures --&gt;
-  &lt;topicgroup <span class="undefined_element">keyscope="model-y"</span>&gt;
+  &lt;topicgroup <strong class="ph b">keyscope="model-y"</strong>&gt;
     &lt;topicref href="model-y-procedures.dita"&gt;
       &lt;topicref href="model-y/replacing-a-tire.dita"/&gt;
       &lt;topicref href="model-y/adding-fluid.dita"/&gt;
     &lt;/topicref&gt;
   &lt;/topicgroup&gt;
-&lt;/map&gt;</span>
-            <span class="undefined_element">This defines the key scopes for each set of procedures.</span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">The information architect then adds key definitions to each set of procedures, as well as a
-     reference to the <span class="undefined_element">changing-the-oil.dita</span> topic.</span>
-            <span class="undefined_element">&lt;map&gt;
+&lt;/map&gt;</code></pre>
+            <p class="p">This defines the key scopes for each set of procedures.</p>
+         </li>
+         <li class="li">
+            <p class="p">The information architect then adds key definitions to each set of procedures, as well as a
+     reference to the <span class="ph filepath">changing-the-oil.dita</span> topic.</p>
+            <pre class="pre codeblock"><code>&lt;map&gt;
   &lt;!-- Model X: Maintenance procedures --&gt;
   &lt;topicgroup keyscope="model-x"&gt;
-    <span class="undefined_element">&lt;keydef keys="model"&gt;
+    <strong class="ph b">&lt;keydef keys="model"&gt;
       &lt;topicmeta&gt;
         &lt;keytext&gt;X&lt;/keytext&gt;
       &lt;/topicmeta&gt;
-    &lt;/keydef&gt;</span>
+    &lt;/keydef&gt;</strong>
     &lt;topicref href="model-x-procedures.dita"&gt;
       &lt;topicref href="model-x/replacing-a-tire.dita"/&gt;
       &lt;topicref href="model-x/adding-fluid.dita"/&gt;
-      <span class="undefined_element">&lt;topicref href="common/changing-the-oil.dita"/&gt;</span>
+      <strong class="ph b">&lt;topicref href="common/changing-the-oil.dita"/&gt;</strong>
     &lt;/topicref&gt;
   &lt;/topicgroup&gt;
 
 &lt;!-- Model Y: Maintenance procedures --&gt;
   &lt;topicgroup keyscope="model-y"&gt;
-    <span class="undefined_element">&lt;keydef keys="model"&gt;
+    <strong class="ph b">&lt;keydef keys="model"&gt;
       &lt;topicmeta&gt;
         &lt;keytext&gt;Y&lt;/keytext&gt;
       &lt;/topicmeta&gt;
-    &lt;/keydef&gt;</span>
+    &lt;/keydef&gt;</strong>
     &lt;topicref href="model-y-procedures.dita"&gt;
       &lt;topicref href="model-y/replacing-a-tire.dita"/&gt;
       &lt;topicref href="model-y/adding-fluid.dita"/&gt;
-      <span class="undefined_element">&lt;topicref href="common/changing-the-oil.dita"/&gt;</span>
+      <strong class="ph b">&lt;topicref href="common/changing-the-oil.dita"/&gt;</strong>
     &lt;/topicref&gt;
   &lt;/topicgroup&gt;
-&lt;/map&gt;</span>
-            <span class="undefined_element">When the DITA map is processed, the <span class="undefined_element">changing-the-oil.dita</span> topic is
+&lt;/map&gt;</code></pre>
+            <p class="p">When the DITA map is processed, the <span class="ph filepath">changing-the-oil.dita</span> topic is
           rendered twice. The model variable is rendered differently in each instance, using the
-          text as specified in the scoped key definition. <span class="undefined_element">Without key scopes, the first key
+          text as specified in the scoped key definition. <span class="ph">Without key scopes, the first key
             definition would win, and "model "X" would be used in all topics.</span>
-            </span>
-         </span>
-      </span>
+            </p>
+         </li>
+      </ol>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/examples-of-scoped-keys.html" title="This section of the specification contains examples and scenarios. They illustrate how scoped keys can be used.">Examples of scoped keys</a></div></div></nav>
 </article></main>

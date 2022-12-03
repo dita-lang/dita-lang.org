@@ -15,96 +15,68 @@ repository: 'oasis-tcs/dita'
    
    <div class="body conbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;index-see&gt;</code> and <code class="keyword markupname xmlelement">&lt;index-see-also&gt;</code>
         elements enable redirection to other index entries within the generated index.</p>
-      <span class="undefined_element"> The <span class="undefined_element">index-see</span> element contains text for an index entry that the
-            reader should use <span class="undefined_element">instead of</span> the current one, whereas the
-                <span class="undefined_element">index-see-also</span> element contains text for an index entry
-            that the reader should use <span class="undefined_element">in addition to</span> the current one.</span>
-      <span class="undefined_element">Generated index entries should not contain both locators and redirections. Therefore, it
-            is an error if the following conditions occur:</span>
-      <span class="undefined_element">
-         <span class="undefined_element">
-            <span class="undefined_element">An <span class="undefined_element">indexterm</span> contains
-                        <span class="undefined_element">index-see</span>, and the publication contains other
-                        <span class="undefined_element">indexterm</span> with matching content</span>
-            <span class="undefined_element">
-               <span class="undefined_element">An <span class="undefined_element">indexterm</span> element contains an
-                            <span class="undefined_element">index-see</span> element, and the publication contains
-                        one or more <span class="undefined_element">indexterm</span> elements with matching
-                        textual content.</span>
-               <span class="undefined_element">For example, topics referenced by the master map include the following
-                        markup:</span>
-               <span class="undefined_element">&lt;!-- Topic A --&gt;
+      <p class="p"> The <code class="keyword markupname xmlelement">&lt;index-see&gt;</code> element contains text for an index entry that the
+            reader should use <em class="ph i">instead of</em> the current one, whereas the
+                <code class="keyword markupname xmlelement">&lt;index-see-also&gt;</code> element contains text for an index entry
+            that the reader should use <em class="ph i">in addition to</em> the current one.</p>
+      <p class="p">Generated index entries should not contain both locators and redirections. Therefore, it
+            is an error if the following conditions occur:</p>
+      <dl class="dl">
+         
+            <dt class="dt dlterm">An <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> contains
+                        <code class="keyword markupname xmlelement">&lt;index-see&gt;</code>, and the publication contains other
+                        <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> with matching content</dt>
+            <dd class="dd">
+               <p class="p">An <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element contains an
+                            <code class="keyword markupname xmlelement">&lt;index-see&gt;</code> element, and the publication contains
+                        one or more <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements with matching
+                        textual content.</p>
+               <p class="p">For example, topics referenced by the master map include the following
+                        markup:</p>
+               <pre class="pre codeblock"><code>&lt;!-- Topic A --&gt;
 &lt;indexterm&gt;memory stick
   &lt;index-see&gt;USB drive&lt;/index-see&gt;
 &lt;/indexterm&gt;
 
 &lt;!-- Topic B --&gt;
-&lt;indexterm&gt;memory stick&lt;/indexterm&gt;</span>
-            </span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">An <span class="undefined_element">indexterm</span> contains
-                        <span class="undefined_element">index-see</span> and
-                        <span class="undefined_element">index-see-also</span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">An <span class="undefined_element">indexterm</span> element contains both an
-                            <span class="undefined_element">index-see</span> element and an
-                            <span class="undefined_element">index-see-also</span> element.</span>
-               <span class="undefined_element">For example, a topic contains the following
-                            <span class="undefined_element">indexterm</span> element:</span>
-               <span class="undefined_element">&lt;indexterm&gt;
+&lt;indexterm&gt;memory stick&lt;/indexterm&gt;</code></pre>
+            </dd>
+         
+         
+            <dt class="dt dlterm">An <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> contains
+                        <code class="keyword markupname xmlelement">&lt;index-see&gt;</code> and
+                        <code class="keyword markupname xmlelement">&lt;index-see-also&gt;</code>
+            </dt>
+            <dd class="dd">
+               <p class="p">An <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element contains both an
+                            <code class="keyword markupname xmlelement">&lt;index-see&gt;</code> element and an
+                            <code class="keyword markupname xmlelement">&lt;index-see-also&gt;</code> element.</p>
+               <p class="p">For example, a topic contains the following
+                            <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element:</p>
+               <pre class="pre codeblock"><code>&lt;indexterm&gt;
   memory stick
     &lt;index-see&gt;USB drive&lt;/index-see&gt;
     &lt;index-see-also&gt;flash stick&lt;/index-see-also&gt;
-&lt;/indexterm&gt;</span>
-            </span>
-         </span>
-      </span>
-      <span class="undefined_element">
-         <span class="ph error-statement"></span>A processor <span class="undefined_element">MAY</span> give an error message when it
-            encounters the following error conditions:<span class="undefined_element">
-            <span class="undefined_element">An <span class="undefined_element">indexterm</span> element contains an
-                        <span class="undefined_element">index-see</span> element, and the publication contains one
-                    or more <span class="undefined_element">indexterm</span> elements with matching textual
-                    content.</span>
-            <span class="undefined_element">Both <span class="undefined_element">index-see</span> and
-                        <span class="undefined_element">index-see-also</span> elements within the same
-                        <span class="undefined_element">indexterm</span> element.</span>
-         </span> Processors <span class="undefined_element">MAY</span> recover from these error
-            conditions by treating the <span class="undefined_element">index-see</span> element as an
-                <span class="undefined_element">index-see-also</span> element.</span>
-      <span class="undefined_element">
-         <span class="undefined_element">Context = Normative statement about "An <span class="undefined_element">indexterm</span> contains
-                    <span class="undefined_element">index-see</span> and <span class="undefined_element">index-see-also</span>" </span>
-         <span class="undefined_element">Because we emphasize "MAY", it also means that it "may not". I would like to ask "Who
-                are we leaving the decision up to?"</span>
-         <span class="undefined_element">Is this instead a question of "SHOULD"?</span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">I think SHOULD is better too</span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">I think we cannot make this a stronger statement here than <span class="undefined_element">MAY</span>:</span>
-         <span class="undefined_element">
-            <span class="undefined_element">There are no interoperability issues involved.</span>
-            <span class="undefined_element">
-               <span class="ph error-statement"></span>Processors might choose to handle this error condition different. Basically, we
-                    (the TC) are suggesting one possible approach that seems well considered.</span>
-         </span>
-         <span class="undefined_element">Reminder for people to review the following material when considering any spec
-                statement that contains RFC-2119 terminology:</span>
-         <span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element">Terminology<span class="undefined_element">The key words "MUST", "MUST NOT", "REQUIRED", "SHALL",     "SHALL NOT", "SHOULD", "SHOULD NOT, "RECOMMEND", "MAY", and "OPTIONAL"     in this document are to be interpreted as described in <span class="undefined_element">[RFC-2119]</span> and       <span class="undefined_element">[RFC8174]</span> when, and only when, they appear in all capitals, as     shown here.</span>
-               </span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">Guidelines to Writing Conformance Clauses for
-                        OASIS Specifications</span>
-            </span>
-         </span>
-      </span>
+&lt;/indexterm&gt;</code></pre>
+            </dd>
+         
+      </dl>
+      <div class="p">
+         <span class="ph error-statement"></span>A processor <dfn class="term RFC-2119">MAY</dfn> give an error message when it
+            encounters the following error conditions:<ul class="ul">
+            <li class="li">An <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element contains an
+                        <code class="keyword markupname xmlelement">&lt;index-see&gt;</code> element, and the publication contains one
+                    or more <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements with matching textual
+                    content.</li>
+            <li class="li">Both <code class="keyword markupname xmlelement">&lt;index-see&gt;</code> and
+                        <code class="keyword markupname xmlelement">&lt;index-see-also&gt;</code> elements within the same
+                        <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element.</li>
+         </ul> Processors <dfn class="term RFC-2119">MAY</dfn> recover from these error
+            conditions by treating the <code class="keyword markupname xmlelement">&lt;index-see&gt;</code> element as an
+                <code class="keyword markupname xmlelement">&lt;index-see-also&gt;</code> element.</div>
+      
+      
+      
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/indexes.html" title="Processors can generate an index from the content of indexing elements.">Indexes</a></div></div></nav>
 </article></main>

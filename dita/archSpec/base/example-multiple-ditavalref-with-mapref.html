@@ -18,26 +18,26 @@ repository: 'oasis-tcs/dita'
     are specified in a reference to a map. This is equivalent to referencing that map multiple
     times, with each reference nesting one of the <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code>
     elements.</p>
-      <span class="undefined_element">
-         <span class="undefined_element">In the following example, <span class="undefined_element">other.ditamap</span> is referenced by a root map.
-        The <span class="undefined_element">ditavalref</span> elements provide conflicting sets of filter
-        conditions.</span>
-         <span class="undefined_element">
-            <span class="undefined_element">Map fragment</span>
-            <span class="undefined_element">&lt;topicref href="parent.dita"&gt;
+      <div class="example" id="example-multiple-ditavalref-with-mapref__multiple-ditavalref-in-reference-to-map">
+         <p class="p">In the following example, <span class="ph filepath">other.ditamap</span> is referenced by a root map.
+        The <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> elements provide conflicting sets of filter
+        conditions.</p>
+         <figure class="fig fignone" id="example-multiple-ditavalref-with-mapref__fragment"><figcaption><span class="fig--title-label">Figure 1. </span>Map fragment</figcaption>
+            
+            <pre class="pre codeblock"><code>&lt;topicref href="parent.dita"&gt;
   &lt;topicref href="other.ditamap" format="ditamap"&gt;
     &lt;ditavalref href="audienceA.ditaval"/&gt;
     &lt;ditavalref href="audienceB.ditaval"/&gt;
     &lt;ditavalref href="audienceC.ditaval"/&gt;
   &lt;/topicref&gt;
-&lt;/topicref&gt;</span>
-         </span>
-         <span class="undefined_element">This markup is functionally equivalent to referencing <span class="undefined_element">other.ditamap</span>
-        three times, with each reference including a single <span class="undefined_element">ditavalref</span>
-        elements. The fragment could be rewritten as:</span>
-         <span class="undefined_element">
-            <span class="undefined_element">Map fragment</span>
-            <span class="undefined_element">&lt;topicref href="parent.dita"&gt;
+&lt;/topicref&gt;</code></pre>
+         </figure>
+         <p class="p">This markup is functionally equivalent to referencing <span class="ph filepath">other.ditamap</span>
+        three times, with each reference including a single <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code>
+        elements. The fragment could be rewritten as:</p>
+         <figure class="fig fignone" id="example-multiple-ditavalref-with-mapref__fig_szk_hhh_1r"><figcaption><span class="fig--title-label">Figure 2. </span>Map fragment</figcaption>
+            
+            <pre class="pre codeblock"><code>&lt;topicref href="parent.dita"&gt;
   &lt;topicref href="other.ditamap" format="ditamap"&gt;
     &lt;ditavalref href="audienceA.ditaval"/&gt;
   &lt;/topicref&gt;
@@ -47,9 +47,9 @@ repository: 'oasis-tcs/dita'
   &lt;topicref href="other.ditamap" format="ditamap"&gt;
     &lt;ditavalref href="audienceC.ditaval"/&gt;
   &lt;/topicref&gt;
-&lt;/topicref&gt;</span>
-         </span>
-      </span>
+&lt;/topicref&gt;</code></pre>
+         </figure>
+      </div>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/examples-of-branch-filter.html" title="The branch filtering examples illustrate the processing expectations for various scenarios that involve ditavalref elements. Processing examples use either before and after sample markup or expanded syntax that shows the equivalent markup without the ditavalref elements.">Examples of branch filtering</a></div></div></nav>
 </article></main>

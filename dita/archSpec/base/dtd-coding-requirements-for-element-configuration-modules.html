@@ -15,128 +15,114 @@ repository: 'oasis-tcs/dita'
    
    <div class="body conbody"><p class="shortdesc">Element-configuration modules (constraint and expansion) have specific coding
         requirements.</p>
-      <span class="undefined_element">
-         <span class="undefined_element">The <span class="undefined_element">
-               <span class="undefined_element">tagname</span>.attributes</span> parameter
-                entity</span>
-         <span class="undefined_element">When the attribute <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>list<span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>
+      <section class="section"><h2 class="title sectiontitle">The <code class="ph codeph">
+               <var class="keyword varname">tagname</var>.attributes</code> parameter
+                entity</h2>
+         
+         <p class="p">When the attribute <span style="color:red;" class="ph">
+               list
             </span> for an
         element is constrained or expanded, there is a declaration of the
-            <span class="undefined_element">
-               <span class="undefined_element">tagname</span>.attributes</span>
-        parameter entity that defines the modified attributes.</span>
-         <span class="undefined_element">
-            <span class="undefined_element">The following list provides examples for both constraint and expansion
-                    modules:</span>
-            <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element">Constraint module</span>
-                  <span class="undefined_element">
-                     <span class="undefined_element">The following parameter entity defines a
-                constrained attributes <span class="undefined_element">
-                           <span class="undefined_element">
-                              <span class="undefined_element"></span>
-                           </span>list<span class="undefined_element">
-                              <span class="undefined_element"></span>
-                           </span>
+            <code class="ph codeph">
+               <var class="keyword varname">tagname</var>.attributes</code>
+        parameter entity that defines the modified attributes.</p>
+         <div class="example">
+            <p class="p">The following list provides examples for both constraint and expansion
+                    modules:</p>
+            <dl class="dl">
+               
+                  <dt class="dt dlterm">Constraint module</dt>
+                  <dd class="dd">
+                     <p class="p">The following parameter entity defines a
+                constrained attributes <span style="color:red;" class="ph">
+                           list
                         </span> for the
-                  <span class="undefined_element">note</span> element that removes most
-                of the values defined for <span class="undefined_element">type</span>. It also
-                removes <span class="undefined_element">othertype</span>:</span>
-                     <span class="undefined_element">&lt;!ENTITY % note.attributes  
+                  <code class="keyword markupname xmlelement">&lt;note&gt;</code> element that removes most
+                of the values defined for <code class="keyword markupname xmlatt">@type</code>. It also
+                removes <code class="keyword markupname xmlatt">@othertype</code>:</p>
+                     <pre class="pre codeblock"><code>&lt;!ENTITY % note.attributes  
        "type  (attention | caution | note ) #IMPLIED
-        %univ-atts;"&gt;</span>
-                     <span class="undefined_element">The following parameter entity restricts the highlighting domain to
-                                    <span class="undefined_element">b</span> and <span class="undefined_element">i</span>:</span>
-                     <span class="undefined_element">
-&lt;!ENTITY % HighlightingDomain-c-ph     "b | i"  &gt;</span>
-                  </span>
-               </span>
-               <span class="undefined_element">
-                  <span class="undefined_element">Expansion module</span>
-                  <span class="undefined_element">
-                     <span class="undefined_element">The following parameter entity defines a new attribute intended for
-                                use with various table elements:</span>
-                     <span class="undefined_element">&lt;!ENTITY % cellPurposeAtt-d-attribute<span class="undefined_element">-expansion</span>
+        %univ-atts;"&gt;</code></pre>
+                     <p class="p">The following parameter entity restricts the highlighting domain to
+                                    <code class="keyword markupname xmlelement">&lt;b&gt;</code> and <code class="keyword markupname xmlelement">&lt;i&gt;</code>:</p>
+                     <pre class="pre codeblock"><code>
+&lt;!ENTITY % HighlightingDomain-c-ph     "b | i"  &gt;</code></pre>
+                  </dd>
+               
+               
+                  <dt class="dt dlterm">Expansion module</dt>
+                  <dd class="dd">
+                     <p class="p">The following parameter entity defines a new attribute intended for
+                                use with various table elements:</p>
+                     <pre class="pre codeblock"><code>&lt;!ENTITY % cellPurposeAtt-d-attribute<strong class="ph b">-expansion</strong>
   "cell-purpose  (sale | out-of-stock | new | last-chance | inherit | none)  #IMPLIED"
-&gt;</span>
-                  </span>
-               </span>
-            </span>
-         </span>
-         <span class="undefined_element">For expansion modules, note the following considerations.
-        The <span class="undefined_element">
-               <span class="undefined_element">tagname</span>.attributes</span>
+&gt;</code></pre>
+                  </dd>
+               
+            </dl>
+         </div>
+         <p class="p">For expansion modules, note the following considerations.
+        The <code class="ph codeph">
+               <var class="keyword varname">tagname</var>.attributes</code>
         parameter entity can be defined in an attribute-specialization
-        module, or it can be defined directly in the expansion module.</span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">The <span class="undefined_element">
-               <span class="undefined_element">tagname</span>.content</span> parameter entity</span>
-         <span class="undefined_element">When the content model for an element is constrained or expanded, there is a
-                declaration of the <span class="undefined_element">
-               <span class="undefined_element">tagname</span>.content</span> parameter
-                entity that defines the modified content model.</span>
-         <span class="undefined_element">
-            <span class="undefined_element">The following list provides examples for both constraint and expansion
-                    modules:</span>
-            <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element">Constraint module</span>
-                  <span class="undefined_element">
-                     <span class="undefined_element">The following parameter entity defines a more restricted content
-                                model for <span class="undefined_element">topic</span>, in which the
-                                    <span class="undefined_element">shortdesc</span> element is required.</span>
-                     <span class="undefined_element">
-                        <span class="undefined_element">
-                           <span class="undefined_element"></span>
-                        </span>&lt;!ENTITY % topic.content 
+        module, or it can be defined directly in the expansion module.</p>
+      </section>
+      <section class="section"><h2 class="title sectiontitle">The <code class="ph codeph">
+               <var class="keyword varname">tagname</var>.content</code> parameter entity</h2>
+         
+         <p class="p">When the content model for an element is constrained or expanded, there is a
+                declaration of the <code class="ph codeph">
+               <var class="keyword varname">tagname</var>.content</code> parameter
+                entity that defines the modified content model.</p>
+         <div class="example">
+            <p class="p">The following list provides examples for both constraint and expansion
+                    modules:</p>
+            <dl class="dl">
+               
+                  <dt class="dt dlterm">Constraint module</dt>
+                  <dd class="dd">
+                     <p class="p">The following parameter entity defines a more restricted content
+                                model for <code class="keyword markupname xmlelement">&lt;topic&gt;</code>, in which the
+                                    <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code> element is required.</p>
+                     <pre style="color:red;" class="pre codeblock"><code>&lt;!ENTITY % topic.content 
   "((%title;),
     (%shortdesc;), 
     (%prolog;)?, 
     (%body;)?, 
     (%topic-info-types;)*)"
-&gt;<span class="undefined_element">
-                           <span class="undefined_element"></span>
-                        </span>
-                     </span>
-                     <span class="undefined_element">Note that replacing a base element with domain extensions
+&gt;</code></pre>
+                     <p class="p">Note that replacing a base element with domain extensions
                 is a form of constraint that can be accomplished directly
                 in the document-type shell. No constraint module is
-                required.</span>
-                     <span class="undefined_element">In the following example, the
-                  <span class="undefined_element">pre</span> base type is removed from
+                required.</p>
+                     <div class="p">In the following example, the
+                  <code class="keyword markupname xmlelement">&lt;pre&gt;</code> base type is removed from
                 the entity declaration, effectively allowing
-                specializations of <span class="undefined_element">pre</span> but not
-                  <span class="undefined_element">pre</span> itself.<span class="undefined_element">&lt;!ENTITY % pre
+                specializations of <code class="keyword markupname xmlelement">&lt;pre&gt;</code> but not
+                  <code class="keyword markupname xmlelement">&lt;pre&gt;</code> itself.<pre class="pre codeblock"><code>&lt;!ENTITY % pre
     "%pr-d-pre; | 
      %sw-d-pre; | 
-     %ui-d-pre;"&gt;</span>
-                     </span>
-                  </span>
-               </span>
-               <span class="undefined_element">
-                  <span class="undefined_element">Expansion module</span>
-                  <span class="undefined_element">
-                     <span class="undefined_element">The redefinition of the content model
+     %ui-d-pre;"&gt;</code></pre>
+                     </div>
+                  </dd>
+               
+               
+                  <dt class="dt dlterm">Expansion module</dt>
+                  <dd class="dd">
+                     <p class="p">The redefinition of the content model
                 references the parameter entity that was defined in the
-                element-specialization module.</span>
-                     <span class="undefined_element">The following code sample shows the entity
+                element-specialization module.</p>
+                     <p class="p">The following code sample shows the entity
                 declaration file for an element-specialization module that
-                defines a <span class="undefined_element">section-shortdesc</span>
+                defines a <code class="keyword markupname xmlelement">&lt;section-shortdesc&gt;</code>
                 element, which is intended to be added to the content model
-                of <span class="undefined_element">section</span>:</span>
-                     <span class="undefined_element">&lt;!ENTITY % section-shortdesc "section-shortdesc"&gt;</span>
-                     <span class="undefined_element">When the content model for <span class="undefined_element">section</span> is
+                of <code class="keyword markupname xmlelement">&lt;section&gt;</code>:</p>
+                     <pre class="pre codeblock"><code>&lt;!ENTITY % section-shortdesc "section-shortdesc"&gt;</code></pre>
+                     <p class="p">When the content model for <code class="keyword markupname xmlelement">&lt;section&gt;</code> is
                                 redefined in the expansion module, it references the parameter
                                 entity defined in the entities file for the element
-                                specialization:</span>
-                     <span class="undefined_element">
+                                specialization:</p>
+                     <pre class="pre codeblock"><code>
 &lt;!ENTITY % section.content
               "(#PCDATA |
                %dl; |
@@ -149,18 +135,18 @@ repository: 'oasis-tcs/dita'
                %simpletable; |
                %ul; |
                %title; |
-               %draft-comment;<span class="undefined_element">|
-               %sectionShortdesc;</span>)*"
+               %draft-comment;<strong class="ph b">|
+               %sectionShortdesc;</strong>)*"
 &gt;
-</span>
-                     <span class="undefined_element">Note that this expansion module also constrains the content model of
-                                    <span class="undefined_element">section</span> to only include certain block
-                                elements.</span>
-                  </span>
-               </span>
-            </span>
-         </span>
-      </span>
+</code></pre>
+                     <p class="p">Note that this expansion module also constrains the content model of
+                                    <code class="keyword markupname xmlelement">&lt;section&gt;</code> to only include certain block
+                                elements.</p>
+                  </dd>
+               
+            </dl>
+         </div>
+      </section>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/dtd-requirements.html" title="This section explains how to implement DTD - based document-type shells, specializations, and element-configuration modules (constraint and expansion).">DTD coding requirements</a></div></div><div class="linklist relconcepts"><strong>Related concepts</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="../../archSpec/base/examples-constraints.html" title="This section of the specification contains examples of constraints implemented using DTD.">Examples: Constraints implemented using DTDs</a></li><li class="linklist"><a class="link" href="../../archSpec/base/examples-expansion-implemented-using-dtds.html" title="This section of the specification contains examples of extension modules that are implemented using DTDs.">Examples: Expansion implemented using DTDs</a></li></ul></div></nav>
 </article></main>

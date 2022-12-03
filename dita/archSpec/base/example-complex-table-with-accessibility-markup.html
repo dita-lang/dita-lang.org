@@ -14,20 +14,16 @@ repository: 'oasis-tcs/dita'
    
    
    <div class="body conbody"><p class="shortdesc"></p>
-      <span class="undefined_element">In the following code sample, the table uses the
-        <span class="undefined_element">thead</span> element to identify header rows and
-      the <span class="undefined_element">rowheader</span> attribute to identify a header column.
-        <span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element"></span>
-            </span>These header relationships<span class="undefined_element">
-               <span class="undefined_element"></span>
-            </span>
+      <p class="p">In the following code sample, the table uses the
+        <code class="keyword markupname xmlelement">&lt;thead&gt;</code> element to identify header rows and
+      the <code class="keyword markupname xmlatt">@rowheader</code> attribute to identify a header column.
+        <span style="color:red;" class="ph">
+            These header relationships
          </span> can be used to
       automatically create renderings of the table in other formats, such
       as HTML, that can be navigated using a screen reader or other
-      assistive technology.</span>
-      <span class="undefined_element">&lt;table frame="all" rowheader="firstcol"&gt;
+      assistive technology.</p>
+      <pre class="pre codeblock"><code>&lt;table frame="all" rowheader="firstcol"&gt;
   &lt;title&gt;Sample of automated table accessibility&lt;/title&gt;
   &lt;desc&gt;Names are listed in the column c1. Points are listed in both data columns, with
         expected points in column c2 and actual points in column c3.&lt;/desc&gt;
@@ -63,123 +59,57 @@ repository: 'oasis-tcs/dita'
       &lt;/row&gt;
      &lt;/tbody&gt;
    &lt;/tgroup&gt;
-&lt;/table&gt;</span>
-      <span class="undefined_element">In this code sample, navigation information for assistive technology
-      is derived from two sources:</span>
-      <span class="undefined_element">
-         <span class="undefined_element">The <span class="undefined_element">thead</span> element contains two rows, and indicates that each <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>entry<span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>
-            </span> in those <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>header<span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>
+&lt;/table&gt;</code></pre>
+      <p class="p">In this code sample, navigation information for assistive technology
+      is derived from two sources:</p>
+      <ul class="ul">
+         <li class="li">The <code class="keyword markupname xmlelement">&lt;thead&gt;</code> element contains two rows, and indicates that each <span style="color:red;" class="ph">
+               entry
+            </span> in those <span style="color:red;" class="ph">
+               header
             </span> rows is a header cell
         for that column. This means that each body cell can be associated with the header cell or
-        cells above the column. For example, in the second body row, the entry "Peter" <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>is<span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>
-            </span> associated with the header "Name"; similarly, the entry "9,000" <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>is<span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>
-            </span> associated with the headers "Expected" and "Points".</span>
-         <span class="undefined_element">The <span class="undefined_element">rowheader</span> attribute <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>that is specified on
-            <span class="undefined_element">table</span> indicates<span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>
+        cells above the column. For example, in the second body row, the entry "Peter" <span style="color:red;" class="ph">
+               is
+            </span> associated with the header "Name"; similarly, the entry "9,000" <span style="color:red;" class="ph">
+               is
+            </span> associated with the headers "Expected" and "Points".</li>
+         <li class="li">The <code class="keyword markupname xmlatt">@rowheader</code> attribute <span style="color:red;" class="ph">
+               that is specified on
+            <code class="keyword markupname xmlelement">&lt;table&gt;</code> indicates
             </span> that the first column plays a role as a
-          <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>row<span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>
-            </span> header. <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>This means that the header cell in
-          column one is associated with the other body cells in the same row<span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>
+          <span style="color:red;" class="ph">
+               row
+            </span> header. <span style="color:red;" class="ph">
+               This means that the header cell in
+          column one is associated with the other body cells in the same row
             </span>. For example, in
-        the second body row, the entry "9,000" <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>is<span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>
+        the second body row, the entry "9,000" <span style="color:red;" class="ph">
+               is
             </span> associated with the header
-        "Peter".</span>
-      </span>
-      <span class="undefined_element">As a result of these two sets of headers, a rendering of the table <span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element"></span>
-            </span>associates<span class="undefined_element">
-               <span class="undefined_element"></span>
-            </span>
+        "Peter".</li>
+      </ul>
+      <p class="p">As a result of these two sets of headers, a rendering of the table <span style="color:red;" class="ph">
+            associates
          </span> the entry "9,000" with three headers: "Peter", "Expected", and "Points",
-        <span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element"></span>
-            </span>thus<span class="undefined_element">
-               <span class="undefined_element"></span>
-            </span>
+        <span style="color:red;" class="ph">
+            thus
          </span> making it fully navigable by a screen reader or other assistive
-      technology. <span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element"></span>
-            </span>When the user navigates to the cell containing "9,000", it can
-        report the headers "Peter", "Expected", and "Points" as the headers for that cell.<span class="undefined_element">
-               <span class="undefined_element"></span>
-            </span>
+      technology. <span style="color:red;" class="ph">
+            When the user navigates to the cell containing "9,000", it can
+        report the headers "Peter", "Expected", and "Points" as the headers for that cell.
          </span>
-      </span>
-      <span class="undefined_element">The output might be <span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element"></span>
-            </span>rendered in the following
-        way:<span class="undefined_element">
-               <span class="undefined_element"></span>
-            </span>
+      </p>
+      <p class="p">The output might be <span style="color:red;" class="ph">
+            rendered in the following
+        way:
          </span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">The image shows a three-column table. The first column lists names, the second column
-        lists expected points, and the third column lists actual points. There are two <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>header<span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>
-            </span> rows that contains spans. The header row is shaded with green,
-        and the text in the header column and rows is bold. The edges of the screen capture are
-        tattered, to indicate that the image is part of a larger document.</span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">
-            <span class="undefined_element"></span>
-         </span>The rendered HTML used by a screen reader might look as follows.<span class="undefined_element">
-            <span class="undefined_element"></span>
-         </span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">
-            <span class="undefined_element"></span>
-         </span>&lt;table&gt;
+      </p>
+      <br><img class="image" src="../../langRef/images/table-with-spans.jpg" alt="The image shows a three-column table. The first column lists names, the second column lists expected points, and the third column lists actual points. There are two header rows that contains spans. The header row is shaded with green, and the text in the header column and rows is bold. The edges of the screen capture are tattered, to indicate that the image is part of a larger document."><br>
+      <p style="color:red;" class="p">
+         The rendered HTML used by a screen reader might look as follows.
+      </p>
+      <pre style="color:red;" class="pre codeblock"><code>&lt;table&gt;
   &lt;caption&gt;
     &lt;span&gt;Sample of automated table accessibility&lt;/span&gt;
     &lt;span class="desc"&gt;Names are listed in the column c1. Points are listed in both data columns, 
@@ -213,10 +143,7 @@ repository: 'oasis-tcs/dita'
       &lt;td headers="source__entry__11 source__entry__2 source__entry__4"&gt;10,987.64&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
-&lt;/table&gt;<span class="undefined_element">
-            <span class="undefined_element"></span>
-         </span>
-      </span>
+&lt;/table&gt;</code></pre>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/examples-of-dita-markup-for-accessibility.html" title="This section contains examples of how DITA markup facilitates accessibility.">Examples of DITA markup for accessibility</a></div></div></nav>
 </article></main>

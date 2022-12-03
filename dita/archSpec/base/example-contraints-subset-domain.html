@@ -22,76 +22,64 @@ repository: 'oasis-tcs/dita'
       </span>. <span class="ph">They want</span> to
     integrate this constraint into the document-type shell for
     task.</p>
-      <span class="undefined_element">
-         <span class="undefined_element">
-            <span class="undefined_element"></span>
-         </span>Specifically, the DITA architect wants to redefine
-      the content model in the following ways:<span class="undefined_element">
-            <span class="undefined_element"></span>
-         </span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">
-            <span class="undefined_element"></span>
-         </span>
-         <span class="undefined_element">Use <span class="undefined_element">b</span> and
-        <span class="undefined_element">i</span>
-         </span>
-         <span class="undefined_element">Remove <span class="undefined_element">line-through</span>,
-          <span class="undefined_element">overline</span>, <span class="undefined_element">sup</span>,
-          <span class="undefined_element">sup</span>, <span class="undefined_element">tt</span>, and
-          <span class="undefined_element">u</span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element"></span>
-         </span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">The DITA architect creates a constraint module:
-          <span class="undefined_element">reducedHighlightingDomainConstraint.mod</span>.</span>
-         <span class="undefined_element">
-            <span class="undefined_element">They add</span> the following content to
-          <span class="undefined_element">reducedHighlightingDomainConstraint.mod</span>:<span class="undefined_element">&lt;!-- ============================================================= --&gt;
+      <p style="color:red;" class="p">
+         Specifically, the DITA architect wants to redefine
+      the content model in the following ways:
+      </p>
+      <ul style="color:red;" class="ul">
+         
+         <li class="li">Use <code class="keyword markupname xmlelement">&lt;b&gt;</code> and
+        <code class="keyword markupname xmlelement">&lt;i&gt;</code>
+         </li>
+         <li class="li">Remove <code class="keyword markupname xmlelement">&lt;line-through&gt;</code>,
+          <code class="keyword markupname xmlelement">&lt;overline&gt;</code>, <code class="keyword markupname xmlelement">&lt;sup&gt;</code>,
+          <code class="keyword markupname xmlelement">&lt;sup&gt;</code>, <code class="keyword markupname xmlelement">&lt;tt&gt;</code>, and
+          <code class="keyword markupname xmlelement">&lt;u&gt;</code>
+         </li>
+         
+      </ul>
+      <ol class="ol">
+         <li class="li">The DITA architect creates a constraint module:
+          <span class="ph filepath">reducedHighlightingDomainConstraint.mod</span>.</li>
+         <li class="li">
+            <span class="ph">They add</span> the following content to
+          <span class="ph filepath">reducedHighlightingDomainConstraint.mod</span>:<pre class="pre codeblock"><code>&lt;!-- ============================================================= --&gt;
 &lt;!--      CONSTRAINED HIGHLIGHT DOMAIN ENTITIES                    --&gt;
 &lt;!-- ============================================================= --&gt;
 
-&lt;!ENTITY % HighlightingDomain-c-ph     "b | i"                 &gt;  </span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">They add</span> the constraint module to the
-          <span class="undefined_element">catalog.xml</span> file.</span>
-         <span class="undefined_element">
-            <span class="undefined_element">They then integrate</span> the constraint module into
+&lt;!ENTITY % HighlightingDomain-c-ph     "b | i"                 &gt;  </code></pre>
+         </li>
+         <li class="li">
+            <span class="ph">They add</span> the constraint module to the
+          <span class="ph filepath">catalog.xml</span> file.</li>
+         <li class="li">
+            <span class="ph">They then integrate</span> the constraint module into
         the company-specific, document-type shell for the task topic by
         adding the content in the "DOMAIN CONSTRAINT INTEGRATION"
-        section:<span class="undefined_element">&lt;!-- ============================================================= --&gt;
+        section:<pre class="pre codeblock"><code>&lt;!-- ============================================================= --&gt;
 &lt;!--                    DOMAIN CONSTRAINT INTEGRATION              --&gt;
 &lt;!-- ============================================================= --&gt;
 
 &lt;!ENTITY % HighlightDomain-c-dec  
   PUBLIC "-//ACME//ENTITIES DITA Highlighting Domain Constraint//EN" 
   "acme-HighlightDomainConstraint.mod"
-&gt;%HighlightDomain-c-dec;</span>
-         </span>
-         <span class="undefined_element">In the "DOMAIN EXTENSIONS" section, <span class="undefined_element">they
+&gt;%HighlightDomain-c-dec;</code></pre>
+         </li>
+         <li class="li">In the "DOMAIN EXTENSIONS" section, <span class="ph">they
           replace</span> the parameter entity for the highlighting domain
         with the parameter entity for the constrained highlighting
-        domain:<span class="undefined_element">&lt;!ENTITY % ph           "ph |
-                         <span class="undefined_element">%HighlightDomain-c-ph;</span> |
+        domain:<pre class="pre codeblock"><code>&lt;!ENTITY % ph           "ph |
+                         <strong class="ph b">%HighlightDomain-c-ph;</strong> |
                          %sw-d-ph; | 
                          %ui-d-ph;
-                        "&gt;</span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>They check their<span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>
+                        "&gt;</code></pre>
+         </li>
+         <li class="li">
+            <span style="color:red;" class="ph">
+               They check their
             </span> test topic to ensure
-        that the content model is modified as expected.</span>
-      </span>
+        that the content model is modified as expected.</li>
+      </ol>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/examples-constraints.html" title="This section of the specification contains examples of constraints implemented using DTD.">Examples: Constraints implemented using DTDs</a></div></div></nav>
 </article></main>

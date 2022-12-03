@@ -17,39 +17,39 @@ repository: 'oasis-tcs/dita'
         can reference keys that are defined elsewhere. This topic explains how to evaluate key
         references on <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements and its
         specializations.</p>
-      <span class="undefined_element">
-         <span class="undefined_element">
-            <span class="undefined_element">Determining the effective resource</span>
-            <span class="undefined_element">
-               <span class="undefined_element">For topic references that use the <span class="undefined_element">keyref</span> attribute, the
-                        effective resource bound to the <span class="undefined_element">topicref</span> element is
+      <dl class="dl">
+         
+            <dt class="dt dlterm">Determining the effective resource</dt>
+            <dd class="dd">
+               <p class="p">For topic references that use the <code class="keyword markupname xmlatt">@keyref</code> attribute, the
+                        effective resource bound to the <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element is
                         determined by resolving all intermediate key references. Each key reference
                         is resolved either to a resource addressed directly by URI reference in an
-                            <span class="undefined_element">href</span> attribute, or to no resource. Processors <span class="undefined_element">MAY</span> impose reasonable limits on the number
-                        of intermediate key references that they will resolve. Processors <span class="undefined_element">SHOULD</span> support at least three levels of
-                        key references.</span>
-               <span class="undefined_element">This rule applies to all topic references, including those that define
+                            <code class="keyword markupname xmlatt">@href</code> attribute, or to no resource. Processors <dfn class="term RFC-2119">MAY</dfn> impose reasonable limits on the number
+                        of intermediate key references that they will resolve. Processors <dfn class="term RFC-2119">SHOULD</dfn> support at least three levels of
+                        key references.</p>
+               <div class="note note note_note"><span class="note__title">Note:</span> This rule applies to all topic references, including those that define
                         keys. The effective bound resource for a key definition that uses the
-                            <span class="undefined_element">keyref</span> attribute cannot be determined until the key
-                        space has been constructed.</span>
-            </span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">Combining metadata</span>
-            <span class="undefined_element">
-               <span class="undefined_element">Content from a key-defining element cascades to the key-referencing element
+                            <code class="keyword markupname xmlatt">@keyref</code> attribute cannot be determined until the key
+                        space has been constructed.</div>
+            </dd>
+         
+         
+            <dt class="dt dlterm">Combining metadata</dt>
+            <dd class="dd">
+               <p class="p">Content from a key-defining element cascades to the key-referencing element
 following the rules for combining metadata between maps and other maps and between maps and
-topics.</span>
-               <span class="undefined_element">The combined attributes and content cascade from one map to another or from a
+topics.</p>
+               <p class="p">The combined attributes and content cascade from one map to another or from a
                         map to a topic, but this is controlled by existing rules for cascading,
-                        which are not affected by the use of key references.</span>
-            </span>
-         </span>
-      </span>
-      <span class="undefined_element"> If, in addition to the <span class="undefined_element">keys</span> attribute, a key definition specifies a
-                <span class="undefined_element">keyref</span> attribute that can be resolved after the key resolution
+                        which are not affected by the use of key references.</p>
+            </dd>
+         
+      </dl>
+      <p class="p"> If, in addition to the <code class="keyword markupname xmlatt">@keys</code> attribute, a key definition specifies a
+                <code class="keyword markupname xmlatt">@keyref</code> attribute that can be resolved after the key resolution
             context for the key definition has been determined, the resources bound to the
-            referenced key definition take precedence.</span>
+            referenced key definition take precedence.</p>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/key-based-addressing.html" title="DITA keys provide an alternative to direct addressing. The key reference mechanism provides a layer of indirection so that resources (for example, URIs, metadata, or variable text strings) can be defined at the DITA map level instead of locally in each topic.">Indirect key-based addressing</a></div></div></nav>
 </article></main>

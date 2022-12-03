@@ -18,10 +18,10 @@ repository: 'oasis-tcs/dita'
    
    <div class="body conbody"><p class="shortdesc">Special attention is necessary when combining a nested map hierarchy that includes
 documents with their own nested topics.</p>
-      <span class="undefined_element">
-         <span class="undefined_element">Source DITA map</span>
-         <span class="undefined_element">Consider the following DITA map:</span>
-         <span class="undefined_element">&lt;map <span class="undefined_element">chunk="combine"</span>&gt;
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Source DITA map</figcaption>
+         
+         <p class="p">Consider the following DITA map:</p>
+         <pre class="pre codeblock"><code>&lt;map <strong class="ph b">chunk="combine"</strong>&gt;
   &lt;title&gt;Generation example&lt;/title&gt;
   &lt;topicref href="ancestor.dita"&gt;
     &lt;topicref href="middle.dita"&gt;
@@ -29,19 +29,18 @@ documents with their own nested topics.</p>
     &lt;/topicref&gt;
   &lt;/topicref&gt;
 &lt;/map&gt;
-</span>
-         <span class="undefined_element">In this case, the <span class="undefined_element">chunk</span> attribute instructs a
+</code></pre>
+         <p class="p">In this case, the <code class="keyword markupname xmlatt">@chunk</code> attribute instructs a
         processor to treat the three topics as a single combined document,
-        while preserving the original map hierarchy.</span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Source documents with nested structures</span>
-         <span class="undefined_element">Now consider the following three source documents, each of which
-        includes nested or peer topics: <span class="undefined_element">ancestor.dita</span>,
-          <span class="undefined_element">middle.dita</span>, and
-          <span class="undefined_element">child.dita</span>.</span>
-         <span class="undefined_element">
-            <span class="undefined_element">&lt;!-- ancestor.dita --&gt;</span>
+        while preserving the original map hierarchy.</p>
+      </figure>
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>Source documents with nested structures</figcaption>
+         
+         <p class="p">Now consider the following three source documents, each of which
+        includes nested or peer topics: <span class="ph filepath">ancestor.dita</span>,
+          <span class="ph filepath">middle.dita</span>, and
+          <span class="ph filepath">child.dita</span>.</p>
+         <pre class="pre codeblock"><code><strong class="ph b">&lt;!-- ancestor.dita --&gt;</strong>
 &lt;dita&gt;
   &lt;topic id="ancestor-first"&gt;
     &lt;title&gt;First major topic in ancestor composite document&lt;/title&gt;
@@ -56,9 +55,8 @@ documents with their own nested topics.</p>
       &lt;!-- ... Topic content ... --&gt;
     &lt;/topic&gt;
   &lt;/topic&gt;
-&lt;/dita&gt;</span>
-         <span class="undefined_element">
-            <span class="undefined_element">&lt;!-- middle.dita --&gt;</span>
+&lt;/dita&gt;</code></pre>
+         <pre class="pre codeblock"><code><strong class="ph b">&lt;!-- middle.dita --&gt;</strong>
 &lt;topic id="middle-root"&gt;
   &lt;title&gt;Root topic in middle document&lt;/title&gt;
   &lt;body&gt;
@@ -68,57 +66,50 @@ documents with their own nested topics.</p>
     &lt;title&gt;Child of root topic in middle document&lt;/title&gt;
     &lt;!-- ... Body content, maybe more children topics --&gt;
   &lt;/topic&gt;
-&lt;/topic&gt;</span>
-         <span class="undefined_element">
-            <span class="undefined_element">&lt;!-- child.dita --&gt;</span>
+&lt;/topic&gt;</code></pre>
+         <pre class="pre codeblock"><code><strong class="ph b">&lt;!-- child.dita --&gt;</strong>
 &lt;topic id="child"&gt;
   &lt;title&gt;Small child topic&lt;/title&gt;
   &lt;!-- ... Topic content ... --&gt;
-&lt;/topic&gt;</span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Evaluating <span class="undefined_element">chunk="combine"</span>
-         </span>
-         <span class="undefined_element">When <span class="undefined_element">chunk="combine"</span> is evaluated, the three
+&lt;/topic&gt;</code></pre>
+      </figure>
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 3. </span>Evaluating <code class="ph codeph">chunk="combine"</code>
+         </figcaption>
+         
+         <p class="p">When <code class="ph codeph">chunk="combine"</code> is evaluated, the three
         source documents are combined into one. Both the ancestor and
         middle documents have child topics that need to be taken into
-        account:</span>
-         <span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element">ancestor.dita</span> has a root
-            <span class="undefined_element">dita</span> element, with several root-level
-          topics. After evaluating the <span class="undefined_element">chunk</span> attribute,
-          content from <span class="undefined_element">middle.dita</span> is placed after the
-          topic with <span class="undefined_element">id="ancestor-last-child"</span>in
-            <span class="undefined_element">ancestor.dita</span>.</span>
-            <span class="undefined_element">
-               <span class="undefined_element">middle.dita</span> does not have a
-            <span class="undefined_element">dita</span> element, but it does have a
-          nested topic, so content from <span class="undefined_element">child.dita</span> is
-          located after that nested topic.</span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element"></span>
-            </span>In each case, the original map hierarchy is
-        preserved.<span class="undefined_element">
-               <span class="undefined_element"></span>
-            </span>
-         </span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Equivalent content of source documents after
-        evaluation</span>
-         <span class="undefined_element">The result of evaluating the <span class="undefined_element">chunk</span> attribute is
-        equivalent to the following map and topic documents:</span>
-         <span class="undefined_element">
-            <span class="undefined_element">&lt;!-- Root map --&gt;</span>
+        account:</p>
+         <ul class="ul" id="examplecombinenest__ul_l3y_wng_thb">
+            <li class="li">
+               <span class="ph filepath">ancestor.dita</span> has a root
+            <code class="keyword markupname xmlelement">&lt;dita&gt;</code> element, with several root-level
+          topics. After evaluating the <code class="keyword markupname xmlatt">@chunk</code> attribute,
+          content from <span class="ph filepath">middle.dita</span> is placed after the
+          topic with <code class="ph codeph">id="ancestor-last-child"</code>in
+            <span class="ph filepath">ancestor.dita</span>.</li>
+            <li class="li">
+               <span class="ph filepath">middle.dita</span> does not have a
+            <code class="keyword markupname xmlelement">&lt;dita&gt;</code> element, but it does have a
+          nested topic, so content from <span class="ph filepath">child.dita</span> is
+          located after that nested topic.</li>
+         </ul>
+         <p style="color:red;" class="p">
+            In each case, the original map hierarchy is
+        preserved.
+         </p>
+      </figure>
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 4. </span>Equivalent content of source documents after
+        evaluation</figcaption>
+         
+         <p class="p">The result of evaluating the <code class="keyword markupname xmlatt">@chunk</code> attribute is
+        equivalent to the following map and topic documents:</p>
+         <pre class="pre codeblock"><code><strong class="ph b">&lt;!-- Root map --&gt;</strong>
 &lt;map&gt;
   &lt;title&gt;Generation example&lt;/title&gt;
   &lt;topicref href="input.dita"/&gt;
-&lt;/map&gt;</span>
-         <span class="undefined_element">
-            <span class="undefined_element">&lt;!-- input.dita --&gt;</span>
+&lt;/map&gt;</code></pre>
+         <pre class="pre codeblock"><code><strong class="ph b">&lt;!-- input.dita --&gt;</strong>
 &lt;dita&gt;
   &lt;topic id="ancestor-first"&gt;
     &lt;title&gt;First major topic in ancestor composite doc&lt;/title&gt;
@@ -132,7 +123,7 @@ documents with their own nested topics.</p>
       &lt;title&gt;Child of last major topic in ancestor composite doc&lt;/title&gt;
       &lt;!-- ... Topic content ... --&gt;
     &lt;/topic&gt;
-    <span class="undefined_element">&lt;!-- Content of middle.dita combined here --&gt;</span>
+    <strong class="ph b">&lt;!-- Content of middle.dita combined here --&gt;</strong>
     &lt;topic id="middle-root"&gt;
       &lt;title&gt;Root topic in middle doc&lt;/title&gt;
       &lt;body&gt;&lt;!-- ... --&gt;&lt;/body&gt;
@@ -140,15 +131,15 @@ documents with their own nested topics.</p>
         &lt;title&gt;Child of root topic in middle doc&lt;/title&gt;
         &lt;!-- ... Body content, maybe more children topics ... --&gt;
       &lt;/topic&gt;
-      <span class="undefined_element">&lt;!-- Content of child.dita combined here --&gt;</span>
+      <strong class="ph b">&lt;!-- Content of child.dita combined here --&gt;</strong>
       &lt;topic id="child"&gt;
         &lt;title&gt;Small child topic&lt;/title&gt;
         &lt;!-- ... Topic content ... --&gt;
       &lt;/topic&gt;
     &lt;/topic&gt;
   &lt;/topic&gt;
-&lt;/dita&gt;</span>
-      </span>
+&lt;/dita&gt;</code></pre>
+      </figure>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/examples-of-chunking.html" title="These examples illustrate the processing expectations for various scenarios that involve the chunk attribute. The processing examples use either before and after sample markup or expanded syntax that shows the equivalent markup without the chunk attribute.">Examples of the chunk attribute</a></div></div></nav>
 </article></main>

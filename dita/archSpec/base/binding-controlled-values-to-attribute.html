@@ -16,37 +16,33 @@ repository: 'oasis-tcs/dita'
    <div class="body conbody"><p class="shortdesc"> The controlled values defined in a subject scheme map can be
     bound to an attribute or an element and attribute pair. This affects
     the expected behavior for processors and authoring tools.</p>
-      <span class="undefined_element">The <span class="undefined_element">enumerationdef</span> element binds the
+      <p class="p">The <code class="keyword markupname xmlelement">&lt;enumerationdef&gt;</code> element binds the
       set of controlled values to an attribute. Valid attribute values are
       those that are defined in the set of controlled values. Invalid
       attribute values are those that are not defined in the set of
-      controlled values. <span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element"></span>
-            </span>If an enumeration specifies an
-        empty <span class="undefined_element">subjectdef</span> element that does not
+      controlled values. <span style="color:red;" class="ph">
+            If an enumeration specifies an
+        empty <code class="keyword markupname xmlelement">&lt;subjectdef&gt;</code> element that does not
         reference a set of controlled values, no value is valid for the
-        attribute.<span class="undefined_element">
-               <span class="undefined_element"></span>
-            </span>
+        attribute.
          </span> An enumeration can also specify an optional default
-      value by using the <span class="undefined_element">defaultSubject</span>
-      element.</span>
-      <span class="undefined_element">If an enumeration is bound, processors <span class="undefined_element">SHOULD</span>
+      value by using the <code class="keyword markupname xmlelement">&lt;defaultSubject&gt;</code>
+      element.</p>
+      <p class="p">If an enumeration is bound, processors <dfn class="term RFC-2119">SHOULD</dfn>
             validate attribute values against the controlled values that are defined in the subject
             scheme map. For authoring tools, this validation prevents users from entering misspelled
-            or undefined values. Recovery from validation errors is implementation specific.</span>
-      <span class="undefined_element">The default attribute values that are specified in a subject scheme map apply only if a
+            or undefined values. Recovery from validation errors is implementation specific.</p>
+      <p class="p">The default attribute values that are specified in a subject scheme map apply only if a
             value is not otherwise specified in the DITA source or as a default value by the XML
-            grammar. </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Example: Binding a list of controlled values to the <span class="undefined_element">audience</span>
-                attribute</span>
-         <span class="undefined_element">The following code sample illustrates the use of the
-          <span class="undefined_element">subjectdef</span> element to define controlled
+            grammar. </p>
+      <div class="example" id="concept_fpj_jlx_54__example-binding-values"><h2 class="title sectiontitle">Example: Binding a list of controlled values to the <code class="keyword markupname xmlatt">@audience</code>
+                attribute</h2>
+         
+         <p class="p">The following code sample illustrates the use of the
+          <code class="keyword markupname xmlelement">&lt;subjectdef&gt;</code> element to define controlled
         values for types of users. It also binds the controlled values to
-        the <span class="undefined_element">audience</span> attribute:</span>
-         <span class="undefined_element">&lt;subjectScheme&gt;
+        the <code class="keyword markupname xmlatt">@audience</code> attribute:</p>
+         <pre class="pre codeblock"><code>&lt;subjectScheme&gt;
   &lt;!-- DEFINE TYPES OF USERS --&gt;
   &lt;subjectdef keys="users"&gt;
     &lt;subjectdef keys="therapist"/&gt;
@@ -61,44 +57,30 @@ repository: 'oasis-tcs/dita'
     &lt;attributedef name="audience"/&gt;
     &lt;subjectdef keyref="users"/&gt;
   &lt;/enumerationdef&gt;
-&lt;/subjectScheme&gt;</span>
-         <span class="undefined_element">When the above subject scheme map is used, the only valid
-        values for the <span class="undefined_element">audience</span> attribute are "therapist",
+&lt;/subjectScheme&gt;</code></pre>
+         <p class="p">When the above subject scheme map is used, the only valid
+        values for the <code class="keyword markupname xmlatt">@audience</code> attribute are "therapist",
         "oncologist", "physicist", and "radiologist". Note that "users" is
-        not a valid value for the <span class="undefined_element">audience</span> attribute<span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>, as it<span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>
+        not a valid value for the <code class="keyword markupname xmlatt">@audience</code> attribute<span style="color:red;" class="ph">
+               , as it
             </span> merely identifies the parent or
-        container subject.</span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Example: Binding an attribute to an empty set</span>
-         <span class="undefined_element">The following code sample specifies that there are no valid values
-        for the <span class="undefined_element">outputclass</span> attribute:</span>
-         <span class="undefined_element">&lt;subjectScheme&gt;
+        container subject.</p>
+      </div>
+      <div class="example" id="concept_fpj_jlx_54__example-binding-empty-set"><h2 class="title sectiontitle">Example: Binding an attribute to an empty set</h2>
+         
+         <p class="p">The following code sample specifies that there are no valid values
+        for the <code class="keyword markupname xmlatt">@outputclass</code> attribute:</p>
+         <pre class="pre codeblock"><code>&lt;subjectScheme&gt;
   &lt;enumerationdef&gt;
     &lt;attributedef name="outputclass"/&gt;
-    <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>&lt;subjectdef/&gt;<span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>
-            </span>
+    <strong style="color:red;" class="ph b">&lt;subjectdef/&gt;</strong>
   &lt;/enumerationdef&gt;
-&lt;/subjectScheme&gt;</span>
-         <span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element"></span>
-            </span>Authors will not be able to specify the
-          <span class="undefined_element">outputclass</span> attribute on an element.<span class="undefined_element">
-               <span class="undefined_element"></span>
-            </span>
-         </span>
-      </span>
+&lt;/subjectScheme&gt;</code></pre>
+         <p style="color:red;" class="p">
+            Authors will not be able to specify the
+          <code class="keyword markupname xmlatt">@outputclass</code> attribute on an element.
+         </p>
+      </div>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/subject-scheme-maps-and-usage.html" title="Subject scheme maps can be used to define controlled values and subject definitions. The controlled values can be bound to attributes, as well as element and attribute pairs. The subject definitions can contain metadata and provide links to more detailed information; they can be used to classify content and provide semantics that can be used in taxonomies and ontologies.">Subject scheme maps and their usage</a></div></div></nav>
 </article></main>

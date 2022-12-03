@@ -17,149 +17,137 @@ repository: 'oasis-tcs/dita'
    <div class="body conbody"><p class="shortdesc">This topic covers general coding requirements for defining
     element types in both structural and element-domain vocabulary
     modules.</p>
-      <span class="undefined_element">
-         <span class="undefined_element">Module files</span>
-         <span class="undefined_element">Each RELAX NG vocabulary module consists of a single module file.</span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Element definitions</span>
-         <span class="undefined_element">A structural or element-domain vocabulary module contains a declaration for each element
+      <section class="section" id="concept_yvl_ncv_dn__files"><h2 class="title sectiontitle">Module files</h2>
+         
+         <p class="p">Each RELAX NG vocabulary module consists of a single module file.</p>
+      </section>
+      <section class="section" id="concept_yvl_ncv_dn__element-definitions"><h2 class="title sectiontitle">Element definitions</h2>
+         
+         <p class="p">A structural or element-domain vocabulary module contains a declaration for each element
         type that is named in the module. While the XML standard allows content models to refer to
         undeclared element types, the DITA standard does not permit it. All element types or
         attribute lists that are named in a vocabulary module are declared in one of the following
-        objects:</span>
-         <span class="undefined_element">
-            <span class="undefined_element">The vocabulary module</span>
-            <span class="undefined_element">A base module of which the vocabulary module is a direct or indirect specialization</span>
-            <span class="undefined_element">(If the vocabulary module is a structural module) A required domain or structural
-          module</span>
-         </span>
-         <span class="undefined_element">The element type patterns are organized into the following sections:</span>
-         <span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element">Element type name patterns</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">For each element type that is declared in the vocabulary
+        objects:</p>
+         <ul class="ul">
+            <li class="li">The vocabulary module</li>
+            <li class="li">A base module of which the vocabulary module is a direct or indirect specialization</li>
+            <li class="li">(If the vocabulary module is a structural module) A required domain or structural
+          module</li>
+         </ul>
+         <p class="p">The element type patterns are organized into the following sections:</p>
+         <dl class="dl">
+            
+               <dt class="dt dlterm">Element type name patterns</dt>
+               <dd class="dd">
+                  <p class="p">For each element type that is declared in the vocabulary
               module, there is a pattern whose name is the element type
               name and whose content is a reference to the
-                  <span class="undefined_element">
-                        <span class="undefined_element">tagname</span>.element</span>
-              pattern <span class="undefined_element">
-                        <span class="undefined_element">
-                           <span class="undefined_element"></span>
-                        </span>for the element type<span class="undefined_element">
-                           <span class="undefined_element"></span>
-                        </span>
-                     </span>.</span>
-                  <span class="undefined_element">
-                     <span class="undefined_element">The following example shows the pattern for the
-                  <span class="undefined_element">b</span> element:</span>
-                     <span class="undefined_element">&lt;div&gt;
+                  <code class="ph codeph">
+                        <var class="keyword varname">tagname</var>.element</code>
+              pattern <span style="color:red;" class="ph">
+                        for the element type
+                     </span>.</p>
+                  <div class="example">
+                     <p class="p">The following example shows the pattern for the
+                  <code class="keyword markupname xmlelement">&lt;b&gt;</code> element:</p>
+                     <pre class="pre codeblock"><code>&lt;div&gt;
   &lt;a:documentation&gt;ELEMENT TYPE NAME PATTERNS&lt;/a:documentation&gt;
     &lt;!-- ... --&gt;
-    <span class="undefined_element">&lt;define name="b"&gt;
+    <strong class="ph b">&lt;define name="b"&gt;
       &lt;ref name="b.element"/&gt;
-    &lt;/define&gt;</span>
+    &lt;/define&gt;</strong>
     &lt;!-- ... --&gt;
-&lt;/div&gt;</span>
-                  </span>
-                  <span class="undefined_element">The element-type name pattern provides a layer of abstraction that facilitates
+&lt;/div&gt;</code></pre>
+                  </div>
+                  <p class="p">The element-type name pattern provides a layer of abstraction that facilitates
               redefinition. The element-type name patterns are referenced from content model and
               domain extension patterns. Specialization modules can re-declare the patterns to
               include specializations of the type, allowing the specialized types in all contexts
-              where the base type is allowed.</span>
-                  <span class="undefined_element">The declarations can occur in any order.</span>
-               </span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">Common content-model patterns</span>
-               <span class="undefined_element">Structural and element-domain modules can include a section that defines the patterns
+              where the base type is allowed.</p>
+                  <p class="p">The declarations can occur in any order.</p>
+               </dd>
+            
+            
+               <dt class="dt dlterm">Common content-model patterns</dt>
+               <dd class="dd">Structural and element-domain modules can include a section that defines the patterns
             that contribute to the content models of the element types that are defined in the
-            module.</span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">Common attribute sets</span>
-               <span class="undefined_element">Structural and element-domain modules can include a section that defines patterns for
+            module.</dd>
+            
+            
+               <dt class="dt dlterm">Common attribute sets</dt>
+               <dd class="dd">Structural and element-domain modules can include a section that defines patterns for
             attribute sets that are common to one or more of the element types that are defined in
-            the module.</span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">Element type declarations</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">For each element type that is declared in the vocabulary module, the following set of
+            the module.</dd>
+            
+            
+               <dt class="dt dlterm">Element type declarations</dt>
+               <dd class="dd">
+                  <p class="p">For each element type that is declared in the vocabulary module, the following set of
               patterns are used to define the content model and attributes for the element type.
-              Each set of patterns typically is grouped within a <span class="undefined_element">div</span>
-              element.</span>
-                  <span class="undefined_element">
-                     <span class="undefined_element">
-                        <span class="undefined_element">
-                           <span class="undefined_element">
-                              <span class="undefined_element">tagname</span>.content</span>
-                        </span>
-                        <span class="undefined_element">Defines the complete content model for the element <span class="undefined_element">tagname</span>.
-                  The content model pattern can be overridden in <span class="undefined_element">element-configuration
-                    modules (constraint and expansion)</span>.</span>
-                     </span>
-                     <span class="undefined_element">
-                        <span class="undefined_element">
-                           <span class="undefined_element">
-                              <span class="undefined_element">tagname</span>.attributes</span>
-                        </span>
-                        <span class="undefined_element">Defines the complete attribute list for the element <span class="undefined_element">tagname</span>,
-                  except for <span class="undefined_element">class</span>. The attribute list declaration can be
-                  overridden in <span class="undefined_element">element-configuration modules (constraint and
-                    expansion)</span>.</span>
-                     </span>
-                     <span class="undefined_element">
-                        <span class="undefined_element">
-                           <span class="undefined_element">
-                              <span class="undefined_element">tagname</span>.element</span>
-                        </span>
-                        <span class="undefined_element">Provides the actual element-type definition. It contains an
-                    <span class="undefined_element">element</span> element whose <span class="undefined_element">name</span> value is
+              Each set of patterns typically is grouped within a <code class="keyword markupname xmlelement">&lt;div&gt;</code>
+              element.</p>
+                  <dl class="dl">
+                     
+                        <dt class="dt dlterm">
+                           <code class="ph codeph">
+                              <var class="keyword varname">tagname</var>.content</code>
+                        </dt>
+                        <dd class="dd">Defines the complete content model for the element <var class="keyword varname">tagname</var>.
+                  The content model pattern can be overridden in <span class="ph">element-configuration
+                    modules (constraint and expansion)</span>.</dd>
+                     
+                     
+                        <dt class="dt dlterm">
+                           <code class="ph codeph">
+                              <var class="keyword varname">tagname</var>.attributes</code>
+                        </dt>
+                        <dd class="dd">Defines the complete attribute list for the element <var class="keyword varname">tagname</var>,
+                  except for <code class="keyword markupname xmlatt">@class</code>. The attribute list declaration can be
+                  overridden in <span class="ph">element-configuration modules (constraint and
+                    expansion)</span>.</dd>
+                     
+                     
+                        <dt class="dt dlterm">
+                           <code class="ph codeph">
+                              <var class="keyword varname">tagname</var>.element</code>
+                        </dt>
+                        <dd class="dd">Provides the actual element-type definition. It contains an
+                    <code class="keyword markupname xmlelement">&lt;element&gt;</code> element whose <code class="keyword markupname xmlatt">@name</code> value is
                   the element type name and whose content is a reference to the
-                      <span class="undefined_element">
-                              <span class="undefined_element">tagname</span>.content</span> and
-                      <span class="undefined_element">
-                              <span class="undefined_element">tagname</span>.attlist</span>
-                  patterns.</span>
-                     </span>
-                     <span class="undefined_element">
-                        <span class="undefined_element">
-                           <span class="undefined_element">
-                              <span class="undefined_element">tagname</span>.attlist</span>
-                        </span>
-                        <span class="undefined_element">
-                           <span class="undefined_element">
-                              <span class="undefined_element">
-                                 <span class="undefined_element"></span>
-                              </span>Contains<span class="undefined_element">
-                                 <span class="undefined_element"></span>
-                              </span>
+                      <code class="ph codeph">
+                              <var class="keyword varname">tagname</var>.content</code> and
+                      <code class="ph codeph">
+                              <var class="keyword varname">tagname</var>.attlist</code>
+                  patterns.</dd>
+                     
+                     
+                        <dt class="dt dlterm">
+                           <code class="ph codeph">
+                              <var class="keyword varname">tagname</var>.attlist</code>
+                        </dt>
+                        <dd class="dd">
+                           <span style="color:red;" class="ph">
+                              Contains
                            </span> an additional
-                  attribute-list pattern with a <span class="undefined_element">combine</span>
-                  attribute set to the value <span class="undefined_element">interleave</span>.
+                  attribute-list pattern with a <code class="keyword markupname xmlatt">@combine</code>
+                  attribute set to the value <span class="keyword">interleave</span>.
                   This pattern contains only a reference to the
-                      <span class="undefined_element">
-                              <span class="undefined_element">tagname</span>.attributes</span>
-                  pattern. <span class="undefined_element">
-                              <span class="undefined_element">
-                                 <span class="undefined_element"></span>
-                              </span>This pattern enables the
-                    integration of attribute specializations.<span class="undefined_element">
-                                 <span class="undefined_element"></span>
-                              </span>
+                      <code class="ph codeph">
+                              <var class="keyword varname">tagname</var>.attributes</code>
+                  pattern. <span style="color:red;" class="ph">
+                              This pattern enables the
+                    integration of attribute specializations.
                            </span>
-                        </span>
-                     </span>
-                  </span>
-                  <span class="undefined_element">
-                     <span class="undefined_element">The following example shows the declaration for the
-                  <span class="undefined_element">topichead</span> element, including the definition for each
-                pattern described above.</span>
-                     <span class="undefined_element">    &lt;div&gt;
+                        </dd>
+                     
+                  </dl>
+                  <div class="example">
+                     <p class="p">The following example shows the declaration for the
+                  <code class="keyword markupname xmlelement">&lt;topichead&gt;</code> element, including the definition for each
+                pattern described above.</p>
+                     <pre class="pre codeblock"><code>    &lt;div&gt;
       &lt;a:documentation&gt;Topic Head&lt;/a:documentation&gt;
-      <span class="undefined_element">&lt;define name="topichead.content"&gt;</span>
+      <strong class="ph b">&lt;define name="topichead.content"&gt;</strong>
         &lt;optional&gt;
           &lt;ref name="topicmeta"/&gt;
         &lt;/optional&gt;
@@ -171,86 +159,80 @@ repository: 'oasis-tcs/dita'
           &lt;/choice&gt;
         &lt;/zeroOrMore&gt;
       &lt;/define&gt;
-      <span class="undefined_element">&lt;define name="topichead.attributes"&gt;
-</span>        &lt;optional&gt;
+      <strong class="ph b">&lt;define name="topichead.attributes"&gt;
+</strong>        &lt;optional&gt;
           &lt;attribute name="keys"/&gt;
         &lt;/optional&gt;
         &lt;ref name="topicref-atts"/&gt;
         &lt;ref name="univ-atts"/&gt;
       &lt;/define&gt;
-      <span class="undefined_element">&lt;define name="topichead.element"&gt;</span>
+      <strong class="ph b">&lt;define name="topichead.element"&gt;</strong>
         &lt;element name="topichead"&gt;
           &lt;a:documentation/&gt;
           &lt;ref name="topichead.attlist"/&gt;
           &lt;ref name="topichead.content"/&gt;
         &lt;/element&gt;
       &lt;/define&gt;
-      <span class="undefined_element">&lt;define name="topichead.attlist" combine="interleave"&gt;
-</span>        &lt;ref name="topichead.attributes"/&gt;
+      <strong class="ph b">&lt;define name="topichead.attlist" combine="interleave"&gt;
+</strong>        &lt;ref name="topichead.attributes"/&gt;
       &lt;/define&gt;
 
-    &lt;/div&gt;</span>
-                  </span>
-               </span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">idElements pattern contribution</span>
-               <span class="undefined_element">
+    &lt;/div&gt;</code></pre>
+                  </div>
+               </dd>
+            
+            
+               <dt class="dt dlterm">idElements pattern contribution</dt>
+               <dd class="dd">
                   <span class="ph error-statement"></span>
-                  <span class="undefined_element">Element types that declare the <span class="undefined_element">id</span> attribute as type "ID", including
+                  <p class="p">Element types that declare the <code class="keyword markupname xmlatt">@id</code> attribute as type "ID", including
               all topic and map element types, provide a declaration for the
-                <span class="undefined_element">idElements</span> pattern. <span class="ph error-statement"></span>This is required to correctly configure the
-                <span class="undefined_element">any</span> pattern override in document-type shells and avoid errors
-              from RELAX NG parsers. The declaration is specified with a <span class="undefined_element">combine</span>
-              attribute set to the value <span class="undefined_element">choice</span>.</span>
-                  <span class="undefined_element">
-                     <span class="undefined_element"> For example:</span>
-                     <span class="undefined_element">&lt;div&gt;
+                <code class="ph codeph">idElements</code> pattern. <span class="ph error-statement"></span>This is required to correctly configure the
+                <span class="keyword">any</span> pattern override in document-type shells and avoid errors
+              from RELAX NG parsers. The declaration is specified with a <code class="keyword markupname xmlatt">@combine</code>
+              attribute set to the value <span class="keyword">choice</span>.</p>
+                  <div class="div">
+                     <p class="p"> For example:</p>
+                     <pre class="pre codeblock"><code>&lt;div&gt;
   &lt;a:documentation&gt;LONG NAME: Map&lt;/a:documentation&gt;
   &lt;!-- ... --&gt;
   &lt;define name="idElements" combine="choice"&gt;
     &lt;ref name="map.element"/&gt;
   &lt;/define&gt;
-&lt;/div&gt;</span>
-                  </span>
-               </span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">Specialization attribute declarations</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">A vocabulary module must define a <span class="undefined_element">class</span> attribute for every
+&lt;/div&gt;</code></pre>
+                  </div>
+               </dd>
+            
+            
+               <dt class="dt dlterm">Specialization attribute declarations</dt>
+               <dd class="dd">
+                  <p class="p">A vocabulary module must define a <code class="keyword markupname xmlatt">@class</code> attribute for every
               specialized element. This is done in a section at the end of each module that includes
-              a <span class="undefined_element">
-                        <span class="undefined_element">tagname</span>.attlist</span> pattern for each element type
-              that is defined in the module. The declarations can occur in any order.</span>
-                  <span class="undefined_element">The <span class="undefined_element">
-                        <span class="undefined_element">tagname</span>.attlist</span>
+              a <code class="ph codeph">
+                        <var class="keyword varname">tagname</var>.attlist</code> pattern for each element type
+              that is defined in the module. The declarations can occur in any order.</p>
+                  <p class="p">The <code class="ph codeph">
+                        <var class="keyword varname">tagname</var>.attlist</code>
               pattern for each element defines the value for the
-                <span class="undefined_element">class</span> attribute for the element.
-                <span class="undefined_element">class</span> is declared as an optional
+                <code class="keyword markupname xmlatt">@class</code> attribute for the element.
+                <code class="keyword markupname xmlatt">@class</code> is declared as an optional
               attribute. The default value is declared using the
-                <span class="undefined_element">a:defaultValue</span> attribute, and the value of
-              the attribute is constructed according to the rules in <span class="undefined_element">The class attribute rules and syntax<span class="undefined_element">The specialization hierarchy of each DITA element is declared     as the value of the <span class="undefined_element">class</span> attribute. The       <span class="undefined_element">class</span> attribute provides a mapping from the current     name of the element to its more general equivalents.<span class="undefined_element">
-                              <span class="undefined_element">
-                                 <span class="undefined_element"></span>
-                              </span>       The <span class="undefined_element">class</span> attribute<span class="undefined_element">
-                                 <span class="undefined_element"></span>
-                              </span>
-                           </span> also can provide a mapping     from the current name to more specialized equivalents. All     specialization-aware processing can be defined in terms of       <span class="undefined_element">class</span> attribute values.</span>
-                     </span>.</span>
-                  <span class="undefined_element">For
-              example:<span class="undefined_element">&lt;define name="topichead.attlist" combine="interleave"&gt;
+                <code class="keyword markupname xmlatt">@a:defaultValue</code> attribute, and the value of
+              the attribute is constructed according to the rules in <a class="xref" href="specialization-class-attribute.html" title="The specialization hierarchy of each DITA element is declared as the value of the class attribute. The class attribute provides a mapping from the current name of the element to its more general equivalents. The class attribute also can provide a mapping from the current name to more specialized equivalents. All specialization-aware processing can be defined in terms of class attribute values.">The class attribute rules and syntax
+                     </a>.</p>
+                  <div class="p">For
+              example:<pre class="pre codeblock"><code>&lt;define name="topichead.attlist" combine="interleave"&gt;
   &lt;optional&gt;
     &lt;attribute name="class" 
         a:defaultValue="+ map/topicref mapgroup-d/topichead "
     /&gt;
   &lt;/optional&gt;
-&lt;/define&gt;</span>
-                  </span>
-               </span>
-            </span>
-         </span>
-      </span>
+&lt;/define&gt;</code></pre>
+                  </div>
+               </dd>
+            
+         </dl>
+      </section>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/relax-ng-requirements.html" title="This section explains how to implement RNG-based document-type shells, specializations, and element-configuration modules (constraints and expansions).">RELAX NG coding requirements</a></div></div></nav>
 </article></main>

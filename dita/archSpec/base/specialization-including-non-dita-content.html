@@ -16,36 +16,32 @@ repository: 'oasis-tcs/dita'
    <div class="body conbody"><p class="shortdesc">You can extend DITA to incorporate standard vocabularies for non-textual content, such
     as MathML and SVG, as markup within DITA documents. This is done by specializing the
       <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> or <code class="keyword markupname xmlelement">&lt;unknown&gt;</code> elements.</p>
-      <span class="undefined_element">
-         <span class="undefined_element">There are three methods of incorporating foreign content into DITA. </span>
-         <span class="undefined_element">
-            <span class="undefined_element">A domain specialization of the <span class="undefined_element">foreign</span> or
-            <span class="undefined_element">unknown</span> element. This is the usual implementation.</span>
-            <span class="undefined_element">A structural specialization using the
-            <span class="undefined_element">foreign</span> or
-            <span class="undefined_element">unknown</span> element. This affords more
-          control over the content <span class="undefined_element">
-                  <span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>model<span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>
-               </span>.</span>
-            <span class="undefined_element">Directly embedding the non-DITA content within <span class="undefined_element">foreign</span> or
-            <span class="undefined_element">unknown</span> elements. If the non-DITA content has interoperability
+      <section class="section" id="concept-1__foreign-methods">
+         <p class="p">There are three methods of incorporating foreign content into DITA. </p>
+         <ul class="ul">
+            <li class="li">A domain specialization of the <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> or
+            <code class="keyword markupname xmlelement">&lt;unknown&gt;</code> element. This is the usual implementation.</li>
+            <li class="li">A structural specialization using the
+            <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> or
+            <code class="keyword markupname xmlelement">&lt;unknown&gt;</code> element. This affords more
+          control over the content <span style="color:red;" class="ph">
+                  model
+               </span>.</li>
+            <li class="li">Directly embedding the non-DITA content within <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> or
+            <code class="keyword markupname xmlelement">&lt;unknown&gt;</code> elements. If the non-DITA content has interoperability
           or vocabulary naming issues such as those that are addressed by specialization in DITA,
-          they must be addressed by means that are appropriate to the non-DITA content.</span>
-         </span>
-         <span class="undefined_element">Do not use <span class="undefined_element">foreign</span> or
-          <span class="undefined_element">unknown</span> elements to include textual
+          they must be addressed by means that are appropriate to the non-DITA content.</li>
+         </ul>
+         <p class="p">Do not use <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> or
+          <code class="keyword markupname xmlelement">&lt;unknown&gt;</code> elements to include textual
         content or metadata in DITA
-        documents.</span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Example: Creating an element domain specialization for SVG</span>
-         <span class="undefined_element">The following code sample, which is from the <span class="undefined_element">svgDomain.ent</span> file, shows
-        the domain declaration for the SVG domain.</span>
-         <span class="undefined_element">&lt;!-- ============================================================= --&gt;
+        documents.</p>
+      </section>
+      <div class="example" id="concept-1__example-svgDomain"><h2 class="title sectiontitle">Example: Creating an element domain specialization for SVG</h2>
+         
+         <p class="p">The following code sample, which is from the <span class="ph filepath">svgDomain.ent</span> file, shows
+        the domain declaration for the SVG domain.</p>
+         <pre class="pre codeblock"><code>&lt;!-- ============================================================= --&gt;
 &lt;!--                   SVG DOMAIN ENTITIES                         --&gt;
 &lt;!-- ============================================================= --&gt;
 
@@ -58,17 +54,17 @@ repository: 'oasis-tcs/dita'
 &lt;!ENTITY % svg-d-foreign
    "svg-container
    "
-&gt;</span>
-         <span class="undefined_element">Note that the SVG-specific <span class="undefined_element">SVG.prefix</span> parameter entity
+&gt;</code></pre>
+         <p class="p">Note that the SVG-specific <code class="keyword markupname parameterentity">%SVG.prefix;</code> parameter entity
         is declared. This establishes the default namespace prefix to be used for the SVG content
         embedded with this domain. The namespace can be overridden in a document-type shell by
         declaring the parameter entity before the reference to the
-          <span class="undefined_element">svgDomain.ent</span> file. Other foreign domains <span class="undefined_element">might</span> need similar entities when required by the new vocabulary.</span>
-         <span class="undefined_element">For more information, see the <span class="undefined_element">svgDomain.mod</span>
-        file that is shipped with the <span class="undefined_element">DITA Technical Content
+          <span class="ph filepath">svgDomain.ent</span> file. Other foreign domains <span class="ph">might</span> need similar entities when required by the new vocabulary.</p>
+         <p class="p">For more information, see the <span class="ph filepath">svgDomain.mod</span>
+        file that is shipped with the <span class="ph">DITA Technical Content
           edition</span>. For an example of including the SVG domain in a
-        document-type shell, see <span class="undefined_element">task.dtd</span>.</span>
-      </span>
+        document-type shell, see <span class="ph filepath">task.dtd</span>.</p>
+      </div>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/specialization.html" title="The specialization feature of DITA allows for the creation of new element types and attributes that are explicitly and formally derived from existing types. This facilitates interchange of conforming DITA content and ensures a minimum level of common processing for all DITA content. It also allows specialization-aware processors to add specialization-specific processing to existing base processing.">Specialization</a></div></div></nav>
 </article></main>

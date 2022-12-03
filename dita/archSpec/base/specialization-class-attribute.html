@@ -23,123 +23,105 @@ repository: 'oasis-tcs/dita'
     from the current name to more specialized equivalents. All
     specialization-aware processing can be defined in terms of
       <code class="keyword markupname xmlatt">@class</code> attribute values.</p>
-      <span class="undefined_element">The <span class="undefined_element">class</span> attribute tells a processor what general
+      <p class="p">The <code class="keyword markupname xmlatt">@class</code> attribute tells a processor what general
       classes of elements the current element belongs to. DITA scopes
-      elements by module type instead of document type<span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element"></span>
-            </span>.
+      elements by module type instead of document type<span style="color:red;" class="ph">
+            .
         Examples of module types are topic type, domain type, or map type.
-        This enables document-type developers to <span class="undefined_element">
-               <span class="undefined_element"></span>
-            </span>
+        This enables document-type developers to 
          </span>combine multiple
       module types in a single document without complicating transformation
-      logic.</span>
-      <span class="undefined_element">The sequence of values in the <span class="undefined_element">class</span> attribute is important because it tells
+      logic.</p>
+      <p class="p">The sequence of values in the <code class="keyword markupname xmlatt">@class</code> attribute is important because it tells
       processors which value is the most general and which is most specific. This sequence is what
-      enables both specialization aware processing and generalization.</span>
-      <span class="undefined_element">
-         <span class="undefined_element">Syntax</span>
-         <span class="undefined_element">Values for the <span class="undefined_element">class</span> attribute have the following syntax requirements:<span class="undefined_element">
-               <span class="undefined_element">An initial "-" or "+" character followed by one or more spaces. Use "-" for element
+      enables both specialization aware processing and generalization.</p>
+      <section class="section" id="classatt__syntax"><h2 class="title sectiontitle">Syntax</h2>
+         
+         <div class="p">Values for the <code class="keyword markupname xmlatt">@class</code> attribute have the following syntax requirements:<ul class="ul">
+               <li class="li">An initial "-" or "+" character followed by one or more spaces. Use "-" for element
             types that are defined in structural vocabulary modules, and use "+" for element types
-            that are defined in domain modules.</span>
-               <span class="undefined_element">A sequence of one or more tokens of the form
-                <span class="undefined_element">"<span class="undefined_element">modulename</span>/<span class="undefined_element">typename</span>",</span> with
+            that are defined in domain modules.</li>
+               <li class="li">A sequence of one or more tokens of the form
+                <code class="ph codeph">"<var class="keyword varname">modulename</var>/<var class="keyword varname">typename</var>",</code> with
             each token separated by one or more spaces, where
-              <span class="undefined_element">modulename</span> is the short name of the vocabulary module and
-              <span class="undefined_element">typename</span> is the element type name. Tokens are ordered left to right
-            from most general to most specialized.<span class="undefined_element">These tokens provide a mapping for every
+              <var class="keyword varname">modulename</var> is the short name of the vocabulary module and
+              <var class="keyword varname">typename</var> is the element type name. Tokens are ordered left to right
+            from most general to most specialized.<p class="p">These tokens provide a mapping for every
               structural type or domain in the ancestry of the specialized element. The
               specialization hierarchy for a given element type must reflect any intermediate
               modules between the base type and the specialization type, even those in which no
-              element renaming occurs.</span>
-               </span>
-               <span class="undefined_element">At least one trailing space character (" "). The trailing space ensures that string
+              element renaming occurs.</p>
+               </li>
+               <li class="li">At least one trailing space character (" "). The trailing space ensures that string
             matches on the tokens can always include a leading and trailing space in order to
-            reliably match full tokens. </span>
-            </span>
-         </span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Rules</span>
-         <span class="undefined_element">Every DITA element (except the <span class="undefined_element">dita</span> element that is used as the
-        root of a ditabase document) <span class="undefined_element">MUST</span> declare a
-          <span class="undefined_element">class</span> attribute.</span>
-         <span class="undefined_element">When the <span class="undefined_element">class</span> attribute is declared in an XML grammar, it <span class="undefined_element">MUST</span> be declared with a default value. In order to support
+            reliably match full tokens. </li>
+            </ul>
+         </div>
+      </section>
+      <section class="section" id="classatt__rules"><h2 class="title sectiontitle">Rules</h2>
+         
+         <p class="p">Every DITA element (except the <code class="keyword markupname xmlelement">&lt;dita&gt;</code> element that is used as the
+        root of a ditabase document) <dfn class="term RFC-2119">MUST</dfn> declare a
+          <code class="keyword markupname xmlatt">@class</code> attribute.</p>
+         <p class="p">When the <code class="keyword markupname xmlatt">@class</code> attribute is declared in an XML grammar, it <dfn class="term RFC-2119">MUST</dfn> be declared with a default value. In order to support
         generalization round-tripping (generalizing specialized content into a generic form and then
-        returning it to the specialized form) the default value <span class="undefined_element">MUST
-          NOT</span> be fixed. This allows a generalization process to overwrite the default values
+        returning it to the specialized form) the default value <dfn class="term RFC-2119">MUST
+          NOT</dfn> be fixed. This allows a generalization process to overwrite the default values
         that are defined by a general document type with specialized values taken from the document
-        being generalized.</span>
-         <span class="undefined_element">A vocabulary module <span class="undefined_element">MUST NOT</span> change the
-          <span class="undefined_element">class</span> attribute for elements that it does not specialize, but simply
-        reuses by reference from more generic levels.</span>
-         <span class="undefined_element">Authors <span class="undefined_element">SHOULD NOT</span> modify the
-          <span class="undefined_element">class</span> attribute. The <span class="undefined_element">class</span>
+        being generalized.</p>
+         <p class="p">A vocabulary module <dfn class="term RFC-2119">MUST NOT</dfn> change the
+          <code class="keyword markupname xmlatt">@class</code> attribute for elements that it does not specialize, but simply
+        reuses by reference from more generic levels.</p>
+         <p class="p">Authors <dfn class="term RFC-2119">SHOULD NOT</dfn> modify the
+          <code class="keyword markupname xmlatt">@class</code> attribute. The <code class="keyword markupname xmlatt">@class</code>
         attribute and its value is generally not surfaced in authored DITA
         topics, although it might be made explicit as part of a processing
-        operation.</span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Example: DTD declaration for <span class="undefined_element">class</span> attribute for the
-          <span class="undefined_element">step</span> element</span>
-         <span class="undefined_element">The following code sample lists the DTD declaration for the <span class="undefined_element">class</span>
-        attribute for the <span class="undefined_element">step</span> element:</span>
-         <span class="undefined_element">&lt;!ATTLIST step         class  CDATA "- topic/li task/step "&gt;</span>
-         <span class="undefined_element">This indicates that the <span class="undefined_element">step</span> element is
-        specialized from the <span class="undefined_element">li</span> element in <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>the topic module<span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>
+        operation.</p>
+      </section>
+      <div class="example" id="classatt__example"><h2 class="title sectiontitle">Example: DTD declaration for <code class="keyword markupname xmlatt">@class</code> attribute for the
+          <code class="keyword markupname xmlelement">&lt;step&gt;</code> element</h2>
+         
+         <p class="p">The following code sample lists the DTD declaration for the <code class="keyword markupname xmlatt">@class</code>
+        attribute for the <code class="keyword markupname xmlelement">&lt;step&gt;</code> element:</p>
+         <pre class="pre codeblock"><code>&lt;!ATTLIST step         class  CDATA "- topic/li task/step "&gt;</code></pre>
+         <p class="p">This indicates that the <code class="keyword markupname xmlelement">&lt;step&gt;</code> element is
+        specialized from the <code class="keyword markupname xmlelement">&lt;li&gt;</code> element in <span style="color:red;" class="ph">
+               the topic module
             </span>. It also indicates
-        explicitly that the <span class="undefined_element">step</span> element is
-        available in a task topic<span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>. This declaration<span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>
+        explicitly that the <code class="keyword markupname xmlelement">&lt;step&gt;</code> element is
+        available in a task topic<span style="color:red;" class="ph">
+               . This declaration
             </span>
         enables round-trip migration between upper level and lower level
-        types without the loss of information.</span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Example: Element with <span class="undefined_element">class</span> attribute made explicit</span>
-         <span class="undefined_element">The following code sample shows the value of the <span class="undefined_element">class</span> attribute for the
-          <span class="undefined_element">wintitle</span> element:</span>
-         <span class="undefined_element">&lt;wintitle class="+ topic/keyword ui-d/wintitle "&gt;A specialized keyword&lt;/wintitle&gt;</span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Example: <span class="undefined_element">class</span> attribute with intermediate value</span>
-         <span class="undefined_element">
-            <span class="undefined_element">This example needs to be reviewed as part of the generalization
-          content.</span>
-            <span class="undefined_element">In addition, it would benefit by an edit that started by asking
-          "What exactly are we trying to convey here? What are the critical
-          points?</span>
-         </span>
-         <span class="undefined_element">The following code sample shows the value of a <span class="undefined_element">class</span> attribute for an
-        element in the guiTask module, which is specialized from <span class="undefined_element">task</span>. The
-        element is specialized from <span class="undefined_element">keyword</span> in the base topic vocabulary,
-        rather than from an element in the task module:</span>
-         <span class="undefined_element">&lt;windowName class="- topic/keyword task/keyword guiTask/windowname "&gt;...&lt;/windowName&gt;</span>
-         <span class="undefined_element">The intermediate values are necessary so that generalizing and specializing transformations
-        can map the values simply and accurately. For example, if <span class="undefined_element">task/keyword</span> was
+        types without the loss of information.</p>
+      </div>
+      <div class="example" id="classatt__example2"><h2 class="title sectiontitle">Example: Element with <code class="keyword markupname xmlatt">@class</code> attribute made explicit</h2>
+         
+         <p class="p">The following code sample shows the value of the <code class="keyword markupname xmlatt">@class</code> attribute for the
+          <code class="keyword markupname xmlelement">&lt;wintitle&gt;</code> element:</p>
+         <pre class="pre codeblock"><code>&lt;wintitle class="+ topic/keyword ui-d/wintitle "&gt;A specialized keyword&lt;/wintitle&gt;</code></pre>
+      </div>
+      <div class="example" id="classatt__example3"><h2 class="title sectiontitle">Example: <code class="keyword markupname xmlatt">@class</code> attribute with intermediate value</h2>
+         
+         
+         <p class="p">The following code sample shows the value of a <code class="keyword markupname xmlatt">@class</code> attribute for an
+        element in the guiTask module, which is specialized from <code class="keyword markupname xmlelement">&lt;task&gt;</code>. The
+        element is specialized from <code class="keyword markupname xmlelement">&lt;keyword&gt;</code> in the base topic vocabulary,
+        rather than from an element in the task module:</p>
+         <pre class="pre codeblock"><code>&lt;windowName class="- topic/keyword task/keyword guiTask/windowname "&gt;...&lt;/windowName&gt;</code></pre>
+         <p class="p">The intermediate values are necessary so that generalizing and specializing transformations
+        can map the values simply and accurately. For example, if <code class="ph codeph">task/keyword</code> was
         missing as a value, and a user decided to generalize this guiTask up to a task topic, then
         the transformation would have to guess whether to map to keyword (appropriate if task is
         more general than guiTask, which it is) or leave it as windowName (appropriate if task were
         more specialized, which it isn't). By always providing mappings for more general values,
         processors can then apply the simple rule that missing mappings must by default be to more
         specialized values than the one we are generalizing to, which means the last value in the
-        list is appropriate. For example, when generalizing <span class="undefined_element">guitask</span> to
-          <span class="undefined_element">task</span>, if a <span class="undefined_element">p</span> element has no target value
-        for <span class="undefined_element">task</span>, we can safely assume that <span class="undefined_element">p</span> does
-        not specialize from <span class="undefined_element">task</span> and does not need to be generalized.</span>
-      </span>
+        list is appropriate. For example, when generalizing <code class="keyword markupname xmlelement">&lt;guitask&gt;</code> to
+          <code class="keyword markupname xmlelement">&lt;task&gt;</code>, if a <code class="keyword markupname xmlelement">&lt;p&gt;</code> element has no target value
+        for <code class="keyword markupname xmlelement">&lt;task&gt;</code>, we can safely assume that <code class="keyword markupname xmlelement">&lt;p&gt;</code> does
+        not specialize from <code class="keyword markupname xmlelement">&lt;task&gt;</code> and does not need to be generalized.</p>
+      </div>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/specialization.html" title="The specialization feature of DITA allows for the creation of new element types and attributes that are explicitly and formally derived from existing types. This facilitates interchange of conforming DITA content and ensures a minimum level of common processing for all DITA content. It also allows specialization-aware processors to add specialization-specific processing to existing base processing.">Specialization</a></div></div></nav>
 </article></main>

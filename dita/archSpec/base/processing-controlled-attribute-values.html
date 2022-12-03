@@ -15,41 +15,37 @@ repository: 'oasis-tcs/dita'
    
    <div class="body conbody"><p class="shortdesc">An enumeration of controlled values can be defined with hierarchical levels by nesting
     subject definitions. This affects how processors perform filtering and flagging.</p>
-      <span class="undefined_element">The following behavior is expected of processors in regard to subject scheme maps:<span class="undefined_element">
-            <span class="undefined_element">Processors <span class="undefined_element">SHOULD</span> be aware of the hierarchies of
+      <div class="p">The following behavior is expected of processors in regard to subject scheme maps:<ul class="ul">
+            <li class="li">Processors <dfn class="term RFC-2119">SHOULD</dfn> be aware of the hierarchies of
           attribute values that are defined in subject scheme maps for purposes of filtering,
-          flagging, or other metadata-based categorization.</span>
-            <span class="undefined_element">Processors <span class="undefined_element">SHOULD</span> validate
+          flagging, or other metadata-based categorization.</li>
+            <li class="li">Processors <dfn class="term RFC-2119">SHOULD</dfn> validate
           that the values of attributes that are bound to controlled values
-          contain only valid values from those sets. <span class="undefined_element">
-                  <span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>This requirement is needed because basic XML parsers do not
-            validate the list of controlled values.<span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>
+          contain only valid values from those sets. <span style="color:red;" class="ph">
+                  This requirement is needed because basic XML parsers do not
+            validate the list of controlled values.
                </span> If the controlled
           values are part of a named key scope, the scope name is ignored
-          for the purpose of validating the controlled values.</span>
-            <span class="undefined_element">Processors <span class="undefined_element">SHOULD</span> check that all values listed for
+          for the purpose of validating the controlled values.</li>
+            <li class="li">Processors <dfn class="term RFC-2119">SHOULD</dfn> check that all values listed for
           an attribute in a DITAVAL file are bound to the attribute by the subject scheme before
           filtering or flagging. If a processor encounters values that are not included in the
-          subject scheme, it <span class="undefined_element">SHOULD</span> issue a warning.</span>
-         </span>
-      </span>
-      <span class="undefined_element">Processors <span class="undefined_element">SHOULD</span> apply the following algorithm when they
+          subject scheme, it <dfn class="term RFC-2119">SHOULD</dfn> issue a warning.</li>
+         </ul>
+      </div>
+      <div class="p">Processors <dfn class="term RFC-2119">SHOULD</dfn> apply the following algorithm when they
       apply filtering and flagging rules to attribute values that are defined as a hierarchy of
-      controlled values and bound to an enumeration:<span class="undefined_element">
-            <span class="undefined_element">If an attribute specifies a value in the taxonomy, and a DITAVAL or other categorization
-          tool is configured with that value, the rule matches.</span>
-            <span class="undefined_element">Otherwise, if the parent value in the taxonomy has a rule, that matches.</span>
-            <span class="undefined_element">Otherwise, continue up the chain in the taxonomy until a matching rule is found.</span>
-         </span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Example: A hierarchy of controlled values and conditional processing</span>
-         <span class="undefined_element">The following code sample shows a set of controlled values that contains a hierarchy. </span>
-         <span class="undefined_element">&lt;subjectScheme&gt;
+      controlled values and bound to an enumeration:<ol class="ol">
+            <li class="li">If an attribute specifies a value in the taxonomy, and a DITAVAL or other categorization
+          tool is configured with that value, the rule matches.</li>
+            <li class="li">Otherwise, if the parent value in the taxonomy has a rule, that matches.</li>
+            <li class="li">Otherwise, continue up the chain in the taxonomy until a matching rule is found.</li>
+         </ol>
+      </div>
+      <div class="example" id="concept_afh_lx1_wp__example-hierarchy"><h2 class="title sectiontitle">Example: A hierarchy of controlled values and conditional processing</h2>
+         
+         <p class="p">The following code sample shows a set of controlled values that contains a hierarchy. </p>
+         <pre class="pre codeblock"><code>&lt;subjectScheme&gt;
   &lt;subjectdef keys="users"&gt;
     &lt;subjectdef keys="therapist"&gt;
       &lt;subjectdef keys="novice-therapist"/&gt;
@@ -63,16 +59,16 @@ repository: 'oasis-tcs/dita'
     &lt;attributedef name="audience"/&gt;
     &lt;subjectdef keyref="users"/&gt;
   &lt;/enumerationdef&gt;
-&lt;/subjectScheme&gt;</span>
-         <span class="undefined_element">Processors that are aware of the hierarchy that is defined in the subject scheme map will
-        handle filtering and flagging in the following ways:</span>
-         <span class="undefined_element">
-            <span class="undefined_element">If "therapist" is excluded, both "novice-therapist" and
-          "expert-therapist" are by default excluded.</span>
-            <span class="undefined_element">If "therapist" is flagged and "novice-therapist" is not explicitly flagged, processors
-          automatically flag "novice-therapist" since it is a type of therapist.</span>
-         </span>
-      </span>
+&lt;/subjectScheme&gt;</code></pre>
+         <p class="p">Processors that are aware of the hierarchy that is defined in the subject scheme map will
+        handle filtering and flagging in the following ways:</p>
+         <ul class="ul">
+            <li class="li">If "therapist" is excluded, both "novice-therapist" and
+          "expert-therapist" are by default excluded.</li>
+            <li class="li">If "therapist" is flagged and "novice-therapist" is not explicitly flagged, processors
+          automatically flag "novice-therapist" since it is a type of therapist.</li>
+         </ul>
+      </div>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/subject-scheme-maps-and-usage.html" title="Subject scheme maps can be used to define controlled values and subject definitions. The controlled values can be bound to attributes, as well as element and attribute pairs. The subject definitions can contain metadata and provide links to more detailed information; they can be used to classify content and provide semantics that can be used in taxonomies and ontologies.">Subject scheme maps and their usage</a></div></div></nav>
 </article></main>

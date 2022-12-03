@@ -17,102 +17,78 @@ repository: 'oasis-tcs/dita'
   structural types or new domains of information), while reusing as much of existing design and code
   as possible, and minimizing or eliminating the costs of interchange, migration, and
   maintenance.</p>
-      <span class="undefined_element">Specialization modules enable information architects to create new element types and
+      <p class="p">Specialization modules enable information architects to create new element types and
    attributes. These new element types and attributes are derived from existing element types and
-   attributes.</span>
-      <span class="undefined_element">In traditional XML applications, all semantics for a given element instance are bound to the
-   element type, such as <span class="undefined_element">para</span> for a paragraph or
-    <span class="undefined_element">title</span> for a title. The XML specification provides no built-in mechanism
-   for relating two element types to say "element type B is a subtype of element type A". </span>
-      <span class="undefined_element">In contrast, the DITA specialization mechanism provides a standard mechanism for declaring that
+   attributes.</p>
+      <p class="p">In traditional XML applications, all semantics for a given element instance are bound to the
+   element type, such as <code class="keyword markupname xmlelement">&lt;para&gt;</code> for a paragraph or
+    <code class="keyword markupname xmlelement">&lt;title&gt;</code> for a title. The XML specification provides no built-in mechanism
+   for relating two element types to say "element type B is a subtype of element type A". </p>
+      <p class="p">In contrast, the DITA specialization mechanism provides a standard mechanism for declaring that
    an element type or attribute is derived from an ancestor type. This means that a specialized type
    inherits the semantics and default processing behavior from its ancestor type. Additional
-   processing behavior optionally can be associated with the specialized descendant type.</span>
-      <span class="undefined_element">For example, the <span class="undefined_element">section</span> element type is part of
+   processing behavior optionally can be associated with the specialized descendant type.</p>
+      <p class="p">For example, the <code class="keyword markupname xmlelement">&lt;section&gt;</code> element type is part of
    the DITA base. It represents an organizational division in a topic. Within the task information
-   type (itself a specialization of <span class="undefined_element">topic</span>), the
-    <span class="undefined_element">section</span> element type is further specialized to other element types
-   (such as <span class="undefined_element">prereq</span> and <span class="undefined_element">context</span>) that provide more
+   type (itself a specialization of <code class="keyword markupname xmlelement">&lt;topic&gt;</code>), the
+    <code class="keyword markupname xmlelement">&lt;section&gt;</code> element type is further specialized to other element types
+   (such as <code class="keyword markupname xmlelement">&lt;prereq&gt;</code> and <code class="keyword markupname xmlelement">&lt;context&gt;</code>) that provide more
    precise semantics about the type of organizational division that they represent. The specialized
    element types inherit both semantic meaning and default processing from the ancestor
-   elements.</span>
-      <span class="undefined_element">There are two types of DITA specializations:</span>
-      <span class="undefined_element">
-         <span class="undefined_element">
-            <span class="undefined_element">Structural specialization</span>
-            <span class="undefined_element">
-               <span class="undefined_element">Structural specializations are developed from either topic or map
+   elements.</p>
+      <p class="p">There are two types of DITA specializations:</p>
+      <dl class="dl">
+         
+            <dt class="dt dlterm">Structural specialization</dt>
+            <dd class="dd">
+               <p class="p">Structural specializations are developed from either topic or map
             types. Structural specializations enable information
-              architect<span class="undefined_element">
-                     <span class="undefined_element">
-                        <span class="undefined_element"></span>
-                     </span>s<span class="undefined_element">
-                        <span class="undefined_element"></span>
-                     </span>
+              architect<span style="color:red;" class="ph">
+                     s
                   </span> to add new document types
             to DITA. The structures defined in the new document types
-            either directly use<span class="undefined_element">
-                     <span class="undefined_element">
-                        <span class="undefined_element"></span>
-                     </span>,<span class="undefined_element">
-                        <span class="undefined_element"></span>
-                     </span>
-                  </span> or inherit from<span class="undefined_element">
-                     <span class="undefined_element">
-                        <span class="undefined_element"></span>
-                     </span>,<span class="undefined_element">
-                        <span class="undefined_element"></span>
-                     </span>
+            either directly use<span style="color:red;" class="ph">
+                     ,
+                  </span> or inherit from<span style="color:red;" class="ph">
+                     ,
                   </span> elements found in other document types.
-            For example<span class="undefined_element">
-                     <span class="undefined_element">
-                        <span class="undefined_element"></span>
-                     </span>,<span class="undefined_element">
-                        <span class="undefined_element"></span>
-                     </span>
+            For example<span style="color:red;" class="ph">
+                     ,
                   </span> concept, task, and
-            reference are specialized from topic, <span class="undefined_element">
-                     <span class="undefined_element">
-                        <span class="undefined_element"></span>
-                     </span>and<span class="undefined_element">
-                        <span class="undefined_element"></span>
-                     </span>
-                  </span> bookmap is specialized from map.</span>
-            </span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">Domain specialization</span>
-            <span class="undefined_element">Domain specializations are developed from elements defined <span class="undefined_element">
-                  <span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>within<span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>
+            reference are specialized from topic, <span style="color:red;" class="ph">
+                     and
+                  </span> bookmap is specialized from map.</p>
+            </dd>
+         
+         
+            <dt class="dt dlterm">Domain specialization</dt>
+            <dd class="dd">Domain specializations are developed from elements defined <span style="color:red;" class="ph">
+                  within
                </span> topic or map, or from the
-            <span class="undefined_element">props</span> or <span class="undefined_element">base</span> attributes.
+            <code class="keyword markupname xmlatt">@props</code> or <code class="keyword markupname xmlatt">@base</code> attributes.
           They define markup for a specific information domain or subject
           area. Domain specializations can be added to document-type
-          shells.</span>
-         </span>
-      </span>
-      <span class="undefined_element">Each type of specialization module represents an <span class="undefined_element">is a</span> hierarchy, in object-oriented terms,
+          shells.</dd>
+         
+      </dl>
+      <p class="p">Each type of specialization module represents an <q class="q">is a</q> hierarchy, in object-oriented terms,
    with each structural type or domain being a subclass of its parent. For example, a specialization
    of task is still a task, and a specialization of the user interface domain is still part of the
    user interface domain. A given domain can be used with any map or topic type. In addition,
-   specific structural types might require the use of specific domains.</span>
-      <span class="undefined_element">
-         <span class="undefined_element">Use specialization when you need a new structural type or
-    domain.</span> Specialization is appropriate in the following circumstances:</span>
-      <span class="undefined_element">
-         <span class="undefined_element">You need to create markup to represent new semantics (meaningful categories of information).
+   specific structural types might require the use of specific domains.</p>
+      <p class="p">
+         <span class="ph">Use specialization when you need a new structural type or
+    domain.</span> Specialization is appropriate in the following circumstances:</p>
+      <ul class="ul">
+         <li class="li">You need to create markup to represent new semantics (meaningful categories of information).
     This might enable you to have increased consistency or descriptiveness in your content
-    model.</span>
-         <span class="undefined_element">You have specific needs for output processing and formatting that cannot be addressed using
-    the current content model.</span>
-      </span>
-      <span class="undefined_element">Do not use specialization to simply eliminate element types from specific content models. Use
-   constraint modules to <span class="undefined_element">restrict</span> content models and attribute lists without changing
-   semantics.</span>
+    model.</li>
+         <li class="li">You have specific needs for output processing and formatting that cannot be addressed using
+    the current content model.</li>
+      </ul>
+      <p class="p">Do not use specialization to simply eliminate element types from specific content models. Use
+   constraint modules to <span class="ph">restrict</span> content models and attribute lists without changing
+   semantics.</p>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/specialization.html" title="The specialization feature of DITA allows for the creation of new element types and attributes that are explicitly and formally derived from existing types. This facilitates interchange of conforming DITA content and ensures a minimum level of common processing for all DITA content. It also allows specialization-aware processors to add specialization-specific processing to existing base processing.">Specialization</a></div></div></nav>
 </article></main>

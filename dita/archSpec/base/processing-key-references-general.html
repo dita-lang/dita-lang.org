@@ -17,62 +17,62 @@ repository: 'oasis-tcs/dita'
         be used to create or supplement information on a topic reference. This topic covers
         information that is common to all key processing, regardless of how the key is
         used.</p>
-      <span class="undefined_element">
-         <span class="undefined_element">Processing of undefined keys</span>
-         <span class="undefined_element">If both <span class="undefined_element">keyref</span> and <span class="undefined_element">href</span> attributes are specified on
-                an element, the <span class="undefined_element">href</span> value <span class="undefined_element">MUST</span>
+      <section class="section" id="processing-key-references__processing-undefined-keys"><h2 class="title sectiontitle">Processing of undefined keys</h2>
+         
+         <p class="p">If both <code class="keyword markupname xmlatt">@keyref</code> and <code class="keyword markupname xmlatt">@href</code> attributes are specified on
+                an element, the <code class="keyword markupname xmlatt">@href</code> value <dfn class="term RFC-2119">MUST</dfn>
                 be used as a fallback address when the key name is undefined. If both
-                    <span class="undefined_element">conkeyref</span> and <span class="undefined_element">conref</span> attributes are specified
-                on an element, the <span class="undefined_element">conref</span> value <span class="undefined_element">MUST</span> be used as a fallback address when the key name is undefined.</span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Determining effective attributes on the key-referencing element</span>
-         <span class="undefined_element">The attributes that are common to the key-defining element and the key-referencing
-element, other than the <span class="undefined_element">keys</span>,<span class="undefined_element">
-               <span class="undefined_element">processing-role</span>,</span> and <span class="undefined_element">id</span> attributes, are combined as for
-content references, including the special processing for the <span class="undefined_element">xml:lang</span>,
-<span class="undefined_element">dir</span>, and <span class="undefined_element">translate</span> attributes.</span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Keys and conditional processing</span>
-         <span class="undefined_element">The effective key definitions for a key space might be affected by conditional
-                processing (filtering). Processors <span class="undefined_element">SHOULD</span>
+                    <code class="keyword markupname xmlatt">@conkeyref</code> and <code class="keyword markupname xmlatt">@conref</code> attributes are specified
+                on an element, the <code class="keyword markupname xmlatt">@conref</code> value <dfn class="term RFC-2119">MUST</dfn> be used as a fallback address when the key name is undefined.</p>
+      </section>
+      <section class="section" id="processing-key-references__combining-attributes"><h2 class="title sectiontitle">Determining effective attributes on the key-referencing element</h2>
+         
+         <p class="p">The attributes that are common to the key-defining element and the key-referencing
+element, other than the <code class="keyword markupname xmlatt">@keys</code>,<span class="ph">
+               <code class="keyword markupname xmlatt">@processing-role</code>,</span> and <code class="keyword markupname xmlatt">@id</code> attributes, are combined as for
+content references, including the special processing for the <code class="keyword markupname xmlatt">@xml:lang</code>,
+<code class="keyword markupname xmlatt">@dir</code>, and <code class="keyword markupname xmlatt">@translate</code> attributes.</p>
+      </section>
+      <section class="section" id="processing-key-references__keys-and-condproc"><h2 class="title sectiontitle">Keys and conditional processing</h2>
+         
+         <p class="p">The effective key definitions for a key space might be affected by conditional
+                processing (filtering). Processors <dfn class="term RFC-2119">SHOULD</dfn>
                 perform conditional processing before determining the effective key definitions.
                 However, processors might determine effective key definitions before filtering.
                 Consequently, different processors might produce different effective bindings for
                 the same map when there are key definitions that might be filtered out based on
-                their filtering attributes.</span>
-         <span class="undefined_element">In order to retain backwards compatibility with DITA 1.0 and 1.1, the
+                their filtering attributes.</p>
+         <div class="note note note_note"><span class="note__title">Note:</span> In order to retain backwards compatibility with DITA 1.0 and 1.1, the
                 specification does not mandate a processing order for different DITA features. This
                 makes it technically possible to determine an effective key definition, resolve
                 references to that key definition, and then filter out the definition. However, the
                 preferred approach is to take conditional processing into account when resolving
                 keys, so that key definitions which are excluded by processing are not used in
-                resolving key references.</span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Reusing a topic in multiple key scopes</span>
-         <span class="undefined_element">If a topic that contains key references is reused in multiple key scopes within a
+                resolving key references.</div>
+      </section>
+      <section class="section" id="processing-key-references__reusing-topic-across-scopes"><h2 class="title sectiontitle">Reusing a topic in multiple key scopes</h2>
+         
+         <p class="p">If a topic that contains key references is reused in multiple key scopes within a
                 given root map such that its references resolve differently in each use context,
-                processors <span class="undefined_element">MUST</span> produce multiple copies of the
+                processors <dfn class="term RFC-2119">MUST</dfn> produce multiple copies of the
                 source topic in resolved output for each distinct set of effective key definitions
-                that are referenced by the topic. </span>
-         <span class="undefined_element">In such cases, authors can use <span class="undefined_element">resourceid</span> within topic
-                references to specify distinct anchor components for each instance of the topic.</span>
-         <span class="undefined_element"> with the <span class="undefined_element">appid-role</span> attribute set to
-                    <span class="undefined_element">deliverable-anchor</span> to specify different source URIs for each
-                reference to a topic.</span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Error conditions</span>
-         <span class="undefined_element">If a referencing element contains a key reference with an undefined key, it is
+                that are referenced by the topic. </p>
+         <p class="p">In such cases, authors can use <code class="keyword markupname xmlelement">&lt;resourceid&gt;</code> within topic
+                references to specify distinct anchor components for each instance of the topic.</p>
+         <p class="p"> with the <code class="keyword markupname xmlatt">@appid-role</code> attribute set to
+                    <span class="keyword">deliverable-anchor</span> to specify different source URIs for each
+                reference to a topic.</p>
+      </section>
+      <section class="section" id="processing-key-references__error-conditions"><h2 class="title sectiontitle">Error conditions</h2>
+         
+         <p class="p">If a referencing element contains a key reference with an undefined key, it is
                 processed as if there were no key reference, and the value of the
-                    <span class="undefined_element">href</span> attribute is used as the reference. If the
-                    <span class="undefined_element">href</span> attribute is not specified, the element is not treated as
+                    <code class="keyword markupname xmlatt">@href</code> attribute is used as the reference. If the
+                    <code class="keyword markupname xmlatt">@href</code> attribute is not specified, the element is not treated as
                 a navigation link. If it is an error for the element to be empty, an implementation
-                    <span class="undefined_element">MAY</span> give an error message; it also <span class="undefined_element">MAY</span> recover from this error condition by leaving
-                the key reference element empty.</span>
-      </span>
+                    <dfn class="term RFC-2119">MAY</dfn> give an error message; it also <dfn class="term RFC-2119">MAY</dfn> recover from this error condition by leaving
+                the key reference element empty.</p>
+      </section>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/key-based-addressing.html" title="DITA keys provide an alternative to direct addressing. The key reference mechanism provides a layer of indirection so that resources (for example, URIs, metadata, or variable text strings) can be defined at the DITA map level instead of locally in each topic.">Indirect key-based addressing</a></div></div></nav>
 </article></main>

@@ -17,44 +17,44 @@ repository: 'oasis-tcs/dita'
    <div class="body conbody"><p class="shortdesc">Subject scheme maps can define controlled values for DITA attributes without having
         to define specializations or constraints. The list of available values can be modified
         quickly to adapt to new situations.</p>
-      <span class="undefined_element">Each controlled value is defined using a <span class="undefined_element">subjectdef</span> element,
-            which is a specialization of the <span class="undefined_element">topicref</span> element. The
-                <span class="undefined_element">subjectdef</span> element is used to define both a subject
-            category and a list of controlled values. The parent <span class="undefined_element">subjectdef</span>
-            element defines the category, and the children <span class="undefined_element">subjectdef</span>
-            elements define the controlled values.</span>
-      <span class="undefined_element">The subject definitions can include additional information within a
-                <span class="undefined_element">topicmeta</span> element to clarify the meaning of a value:<span class="undefined_element">
-            <span class="undefined_element">A <span class="undefined_element">navtitle</span> (or a
-            <span class="undefined_element">titlealt</span> element with a
-            <span class="undefined_element">title-role</span> of <span class="undefined_element">navigation</span>) can
-          provide a more readable name for the controlled value.</span>
-            <span class="undefined_element">The <span class="undefined_element">shortdesc</span> element can provide a definition.</span>
-         </span>
-      </span>
-      <span class="undefined_element">In addition, the <span class="undefined_element">subjectdef</span> element can reference a more
+      <p class="p">Each controlled value is defined using a <code class="keyword markupname xmlelement">&lt;subjectdef&gt;</code> element,
+            which is a specialization of the <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element. The
+                <code class="keyword markupname xmlelement">&lt;subjectdef&gt;</code> element is used to define both a subject
+            category and a list of controlled values. The parent <code class="keyword markupname xmlelement">&lt;subjectdef&gt;</code>
+            element defines the category, and the children <code class="keyword markupname xmlelement">&lt;subjectdef&gt;</code>
+            elements define the controlled values.</p>
+      <div class="p">The subject definitions can include additional information within a
+                <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> element to clarify the meaning of a value:<ul class="ul">
+            <li class="li">A <code class="keyword markupname xmlelement">&lt;navtitle&gt;</code> (or a
+            <code class="keyword markupname xmlelement">&lt;titlealt&gt;</code> element with a
+            <code class="keyword markupname xmlatt">@title-role</code> of <code class="ph codeph">navigation</code>) can
+          provide a more readable name for the controlled value.</li>
+            <li class="li">The <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code> element can provide a definition.</li>
+         </ul>
+      </div>
+      <p class="p">In addition, the <code class="keyword markupname xmlelement">&lt;subjectdef&gt;</code> element can reference a more
             detailed definition of the subject, for example, another DITA topic or an external
-            resource.</span>
-      <span class="undefined_element">The following behavior is expected of processors in regard to subject scheme maps:<span class="undefined_element">
-            <span class="undefined_element">Authoring tools <span class="undefined_element">SHOULD</span> use these lists of
+            resource.</p>
+      <div class="p">The following behavior is expected of processors in regard to subject scheme maps:<ul class="ul">
+            <li class="li">Authoring tools <dfn class="term RFC-2119">SHOULD</dfn> use these lists of
                     controlled values to provide lists from which authors can select values when
-                    they specify attribute values.</span>
-            <span class="undefined_element">Authoring tools <span class="undefined_element">MAY</span> give an organization a
+                    they specify attribute values.</li>
+            <li class="li">Authoring tools <dfn class="term RFC-2119">MAY</dfn> give an organization a
                     list of readable labels, a hierarchy of values to simplify selection, and a
-                    shared definition of the value.</span>
-            <span class="undefined_element">Authoring tools  <span class="undefined_element">MAY</span>
-               <span class="undefined_element">support accessing and displaying the content of the subject definition
+                    shared definition of the value.</li>
+            <li class="li">Authoring tools  <dfn class="term RFC-2119">MAY</dfn>
+               <span class="ph">support accessing and displaying the content of the subject definition
                         resource in order to provide users with</span> a detailed explanation of the
-                    subject.</span>
-         </span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Example: Controlled values that provide additional information about the
-                subject</span>
-         <span class="undefined_element">The following code sample illustrates how a subject
+                    subject.</li>
+         </ul>
+      </div>
+      <div class="example" id="controlled-values-for-attributes__example"><h2 class="title sectiontitle">Example: Controlled values that provide additional information about the
+                subject</h2>
+         
+         <p class="p">The following code sample illustrates how a subject
         definition can provide a richer level of information about a
-        controlled value:</span>
-         <span class="undefined_element">&lt;subjectdef keys="terminology" href="https://www.oasis-open.org/policies-guidelines/keyword-guidelines"&gt;
+        controlled value:</p>
+         <pre class="pre codeblock"><code>&lt;subjectdef keys="terminology" href="https://www.oasis-open.org/policies-guidelines/keyword-guidelines"&gt;
   &lt;subjectdef keys="rfc2119" href="rfc-2119.dita"&gt;
     &lt;topicmeta&gt;
       &lt;navtitle&gt;RFC-2119 terminology&lt;/navtitle&gt;
@@ -68,18 +68,18 @@ repository: 'oasis-tcs/dita'
       &lt;/shortdesc&gt;
     &lt;/topicmeta&gt;
   &lt;/subjectdef&gt;
-&lt;/subjectdef&gt;</span>
-         <span class="undefined_element">The content of the <span class="undefined_element">navtitle</span> and
-          <span class="undefined_element">shortdesc</span> elements provide additional
+&lt;/subjectdef&gt;</code></pre>
+         <p class="p">The content of the <code class="keyword markupname xmlelement">&lt;navtitle&gt;</code> and
+          <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code> elements provide additional
         information that a processor might display to users as they select
         attribute values or classify content. The resources referenced by
-        the <span class="undefined_element">href</span> attributes provide even more detailed
+        the <code class="keyword markupname xmlatt">@href</code> attributes provide even more detailed
         information. A processor might render expandable links as part of a
         user interface that implements a progressive disclosure strategy,
         or an authoring tool might include the navigation title and short
         description in a window where the user selects a controlled
-        value.</span>
-      </span>
+        value.</p>
+      </div>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/subject-scheme-maps-and-usage.html" title="Subject scheme maps can be used to define controlled values and subject definitions. The controlled values can be bound to attributes, as well as element and attribute pairs. The subject definitions can contain metadata and provide links to more detailed information; they can be used to classify content and provide semantics that can be used in taxonomies and ontologies.">Subject scheme maps and their usage</a></div></div></nav>
 </article></main>

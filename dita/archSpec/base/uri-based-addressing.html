@@ -16,180 +16,164 @@ repository: 'oasis-tcs/dita'
    <div class="body conbody"><p class="shortdesc">Content reference and link relationships can be established from DITA elements by using
     URI references. DITA uses URI references in <code class="keyword markupname xmlatt">@href</code>, <code class="keyword markupname xmlatt">@conref</code>, and
     other attributes for all direct addressing of resources. </p>
-      <span class="undefined_element">URI references address <span class="undefined_element">resources</span> and (in some cases) subcomponents of those
+      <p class="p">URI references address <dfn class="term">resources</dfn> and (in some cases) subcomponents of those
       resources. In this context, a resource is a DITA document (map, topic, or DITA base document)
-      or a non-DITA resource (for example, an image, a Web page, or a PDF document).</span>
-      <span class="undefined_element">URI references that are URLs must conform to the rules for URLs and URIs. Windows paths that
-      contain a backslash (\) are not valid URLs.</span>
-      <span class="undefined_element">
-         <span class="undefined_element">URIs and fragment identifiers</span>
-         <span class="undefined_element">For DITA resources, fragment identifiers can be used with the URI to address individual
+      or a non-DITA resource (for example, an image, a Web page, or a PDF document).</p>
+      <p class="p">URI references that are URLs must conform to the rules for URLs and URIs. Windows paths that
+      contain a backslash (\) are not valid URLs.</p>
+      <section class="section" id="uri-based-addressing__URIs"><h2 class="title sectiontitle">URIs and fragment identifiers</h2>
+         
+         <p class="p">For DITA resources, fragment identifiers can be used with the URI to address individual
         elements. The fragment identifier is the part of the URI that starts with a number sign (#),
-        for example, <span class="undefined_element">#topicid/elementid</span>. URI references also can include a query
-        component that is introduced with a question mark (?). </span>
-         <span class="undefined_element">DITA processors <span class="undefined_element">MAY</span> ignore queries on URI references to
-        DITA resources. <span class="undefined_element">URI references that address components in the same document <span class="undefined_element">MAY</span> consist of just the fragment identifier. </span>
-         </span>
-         <span class="undefined_element">For addressing DITA elements within maps and topics or individual topics within documents
+        for example, <code class="ph codeph">#topicid/elementid</code>. URI references also can include a query
+        component that is introduced with a question mark (?). </p>
+         <p class="p">DITA processors <dfn class="term RFC-2119">MAY</dfn> ignore queries on URI references to
+        DITA resources. <span class="ph">URI references that address components in the same document <dfn class="term RFC-2119">MAY</dfn> consist of just the fragment identifier. </span>
+         </p>
+         <p class="p">For addressing DITA elements within maps and topics or individual topics within documents
         containing multiple topics, URI references must include the appropriate DITA-defined
         fragment identifier. URI references can be relative or absolute. A relative URI reference
         can consist of just a fragment identifier. Such a reference is a reference to the document
-        that contains the reference.</span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Addressing non-DITA targets using a URI</span>
-         <span class="undefined_element">
-            <span class="undefined_element">DITA can use URI references to directly address non-DITA
+        that contains the reference.</p>
+      </section>
+      <section class="section" id="uri-based-addressing__non-dita"><h2 class="title sectiontitle">Addressing non-DITA targets using a URI</h2>
+         
+         <p class="p">
+            <span class="ph">DITA can use URI references to directly address non-DITA
           resources.</span> Any fragment identifier used must conform to the fragment identifier
-        requirements that are defined for the target media type or provided by processors.</span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Addressing elements within maps using a URI</span>
-         <span class="undefined_element">When addressing elements within maps, URI references can include a fragment identifier that
-        includes the ID of the map element, for example, <span class="undefined_element">filename.ditamap#mapId</span> or
-          <span class="undefined_element">#mapId</span>. <span class="undefined_element">The same-topic, URI-reference fragment identifier of a period
-          (.) <span class="undefined_element">can not</span> be used in URI references to elements within
+        requirements that are defined for the target media type or provided by processors.</p>
+      </section>
+      <section class="section" id="uri-based-addressing__elements-within-maps"><h2 class="title sectiontitle">Addressing elements within maps using a URI</h2>
+         
+         <p class="p">When addressing elements within maps, URI references can include a fragment identifier that
+        includes the ID of the map element, for example, <code class="ph codeph">filename.ditamap#mapId</code> or
+          <code class="ph codeph">#mapId</code>. <span class="ph">The same-topic, URI-reference fragment identifier of a period
+          (.) <span class="ph">can not</span> be used in URI references to elements within
           maps.</span>
-         </span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Addressing topics using a URI</span>
-         <span class="undefined_element">When addressing a DITA topic element, URI references <span class="undefined_element">can</span>
+         </p>
+      </section>
+      <section class="section" id="uri-based-addressing__topics-with-uri"><h2 class="title sectiontitle">Addressing topics using a URI</h2>
+         
+         <p class="p">When addressing a DITA topic element, URI references <span class="ph">can</span>
         include a fragment identifier that includes the ID of the topic element
-          (<span class="undefined_element">filename.dita#topicId</span> or <span class="undefined_element">#topicId</span>). <span class="undefined_element">When addressing
-          the DITA topic element that contains the URI reference, the URI reference <span class="undefined_element">might</span> include the same topic fragment identifier of "."
-            (<span class="undefined_element">#.</span>).</span>
-         </span>
-         <span class="undefined_element">Topics always can be addressed by a URI reference whose fragment identifier consists of the
+          (<code class="ph codeph">filename.dita#topicId</code> or <code class="ph codeph">#topicId</code>). <span class="ph">When addressing
+          the DITA topic element that contains the URI reference, the URI reference <span class="ph">might</span> include the same topic fragment identifier of "."
+            (<code class="ph codeph">#.</code>).</span>
+         </p>
+         <p class="p">Topics always can be addressed by a URI reference whose fragment identifier consists of the
         topic ID. For the purposes of linking, a reference to a topic-containing document addresses
         the first topic within that document in document order. For the purposes of rendering, a
-        reference to a topic-containing document addresses the root element of the document. </span>
-         <span class="undefined_element">Consider the following examples:<span class="undefined_element">
-               <span class="undefined_element">Given a document whose root element is a topic, a URI reference (with no fragment
-            identifier) that addresses that document implicitly references the topic element.</span>
-               <span class="undefined_element">Given a <span class="undefined_element">dita</span> document that contains multiple topics, for the
-            purposes of linking, a URI reference that addresses the <span class="undefined_element">dita</span>
-            document implicitly references the first child topic.</span>
-               <span class="undefined_element">Given a <span class="undefined_element">dita</span> document that contains multiple topics, for the
-            purposes of rendering, a URI reference that addresses the <span class="undefined_element">dita</span>
+        reference to a topic-containing document addresses the root element of the document. </p>
+         <div class="p">Consider the following examples:<ul class="ul">
+               <li class="li">Given a document whose root element is a topic, a URI reference (with no fragment
+            identifier) that addresses that document implicitly references the topic element.</li>
+               <li class="li">Given a <code class="keyword markupname xmlelement">&lt;dita&gt;</code> document that contains multiple topics, for the
+            purposes of linking, a URI reference that addresses the <code class="keyword markupname xmlelement">&lt;dita&gt;</code>
+            document implicitly references the first child topic.</li>
+               <li class="li">Given a <code class="keyword markupname xmlelement">&lt;dita&gt;</code> document that contains multiple topics, for the
+            purposes of rendering, a URI reference that addresses the <code class="keyword markupname xmlelement">&lt;dita&gt;</code>
             document implicitly references all the topics that are contained by the
-              <span class="undefined_element">dita</span> element. This means that all the topics that are
-            contained by the<span class="undefined_element">dita</span> element are rendered in the result.</span>
-            </span>
-         </span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Addressing non-topic elements using a URI</span>
-         <span class="undefined_element">When addressing a non-topic element within a DITA topic, a URI reference must use a
+              <code class="keyword markupname xmlelement">&lt;dita&gt;</code> element. This means that all the topics that are
+            contained by the<code class="keyword markupname xmlelement">&lt;dita&gt;</code> element are rendered in the result.</li>
+            </ul>
+         </div>
+      </section>
+      <section class="section" id="uri-based-addressing__non-topic-with-uri"><h2 class="title sectiontitle">Addressing non-topic elements using a URI</h2>
+         
+         <p class="p">When addressing a non-topic element within a DITA topic, a URI reference must use a
         fragment identifier that contains the ID of the ancestor topic element of the non-topic
-        element being referenced, a <span class="undefined_element">slash</span> ("/"), and the ID of the
-        non-topic element (<span class="undefined_element">filename.dita#topicId/elementId</span> or
-          <span class="undefined_element">#topicId/elementId</span>). <span class="undefined_element">When addressing a non-topic element within the topic that contains the URI reference, the
+        element being referenced, a <span class="ph">slash</span> ("/"), and the ID of the
+        non-topic element (<code class="ph codeph">filename.dita#topicId/elementId</code> or
+          <code class="ph codeph">#topicId/elementId</code>). <span class="ph">When addressing a non-topic element within the topic that contains the URI reference, the
           URI reference can use an abbreviated fragment-identifier syntax that replaces the topic ID
-          with "." (<span class="undefined_element">#./elementId</span>).</span>
-         </span>
-         <span class="undefined_element">This addressing model makes it possible to reliably address elements that have values for
-        the <span class="undefined_element">id</span> attribute that are unique within a single DITA topic, but which
-        might not be unique within a larger XML document that contains multiple DITA topics.</span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Examples: URI reference syntax</span>
-         <span class="undefined_element">The following table shows the URI syntax for common use cases.</span>
-         <span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element">Use case</span>
-               <span class="undefined_element">Sample syntax</span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">Reference a table in a topic at a network location</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">"http://example.com/file.dita#topicID/tableID"</span>
-               </span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">Reference a section in a topic on a local file system</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">"directory/file.dita#topicID/sectionID"</span>
-               </span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">Reference a figure contained in the same XML document</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">"#topicID/figureID"</span>
-               </span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">Reference a figure contained in the same topic of an XML document</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">"#./figureID"</span>
-               </span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">Reference an element within a map</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">"http://example.com/map.ditamap#elementID"</span> (and a value of
-              <span class="undefined_element">ditamap</span> for the <span class="undefined_element">format</span> attribute)</span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">Reference a map element within the same map document</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">"#elementID"</span> (and a value of <span class="undefined_element">ditamap</span> for the
-              <span class="undefined_element">format</span> attribute)</span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">Reference an external Web site </span>
-               <span class="undefined_element">
-                  <span class="undefined_element">"http://www.example.com"</span>,
-              <span class="undefined_element">"http://www.example.com#somefragment"</span> or any other valid
-            URI</span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">Reference an element within a local map</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">"filename.ditamap#elementid"</span> (and a value of <span class="undefined_element">ditamap</span>
-            for the <span class="undefined_element">format</span> attribute)</span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">Reference a local map </span>
-               <span class="undefined_element">
-                  <span class="undefined_element">"filename.ditamap"</span> (and a value of <span class="undefined_element">ditamap</span>
-            for the <span class="undefined_element">format</span> attribute)</span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">Reference a local topic </span>
-               <span class="undefined_element"> Reference a local topic <span class="undefined_element">"filename.dita"</span> or
-              "<span class="undefined_element">path/filename.dita"</span>
-               </span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">Reference a specific topic in a local document </span>
-               <span class="undefined_element">
-                  <span class="undefined_element">"filename.dita#topicid"</span> or
-              <span class="undefined_element">"path/filename.dita#topicid"</span>
-               </span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">Reference a specific topic in the same file</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">"#topicid"</span>
-               </span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">Reference  the same topic in the same XML document</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">"#."</span>
-               </span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">Reference a peer map for cross-deliverable linking</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">"../book-b/book-b.ditamap"</span> (and a value of
-              <span class="undefined_element">ditamap</span> for the <span class="undefined_element">format</span> attribute, a value of
-              <span class="undefined_element">peer</span> for the <span class="undefined_element">scope</span> attribute, and a value for the
-              <span class="undefined_element">keyscope</span> attribute) </span>
-            </span>
-         </span>
-      </span>
+          with "." (<code class="ph codeph">#./elementId</code>).</span>
+         </p>
+         <p class="p">This addressing model makes it possible to reliably address elements that have values for
+        the <code class="keyword markupname xmlatt">@id</code> attribute that are unique within a single DITA topic, but which
+        might not be unique within a larger XML document that contains multiple DITA topics.</p>
+      </section>
+      <div class="example" id="uri-based-addressing__example-uri-references"><h2 class="title sectiontitle">Examples: URI reference syntax</h2>
+         
+         <p class="p">The following table shows the URI syntax for common use cases.</p>
+         <table class="simpletable frame-all"><colgroup><col style="width:50%"><col style="width:50%"></colgroup><thead><tr class="sthead">
+               <th class="stentry" scope="col" id="uri-based-addressing__example-uri-references__stentry__1">Use case</th>
+               <th class="stentry" scope="col" id="uri-based-addressing__example-uri-references__stentry__2">Sample syntax</th>
+            </tr></thead><tbody><tr class="strow">
+               <td class="stentry" headers="uri-based-addressing__example-uri-references__stentry__1">Reference a table in a topic at a network location</td>
+               <td class="stentry" headers="uri-based-addressing__example-uri-references__stentry__2">
+                  <code class="ph codeph">"http://example.com/file.dita#topicID/tableID"</code>
+               </td>
+            </tr><tr class="strow">
+               <td class="stentry" headers="uri-based-addressing__example-uri-references__stentry__1">Reference a section in a topic on a local file system</td>
+               <td class="stentry" headers="uri-based-addressing__example-uri-references__stentry__2">
+                  <code class="ph codeph">"directory/file.dita#topicID/sectionID"</code>
+               </td>
+            </tr><tr class="strow">
+               <td class="stentry" headers="uri-based-addressing__example-uri-references__stentry__1">Reference a figure contained in the same XML document</td>
+               <td class="stentry" headers="uri-based-addressing__example-uri-references__stentry__2">
+                  <code class="ph codeph">"#topicID/figureID"</code>
+               </td>
+            </tr><tr class="strow">
+               <td class="stentry" headers="uri-based-addressing__example-uri-references__stentry__1">Reference a figure contained in the same topic of an XML document</td>
+               <td class="stentry" headers="uri-based-addressing__example-uri-references__stentry__2">
+                  <code class="ph codeph">"#./figureID"</code>
+               </td>
+            </tr><tr class="strow">
+               <td class="stentry" headers="uri-based-addressing__example-uri-references__stentry__1">Reference an element within a map</td>
+               <td class="stentry" headers="uri-based-addressing__example-uri-references__stentry__2">
+                  <code class="ph codeph">"http://example.com/map.ditamap#elementID"</code> (and a value of
+              <span class="keyword">ditamap</span> for the <code class="keyword markupname xmlatt">@format</code> attribute)</td>
+            </tr><tr class="strow">
+               <td class="stentry" headers="uri-based-addressing__example-uri-references__stentry__1">Reference a map element within the same map document</td>
+               <td class="stentry" headers="uri-based-addressing__example-uri-references__stentry__2">
+                  <code class="ph codeph">"#elementID"</code> (and a value of <span class="keyword">ditamap</span> for the
+              <code class="keyword markupname xmlatt">@format</code> attribute)</td>
+            </tr><tr class="strow">
+               <td class="stentry" headers="uri-based-addressing__example-uri-references__stentry__1">Reference an external Web site </td>
+               <td class="stentry" headers="uri-based-addressing__example-uri-references__stentry__2">
+                  <code class="ph codeph">"http://www.example.com"</code>,
+              <code class="ph codeph">"http://www.example.com#somefragment"</code> or any other valid
+            URI</td>
+            </tr><tr class="strow">
+               <td class="stentry" headers="uri-based-addressing__example-uri-references__stentry__1">Reference an element within a local map</td>
+               <td class="stentry" headers="uri-based-addressing__example-uri-references__stentry__2">
+                  <code class="ph codeph">"filename.ditamap#elementid"</code> (and a value of <span class="keyword">ditamap</span>
+            for the <code class="keyword markupname xmlatt">@format</code> attribute)</td>
+            </tr><tr class="strow">
+               <td class="stentry" headers="uri-based-addressing__example-uri-references__stentry__1">Reference a local map </td>
+               <td class="stentry" headers="uri-based-addressing__example-uri-references__stentry__2">
+                  <code class="ph codeph">"filename.ditamap"</code> (and a value of <span class="keyword">ditamap</span>
+            for the <code class="keyword markupname xmlatt">@format</code> attribute)</td>
+            </tr><tr class="strow">
+               <td class="stentry" headers="uri-based-addressing__example-uri-references__stentry__1">Reference a local topic </td>
+               <td class="stentry" headers="uri-based-addressing__example-uri-references__stentry__2"> Reference a local topic <code class="ph codeph">"filename.dita"</code> or
+              "<code class="ph codeph">path/filename.dita"</code>
+               </td>
+            </tr><tr class="strow">
+               <td class="stentry" headers="uri-based-addressing__example-uri-references__stentry__1">Reference a specific topic in a local document </td>
+               <td class="stentry" headers="uri-based-addressing__example-uri-references__stentry__2">
+                  <code class="ph codeph">"filename.dita#topicid"</code> or
+              <code class="ph codeph">"path/filename.dita#topicid"</code>
+               </td>
+            </tr><tr class="strow">
+               <td class="stentry" headers="uri-based-addressing__example-uri-references__stentry__1">Reference a specific topic in the same file</td>
+               <td class="stentry" headers="uri-based-addressing__example-uri-references__stentry__2">
+                  <code class="ph codeph">"#topicid"</code>
+               </td>
+            </tr><tr class="strow">
+               <td class="stentry" headers="uri-based-addressing__example-uri-references__stentry__1">Reference  the same topic in the same XML document</td>
+               <td class="stentry" headers="uri-based-addressing__example-uri-references__stentry__2">
+                  <code class="ph codeph">"#."</code>
+               </td>
+            </tr><tr class="strow">
+               <td class="stentry" headers="uri-based-addressing__example-uri-references__stentry__1">Reference a peer map for cross-deliverable linking</td>
+               <td class="stentry" headers="uri-based-addressing__example-uri-references__stentry__2">
+                  <code class="ph codeph">"../book-b/book-b.ditamap"</code> (and a value of
+              <span class="keyword">ditamap</span> for the <code class="keyword markupname xmlatt">@format</code> attribute, a value of
+              <span class="keyword">peer</span> for the <code class="keyword markupname xmlatt">@scope</code> attribute, and a value for the
+              <code class="keyword markupname xmlatt">@keyscope</code> attribute) </td>
+            </tr></tbody></table>
+      </div>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/ditaaddressing.html" title="DITA provides two addressing mechanisms. DITA addresses either are direct URI-based addresses, or they are indirect key-based addresses. Within DITA documents, individual elements are addressed by unique identifiers specified on the id attribute. DITA defines two fragment-identifier syntaxes; one is the full fragment-identifier syntax, and the other is an abbreviated fragment-identifier syntax that can be used when addressing non-topic elements from within the same topic.">DITA addressing</a></div></div></nav>
 </article></main>

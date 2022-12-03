@@ -16,28 +16,28 @@ repository: 'oasis-tcs/dita'
    <div class="body conbody"><p class="shortdesc">Element-domain modules declare an extension pattern for each element that is extended by
     the domain. These patterns are used when including the domain module in document-type
     shells.</p>
-      <span class="undefined_element">
-         <span class="undefined_element">
-            <span class="undefined_element">Pattern name</span>
-            <span class="undefined_element">
-               <span class="undefined_element">The name of the pattern is the abbreviation for the domain, followed by a hyphen ("-"),
-            and the name of the element that is extended.</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">For example, the name of the pattern for the highlighting
-              domain that extends the <span class="undefined_element">ph</span> element
-              is <span class="undefined_element">hi-d-ph</span>.</span>
-               </span>
-            </span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">Pattern definition</span>
-            <span class="undefined_element">
-               <span class="undefined_element">The pattern consists of a choice group that contains references to element-type name
-            patterns. Each extension of the base element type is referenced.</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">The following code sample shows the pattern for the elements
-              defined in the highlighting domain:</span>
-                  <span class="undefined_element">&lt;a:documentation&gt;DOMAIN EXTENSION PATTERNS&lt;/a:documentation&gt;
+      <dl class="dl">
+         
+            <dt class="dt dlterm">Pattern name</dt>
+            <dd class="dd">
+               <p class="p">The name of the pattern is the abbreviation for the domain, followed by a hyphen ("-"),
+            and the name of the element that is extended.</p>
+               <div class="example">
+                  <p class="p">For example, the name of the pattern for the highlighting
+              domain that extends the <code class="keyword markupname xmlelement">&lt;ph&gt;</code> element
+              is <code class="ph codeph">hi-d-ph</code>.</p>
+               </div>
+            </dd>
+         
+         
+            <dt class="dt dlterm">Pattern definition</dt>
+            <dd class="dd">
+               <p class="p">The pattern consists of a choice group that contains references to element-type name
+            patterns. Each extension of the base element type is referenced.</p>
+               <div class="example">
+                  <p class="p">The following code sample shows the pattern for the elements
+              defined in the highlighting domain:</p>
+                  <pre class="pre codeblock"><code>&lt;a:documentation&gt;DOMAIN EXTENSION PATTERNS&lt;/a:documentation&gt;
 
 &lt;define name="hi-d-ph"&gt;
   &lt;choice&gt;
@@ -51,31 +51,31 @@ repository: 'oasis-tcs/dita'
     &lt;ref name="u.element"/&gt;
   &lt;/choice&gt;
 &lt;/define&gt;
-</span>
-               </span>
-            </span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">Extension pattern</span>
-            <span class="undefined_element">
-               <span class="undefined_element">For each element type that is extended by the element-domain module, the module extends
-            the element-type pattern with a <span class="undefined_element">combine</span> value of
-              <span class="undefined_element">choice</span> that contains a reference to the domain pattern.</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">For example, the following pattern adds the highlight domain specializations of the
-                <span class="undefined_element">ph</span> element to the content model of the
-                <span class="undefined_element">ph</span> element:</span>
-                  <span class="undefined_element">&lt;define name="ph" combine="choice"&gt;
+</code></pre>
+               </div>
+            </dd>
+         
+         
+            <dt class="dt dlterm">Extension pattern</dt>
+            <dd class="dd">
+               <p class="p">For each element type that is extended by the element-domain module, the module extends
+            the element-type pattern with a <code class="keyword markupname xmlatt">@combine</code> value of
+              <span class="keyword">choice</span> that contains a reference to the domain pattern.</p>
+               <div class="example">
+                  <p class="p">For example, the following pattern adds the highlight domain specializations of the
+                <code class="keyword markupname xmlelement">&lt;ph&gt;</code> element to the content model of the
+                <code class="keyword markupname xmlelement">&lt;ph&gt;</code> element:</p>
+                  <pre class="pre codeblock"><code>&lt;define name="ph" combine="choice"&gt;
   &lt;ref name="hi-d-ph"/&gt;
-&lt;/define&gt;</span>
-               </span>
-               <span class="undefined_element">Because the pattern uses a <span class="undefined_element">combine</span> value of <span class="undefined_element">choice</span>,
+&lt;/define&gt;</code></pre>
+               </div>
+               <p class="p">Because the pattern uses a <code class="keyword markupname xmlatt">@combine</code> value of <span class="keyword">choice</span>,
             the effect is that the domain-provided elements automatically are added to the effective
             content model of the extended element in any grammar that includes the domain
-            module.</span>
-            </span>
-         </span>
-      </span>
+            module.</p>
+            </dd>
+         
+      </dl>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/relax-ng-requirements.html" title="This section explains how to implement RNG-based document-type shells, specializations, and element-configuration modules (constraints and expansions).">RELAX NG coding requirements</a></div></div></nav>
 </article></main>

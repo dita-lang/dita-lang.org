@@ -16,121 +16,85 @@ repository: 'oasis-tcs/dita'
    <div class="body conbody"><p class="shortdesc">The <code class="keyword markupname xmlatt">@chunk</code> attribute is ignored in some cases, such as when
 <code class="ph codeph">chunk="combine"</code> is already in effect or when <code class="ph codeph">chunk="split"</code> is
 specified on a grouping element.</p>
-      <span class="undefined_element">
-         <span class="undefined_element">Ignoring <span class="undefined_element">chunk</span> when already combining
-        topics</span>
-         <span class="undefined_element">In the following <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>code sample<span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Ignoring <code class="keyword markupname xmlatt">@chunk</code> when already combining
+        topics</figcaption>
+         
+         <p class="p">In the following <span style="color:red;" class="ph">
+               code sample
             </span>, evaluating
-          <span class="undefined_element">chunk="combine"</span> results in one rendered document
-        for each <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>map branch<span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>
+          <code class="ph codeph">chunk="combine"</code> results in one rendered document
+        for each <span style="color:red;" class="ph">
+               map branch
             </span>. Any additional
-          <span class="undefined_element">chunk</span> values within <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>those
-          branches<span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>
-            </span> are ignored, including any <span class="undefined_element">chunk</span>
-        values within any referenced maps.</span>
-         <span class="undefined_element">&lt;map&gt;
+          <code class="keyword markupname xmlatt">@chunk</code> values within <span style="color:red;" class="ph">
+               those
+          branches
+            </span> are ignored, including any <code class="keyword markupname xmlatt">@chunk</code>
+        values within any referenced maps.</p>
+         <pre class="pre codeblock"><code>&lt;map&gt;
   &lt;title&gt;Ignoring chunking when already combined&lt;/title&gt;
 
-  &lt;topicref href="branchOne.dita" <span class="undefined_element">chunk="combine"</span>&gt;
+  &lt;topicref href="branchOne.dita" <strong class="ph b">chunk="combine"</strong>&gt;
     &lt;!-- @chunk ignored for branchOneChild.dita --&gt;
-    &lt;topicref href="branchOneChild.dita" <span class="undefined_element">chunk="split"</span>/&gt;
+    &lt;topicref href="branchOneChild.dita" <strong class="ph b">chunk="split"</strong>/&gt;
   &lt;/topicref&gt;
 
-  &lt;topicref href="branchTwo.dita" <span class="undefined_element">chunk="combine"</span>&gt;
+  &lt;topicref href="branchTwo.dita" <strong class="ph b">chunk="combine"</strong>&gt;
     &lt;!-- Any @chunk within submap.ditamap is ignored --&gt;
     &lt;topicref href="submap.ditamap" format="ditamap"/&gt;
   &lt;/topicref&gt;
-</span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Ignoring <span class="undefined_element">chunk</span> on a grouping element</span>
-         <span class="undefined_element">In the following <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>code sample<span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>
+</code></pre>
+      </figure>
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>Ignoring <code class="keyword markupname xmlatt">@chunk</code> on a grouping element</figcaption>
+         
+         <p class="p">In the following <span style="color:red;" class="ph">
+               code sample
             </span>,
-          <span class="undefined_element">chunk="split"</span> is specified on two grouping
-        elements.</span>
-         <span class="undefined_element">&lt;map&gt;
+          <code class="ph codeph">chunk="split"</code> is specified on two grouping
+        elements.</p>
+         <pre class="pre codeblock"><code>&lt;map&gt;
   &lt;title&gt;Trying to "split" groups&lt;/title&gt;
-  &lt;topicgroup <span class="undefined_element">chunk="split"</span>&gt;
+  &lt;topicgroup <strong class="ph b">chunk="split"</strong>&gt;
     &lt;topicref href="ingroup1.dita"&gt;&lt;!--...--&gt;&lt;/topicref&gt;
     &lt;topicref href="ingroup2.dita"&gt;&lt;!--...--&gt;&lt;/topicref&gt;
   &lt;/topicgroup&gt;
-  &lt;topichead <span class="undefined_element">chunk="split"</span>&gt;
+  &lt;topichead <strong class="ph b">chunk="split"</strong>&gt;
     &lt;topicmeta&gt;
       &lt;navtitle&gt;Heading for a branch&lt;/navtitle&gt;
     &lt;/topicmeta&gt;
     &lt;topicref href="inhead1.dita"&gt;&lt;!--...--&gt;&lt;/topicref&gt;
     &lt;topicref href="inhead2.dita"&gt;&lt;!--...--&gt;&lt;/topicref&gt;
   &lt;/topichead&gt;
-&lt;/map&gt;</span>
-         <span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element"></span>
-            </span>The result of evaluating chunking is the
-        following:<span class="undefined_element">
-               <span class="undefined_element"></span>
-            </span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">The <span class="undefined_element">chunk</span> attribute on the
-            <span class="undefined_element">topicgroup</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>element<span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>
-               </span> is ignored<span class="undefined_element">
-                  <span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>.
-            The <span class="undefined_element">chunk</span> attribute<span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>
+&lt;/map&gt;</code></pre>
+         <p style="color:red;" class="p">
+            The result of evaluating chunking is the
+        following:
+         </p>
+         <ul class="ul" id="exampleignorechunk__ul_o3y_wng_thb">
+            <li class="li">The <code class="keyword markupname xmlatt">@chunk</code> attribute on the
+            <code class="keyword markupname xmlelement">&lt;topicgroup&gt;</code>
+               <span style="color:red;" class="ph">
+                  element
+               </span> is ignored<span style="color:red;" class="ph">
+                  .
+            The <code class="keyword markupname xmlatt">@chunk</code> attribute
                </span> does not cascade and
-          there is no referenced topic, so it has no effect.</span>
-            <span class="undefined_element">In some cases, an implementation might treat the
-            <span class="undefined_element">topichead</span> element as equivalent to a
+          there is no referenced topic, so it has no effect.</li>
+            <li class="li">In some cases, an implementation might treat the
+            <code class="keyword markupname xmlelement">&lt;topichead&gt;</code> element as equivalent to a
           single title-only topic, while in other cases it might be
-          ignored. In either case, the <span class="undefined_element">chunk</span> value has no
-          effect. If the <span class="undefined_element">topichead</span> is treated as a
-          title-only topic, it cannot be split further<span class="undefined_element">
-                  <span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>.
-            If<span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>
+          ignored. In either case, the <code class="keyword markupname xmlatt">@chunk</code> value has no
+          effect. If the <code class="keyword markupname xmlelement">&lt;topichead&gt;</code> is treated as a
+          title-only topic, it cannot be split further<span style="color:red;" class="ph">
+                  .
+            If
                </span> it is ignored for the current processing context, it is
-          no different than the <span class="undefined_element">topicgroup</span>
-               <span class="undefined_element">
-                  <span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>element<span class="undefined_element">
-                     <span class="undefined_element"></span>
-                  </span>
-               </span>.</span>
-         </span>
-      </span>
+          no different than the <code class="keyword markupname xmlelement">&lt;topicgroup&gt;</code>
+               <span style="color:red;" class="ph">
+                  element
+               </span>.</li>
+         </ul>
+      </figure>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/examples-of-chunking.html" title="These examples illustrate the processing expectations for various scenarios that involve the chunk attribute. The processing examples use either before and after sample markup or expanded syntax that shows the equivalent markup without the chunk attribute.">Examples of the chunk attribute</a></div></div></nav>
 </article></main>

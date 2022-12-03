@@ -17,88 +17,67 @@ repository: 'oasis-tcs/dita'
    
    <div class="body refbody"><p class="shortdesc">A keyword is text or a token that has a unique value, such as
     a product name or unit of reusable text.</p>
-      <span class="undefined_element">
-         <span class="undefined_element">Processing expectations</span>
-         <span class="undefined_element">When used within the <span class="undefined_element">keywords</span> element, the content of a
-               <span class="undefined_element">keyword</span> element is considered to be metadata and should be
-            processed as appropriate for the given output medium.</span>
-         <span class="undefined_element">Elements that are specialized from the <span class="undefined_element">keyword</span> element might
-            have extended processing, such as specific formatting or automatic indexing. </span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Attributes</span>
-         <span class="undefined_element">The following attributes are
-        available on this element: <span class="undefined_element">
-               <span class="undefined_element">universal
-                                                  attributes<span class="undefined_element">Universal attributes include:
-                                                  <span class="undefined_element">audience</span>, <span class="undefined_element">base</span>,
-                                                  <span class="undefined_element">class</span>,
-                                                  <span class="undefined_element">conaction</span>,
-                                                  <span class="undefined_element">conkeyref</span>,
-                                                  <span class="undefined_element">conref</span>,
-                                                  <span class="undefined_element">conrefend</span>,
-                                                  <span class="undefined_element">deliveryTarget</span>,
-                                                  <span class="undefined_element">dir</span>, <span class="undefined_element">id</span>,
-                                                  <span class="undefined_element">importance</span>,
-                                                  <span class="undefined_element">otherprops</span>,
-                                                  <span class="undefined_element">outputclass</span>,
-                                                  <span class="undefined_element">platform</span>,
-                                                  <span class="undefined_element">product</span>, <span class="undefined_element">props</span>,
-                                                  <span class="undefined_element">rev</span>, <span class="undefined_element">status</span>,
-                                                  <span class="undefined_element">translate</span>, and
-                                                  <span class="undefined_element">xml:lang</span>
-                  </span>
-               </span>
-            </span> and <span class="undefined_element">
-               <span class="undefined_element">keyref</span>
-            </span>.</span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">Examples</span>
-         <span class="undefined_element">This section contains examples of how the <span class="undefined_element">keyword</span> element can
-            be used.</span>
-         <span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element">keyword</span> element used to store a
-          product name</span>
-            <span class="undefined_element">In the following code sample, the
-            <span class="undefined_element">keyword</span> element holds a product name
+      <section class="section" id="keyword__processing-expectations"><h2 class="title sectiontitle">Processing expectations</h2>
+         
+         <p class="p">When used within the <code class="keyword markupname xmlelement">&lt;keywords&gt;</code> element, the content of a
+               <code class="keyword markupname xmlelement">&lt;keyword&gt;</code> element is considered to be metadata and should be
+            processed as appropriate for the given output medium.</p>
+         <p class="p">Elements that are specialized from the <code class="keyword markupname xmlelement">&lt;keyword&gt;</code> element might
+            have extended processing, such as specific formatting or automatic indexing. </p>
+      </section>
+      <section class="section" id="keyword__attributes"><h2 class="title sectiontitle">Attributes</h2>
+         
+         <p class="p">The following attributes are
+        available on this element: <span class="ph">
+               <a class="xref" href="../../common/../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
+                                                  attributes
+               </a>
+            </span> and <a class="xref" href="../../common/../langRef/attributes/commonAttributes.html#common-atts__attr-keyref">
+               <code class="keyword markupname xmlatt">@keyref</code>
+            </a>.</p>
+      </section>
+      <div class="example" id="keyword__example"><h2 class="title sectiontitle">Examples</h2>
+         
+         <p class="p">This section contains examples of how the <code class="keyword markupname xmlelement">&lt;keyword&gt;</code> element can
+            be used.</p>
+         <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>
+               <code class="keyword markupname xmlelement">&lt;keyword&gt;</code> element used to store a
+          product name</figcaption>
+            
+            <p class="p">In the following code sample, the
+            <code class="keyword markupname xmlelement">&lt;keyword&gt;</code> element holds a product name
           that can be referenced using content reference (conref) or
-          content key reference (conkeyref):</span>
-            <span class="undefined_element">&lt;keyword id="acme-bird-feeder"&gt;ACME Bird Feeder&lt;/keyword&gt;</span>
-            <span class="undefined_element">To enable referencing variable text using
-            <span class="undefined_element">keyref</span>, store the product name in a
-            <span class="undefined_element">keytext</span> element.</span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element"></span>
-            </span>
-            <span class="undefined_element">
-               <span class="undefined_element">keyword</span> element referencing a
-          product name</span>
-            <span class="undefined_element">In the following example, the <span class="undefined_element">keyword</span>
+          content key reference (conkeyref):</p>
+            <pre class="pre codeblock"><code>&lt;keyword id="acme-bird-feeder"&gt;ACME Bird Feeder&lt;/keyword&gt;</code></pre>
+            <p class="p">To enable referencing variable text using
+            <code class="keyword markupname xmlatt">@keyref</code>, store the product name in a
+            <code class="keyword markupname xmlelement">&lt;keytext&gt;</code> element.</p>
+         </figure>
+         <figure class="fig fignone" style="color:red;"><figcaption><span class="fig--title-label">Figure 2. </span>
+               <code class="keyword markupname xmlelement">&lt;keyword&gt;</code> element referencing a
+          product name</figcaption>
+            
+            
+            <p class="p">In the following example, the <code class="keyword markupname xmlelement">&lt;keyword&gt;</code>
           element references a product name using
-            <span class="undefined_element">conkeyref</span>:</span>
-            <span class="undefined_element">&lt;p&gt;To fill the &lt;keyword conkeyref="productnames/acme-bird-feeder"/&gt;, unscrew the top ...&lt;/p&gt;</span>
-            <span class="undefined_element">
-               <span class="undefined_element"></span>
-            </span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element">keyword</span> element as metadata</span>
-            <span class="undefined_element">In the following code sample, "Big data" is specified as
-          metadata that applies to the topic:</span>
-            <span class="undefined_element">&lt;prolog&gt;
+            <code class="keyword markupname xmlatt">@conkeyref</code>:</p>
+            <pre class="pre codeblock"><code>&lt;p&gt;To fill the &lt;keyword conkeyref="productnames/acme-bird-feeder"/&gt;, unscrew the top ...&lt;/p&gt;</code></pre>
+            
+         </figure>
+         <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 3. </span>
+               <code class="keyword markupname xmlelement">&lt;keyword&gt;</code> element as metadata</figcaption>
+            
+            <p class="p">In the following code sample, "Big data" is specified as
+          metadata that applies to the topic:</p>
+            <pre class="pre codeblock"><code>&lt;prolog&gt;
   &lt;metadata&gt;
     &lt;keywords&gt;
       &lt;keyword&gt;Big data&lt;/keyword&gt;
     &lt;/keywords&gt;
   &lt;/metadata&gt;
-&lt;/prolog&gt;</span>
-         </span>
-      </span>
+&lt;/prolog&gt;</code></pre>
+         </figure>
+      </div>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/body-elements.html" title="The body elements support the most common types of content for topics: paragraphs, lists, phrases, figures, and other common document components.">Body elements</a></div></div></nav>
 </article></main>

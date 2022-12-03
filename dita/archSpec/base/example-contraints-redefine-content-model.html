@@ -25,37 +25,29 @@ repository: 'oasis-tcs/dita'
       element required, and disallow topic nesting.
       </span>
    </p>
-      <span class="undefined_element">
-         <span class="undefined_element">
-            <span class="undefined_element"></span>
-         </span>Specifically, the DITA architect wants to redefine
-      the content model in the following ways:<span class="undefined_element">
-            <span class="undefined_element"></span>
-         </span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">
-            <span class="undefined_element"></span>
-         </span>
-         <span class="undefined_element">Remove <span class="undefined_element">abstract</span>
-         </span>
-         <span class="undefined_element">Require <span class="undefined_element">shortdesc</span>
-         </span>
-         <span class="undefined_element">Remove <span class="undefined_element">related-links</span>
-         </span>
-         <span class="undefined_element">Remove the <span class="undefined_element">task-info-types</span>
-        entity in order to disallow topic nesting</span>
-         <span class="undefined_element">
-            <span class="undefined_element"></span>
-         </span>
-      </span>
-      <span class="undefined_element">
-         <span class="undefined_element">
-            <span class="undefined_element">The DITA architect creates a constraint module: </span>
-            <span class="undefined_element">acme-TopicConstraint.mod</span>.</span>
-         <span class="undefined_element">
-            <span class="undefined_element">They add</span> the following content to
-          <span class="undefined_element">acme-TopicConstraint.mod</span>:<span class="undefined_element">
+      <p style="color:red;" class="p">
+         Specifically, the DITA architect wants to redefine
+      the content model in the following ways:
+      </p>
+      <ul style="color:red;" class="ul">
+         
+         <li class="li">Remove <code class="keyword markupname xmlelement">&lt;abstract&gt;</code>
+         </li>
+         <li class="li">Require <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code>
+         </li>
+         <li class="li">Remove <code class="keyword markupname xmlelement">&lt;related-links&gt;</code>
+         </li>
+         <li class="li">Remove the <code class="keyword markupname parameterentity">%task-info-types;</code>
+        entity in order to disallow topic nesting</li>
+         
+      </ul>
+      <ol class="ol">
+         <li class="li">
+            <span class="ph">The DITA architect creates a constraint module: </span>
+            <span class="ph filepath">acme-TopicConstraint.mod</span>.</li>
+         <li class="li">
+            <span class="ph">They add</span> the following content to
+          <span class="ph filepath">acme-TopicConstraint.mod</span>:<pre class="pre codeblock"><code>
 &lt;!-- ============================================================= --&gt;
 &lt;!--                    CONSTRAINED TOPIC ENTITIES                 --&gt;
 &lt;!-- ============================================================= --&gt;
@@ -75,41 +67,32 @@ repository: 'oasis-tcs/dita'
                          (%shortdesc;), 
                          (%prolog;)?, 
                          (%body;)?)"
-&gt;</span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">They add</span> the constraint module to the
-          <span class="undefined_element">catalog.xml</span> file.</span>
-         <span class="undefined_element">
-            <span class="undefined_element">They then integrate</span> the constraint module into
-        the document-type shell for topic by adding the following <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>content to the "Element-Type Configuration
+&gt;</code></pre>
+         </li>
+         <li class="li">
+            <span class="ph">They add</span> the constraint module to the
+          <span class="ph filepath">catalog.xml</span> file.</li>
+         <li class="li">
+            <span class="ph">They then integrate</span> the constraint module into
+        the document-type shell for topic by adding the following <span style="color:red;" class="ph">
+               content to the "Element-Type Configuration
           Integration
-        section<span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>
-            </span>:<span class="undefined_element">&lt;!-- ============================================================= --&gt;
+        section
+            </span>:<pre class="pre codeblock"><code>&lt;!-- ============================================================= --&gt;
 &lt;!--           ELEMENT-TYPE CONFIGURATION INTEGRATION              --&gt;
 &lt;!-- ============================================================= --&gt;
 
-<span class="undefined_element">&lt;!ENTITY % topic-constraints-c-def  
+<strong class="ph b">&lt;!ENTITY % topic-constraints-c-def  
   PUBLIC "-//ACME//ELEMENTS DITA Topic Constraint//EN" 
   "acme-TopicConstraint.mod"&gt;
-%topic-constraints-c-def;</span>
-            </span>
-         </span>
-         <span class="undefined_element">
-            <span class="undefined_element">
-               <span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>They check their<span class="undefined_element">
-                  <span class="undefined_element"></span>
-               </span>
+%topic-constraints-c-def;</strong></code></pre>
+         </li>
+         <li class="li">
+            <span style="color:red;" class="ph">
+               They check their
             </span> test topic to ensure
-        that the content model is modified as expected.</span>
-      </span>
+        that the content model is modified as expected.</li>
+      </ol>
    </div>
    <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/examples-constraints.html" title="This section of the specification contains examples of constraints implemented using DTD.">Examples: Constraints implemented using DTDs</a></div></div></nav>
 </article></main>
