@@ -17,10 +17,32 @@
   <xsl:template match="*[contains(@class, ' topic/body ')]">
     <xsl:copy>
       <xsl:apply-templates select="@*"/>
+      <xsl:variable name="non-normative" as="node()*">
+        <xsl:apply-templates select="node()" mode="non-normative"/>
+      </xsl:variable>
       <xsl:variable name="with-starts" as="node()*">
-        <xsl:apply-templates select="node()" mode="add-markup"/>
+        <xsl:apply-templates select="$non-normative" mode="add-markup"/>
       </xsl:variable>
       <xsl:apply-templates select="$with-starts" mode="mark-error"/>
+    </xsl:copy>
+  </xsl:template>
+
+  <!-- Add non-normative -->
+
+  <xsl:template match="@* | node()" mode="non-normative">
+    <xsl:copy>
+      <xsl:apply-templates select="@* | node()" mode="#current"/>
+    </xsl:copy>
+  </xsl:template>
+
+  <xsl:template match="*[contains(@class, ' topic/note ') or
+                         contains(@class, ' topic/example ')] |
+                       *[*[contains(@class, ' topic/title ')]
+                          [matches(., 'Example:', 'i')]]" mode="non-normative" priority="100">
+    <xsl:copy>
+      <xsl:apply-templates select="@* except @outputclass" mode="#current"/>
+      <xsl:attribute name="outputclass" select="normalize-space(string-join(('non-normative', @outputclass), ' '))"/>
+      <xsl:apply-templates select="node()" mode="#current"/>
     </xsl:copy>
   </xsl:template>
 
@@ -31,12 +53,15 @@
       <xsl:apply-templates select="@* | node()" mode="#current"/>
     </xsl:copy>
   </xsl:template>
+  
+  <xsl:template match="*[tokenize(@outputclass, '\s+') = 'non-normative']" mode="add-markup" priority="100">
+    <xsl:copy-of select="."/>
+  </xsl:template>
 
   <xsl:template match="*[contains(@class, ' topic/p ') or
                          contains(@class, ' topic/shortdesc ') or
                          contains(@class, ' topic/abstract ') or
                          contains(@class, ' topic/fig ') or
-                         contains(@class, ' topic/note ') or
                          contains(@class, ' topic/td ') or
                          contains(@class, ' topic/stentry ') or
                          contains(@class, ' topic/dd ') or
