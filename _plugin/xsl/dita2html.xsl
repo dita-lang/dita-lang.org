@@ -70,6 +70,9 @@
       <xsl:text>generated: true</xsl:text>
       <xsl:text>&#xA;</xsl:text>
     </xsl:if>
+    <xsl:text>classes: '</xsl:text>
+    <xsl:value-of select="normalize-space(*/@outputclass)"/>
+    <xsl:text>'&#xA;</xsl:text>
     <xsl:text>---&#xA;&#xA;</xsl:text>
   </xsl:template>
 
