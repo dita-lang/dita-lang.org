@@ -43,7 +43,7 @@
       <xsl:apply-templates select="@* except @outputclass" mode="#current"/>
       <xsl:attribute name="outputclass" select="normalize-space(string-join(('non-normative', @outputclass), ' '))"/>
       <xsl:if test="self::*[contains(@class, ' topic/example ')] and empty(*[contains(@class, ' topic/title ')])">
-        <title class="- topic/title">Example</title>
+        <title class="- topic/title ">Example</title>
       </xsl:if>
       <xsl:apply-templates select="node()" mode="#current"/>
     </xsl:copy>
