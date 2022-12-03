@@ -11,17 +11,17 @@ classes: ''
 ---
 
 <nav role="toc" class="col-lg-3"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction</a></li><li><a href="../../archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="../../archSpec/base/accessibility-and-translation.html">Accessibility and translation</a></li><li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a><ul class="nav nav-list"><li><a href="../../archSpec/base/dita-maps-and-their-usage.html">DITA maps and their usage</a></li><li><a href="../../archSpec/base/subject-scheme-maps-and-usage.html">Subject scheme maps and their usage</a><ul class="nav nav-list"><li><a href="../../archSpec/base/subjectSchema.html">Subject scheme maps</a></li><li><a href="../../archSpec/base/controlled-values-for-attributes.html">Defining controlled values for attributes</a></li><li><a href="../../archSpec/base/binding-controlled-values-to-attribute.html">Binding controlled values to an attribute</a></li><li><a href="../../archSpec/base/processing-controlled-attribute-values.html">Processing controlled attribute values</a></li><li><a href="../../archSpec/base/subjectrefs-attribute.html">The subjectrefs attribute</a></li><li><a href="../../archSpec/base/examples-subjectScheme-maps.html">Examples of subject scheme maps</a><ul class="nav nav-list"><li class="active"><a href="../../archSpec/base/example-subject-scheme-map-used-to-define-taxonomic-subjects.html">Example: a subject scheme map used to define taxonomic subjects</a></li><li><a href="../../archSpec/base/example-subjectScheme-filtering.html">Example: How hierarchies defined in a subject scheme map affect filtering</a></li><li><a href="../../archSpec/base/example-subjectScheme-values-for-deliveryTarget.html">Example: Defining values for deliveryTarget</a></li></ul></li></ul></li><li><a href="../../archSpec/base/map-cascading.html">Metadata cascading</a></li><li><a href="../../archSpec/base/chunking.html">Chunking</a></li></ul></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a></li><li><a href="../../langRef/langRef-base.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../non-normative/developing-constraint-and-expansion-modules.html">Constraint modules</a></li><li><a href="../../non-normative/expansion-modules.html">Expansion modules</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../non-normative/formatting-expectations.html">Formatting expectations</a></li><li><a href="../../non-normative/migrating-to-dita-2.0.html">Migrating to DITA 2.0</a></li><li><a href="../../non-normative/basedoctypes.html">OASIS grammar files</a></li><li><a href="../../non-normative/interoperability-considerations.html">Processing interoperability considerations</a></li><li><a href="../../non-normative/revision-history.html">Revision history</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
-   <h1 class="title topictitle1" id="ariaid-title1">Example: a subject scheme map used to define taxonomic
+    <h1 class="title topictitle1" id="ariaid-title1">Example: a subject scheme map used to define taxonomic
     subjects</h1>
-   
-   
-   <div class="body conbody"><p class="shortdesc">A subject scheme map can be used to define taxonomic subjects.
+  
+  
+  <div class="body conbody"><p class="shortdesc">A subject scheme map can be used to define taxonomic subjects.
     Once defined, the subjects can be referenced by specifying a
       <code class="keyword markupname xmlatt">@subjectrefs</code> attribute on a
       <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element.</p>
-      <p class="p">The following subject scheme map defines a set of subjects that are
+    <p class="p"><span></span>The following subject scheme map defines a set of subjects that are
       used to classify content:</p>
-      <pre class="pre codeblock"><code>&lt;subjectScheme&gt;
+    <pre class="pre codeblock"><code>&lt;subjectScheme&gt;
   &lt;subjectdef keys="content-types"&gt;
     &lt;subjectdef keys="conceptual-material"/&gt;
     &lt;subjectdef keys="reference"/&gt;
@@ -39,34 +39,33 @@ classes: ''
     &lt;subjectdef keys="troubleshooting"/&gt;
   &lt;/subjectdef&gt;
 &lt;/subjectScheme&gt;</code></pre>
-      <p class="p">The keys assigned to the subject definitions can be referenced by
+    <p class="p"><span></span>The keys assigned to the subject definitions can be referenced by
       specifying the <code class="keyword markupname xmlatt">@subjectrefs</code> attribute on topic
       references in a navigation map:</p>
-      <pre class="pre codeblock"><code>&lt;map&gt;
+    <pre class="pre codeblock"><code>&lt;map&gt;
 &lt;title&gt;User assistance for the Acme Widget&lt;/title&gt;
-&lt;!-- ... --&gt;
+&lt;!-- ... <span></span>--&gt;
 &lt;topicref keyref="install-overview" <strong class="ph b">subjectrefs="installing"</strong>&gt;
   &lt;topicref keyref="install-linux"/&gt;
   &lt;topicref keyref="install-macosx"/&gt;
   &lt;topicref keyref="install-windows"/&gt;
   &lt;topicref keyref="install-troubleshooting" <strong class="ph b">subjectrefs="troubleshooting"</strong>/&gt;
 &lt;/topicref&gt;
-&lt;!-- ... --&gt;
+&lt;!-- ... <span></span>--&gt;
 &lt;/map&gt;</code></pre>
-      <p class="p">Because the <code class="keyword markupname xmlatt">@subjectrefs</code> attribute cascades, the
+    <p class="p"><span></span>Because the <code class="keyword markupname xmlatt">@subjectrefs</code> attribute cascades, the
       effective value of the above markup is the same as the following
       markup:</p>
-      <pre class="pre codeblock"><code>&lt;map&gt;
+    <pre class="pre codeblock"><code>&lt;map&gt;
 &lt;title&gt;User assistance for the Acme Widget&lt;/title&gt;
-&lt;!-- ... --&gt;
+&lt;!-- ... <span></span>--&gt;
 &lt;topicref keyref="install-overview" subjectrefs="installing"&gt;
   &lt;topicref keyref="install-linux" subjectrefs="installing"/&gt;
   &lt;topicref keyref="install-macosx" subjectrefs="installing"/&gt;
   &lt;topicref keyref="install-windows" subjectrefs="installing"/&gt;
   &lt;topicref keyref="install-troubleshooting" subjectrefs="installing troubleshooting"/&gt;
 &lt;/topicref&gt;
-&lt;!-- ... --&gt;
+&lt;!-- ... <span></span>--&gt;
 &lt;/map&gt;</code></pre>
-   </div>
-   <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/examples-subjectScheme-maps.html" title="This section contains examples and scenarios that illustrate the use of subject scheme maps.">Examples of subject scheme maps</a></div></div></nav>
-</article></main>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/examples-subjectScheme-maps.html" title="This section contains examples and scenarios that illustrate the use of subject scheme maps.">Examples of subject scheme maps</a></div></div></nav></article></main>

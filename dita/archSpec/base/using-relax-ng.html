@@ -11,58 +11,57 @@ classes: ''
 ---
 
 <nav role="toc" class="col-lg-3"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction</a><ul class="nav nav-list"><li><a href="../../introduction/terminology.html">Terminology</a></li><li><a href="../../introduction/references.html">References</a></li><li class="active"><a href="../../archSpec/base/using-relax-ng.html">Normative versions of DITA grammar files</a></li><li><a href="../../non-normative/about-specification-source.html">About the specification source</a></li></ul></li><li><a href="../../archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="../../archSpec/base/accessibility-and-translation.html">Accessibility and translation</a></li><li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a></li><li><a href="../../langRef/langRef-base.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../non-normative/developing-constraint-and-expansion-modules.html">Constraint modules</a></li><li><a href="../../non-normative/expansion-modules.html">Expansion modules</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../non-normative/formatting-expectations.html">Formatting expectations</a></li><li><a href="../../non-normative/migrating-to-dita-2.0.html">Migrating to DITA 2.0</a></li><li><a href="../../non-normative/basedoctypes.html">OASIS grammar files</a></li><li><a href="../../non-normative/interoperability-considerations.html">Processing interoperability considerations</a></li><li><a href="../../non-normative/revision-history.html">Revision history</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
-   <h1 class="title topictitle1" id="ariaid-title1">Normative versions of DITA grammar files</h1>
-   
-   
-   <div class="body conbody"><p class="shortdesc">DITA document types and vocabulary modules can be constructed
+ <h1 class="title topictitle1" id="ariaid-title1">Normative versions of DITA grammar files</h1>
+ 
+  
+ <div class="body conbody"><p class="shortdesc">DITA document types and vocabulary modules can be constructed
     using several XML-document grammar mechanisms. The DITA specification
     provides coding requirements for DTDs and RNG, and it also includes
     grammar files that are constructed using those mechanisms. The RNG
     grammar files are normative.</p>
-      <p class="p">The DITA Technical Committee chose the RELAX NG XML syntax for the following reasons:</p>
-      <dl class="dl">
-         
-            <dt class="dt dlterm">Easy use of foreign markup</dt>
-            <dd class="dd">
-               <p class="p">The DITA grammar files maintained by OASIS depend on this
+    <p class="p"><span></span>The DITA Technical Committee chose the RELAX NG XML syntax for the following reasons:</p>
+    <dl class="dl">
+      
+        <dt class="dt dlterm">Easy use of foreign markup</dt>
+        <dd class="dd"><span></span>
+          <p class="p"><span></span>The DITA grammar files maintained by OASIS depend on this
             feature of RELAX NG in order to capture metadata about
             document-type shells and modules.</p>
-               <p class="p">The foreign vocabulary feature can be used to include
-            metadata. The DITA 1.3 RNG-based grammar files contained
+          <p class="p"><span></span>The foreign vocabulary feature can be used to include
+            metadata. <span></span>The DITA 1.3 RNG-based grammar files contained
             metadata that was used when DTD- and XSD-based grammar files
             were generated.</p>
-               <p class="p">The foreign vocabulary feature can also be used to include
-            Schematron rules directly in RELAX NG grammars. Schematron
+          <p class="p"><span></span>The foreign vocabulary feature can also be used to include
+            Schematron rules directly in RELAX NG grammars. <span></span>Schematron
             rules can check for patterns that either are not expressible
             with RELAX NG directly or that would be difficult to
             express.</p>
-            </dd>
-         
-         
-            <dt class="dt dlterm">RELAX NG <code class="keyword markupname xmlelement">&lt;div&gt;</code> element </dt>
-            <dd class="dd">This general grouping element allows for arbitrary organization
-          and grouping of patterns within grammar documents. Such grouping
+        </dd>
+      
+      
+        <dt class="dt dlterm">RELAX NG <code class="keyword markupname xmlelement">&lt;div&gt;</code> element </dt>
+        <dd class="dd"><span></span>This general grouping element allows for arbitrary organization
+          and grouping of patterns within grammar documents. <span></span>Such grouping
           tends to make the grammar documents easier to work with,
           especially in XML-aware editors.</dd>
-         
-         
-            <dt class="dt dlterm">Capability of expressing precise restrictions</dt>
-            <dd class="dd">RELAX NG is capable of expressing constraints that are more
-          precise than is possible with DTDs. For example, RELAX NG
+      
+      
+        <dt class="dt dlterm">Capability of expressing precise restrictions</dt>
+        <dd class="dd"><span></span>RELAX NG is capable of expressing constraints that are more
+          precise than is possible with DTDs. <span></span>For example, RELAX NG
           patterns can be context specific such that the same element type
           can allow different content or attributes in different contexts.
-          However, the grammar files that are provided by the OASIS DITA
+<span></span>          However, the grammar files that are provided by the OASIS DITA
           Technical Committee do not use any features of RELAX NG that
           cannot be translated into equivalent DTD constructs.</dd>
-         
-      </dl>
-      <p class="p">The DITA use of RELAX NG depends on the <cite class="cite">RELAX NG DTD
+      
+    </dl>
+    <p class="p"><span></span>The DITA use of RELAX NG depends on the <cite class="cite">RELAX NG DTD
         Compatibility</cite> specification, which provides a mechanism for
       defining default-attribute values and embedded documentation.
-      Processors that use RELAX NG for DITA documents in which required
+<span></span>      Processors that use RELAX NG for DITA documents in which required
       attributes (for example, the <code class="keyword markupname xmlatt">@class</code> attribute) are
       not explicitly present must implement the DTD compatibility
       specification in order to get default attribute values.</p>
-   </div>
-   <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../introduction/dita-release-overview.html" title="The Darwin Information Typing Architecture (DITA) specification defines a set of document types for authoring and aggregating topic-oriented information, as well as a set of mechanisms for combining, extending, and constraining document types.">Introduction</a></div></div></nav>
-</article></main>
+ </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../introduction/dita-release-overview.html" title="The Darwin Information Typing Architecture (DITA) specification defines a set of document types for authoring and aggregating topic-oriented information, as well as a set of mechanisms for combining, extending, and constraining document types.">Introduction</a></div></div></nav></article></main>
