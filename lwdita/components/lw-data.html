@@ -11,126 +11,92 @@ classes: ''
 ---
 
 <nav role="toc" class="col-lg-3"><ul><li><a href="../introduction/introduction.html">Introduction</a></li><li><a href="../authoring-formats/formats-introduction.html">LwDITA authoring formats</a></li><li><a href="../components/component-reference.html">Component reference</a></li><li><a href="../attributes/attributes.html">Attributes</a></li><li><a href="../conformance/conformance.html">Conformance</a></li><li><a href="../acknowledgements/acknowledgements.html">Acknowledgements</a></li><li><a href="../commonspec/specification/non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../introduction/revision-history.html">Revision history</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
-   <h1 class="title topictitle1" id="ariaid-title1">Data</h1>
-   
-   
-   <div class="body refbody"><p class="shortdesc">Data is a generic
+  <h1 class="title topictitle1" id="ariaid-title1">Data</h1>
+  
+    <div class="body refbody"><p class="shortdesc">Data is a generic
     component that represents metadata within a topic or map. Complex
     metadata is represented by nested data structures.</p>
-      <section class="section"><h2 class="title sectiontitle">Syntax</h2>
-         
-         <dl class="dl">
-            
-               <dt class="dt dlterm">XDITA</dt>
-               <dd class="dd">
-                  <p class="p">
-                     <code class="keyword markupname xmlelement">&lt;data&gt;</code>
-                  </p>
-               </dd>
-            
-            
-               <dt class="dt dlterm">HDITA</dt>
-               <dd class="dd">
-                  <p class="p">
-                     <code class="keyword markupname xmlelement">&lt;meta&gt;</code> inside <code class="keyword markupname xmlelement">&lt;head&gt;</code>
-                  </p>
-               </dd>
-            
-            
-               <dt class="dt dlterm">MDITA (extended profile) </dt>
-               <dd class="dd">
-                  <p class="p">There is no specific syntax for data in MDITA core profile. In MDITA extended
+    <section class="section"><h2 class="title sectiontitle">Syntax</h2>
+      
+      <dl class="dl">
+        
+          <dt class="dt dlterm">XDITA</dt>
+          <dd class="dd"><span></span><p class="p"><span></span><code class="keyword markupname xmlelement">&lt;data&gt;</code></p></dd>
+          
+        
+          <dt class="dt dlterm">HDITA</dt>
+          <dd class="dd"><span></span>
+            <p class="p"><span></span><code class="keyword markupname xmlelement">&lt;meta&gt;</code> inside <code class="keyword markupname xmlelement">&lt;head&gt;</code></p>
+          </dd>
+        
+        
+          <dt class="dt dlterm">MDITA (extended profile) </dt>
+          <dd class="dd"><span></span>
+            <p class="p"><span></span>There is no specific syntax for data in MDITA core profile. <span></span>In MDITA extended
               profile, data is represented by any variables declared in a YAML front matter header.
-              The front matter must be the first block in the file and must be set between triple-
-              dashed lines. </p>
-               </dd>
-            
-         </dl>
-      </section>
+<span></span>              The front matter must be the first block in the file and must be set between triple-
+              dashed lines. <span></span></p></dd>
+        
+      </dl>
+    </section>
       <section class="section"><h2 class="title sectiontitle">Usage information</h2>
-         
-         <div class="div">
-            <p class="p">A metadata property specified using a <code class="keyword markupname xmlelement">&lt;data&gt;</code>component usually
-          applies to the structure that contains the <code class="keyword markupname xmlelement">&lt;data&gt;</code> component. </p>
-            <div class="note caution note_caution non-normative"><span class="note__title">CAUTION:</span> By default, processors do not render the content of the
+      
+      
+      <div class="div">
+        <p class="p"><span></span>A metadata property specified using a <code class="keyword markupname xmlelement">&lt;data&gt;</code>component usually
+          applies to the structure that contains the <code class="keyword markupname xmlelement">&lt;data&gt;</code> component. <span></span></p>
+        <div class="note caution note_caution non-normative"><span class="note__title">CAUTION:</span> By default, processors do not render the content of the
             <code class="keyword markupname xmlelement">&lt;data&gt;</code> component. Use the <code class="keyword markupname xmlelement">&lt;data&gt;</code> component
           only for properties; do not use it to embed text as part of the content flow. </div>
-         </div>
-      </section>
+      </div>
+    </section>
       <section class="section"><h2 class="title sectiontitle">Rendering expectations</h2>
-         
-         <div class="div">
-            <p class="p">By default, processors <dfn class="term RFC-2119">SHOULD</dfn> treat a data component as unknown metadata. The
+      
+      
+      <div class="div">
+        <p class="p"><span></span>By default, processors <dfn class="term RFC-2119">SHOULD</dfn> treat a data component as unknown metadata. <span></span>The
           contents of the data component <dfn class="term RFC-2119">SHOULD NOT</dfn> be rendered.</p>
-            <p class="p">Processors that recognize a particular data component <dfn class="term RFC-2119">MAY</dfn> make use of it to trigger specialized rendering.</p>
-         </div>
-      </section>
+        <p class="p"><span></span>Processors that recognize a particular data component <dfn class="term RFC-2119">MAY</dfn> make use of it to trigger specialized rendering.</p>
+      </div>
+    </section>
+
+
       <section class="section"><h2 class="title sectiontitle">Attributes</h2>
-         
-         <div class="div">
-            <p class="p">The available attributes vary based on the
+      
+      
+      <div class="div">
+        <p class="p"><span></span>The available attributes vary based on the
         authoring format:</p>
-            <dl class="dl">
-               
-                  <dt class="dt dlterm">XDITA</dt>
-                  <dd class="dd">The following attributes are available on this element: <span class="ph">
-                        <a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__data-element-attributes" title="Data-element attributes include name and value.">data-element attributes
-                        </a>
-                     </span>,
-                <span class="ph">
-                        <a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__link-relationship-attributes" title="Link relationship attributes include format, href, and scope.">link relationship attributes
-                        </a>
-                     </span>, <span class="ph">
-                        <a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__localization-attributes" title="Localization attributes include dir, translate, and xml:lang.">localization attributes
-                        </a>
-                     </span>, <span class="ph">
-                        <a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__universal-attributes" title="Universal attributes include class and outputclass..">universal
-                  attributes
-                        </a>
-                     </span>,
-                <a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/lwdita-common-attributes.html#lwdita-common-attributes__keyref">
-                        <code class="keyword markupname xmlatt">@keyref</code>
-                     </a>, and <a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/lwdita-common-attributes.html#lwdita-common-attributes__props">
-                        <code class="keyword markupname xmlatt">@props</code>
-                     </a>.</dd>
-               
-               
-                  <dt class="dt dlterm">HDITA</dt>
-                  <dd class="dd">The following attributes are available on this element: <span class="ph">
-                        <a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__link-relationship-attributes" title="Link relationship attributes include format, href, and scope.">link relationship attributes
-                        </a>
-                     </span>, <span class="ph">
-                        <a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__localization-attributes" title="Localization attributes include dir, translate, and xml:lang.">localization attributes
-                        </a>
-                     </span>, <span class="ph">
-                        <a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__universal-attributes" title="Universal attributes include class and outputclass..">universal
-                  attributes
-                        </a>
-                     </span>,
-                <a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/lwdita-common-attributes.html#lwdita-common-attributes__keyref">
-                        <code class="keyword markupname xmlatt">@keyref</code>
-                     </a>, and <a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/lwdita-common-attributes.html#lwdita-common-attributes__props">
-                        <code class="keyword markupname xmlatt">@props</code>
-                     </a>.</dd>
-               
-               
-                  <dt class="dt dlterm">MDITA</dt>
-                  <dd class="dd">
-                     <span class="ph">For the MDITA core profile, the equivalent
-          of the XDITA <code class="keyword markupname xmlatt">@keyref</code> attribute is supported. For
+        <dl class="dl">
+          
+            <dt class="dt dlterm">XDITA</dt>
+            <dd class="dd"><span></span>The following attributes are available on this element: <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__data-element-attributes" title="Data-element attributes include name and value.">data-element attributes</a></span>,
+                <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__link-relationship-attributes" title="Link relationship attributes include format, href, and scope.">link relationship attributes</a></span>, <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__localization-attributes" title="Localization attributes include dir, translate, and xml:lang.">localization attributes</a></span>, <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__universal-attributes" title="Universal attributes include class and outputclass..">universal
+                  attributes</a></span>,
+                <a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/lwdita-common-attributes.html#lwdita-common-attributes__keyref"><code class="keyword markupname xmlatt">@keyref</code></a>, and <a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/lwdita-common-attributes.html#lwdita-common-attributes__props"><code class="keyword markupname xmlatt">@props</code></a>.</dd>
+          
+          
+            <dt class="dt dlterm">HDITA</dt>
+            <dd class="dd"><span></span>The following attributes are available on this element: <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__link-relationship-attributes" title="Link relationship attributes include format, href, and scope.">link relationship attributes</a></span>, <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__localization-attributes" title="Localization attributes include dir, translate, and xml:lang.">localization attributes</a></span>, <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__universal-attributes" title="Universal attributes include class and outputclass..">universal
+                  attributes</a></span>,
+                <a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/lwdita-common-attributes.html#lwdita-common-attributes__keyref"><code class="keyword markupname xmlatt">@keyref</code></a>, and <a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/lwdita-common-attributes.html#lwdita-common-attributes__props"><code class="keyword markupname xmlatt">@props</code></a>.</dd>
+          
+          
+            <dt class="dt dlterm">MDITA</dt>
+            <dd class="dd"><span></span><span class="ph">For the MDITA core profile, the equivalent
+          of the XDITA <code class="keyword markupname xmlatt">@keyref</code> attribute is supported. <span></span>For
           the MDITA extended profile, attributes can be specified by using
-          the HDITA representation.</span>
-                  </dd>
-               
-            </dl>
-         </div>
-      </section>
-      <div class="example non-normative"><h2 class="title sectiontitle">Examples</h2>
-         
-         <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>XDITA example</figcaption>
-            
-            <p class="p">The following example demonstrates the use of data in an XDITA topic.</p>
-            <pre class="pre codeblock"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+          the HDITA representation.</span></dd>
+          
+        </dl>
+      </div>
+    </section>
+        <div class="example non-normative"><h2 class="title sectiontitle">Examples</h2>
+          
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>XDITA example</figcaption>
+        
+        <p class="p">The following example demonstrates the use of data in an XDITA topic.</p>
+        <pre class="pre codeblock"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;!DOCTYPE topic PUBLIC "-//OASIS//DTD LIGHTWEIGHT DITA Topic//EN" "lw-topic.dtd"&gt;
 &lt;topic id="franchise-intro"&gt;
   &lt;title&gt;An innovative, attractive, and out of the ordinary concept&lt;/title&gt;
@@ -139,11 +105,11 @@ classes: ''
     &lt;data name="author" value="Victoria Fernando"/&gt;
   &lt;/prolog&gt;
 &lt;/topic&gt;</code></pre>
-         </figure>
-         <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>HDITA example</figcaption>
-            
-            <p class="p">The following example demonstrates the use of data in an HDITA topic.</p>
-            <pre class="pre codeblock"><code>&lt;!DOCTYPE html&gt;
+      </figure>
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>HDITA example</figcaption>
+        
+        <p class="p">The following example demonstrates the use of data in an HDITA topic.</p>
+        <pre class="pre codeblock"><code>&lt;!DOCTYPE html&gt;
 &lt;head&gt;
   &lt;title&gt;An innovative, attractive, and out of the ordinary concept&lt;/title&gt;
   &lt;meta name="author" content="Victoria Fernando"&gt;
@@ -154,20 +120,19 @@ classes: ''
     &lt;p&gt;Are you interested in investing with us? Welcome to our franchise information package.&lt;/p&gt;
   &lt;/article&gt;
 &lt;/body&gt;</code></pre>
-         </figure>
-         <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 3. </span>MDITA example</figcaption>
-            
-            <p class="p">The following example demonstrates the use of data in an MDITA extended profile
+      </figure>
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 3. </span>MDITA example</figcaption>
+        
+        <p class="p">The following example demonstrates the use of data in an MDITA extended profile
           topic.</p>
-            <pre class="pre codeblock"><code>---
+        <pre class="pre codeblock"><code>---
 author: Victoria Fernando
 ---
 
 # An innovative, attractive, and out of the ordinary concept
 
 Are you interested in investing with us? Welcome to our franchise information package.</code></pre>
-         </figure>
-      </div>
-   </div>
-   <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../components/containers/metadata-components.html" title="Metadata components include information that is located within the topicmeta element (in maps) or prolog element (in topics), as well as indexing elements that can be placed in additional locations within topic content. (Needs to be updated for LwDITA)">Metadata components</a></div></div></nav>
-</article></main>
+      </figure>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../components/containers/metadata-components.html" title="Metadata components include information that is located within the topicmeta element (in maps) or prolog element (in topics), as well as indexing elements that can be placed in additional locations within topic content. (Needs to be updated for LwDITA)">Metadata components</a></div></div></nav></article></main>
