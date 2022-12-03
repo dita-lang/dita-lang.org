@@ -175,12 +175,15 @@
   </xsl:template>
 
   <xsl:template match="processing-instruction('sentence')">
-    <xsl:if test=". = 'error-statement'">
-<!--      <xsl:variable name="next" select="(following::processing-instruction('sentence'))[1]" as="processing-instruction()?"/>-->
-<!--      <xsl:if test="not($next = 'error-statement')">-->
-        <span class="error-statement" id="error-statement-{generate-id(.)}"/>
-<!--      </xsl:if>-->
-    </xsl:if>
+    <span>
+      <xsl:if test=". = 'error-statement'">
+  <!--      <xsl:variable name="next" select="(following::processing-instruction('sentence'))[1]" as="processing-instruction()?"/>-->
+  <!--      <xsl:if test="not($next = 'error-statement')">-->
+        <xsl:attribute name="class" select="'error-statement'"/>
+        <xsl:attribute name="id" select="string-join(('error-statement', generate-id(.)), '-')"/>
+  <!--      </xsl:if>-->
+      </xsl:if>
+    </span>
   </xsl:template>
 
 </xsl:stylesheet>
