@@ -6,8 +6,6 @@
                 version="2.0"
                 exclude-result-prefixes="xs dita-ot related-links">
 
-<xsl:output indent="yes"></xsl:output>
-
   <xsl:template match="@* | node()">
     <xsl:copy>
       <xsl:apply-templates select="@* | node()"/>
