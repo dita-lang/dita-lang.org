@@ -171,4 +171,8 @@
     </li>
   </xsl:template>
 
+  <xsl:template match="processing-instruction('error-statement')">
+    <span class="error-statement" id="error-statement-{generate-id(.)}"/>
+  </xsl:template>
+
 </xsl:stylesheet>

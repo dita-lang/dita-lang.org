@@ -72,7 +72,7 @@
     <xsl:variable name="next" select="(following::processing-instruction('start'))[1]"/>
     <xsl:variable name="contents" as="node()*" select="following-sibling::node()[. &lt;&lt; $next]"/>
     <xsl:if test="matches(string-join($contents), 'error', 'i')">
-      <ph class="- topic/ph " outputclass="error-statement"/>
+      <xsl:processing-instruction name="error-statement"/>
     </xsl:if>
   </xsl:template>
 
