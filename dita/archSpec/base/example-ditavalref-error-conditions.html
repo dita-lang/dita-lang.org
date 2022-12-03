@@ -16,8 +16,8 @@ repository: 'oasis-tcs/dita'
    <div class="body conbody"><p class="shortdesc">In this scenario, multiple, non-equivalent copies of the same resource name are created
     as a result of branch filtering. In addition, the process results in duplicate key names, making
     it impossible to reliably reference individual result topics.</p>
-      <div class="example" id="example-ditavalref-error-conditions__ditavalref-error-conditions">
-         <p class="p"><span class="error-statement" id="error-statement-d55907p30"></span>The following map fragment contains several error conditions that result in name
+      <div class="example non-normative" id="example-ditavalref-error-conditions__ditavalref-error-conditions">
+         <p class="p">The following map fragment contains several error conditions that result in name
         clashes:</p>
          <pre class="pre codeblock"><code>&lt;topicref href="a.dita" keys="a"&gt;
   &lt;ditavalref href="one.ditaval"/&gt;
@@ -58,7 +58,7 @@ repository: 'oasis-tcs/dita'
   &lt;!-- c-token.ditaval to be filtered by two.ditaval, key "c" ignored --&gt;
 &lt;/topicref&gt;</code></pre>
          </div>
-         <div class="p"><span class="error-statement" id="error-statement-d55907p43"></span>The equivalent map highlights several problems with the original source:<ul class="ul">
+         <div class="p">The equivalent map highlights several problems with the original source:<ul class="ul">
                <li class="li">The key names "a" and "b" are present in a branch that will be duplicated. No key
             scope is introduced for either version of the branch, meaning that the keys will be
             duplicated. Because there can only be one effective key definition for "a" or "b", it
@@ -66,11 +66,11 @@ repository: 'oasis-tcs/dita'
                <li class="li">The key name "c" is present on another branch that will be duplicated, resulting in
             the same problem.</li>
                <li class="li">The file <span class="ph filepath">c.dita</span> is filtered with two sets of conditions, each of
-            which explicitly maps the filtered resource to <span class="ph filepath">c-token.dita</span>. <span class="error-statement" id="error-statement-d55907p61"></span>This
+            which explicitly maps the filtered resource to <span class="ph filepath">c-token.dita</span>. This
             is an error condition that processors need to report.</li>
                <li class="li">In situations where resource names map directly to output file names, such as an HTML5
             rendering that creates files based on the original resource name, the following name
-            conflicts also occur. <span class="error-statement" id="error-statement-d55907p66"></span>In this case a processor would need to report an error, use an
+            conflicts also occur. In this case a processor would need to report an error, use an
             alternate naming scheme, or both:<ol class="ol">
                      <li class="li">
                         <span class="ph filepath">a.dita</span> generates <span class="ph filepath">a.html</span> using three

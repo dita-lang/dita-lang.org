@@ -23,7 +23,7 @@ repository: 'oasis-tcs/dita'
          
       </section>
       <section class="section" id="theconactionattribute__section-1">
-         <div class="note note note_note"><span class="note__title">Note:</span> In the descriptions below, the word <em class="ph i">target</em> always refers to the element referenced by a
+         <div class="note note note_note non-normative"><span class="note__title">Note:</span> In the descriptions below, the word <em class="ph i">target</em> always refers to the element referenced by a
           <code class="keyword markupname xmlatt">@conref</code> attribute.</div>
          <p class="p">There are three possible functions using the <code class="keyword markupname xmlatt">@conaction</code> attribute: replacing an
         element, pushing content before an element, and pushing content after an element. The
@@ -99,7 +99,7 @@ repository: 'oasis-tcs/dita'
         priority over those on the referenced element. The exception is that if the source element
         does not specify an ID, the ID on the referenced element remains; if the source element does
         specify an ID then that replaces the ID on the referenced element.</p>
-         <p class="p"><span class="error-statement" id="error-statement-d30759p218"></span>It is an error for two source topics to replace the same element. Applications <dfn class="term RFC-2119">MAY</dfn> warn users if more than one element
+         <p class="p"><span class="error-statement" id="error-statement-d32254p218"></span>It is an error for two source topics to replace the same element. Applications <dfn class="term RFC-2119">MAY</dfn> warn users if more than one element
         attempts to replace a single target.</p>
       </section>
       <section class="section" id="theconactionattribute__pushing-content"><h2 class="title sectiontitle">Pushing content before or after another element</h2>
@@ -151,7 +151,7 @@ repository: 'oasis-tcs/dita'
         actually rendering that topic on its own, the topic should be referenced from the map with
         the <code class="keyword markupname xmlatt">@processing-role</code> attribute set to "resource-only".</p>
       </section>
-      <div class="example" id="theconactionattribute__example-pushbefore"><h2 class="title sectiontitle">Example: pushing an element before the target</h2>
+      <div class="example non-normative" id="theconactionattribute__example-pushbefore"><h2 class="title sectiontitle">Example: pushing an element before the target</h2>
          
          <div class="p">The following example pushes a <code class="keyword markupname xmlelement">&lt;step&gt;</code> before "b" in the
           <span class="ph filepath">example.dita</span> file shown above. <pre class="pre codeblock"><code>&lt;steps&gt;
@@ -177,7 +177,7 @@ repository: 'oasis-tcs/dita'
 &lt;/task&gt;</code></pre>
          </div>
       </div>
-      <div class="example" id="theconactionattribute__example-pushafter"><h2 class="title sectiontitle">Example: pushing an element after the target</h2>
+      <div class="example non-normative" id="theconactionattribute__example-pushafter"><h2 class="title sectiontitle">Example: pushing an element after the target</h2>
          
          <div class="p">Pushing an element after a target is exactly the same as pushing before, except that the
         order of the "mark" element and the pushed element are reversed.<pre class="pre codeblock"><code>&lt;steps&gt;
@@ -213,7 +213,7 @@ repository: 'oasis-tcs/dita'
         on an element that also uses the <code class="keyword markupname xmlatt">@conaction</code> attribute, the
           <code class="keyword markupname xmlatt">@conkeyref</code> attribute is used to determine the target of the conref push
         (as it would normally be used to determine the target of <code class="keyword markupname xmlatt">@conref</code>).</p>
-         <p class="p"><span class="error-statement" id="error-statement-d30759p426"></span>The conref push function does not provide the ability to push a range of elements, so it is
+         <p class="p"><span class="error-statement" id="error-statement-d32254p426"></span>The conref push function does not provide the ability to push a range of elements, so it is
         an error to specify the <code class="keyword markupname xmlatt">@conrefend</code> attribute together with the
           <code class="keyword markupname xmlatt">@conaction</code> attribute. If the two are specified together an application can
         recover by warning the user, ignoring the <code class="keyword markupname xmlatt">@conrefend</code> attribute, or with some
