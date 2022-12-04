@@ -17,6 +17,23 @@ try {
   console.log(`Failed to add syntax highlighting: ${e}`)
 }
 
+const toggleStyle = document.getElementById('toggleStyle')
+;[...document.styleSheets].forEach(s => {
+  const opt = document.createElement('option')
+  opt.append(s.title !== null ? s.title : 'Default')
+  opt.value = s.title !== null ? s.title : ''
+  opt.selected = !s.disabled
+  toggleStyle.appendChild(opt)
+})
+toggleStyle.addEventListener('change', e => {
+  const value = e.target.value
+  ;[...document.styleSheets].forEach(s => {
+    const title = s.title !== null ? s.title : ''
+    console.log(s.title, title, value)
+    s.disabled = title === value
+  })
+})
+
 try {
   const indexAttr = $('link[rel=index]').attr('href')
   if (indexAttr && window.history) {
