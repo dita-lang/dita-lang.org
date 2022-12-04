@@ -1,6 +1,7 @@
 import TocController from './lib/TocController'
 import SearchController from './lib/SearchController'
 import HelpController from './lib/HelpController'
+import StyleController from './lib/StyleController'
 import $ from 'jquery'
 import URI from 'urijs'
 import Prism from 'prismjs'
@@ -17,22 +18,7 @@ try {
   console.log(`Failed to add syntax highlighting: ${e}`)
 }
 
-const toggleStyle = document.getElementById('toggleStyle')
-;[...document.styleSheets].forEach(s => {
-  const opt = document.createElement('option')
-  opt.append(s.title !== null ? s.title : 'Default')
-  opt.value = s.title !== null ? s.title : ''
-  opt.selected = !s.disabled
-  toggleStyle.appendChild(opt)
-})
-toggleStyle.addEventListener('change', e => {
-  const value = e.target.value
-  ;[...document.styleSheets].forEach(s => {
-    const title = s.title !== null ? s.title : ''
-    console.log(s.title, title, value)
-    s.disabled = title === value
-  })
-})
+StyleController()
 
 try {
   const indexAttr = $('link[rel=index]').attr('href')
