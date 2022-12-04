@@ -3,8 +3,9 @@
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot"
                 xmlns:related-links="http://dita-ot.sourceforge.net/ns/200709/related-links"
+                xmlns:x="x"
                 version="2.0"
-                exclude-result-prefixes="xs dita-ot related-links">
+                exclude-result-prefixes="xs dita-ot related-links x">
 
   <xsl:template match="@* | node()">
     <xsl:copy>
@@ -98,7 +99,7 @@
     <xsl:variable name="next" select="(following::processing-instruction('sentence'))[1]"/>
     <xsl:variable name="contents" as="xs:string">
       <xsl:value-of>
-        <xsl:apply-templates select="following-sibling::node()[. &lt;&lt; $next]" mode="text"/>
+        <xsl:apply-templates select="following-sibling::node()[empty($next) or . &lt;&lt; $next]" mode="text"/>
       </xsl:value-of>
     </xsl:variable>
     <xsl:processing-instruction name="sentence">
@@ -110,10 +111,39 @@
     <xsl:apply-templates select="node()" mode="#current"/>
   </xsl:template>
 
-  <xsl:template match="*[contains(@class, ' sw-d/filepath ')]" mode="text" priority="10"/>
+  <xsl:template match="*[contains(@class, ' sw-d/filepath ') or x:is-block(.)]" mode="text" priority="10"/>
 
   <xsl:template match="text()" mode="text" priority="10">
     <xsl:value-of select="."/>
   </xsl:template>
+
+  <xsl:function name="x:is-block" as="xs:boolean">
+    <xsl:param name="element" as="node()"/>
+    <xsl:variable name="class" select="string($element/@class)"/>
+    <xsl:sequence select="
+      contains($class, ' topic/body ') or
+      contains($class, ' topic/shortdesc ') or
+      contains($class, ' topic/abstract ') or
+      contains($class, ' topic/title ') or
+      contains($class, ' topic/section ') or 
+      contains($class, ' task/info ') or
+      contains($class, ' topic/p ') or
+      contains($class, ' topic/pre ') or
+      contains($class, ' topic/note ') or
+      contains($class, ' topic/fig ') or
+      contains($class, ' topic/dl ') or
+      contains($class, ' topic/sl ') or
+      contains($class, ' topic/ol ') or
+      contains($class, ' topic/ul ') or
+      contains($class, ' topic/li ') or
+      contains($class, ' topic/sli ') or
+      contains($class, ' topic/itemgroup ') or
+      contains($class, ' topic/section ') or
+      contains($class, ' topic/table ') or
+      contains($class, ' topic/entry ') or
+      contains($class, ' topic/simpletable ') or
+      contains($class, ' topic/stentry ') or
+      contains($class, ' topic/example ')"/>
+  </xsl:function>
 
 </xsl:stylesheet>
