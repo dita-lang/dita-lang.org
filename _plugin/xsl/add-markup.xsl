@@ -13,17 +13,14 @@
     </xsl:copy>
   </xsl:template>
 
-  <xsl:template match="*[contains(@class, ' topic/body ')]">
-    <xsl:copy>
-      <xsl:apply-templates select="@*"/>
-      <xsl:variable name="non-normative" as="node()*">
-        <xsl:apply-templates select="node()" mode="non-normative"/>
-      </xsl:variable>
-      <xsl:variable name="with-starts" as="node()*">
-        <xsl:apply-templates select="$non-normative" mode="add-markup"/>
-      </xsl:variable>
-      <xsl:apply-templates select="$with-starts" mode="mark-error"/>
-    </xsl:copy>
+  <xsl:template match="/">
+    <xsl:variable name="non-normative" as="node()*">
+      <xsl:apply-templates select="node()" mode="non-normative"/>
+    </xsl:variable>
+    <xsl:variable name="with-starts" as="node()*">
+      <xsl:apply-templates select="$non-normative" mode="add-markup"/>
+    </xsl:variable>
+    <xsl:apply-templates select="$with-starts" mode="mark-error"/>
   </xsl:template>
 
   <!-- Add non-normative -->
@@ -37,7 +34,7 @@
   <xsl:template match="*[contains(@class, ' topic/note ') or
                          contains(@class, ' topic/example ')] |
                        *[*[contains(@class, ' topic/title ')]
-                          [matches(., 'Example:', 'i')]]" mode="non-normative" priority="100">
+                          [matches(normalize-space(.), '^Examples?:', 'i')]]" mode="non-normative" priority="100">
     <xsl:copy>
       <xsl:apply-templates select="@* except @outputclass" mode="#current"/>
       <xsl:attribute name="outputclass" select="normalize-space(string-join(('non-normative', @outputclass), ' '))"/>
@@ -125,7 +122,7 @@
       contains($class, ' topic/shortdesc ') or
       contains($class, ' topic/abstract ') or
       contains($class, ' topic/title ') or
-      contains($class, ' topic/section ') or 
+      contains($class, ' topic/section ') or
       contains($class, ' task/info ') or
       contains($class, ' topic/p ') or
       contains($class, ' topic/pre ') or

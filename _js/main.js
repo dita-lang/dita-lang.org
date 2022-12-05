@@ -1,6 +1,7 @@
 import TocController from './lib/TocController'
 import SearchController from './lib/SearchController'
 import HelpController from './lib/HelpController'
+import StyleController from './lib/StyleController'
 import $ from 'jquery'
 import URI from 'urijs'
 import Prism from 'prismjs'
@@ -16,6 +17,8 @@ try {
 } catch (e) {
   console.log(`Failed to add syntax highlighting: ${e}`)
 }
+
+StyleController()
 
 try {
   const indexAttr = $('link[rel=index]').attr('href')
