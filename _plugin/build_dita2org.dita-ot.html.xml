@@ -6,16 +6,15 @@
     <property name="args.html5.toc" value="toc"/>
     <property name="nav-toc" value="partial"/>
   </target>
-    
+
   <target name="dita2org.dita-ot.html"
           depends="org.dita-ot.html.init,
                    html5.init,
                    build-init,
                    preprocess,
-                   add-markup,
                    html5.topic,
                    html5.map"/>
-  
+
   <target name="add-markup">
     <pipeline taskname="add-markup">
       <xslt basedir="${dita.temp.dir}"
