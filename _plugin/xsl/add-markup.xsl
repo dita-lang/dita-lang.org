@@ -73,10 +73,11 @@
   </xsl:template>
 
   <xsl:template match="text()" mode="add-markup" priority="10">
+    <xsl:variable name="current" select="." as="text()"/>
     <xsl:analyze-string select="." regex="\.\s">
       <xsl:matching-substring>
         <xsl:value-of select="."/>
-        <xsl:processing-instruction name="sentence" select="generate-id(.)"/>
+        <xsl:processing-instruction name="sentence" select="generate-id($current)"/>
       </xsl:matching-substring>
       <xsl:non-matching-substring>
         <xsl:value-of select="."/>
