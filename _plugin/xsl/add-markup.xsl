@@ -67,7 +67,7 @@
                          contains(@class, ' topic/li ')]" mode="add-markup">
     <xsl:copy>
       <xsl:apply-templates select="@*" mode="#current"/>
-      <xsl:processing-instruction name="sentence"/>
+      <xsl:processing-instruction name="sentence" select="generate-id(.)"/>
       <xsl:apply-templates select="node()" mode="#current"/>
     </xsl:copy>
   </xsl:template>
@@ -76,7 +76,7 @@
     <xsl:analyze-string select="." regex="\.\s">
       <xsl:matching-substring>
         <xsl:value-of select="."/>
-        <xsl:processing-instruction name="sentence"/>
+        <xsl:processing-instruction name="sentence" select="generate-id(.)"/>
       </xsl:matching-substring>
       <xsl:non-matching-substring>
         <xsl:value-of select="."/>
@@ -100,7 +100,8 @@
       </xsl:value-of>
     </xsl:variable>
     <xsl:processing-instruction name="sentence">
-      <xsl:if test="matches($contents, '\s?error[^s]?', 'i')">error-statement</xsl:if>
+      <xsl:value-of select="."/>
+      <xsl:if test="matches($contents, '\s?error[^s]?', 'i')"> error-statement</xsl:if>
     </xsl:processing-instruction>
   </xsl:template>
 

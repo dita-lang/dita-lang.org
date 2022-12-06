@@ -175,12 +175,16 @@
   </xsl:template>
 
   <xsl:template match="processing-instruction('sentence')">
+    <xsl:variable name="values" select="tokenize(., '\s+')" as="xs:string*"/>
     <span>
-      <xsl:if test=". = 'error-statement'">
+      <xsl:if test="$values = 'error-statement'">
   <!--      <xsl:variable name="next" select="(following::processing-instruction('sentence'))[1]" as="processing-instruction()?"/>-->
   <!--      <xsl:if test="not($next = 'error-statement')">-->
         <xsl:attribute name="class" select="'error-statement'"/>
-        <xsl:attribute name="id" select="string-join(('error-statement', generate-id(.)), '-')"/>
+        <xsl:attribute name="id" select="string-join(('error-statement', $values[1]), '-')"/>
+        <xsl:attribute name="data-id">
+          <xsl:number level="any" select="processing-instruction('sentence')[tokenize(., '\s+') = 'error-statement']"/>
+        </xsl:attribute>
   <!--      </xsl:if>-->
       </xsl:if>
     </span>
