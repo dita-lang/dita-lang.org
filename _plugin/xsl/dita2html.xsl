@@ -183,7 +183,7 @@
         <xsl:attribute name="class" select="'error-statement'"/>
         <xsl:attribute name="id" select="string-join(('error-statement', $values[1]), '-')"/>
         <xsl:attribute name="data-id">
-          <xsl:number level="any" select="processing-instruction('sentence')[tokenize(., '\s+') = 'error-statement']"/>
+          <xsl:number level="any" count="processing-instruction('sentence')[tokenize(., '\s+') = 'error-statement']"/>
         </xsl:attribute>
   <!--      </xsl:if>-->
       </xsl:if>
