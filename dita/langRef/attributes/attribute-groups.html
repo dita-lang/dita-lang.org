@@ -782,4 +782,268 @@ classes: ''
                       <code class="keyword markupname xmlelement">&lt;include&gt;</code> element. <span></span>If a fragment identifier is included
                     in the address of the content, processors must select the element with the
                     specified ID. <span></span>If no fragment identifier is included, the root element of the
-                    referenced XML document is selected. <span></span>Any gr
+                    referenced XML document is selected. <span></span>Any grammar processing should be performed
+                    during resolution, such that default attribute values are explicitly populated.
+<span></span>                    Prolog content must be discarded.</p>
+                  <p class="p"><span class="error-statement" id="error-statement-d2752e1973" data-id="1"></span>It is an error to use <code class="ph codeph">parse="xml"</code> anywhere other than within
+                      <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> or a specialization thereof.</p>
+                </dd>
+              
+            </dl><p class="p"><span></span>Processors may support other values for the <code class="keyword markupname xmlatt">@parse</code> attribute
+              with proprietary processing semantics. <span></span>Processors should issue warnings and use
+                <code class="keyword markupname xmlelement">&lt;fallback&gt;</code> when they encounter unsupported
+                <code class="keyword markupname xmlatt">@parse</code> values. <span></span>Non-standard <code class="keyword markupname xmlatt">@parse</code> instructions
+              should be expressed as URIs.</p><div class="note note note_note non-normative"><span class="note__title">Note:</span> Proprietary <code class="keyword markupname xmlatt">@parse</code> values will
+              likely limit the portability and interoperability of DITA content, so should be used
+              with care.</div></dd>
+        
+      </dl>
+    </section>
+    <section class="section" id="attribute-groups__link-relationship-attributes"><h2 class="title sectiontitle">Link relationship attributes</h2>
+      
+      <p class="p" id="attribute-groups__link-relationship-attr"><span></span>This group contains attributes whose
+        values can be used for representing navigational relationships. <span></span></p>
+      <dl class="dl">
+        
+          <dt class="dt dlterm" id="attribute-groups__attr-format"><code class="keyword markupname xmlatt">@format</code>
+            <span class="ph">(link-relationship
+              attributes)</span></dt>
+          <dd class="dd"><span></span>Specifies the format of the resource that is referenced.<span class="ph"> See <a class="xref" href="../../archSpec/base/theformatattribute.html" title="The format attribute identifies the format of the referenced resource.">The format attribute</a> for
+              detailed information on supported values and processing
+              implications.</span></dd>
+        
+        
+          <dt class="dt dlterm" id="attribute-groups__attr-href"><code class="keyword markupname xmlatt">@href</code>
+            <span class="ph">(link-relationship
+              attributes)</span></dt>
+          <dd class="dd"><span></span>Specifies a reference to a resource.<span class="ph"> See
+                <a class="xref" href="../../archSpec/base/thehrefattribute.html" title="The href attribute specifies the URI of the resource that is addressed. The referenced resource can be another DITA topic or map, an element inside a DITA topic or map, or a non-DITA resource.">The href attribute</a> for detailed information
+              on supported values and processing implications.</span></dd>
+        
+        
+          <dt class="dt dlterm" id="attribute-groups__attr-scope"><code class="keyword markupname xmlatt">@scope</code>
+            <span class="ph">(link-relationship
+              attributes)</span></dt>
+          <dd class="dd"><span></span>Specifies the closeness of the relationship between the
+            current document and the referenced resource.<span class="ph"> The following values are valid:
+                <span class="keyword">local</span>, <span class="keyword">peer</span>,
+                <span class="keyword">external</span>, and
+                <span class="keyword">-dita-use-conref-target</span>. <span></span></span><p class="p"><span></span>See
+                <a class="xref" href="../../archSpec/base/thescopeattribute.html" title="The scope attribute identifies the closeness of the relationship between the current document and the target resource.">The scope attribute</a> for detailed information
+              on supported values and processing implications.</p></dd>
+        
+        
+          <dt class="dt dlterm" id="attribute-groups__attr-type"><code class="keyword markupname xmlatt">@type</code>
+            <span class="ph">(link-relationship
+              attributes)</span></dt>
+          <dd class="dd"><span></span>Describes the target of a reference. <span></span>See <a class="xref" href="../../archSpec/base/thetypeattribute.html" title="On linking elements, the type attribute describes the target of a reference. The type attribute is also used on several non-linking elements for other purposes.">The type attribute</a> for detailed
+            information on supported values and processing implications. <span></span></dd>
+        
+      </dl>
+    </section>
+    <section class="section" id="attribute-groups__localization-attributes"><h2 class="title sectiontitle">Localization attributes</h2>
+      
+      
+      <p class="p" id="attribute-groups__localization-attr"><span></span>This group contains the attributes that are
+        related to translation and localization. <span></span></p>
+      <dl class="dl">
+        
+          <dt class="dt dlterm" id="attribute-groups__attr-dir"><code class="keyword markupname xmlatt">@dir</code></dt>
+          <dd class="dd" id="attribute-groups__reusable-dir"><span></span>
+            
+            <p class="p" id="attribute-groups__reusable-dir-p"><span></span>Identifies or overrides the text
+              directionality. <span></span>The following values are valid:</p>
+            <dl class="dl" id="attribute-groups__dirvalues">
+              
+                <dt class="dt dlterm">lro</dt>
+                <dd class="dd"><span></span>Indicates an override of the Unicode Bidirectional
+                  Algorithm, forcing the element into left-to-right
+                  mode.</dd>
+              
+              
+                <dt class="dt dlterm">ltr</dt>
+                <dd class="dd"><span></span>Indicates left-to-right.</dd>
+              
+              
+                <dt class="dt dlterm">rlo</dt>
+                <dd class="dd"><span></span>Indicates an override of the Unicode Bidirectional
+                  Algorithm, forcing the element into right-to-left
+                  mode.</dd>
+              
+              
+                <dt class="dt dlterm">rtl</dt>
+                <dd class="dd"><span></span>Indicates right-to-left.</dd>
+              
+              
+          <dt class="dt dlterm"><span class="keyword">-dita-use-conref-target</span></dt>
+          <dd class="dd"><span></span>See <a class="xref" href="../../common/../archSpec/base/ditauseconreftarget.html" title="The value -dita-use-conref-target is available on enumerated attributes and can also be specified on other attributes. When an element uses conref to pull in content, for any of its attributes assigned a value of -dita-use-conref-target, the resulting value for those attributes is also pulled in from the referenced element.">Using the -dita-use-conref-target value</a>
+            for more information. <span></span></dd>
+        
+            </dl>
+            <p class="p"><span></span>See <a class="xref" href="../../archSpec/base/diratt.html" title="The dir attribute provides instructions to processors about how bidirectional text is rendered.">The dir attribute</a> for more
+              information.</p>
+          </dd>
+        
+        
+          <dt class="dt dlterm" id="attribute-groups__attr-translate"><code class="keyword markupname xmlatt">@translate</code></dt>
+          <dd class="dd"><span></span>Specifies whether the content of the element should be
+            translated. <span></span><span class="ph">The following values are valid:
+                <span class="keyword">yes</span>, <span class="keyword">no</span>, and
+                <span class="keyword">-dita-use-conref-target</span>.</span><p class="p"><span></span>See <a class="xref" href="../../non-normative/elementsMerged.html" title="This topic contains a list of all elements in the base DITA edition. It includes recommendations on how to present the element type to translators, whether the element contents are likely to be suitable for translation, and whether the element has attributes with values that are likely to be suitable for translation. Examples of content that is not suitable for translation include code fragments and mailing addresses.">Element-by-element recommendations for translators</a> for
+              suggested processing defaults for each
+              element.</p></dd>
+        
+        
+          <dt class="dt dlterm" id="attribute-groups__attr-xml-lang"><code class="keyword markupname xmlatt">@xml:lang</code></dt>
+          <dd class="dd" id="attribute-groups__reusable-lang"><span></span>Specifies the language and optional locale
+            of the content that is contained in an element. <span></span>Valid values
+            are language tokens or the null string. <span></span>The
+              <code class="keyword markupname xmlatt">@xml:lang</code> attribute and its values are
+            described in the <a class="xref" href="http://www.w3.org/TR/REC-xml/#sec-lang-tag" target="_blank" rel="external noopener">Extensible
+              Markup Language 1.0 specification, fifth edition</a>.</dd>
+        
+      </dl>
+    </section>
+    <section class="section" id="attribute-groups__metadata-attributes"><h2 class="title sectiontitle">Metadata attributes</h2>
+      
+      <p class="p" id="attribute-groups__metadata-attr"><span></span>This group contains common metadata attributes:
+          <code class="keyword markupname xmlatt">@base</code>, <code class="keyword markupname xmlatt">@importance</code>,
+          <code class="keyword markupname xmlatt">@props</code>, <code class="keyword markupname xmlatt">@rev</code>, and
+          <code class="keyword markupname xmlatt">@status</code>. <span></span>The <code class="keyword markupname xmlatt">@base</code> and
+          <code class="keyword markupname xmlatt">@props</code> attributes can be specialized.</p>
+      <dl class="dl">
+        
+          <dt class="dt dlterm" id="attribute-groups__attr-base"><code class="keyword markupname xmlatt">@base</code></dt>
+          <dd class="dd"><span></span>Specifies metadata about the element. <span></span>It is often used as a
+            base for specialized attributes that have a simple syntax for
+            values, but which are not conditional processing
+              attributes.<p class="p"><span></span>The <code class="keyword markupname xmlatt">@base</code> attribute takes a
+              space-delimited set of values. <span></span><span class="ph">However, when
+          serving as a container for generalized attributes, the attribute
+          values will be more complex. <span></span>See <a class="xref" href="../../common/../archSpec/base/generalization-attributes.html" title="DITA provides a syntax to generalize attributes that have been specialized from the props or base attribute.">Attribute generalization</a> for
+          more details.</span></p></dd>
+        
+        
+          <dt class="dt dlterm" id="attribute-groups__attr-importance"><code class="keyword markupname xmlatt">@importance</code></dt>
+          <dd class="dd"><span></span>Specifies the importance or priority that is assigned to an
+            element. <span></span>The following values are valid:
+              <span class="keyword">default</span>, <span class="keyword">deprecated</span>,
+              <span class="keyword">high</span>, <span class="keyword">low</span>,
+              <span class="keyword">normal</span>, <span class="keyword">obsolete</span>,
+              <span class="keyword">optional</span>, <span class="keyword">recommended</span>,
+              <span class="keyword">required</span>, <span class="keyword">urgent</span>, and
+              <span class="keyword">-dita-use-conref-target</span>. <span></span>This attribute is
+            not used for conditional processing, although applications
+            might use the value of the <code class="keyword markupname xmlatt">@importance</code>
+            attribute to highlight elements. <span></span><span class="ph">For
+              example, in steps of a task topic, the value of the
+                <code class="keyword markupname xmlatt">@importance</code> attribute indicates whether a
+              step is optional or required.</span></dd>
+        
+        
+          <dt class="dt dlterm" id="attribute-groups__attr-props"><code class="keyword markupname xmlatt">@props</code></dt>
+          <dd class="dd" id="attribute-groups__def-props"><span></span>Specifies metadata about the element. <span></span>New
+            attributes can be specialized from the <code class="keyword markupname xmlatt">@props</code>
+            attribute. <span></span><span class="ph">This attribute supports conditional processing.</span>
+            <span class="ph">If no value is specified but the attribute is
+          specified on a containing element within a map or within the
+          related-links section, the value cascades from the closest
+          containing element.</span>
+            <p class="p"><span></span>The <code class="keyword markupname xmlatt">@props</code> attribute takes a space-delimited
+              set of values. <span></span><span class="ph">However, when
+          serving as a container for generalized attributes, the attribute
+          values will be more complex. <span></span>See <a class="xref" href="../../common/../archSpec/base/generalization-attributes.html" title="DITA provides a syntax to generalize attributes that have been specialized from the props or base attribute.">Attribute generalization</a> for
+          more details.</span></p></dd>
+        
+        
+          <dt class="dt dlterm" id="attribute-groups__attr-rev"><code class="keyword markupname xmlatt">@rev</code></dt>
+          <dd class="dd"><span></span>Specifies a revision level of an element that identifies when
+            the element was added or modified. <span></span>It can be used to flag
+            outputs when it matches a run-time parameter. <span></span>It cannot be used
+            for filtering nor is it sufficient to be used for version
+            control. <span></span><span class="ph">If no value is specified but the attribute is
+          specified on a containing element within a map or within the
+          related-links section, the value cascades from the closest
+          containing element.</span>
+          </dd>
+        
+        
+          <dt class="dt dlterm" id="attribute-groups__attr-status"><code class="keyword markupname xmlatt">@status</code></dt>
+          <dd class="dd"><span></span>Specifies the modification status of the element. <span></span>The
+            following values are valid: <span class="keyword">new</span>,
+              <span class="keyword">changed</span>, <span class="keyword">deleted</span>,
+              <span class="keyword">unchanged</span>, and
+              <span class="keyword">-dita-use-conref-target</span>.</dd>
+        
+      </dl>
+    </section>
+    <section class="section" id="attribute-groups__simple-table-attributes"><h2 class="title sectiontitle">Simple table attributes</h2>
+      
+      <p class="p" id="attribute-groups__simpletable-attr"><span></span>This group includes attributes that are
+        defined only on the <code class="keyword markupname xmlelement">&lt;simpletable&gt;</code> element:
+          <code class="keyword markupname xmlatt">@keycol</code> and <code class="keyword markupname xmlatt">@relcolwidth</code>. <span></span>These
+        attributes are listed in a group because the
+          <code class="keyword markupname xmlelement">&lt;simpletable&gt;</code> element is frequently used
+        as a specialization base.</p>
+      <dl class="dl">
+        
+          <dt class="dt dlterm" id="attribute-groups__attr-keycol"><code class="keyword markupname xmlatt">@keycol</code>
+            <span class="ph">(simpletable
+            attributes)</span></dt>
+          <dd class="dd"><span></span><span style="color:red;" class="ph">Specifies the column that contains the
+              content that represents the key to the tabular
+            structure</span>. <span></span>If <code class="keyword markupname xmlatt">@keycol</code> is present and
+            assigned a numerical value, the specified column is treated as
+            a vertical header.</dd>
+        
+        
+          <dt class="dt dlterm" id="attribute-groups__attr-relcolwidth"><code class="keyword markupname xmlatt">@relcolwidth</code>
+            <span class="ph">(simpletable
+            attributes)</span></dt>
+          <dd class="dd"><span></span>Specifies the width of each column in relationship to the
+            width of the other columns. <span></span>The value is a space-separated list
+            of relative column widths. <span></span>Each column width is specified as a
+            positive integer or decimal number followed by an asterisk
+            character. <span></span><p class="p"><span></span>For example, the value
+                <code class="ph codeph">relcolwidth="1* 2* 3*"</code> gives a total of 6
+              units across three columns. <span></span>The relative widths are 1/6, 2/6,
+              and 3/6 (16.7%, 33.3%, and 50%). <span></span>Similarly, the value
+                <code class="ph codeph">relcolwidth="90* 150*"</code> causes relative
+              widths of 90/240 and 150/240 (37.5% and 62.5%).</p></dd>
+        
+      </dl>
+    </section>
+    <section class="section" id="attribute-groups__universal-attributes"><h2 class="title sectiontitle">Universal attributes</h2>
+      
+      <p class="p"><span></span>This group defines a set of attributes that are available on
+        almost all DITA elements. <span></span>It includes all elements in the ID,
+        localization, and metadata attribute groups, as well as the
+        following attributes:</p>
+      <dl class="dl">
+        
+          <dt class="dt dlterm" id="attribute-groups__attr-class"><code class="keyword markupname xmlatt">@class</code>
+            <em class="ph i">(not for use by authors)</em></dt>
+          <dd class="dd" id="attribute-groups__reusable-class"><span></span><em class="ph i">This attribute is not for use by authors. <span></span>If an editor displays
+                <code class="keyword markupname xmlatt">@class</code> attribute values, do not edit them.</em> Specifies a default
+            value that defines the specialization ancestry of the element. <span></span>Its predefined values
+            allow DITA  tools to work correctly with specialized
+            elements. <span></span><span class="ph">In a generalized DITA document the <code class="keyword markupname xmlatt">@class</code>
+              attribute value in the generalized instance might differ from the default value for
+              the <code class="keyword markupname xmlatt">@class</code> attribute for the element as given in the DTD or schema.
+<span></span>              See <a class="xref" href="../../archSpec/base/specialization-class-attribute.html" title="The specialization hierarchy of each DITA element is declared as the value of the class attribute. The class attribute provides a mapping from the current name of the element to its more general equivalents. The class attribute also can provide a mapping from the current name to more specialized equivalents. All specialization-aware processing can be defined in terms of class attribute values.">The class attribute rules and syntax</a> for more
+              information. <span></span>This attribute is specified on every element except for the
+                <code class="keyword markupname xmlelement">&lt;dita&gt;</code> container element.</span> It is always specified with a
+            default value, which varies for each element.</dd>
+        
+        
+          <dt class="dt dlterm" id="attribute-groups__attr-outputclass"><code class="keyword markupname xmlatt">@outputclass</code></dt>
+          <dd class="dd"><span></span>Specifies a role that the element is playing. <span></span>The role must be consistent with the
+            basic semantic and expectations for the element. <span></span>In particular, the
+              <code class="keyword markupname xmlatt">@outputclass</code> attribute can be used for styling during output
+            processing; HTML output will typically preserve <code class="keyword markupname xmlatt">@outputclass</code> for CSS
+              processing.</dd>
+        
+      </dl>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/attributes/attributes.html" title="This section contains definitions for commonly-used attributes. If an attribute is defined differently on a specific element, that information is covered in the topic for the specific element.">Attributes</a></div></div></nav></article></main>

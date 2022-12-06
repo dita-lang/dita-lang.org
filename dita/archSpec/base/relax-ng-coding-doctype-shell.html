@@ -73,4 +73,96 @@ classes: ''
 <span></span>            
               Because<span style="color:red;" class="ph"> an</span> element-configuration
             module imports the module that it <span style="color:red;" class="ph">overrides,</span> any module that is<span class="ph">
-              configured</span> in this se
+              configured</span> in this section (including the base topic or
+            map modules) is left out of the following "Module inclusion"
+            section.</p>
+          <div class="div">
+            <p class="p"><span></span>The following code sample shows the section of an RNG-based
+              document-type shell that redefines the
+                <code class="keyword markupname xmlelement">&lt;taskbody&gt;</code> element to create the
+              strict task topic.</p>
+            <pre style="color:red;" class="pre codeblock"><code>&lt;div&gt;
+&lt;a:documentation&gt;ELEMENT-TYPE CONFIGURATION INTEGRATION&lt;/a:documentation&gt;
+  &lt;include href="strictTaskbodyConstraintMod.rng"/&gt;            
+&lt;/div&gt;</code></pre>
+          </div>
+        </dd>
+      
+      
+        <dt class="dt dlterm" id="concept_rrq_p45_dn__module-inclusion">Module inclusions</dt>
+        <dd class="dd"><span></span>
+          <p class="p"><span></span>This section of the RNG-based document-type shell includes all unconstrained domain or
+            structural modules.</p>
+          <div class="p"><span></span>For example:<pre class="pre codeblock"><code>  &lt;div&gt;
+    &lt;a:documentation&gt;MODULE INCLUSIONS&lt;/a:documentation&gt;
+    &lt;include href="topicMod.rng"&gt;
+      &lt;define name="topic-info-types"&gt;
+        &lt;ref name="topic.element"/&gt;
+      &lt;/define&gt;
+    &lt;/include&gt;
+    &lt;include href="audienceAttDomain.rng" dita:since="2.0"/&gt;
+    &lt;include href="deliveryTargetAttDomain.rng"/&gt;
+    &lt;include href="otherpropsAttDomain.rng" dita:since="2.0"/&gt;
+    &lt;include href="platformAttDomain.rng" dita:since="2.0"/&gt;
+    &lt;include href="productAttDomain.rng" dita:since="2.0"/&gt;
+    &lt;include href="alternativeTitlesDomain.rng" dita:since="2.0"/&gt;
+    &lt;include href="emphasisDomain.rng" dita:since="2.0"/&gt;
+    &lt;include href="hazardstatementDomain.rng"/&gt;
+    &lt;include href="highlightDomain.rng"/&gt;
+    &lt;include href="utilitiesDomain.rng"/&gt;
+  &lt;/div&gt;</code></pre></div>
+        </dd>
+      
+      
+        <dt class="dt dlterm" id="concept_rrq_p45_dn__id-defining-element-overrides">ID-defining element overrides</dt>
+        <dd class="dd"><span></span>
+          <p class="p"><span></span>This section declares any element in the document type that uses an <code class="keyword markupname xmlatt">@id</code>
+            attribute with an XML data type of <span class="keyword">ID</span>. <span class="error-statement" id="error-statement-d3580t192" data-id="1"></span>This declaration is required
+            in order to prevent RELAX NG parsers from issuing errors.</p>
+          <p class="p"><span></span>If the document-type shell includes domains for foreign vocabularies such as SVG or
+            MathML, this section also includes exclusions for the namespaces used by those
+            domains.</p>
+          <div class="div">
+            <div class="p"><span></span>For example, the following code sample is from an RNG-based
+              document-type shell for a task topic. <span></span>It declares that both
+              the <code class="keyword markupname xmlelement">&lt;topic&gt;</code> and
+                <code class="keyword markupname xmlelement">&lt;task&gt;</code> elements have an
+                <code class="keyword markupname xmlatt">@id</code> attribute with <span style="color:red;" class="ph">an</span> XML data type of ID. <span></span>These elements and any
+              elements in the SVG or MathML namespaces are excluded from
+              the "any" pattern by being placed within the
+                <code class="keyword markupname xmlelement">&lt;except&gt;</code>
+              element:<pre class="pre codeblock"><code>  &lt;div&gt;
+      &lt;a:documentation&gt; ID-DEFINING-ELEMENT OVERRIDES &lt;/a:documentation&gt;
+      &lt;define name="any"&gt;
+         &lt;zeroOrMore&gt;
+            &lt;choice&gt;
+               &lt;ref name="idElements"/&gt;
+               &lt;element&gt;
+                  &lt;anyName&gt;
+                     &lt;except&gt;
+                        &lt;name&gt;topic&lt;/name&gt;
+                        &lt;name&gt;task&lt;/name&gt;
+                        &lt;nsName ns="http://www.w3.org/2000/svg"/&gt;
+                        &lt;nsName ns="http://www.w3.org/1998/Math/MathML"/&gt;
+                     &lt;/except&gt;
+                  &lt;/anyName&gt;
+                  &lt;zeroOrMore&gt;
+                     &lt;attribute&gt;
+                        &lt;anyName/&gt;
+                     &lt;/attribute&gt;
+                  &lt;/zeroOrMore&gt;
+                  &lt;ref name="any"/&gt;
+               &lt;/element&gt;
+               &lt;text/&gt;
+            &lt;/choice&gt;
+         &lt;/zeroOrMore&gt;
+      &lt;/define&gt;
+  &lt;/div&gt;
+</code></pre></div>
+          </div>
+        </dd>
+      
+      
+    </dl>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/relax-ng-requirements.html" title="This section explains how to implement RNG-based document-type shells, specializations, and element-configuration modules (constraints and expansions).">RELAX NG coding requirements</a></div></div></nav></article></main>

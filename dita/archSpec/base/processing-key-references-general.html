@@ -44,4 +44,34 @@ content references, including the special processing for the <code class="keywor
                 their filtering attributes.</p>
             <div class="note note note_note non-normative"><span class="note__title">Note:</span> In order to retain backwards compatibility with DITA 1.0 and 1.1, the
                 specification does not mandate a processing order for different DITA features. This
-                make
+                makes it technically possible to determine an effective key definition, resolve
+                references to that key definition, and then filter out the definition. However, the
+                preferred approach is to take conditional processing into account when resolving
+                keys, so that key definitions which are excluded by processing are not used in
+                resolving key references.</div>
+        </section>
+        <section class="section" id="processing-key-references__reusing-topic-across-scopes"><h2 class="title sectiontitle">Reusing a topic in multiple key scopes</h2>
+            
+            <p class="p"><span></span>If a topic that contains key references is reused in multiple key scopes within a
+                given root map such that its references resolve differently in each use context,
+                processors <dfn class="term RFC-2119">MUST</dfn> produce multiple copies of the
+                source topic in resolved output for each distinct set of effective key definitions
+                that are referenced by the topic. <span></span></p>
+            <p class="p"><span></span>In such cases, authors can use <code class="keyword markupname xmlelement">&lt;resourceid&gt;</code> within topic
+                references to specify distinct anchor components for each instance of the topic.</p>
+            <p class="p"><span></span> with the <code class="keyword markupname xmlatt">@appid-role</code> attribute set to
+                    <span class="keyword">deliverable-anchor</span> to specify different source URIs for each
+                reference to a topic.</p>
+        </section>
+        <section class="section" id="processing-key-references__error-conditions"><h2 class="title sectiontitle">Error conditions</h2>
+            
+            <p class="p"><span></span>If a referencing element contains a key reference with an undefined key, it is
+                processed as if there were no key reference, and the value of the
+                    <code class="keyword markupname xmlatt">@href</code> attribute is used as the reference. <span></span>If the
+                    <code class="keyword markupname xmlatt">@href</code> attribute is not specified, the element is not treated as
+                a navigation link. <span class="error-statement" id="error-statement-d3097t129" data-id="1"></span>If it is an error for the element to be empty, an implementation
+                    <dfn class="term RFC-2119">MAY</dfn> give an error message; it also <dfn class="term RFC-2119">MAY</dfn> recover from this error condition by leaving
+                the key reference element empty.</p>
+        </section>
+    </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/key-based-addressing.html" title="DITA keys provide an alternative to direct addressing. The key reference mechanism provides a layer of indirection so that resources (for example, URIs, metadata, or variable text strings) can be defined at the DITA map level instead of locally in each topic.">Indirect key-based addressing</a></div></div></nav></article></main>

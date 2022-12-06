@@ -14,4 +14,69 @@ classes: ''
     <h1 class="title topictitle1" id="ariaid-title1">Index redirection</h1>
     
     
-    <div class="body conbody"><p class="shortdesc"><span></span>The <code class="keyword markupname xmlelement">&lt;in
+    <div class="body conbody"><p class="shortdesc"><span></span>The <code class="keyword markupname xmlelement">&lt;index-see&gt;</code> and <code class="keyword markupname xmlelement">&lt;index-see-also&gt;</code>
+        elements enable redirection to other index entries within the generated index.</p>
+        <p class="p"><span></span> The <code class="keyword markupname xmlelement">&lt;index-see&gt;</code> element contains text for an index entry that the
+            reader should use <em class="ph i">instead of</em> the current one, whereas the
+                <code class="keyword markupname xmlelement">&lt;index-see-also&gt;</code> element contains text for an index entry
+            that the reader should use <em class="ph i">in addition to</em> the current one.</p>
+        <p class="p"><span></span>Generated index entries should not contain both locators and redirections. <span class="error-statement" id="error-statement-d2509t46" data-id="1"></span>Therefore, it
+            is an error if the following conditions occur:</p>
+        <dl class="dl">
+            
+                <dt class="dt dlterm">An <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> contains
+                        <code class="keyword markupname xmlelement">&lt;index-see&gt;</code>, and the publication contains other
+                        <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> with matching content</dt>
+                <dd class="dd"><span></span>
+                    <p class="p"><span></span>An <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element contains an
+                            <code class="keyword markupname xmlelement">&lt;index-see&gt;</code> element, and the publication contains
+                        one or more <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements with matching
+                        textual content.</p>
+                    <p class="p"><span></span>For example, topics referenced by the master map include the following
+                        markup:</p>
+                    <pre class="pre codeblock"><code>&lt;!-- Topic A --&gt;
+&lt;indexterm&gt;memory stick
+  &lt;index-see&gt;USB drive&lt;/index-see&gt;
+&lt;/indexterm&gt;
+
+&lt;!-- Topic B --&gt;
+&lt;indexterm&gt;memory stick&lt;/indexterm&gt;</code></pre>
+                </dd>
+            
+            
+                <dt class="dt dlterm">An <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> contains
+                        <code class="keyword markupname xmlelement">&lt;index-see&gt;</code> and
+                        <code class="keyword markupname xmlelement">&lt;index-see-also&gt;</code></dt>
+                <dd class="dd"><span></span>
+                    <p class="p"><span></span>An <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element contains both an
+                            <code class="keyword markupname xmlelement">&lt;index-see&gt;</code> element and an
+                            <code class="keyword markupname xmlelement">&lt;index-see-also&gt;</code> element.</p>
+                    <p class="p"><span></span>For example, a topic contains the following
+                            <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element:</p>
+                    <pre class="pre codeblock"><code>&lt;indexterm&gt;
+  memory stick
+    &lt;index-see&gt;USB drive&lt;/index-see&gt;
+    &lt;index-see-also&gt;flash stick&lt;/index-see-also&gt;
+&lt;/indexterm&gt;</code></pre>
+                </dd>
+            
+        </dl>
+        <div class="p"><span class="error-statement" id="error-statement-d2509e125" data-id="2"></span>A processor <dfn class="term RFC-2119">MAY</dfn> give an error message when it
+            encounters the following error conditions:<ul class="ul">
+                <li class="li"><span></span>An <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element contains an
+                        <code class="keyword markupname xmlelement">&lt;index-see&gt;</code> element, and the publication contains one
+                    or more <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements with matching textual
+                    content.</li>
+                <li class="li"><span></span>Both <code class="keyword markupname xmlelement">&lt;index-see&gt;</code> and
+                        <code class="keyword markupname xmlelement">&lt;index-see-also&gt;</code> elements within the same
+                        <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element.</li>
+            </ul> Processors <dfn class="term RFC-2119">MAY</dfn> recover from these error
+            conditions by treating the <code class="keyword markupname xmlelement">&lt;index-see&gt;</code> element as an
+                <code class="keyword markupname xmlelement">&lt;index-see-also&gt;</code> element.</div>
+        
+        
+        
+        
+        
+    </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/indexes.html" title="Processors can generate an index from the content of indexing elements.">Indexes</a></div></div></nav></article></main>

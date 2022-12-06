@@ -135,4 +135,74 @@ classes: ''
           &lt;/choice&gt;
         &lt;/zeroOrMore&gt;
       &lt;/define&gt;
-      <strong c
+      <strong class="ph b">&lt;define name="topichead.attributes"&gt;
+</strong>        &lt;optional&gt;
+          &lt;attribute name="keys"/&gt;
+        &lt;/optional&gt;
+        &lt;ref name="topicref-atts"/&gt;
+        &lt;ref name="univ-atts"/&gt;
+      &lt;/define&gt;
+      <strong class="ph b">&lt;define name="topichead.element"&gt;</strong>
+        &lt;element name="topichead"&gt;
+          &lt;a:documentation/&gt;
+          &lt;ref name="topichead.attlist"/&gt;
+          &lt;ref name="topichead.content"/&gt;
+        &lt;/element&gt;
+      &lt;/define&gt;
+      <strong class="ph b">&lt;define name="topichead.attlist" combine="interleave"&gt;
+</strong>        &lt;ref name="topichead.attributes"/&gt;
+      &lt;/define&gt;
+
+    &lt;/div&gt;</code></pre>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm">idElements pattern contribution</dt>
+          <dd class="dd"><span></span>
+            <p class="p"><span></span>Element types that declare the <code class="keyword markupname xmlatt">@id</code> attribute as type "ID", including
+              all topic and map element types, provide a declaration for the
+                <code class="ph codeph">idElements</code> pattern. <span class="error-statement" id="error-statement-d2284t269" data-id="1"></span>This is required to correctly configure the
+                <span class="keyword">any</span> pattern override in document-type shells and avoid errors
+              from RELAX NG parsers. <span></span>The declaration is specified with a <code class="keyword markupname xmlatt">@combine</code>
+              attribute set to the value <span class="keyword">choice</span>.</p>
+            <div class="div">
+              <p class="p"><span></span> For example:</p>
+              <pre class="pre codeblock"><code>&lt;div&gt;
+  &lt;a:documentation&gt;LONG NAME: Map&lt;/a:documentation&gt;
+  &lt;!-- ... <span></span>--&gt;
+  &lt;define name="idElements" combine="choice"&gt;
+    &lt;ref name="map.element"/&gt;
+  &lt;/define&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm">Specialization attribute declarations</dt>
+          <dd class="dd"><span></span>
+            <p class="p"><span></span>A vocabulary module must define a <code class="keyword markupname xmlatt">@class</code> attribute for every
+              specialized element. <span></span>This is done in a section at the end of each module that includes
+              a <code class="ph codeph"><var class="keyword varname">tagname</var>.attlist</code> pattern for each element type
+              that is defined in the module. <span></span>The declarations can occur in any order.</p>
+            <p class="p"><span></span>The <code class="ph codeph"><var class="keyword varname">tagname</var>.attlist</code>
+              pattern for each element defines the value for the
+                <code class="keyword markupname xmlatt">@class</code> attribute for the element.
+<span></span>                <code class="keyword markupname xmlatt">@class</code> is declared as an optional
+              attribute. <span></span>The default value is declared using the
+                <code class="keyword markupname xmlatt">@a:defaultValue</code> attribute, and the value of
+              the attribute is constructed according to the rules in <a class="xref" href="specialization-class-attribute.html" title="The specialization hierarchy of each DITA element is declared as the value of the class attribute. The class attribute provides a mapping from the current name of the element to its more general equivalents. The class attribute also can provide a mapping from the current name to more specialized equivalents. All specialization-aware processing can be defined in terms of class attribute values.">The class attribute rules and syntax</a>.</p>
+            <div class="p"><span></span>For
+              example:<pre class="pre codeblock"><code>&lt;define name="topichead.attlist" combine="interleave"&gt;
+  &lt;optional&gt;
+    &lt;attribute name="class" 
+        a:defaultValue="+ map/topicref mapgroup-d/topichead "
+    /&gt;
+  &lt;/optional&gt;
+&lt;/define&gt;</code></pre></div>
+          </dd>
+        
+      </dl>
+    </section>
+ </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/relax-ng-requirements.html" title="This section explains how to implement RNG-based document-type shells, specializations, and element-configuration modules (constraints and expansions).">RELAX NG coding requirements</a></div></div></nav></article></main>

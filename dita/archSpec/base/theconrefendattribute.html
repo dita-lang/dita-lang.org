@@ -200,4 +200,80 @@ classes: ''
           The <code class="keyword markupname xmlatt">@conrefend</code> attribute defines a default high-level object along with
           the sub-topic id (last) that ends the
           range:<pre class="pre codeblock"><code>  &lt;li conkeyref="xmp/first" 
-      conrefend="default.dita#defa
+      conrefend="default.dita#default/last"/&gt;</code></pre></div>
+        <p class="p">The <code class="keyword markupname xmlatt">@conkeyref</code> attribute uses a key to reference the first topic in
+            <span class="ph filepath">examples.dita</span>, so the range begins with the object
+            <code class="ph codeph">examples.dita#examples/first</code>. The high-level object in the
+            <code class="keyword markupname xmlatt">@conrefend</code> attribute (<code class="ph codeph">default.dita#default</code>) is replaced
+          with the object represented by the key (the first topic in
+            <span class="ph filepath">examples.dita</span>), resulting in a range that ends with the object
+            <code class="ph codeph">examples.dita#examples/last</code>.</p>
+      </figure>
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 8. </span>Combining <code class="keyword markupname xmlatt">@conref</code>, <code class="keyword markupname xmlatt">@conkeyref</code>, and
+            <code class="keyword markupname xmlatt">@conrefend</code></figcaption>
+        
+        <p class="p">When <code class="keyword markupname xmlatt">@conref</code>, <code class="keyword markupname xmlatt">@conkeyref</code>, and <code class="keyword markupname xmlatt">@conrefend</code>
+          are all specified, the key value takes priority.</p>
+        <pre class="pre codeblock"><code>  &lt;li conkeyref="thisconfig/start"
+      conref="standardconfig.dita#config/start"
+      conrefend="standardconfig.dita#config/end"/&gt;</code></pre>
+        <ul class="ul">
+          <li class="li">If the key <span class="keyword">thisconfig</span> is defined as
+              <code class="ph codeph">mySpecialConfig.dita#myconfig</code>, then the range will go from the list
+            item with <code class="ph codeph">id="start"</code> to the list item with<code class="ph codeph">id="end"</code> in
+            the topic <code class="ph codeph">mySpecialConfig.dita#myconfig</code>.</li>
+          <li class="li">If the key <span class="keyword">thisconfig</span> is defined as <code class="ph codeph">myConfig.dita</code>,
+            then the range will go from the list item with <code class="ph codeph">id="start"</code> to the list
+            item with <code class="ph codeph">id="end"</code> within the first topic in
+              <code class="ph codeph">myConfig.dita</code>.</li>
+          <li class="li">If the key <span class="keyword">thisconfig</span> is not defined, then the unchanged
+              <code class="keyword markupname xmlatt">@conref</code> and <code class="keyword markupname xmlatt">@conrefend</code> attributes are used as
+            fallback. In that case, the range will go from the list item with
+              <code class="ph codeph">id="start"</code> to the list item with <code class="ph codeph">id="end"</code> within the
+            topic <code class="ph codeph">standardconfig.dita#config</code>.</li>
+        </ul>
+      </figure>
+    </div>
+    <section class="section" id="theconrefendattribute__error-conditions"><h2 class="title sectiontitle">Error conditions</h2>
+      
+      <p class="p"><span class="error-statement" id="error-statement-d2356e477" data-id="1"></span>When encountering an error condition, an implementation can issue an error message.</p>
+      <table class="table"><caption></caption><colgroup><col style="width:50%"><col style="width:50%"></colgroup><thead class="thead">
+            <tr class="row">
+              <th class="entry" id="theconrefendattribute__error-conditions__entry__1">Condition or Issue</th>
+              <th class="entry" id="theconrefendattribute__error-conditions__entry__2">Result</th>
+            </tr>
+          </thead><tbody class="tbody">
+            <tr class="row">
+              <td class="entry" headers="theconrefendattribute__error-conditions__entry__1">The <code class="keyword markupname xmlatt">@conref</code> attribute cannot be resolved in the
+                target document (the target element <span class="ph">might</span> have been removed or its id has
+                changed). <span></span></td>
+              <td class="entry" headers="theconrefendattribute__error-conditions__entry__2">The <code class="keyword markupname xmlatt">@conref</code> is ignored.</td>
+            </tr>
+            <tr class="row">
+              <td class="entry" headers="theconrefendattribute__error-conditions__entry__1">The <code class="keyword markupname xmlatt">@conrefend</code> attribute cannot be resolved in
+                the target document (the target element <span class="ph">might</span> have been removed or its id
+                has changed).</td>
+              <td class="entry" headers="theconrefendattribute__error-conditions__entry__2">Range cannot be resolved, optional recovery processes the result
+                as a simple conref.</td>
+            </tr>
+            <tr class="row">
+              <td class="entry" headers="theconrefendattribute__error-conditions__entry__1">Start and end elements are not siblings in the target
+                document.</td>
+              <td class="entry" headers="theconrefendattribute__error-conditions__entry__2">If the start element exists, optional recovery processes the
+                result as a simple conref. <span></span></td>
+            </tr>
+            <tr class="row">
+              <td class="entry" headers="theconrefendattribute__error-conditions__entry__1">End element occurs before the start element in the target
+                document.</td>
+              <td class="entry" headers="theconrefendattribute__error-conditions__entry__2">If the start element exists, optional recovery processes the
+                result as a simple conref.</td>
+            </tr>
+            <tr class="row">
+              <td class="entry" headers="theconrefendattribute__error-conditions__entry__1">An element has a <code class="keyword markupname xmlatt">@conrefend</code> attribute but is
+                missing the <code class="keyword markupname xmlatt">@conref</code> attribute.</td>
+              <td class="entry" headers="theconrefendattribute__error-conditions__entry__2">No result.</td>
+            </tr>
+          </tbody></table>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/conref.html" title="The DITA conref attributes provide mechanisms for reusing content. DITA content references support reuse scenarios that are difficult or impossible to implement using other XML-based inclusion mechanisms like XInclude and entities. Additionally, DITA content references have rules that help ensure that the results of content inclusion remain valid after resolution">Content reference (conref)</a></div></div></nav></article></main>

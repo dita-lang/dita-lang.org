@@ -71,4 +71,179 @@ classes: ''
             <li class="li"><span></span>overline</li>
             <li class="li"><span></span>underline</li>
           </ul></div>
-                <p class="p" id="ditaval-prop__other-tokens-style"><span></span>In addition, processors 
+                <p class="p" id="ditaval-prop__other-tokens-style"><span></span>In addition, processors <dfn class="term RFC-2119">MAY</dfn> support proprietary tokens
+          for the <code class="keyword markupname xmlatt">@style</code> attribute. <span></span>Such tokens <dfn class="term RFC-2119">SHOULD</dfn> have a processor-specific
+          prefix to identify them as proprietary. <span></span>If a processor encounters
+          an unsupported style token, it <dfn class="term RFC-2119">MAY</dfn> issue a warning, and it <dfn class="term RFC-2119">MAY</dfn> render content that is
+          flagged with such a style token by using some default
+          formatting.</p>
+            </div>
+    </section>
+    <section class="section" id="ditaval-prop__processing-expectations"><h2 class="title sectiontitle">Processing expectations</h2>
+      
+      <div class="p"><span class="error-statement" id="error-statement-d2986e258" data-id="1"></span>The following markup in a DITAVAL document is an error condition:<ul class="ul">
+          <li class="li"><span></span>More than one <code class="keyword markupname xmlelement">&lt;prop&gt;</code> element with no
+              <code class="keyword markupname xmlatt">@att</code> attribute</li>
+          <li class="li"><span></span>More than one <code class="keyword markupname xmlelement">&lt;prop&gt;</code> element with the
+            same <code class="keyword markupname xmlatt">@att</code> attribute and no value </li>
+          <li class="li"><span></span>More than one <code class="keyword markupname xmlelement">&lt;prop&gt;</code> element with the
+            same <code class="keyword markupname xmlatt">@att</code> attribute and same
+              <code class="keyword markupname xmlatt">@value</code></li>
+        </ul>Processors <dfn class="term RFC-2119">MAY</dfn> provide an
+        error or warning message for these error conditions.</div>
+      <div class="div">
+        <p class="p"><span></span>The following list outlines how processors apply
+            <code class="keyword markupname xmlatt">@outputclass</code> flags:</p>
+        <ul class="ul">
+          <li class="li"><span></span>If one or more DITAVAL properties apply
+              <code class="keyword markupname xmlatt">@outputclass</code> flags to the same element, and
+            the element already specifies one or more values for the
+              <code class="keyword markupname xmlatt">@outputclass</code> attribute, processors treat the
+            element as if <span style="color:red;" class="ph">the tokens for the
+                <code class="keyword markupname xmlatt">@outputclass</code> attribute that were provided
+              in the DITAVAL document</span> are specified first.</li>
+          <li class="li"><span></span>If two or more DITAVAL properties apply
+              <code class="keyword markupname xmlatt">@outputclass</code> flags to the same element,
+            processors treat the element as if each value was specified for
+            the <code class="keyword markupname xmlatt">@outputclass</code> attribute. <span></span>The order of the
+              <span style="color:red;" class="ph"> tokens for the
+                <code class="keyword markupname xmlatt">@outputclass</code> attribute that were provided
+              in the DITAVAL document</span> is undefined.</li>
+        </ul>
+      </div>
+    </section>
+    <section class="section" id="ditaval-prop__attributes"><h2 class="title sectiontitle">Attributes</h2>
+      
+      <p class="p"><span></span>The following attributes are available on this element:</p>
+      <dl class="dl">
+        
+          <dt class="dt dlterm" id="ditaval-prop__attr-action"><code class="keyword markupname xmlatt">@action</code>
+            <span class="ph">(REQUIRED)</span></dt>
+          <dd class="dd"><span></span>
+            <p class="p"><span></span>Specifies the action to be taken. <span></span>The following values are
+              supported:</p>
+            <dl class="dl">
+              
+                <dt class="dt dlterm">exclude</dt>
+                <dd class="dd"><span></span>Indicates that the content is excluded from the output,
+                  if all values for the specified attribute are
+                  excluded.</dd>
+              
+              
+                <dt class="dt dlterm">flag</dt>
+                <dd class="dd"><span></span>Indicates that the content is included in the output
+                  and flagged, if the content has not been excluded.</dd>
+              
+              
+                <dt class="dt dlterm">include</dt>
+                <dd class="dd"><span></span>Indicates that the content is included in the output.
+<span></span>                  This is the default behavior, unless otherwise set.</dd>
+              
+              
+                <dt class="dt dlterm">passthrough</dt>
+                <dd class="dd"><span></span>Indicates that the content is included in the output
+                  and that the attribute value is preserved. <span></span>This enables
+                  further processing by a runtime engine.</dd>
+              
+            </dl>
+          </dd>
+        
+        
+          <dt class="dt dlterm" id="ditaval-prop__attr-att"><code class="keyword markupname xmlatt">@att</code></dt>
+          <dd class="dd"><span></span>Specifies the conditional-processing attribute that is targeted. <span></span>The value is the
+            literal attribute name or the name of a group within one of those attributes, with the
+            group name specified using the generalized attribute syntax. <span></span>If the <code class="keyword markupname xmlatt">@att</code>
+            attribute is absent, then the <code class="keyword markupname xmlelement">&lt;prop&gt;</code> element declares a default
+            behavior for anything not explicitly specified in the DITAVAL document.</dd>
+        
+        
+          <dt class="dt dlterm" id="ditaval-prop__attr-val"><code class="keyword markupname xmlatt">@val</code></dt>
+          <dd class="dd"><span></span>Specifies the attribute value <span style="color:red;" class="ph">that is targeted</span>. <span></span>If the
+              <code class="keyword markupname xmlatt">@val</code> attribute is absent, then the <code class="keyword markupname xmlelement">&lt;prop&gt;</code>
+            element declares a default behavior for any value in the specified attribute.</dd>
+        
+      </dl>
+      <p style="color:red;" class="p"><span></span>The following
+        attributes are only applicable when the <code class="keyword markupname xmlatt">@action</code>
+        attribute is set to <span class="keyword">flag</span>. <span></span>If the
+          <code class="keyword markupname xmlatt">@action</code> attribute is not set to
+          <span class="keyword">flag</span>, any value specified for these attributes
+        are ignored.</p>
+      <dl class="dl">
+        
+          <dt class="dt dlterm" id="ditaval-prop__attr-backcolor"><code class="keyword markupname xmlatt">@backcolor</code></dt>
+          <dd class="dd"><span></span>Specifies the background color for flagged text. <span></span>Colors can
+            be entered by name or <span style="color:red;" class="ph">hex</span> code. <span></span>When
+            images are flagged, the background color is rendered as a thick
+            border.</dd>
+        
+        
+          <dt class="dt dlterm" id="ditaval-prop__attr-color"><code class="keyword markupname xmlatt">@color</code></dt>
+          <dd class="dd"><span></span>Specifies the color for flagged text. <span></span>Colors can be entered
+            by name or <span style="color:red;" class="ph">hex</span> code. <span></span>When images are
+            flagged, the color is rendered as a thin border.</dd>
+        
+        
+          <dt class="dt dlterm" id="ditaval-prop__attr-outputclass"><code class="keyword markupname xmlatt">@outputclass</code></dt>
+          <dd class="dd"><span></span>Specifies a value for the <code class="keyword markupname xmlatt">@outputclass</code>
+            attribute. <span></span>The flagged element is treated as if the specified
+              <code class="keyword markupname xmlatt">@outputclass</code> value was specified on that
+            element.</dd>
+        
+        
+          <dt class="dt dlterm" id="ditaval-prop__attr-style"><code class="keyword markupname xmlatt">@style</code></dt>
+          <dd class="dd"><span></span>Specifies the formatting to use for flagged text. <span></span>This
+            attribute can contain multiple space-delimited tokens.</dd>
+        
+      </dl>
+    </section>
+<div class="example non-normative" id="ditaval-prop__example"><h2 class="title sectiontitle">Example</h2>
+      
+      
+      <p class="p">The following code sample shows a DITAVAL document that contains
+        three <code class="keyword markupname xmlelement">&lt;prop&gt;</code> elements:</p>
+      <pre class="pre codeblock"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;val&gt;
+  &lt;prop action="exclude"/&gt;
+  &lt;prop action="passthrough" att="otherprops"/&gt;
+  &lt;prop action="include" att="product" val="base-product"/&gt;
+&lt;/val&gt;</code></pre>
+      <p class="p">The following list outlines the actions that the DITAVAL document
+        specifies:</p>
+      <ol class="ol">
+        <li class="li">Sets a default action of <span class="keyword">exclude</span>. With the
+          exception of the other conditions <span style="color:red;" class="ph">that
+            are</span> specified in the <span style="color:red;" class="ph">above</span> DITAVAL
+          document, the content of any element that specifies a
+          conditional-processing attribute is excluded from the rendered
+          output.</li>
+        <li class="li">Sets a default action of <span class="keyword">passthrough</span> for the
+            <code class="keyword markupname xmlatt">@otherprops</code> attribute. The content of any
+          element that specifies the <code class="keyword markupname xmlatt">@otherprops</code> attribute
+          is included in the output. In addition, the value for the
+            <code class="keyword markupname xmlatt">@otherprops</code> attribute is preserved in the
+          rendered output, if supported by the output format.</li>
+        <li class="li">Sets an action of <span class="keyword">include</span> for any element
+          that specifies a value of <span class="keyword">base-product</span> for the
+            <code class="keyword markupname xmlatt">@product</code> attribute. The content of any element
+          that specifies a value of <span class="keyword">base-product</span> for the
+            <code class="keyword markupname xmlatt">@product</code> attribute is included in the rendered
+          output.</li>
+      </ol>
+      <div style="color:red;" class="div">
+        <p class="p">When a DITA map is processed using the above DITAVAL document,
+          the following DITA elements are excluded:</p>
+        <ol class="ol">
+          <li class="li">Any element for which the <code class="keyword markupname xmlatt">@audience</code>,
+              <code class="keyword markupname xmlatt">@deliveryTarget</code>, <code class="keyword markupname xmlatt">@platform</code>,
+            and <code class="keyword markupname xmlatt">@props</code> attributes (or specializations of
+              <code class="keyword markupname xmlatt">@props</code>) specify a non-null value.</li>
+          <li class="li">Any element for which the <code class="keyword markupname xmlatt">@product</code> attribute
+            specifies a value that is not equal to
+              <span class="keyword">base-product</span>.</li>
+        </ol>
+        <p class="p">All other content is included.</p>
+      </div>
+    </div>
+</div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/ditaval-elements.html" title="A DITAVAL document identifies content that is filtered and flagged at rendering time. The DITAVAL document has an extension of .ditaval.">DITAVAL elements</a></div></div></nav></article></main>
