@@ -23,7 +23,7 @@
                        href="{ current-grouping-key() }#{ /*/@id }/{ tokenize(., '\s+')[1] }">
                   <stentry class="- topic/stentry ">
                     <xsl:variable name="next" select="(following-sibling::processing-instruction('sentence'))[1]"/>
-                    <xsl:copy-of select="following-sibling::node()[. &lt;&lt; $next]"/>
+                    <xsl:copy-of select="following-sibling::node()[empty($next) or . &lt;&lt; $next]"/>
                   </stentry>
                 </strow>
               </xsl:for-each>
