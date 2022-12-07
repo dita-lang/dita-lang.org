@@ -8,9 +8,11 @@
 
 @import 'default';
 
-.error-statement::before {
-  content: '[err] ';
+.error-statement {
   font-variant-caps: all-small-caps;
+  &::before {
+    content: '[err ' attr(data-id) '] ';
+  }
 }
 .non-normative {
   opacity: 0.2;

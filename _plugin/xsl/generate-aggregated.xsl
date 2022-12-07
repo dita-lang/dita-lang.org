@@ -32,7 +32,7 @@
           <xsl:for-each select="$rows">
             <strow class="- topic/strow ">
               <stentry class="- topic/stentry ">
-                <xref class="- topic/xref " href="{@href}">
+                <xref class="- topic/xref " href="{@href}" outputclass="error-statement">
                   <xsl:text>DITA</xsl:text>
                   <xsl:number format="0001" value="position()"/>
                 </xref>
