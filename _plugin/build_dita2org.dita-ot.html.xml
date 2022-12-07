@@ -23,6 +23,35 @@
         <ditafileset format="dita" processingRole="normal"/>
       </xslt>
     </pipeline>
+
+    <pipeline taskname="add-markup">
+      <xslt basedir="${dita.temp.dir}"
+            style="${dita.plugin.org.dita-ot.html.dir}/xsl/generate-aggregated.xsl"
+            extension=".aggregated.xml">
+        <ditafileset format="ditamap" input="true" />
+      </xslt>
+    </pipeline>
+
+<!--    <local name="aggregated"/>-->
+    <local name="inputMapPath"/>
+    <pathconvert property="inputMapPath">
+      <fileset dir="${dita.temp.dir}" includes="**/*.aggregated.xml"/>
+<!--      <ditafileset format="ditamap" input="true"/>-->
+    </pathconvert>
+<!--    <property name="aggregated" location="${dita.temp.dir}/${inputMapPath}.aggregated.xml"/>-->
+    <makeurl property="aggregated.url" file="${inputMapPath}"/>
+<!--    <fail>-->
+<!--      ${aggregated.url}-->
+<!--    </fail>-->
+
+    <pipeline taskname="add-markup">
+      <xslt basedir="${dita.temp.dir}"
+            style="${dita.plugin.org.dita-ot.html.dir}/xsl/add-aggregated.xsl"
+            parallel="${parallel}">
+        <ditafileset format="dita" processingRole="normal"/>
+        <param name="aggregated" value="${aggregated.url}"/>
+      </xslt>
+    </pipeline>
   </target>
 
 </project>
