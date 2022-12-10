@@ -19,7 +19,7 @@
   </xsl:template>
 
   <xsl:template match="processing-instruction('sentence')[tokenize(., '\s+') = 'error-statement']">
-    <xsl:variable name="error-id" select="tokenize(., '\s+')[1]"/>
+    <xsl:variable name="error-id" select="substring(tokenize(., '\s+')[1], 2)"/>
     <xsl:variable name="doc" select="document($aggregated)"/>
     <xsl:processing-instruction name="{name()}">
       <xsl:value-of select="."/>
