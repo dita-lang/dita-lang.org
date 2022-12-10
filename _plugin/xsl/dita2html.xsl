@@ -181,8 +181,8 @@
   <!--      <xsl:variable name="next" select="(following::processing-instruction('sentence'))[1]" as="processing-instruction()?"/>-->
   <!--      <xsl:if test="not($next = 'error-statement')">-->
         <xsl:attribute name="class" select="'error-statement'"/>
-        <xsl:attribute name="id" select="string-join((ancestor::*[contains(@class, ' topic/topic ')][1]/@id, $values[1]), '__')"/>
-        <xsl:attribute name="data-id" select="$values[3]"/>
+        <xsl:attribute name="id" select="string-join((ancestor::*[contains(@class, ' topic/topic ')][1]/@id, substring($values[1], 2)), '__')"/>
+        <xsl:attribute name="data-id" select="$values[starts-with(., '#')][2]"/>
   <!--      </xsl:if>-->
       </xsl:if>
     </span>

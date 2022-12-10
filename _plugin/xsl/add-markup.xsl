@@ -77,7 +77,7 @@
     <xsl:analyze-string select="." regex="\.\s">
       <xsl:matching-substring>
         <xsl:value-of select="."/>
-        <xsl:processing-instruction name="sentence" select="generate-id($current)"/>
+        <xsl:processing-instruction name="sentence" select="concat('#', generate-id($current))"/>
       </xsl:matching-substring>
       <xsl:non-matching-substring>
         <xsl:value-of select="."/>
@@ -95,14 +95,17 @@
 
   <xsl:template match="processing-instruction('sentence')" mode="mark-error">
     <xsl:variable name="next" select="(following::processing-instruction('sentence'))[1]"/>
+    <xsl:variable name="content-nodes" as="node()*"
+                  select="following-sibling::node()[empty($next) or . &lt;&lt; $next]"/>
     <xsl:variable name="contents" as="xs:string">
       <xsl:value-of>
-        <xsl:apply-templates select="following-sibling::node()[empty($next) or . &lt;&lt; $next]" mode="text"/>
+        <xsl:apply-templates select="$content-nodes" mode="text"/>
       </xsl:value-of>
     </xsl:variable>
     <xsl:processing-instruction name="sentence">
       <xsl:value-of select="."/>
       <xsl:if test="matches($contents, '\s?error[^s]', 'i')"> error-statement</xsl:if>
+      <xsl:if test="$content-nodes/ancestor-or-self::*[tokenize(@outputclass, '\s+') = 'RFC-2119']"> rfc-2119-statement</xsl:if>
     </xsl:processing-instruction>
   </xsl:template>
 
