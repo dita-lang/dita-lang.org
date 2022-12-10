@@ -31,9 +31,10 @@
 
   <xsl:template match="*[contains(@class, ' topic/data ') and @name = 'rfc-list']">
     <xsl:variable name="doc" select="document($aggregated)"/>
-
-    <xsl:value-of select="$aggregated"/>
-    <xsl:apply-templates select="$doc/*[contains(@class, ' topic/topic ')]/*[contains(@class, ' topic/body ')]/*" mode="embed"/>
+    <section class="- topic/section " outputclass="non-normative">
+      <title class="- topic/title">Aggregated statements errors</title>
+      <xsl:apply-templates select="$doc/*[contains(@class, ' topic/topic ')]/*[contains(@class, ' topic/body ')]/*" mode="embed"/>
+    </section>
   </xsl:template>
 
   <xsl:template match="@* | node()" mode="embed">
