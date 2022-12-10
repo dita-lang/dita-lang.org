@@ -182,7 +182,7 @@
   <!--      <xsl:if test="not($next = 'error-statement')">-->
         <xsl:attribute name="class" select="'error-statement'"/>
         <xsl:attribute name="id" select="string-join((ancestor::*[contains(@class, ' topic/topic ')][1]/@id, substring($values[1], 2)), '__')"/>
-        <xsl:attribute name="data-id" select="$values[starts-with(., '#')][2]"/>
+        <xsl:attribute name="data-id" select="substring($values[starts-with(., '#')][2], 2)"/>
   <!--      </xsl:if>-->
       </xsl:if>
     </span>

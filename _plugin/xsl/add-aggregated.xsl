@@ -24,8 +24,8 @@
     <xsl:processing-instruction name="{name()}">
       <xsl:value-of select="."/>
       <xsl:text> </xsl:text>
-      <xsl:value-of select="$doc/descendant::*[contains(@class, ' topic/xref ')]
-                                              [ends-with(@href, concat($id, '/', $error-id))]"/>
+      <xsl:value-of select="concat('#', $doc/descendant::*[contains(@class, ' topic/xref ')]
+                                              [ends-with(@href, concat($id, '/', $error-id))])"/>
     </xsl:processing-instruction>
   </xsl:template>
 
