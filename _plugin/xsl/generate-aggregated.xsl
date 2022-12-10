@@ -14,8 +14,8 @@
     <topic class="- topic/topic " id="generate-aggregated">
       <title class="- topic/title "/>
       <body class="- topic/body ">
-        <section class="- topic/section " outputclass="non-normative">
-          <title class="- topic/title">Aggregated error statements</title>
+        <section class="- topic/section ">
+          <title class="- topic/title ">Aggregated error statements</title>
           <simpletable class="- topic/simpletable ">
             <xsl:variable name="rows" as="element()*">
               <xsl:for-each-group select="$topicrefs" group-by=".">
@@ -44,8 +44,8 @@
             </xsl:for-each>
           </simpletable>
         </section>
-        <section class="- topic/section " outputclass="non-normative">
-          <title class="- topic/title">Aggregated RFC-2119 statements</title>
+        <section class="- topic/section ">
+          <title class="- topic/title ">Aggregated RFC-2119 statements</title>
           <simpletable class="- topic/simpletable ">
             <xsl:variable name="rows" as="element()*">
               <xsl:for-each-group select="$topicrefs" group-by=".">
