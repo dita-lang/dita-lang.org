@@ -21,8 +21,9 @@
               <xsl:for-each-group select="$topicrefs" group-by=".">
                 <xsl:for-each
                   select="document(current-grouping-key(), $root)//processing-instruction('sentence')[tokenize(., '\s+') = 'error-statement']">
+                  <xsl:variable name="sentence-id" select="substring(tokenize(., '\s+')[1], 2)"/>
                   <strow class="- topic/strow "
-                         href="{ current-grouping-key() }#{ /*/@id }/{ substring(tokenize(., '\s+')[1], 2) }">
+                         href="{ current-grouping-key() }#{ /*/@id }/{ $sentence-id }">
                     <stentry class="- topic/stentry ">
                       <xsl:variable name="next" select="(following-sibling::processing-instruction('sentence'))[1]"/>
                       <xsl:copy-of select="following-sibling::node()[empty($next) or . &lt;&lt; $next]"/>
@@ -51,8 +52,9 @@
               <xsl:for-each-group select="$topicrefs" group-by=".">
                 <xsl:for-each
                   select="document(current-grouping-key(), $root)//processing-instruction('sentence')[tokenize(., '\s+') = 'rfc-2119-statement']">
+                  <xsl:variable name="sentence-id" select="substring(tokenize(., '\s+')[1], 2)"/>
                   <strow class="- topic/strow "
-                         href="{ current-grouping-key() }#{ /*/@id }/{ substring(tokenize(., '\s+')[1], 2) }">
+                         href="{ current-grouping-key() }#{ /*/@id }/{ $sentence-id }">
                     <stentry class="- topic/stentry ">
                       <xsl:variable name="next" select="(following-sibling::processing-instruction('sentence'))[1]"/>
                       <xsl:copy-of select="following-sibling::node()[empty($next) or . &lt;&lt; $next]"/>
