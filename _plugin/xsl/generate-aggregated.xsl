@@ -36,8 +36,8 @@
               <strow class="- topic/strow ">
                 <stentry class="- topic/stentry ">
                   <xref class="- topic/xref " href="{@href}" outputclass="error-statement">
-                    <xsl:text>DITA</xsl:text>
-                    <xsl:number format="0001" value="position()"/>
+                    <xsl:text>DITAERR-</xsl:text>
+                    <xsl:number format="001" value="position()"/>
                   </xref>
                 </stentry>
                 <xsl:copy-of select="stentry"/>
@@ -67,8 +67,8 @@
               <strow class="- topic/strow ">
                 <stentry class="- topic/stentry ">
                   <xref class="- topic/xref " href="{@href}" outputclass="rfc-2119-statement">
-                    <xsl:text>RFC</xsl:text>
-                    <xsl:number format="0001" value="position()"/>
+                    <xsl:text>DITAREQ-</xsl:text>
+                    <xsl:number format="001" value="position()"/>
                   </xref>
                 </stentry>
                 <xsl:copy-of select="stentry"/>
