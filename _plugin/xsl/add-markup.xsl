@@ -67,7 +67,7 @@
                          contains(@class, ' topic/li ')]" mode="add-markup">
     <xsl:copy>
       <xsl:apply-templates select="@*" mode="#current"/>
-      <xsl:processing-instruction name="sentence" select="generate-id(.)"/>
+      <xsl:processing-instruction name="sentence" select="concat('#', generate-id(.))"/>
       <xsl:apply-templates select="node()" mode="#current"/>
     </xsl:copy>
   </xsl:template>
