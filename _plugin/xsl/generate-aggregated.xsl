@@ -16,65 +16,65 @@
       <body class="- topic/body ">
         <section class="- topic/section ">
           <title class="- topic/title ">Aggregated error statements</title>
-          <simpletable class="- topic/simpletable ">
+          <dl class="- topic/dl ">
             <xsl:variable name="rows" as="element()*">
               <xsl:for-each-group select="$topicrefs" group-by=".">
                 <xsl:for-each
                   select="document(current-grouping-key(), $root)//processing-instruction('sentence')[tokenize(., '\s+') = 'error-statement']">
                   <xsl:variable name="sentence-id" select="substring(tokenize(., '\s+')[1], 2)"/>
-                  <strow class="- topic/strow "
+                  <dlentry class="- topic/dlentry "
                          href="{ current-grouping-key() }#{ /*/@id }/{ $sentence-id }">
-                    <stentry class="- topic/stentry ">
+                    <dd class="- topic/dd ">
                       <xsl:variable name="next" select="(following-sibling::processing-instruction('sentence'))[1]"/>
                       <xsl:copy-of select="following-sibling::node()[empty($next) or . &lt;&lt; $next]"/>
-                    </stentry>
-                  </strow>
+                    </dd>
+                  </dlentry>
                 </xsl:for-each>
               </xsl:for-each-group>
             </xsl:variable>
             <xsl:for-each select="$rows">
-              <strow class="- topic/strow ">
-                <stentry class="- topic/stentry ">
+              <dlentry class="- topic/dlentry ">
+                <dt class="- topic/dt ">
                   <xref class="- topic/xref " href="{@href}" outputclass="error-statement">
                     <xsl:text>DITAERR-</xsl:text>
                     <xsl:number format="001" value="position()"/>
                   </xref>
-                </stentry>
+                </dt>
                 <xsl:copy-of select="stentry"/>
-              </strow>
+              </dlentry>
             </xsl:for-each>
-          </simpletable>
+          </dl>
         </section>
         <section class="- topic/section ">
           <title class="- topic/title ">Aggregated RFC-2119 statements</title>
-          <simpletable class="- topic/simpletable ">
+          <dl class="- topic/dl ">
             <xsl:variable name="rows" as="element()*">
               <xsl:for-each-group select="$topicrefs" group-by=".">
                 <xsl:for-each
                   select="document(current-grouping-key(), $root)//processing-instruction('sentence')[tokenize(., '\s+') = 'rfc-2119-statement']">
                   <xsl:variable name="sentence-id" select="substring(tokenize(., '\s+')[1], 2)"/>
-                  <strow class="- topic/strow "
+                  <dlentry class="- topic/dlentry "
                          href="{ current-grouping-key() }#{ /*/@id }/{ $sentence-id }">
-                    <stentry class="- topic/stentry ">
+                    <dd class="- topic/dd ">
                       <xsl:variable name="next" select="(following-sibling::processing-instruction('sentence'))[1]"/>
                       <xsl:copy-of select="following-sibling::node()[empty($next) or . &lt;&lt; $next]"/>
-                    </stentry>
-                  </strow>
+                    </dd>
+                  </dlentry>
                 </xsl:for-each>
               </xsl:for-each-group>
             </xsl:variable>
             <xsl:for-each select="$rows">
-              <strow class="- topic/strow ">
-                <stentry class="- topic/stentry ">
+              <dlentry class="- topic/dlentry ">
+                <dt class="- topic/dt ">
                   <xref class="- topic/xref " href="{@href}" outputclass="rfc-2119-statement">
                     <xsl:text>DITAREQ-</xsl:text>
                     <xsl:number format="001" value="position()"/>
                   </xref>
-                </stentry>
+                </dt>
                 <xsl:copy-of select="stentry"/>
-              </strow>
+              </dlentry>
             </xsl:for-each>
-          </simpletable>
+          </dl>
         </section>
       </body>
     </topic>
