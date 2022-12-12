@@ -40,7 +40,7 @@
                     <xsl:number format="001" value="position()"/>
                   </xref>
                 </dt>
-                <xsl:copy-of select="stentry"/>
+                <xsl:copy-of select="dlentry"/>
               </dlentry>
             </xsl:for-each>
           </dl>
@@ -71,7 +71,7 @@
                     <xsl:number format="001" value="position()"/>
                   </xref>
                 </dt>
-                <xsl:copy-of select="stentry"/>
+                <xsl:copy-of select="dlentry"/>
               </dlentry>
             </xsl:for-each>
           </dl>
