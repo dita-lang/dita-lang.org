@@ -26,17 +26,16 @@ try {
     const index = URI(indexAttr)
       .absoluteTo(window.location.href)
       .href()
-    $.ajax({
-      url: index,
-      success: data => {
+    fetch(index)
+      .then(data => data.text())
+      .then(data => {
         const $toc = $('<body>')
           .append($.parseHTML(data))
           .find('nav')
         TocController($toc, index)
         SearchController($toc, index)
         HelpController()
-      }
-    })
+      })
   }
 } catch (e) {
   console.log(`Failed to initialize TOC: ${e}`)
