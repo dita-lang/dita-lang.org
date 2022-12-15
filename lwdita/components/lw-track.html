@@ -5,7 +5,7 @@ title: 'Track'
 description: 'Media track settings specify the location of supplemental, text-based data for the referenced media, for example, subtitles or descriptions.'
 index: '../toc.html'
 notices: '../resources/oasis-notices.html'
-commit: '6e2df35adc87101cfc9ad4c172d3d446c0b9cc64'
+commit: '9a89d6cfbb1022432248e09a1a2625e7b6411756'
 repository: 'oasis-tcs/dita-lwdita'
 classes: ''
 ---
@@ -18,25 +18,39 @@ classes: ''
     referenced media, for example, subtitles or descriptions.</p>
     <section class="section"><h2 class="title sectiontitle">Syntax</h2>
       
-      <dl class="dl">
-        
-          <dt class="dt dlterm">XDITA</dt>
-          <dd class="dd"><span></span><p class="p"><span></span><code class="keyword markupname xmlelement">&lt;media-track&gt;</code> inside <a class="xref" href="lw-audio.html" title="Audio is sound that the human ear is capable of hearing."><code class="keyword markupname xmlelement">&lt;audio&gt;</code></a> or <a class="xref" href="lw-video.html" title="A video is a recording of moving visual images."><code class="keyword markupname xmlelement">&lt;video&gt;</code></a></p></dd>
-          
-        
-          <dt class="dt dlterm">HDITA</dt>
-          <dd class="dd"><span></span>
-            <p class="p"><span></span><code class="keyword markupname xmlelement">&lt;track&gt;</code> in <a class="xref" href="lw-audio.html" title="Audio is sound that the human ear is capable of hearing."><code class="keyword markupname xmlelement">&lt;audio&gt;</code></a> or <a class="xref" href="lw-video.html" title="A video is a recording of moving visual images."><code class="keyword markupname xmlelement">&lt;video&gt;</code></a></p>
-          </dd>
-        
-        
-          <dt class="dt dlterm">MDITA (core and extended profiles)</dt>
-          <dd class="dd"><span></span>
-
-            <p class="p"><span></span>There is no specific support in MDITA core profile. <span></span>If needed, use an HDITA snippet.</p>
-          </dd>
-        
-      </dl>
+      <p class="p"><span></span>The syntax for representing this
+        component varies depending on the authoring format:</p>
+      
+      <table class="simpletable frame-all"><colgroup><col style="width:25%"><col style="width:75%"></colgroup><thead><tr class="sthead">
+          <th class="stentry" scope="col" id="lw-track__stentry__1"><span></span>Authoring format</th>
+          <th class="stentry" scope="col" id="lw-track__stentry__2"><span></span>Syntax and example</th>
+        </tr></thead><tbody><tr class="strow">
+          <th class="stentry" scope="row" headers="lw-track__stentry__1"><span></span>XDITA</th>
+          <td class="stentry" headers="lw-track__stentry__2"><span></span>
+            <p class="p"><span></span><code class="keyword markupname xmlelement">&lt;media-track&gt;</code></p>
+            <pre class="pre codeblock"><code>&lt;audio autoplay="false" controls="true" loop="false"
+       muted="false"&gt;
+  &lt;desc&gt;Theme song for the LwDITA podcast&lt;/desc&gt;
+  &lt;fallback&gt;The theme song is not available.&lt;/fallback&gt;
+  &lt;media-source value="theme-song.mp3"/&gt;
+  <strong class="ph b">&lt;media-track srclang="en" value="theme-song.vtt"/&gt;</strong>
+&lt;/audio&gt;</code></pre>
+          </td>
+        </tr><tr class="strow">
+          <th class="stentry" scope="row" headers="lw-track__stentry__1"><span></span>HDITA</th>
+          <td class="stentry" headers="lw-track__stentry__2"><span></span>
+            <p class="p"><span></span><code class="keyword markupname xmlelement">&lt;track&gt;</code></p>
+            <pre class="pre codeblock"><code>&lt;audio title="Theme song for the LwDITA podcast" controls&gt;
+  &lt;source src="theme-song.mp3"&gt;
+  <strong class="ph b">&lt;track src="theme-song.vtt" kind="captions" srclang="en"&gt;</strong>
+  &lt;p data-class="fallback"&gt;The theme song is not available.&lt;/p&gt;
+&lt;/audio&gt;</code></pre>
+          </td>
+        </tr><tr class="strow">
+          <th class="stentry" scope="row" headers="lw-track__stentry__1"><span></span>MDITA</th>
+          <td class="stentry" headers="lw-track__stentry__2"><span></span>There is no specific syntax for description in
+            MDITA.</td>
+        </tr></tbody></table>
     </section>
 
       <section class="section"><h2 class="title sectiontitle">Usage information</h2>

@@ -5,7 +5,7 @@ title: 'Definition list'
 description: 'A definition list is a list of items and their corresponding definitions.'
 index: '../toc.html'
 notices: '../resources/oasis-notices.html'
-commit: '6e2df35adc87101cfc9ad4c172d3d446c0b9cc64'
+commit: '9a89d6cfbb1022432248e09a1a2625e7b6411756'
 repository: 'oasis-tcs/dita-lwdita'
 classes: ''
 ---
@@ -18,24 +18,55 @@ classes: ''
     corresponding definitions.</p>
     <section class="section"><h2 class="title sectiontitle">Syntax</h2>
       
-      <dl class="dl">
-        
-          <dt class="dt dlterm">XDITA</dt>
-          <dd class="dd"><span></span><p class="p"><span></span><code class="keyword markupname xmlelement">&lt;dl&gt;</code></p></dd>
-          
-        
-          <dt class="dt dlterm">HDITA</dt>
-          <dd class="dd"><span></span><p class="p"><span></span><code class="keyword markupname xmlelement">&lt;dl&gt;</code></p></dd>
-        
-        
-          <dt class="dt dlterm">MDITA (extended profile)</dt>
-          <dd class="dd"><span></span>
-            <p class="p"><span></span>A single-line term followed by a colon (<code class="ph codeph">:</code>) and the definition for that term, following
-              the <a class="xref" href="https://michelf.ca/projects/php-markdown/extra/#def-list" target="_blank" rel="external noopener">PHP Markdown Extra syntax for definition
-              list</a></p>
-          </dd>
-        
-      </dl>
+      <p class="p"><span></span>The syntax for representing this component varies depending on the
+        authoring format.</p>
+      
+      <table class="simpletable"><colgroup><col style="width:18.181818181818183%"><col style="width:36.36363636363637%"><col style="width:45.45454545454545%"></colgroup><thead><tr class="sthead">
+          <th class="stentry" scope="col" id="lw-dl__stentry__1"><span></span>Authoring format</th>
+          <th class="stentry" scope="col" id="lw-dl__stentry__2"><span></span>Syntax</th>
+          <th class="stentry" scope="col" id="lw-dl__stentry__3"><span></span>Example</th>
+        </tr></thead><tbody><tr class="strow">
+          <th class="stentry" scope="row" headers="lw-dl__stentry__1"><span></span>XDITA</th>
+          <td class="stentry" headers="lw-dl__stentry__2"><span></span><code class="keyword markupname xmlelement">&lt;dl&gt;</code></td>
+          <td class="stentry" headers="lw-dl__stentry__3"><span></span>
+            <pre class="pre codeblock"><code><strong class="ph b">&lt;dl&gt;</strong>
+  &lt;dlentry&gt;
+    &lt;dt&gt;Initial investment&lt;/dt&gt;
+    &lt;dd&gt;$700 (includes initial franchise fee)&lt;/dd&gt;
+  &lt;/dlentry&gt;
+  &lt;dlentry&gt;
+    &lt;dt&gt;Franchise fee&lt;/dt&gt;
+    &lt;dd&gt;$200&lt;/dd&gt;
+  &lt;/dlentry&gt;<strong class="ph b">
+&lt;/dl&gt;</strong></code></pre>
+          </td>
+        </tr><tr class="strow">
+          <th class="stentry" scope="row" headers="lw-dl__stentry__1"><span></span>HDITA</th>
+          <td class="stentry" headers="lw-dl__stentry__2"><span></span><code class="keyword markupname xmlelement">&lt;dl&gt;</code></td>
+          <td class="stentry" headers="lw-dl__stentry__3"><span></span>
+            <pre class="pre codeblock"><code><strong class="ph b">&lt;dl&gt;</strong>
+  &lt;dt&gt;Initial investment&lt;/dt&gt;
+  &lt;dd&gt;$700 (includes initial franchise fee)&lt;/dd&gt;
+  &lt;dt&gt;Franchise fee&lt;/dt&gt;
+  &lt;dd&gt;$200&lt;/dd&gt;<strong class="ph b">
+&lt;/dl&gt;</strong></code></pre>
+          </td>
+        </tr><tr class="strow">
+          <th class="stentry" scope="row" headers="lw-dl__stentry__1"><span></span>MDITA</th>
+          <td class="stentry" headers="lw-dl__stentry__2"><span></span>Each definition pair uses the following format:<ul class="ul">
+              <li class="li"><span></span>A line that contains the term</li>
+              <li class="li"><span></span>A second line that starts with a colon (:) and follows
+                with the definition</li>
+            </ul>Each definition pair must be separated by a blank
+            line</td>
+          <td class="stentry" headers="lw-dl__stentry__3"><span></span>
+            <pre class="pre codeblock"><code>raspberry
+: edible fruit of plant species in the genus Rubus of the rose family
+
+blackberry
+: edible fruit of species in the genus Rubus in the family Rosaceae</code></pre>
+          </td>
+        </tr></tbody></table>
     </section>
 
 
