@@ -5,7 +5,7 @@ title: 'Video poster'
 description: 'A video poster is an image that is displayed while a video is loading.'
 index: '../toc.html'
 notices: '../resources/oasis-notices.html'
-commit: '9a89d6cfbb1022432248e09a1a2625e7b6411756'
+commit: '144d47afc0ece914fb1c996cb17ae620e613f9b0'
 repository: 'oasis-tcs/dita-lwdita'
 classes: ''
 ---
@@ -17,24 +17,51 @@ classes: ''
     image that is displayed while a video is loading.</p>
     <section class="section"><h2 class="title sectiontitle">Syntax</h2>
       
-      <dl class="dl">
-        
-          <dt class="dt dlterm">XDITA</dt>
-          <dd class="dd"><span></span><p class="p"><span></span><code class="keyword markupname xmlelement">&lt;video-poster&gt;</code></p></dd>
-          
-        
-          <dt class="dt dlterm">HDITA</dt>
-          <dd class="dd"><span></span><p class="p"><span></span><code class="keyword markupname xmlatt">@poster</code> on <code class="keyword markupname xmlelement">&lt;video&gt;</code></p></dd>
-        
-        
-          <dt class="dt dlterm">MDITA (core and extended profiles)</dt>
-          <dd class="dd"><span></span>
-
+      
+      <table class="simpletable frame-all"><colgroup><col style="width:25%"><col style="width:75%"></colgroup><thead><tr class="sthead">
+          <th class="stentry" scope="col" id="lw-video__stentry__1"><span></span>Authoring format</th>
+          <th class="stentry" scope="col" id="lw-video__stentry__2"><span></span>Syntax and example</th>
+        </tr></thead><tbody><tr class="strow">
+          <th class="stentry" scope="row" headers="lw-video__stentry__1"><span></span>XDITA</th>
+          <td class="stentry" headers="lw-video__stentry__2"><span></span>
+            <p class="p"><span></span><code class="keyword markupname xmlelement">&lt;video-poster&gt;</code></p>
+            <pre class="pre codeblock"><code>&lt;video height="300px" width="400px" loop="false"
+                muted="false"&gt;
+  &lt;desc&gt;Video about the Sensei Sushi promise.&lt;/desc&gt;
+  &lt;fallback&gt;
+    &lt;image href="video-not-available.png"&gt;
+      &lt;alt&gt;This video cannot be displayed.&lt;/alt&gt;
+    &lt;/image&gt;
+  &lt;/fallback&gt;
+  <strong class="ph b">&lt;video-poster href="sensei-video.jpg"/&gt;</strong>
+  &lt;media-source href="sensei-video.mp4"/&gt;
+  &lt;media-source href="sensei-video.ogg"/&gt;
+  &lt;media-source href="sensei-video.webm"/&gt;
+  &lt;media-track srclang="en" href="sensei-video.vtt"/&gt; <strong class="ph b">
+&lt;/video&gt;</strong></code></pre>
+          </td>
+        </tr><tr class="strow">
+          <th class="stentry" scope="row" headers="lw-video__stentry__1"><span></span>HDITA</th>
+          <td class="stentry" headers="lw-video__stentry__2"><span></span>
+            <p class="p"><span></span><code class="keyword markupname xmlatt">@poster</code> on
+              <code class="keyword markupname xmlelement">&lt;video&gt;</code></p>
+            <pre class="pre codeblock"><code>&lt;video height="300" width="400" 
+         title="Video about the Sensei Sushi promise" controls 
+        <strong class="ph b"> poster="sensei-video.jpg"</strong>&gt;
+  &lt;source src="sensei-video.mp4"/&gt;
+  &lt;source src="sensei-video.ogg"/&gt;
+  &lt;source src="sensei-video.webm"/&gt; 
+  &lt;track srclang="en" src="sensei-video.vtt"/&gt;
+  &lt;img src="video-not-available.png" alt="This video cannot be displayed."/&gt;
+<strong class="ph b">&lt;/video&gt;</strong></code></pre>
+          </td>
+        </tr><tr class="strow">
+          <th class="stentry" scope="row" headers="lw-video__stentry__1"><span></span>MDITA</th>
+          <td class="stentry" headers="lw-video__stentry__2"><span></span>
             <p class="p"><span></span>There is no specific support in the MDITA core
       profile. <span></span>If needed, use an HDITA snippet.</p>
-          </dd>
-        
-      </dl>
+          </td>
+        </tr></tbody></table>
     </section>
       <section class="section"><h2 class="title sectiontitle">Usage information</h2>
       
