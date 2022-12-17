@@ -31,7 +31,7 @@
     <xsl:text>&#xA;</xsl:text>
     <xsl:text>title: '</xsl:text>
     <xsl:variable name="title-text-only">
-      <xsl:apply-templates select="*[contains(@class, ' topic/title ')]" mode="text-only"/>
+      <xsl:apply-templates select="*[contains(@class, ' topic/title ')][1]" mode="text-only"/>
     </xsl:variable>
     <xsl:value-of select="replace(normalize-space($title-text-only), &quot;'&quot;, &quot;''&quot;)"/>
     <xsl:text>'&#xA;</xsl:text>
@@ -48,7 +48,7 @@
           <xsl:apply-templates select="." mode="text-only"/>
         </xsl:for-each>
       </xsl:variable>
-      <xsl:value-of select="replace(normalize-space($shortdesc-text-only), &quot;'&quot;, &quot;''&quot;)"/>
+      <xsl:value-of select="replace(normalize-space(string-join($shortdesc-text-only, ' ')), &quot;'&quot;, &quot;''&quot;)"/>
       <xsl:text>'&#xA;</xsl:text>
     </xsl:if>
     <xsl:if test="$root-chunk-override ne 'to-content'">
