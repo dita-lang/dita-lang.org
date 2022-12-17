@@ -13,7 +13,9 @@ function TocController($toc, index) {
 
   common.initializeMain()
   addTocControllers()
-  loadFullToc()
+  if ($toc) {
+    loadFullToc()
+  }
 
   $nav.wrapInner(`<div class="toc-wrapper"></div>`)
 

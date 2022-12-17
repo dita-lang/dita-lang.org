@@ -15,9 +15,11 @@ function Common(index) {
 
   const editController = EditController()
 
-  const base = URI('.')
-    .absoluteTo(index)
-    .href()
+  const base = index
+    ? URI('.')
+        .absoluteTo(index)
+        .href()
+    : URI(window.location.href).href()
 
   const $nav = $('nav[role=toc]')
   const $main = $('main[role=main]')

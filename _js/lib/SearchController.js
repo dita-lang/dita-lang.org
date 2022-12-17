@@ -161,7 +161,7 @@ function SearchController($toc, index) {
         return {
           title: $.trim($node.text()),
           url: URI($node.attr('href'))
-            .absoluteTo(index)
+            .absoluteTo(index ? index : URI(window.location.href).href())
             .href()
         }
       })

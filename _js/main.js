@@ -36,6 +36,10 @@ try {
         SearchController($toc, index)
         HelpController()
       })
+  } else {
+    TocController()
+    SearchController($('nav[role=toc]'))
+    HelpController()
   }
 } catch (e) {
   console.log(`Failed to initialize TOC: ${e}`)

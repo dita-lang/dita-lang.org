@@ -16,6 +16,7 @@
   <xsl:param name="repository"/>
   <xsl:param name="commit"/>
   <xsl:param name="layout" select="'base'" as="xs:string"/>
+  <xsl:param name="root-chunk-override"/>
 
   <xsl:template match="/">
     <xsl:apply-templates select="*" mode="jekyll-front-matter"/>
@@ -50,9 +51,11 @@
       <xsl:value-of select="replace(normalize-space($shortdesc-text-only), &quot;'&quot;, &quot;''&quot;)"/>
       <xsl:text>'&#xA;</xsl:text>
     </xsl:if>
-    <xsl:text>index: '</xsl:text>
-    <xsl:value-of select="concat($PATH2PROJ, 'toc', $OUTEXT)"/>
-    <xsl:text>'&#xA;</xsl:text>
+    <xsl:if test="$root-chunk-override ne 'to-content'">
+      <xsl:text>index: '</xsl:text>
+      <xsl:value-of select="concat($PATH2PROJ, 'toc', $OUTEXT)"/>
+      <xsl:text>'&#xA;</xsl:text>
+    </xsl:if>
     <xsl:text>notices: '</xsl:text>
     <xsl:value-of select="concat($PATH2PROJ, 'resources/oasis-notices', $OUTEXT)"/>
     <xsl:text>'&#xA;</xsl:text>
