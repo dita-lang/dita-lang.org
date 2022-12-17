@@ -30,7 +30,7 @@ runs:
     #      run: |
     #        $DITA_HOME/bin/dita \
     #          -i ${{ inputs.MAP }} \
-    #          -o dita-draft-website/${{ inputs.DIR }} \
+    #          -o dita-lang/${{ inputs.DIR }} \
     #          -f org.dita-ot.html \
     #          --filter=${{ inputs.FILTER }}.external-publishing-engine.ditaval \
     #          --filter=${{ inputs.FILTER }} \
@@ -42,7 +42,7 @@ runs:
       run: |
         $DITA_HOME/bin/dita \
           -i ${{ inputs.MAP }} \
-          -o dita-draft-website/${{ inputs.DIR }} \
+          -o dita-lang/${{ inputs.DIR }} \
           -f org.dita-ot.html \
           --filter=${{ inputs.FILTER }}.external-publishing-engine.ditaval \
           --filter=${{ inputs.FILTER }} \
@@ -60,7 +60,7 @@ runs:
             fi
           fi
         done
-      working-directory: dita-draft-website
+      working-directory: dita-lang
     - name: Commit changes
       shell: bash
       run: |
@@ -73,4 +73,4 @@ runs:
         else
           echo "Nothing to commit"
         fi
-      working-directory: dita-draft-website
+      working-directory: dita-lang

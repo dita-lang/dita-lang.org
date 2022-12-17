@@ -12,16 +12,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          path: dita-draft-website
+          path: dita-lang
       - name: Init
-        uses: ./dita-draft-website/.github/actions/init
+        uses: ./dita-lang/.github/actions/init
       - uses: actions/checkout@v3
         with:
           repository: 'oasis-tcs/dita'
           ref: 'DITA-2.0'
           path: dita
       - name: Publish DITA
-        uses: ./dita-draft-website/.github/actions/publish
+        uses: ./dita-lang/.github/actions/publish
         with:
           MAP: dita/specification/dita-2.0-specification.ditamap
           FILTER: dita/specification/resources/DITA2.0-spec.ditaval
@@ -34,7 +34,7 @@ jobs:
           path: dita-techcomm
           submodules: recursive
       - name: Publish DITA TC
-        uses: ./dita-draft-website/.github/actions/publish
+        uses: ./dita-lang/.github/actions/publish
         with:
           MAP: dita-techcomm/specification/dita-2.0-technical-content-specification.ditamap
           FILTER: dita-techcomm/specification/resources/DITA2.0-tc-spec.ditaval
@@ -47,7 +47,7 @@ jobs:
           path: lwdita
           submodules: recursive
       - name: Publish LwDITA
-        uses: ./dita-draft-website/.github/actions/publish
+        uses: ./dita-lang/.github/actions/publish
         with:
           MAP: lwdita/Spec/lwdita.ditamap
           FILTER: lwdita/Spec/resources/lwdita.ditaval
@@ -56,4 +56,4 @@ jobs:
       - name: Push changes
         run: |
           git push -v origin main
-        working-directory: dita-draft-website
+        working-directory: dita-lang
