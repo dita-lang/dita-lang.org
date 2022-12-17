@@ -52,13 +52,16 @@ runs:
       shell: bash
       run: |
         git diff --name-only | while read i; do
+          echo $i
           diff="$(git diff -U0 "$i")"
+          echo $diff
           lines="$(echo $diff | wc -l)"
           if [ $lines -eq 7 ]; then
             if [ "$(echo $diff | sed -n '6p')" =~ '^-commit:*' ] && [ "$(echo $diff | sed -n '7p')" =~ '^\+commit:*' ]; then
               git checkout -- "$i"
             fi
           fi
+          echo
         done
       working-directory: dita-lang
     - name: Commit changes
