@@ -5,7 +5,7 @@ title: 'Key text'
 description: 'Key text is variable or link text that is used when resolving key references. It also specifies alternate text for images that are referenced by keys.'
 index: '../toc.html'
 notices: '../resources/oasis-notices.html'
-commit: '144d47afc0ece914fb1c996cb17ae620e613f9b0'
+commit: 'ce732e197e35c814d6e65d2eebbadee6ab80ca1f'
 repository: 'oasis-tcs/dita-lwdita'
 classes: ''
 ---
@@ -19,28 +19,37 @@ classes: ''
     alternate text for images that are referenced by keys.</p>
     <section class="section"><h2 class="title sectiontitle">Syntax</h2>
       
-      <dl class="dl">
-        
-          <dt class="dt dlterm">XDITA</dt>
-          <dd class="dd"><span></span>
-            <p class="p"><span></span><code class="keyword markupname xmlelement">&lt;keytext&gt;</code>
-            </p>
-          </dd>
-        
-        
-          <dt class="dt dlterm">HDITA</dt>
-          <dd class="dd"><span></span>
+      <p class="p"><span></span>The syntax for representing this
+        component varies depending on the authoring format:</p>
+      
+      <table class="simpletable frame-all"><colgroup><col style="width:25%"><col style="width:75%"></colgroup><thead><tr class="sthead">
+          <th class="stentry" scope="col" id="lw-keytext__stentry__1"><span></span>Authoring format</th>
+          <th class="stentry" scope="col" id="lw-keytext__stentry__2"><span></span>Syntax and example</th>
+        </tr></thead><tbody><tr class="strow">
+          <th class="stentry" scope="row" headers="lw-keytext__stentry__1"><span></span>XDITA</th>
+          <td class="stentry" headers="lw-keytext__stentry__2"><span></span>
+            <p class="p"><span></span><code class="keyword markupname xmlelement">&lt;keytext&gt;</code></p>
+            <pre class="pre codeblock"><code>&lt;keydef keys="product-name"&gt;
+  &lt;topicmeta&gt;
+    <strong class="ph b">&lt;keytext&gt;Remote Network Lighting&lt;/keytext&gt;</strong>
+  &lt;/topicmeta&gt;
+&lt;/keydef&gt;</code></pre>
+          </td>
+        </tr><tr class="strow">
+          <th class="stentry" scope="row" headers="lw-keytext__stentry__1"><span></span>HDITA</th>
+          <td class="stentry" headers="lw-keytext__stentry__2"><span></span>
             <p class="p"><span></span><code class="keyword markupname xmlelement">&lt;span data-class="keytext"&gt;</code></p>
-          </dd>
-        
-        
-          <dt class="dt dlterm">MDITA (extended profile)</dt>
-          <dd class="dd"><span></span>
+            <pre class="pre codeblock"><code>div data-class="keydef"&gt;
+  <strong class="ph b">&lt;span data-class="keytext" data-keys="product-name"&gt;Remote Lighting Network&lt;/span&gt;</strong>
+&lt;/div&gt;</code></pre>
+          </td>
+        </tr><tr class="strow">
+          <th class="stentry" scope="row" headers="lw-keytext__stentry__1"><span></span>MDITA</th>
+          <td class="stentry" headers="lw-keytext__stentry__2"><span></span>
             <p class="p"><span></span>There is no specific support in the MDITA core
       profile. <span></span>If needed, use an HDITA snippet.</p>
-          </dd>
-        
-      </dl>
+          </td>
+        </tr></tbody></table>
     </section>
     <section class="section"><h2 class="title sectiontitle">Attributes</h2>
     
@@ -122,4 +131,4 @@ Replace with YAML!</code></pre>
       </figure>
     </div>
   </div>
-<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../components/containers/map-components.html" title="Map components include the core components of LwDITA maps, such as topicref and reltable (needs to be updated for LwDITA).">Map components</a></div></div></nav></article></main>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../components/containers/map-components.html" title="Map components include the core components of LwDITA maps, such as key definition, key text, and topic reference.">Map components</a></div></div></nav></article></main>

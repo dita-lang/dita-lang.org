@@ -5,7 +5,7 @@ title: 'Topic reference'
 description: 'A topic reference is the mechanism for referencing a topic (or another resource) from a DITA map. It can nest, which enables the expression of navigation and table-of-content hierarchies, as well as containment hierarchies and parent-child relationships.'
 index: '../toc.html'
 notices: '../resources/oasis-notices.html'
-commit: '144d47afc0ece914fb1c996cb17ae620e613f9b0'
+commit: 'ce732e197e35c814d6e65d2eebbadee6ab80ca1f'
 repository: 'oasis-tcs/dita-lwdita'
 classes: ''
 ---
@@ -20,22 +20,41 @@ classes: ''
     parent-child relationships.</p>
     <section class="section"><h2 class="title sectiontitle">Syntax</h2>
       
-      <dl class="dl">
-        
-          <dt class="dt dlterm">XDITA</dt>
-          <dd class="dd"><span></span><p class="p"><span></span><code class="keyword markupname xmlelement">&lt;topicref&gt;</code></p></dd>
-          
-        
-          <dt class="dt dlterm">HDITA</dt>
-          <dd class="dd"><span></span>
-            <p class="p"><span></span><code class="keyword markupname xmlelement">&lt;a href&gt;</code> inside a <a class="xref" href="lw-li.html" title="A list item is an item in either an ordered or unordered list."><code class="keyword markupname xmlelement">&lt;li&gt;</code></a></p>
-          </dd>
-        
-        
-          <dt class="dt dlterm">MDITA (core and extended profiles)</dt>
-          <dd class="dd"><span></span><p class="p"><span></span><code class="ph codeph">[link](/URI "title")</code> inside a <a class="xref" href="lw-li.html" title="A list item is an item in either an ordered or unordered list.">list item</a> </p></dd>
-        
-      </dl>
+      <p class="p"><span></span>The syntax for representing this
+        component varies depending on the authoring format:</p>
+      
+      <table class="simpletable frame-all"><colgroup><col style="width:25%"><col style="width:75%"></colgroup><thead><tr class="sthead">
+          <th class="stentry" scope="col" id="lw-topicref__stentry__1"><span></span>Authoring format</th>
+          <th class="stentry" scope="col" id="lw-topicref__stentry__2"><span></span>Syntax and example</th>
+        </tr></thead><tbody><tr class="strow">
+          <th class="stentry" scope="row" headers="lw-topicref__stentry__1"><span></span>XDITA</th>
+          <td class="stentry" headers="lw-topicref__stentry__2"><span></span>
+            <p class="p"><span></span><code class="keyword markupname xmlelement">&lt;topicref&gt;</code></p>
+            <pre class="pre codeblock"><code><strong class="ph b">&lt;topicref href="alternatives.dita"&gt;</strong>
+  &lt;topicref href="low-power.dita"/&gt;
+  &lt;topicref href="high-power.dita"/&gt;<strong class="ph b">
+&lt;/topicref&gt;</strong></code></pre>
+          </td>
+        </tr><tr class="strow">
+          <th class="stentry" scope="row" headers="lw-topicref__stentry__1"><span></span>HDITA</th>
+          <td class="stentry" headers="lw-topicref__stentry__2"><span></span>
+            <p class="p"><span></span><code class="keyword markupname xmlelement">&lt;a href&gt;</code> instead of a list item</p>
+            <pre class="pre codeblock"><code><strong class="ph b">&lt;li&gt;&lt;p&gt;&lt;a href="alternatives.html"&gt;Alternative lighting setups&lt;/a&gt;&lt;/p&gt;</strong>
+  &lt;ul&gt;
+    &lt;li&gt;&lt;p&gt;&lt;a href="low-power.html"&gt;Low power installation&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;p&gt;&lt;a href="high-power.html"&gt;High power installation&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+  &lt;/ul&gt;<strong class="ph b">
+&lt;/li&gt;</strong></code></pre>
+          </td>
+        </tr><tr class="strow">
+          <th class="stentry" scope="row" headers="lw-topicref__stentry__1"><span></span>MDITA</th>
+          <td class="stentry" headers="lw-topicref__stentry__2"><span></span>
+            <p class="p"><span></span><code class="ph codeph">[link text](URI)</code> inside of a list item</p>
+            <pre class="pre codeblock"><code><strong class="ph b">- [Alternative lighting setups](alternatives.md)</strong>
+ - [Low power installation](low-power.md)
+ - [High power installation](high-power.md)</code></pre>
+          </td>
+        </tr></tbody></table>
     </section>
 
       <section class="section"><h2 class="title sectiontitle">Attributes</h2>
@@ -137,4 +156,4 @@ classes: ''
 
         </div>
   </div>
-<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../components/containers/map-components.html" title="Map components include the core components of LwDITA maps, such as topicref and reltable (needs to be updated for LwDITA).">Map components</a></div></div></nav></article></main>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../components/containers/map-components.html" title="Map components include the core components of LwDITA maps, such as key definition, key text, and topic reference.">Map components</a></div></div></nav></article></main>

@@ -5,7 +5,7 @@ title: 'Map'
 description: 'A DITA map is the mechanism for aggregating topic references and defining a context for those references. It contains references to topics, maps, and other resources.'
 index: '../toc.html'
 notices: '../resources/oasis-notices.html'
-commit: '144d47afc0ece914fb1c996cb17ae620e613f9b0'
+commit: 'ce732e197e35c814d6e65d2eebbadee6ab80ca1f'
 repository: 'oasis-tcs/dita-lwdita'
 classes: ''
 ---
@@ -20,21 +20,56 @@ classes: ''
       resources.</p>
     <section class="section"><h2 class="title sectiontitle">Syntax</h2>
       
-      <dl class="dl">
-        
-          <dt class="dt dlterm">XDITA</dt>
-          <dd class="dd"><span></span><p class="p"><span></span><code class="keyword markupname xmlelement">&lt;map&gt;</code></p></dd>
-          
-        
-          <dt class="dt dlterm">HDITA</dt>
-          <dd class="dd"><span></span><p class="p"><span></span><code class="keyword markupname xmlelement">&lt;nav&gt;</code></p></dd>
-        
-        
-          <dt class="dt dlterm">MDITA (core and extended profiles)</dt>
-          <dd class="dd"><span></span><p class="p"><span></span>A Markdown file with a <a class="xref" href="lw-title.html" title="A title is a heading or label for an object. Titles can be associated with topics, maps, sections, examples, figures, tables, and other structures.">title</a> and an <a class="xref" href="lw-ul.html" title="An unordered list is a list in which the order of items is not significant.">unordered list</a> of titles for topics and their
-              associated file names</p></dd>
-        
-      </dl>
+      <p class="p"><span></span>The syntax for representing this
+        component varies depending on the authoring format:</p>
+      
+      <table class="simpletable frame-all"><colgroup><col style="width:25%"><col style="width:75%"></colgroup><thead><tr class="sthead">
+          <th class="stentry" scope="col" id="lw-map__stentry__1"><span></span>Authoring format</th>
+          <th class="stentry" scope="col" id="lw-map__stentry__2"><span></span>Syntax and example</th>
+        </tr></thead><tbody><tr class="strow">
+          <th class="stentry" scope="row" headers="lw-map__stentry__1"><span></span>XDITA</th>
+          <td class="stentry" headers="lw-map__stentry__2"><span></span>
+            <p class="p"><span></span><code class="keyword markupname xmlelement">&lt;map&gt;</code></p>
+            <pre class="pre codeblock"><code><strong class="ph b">&lt;map id="remote-main"&gt;</strong>
+  &lt;topicmeta&gt;
+    &lt;navtitle&gt;Remote Lighting Network&lt;/navtitle&gt;
+  &lt;/topicmeta&gt;
+  &lt;topicref href="introduction.dita"/&gt;
+  &lt;topicref href="alternatives.dita"&gt;
+    &lt;topicref href="low-power.dita"/&gt;
+    &lt;topicref href="high-power.dita"/&gt;
+  &lt;/topicref&gt;<strong class="ph b">
+&lt;/map&gt;</strong></code></pre>
+          </td>
+        </tr><tr class="strow">
+          <th class="stentry" scope="row" headers="lw-map__stentry__1"><span></span>HDITA</th>
+          <td class="stentry" headers="lw-map__stentry__2"><span></span>
+            <p class="p"><span></span><code class="keyword markupname xmlelement">&lt;nav&gt;</code></p>
+            <pre class="pre codeblock"><code><strong class="ph b">&lt;nav&gt;</strong>
+  &lt;h1&gt;Remote Lighting Network&lt;/h1&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;p&gt;&lt;a href="introduction.html"&gt;Introduction&lt;/a&gt;&lt;p&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;p&gt;&lt;a href="alternatives.html"&gt;Alternative lighting setups&lt;/a&gt;&lt;/p&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;p&gt;&lt;a href="low-power.html"&gt;Low power installation&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;p&gt;&lt;a href="high-power.html"&gt;High power installation&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;<strong class="ph b">
+&lt;/nav&gt;</strong></code></pre>
+          </td>
+        </tr><tr class="strow">
+          <th class="stentry" scope="row" headers="lw-map__stentry__1"><span></span>MDITA</th>
+          <td class="stentry" headers="lw-map__stentry__2"><span></span>
+            <p class="p"><span></span>A Markdown file with a title and an unordered of titles for
+              topics and their associated file names</p>
+            <pre class="pre codeblock"><code><strong class="ph b"># Remote Lighting Network
+ - [Introduction](introduction.md)
+ - [Alternative lighting setups](alternatives.md)
+   - [Low power installation](low-power.md)
+   - [High power installation](high-power.md)</strong></code></pre>
+          </td>
+        </tr></tbody></table>
     </section>
 <section class="section"><h2 class="title sectiontitle">Usage information</h2>
       
@@ -165,4 +200,4 @@ classes: ''
         </div>
 
   </div>
-<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../components/containers/map-components.html" title="Map components include the core components of LwDITA maps, such as topicref and reltable (needs to be updated for LwDITA).">Map components</a></div></div></nav></article></main>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../components/containers/map-components.html" title="Map components include the core components of LwDITA maps, such as key definition, key text, and topic reference.">Map components</a></div></div></nav></article></main>

@@ -5,7 +5,7 @@ title: 'Table'
 description: 'A simple table is a basic tabular environment that is designed to present organized content.'
 index: '../toc.html'
 notices: '../resources/oasis-notices.html'
-commit: '144d47afc0ece914fb1c996cb17ae620e613f9b0'
+commit: 'ce732e197e35c814d6e65d2eebbadee6ab80ca1f'
 repository: 'oasis-tcs/dita-lwdita'
 classes: ''
 ---
@@ -17,26 +17,73 @@ classes: ''
       simple table is</span> a basic tabular environment <span class="ph">that is</span> designed to present organized content. <span></span></p>
     <section class="section"><h2 class="title sectiontitle">Syntax</h2>
       
-      <dl class="dl">
-        
-          <dt class="dt dlterm">XDITA</dt>
-          <dd class="dd"><span></span><p class="p"><span></span><code class="keyword markupname xmlelement">&lt;simpletable&gt;</code></p></dd>
-          
-        
-          <dt class="dt dlterm">HDITA</dt>
-          <dd class="dd"><span></span>
+      <p class="p"><span></span>The syntax for representing this
+        component varies depending on the authoring format:</p>
+      
+      <table class="simpletable frame-all"><colgroup><col style="width:25%"><col style="width:75%"></colgroup><thead><tr class="sthead">
+          <th class="stentry" scope="col" id="lw-simpletable__stentry__1"><span></span>Authoring format</th>
+          <th class="stentry" scope="col" id="lw-simpletable__stentry__2"><span></span>Syntax and example</th>
+        </tr></thead><tbody><tr class="strow">
+          <th class="stentry" scope="row" headers="lw-simpletable__stentry__1"><span></span>XDITA</th>
+          <td class="stentry" headers="lw-simpletable__stentry__2"><span></span>
+            <p class="p"><span></span><code class="keyword markupname xmlelement">&lt;simpletable&gt;</code></p>
+            <pre class="pre codeblock"><code><strong class="ph b">&lt;simpletable&gt;</strong>
+  &lt;title&gt;Fancy roll ingredients&lt;/title&gt;
+  &lt;sthead&gt;
+    &lt;stentry&gt;&lt;p&gt;Ingredient&lt;/stentry&gt;
+    &lt;stentry&gt;&lt;p&gt;Amount&lt;/p&gt;&lt;/stentry&gt;
+    &lt;stentry&gt;&lt;p&gt;Unit shipped&lt;/p&gt;&lt;/stentry&gt;
+  &lt;/sthead&gt;
+  &lt;strow&gt;
+    &lt;stentry&gt;&lt;p&gt;Gohan rice&lt;/p&gt;&lt;/stentry&gt;
+    &lt;stentry&gt;&lt;p&gt;140 gm&lt;/p&gt;&lt;/stentry&gt;
+    &lt;stentry&gt;&lt;p&gt;14 kg&lt;/p&gt;&lt;/stentry&gt;
+  &lt;/strow&gt;
+  &lt;strow&gt;
+    &lt;stentry&gt;&lt;p&gt;Soya paper sheet&lt;/p&gt;&lt;/stentry&gt;
+    &lt;stentry&gt;&lt;p&gt;1 pc&lt;/p&gt;&lt;/stentry&gt;
+    &lt;stentry&gt;&lt;p&gt;10 pc&lt;/p&gt;&lt;/stentry&gt;
+  &lt;/strow&gt;<strong class="ph b">
+&lt;/simpletable&gt;</strong></code></pre>
+          </td>
+        </tr><tr class="strow">
+          <th class="stentry" scope="row" headers="lw-simpletable__stentry__1"><span></span>HDITA</th>
+          <td class="stentry" headers="lw-simpletable__stentry__2"><span></span>
             <p class="p"><span></span><code class="keyword markupname xmlelement">&lt;table&gt;</code></p>
-          </dd>
-        
-        
-          <dt class="dt dlterm">MDITA (core and extended profiles)</dt>
-          <dd class="dd"><span></span>
+            <pre class="pre codeblock"><code><strong class="ph b">&lt;table&gt;</strong>
+  &lt;caption&gt;Fancy roll ingredients&lt;/caption&gt;
+  &lt;tr&gt;
+    &lt;th&gt;&lt;p&gt;Ingredient&lt;/p&gt;&lt;/th&gt;
+    &lt;th&gt;&lt;p&gt;Amount&lt;/p&gt;&lt;/th&gt;
+    &lt;th&gt;&lt;p&gt;Unit shipped&lt;/p&gt;&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;p&gt;Gohan rice&lt;/p&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;p&gt;140 gm&lt;/p&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;p&gt;14 kg&lt;/p&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;p&gt;Soya paper sheet&lt;/p&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;p&gt;1 pc.&lt;/p&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;p&gt;10 pcs.&lt;/p&gt;&lt;/td&gt;
+  &lt;/tr&gt;<strong class="ph b">
+&lt;/table&gt;</strong></code></pre>
+          </td>
+        </tr><tr class="strow">
+          <th class="stentry" scope="row" headers="lw-simpletable__stentry__1"><span></span>MDITA</th>
+          <td class="stentry" headers="lw-simpletable__stentry__2"><span></span>
             <p class="p"><span></span>A table should contain a header row, a delimiter row, and
               zero or more rows with entries. <span></span>Table entries inside a row
               should be separated by pipes (<code class="ph codeph">|</code>), and the
-              delimiter should contain hyphens (<code class="ph codeph">-</code>).</p></dd>
-        
-      </dl>
+              delimiter should contain hyphens (<code class="ph codeph">-</code>).</p>
+            <pre class="pre codeblock"><code><strong class="ph b">| Ingredient       | Amount   | Unit shipped |
+| ---------------- | -------- | ------------ |
+| Gohan rice       | 140 gm   | 14 kg        |
+| Soya paper sheet | 1 pc     | 10 pc        |
+
+Table:  Fancy roll ingredients</strong></code></pre>
+          </td>
+        </tr></tbody></table>
     </section>
 
       <section class="section"><h2 class="title sectiontitle">Usage information</h2>
@@ -81,6 +128,7 @@ classes: ''
     </section>
         <div class="example non-normative"><h2 class="title sectiontitle">Examples</h2>
           
+      
           <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>XDITA example</figcaption>
       
       <p class="p">The following example demonstrates the use of a table in an XDITA topic.</p>
@@ -185,12 +233,12 @@ classes: ''
 
 | Ingredient       | Amount   | Unit shipped |
 | ---------------- | -------- | ------------ |
-| Gohan rice       | 140 gms. | 14 kgs.      |
-| Soya paper sheet | 1 pc.    | 10 pcs.      |
+| Gohan rice       | 140 gm   | 14 kg        |
+| Soya paper sheet | 1 pc     | 10 pc        |
 
 Table:  Fancy roll ingredients</code></pre>
     </figure>
         </div>
 
   </div>
-<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../components/containers/table-components.html" title="Need a LwDITA-relevant shortdesc">Table components</a></div></div></nav></article></main>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../components/containers/table-components.html" title="Table components include table, table header, table row, and table cell entry.">Table components</a></div></div></nav></article></main>

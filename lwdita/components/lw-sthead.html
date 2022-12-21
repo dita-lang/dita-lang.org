@@ -5,7 +5,7 @@ title: 'Table header'
 description: 'A simple table header is an optional header row for a simple table.'
 index: '../toc.html'
 notices: '../resources/oasis-notices.html'
-commit: '144d47afc0ece914fb1c996cb17ae620e613f9b0'
+commit: 'ce732e197e35c814d6e65d2eebbadee6ab80ca1f'
 repository: 'oasis-tcs/dita-lwdita'
 classes: ''
 ---
@@ -17,26 +17,43 @@ classes: ''
     an optional header row for a simple table.</p>
     <section class="section"><h2 class="title sectiontitle">Syntax</h2>
       
-      <dl class="dl">
-        
-          <dt class="dt dlterm">XDITA</dt>
-          <dd class="dd"><span></span>
-            <p class="p"><span></span><code class="keyword markupname xmlelement">&lt;sthead&gt;</code> inside <a class="xref" href="lw-simpletable.html" title="A simple table is a basic tabular environment that is designed to present organized content."><code class="keyword markupname xmlelement">&lt;simpletable&gt;&gt;</code></a></p>
-          </dd>
-        
-        
-          <dt class="dt dlterm">HDITA</dt>
-          <dd class="dd"><span></span>
-            <p class="p"><span></span><code class="keyword markupname xmlelement">&lt;th&gt;</code> inside <a class="xref" href="lw-simpletable.html" title="A simple table is a basic tabular environment that is designed to present organized content."><code class="keyword markupname xmlelement">&lt;table&gt;</code></a></p>
-          </dd>
-        
-        
-          <dt class="dt dlterm">MDITA (core and extended profiles)</dt>
-          <dd class="dd"><span></span>
-            <p class="p"><span></span>See <a class="xref" href="lw-simpletable.html" title="A simple table is a basic tabular environment that is designed to present organized content.">Table</a></p>
-          </dd>
-        
-      </dl>
+      <p class="p"><span></span>The syntax for representing this
+        component varies depending on the authoring format:</p>
+      
+      <table class="simpletable frame-all"><colgroup><col style="width:25%"><col style="width:75%"></colgroup><thead><tr class="sthead">
+          <th class="stentry" scope="col" id="lw-sthead__stentry__1"><span></span>Authoring format</th>
+          <th class="stentry" scope="col" id="lw-sthead__stentry__2"><span></span>Syntax and example</th>
+        </tr></thead><tbody><tr class="strow">
+          <th class="stentry" scope="row" headers="lw-sthead__stentry__1"><span></span>XDITA</th>
+          <td class="stentry" headers="lw-sthead__stentry__2"><span></span>
+            <p class="p"><span></span><code class="keyword markupname xmlelement">&lt;sthead&gt;</code></p>
+            <pre class="pre codeblock"><code><strong class="ph b">&lt;sthead&gt;</strong>
+  &lt;stentry&gt;&lt;p&gt;Ingredient&lt;/stentry&gt;
+  &lt;stentry&gt;&lt;p&gt;Amount&lt;/p&gt;&lt;/stentry&gt;
+  &lt;stentry&gt;&lt;p&gt;Unit shipped&lt;/p&gt;&lt;/stentry&gt;
+<strong class="ph b">&lt;/sthead&gt;</strong></code></pre>
+          </td>
+        </tr><tr class="strow">
+          <th class="stentry" scope="row" headers="lw-sthead__stentry__1"><span></span>HDITA</th>
+          <td class="stentry" headers="lw-sthead__stentry__2"><span></span>
+            <p class="p"><span></span><code class="keyword markupname xmlelement">&lt;th&gt;</code></p>
+            <pre class="pre codeblock"><code>&lt;tr&gt;
+  <strong class="ph b">&lt;th&gt;&lt;p&gt;Ingredient&lt;/p&gt;&lt;/th&gt;
+  &lt;th&gt;&lt;p&gt;Amount&lt;/p&gt;&lt;/th&gt;
+  &lt;th&gt;&lt;p&gt;Unit shipped&lt;/p&gt;&lt;/th&gt;</strong>
+&lt;/tr&gt;</code></pre>
+          </td>
+        </tr><tr class="strow">
+          <th class="stentry" scope="row" headers="lw-sthead__stentry__1"><span></span>MDITA</th>
+          <td class="stentry" headers="lw-sthead__stentry__2"><span></span>The header row should be separated from the body of the
+            table by a delimiter row. <span></span>The delimiter row contains hyphens
+              (<code class="ph codeph">-</code>).<pre class="pre codeblock"><code><strong class="ph b">| Ingredient       | Amount   | Unit shipped |</strong>
+| ---------------- | -------- | ------------ |
+| Gohan rice       | 140 gm   | 14 kg        |
+| Soya paper sheet | 1 pc     | 10 pc        |
+
+Table:  Fancy roll ingredients</code></pre></td>
+        </tr></tbody></table>
     </section>
 
     <section class="section"><h2 class="title sectiontitle">Attributes</h2>
@@ -169,4 +186,4 @@ classes: ''
     </figure>
     </div>
   </div>
-<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../components/containers/table-components.html" title="Need a LwDITA-relevant shortdesc">Table components</a></div></div></nav></article></main>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../components/containers/table-components.html" title="Table components include table, table header, table row, and table cell entry.">Table components</a></div></div></nav></article></main>
