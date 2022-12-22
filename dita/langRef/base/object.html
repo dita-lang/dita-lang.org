@@ -5,7 +5,7 @@ title: 'object'
 description: 'The DITA object element corresponds to the HTML object element, and the attribute semantics derive from the HTML definitions. Because of this, the type attribute on object differs from the type attribute on many other DITA elements.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '221bdcbd5e6e7397c064f945addcf003b469fbb9'
+commit: 'e0844168ec49a6f2353308dc3174e5bee44241d6'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -134,7 +134,7 @@ classes: ''
           web page in an inline frame. It assumes that the processing
           engine uses the <code class="ph codeph">outputclass="iframe"</code>
           directive.</p>
-        <pre class="pre codeblock"><code>&lt;object type="text/html"
+        <pre class="pre codeblock"><code><strong class="ph b">&lt;object type="text/html"</strong>
         data="https://www.openstreetmap.org/export/embed.html?bbox=-0.004017949104309083%2C51.47612752641776
               %2C0.00030577182769775396
               %2C51.478569861898606
@@ -149,8 +149,8 @@ classes: ''
               %2C0.00030577182769775396
               %2C51.478569861898606
               &amp;layer=mapnik"
-    /&gt;&lt;/fallback&gt;
-&lt;/object&gt;</code></pre>
+    /&gt;&lt;/fallback&gt;<strong class="ph b">
+&lt;/object&gt;</strong></code></pre>
         <p class="p">The above code might generate the following HTML:</p>
         <pre class="pre codeblock"><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -174,22 +174,20 @@ classes: ''
                 <p class="p">The following code sample shows how key definitions can
           be used to reference supporting resources for an
             <code class="keyword markupname xmlelement">&lt;object&gt;</code>:</p>
-                <pre class="pre codeblock"><code>&lt;object id="E5123_026.mp4"
-      width="300" height="300"&gt;
+                <pre class="pre codeblock"><code><strong class="ph b">&lt;object id="E5123_026.mp4" width="300" height="300"&gt;</strong>
   &lt;fallback&gt;Media not available.&lt;/fallback&gt;
-  &lt;param name="poster" <strong class="ph b">keyref="E5123_026_poster"</strong> /&gt;
-  &lt;param name="source" <strong class="ph b">keyref="E5123_026_video"</strong> /&gt;
-&lt;/object&gt;</code></pre>
-                <div class="p">In this scenario, the keys could be defined as follows:<pre class="pre codeblock"><code>&lt;map&gt;
+  &lt;param name="poster" keyref="E5123_026_poster" /&gt;
+  &lt;param name="source" keyref="E5123_026_video" /&gt;<strong class="ph b">
+&lt;/object&gt;</strong></code></pre>
+                <div class="p">In this scenario, the keys could be defined as
+          follows:<pre class="pre codeblock"><code>&lt;map&gt;
   &lt;!-- ... --&gt;
-  &lt;keydef keys="E5123_026_poster"
+  &lt;keydef <strong class="ph b">keys="E5123</strong>_026_poster"
       href="../images/E5123_026_poster.png"
-      type="video/mp4"
-  /&gt;
-  &lt;keydef keys="E5123_026_video"
+      type="video/mp4"/&gt;
+  &lt;keydef <strong class="ph b">keys="E5123_026_video"</strong>
       href="../media/E5123_026_poster.mp4"
-      type="video/mp4"
-  /&gt;
+      type="video/mp4"/&gt;
   &lt;!-- ... --&gt;
 &lt;/map&gt;</code></pre></div>
             </figure>
@@ -208,11 +206,12 @@ classes: ''
   &lt;param name="quality" value="high"/&gt;
   &lt;param name="bgcolor" value="#FFFFFF"/&gt;
 &lt;/object&gt;</code></pre>
-                <div class="p">In this scenario, the keys could be defined as follows:<pre class="pre codeblock"><code>&lt;map&gt;
+                <div class="p">In this scenario, the keys could be defined as
+          follows:<pre class="pre codeblock"><code>&lt;map&gt;
   &lt;!-- ... --&gt;
 
   &lt;!-- Using @scope="external" here because the referenced URL is external. --&gt;
-  &lt;keydef keys="cutkey370"
+  &lt;keydef <strong class="ph b">keys="cutkey370"</strong>
     href="https://www.example.com/cutkey370.swf"
     type="application/x-shockwave-flash"
     format="swf"
