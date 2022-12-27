@@ -5,7 +5,7 @@ title: 'Map'
 description: 'A DITA map is the mechanism for aggregating topic references and defining a context for those references. It contains references to topics, maps, and other resources.'
 index: '../toc.html'
 notices: '../resources/oasis-notices.html'
-commit: '4476fa4e7299e6b5d9c12271deaf18c8e46421f8'
+commit: '19f1eb1c15f5a0343692c4a102f26ef48f5bec24'
 repository: 'oasis-tcs/dita-lwdita'
 classes: ''
 ---
@@ -130,70 +130,106 @@ classes: ''
     </section>
         <div class="example non-normative"><h2 class="title sectiontitle">Examples</h2>
           
+      <p class="p">The section contains examples of how the map component can be
+        used.</p>
           <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>XDITA example</figcaption>
       
-      <p class="p">The following example demonstrates the use of map in XDITA.</p>
+        <p class="p">The following code sample shows a simple XDITA map. It contains
+          key definitions, including one for variable text, as well as
+          topic references that create a hierarchical table of contents
+          (TOC):</p>
 
-            <pre class="pre codeblock"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;!DOCTYPE map PUBLIC "-//OASIS//DTD LIGHTWEIGHT DITA Map//EN" "lw-map.dtd"&gt;
-&lt;map id="remote-main"&gt;
+            <pre class="pre codeblock"><code><strong class="ph b">&lt;map&gt;</strong>
+  &lt;topicmeta&gt;
+    &lt;navtitle&gt;Planting a winter garden&lt;/navtitle&gt;
+  &lt;/topicmeta&gt;
+  <strong class="ph b">&lt;!-- Key definitions for topics --&gt;</strong>
+  &lt;keydef keys="winter-garden" href="garden/winter-garden.dita"/&gt;
+  &lt;keydef keys="crop-types" href="garden/crops/crop-types.dita"/&gt;
+  &lt;keydef keys="selecting-plants" href="garden/tasks/selecting-plants.dita"/&gt;
+  <strong class="ph b">&lt;!-- Variable text definition --&gt;</strong>
+  &lt;keydef keys="product-greenhouse"&gt;
     &lt;topicmeta&gt;
-        &lt;navtitle&gt;Remote Lighting Network&lt;/navtitle&gt;
+      &lt;keytext&gt;Acme Greenhouse&lt;/keytext&gt;
     &lt;/topicmeta&gt;
-    &lt;topicref href="introduction.dita"&gt;
-        &lt;topicmeta&gt;
-            &lt;navtitle&gt;Introduction&lt;/navtitle&gt;
-        &lt;/topicmeta&gt;
-    &lt;/topicref&gt;
-    &lt;topicref href="alternatives.dita"&gt;
-        &lt;topicmeta&gt;
-            &lt;navtitle&gt;Alternative lighting setups&lt;/navtitle&gt;
-        &lt;/topicmeta&gt;
-        &lt;topicref href="low-power.dita"&gt;
-            &lt;topicmeta&gt;
-                &lt;navtitle&gt;Low power installation&lt;/navtitle&gt;
-            &lt;/topicmeta&gt;
-        &lt;/topicref&gt;
-        &lt;topicref href="high-power.dita"&gt;
-            &lt;topicmeta&gt;
-                &lt;navtitle&gt;High power installation&lt;/navtitle&gt;
-            &lt;/topicmeta&gt;
-        &lt;/topicref&gt;
-    &lt;/topicref&gt;
-&lt;/map&gt;</code></pre>
+  &lt;/keydef&gt;
+  <strong class="ph b">&lt;!-- TOC hierarchy --&gt;</strong>
+  &lt;topicref keyref="winter-garden"&gt;
+    &lt;topicref keyref="crop-types"/&gt;
+    &lt;topicref keyref="selecting-plants"/&gt;
+    &lt;topicref href="garden/tasks/planting-short-season-crops.dita"/&gt;
+    &lt;topicref href="garden/tasks/planting-long-season-crops.dita"/&gt;
+    &lt;topicref href="garden/tasks/extending-growing-season.dita"/&gt;
+    &lt;!-- … --&gt;
+  &lt;/topicref&gt;<strong class="ph b">
+&lt;/map&gt;
+</strong></code></pre>
 
           </figure>
     <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>HDITA example</figcaption>
       
-      <p class="p">The following example demonstrates the use of map in HDITA.</p>
-        <pre class="pre codeblock"><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;title&gt;Remote Lighting Network&lt;/title&gt;
-&lt;nav&gt;
-    &lt;h1&gt;Remote Lighting Network&lt;/h1&gt;
-     &lt;ul&gt;
-     &lt;li&gt;&lt;p&gt;&lt;a href="introduction.html"&gt;Introduction&lt;/a&gt;&lt;p&gt;&lt;/li&gt;
-     &lt;li&gt;&lt;p&gt;&lt;a href="alternatives.html"&gt;Alternative lighting setups&lt;/a&gt;&lt;/p&gt;
+        <p class="p">The following code sample shows a simple HDITA map. It contains
+          key definitions, including one for variable text, as well as
+          topic references that create a hierarchical table of contents
+          (TOC):</p>
+        <pre class="pre codeblock"><code><strong class="ph b">&lt;nav&gt;</strong>
+  &lt;h1&gt;Planting a winter garden&lt;/h1&gt;
+  <strong class="ph b">&lt;!-- Key definitions for topics --&gt;</strong>
+  &lt;div data-class="keydef" data-keys="winter-garden" href="garden/winter-garden.html"/&gt;
+  &lt;div data-class="keydef" data-keys="crop-types" href="garden/crop-types.html"/&gt;
+  &lt;div data-class="keydef" data-keys="selecting-plants" href="garden/selecting-plants.html"/&gt;
+  &lt;div data-class="keydef" data-keys="plant-short-season" href="garden/plant-short-season.html"/&gt;
+  &lt;div data-class="keydef" data-keys="plant-long-season" href="garden/plant-long-season.html"/&gt;
+  &lt;div data-class="keydef" data-keys="extending-season" href="garden/extending-season.html"/&gt;
+  <strong class="ph b">&lt;!-- Variable text definition --&gt;</strong>
+  &lt;div data-class="keydef" data-keys="product-greenhouse"&gt;
+    &lt;span data-class="keytext"&gt;Acme Greenhouse&lt;/span&gt;
+  &lt;/div&gt;
+  <strong class="ph b">&lt;!-- TOC hierarchy --&gt;</strong>
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a data-keyref="winter-garden"&gt;Planting a winter garden&lt;/a&gt;
       &lt;ul&gt;
-       &lt;li&gt;&lt;p&gt;&lt;a href="low-power.html"&gt;Low power installation&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-       &lt;li&gt;&lt;p&gt;&lt;a href="high-power.html"&gt;High power installation&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-       &lt;/ul&gt;
-       &lt;/li&gt;
+        &lt;li&gt;&lt;a data-keyref="crop-types"&gt;Crops for a winter garden&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a data-keyref="selecting-plants"&gt;Selecting your winter crops&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a data-keyref="plant-short-season"&gt;Planting short-season crops&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a data-keyref="plant-long-season"&gt;Planting long-season crops&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a data-keyref="extending-season"&gt;Extending the growing season&lt;/a&gt;&lt;/li&gt;
       &lt;/ul&gt;
-   &lt;/nav&gt;
-   &lt;/html&gt;</code></pre>
+    &lt;/li&gt;
+  &lt;/ul&gt;<strong class="ph b">
+&lt;/nav&gt;</strong></code></pre>
 
     </figure>
 
 
     <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 3. </span>MDITA example</figcaption>
       
-      <p class="p">The following example demonstrates the use of map in MDITA.</p>
-        <pre class="pre codeblock"><code># Remote Lighting Network
-   - [Introduction](introduction.md)
-   - [Alternative lighting setups](alternatives.md)
-       - [Low power installation](low-power.md)
-       - [High power installation](high-power.md)</code></pre>
+        <p class="p">The following code sample shows a simple MDITA map. It contains
+          key definitions, including one for variable text, as well as
+          topic references that create a hierarchical table of contents
+          (TOC):</p>
+        <pre class="pre codeblock"><code># Planting a winter garden
+  <strong class="ph b">&lt;!-- Key definitions for topics --&gt;</strong>
+  &lt;div data-class="keydef" data-keys="winter-garden" href="garden/winter-garden.md"/&gt;
+  &lt;div data-class="keydef" data-keys="crop-types" href="garden/crop-types.md"/&gt;
+  &lt;div data-class="keydef" data-keys="selecting-plants" href="garden/selecting-plants.md"/&gt;
+  &lt;div data-class="keydef" data-keys="plant-short-season" href="garden/plant-short-season.md"/&gt;
+  &lt;div data-class="keydef" data-keys="plant-long-season" href="garden/plant-long-season.md"/&gt;
+  &lt;div data-class="keydef" data-keys="extending-season" href="garden/extending-season.md"/&gt;
+  <strong class="ph b">&lt;!-- Variable text definition --&gt;</strong>
+  &lt;div data-class="keydef" data-keys="product-greenhouse"&gt;
+    &lt;span data-class="keytext"&gt;Acme Greenhouse&lt;/span&gt;
+  &lt;/div&gt;
+  <strong class="ph b">&lt;!-- TOC hierarchy --&gt;</strong>
+ - [Planting a winter garden](winter-garden)
+   - [Crops for a winter garden](crop-types)
+   - [Selecting your winter crops](selecting-plants)
+   - [Planting short-season crops](plant-short-season)
+   - [Planting long-season crops](plant-long-season)
+   - [Extending the growing season](extending-season)</code></pre>
+        <div class="p">
+          
+        </div>
 
 
     </figure>

@@ -5,7 +5,7 @@ title: 'Key text'
 description: 'Key text is variable or link text that is used when resolving key references. It also specifies alternate text for images that are referenced by keys.'
 index: '../toc.html'
 notices: '../resources/oasis-notices.html'
-commit: '4476fa4e7299e6b5d9c12271deaf18c8e46421f8'
+commit: '19f1eb1c15f5a0343692c4a102f26ef48f5bec24'
 repository: 'oasis-tcs/dita-lwdita'
 classes: ''
 ---
@@ -51,6 +51,12 @@ classes: ''
           </td>
         </tr></tbody></table>
     </section>
+    <section class="section"><h2 class="title sectiontitle">Processing expectations</h2>
+      
+      
+      <p class="p"><span></span>See "Processing key reference to generate text
+        or link text" in the <cite class="cite">DITA 2.0 specification</cite>.</p>
+    </section>
     <section class="section"><h2 class="title sectiontitle">Attributes</h2>
     
     
@@ -60,16 +66,11 @@ classes: ''
         authoring format:</p>
         <dl class="dl">
           
-            <dt class="dt dlterm">XDITA</dt>
+            <dt class="dt dlterm">XDITA and HDITA</dt>
             <dd class="dd"><span></span>The following attributes are available on this element: <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__localization-attributes" title="Localization attributes include dir, translate, and xml:lang.">localization attributes</a></span> and
                 <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__universal-attributes" title="Universal attributes include class and outputclass..">universal
                   attributes</a></span>.</dd>
           
-          
-            <dt class="dt dlterm">HDITA</dt>
-            <dd class="dd"><span></span>The following attributes are available on this element: <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__localization-attributes" title="Localization attributes include dir, translate, and xml:lang.">localization attributes</a></span> and
-                <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__universal-attributes" title="Universal attributes include class and outputclass..">universal
-                  attributes</a></span>.</dd>
           
           
             <dt class="dt dlterm">MDITA</dt>
@@ -83,51 +84,58 @@ classes: ''
   </section>
     <div class="example non-normative"><h2 class="title sectiontitle">Examples</h2>
       
-      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>XDITA example</figcaption>
+      <p class="p">This section contains examples of how the key text component can
+        be used.</p>
+      <figure class="fig fignone" id="lw-keytext__xdita-example"><figcaption><span class="fig--title-label">Figure 1. </span>XDITA key text</figcaption>
         
-        <p class="p">The following example demonstrates the use of key text in an
-          XDITA map.</p>
-        <pre class="pre codeblock"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;!DOCTYPE map PUBLIC "-//OASIS//DTD LIGHTWEIGHT DITA Map//EN" "lw-map.dtd"&gt;
-&lt;map id="remote-main"&gt;
+        <p class="p">The following code sample shows how the
+            <code class="keyword markupname xmlelement">&lt;keytext&gt;</code> element can be used to create
+          variable text for a product name, as well as alternate text for
+          an image referenced by <code class="keyword markupname xmlatt">@keyref</code>:</p>
+        <pre class="pre codeblock"><code><strong class="ph b">&lt;!-- Key definitions for images --&gt;</strong>
+  &lt;keydef keys="icon-save" href="icons/save.gif" format="gif" scope="local"&gt;
+    <strong class="ph b">&lt;keytext&gt;Save icon&lt;/keytext&gt;</strong>
+  &lt;/keydef&gt;
+  <strong class="ph b">&lt;!-- Variable text definition --&gt;</strong>
+  &lt;keydef keys="product-greenhouse"&gt;
     &lt;topicmeta&gt;
-        &lt;navtitle&gt;Remote Lighting Network&lt;/navtitle&gt;
+      <strong class="ph b">&lt;keytext&gt;Acme Greenhouse&lt;/keytext&gt;</strong>
     &lt;/topicmeta&gt;
-    &lt;keydef keys="product-name"&gt;
-        &lt;topicmeta&gt;
-            &lt;keytext&gt;Remote Network Lighting&lt;/keytext&gt;
-        &lt;/topicmeta&gt;
-    &lt;/keydef&gt;
-&lt;/map&gt;</code></pre>
+  &lt;/keydef&gt;</code></pre>
       </figure>
-      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>HDITA example</figcaption>
+      <figure class="fig fignone" id="lw-keytext__hdita-example"><figcaption><span class="fig--title-label">Figure 2. </span>HDITA key text</figcaption>
         
-        <p class="p">The following example demonstrates the use of key text in an
-          HDITA map.</p>
-        <pre class="pre codeblock"><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;title&gt;Remote Lighting Network&lt;/title&gt;
-&lt;nav&gt;
-    &lt;h1&gt;Remote Lighting Network&lt;/h1&gt;
-    &lt;div class="keydef"&gt;
-    &lt;span class="keytext" data-keys="product-name"&gt;Remote Lighting Network&lt;/span&gt;
-    &lt;/div&gt;
-   &lt;/nav&gt;
-   &lt;/html&gt;</code></pre>
+        <p class="p">The following code sample shows how the
+            <code class="keyword markupname xmlelement">&lt;keytext&gt;</code> element can be used to create
+          variable text for a product name, as well as alternate text for
+          an image referenced by <code class="keyword markupname xmlatt">@keyref</code>:</p>
+        <pre class="pre codeblock"><code><strong class="ph b">&lt;!-- Key definitions for images --&gt;</strong>
+  &lt;div data-class="keydef" 
+       data-keys="icon-save" 
+       href="icons/save.gif" format="gif" scope="local"&gt;
+    &lt;span data-class="keytext"&gt;Acme Greenhouse&lt;/span&gt;
+  &lt;/div&gt;
+  <strong class="ph b">&lt;!-- Variable text definition --&gt;</strong>
+  &lt;div data-class="keydef" data-keys="product-greenhouse"&gt;
+    &lt;span data-class="keytext"&gt;Acme Greenhouse&lt;/span&gt;
+  &lt;/div&gt;</code></pre>
       </figure>
-      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 3. </span>MDITA example</figcaption>
+      <figure class="fig fignone" id="lw-keytext__mdita-example"><figcaption><span class="fig--title-label">Figure 3. </span>MDITA key text</figcaption>
         
-        <p class="p">The following example demonstrates the use of key text in an
-          MDITA extended profile map.</p>
-        <pre class="pre codeblock"><code># Remote Lighting Network
-
-&lt;keydef keys="product-name"&gt;
-        &lt;topicmeta&gt;
-            &lt;linktext&gt;Remote Network Lighting&lt;/linktext&gt;
-        &lt;/topicmeta&gt;
-&lt;/keydef&gt;
-
-Replace with YAML!</code></pre>
+        <p class="p">The following code sample shows how the
+            <code class="keyword markupname xmlelement">&lt;keytext&gt;</code> element can be used to create
+          variable text for a product name, as well as alternate text for
+          an image referenced by <code class="keyword markupname xmlatt">@keyref</code>:</p>
+        <pre class="pre codeblock"><code><strong class="ph b">&lt;!-- Key definitions for images --&gt;</strong>
+  &lt;div data-class="keydef" 
+       data-keys="icon-save" 
+       href="icons/save.gif" format="gif" scope="local"&gt;
+    &lt;span data-class="keytext"&gt;Acme Greenhouse&lt;/span&gt;
+  &lt;/div&gt;
+  <strong class="ph b">&lt;!-- Variable text definition --&gt;</strong>
+  &lt;div data-class="keydef" data-keys="product-greenhouse"&gt;
+    &lt;span data-class="keytext"&gt;Acme Greenhouse&lt;/span&gt;
+  &lt;/div&gt;</code></pre>
       </figure>
     </div>
   </div>

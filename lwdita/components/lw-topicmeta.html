@@ -5,7 +5,7 @@ title: 'Topic metadata'
 description: 'Topic metadata is metadata that applies to a topic based on its context in a map.'
 index: '../toc.html'
 notices: '../resources/oasis-notices.html'
-commit: '4476fa4e7299e6b5d9c12271deaf18c8e46421f8'
+commit: '19f1eb1c15f5a0343692c4a102f26ef48f5bec24'
 repository: 'oasis-tcs/dita-lwdita'
 classes: ''
 ---
@@ -18,22 +18,35 @@ classes: ''
     map.</p>
     <section class="section"><h2 class="title sectiontitle">Syntax</h2>
       
-      <dl class="dl">
-        
-          <dt class="dt dlterm">XDITA</dt>
-          <dd class="dd"><span></span><p class="p"><span></span><code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code></p></dd>
-          
-        
-          <dt class="dt dlterm">HDITA</dt>
-          <dd class="dd"><span></span>
-            <p class="p"><span></span>There is no explicit syntax for topic metadata in HDITA</p>
-          </dd>
-        
-        
-          <dt class="dt dlterm">MDITA (core and extended profiles)</dt>
-          <dd class="dd"><span></span><p class="p"><span></span>There is no explicit syntax for topic metadata in MDITA </p></dd>
-        
-      </dl>
+      
+      <table class="simpletable frame-all"><colgroup><col style="width:25%"><col style="width:75%"></colgroup><thead><tr class="sthead">
+          <th class="stentry" scope="col" id="lw-topicmeta__stentry__1"><span></span>Authoring format</th>
+          <th class="stentry" scope="col" id="lw-topicmeta__stentry__2"><span></span>Syntax and example</th>
+        </tr></thead><tbody><tr class="strow">
+          <th class="stentry" scope="row" headers="lw-topicmeta__stentry__1"><span></span>XDITA</th>
+          <td class="stentry" headers="lw-topicmeta__stentry__2"><span></span>
+            <p class="p"><span></span><code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code></p>
+            <pre class="pre codeblock"><code>&lt;map&gt;
+  <strong class="ph b">&lt;topicmeta&gt;</strong>
+    &lt;navtitle&gt;Configuring the ACME Test Suite&lt;/navtitle&gt;
+    &lt;data name="goal" value="configuring"/&gt;
+  <strong class="ph b">&lt;/topicmeta&gt;</strong>
+  &lt;!-- ... <span></span>--&gt;
+&lt;/map</code></pre>
+          </td>
+        </tr><tr class="strow">
+          <th class="stentry" scope="row" headers="lw-topicmeta__stentry__1"><span></span>HDITA</th>
+          <td class="stentry" headers="lw-topicmeta__stentry__2"><span></span>
+            <p class="p"><span></span>There is no equivalent to
+              <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code>.</p>
+          </td>
+        </tr><tr class="strow">
+          <th class="stentry" scope="row" headers="lw-topicmeta__stentry__1"><span></span>MDITA</th>
+          <td class="stentry" headers="lw-topicmeta__stentry__2"><span></span>
+            <p class="p"><span></span>There is no equivalent to
+              <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code>.</p>
+          </td>
+        </tr></tbody></table>
     </section>
       <section class="section"><h2 class="title sectiontitle">Usage information</h2>
       
@@ -44,6 +57,7 @@ classes: ''
         topic reference results in a link, components within the topic metadata component can be used to
         provide context-specific information about the link, such as link text or a navigation
         title. <span></span></p>
+      
     </section>
 
 
@@ -51,38 +65,42 @@ classes: ''
       
       
       <div class="div">
-        <p class="p"><span></span>The available attributes vary based on the
-        authoring format:</p>
-        <dl class="dl">
-          
-            <dt class="dt dlterm">XDITA</dt>
-            <dd class="dd"><span></span>The following attributes are available on this element: <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__localization-attributes" title="Localization attributes include dir, translate, and xml:lang.">localization attributes</a></span> and
-                <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__universal-attributes" title="Universal attributes include class and outputclass..">universal
-                  attributes</a></span>.</dd>
-          
-          
-            <dt class="dt dlterm">HDITA</dt>
-            <dd class="dd"><span></span>The following attributes are available on this element: <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__localization-attributes" title="Localization attributes include dir, translate, and xml:lang.">localization attributes</a></span> and
-                <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__universal-attributes" title="Universal attributes include class and outputclass..">universal
-                  attributes</a></span>.</dd>
-          
-          
-            <dt class="dt dlterm">MDITA</dt>
-            <dd class="dd"><span></span><span class="ph">There is no attribute support for
-          the MDITA core profile. <span></span>For the MDITA extended profile,
-          attributes can be specified by using the HDITA
-          representation.</span></dd>
-          
-        </dl>
+        <p class="p"><span></span>The following attributes are available on this element: <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__localization-attributes" title="Localization attributes include dir, translate, and xml:lang.">localization attributes</a></span> and <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__universal-attributes" title="Universal attributes include class and outputclass..">universal
+                  attributes</a></span>.</p>
+        
       </div>
     </section>
       <div class="example non-normative"><h2 class="title sectiontitle">Example</h2>
           
-          <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>XDITA example</figcaption>
-      
-      <p class="p">The following example demonstrates the use of topic metadata in an XDITA map.</p>
-          <pre class="pre codeblock"><code></code></pre>
-    </figure>
+      <p class="p">The following code sample shows how the
+          <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> element can be used to both
+        specify metadata for the entire map and for a specific topic</p>
+      <pre class="pre codeblock"><code>&lt;map&gt;
+  &lt;!-- 1. Applies a title and metadata to the entire map --&gt;
+  <strong class="ph b">&lt;topicmeta&gt;
+    &lt;navtitle&gt;Configuring the ACME Test Suite&lt;/navtitle&gt;
+    &lt;data name="goal" value="configuring"/&gt;
+  &lt;/topicmeta&gt;</strong>
+  &lt;topicref keyref="configuring-test-suite"&gt;
+    &lt;topicref keyref="setting-preferences"/&gt;
+    &lt;topicref keyref="testing-parameters"&gt;
+      &lt;!-- 2. Applies metadata to the specific topic--&gt;
+      <strong class="ph b">&lt;topicmeta&gt;
+        &lt;data name="parameters" value="test-suite-set"/&gt;
+      &lt;/topicmeta&gt;</strong>
+    &lt;/topicref&gt;
+    &lt;topicref keyref="setting-options"/&gt;
+    &lt;!-- … --&gt;
+  &lt;/topicref&gt;
+&lt;/map&gt;</code></pre>
+      <p class="p">In the above code sample, a <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code>
+        element appears twice:</p>
+      <ol class="ol">
+        <li class="li">Specifies a navigation title for the map and indicates that all
+          topics in the map are about the user goal of "configuring".</li>
+        <li class="li">Specifies specific metadata for the topic defined by the key
+          "test-suite-set".</li>
+      </ol>
         </div>
   </div>
 <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../components/containers/map-components.html" title="Map components include the core components of LwDITA maps, such as key definition, key text, and topic reference.">Map components</a></div></div></nav></article></main>
