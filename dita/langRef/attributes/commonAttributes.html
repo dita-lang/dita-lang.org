@@ -5,7 +5,7 @@ title: 'Common attributes'
 description: 'The common attributes topic collects defines most of the attributes that are used on more than one base element.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '59e1f2f1fb198f014c5bd54fc3dd8d31c6bd91c3'
+commit: 'e959a72aa9a35f8e734ae46012246c74eb11bb07'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -120,11 +120,11 @@ classes: ''
         
           <dt class="dt dlterm" id="common-atts__otheratts">Other attributes (not in a group)</dt>
           <dd class="dd"><span></span>
-            <p class="p" id="common-atts__other-attr"><span></span>These are attributes that are used in the
-              same way on more than one base element, but they are not
-              formally grouped together: <code class="keyword markupname xmlatt">@compact</code>,
-                <code class="keyword markupname xmlatt">@duplicates</code>, <code class="keyword markupname xmlatt">@otherrole</code>,
-                <code class="keyword markupname xmlatt">@role</code>, and <code class="keyword markupname xmlatt">@title-role</code>.</p>
+            <p class="p" id="common-atts__other-attr"><span></span>These are attributes that are used in the same way on more than one
+              base element, but they are not formally grouped together: <code class="keyword markupname xmlatt">@compact</code>,
+                <code class="keyword markupname xmlatt">@duplicates</code>, <code class="keyword markupname xmlatt">@impose-role</code>,
+                <code class="keyword markupname xmlatt">@otherrole</code>, <code class="keyword markupname xmlatt">@role</code>, and
+              <code class="keyword markupname xmlatt">@title-role</code>.</p>
           </dd>
         
       </dl>
@@ -522,6 +522,33 @@ classes: ''
               on supported values and processing implications.</span></dd>
         
         
+          <dt class="dt dlterm" id="common-atts__attr-impose-role"><a id="common-atts__impose-role"></a><code class="keyword markupname xmlatt">@impose-role</code></dt>
+          <dd class="dd"><span></span>Specifies whether this element will impose its role on elements in a referenced map.
+<span></span>            The attribute is ignored if the target of the reference is not a map or branch of a map.
+<span></span>            The following values are valid: <dl class="dl">
+              
+                <dt class="dt dlterm">keeptarget</dt>
+                <dd class="dd"><span></span>The role of the current reference is not imposed on the target of the reference.
+<span></span>                  This is the default for the unspecialized <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>
+                  element and for many convenience elements such as
+                  <code class="keyword markupname xmlelement">&lt;keydef&gt;</code>.</dd>
+              
+              
+                <dt class="dt dlterm">impose</dt>
+                <dd class="dd"><span></span>The role of the current reference is imposed on the target of the reference. <span></span><span class="ph">For example, if a specialized topic reference
+                      <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> uses this value and references a map, a topic
+                    reference that resolves in place of the <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> will be
+                    treated as if it were a chapter.</span></dd>
+              
+              
+          <dt class="dt dlterm"><span class="keyword">-dita-use-conref-target</span></dt>
+          <dd class="dd"><span></span>See <a class="xref" href="../../common/../archSpec/base/ditauseconreftarget.html" title="The value -dita-use-conref-target is available on enumerated attributes and can also be specified on other attributes. When an element uses conref to pull in content, for any of its attributes assigned a value of -dita-use-conref-target, the resulting value for those attributes is also pulled in from the referenced element.">Using the -dita-use-conref-target value</a>
+            for more information. <span></span></dd>
+        
+            </dl><p class="p"><span></span><span class="ph"> See <a class="xref" href="../../archSpec/base/thehrefattribute.html" title="The href attribute specifies the URI of the resource that is addressed. The referenced resource can be another DITA topic or map, an element inside a DITA topic or map, or a non-DITA resource.">The href attribute</a> for detailed
+                information on supported values and processing implications.</span></p></dd>
+        
+        
           <dt class="dt dlterm" id="common-atts__attr-keycol"><a id="common-atts__keycol"></a><code class="keyword markupname xmlatt">@keycol</code>
             <span class="ph">(simpletable
             attributes)</span></dt>
@@ -627,7 +654,7 @@ classes: ''
                     referenced XML document is selected. <span></span>Any grammar processing should be performed
                     during resolution, such that default attribute values are explicitly populated.
 <span></span>                    Prolog content must be discarded.</p>
-                  <p class="p"><span class="error-statement" id="common-atts__d2428e1608" data-id="DITAERR-032"></span>It is an error to use <code class="ph codeph">parse="xml"</code> anywhere other than within
+                  <p class="p"><span class="error-statement" id="common-atts__d2428e1673" data-id="DITAERR-033"></span>It is an error to use <code class="ph codeph">parse="xml"</code> anywhere other than within
                       <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> or a specialization thereof.</p>
                 </dd>
               
