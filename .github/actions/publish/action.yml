@@ -14,7 +14,7 @@ runs:
     - name: Get source commit
       shell: bash
       run: |
-        find specification -type f -name \*.dita | xargs -I {} sh -c 'echo "<?commit $(git rev-parse HEAD:{})?>" >> {}'
+        find . -type f -name \*.dita | xargs -I {} sh -c 'echo "<?commit $(git rev-parse HEAD:{})?>" >> {}'
         echo "SHA=$(git rev-parse HEAD)" >> $GITHUB_ENV
       working-directory: ${{ inputs.DIR }}
     - name: Add custom filter
