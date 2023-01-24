@@ -14,7 +14,7 @@
               omit-xml-declaration="yes"/>
 
   <xsl:param name="repository"/>
-  <xsl:param name="commit" select="/processing-instruction(commit)[normalize-space()]/normalize-space()"/>
+  <xsl:param name="commit"/>
   <xsl:param name="layout" select="'base'" as="xs:string"/>
   <xsl:param name="root-chunk-override"/>
 
