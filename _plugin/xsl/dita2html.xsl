@@ -14,7 +14,7 @@
               omit-xml-declaration="yes"/>
 
   <xsl:param name="repository"/>
-  <xsl:param name="commit"/>
+  <xsl:param name="commit" select="/processing-instruction(commit)[normalize-space()]/normalize-space()"/>
   <xsl:param name="layout" select="'base'" as="xs:string"/>
   <xsl:param name="root-chunk-override"/>
 
@@ -33,7 +33,7 @@
     <xsl:variable name="title-text-only">
       <xsl:apply-templates select="*[contains(@class, ' topic/title ')][1]" mode="text-only"/>
     </xsl:variable>
-    <xsl:value-of select="replace(normalize-space($title-text-only), &quot;'&quot;, &quot;''&quot;)"/>
+    <xsl:value-of select="replace(normalize-space(string-join($title-text-only, ' ')), &quot;'&quot;, &quot;''&quot;)"/>
     <xsl:text>'&#xA;</xsl:text>
     <xsl:variable name="shortdescs" as="element()*"
                   select="*[contains(@class, ' topic/shortdesc ')] |

@@ -14,6 +14,7 @@ runs:
     - name: Get source commit
       shell: bash
       run: |
+        find specification -type f -name \*.dita | xargs -I {} sh -c 'echo "<?commit $(git rev-parse HEAD:{})?>" >> {}'
         echo "SHA=$(git rev-parse HEAD)" >> $GITHUB_ENV
       working-directory: ${{ inputs.DIR }}
     - name: Add custom filter
@@ -34,7 +35,6 @@ runs:
           -f org.dita-ot.html \
           --filter=${{ inputs.FILTER }}.external-publishing-engine.ditaval \
           --filter=${{ inputs.FILTER }} \
-          -Dcommit=$SHA \
           -Drepository=${{ inputs.REPOSITORY }} \
           --root-chunk-override=to-content \
           -Dnav-toc=full -v
