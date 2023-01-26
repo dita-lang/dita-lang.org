@@ -5,7 +5,7 @@ title: 'General task'
 description: 'A general task topic answers the "How do I?" question by providing instructions and other necessary information that enables users to complete the task successfully. It has a content model that is more relaxed than that of the strict task.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: 'd9e9b3686ea77aaa73de12d8cab8753e63061016'
+commit: '994d3bf05d767a30f7b7129549d9fe910591906c'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -57,10 +57,58 @@ classes: ''
         
       </dl>
     </section>
-    <section class="section" id="dita_generic_task_topic__example"><h2 class="title sectiontitle">Example</h2>
+    <section style="color:red;" class="section" id="dita_generic_task_topic__example"><h2 class="title sectiontitle">Example</h2>
       
-      <p class="p"><span></span></p>
-      <pre class="pre codeblock"><code></code></pre>
+      <p class="p"><span></span>The following code sample illustrates the relaxed content model of
+        the general task topic. <span></span>Note that there are multiple
+          <code class="keyword markupname xmlelement">&lt;prereq&gt;</code> elements and that they are
+        preceded by a <code class="keyword markupname xmlelement">&lt;context&gt;</code> element. <span></span>The
+        stylesheets used to generate output produce different labels for
+        each of the <code class="keyword markupname xmlelement">&lt;prereq&gt;</code> sections, triggered by
+        the value of the <code class="keyword markupname xmlatt">@outputclass</code> attribute.</p>
+      <pre class="pre codeblock"><code>&lt;task id="changing_a_tire"&gt;
+  &lt;title&gt;Changing a tire&lt;/title&gt;
+  &lt;taskbody&gt;
+    &lt;context&gt;&lt;p&gt;A flat tire typically shows up unexpectedly and catapults itself onto the 
+        top of your priority list. <span></span>A flat tire can happen to anyone at any time. <span></span>It doesn’t 
+        matter if you were already running late or if you’re wearing a cocktail dress. <span></span>
+        Regardless of your situation, the basic mechanics of changing a tire are the same 
+        whether you’re working with a car, truck, van, or SUV. <span></span>&lt;/p&gt;
+    &lt;/context&gt;
+    &lt;prereq outputclass="safety"&gt;
+      &lt;ul&gt;
+        &lt;li&gt;Find a safe place to pull over. <span></span>The ground should be solid and
+          level to keep your car from rolling. <span></span>If you’re on the side of the
+          road, pull over as far possible. <span></span>Avoid stopping near any bends in
+          the road, as this reduces visibility for both you and other
+          drivers. <span></span>If you’re in a dark or unsafe area, carefully drive to a
+          better spot.&lt;/li&gt;
+        &lt;li&gt;Use your hazard lights and parking brake to keep yourself and
+          your vehicle safe by increasing your visibility and decreasing
+          the vehicle’s ability to roll.&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/prereq&gt;
+    &lt;prereq outputclass="tools"&gt;&lt;p&gt;At the bare minimum, you’ll need a jack, wrench, and 
+        a spare tire. <span></span>These three items should always be in your vehicle just in case a
+        flat tire occurs. <span></span>Additional items that can make tire changing a little easier 
+        include:&lt;/p&gt;
+      &lt;ul&gt;
+        &lt;li&gt;Flashlight&lt;/li&gt;
+        &lt;li&gt;Gloves&lt;/li&gt;
+        &lt;li&gt;Mat for kneeling&lt;/li&gt;
+        &lt;li&gt;Rain poncho&lt;/li&gt;
+        &lt;li&gt;Tire gauge&lt;/li&gt;
+        &lt;li&gt;Your vehicle’s owner’s manual&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/prereq&gt;
+    &lt;steps&gt;
+      &lt;!-- ... <span></span>--&gt;
+    &lt;/steps&gt;
+    &lt;postreq&gt;
+      &lt;!-- ... <span></span>--&gt;
+    &lt;/postreq&gt;
+  &lt;/taskbody&gt;
+&lt;/task&gt;</code></pre>
     </section>
     
     
