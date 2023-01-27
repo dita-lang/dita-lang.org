@@ -5,7 +5,7 @@ title: 'sort-as'
 description: 'For elements that are sorted, the sort-as element provides text that is combined with the base sort phrase to construct the effective sort phrase.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '95dca3aa0fdd1ec1c82a79307676100ad4c36812'
+commit: 'b0590d9ecd941c66b674299bd7c40b39b5701eae'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -19,11 +19,13 @@ classes: ''
     phrase.</p>
     <section class="section" id="sort-as__section_pfp_2ty_1bb"><h2 class="title sectiontitle">Usage information</h2>
       
-      <p class="p"><span></span>Sort text can be specified in the content of the <code class="keyword markupname xmlelement">&lt;sort-as&gt;</code> element
-        or in the <code class="keyword markupname xmlatt">@value</code> attribute on the <code class="keyword markupname xmlelement">&lt;sort-as&gt;</code> element.
-<span></span>        The <code class="keyword markupname xmlelement">&lt;sort-as&gt;</code> element also is useful for elements where the base sort
-        phrase is inadequate or non-existent, such as an index entry for a Japanese Kanji
-        phrase.</p>
+      <p class="p"><span></span>Sort text can be specified in the content of the
+          <code class="keyword markupname xmlelement">&lt;sort-as&gt;</code> element or in the
+          <code class="keyword markupname xmlatt">@value</code> attribute on the
+          <code class="keyword markupname xmlelement">&lt;sort-as&gt;</code> element. <span></span>The
+          <code class="keyword markupname xmlelement">&lt;sort-as&gt;</code> elementis also useful for
+        elements where the base sort phrase is inadequate or non-existent,
+        such as an index entry for a Japanese Kanji phrase.</p>
       <p class="p"><span></span>If a <code class="keyword markupname xmlelement">&lt;keyword&gt;</code> element is used within
           <code class="keyword markupname xmlelement">&lt;sort-as&gt;</code>, the <code class="keyword markupname xmlatt">@keyref</code> attribute can be used to set
         the sort phrase. <span></span>If a <code class="keyword markupname xmlelement">&lt;keyword&gt;</code> uses <code class="keyword markupname xmlatt">@keyref</code> and
@@ -61,13 +63,14 @@ classes: ''
       <p class="p"><span></span>If the <code class="keyword markupname xmlatt">@value</code> attribute is not specified and the
           <code class="keyword markupname xmlelement">&lt;sort-as&gt;</code> element does not contain content, then the
           <code class="keyword markupname xmlelement">&lt;sort-as&gt;</code> element has no effect.</p>
-      <p class="p"><span></span>As a specialization of <code class="keyword markupname xmlelement">&lt;data&gt;</code>, the <code class="keyword markupname xmlelement">&lt;sort-as&gt;</code>
-        element is allowed in any context where <code class="keyword markupname xmlelement">&lt;data&gt;</code> is allowed. <span></span>However,
-        the presence of <code class="keyword markupname xmlelement">&lt;sort-as&gt;</code> within an element does not, by itself,
-        indicate that the containing element should be sorted. <span></span>Processors can choose to sort any
-        DITA elements for any reason. <span></span>Likewise, processors are not required to sort any elements.
-<span></span>        See <a class="xref" href="../../archSpec/base/sort-as-processing.html" title="Processors can be configured to sort elements. Typical processing includes sorting glossary entries, index entries, lists of parameters or reference entries in custom navigation structures, and tables based on the contents of cells in specific columns or rows.">Sorting</a> for more information on
-        sorting.</p>
+      <p class="p"><span></span>As a specialization of <code class="keyword markupname xmlelement">&lt;data&gt;</code>, the
+          <code class="keyword markupname xmlelement">&lt;sort-as&gt;</code> element is allowed in any
+        context where <code class="keyword markupname xmlelement">&lt;data&gt;</code> is allowed. <span></span>However,
+        the presence of <code class="keyword markupname xmlelement">&lt;sort-as&gt;</code> within an element
+        does not necessarily indicate that the containing element should be
+        sorted. <span></span>Processors can choose to sort any DITA elements for any
+        reason. <span></span>Likewise, processors are not required to sort any
+        elements.</p>
       <div class="p"><span></span>Processors <dfn class="term RFC-2119">SHOULD</dfn> expect to encounter
           <code class="keyword markupname xmlelement">&lt;sort-as&gt;</code> elements in the above locations. <span></span>Processors that sort
           <dfn class="term RFC-2119">SHOULD</dfn> use the following precedence rules:<ul class="ul">
@@ -82,9 +85,12 @@ classes: ''
             elements, the first direct-child <code class="keyword markupname xmlelement">&lt;sort-as&gt;</code> element in document
             order takes precedence.
 <span></span>            </li>
-          <li class="li"><span class="error-statement" id="sort-as__d3268e231" data-id="DITAERR-026"></span>It is an error if there is more than one <code class="keyword markupname xmlelement">&lt;sort-as&gt;</code> child for a
-            given <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code>. <span class="error-statement" id="sort-as__d3268t238" data-id="DITAERR-027"></span>An implementation encountering more than one
-              <code class="keyword markupname xmlelement">&lt;sort-as&gt;</code> in this case might give an error message.</li>
+          <li class="li"><span></span>
+            <p class="p errorcondition"><span class="error-statement" id="sort-as__d3267e231" data-id="DITAERR-026"></span>It is an error if there is more
+              than one <code class="keyword markupname xmlelement">&lt;sort-as&gt;</code> child for a given
+                <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code>
+              element.</p>
+          </li>
           <li class="li"><span></span>Sort phrases are determined after filtering and content reference resolution
             occur.</li>
         </ul></div>
@@ -109,15 +115,18 @@ classes: ''
     </section>
     <section class="section" id="sort-as__attributes"><h2 class="title sectiontitle">Attributes</h2>
       
-      <p class="p" id="sort-as__only-universal"><span></span>The following attributes are available on this element: <span class="ph"><a class="xref" href="../../common/../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
-                                                  attributes</a></span>, <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-name"><code class="keyword markupname xmlatt">@name</code></a>, and <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-value"><code class="keyword markupname xmlatt">@value</code></a>.</p>
+      <p class="p" id="sort-as__only-universal"><span></span>The following attributes are available on this
+        element: <span class="ph"><a class="xref" href="../../common/../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
+                                                  attributes</a></span>,
+          <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-name"><code class="keyword markupname xmlatt">@name</code></a>, and <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-value"><code class="keyword markupname xmlatt">@value</code></a>.</p>
       <div class="p attr-exception" id="sort-as__attr-exception"><span></span>For this element,<ul class="ul" id="sort-as__ul_g3c_412_ppb">
           <li class="li"><span></span>The <code class="keyword markupname xmlatt">@name</code> attribute has a default value of
             <span class="keyword">sort-as</span>.</li>
-          <li class="li"><span></span>The <code class="keyword markupname xmlatt">@value</code> attribute specifies a text to combine with the base sort
-            phrase to create an effective sort phrase. <span></span>When the <code class="keyword markupname xmlelement">&lt;sort-as&gt;</code>
-            element has content and the <code class="keyword markupname xmlatt">@value</code> attribute is specified, the
-              <code class="keyword markupname xmlatt">@value</code> attribute takes precedence.</li>
+          <li class="li"><span></span>The <code class="keyword markupname xmlatt">@value</code> attribute specifies text to
+            combine with the base sort phrase to create an effective sort
+            phrase. <span></span>When the <code class="keyword markupname xmlelement">&lt;sort-as&gt;</code> element has
+            content and the <code class="keyword markupname xmlatt">@value</code> attribute is specified,
+            the <code class="keyword markupname xmlatt">@value</code> attribute takes precedence.</li>
         </ul>
       </div>
     </section>
@@ -126,25 +135,35 @@ classes: ''
       <p class="p">The following examples illustrate how a glossary entry for the Chinese ideographic
         character for <span class="keyword">big</span> might specify an effective sort phrase of
           <span class="keyword">dada</span> (the Pin-Yin transliteration for Mandarin):</p>
-      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>The <code class="keyword markupname xmlelement">&lt;sort-as&gt;</code> element located within
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span><code class="keyword markupname xmlelement">&lt;sort-as&gt;</code> within
             <code class="keyword markupname xmlelement">&lt;glossterm&gt;</code></figcaption>
         
+        <p class="p">In the following code sample, the
+            <code class="keyword markupname xmlelement">&lt;sort-as&gt;</code> element is located within the
+            <code class="keyword markupname xmlelement">&lt;glossterm&gt;</code> element:</p>
         <pre class="pre codeblock"><code>&lt;glossentry id="gloss-dada"&gt;
-  &lt;glossterm&gt;&lt;sort-as value="dada"/&gt;&amp;#x5927;&amp;#x5927;&lt;/glossterm&gt;
+  &lt;glossterm&gt;
+    <strong class="ph b">&lt;sort-as value="dada"/</strong>&gt;
+    &amp;#x5927;&amp;#x5927;
+  &lt;/glossterm&gt;
   &lt;glossdef&gt;Literally "big big".&lt;/glossdef&gt;
 &lt;/glossentry&gt;</code></pre>
       </figure>
-      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>The <code class="keyword markupname xmlelement">&lt;sort-as&gt;</code> element within
-          <code class="keyword markupname xmlelement">&lt;prolog&gt;</code></figcaption>
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span><code class="keyword markupname xmlelement">&lt;sort-as&gt;</code> within
+            <code class="keyword markupname xmlelement">&lt;prolog&gt;</code></figcaption>
         
+        <p class="p">In the following code sample, the
+            <code class="keyword markupname xmlelement">&lt;sort-as&gt;</code> element is located within the
+            <code class="keyword markupname xmlelement">&lt;prolog&gt;</code> element of the glossary entry
+          topic:</p>
         <pre class="pre codeblock"><code>&lt;glossentry id="gloss-dada"&gt;
   &lt;glossterm&gt;&amp;#x5927;&amp;#x5927;&lt;/glossterm&gt;
   &lt;glossdef&gt;Literally "big big".&lt;/glossdef&gt;
   &lt;prolog&gt;
-    &lt;sort-as&gt;dada&lt;/sort-as&gt;
+    <strong class="ph b">&lt;sort-as&gt;dada&lt;/sort-as&gt;</strong>
   &lt;/prolog&gt;
 &lt;/glossentry&gt;</code></pre>
       </figure>
     </div>
   </div>
-<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/ut-d.html" title="The utilities domain elements describe image maps and enable sorting.">Utilities domain elements</a></div></div><div class="linklist relconcepts"><strong>Related concepts</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="../../archSpec/base/sort-as-processing.html" title="Processors can be configured to sort elements. Typical processing includes sorting glossary entries, index entries, lists of parameters or reference entries in custom navigation structures, and tables based on the contents of cells in specific columns or rows.">Sorting</a></li></ul></div></nav></article></main>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/ut-d.html" title="The utilities domain elements describe image maps and enable sorting.">Utilities domain elements</a></div></div><div class="linklist relconcepts"><strong>Related concepts</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="../../archSpec/base/sort-as-processing.html" title="Processors can be configured to sort elements. Typical processing includes sorting glossary entries, index entries, list items, and tables based on the contents of cells in specific columns or rows.">Sorting</a></li></ul></div></nav></article></main>
