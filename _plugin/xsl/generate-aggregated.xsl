@@ -37,7 +37,7 @@
                 <dt class="- topic/dt ">
                   <xref class="- topic/xref " href="{@href}" outputclass="error-statement">
                     <xsl:text>DITAERR-</xsl:text>
-                    <xsl:number format="001" value="position()"/>
+                    <xsl:number format="001" value="position() * 10"/>
                   </xref>
                 </dt>
                 <xsl:copy-of select="dd"/>
@@ -68,7 +68,7 @@
                 <dt class="- topic/dt ">
                   <xref class="- topic/xref " href="{@href}" outputclass="rfc-2119-statement">
                     <xsl:text>DITAREQ-</xsl:text>
-                    <xsl:number format="001" value="position()"/>
+                    <xsl:number format="001" value="position() * 10"/>
                   </xref>
                 </dt>
                 <xsl:copy-of select="dd"/>
