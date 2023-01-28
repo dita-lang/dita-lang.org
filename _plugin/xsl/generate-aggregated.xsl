@@ -4,7 +4,16 @@
                 version="2.0"
                 exclude-result-prefixes="xs">
 
+  <xsl:param name="repository" as="xs:string"/>
+
   <xsl:template match="/">
+    <xsl:variable name="prefix" as="xs:string">
+      <xsl:choose>
+        <xsl:when test="$repository = 'oasis-tcs/dita'">DITA</xsl:when>
+        <xsl:when test="$repository = 'oasis-tcs/dita-lwdita'">LWDT</xsl:when>
+        <xsl:when test="$repository = 'oasis-tcs/dita-techcomm'">DTTC</xsl:when>
+      </xsl:choose>
+    </xsl:variable>
     <xsl:variable name="root" select="/" as="document-node()"/>
     <xsl:variable name="topicrefs" as="xs:anyURI*"
                   select="descendant::*[contains(@class, ' map/topicref ')]
@@ -36,8 +45,9 @@
               <dlentry class="- topic/dlentry ">
                 <dt class="- topic/dt ">
                   <xref class="- topic/xref " href="{@href}" outputclass="error-statement">
-                    <xsl:text>DITAERR-</xsl:text>
-                    <xsl:number format="001" value="position() * 10"/>
+                    <xsl:value-of select="$prefix"/>
+                    <xsl:text>ERR-</xsl:text>
+                    <xsl:number format="0001" value="position() * 10"/>
                   </xref>
                 </dt>
                 <xsl:copy-of select="dd"/>
@@ -67,8 +77,9 @@
               <dlentry class="- topic/dlentry ">
                 <dt class="- topic/dt ">
                   <xref class="- topic/xref " href="{@href}" outputclass="rfc-2119-statement">
-                    <xsl:text>DITAREQ-</xsl:text>
-                    <xsl:number format="001" value="position() * 10"/>
+                    <xsl:value-of select="$prefix"/>
+                    <xsl:text>REQ-</xsl:text>
+                    <xsl:number format="0001" value="position() * 10"/>
                   </xref>
                 </dt>
                 <xsl:copy-of select="dd"/>
