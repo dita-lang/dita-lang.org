@@ -2,10 +2,10 @@
 # Generated from DITA source
 layout: base
 title: 'troubleshooting'
-description: 'The troubleshooting element is the top-level element for a troubleshooting topic.'
+description: 'The troubleshooting element is the top-level element for a troubleshooting topic. Troubleshooting topics provide information that enables readers to identify, diagnosis, and potentially remedy a problem situation.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '994d3bf05d767a30f7b7129549d9fe910591906c'
+commit: '66174ae72dc8523b5b616b4ccc4a08da16aed1bc'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -14,15 +14,18 @@ classes: ''
   <h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;troubleshooting&gt;</code></h1>
   
   
-  
-  <div class="body refbody"><p class="shortdesc"><span></span>The <code class="keyword markupname xmlelement">&lt;troubleshooting&gt;</code> element is the top-level element for a
-    troubleshooting topic.</p>
+  <div class="body refbody"><p class="shortdesc"><span></span>The <code class="keyword markupname xmlelement">&lt;troubleshooting&gt;</code> element is the
+    top-level element for a troubleshooting topic. <span></span>Troubleshooting topics
+    provide information that enables readers to identify, diagnosis, and
+    potentially remedy a problem situation.</p>
     <section class="section" id="troubleshooting__usage-information"><h2 class="title sectiontitle">Usage information</h2>
       
-      <p class="p"><span></span>Troubleshooting topics begin with a description of a condition that the reader might want
-        to correct, followed by one or more cause-remedy pairs. <span></span>Each cause-remedy pair is a
-        potential solution to the trouble described in the condition. <span></span>Troubleshooting topics
-        represent the kind of information that users typically consult to fix a problem.</p>
+      <p class="p"><span></span>Troubleshooting topics begin with a description of a condition
+        that the reader might want to correct, followed by one or more
+        cause and remedy pairs. <span></span>Each cause and remedy pair is a potential
+        solution to the problem that is described in the condition.
+<span></span>        Troubleshooting topics represent the kind of information that users
+        typically consult to fix a problem.</p>
     </section>
     <section class="section" id="troubleshooting__specialization-hierarchy"><h2 class="title sectiontitle">Specialization hierarchy</h2>
       
@@ -44,61 +47,52 @@ classes: ''
   </section>
     <div class="example non-normative" id="troubleshooting__example"><h2 class="title sectiontitle">Example</h2>
       
-      <pre class="pre codeblock"><code>
-&lt;troubleshooting id="resolve" xml:lang="en-us"&gt;
-  &lt;title&gt;E247 - Memory fault has occured&lt;/title&gt;
-  &lt;shortdesc&gt;The system has detected a problem in memory.
-  &lt;/shortdesc&gt;
+      <p class="p">The following code sample contains a troubleshooting topic. The
+        troubleshooting topic contains three cause and remedy pairs that
+        direct the user to perform sequential troubleshooting tasks:
+        Resetting the alarm, reseating the system memory board, and
+        replacing the memory board. Note that some steps are reused from
+        other topics.</p>
+      <pre class="pre codeblock"><code><strong class="ph b">&lt;troubleshooting id="E247" xml:lang="en-us"&gt;</strong>
+  &lt;title&gt;&lt;msgph&gt;&lt;msgnum&gt;E247&lt;/msgnum&gt;: Memory fault has occurred&lt;/msgph&gt;&lt;/title&gt;
+  &lt;shortdesc&gt;The system has detected a memory problem.&lt;/shortdesc&gt;
   &lt;troublebody&gt;
     &lt;condition&gt;
-      &lt;p&gt;The fault indicator flashes on the front panel, and
-        the error log contains the following message:
-        &lt;msgph&gt;E247 - Memory fault has occured&lt;/msgph&gt;&lt;/p&gt;
+      &lt;p&gt;The fault indicator flashes on the front panel, and the error log
+        contains the &lt;msgnum&gt;E247&lt;/msgnum&gt; error message.&lt;/p&gt;
     &lt;/condition&gt;
     &lt;troubleSolution&gt;
-      &lt;cause&gt;
-        &lt;p&gt;Transient memory fault.&lt;/p&gt;
-      &lt;/cause&gt;
+      &lt;cause&gt;p&gt;A transient memory fault has occurred.&lt;/p&gt;&lt;/cause&gt;
       &lt;remedy&gt;
-        &lt;responsibleParty&gt;System administrator&lt;/responsibleParty&gt;
         &lt;steps&gt;
-          &lt;step&gt;
-            &lt;cmd&gt;Reset the alarm&lt;/cmd&gt;
-          &lt;/step&gt;
-          &lt;step&gt;
-            &lt;cmd&gt;Monitor the system periodically to see whether
-               the alarm recurs&lt;/cmd&gt;
+          &lt;step&gt;&lt;cmd&gt;Reset the alarm.&lt;/cmd&gt;&lt;/step&gt;
+          &lt;step&gt;&lt;cmd&gt;Monitor the system periodically to see whether the alarm
+              recurs.&lt;/cmd&gt;
           &lt;/step&gt;
         &lt;/steps&gt;
       &lt;/remedy&gt;
     &lt;/troubleSolution&gt;
     &lt;troubleSolution&gt;
-      &lt;cause&gt;
-        &lt;p&gt;Recurring memory fault indicates possible problem
-          with the system memory board. Reseating the board
-          may fix the problem.&lt;/p&gt;
-      &lt;/cause&gt;
+      &lt;cause&gt;&lt;p&gt;A recurring memory fault indicates a possible problem with the
+          system memory board. Reseating the board might fix the
+          problem.&lt;/p&gt;&lt;/cause&gt;
       &lt;remedy&gt;
-        &lt;responsibleParty&gt;Maintenance technician&lt;/responsibleParty&gt;
-        &lt;steps conref="BoardReseat.dita#BoardReseatg/steps"&gt;
+        &lt;steps conref="boardReseat.dita#boardReseat/steps"&gt;
           &lt;step&gt;&lt;cmd/&gt;&lt;/step&gt;
         &lt;/steps&gt;
       &lt;/remedy&gt;
     &lt;/troubleSolution&gt;
     &lt;troubleSolution&gt;
-      &lt;cause&gt;
-        &lt;p&gt;Reseating the system memory board did not fix
-          the problem. Replacing the board may fix the problem.&lt;/p&gt;
-      &lt;/cause&gt;
+      &lt;cause&gt;p&gt;Reseating the system memory board did not fix the problem.
+          Replacing the board might fix the problem.&lt;/p&gt;&lt;/cause&gt;
       &lt;remedy&gt;
-        &lt;responsibleParty&gt;Maintenance technician&lt;/responsibleParty&gt;
-        &lt;steps conref="BoardReplace.dita#BoardReplac/steps"&gt;
+        &lt;steps conref="boardReplace.dita#boardReplace.dita/steps"&gt;
           &lt;step&gt;&lt;cmd/&gt;&lt;/step&gt;
         &lt;/steps&gt;
       &lt;/remedy&gt;
     &lt;/troubleSolution&gt;
   &lt;/troublebody&gt;
-&lt;/troubleshooting&gt;</code></pre>
+<strong class="ph b">&lt;/troubleshooting&gt;</strong></code></pre>
     </div>
   </div>
-<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/troubleshooting-elements.html" title="Troubleshooting topics document corrective action such as troubleshooting or alarm clearing.">Troubleshooting elements</a></div></div></nav></article></main>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/troubleshooting-elements.html" title="Troubleshooting elements provide the fundamental structure for troubleshooting topics. Troubleshooting topics outline problem conditions and aid readers in diagnosing and remedying the situation.">Troubleshooting elements</a></div></div></nav></article></main>

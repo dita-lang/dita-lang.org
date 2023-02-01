@@ -5,7 +5,7 @@ title: 'condition'
 description: 'The condition element describes a state that the troubleshooting topic is intended to remedy. This information helps the user decide whether a troubleshooting topic might contain an applicable remedy for a problem.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '994d3bf05d767a30f7b7129549d9fe910591906c'
+commit: '66174ae72dc8523b5b616b4ccc4a08da16aed1bc'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -14,13 +14,19 @@ classes: ''
   <h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;condition&gt;</code></h1>
   
   
-  <div class="body refbody"><p class="shortdesc"><span></span>The <code class="keyword markupname xmlelement">&lt;condition&gt;</code> element describes a state that the
-    troubleshooting topic is intended to remedy. <span></span>This information helps the user decide
-    whether a troubleshooting topic might contain an applicable remedy for a problem.</p>
+  <div class="body refbody"><div class="abstract"><span></span>
+     <span class="shortdesc"><span></span>The <code class="keyword markupname xmlelement">&lt;condition&gt;</code> element describes a
+      state that the troubleshooting topic is intended to remedy. <span></span>This
+      information helps the user decide whether a troubleshooting topic
+      might contain an applicable remedy for a problem.</span>
+    
+  </div>
     <section class="section" id="condition__usage-information"><h2 class="title sectiontitle">Usage information</h2>
       
-      <p class="p"><span></span>This section should add to or clarify information that is in the tile or short description
-        of the troubleshooting topic.</p>
+      <p class="p"><span></span>This section should add to or clarify information that is in the
+        title or short description of the troubleshooting topic. <span></span>If the
+        title and short description adequately describes the condition,
+        this element might be omitted.</p>
     </section>
     <section class="section" id="condition__specialization-hierarchy"><h2 class="title sectiontitle">Specialization hierarchy</h2>
       
@@ -35,7 +41,37 @@ classes: ''
     </section>
     <div class="example non-normative" id="condition__example"><h2 class="title sectiontitle">Example</h2>
       
-      <p class="p">See <a class="xref" href="troubleshooting.html" title="The troubleshooting element is the top-level element for a troubleshooting topic.">troubleshooting</a>.</p>
+      <p class="p">In the following code sample, the
+          <code class="keyword markupname xmlelement">&lt;condition&gt;</code> element contains information
+        that elaborates on the information provided by the title and short
+        description:</p>
+      <pre class="pre codeblock"><code>&lt;troubleshooting id="system-will-not-turn-on"&gt;
+  &lt;title&gt;System will not turn on&lt;/title&gt;
+  &lt;shortdesc&gt;Everything looks right, but the system still does not start.&lt;/shortdesc&gt;
+  &lt;troublebody&gt;
+    <strong class="ph b">&lt;condition&gt;</strong>
+      &lt;title&gt;Condition&lt;/title&gt;
+      &lt;p&gt;The system is plugged in, the power switch is on, but the system does not start.&lt;/p&gt;
+    <strong class="ph b">&lt;/condition&gt;</strong>
+    &lt;troubleSolution&gt;
+      &lt;!-- ... --&gt;
+    &lt;/troubleSolution&gt;
+  &lt;/troublebody&gt;
+&lt;/troubleshooting&gt;</code></pre>
+      <p class="p">Alternately, the short description could be enhanced and the
+          <code class="keyword markupname xmlelement">&lt;condition&gt;</code> element eliminated:</p>
+      <pre class="pre codeblock"><code>&lt;troubleshooting id="system-will-not-turn-on"&gt;
+  &lt;title&gt;System will not turn on&lt;/title&gt;
+  <strong class="ph b">&lt;shortdesc&gt;he system is plugged in, the power switch is on, but the system does not start.&lt;/shortdesc&gt;
+  &lt;troublebody&gt;</strong>
+    &lt;troubleSolution&gt;
+      &lt;!-- ... --&gt;
+    &lt;/troubleSolution&gt;
+  &lt;/troublebody&gt;
+&lt;/troubleshooting&gt;</code></pre>
+      <p class="p">How implementations choose what markup patterns they use might
+        depend on their stylesheets and how they deliver troubleshooting
+        information to readers.</p>
     </div>
   </div>
-<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/troubleshooting-elements.html" title="Troubleshooting topics document corrective action such as troubleshooting or alarm clearing.">Troubleshooting elements</a></div></div></nav></article></main>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/troubleshooting-elements.html" title="Troubleshooting elements provide the fundamental structure for troubleshooting topics. Troubleshooting topics outline problem conditions and aid readers in diagnosing and remedying the situation.">Troubleshooting elements</a></div></div></nav></article></main>

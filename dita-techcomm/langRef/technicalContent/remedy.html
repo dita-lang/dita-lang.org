@@ -5,7 +5,7 @@ title: 'remedy'
 description: 'The remedy element contains steps that are a potential solution for the problem described in the troubleshooting topic.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '994d3bf05d767a30f7b7129549d9fe910591906c'
+commit: '66174ae72dc8523b5b616b4ccc4a08da16aed1bc'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -18,8 +18,9 @@ classes: ''
     solution for the problem described in the troubleshooting topic.</p>
     <section class="section" id="remedy__usage-information"><h2 class="title sectiontitle">Usage information</h2>
       
-      <p class="p"><span></span>Typically, a <code class="keyword markupname xmlelement">&lt;remedy&gt;</code> is preceded by a
-        <code class="keyword markupname xmlelement">&lt;cause&gt;</code>.</p>
+      <p class="p"><span></span>The <code class="keyword markupname xmlelement">&lt;remedy&gt;</code> element is a component of a
+        cause and remedy pair. <span></span>The remedy might be omitted if there is no
+        known remedy for the cause.</p>
     </section>
     <section class="section" id="remedy__specialization-hierarchy"><h2 class="title sectiontitle">Specialization hierarchy</h2>
       
@@ -34,7 +35,21 @@ classes: ''
     </section>
     <div class="example non-normative" id="remedy__example"><h2 class="title sectiontitle">Example</h2>
       
-      <p class="p">See <a class="xref" href="troubleshooting.html" title="The troubleshooting element is the top-level element for a troubleshooting topic.">troubleshooting</a>.</p>
+      <p class="p">In the following code sample, the <code class="keyword markupname xmlelement">&lt;remedy&gt;</code>
+        element contains instructions for how the responsible party can fix
+        the problem. Note that rather than cross-referencing to another
+        topic, the <code class="keyword markupname xmlelement">&lt;steps&gt;</code> element from an existing
+        topic is reused.</p>
+      <pre class="pre codeblock"><code>&lt;troubleSolution&gt;
+  &lt;cause&gt;A recurring memory fault indicates a possible problem with the
+         the system memory board. Reseating the board might fix the problem.
+  &lt;/cause&gt;
+  <strong class="ph b">&lt;remedy&gt;</strong>
+    &lt;steps conref="reseatBoard.dita#reseatBoard/steps"&gt;
+      &lt;step&gt;&lt;cmd/&gt;&lt;/step&gt;
+    &lt;/steps&gt;
+  <strong class="ph b">&lt;/remedy&gt;</strong>
+&lt;/troubleSolution&gt;</code></pre>
     </div>
  </div>
-<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/troubleshooting-elements.html" title="Troubleshooting topics document corrective action such as troubleshooting or alarm clearing.">Troubleshooting elements</a></div></div></nav></article></main>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/troubleshooting-elements.html" title="Troubleshooting elements provide the fundamental structure for troubleshooting topics. Troubleshooting topics outline problem conditions and aid readers in diagnosing and remedying the situation.">Troubleshooting elements</a></div></div></nav></article></main>
