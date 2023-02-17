@@ -5,7 +5,7 @@ title: 'Attribute groups'
 description: 'Many of the attributes used on DITA elements are defined in attribute groups. These attribute groups are used both in the grammar files and the specification,'
 index: '../../../../toc.html'
 notices: '../../../../resources/oasis-notices.html'
-commit: '0f76df1ae497c96462c1cb38f152f206f60f99ac'
+commit: '38f708280bee8900ce0ca6ad161c445c33c15135'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -785,7 +785,7 @@ classes: ''
                     referenced XML document is selected. <span></span>Any grammar processing should be performed
                     during resolution, such that default attribute values are explicitly populated.
 <span></span>                    Prolog content must be discarded.</p>
-                  <p class="p"><span class="error-statement" id="attribute-groups__d2321e1973" data-id="DTTCERR-0010"></span>It is an error to use <code class="ph codeph">parse="xml"</code> anywhere other than within
+                  <p class="p"><span class="error-statement" id="attribute-groups__d2441e1973" data-id="DTTCERR-0010"></span>It is an error to use <code class="ph codeph">parse="xml"</code> anywhere other than within
                       <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> or a specialization thereof.</p>
                 </dd>
               
@@ -1010,6 +1010,52 @@ classes: ''
               and 3/6 (16.7%, 33.3%, and 50%). <span></span>Similarly, the value
                 <code class="ph codeph">relcolwidth="90* 150*"</code> causes relative
               widths of 90/240 and 150/240 (37.5% and 62.5%).</p></dd>
+        
+      </dl>
+    </section>
+    <section class="section" id="attribute-groups__table-accessibility-attributes"><h2 class="title sectiontitle">Table accessibility attributes</h2>
+      
+      <p class="p"><span></span>This group defines a set of attributes that promote table
+        accessibility:</p>
+      <dl class="dl">
+        
+          <dt class="dt dlterm" id="attribute-groups__attr-headers"><code class="keyword markupname xmlatt">@headers</code></dt>
+          <dd class="dd"><span></span><span style="color:red;" class="ph">Specifies which entries in the current
+              table provide headers for this cell. <span></span></span> The
+              <code class="keyword markupname xmlatt">@headers</code> attribute contains an unordered set
+            of unique, space-separated tokens, each of which is an ID
+            reference of an entry from the same table.</dd>
+        
+        
+          <dt class="dt dlterm" id="attribute-groups__attr-scope-simpletable"><code class="keyword markupname xmlatt">@scope</code></dt>
+          <dd class="dd"><span></span>Specifies that the current entry is a header for other table
+            entries. <span></span>The following values are valid:<dl class="dl">
+              
+                <dt class="dt dlterm"><span class="keyword">col</span></dt>
+                <dd class="dd"><span></span>Indicates that the current entry is a header for all
+                  cells in the column.</dd>
+              
+              
+                <dt class="dt dlterm"><span class="keyword">colgroup</span></dt>
+                <dd class="dd"><span></span>Indicates that the current entry is a header for all
+                  cells in the columns that are spanned by this entry.</dd>
+              
+              
+                <dt class="dt dlterm"><span class="keyword">row</span></dt>
+                <dd class="dd"><span></span>Indicates that the current entry is a header for all
+                  cells in the row.</dd>
+              
+              
+                <dt class="dt dlterm"><span class="keyword">rowgroup</span></dt>
+                <dd class="dd"><span></span>Indicates that the current entry is a header for all
+                  cells in the rows that are spanned by this entry.</dd>
+              
+              
+          <dt class="dt dlterm"><span class="keyword">-dita-use-conref-target</span></dt>
+          <dd class="dd"><span></span>See <a class="xref" href="../../common/../archSpec/base/ditauseconreftarget.html" title="The value -dita-use-conref-target is available on enumerated attributes and can also be specified on other attributes. When an element uses conref to pull in content, for any of its attributes assigned a value of -dita-use-conref-target, the resulting value for those attributes is also pulled in from the referenced element.">Using the -dita-use-conref-target value</a>
+            for more information. <span></span></dd>
+        
+            </dl></dd>
         
       </dl>
     </section>
