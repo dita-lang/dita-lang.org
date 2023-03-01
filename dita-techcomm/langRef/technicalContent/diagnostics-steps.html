@@ -2,10 +2,10 @@
 # Generated from DITA source
 layout: base
 title: 'diagnostics-steps'
-description: 'The diagnostics-steps element includes step-by-step information that can help readers determine the cause of the symptom. Results of the diagnostic steps might link to potential solutions.'
+description: 'The diagnostics-steps element includes step-by-step information that can help readers determine the causes of a symptom. Results of the diagnostic steps might link to potential solutions.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: 'c615db0946b4a0f13a39c4d3406297a8500f82c3'
+commit: '695c32a910f0c00d9a2fdf3f1cd426f530d5b540'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -16,7 +16,7 @@ classes: ''
   
   <div class="body refbody"><p class="shortdesc"><span></span>The <code class="keyword markupname xmlelement">&lt;diagnostics-steps&gt;</code>
     element includes step-by-step information that can help readers
-    determine <span style="color:red;" class="ph">the cause of the symptom</span>. <span></span>Results of
+    determine <span style="color:red;" class="ph">the causes of a symptom</span>. <span></span>Results of
       <span style="color:red;" class="ph">the diagnostic steps might link to potential
       solutions.</span></p>
     <section class="section" id="diagnostics-steps__usage-information"><h2 class="title sectiontitle">Usage information</h2>
@@ -39,50 +39,56 @@ classes: ''
     </section>
     <div class="example non-normative" id="diagnostics-steps__example"><h2 class="title sectiontitle">Example</h2>
       
-      
       <p class="p">The following code sample shows how the
           <code class="keyword markupname xmlelement">&lt;diagnostics-steps&gt;</code> element can provide
         step-by-step instructions to help someone determine <span style="color:red;" class="ph">the cause of a problem and the potential
           solution</span>:</p>
-      <pre class="pre codeblock"><code>&lt;diagnostics&gt;
-  <strong class="ph b">&lt;diagnostics-steps&gt;</strong>
-    &lt;steps&gt;
-      &lt;step&gt;
-        &lt;cmd&gt;Open the command prompt and type &lt;userinput&gt;ipconfig&lt;/userinput&gt;.&lt;/cmd&gt;
-        &lt;info&gt;The Default Gateway (listed last) is your router’s IP. Your computer’s IP
-              address is the number next to “IP Address.” If your computer’s IP address
-              starts with 169, the computer is not receiving a valid IP address. See
-              &lt;xref href="#./ipaddress"/&gt;.
-        &lt;/info&gt;
-      &lt;/step&gt;
-      &lt;step&gt;
-        &lt;cmd&gt;If your address does not start with 169, type 
-             &lt;userinput&gt;tracert8.8.8.8&lt;/userinput&gt; to view each step between your router 
-             and the Google DNS servers.&lt;/cmd&gt;
-        &lt;info&gt;If the error comes up early along the pathway, see 
-              &lt;xref href="#./resetnetwork"/&gt;&lt;/info&gt;
-      &lt;/step&gt;
-      &lt;step&gt;
-        &lt;cmd&gt;If everything is working with Google, use the &lt;cmdname&gt;nslookup&lt;/cmdname&gt; 
-             command to determine if there's a problem with the server you are trying 
-             to connect to.&lt;/cmd&gt;
-        &lt;info&gt;If you received results such as &lt;msgph&gt;Timed Out&lt;/msgph&gt;, 
-              &lt;msgph&gt;Server Failure&lt;/msgph&gt;, &lt;msgph&gt;Refused&lt;/msgph&gt;, 
-              &lt;msgph&gt;No Response from Server&lt;/msgph&gt;, or 
-              &lt;msgph&gt;Network is unreachable&lt;msgph&gt;, the problem originates in the DNS 
-              server for your destination.&lt;/info&gt;
-      &lt;/step&gt;
-      &lt;step&gt;
-        &lt;cmd&gt;If the previous steps turn up no problems, contact your ISP to see if they're 
-               having issues.&lt;/cmd&gt;
-      &lt;/step&gt;
-    &lt;/steps&gt;
-  <strong class="ph b">&lt;/diagnostics-steps&gt;</strong>   
-&lt;/diagnostics&gt;
-  &lt;!-- The rest of this topic contains two &lt;troublesolution&gt; elements, each of which contains
-       a remedy. One remedy provides instructions for "Resetting your IP address" and the
-       other provides instructions for "Resetting your local network". The cross references 
-       in the above steps resolve to the &lt;remedy&gt; elements. --&gt;</code></pre>
+      <pre class="pre codeblock"><code>&lt;troubleshooting id="my-network-isnt-working"&gt;
+  &lt;title&gt;My network isn't working&lt;/title&gt;
+  &lt;shortdesc&gt;Users are unable to access network servers, the internet, or other 
+      networked devices, such as printers.&lt;/shortdesc&gt;
+  &lt;troublebody&gt;
+    &lt;diagnostics&gt;
+      <strong class="ph b">&lt;diagnostics-steps&gt;</strong>
+        &lt;steps&gt;
+          &lt;step&gt;
+            &lt;cmd&gt;Open the command prompt and type &lt;userinput&gt;ipconfig&lt;/userinput&gt;.&lt;/cmd&gt;
+            &lt;info&gt;The Default Gateway (listed last) is your router’s IP. Your computer’s IP
+                address is the number next to “IP Address.” If your computer’s IP address
+                starts with 169, the computer is not receiving a valid IP address. See
+                &lt;xref href="#./ipaddress"/&gt;.
+            &lt;/info&gt;
+          &lt;/step&gt;
+          &lt;step&gt;
+            &lt;cmd&gt;If your address does not start with 169, type 
+               &lt;userinput&gt;tracert8.8.8.8&lt;/userinput&gt; to view each step between your router 
+               and the Google DNS servers.&lt;/cmd&gt;
+            &lt;info&gt;If the error comes up early along the pathway, see 
+                &lt;xref href="#./resetnetwork"/&gt;&lt;/info&gt;
+          &lt;/step&gt;
+          &lt;step&gt;
+            &lt;cmd&gt;If everything is working with Google, use the &lt;cmdname&gt;nslookup&lt;/cmdname&gt; 
+               command to determine if there's a problem with the server you are trying 
+               to connect to.&lt;/cmd&gt;
+            &lt;info&gt;If you received results such as &lt;msgph&gt;Timed Out&lt;/msgph&gt;, 
+                &lt;msgph&gt;Server Failure&lt;/msgph&gt;, &lt;msgph&gt;Refused&lt;/msgph&gt;, 
+                &lt;msgph&gt;No Response from Server&lt;/msgph&gt;, or 
+                &lt;msgph&gt;Network is unreachable&lt;msgph&gt;, the problem originates in the DNS 
+                server for your destination.&lt;/info&gt;
+          &lt;/step&gt;
+          &lt;step&gt;
+            &lt;cmd&gt;If the previous steps turn up no problems, contact your ISP to see if 
+              they're having issues.&lt;/cmd&gt;
+          &lt;/step&gt;
+        &lt;/steps&gt;
+      <strong class="ph b">&lt;/diagnostics-steps&gt;</strong>   
+    &lt;/diagnostics&gt;
+    &lt;!-- The rest of this topic contains two &lt;troublesolution&gt; elements, each of which 
+         contains a remedy. One remedy provides instructions for "Resetting your IP address" 
+         and the other provides instructions for "Resetting your local network". The 
+         cross references in the above steps resolve to the &lt;remedy&gt; elements. --&gt;
+  &lt;/troublebody&gt;
+&lt;/troubleshooting&gt;</code></pre>
     </div>
   </div>
 <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/troubleshooting-elements.html" title="Troubleshooting elements provide the fundamental structure for troubleshooting topics. Troubleshooting topics describe problems and provide information about how to fix them.">Troubleshooting elements</a></div></div></nav></article></main>

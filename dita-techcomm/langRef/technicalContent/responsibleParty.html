@@ -5,7 +5,7 @@ title: 'responsibleParty'
 description: 'The responsibleParty element identifies the individual or team whose task it is to perform a remedy procedure. It also provides important information, such as the fact that the warranty is voided if the procedure is performed by the wrong person.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: 'c615db0946b4a0f13a39c4d3406297a8500f82c3'
+commit: '695c32a910f0c00d9a2fdf3f1cd426f530d5b540'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -21,8 +21,8 @@ classes: ''
       performed by the wrong person.</span></p>
     <section style="color:red;" class="section" id="responsibleParty__rendering-expectations"><h2 class="title sectiontitle">Rendering expectations</h2>
       
-      <p class="p"><span></span>Implementations might want to consider rendering
-        a label for this element.</p>
+      <p style="color:red;" class="p"><span></span>Implementations might want to consider rendering a
+        label for this element.</p>
     </section>
     <section class="section" id="responsibleParty__specialization-hierarchy"><h2 class="title sectiontitle">Specialization hierarchy</h2>
       
@@ -37,10 +37,19 @@ classes: ''
     </section>
     <div class="example non-normative" id="responsibleParty__examples"><h2 class="title sectiontitle">Example</h2>
       
-      
       <p class="p">The following code sample shows how the
-          <code class="keyword markupname xmlelement">&lt;responsbleParty&gt;</code> element can be used:</p>
-      <pre class="pre codeblock"><code></code></pre>
+          <code class="keyword markupname xmlelement">&lt;responsibleParty&gt;</code> element can be used <span style="color:red;" class="ph">to specify the prerequisites for performing a
+          procedure</span>:</p>
+      <pre style="color:red;" class="pre codeblock"><code>&lt;remedy&gt;
+  <strong class="ph b">&lt;responsible-party&gt;</strong>You must have administrative privileges to perform this procedure.
+  <strong class="ph b">&lt;/responsible-party&gt;</strong>
+  &lt;steps&gt;
+    &lt;step&gt;&lt;cmd&gt;Run the following command from the command line: 
+            &lt;codeph&gt;msiexec.exe /I C:\Windows\Installer\XXXXX.msi&lt;/codeph&gt;&lt;/cmd&gt;
+    &lt;step&gt;
+    &lt;!-- ... --&gt;
+  &lt;/steps&gt;
+&lt;/remedy&gt;</code></pre>
       
       
     </div>
