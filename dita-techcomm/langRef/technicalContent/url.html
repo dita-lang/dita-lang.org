@@ -2,10 +2,10 @@
 # Generated from DITA source
 layout: base
 title: 'url'
-description: 'The url element contains a Uniform Resource Locator (URL), such as a person''s or company''s internet address.'
+description: 'The url element specifies a Uniform Resource Locator (URL) for an authoring organization.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '695c32a910f0c00d9a2fdf3f1cd426f530d5b540'
+commit: '177a638e17433f8b94ca3b2f00fe11cdead4d2e9'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -14,8 +14,8 @@ classes: ''
   <h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;url&gt;</code></h1>
   
   
-  <div class="body refbody"><p class="shortdesc"><span></span>The <code class="keyword markupname xmlelement">&lt;url&gt;</code> element contains a Uniform Resource Locator (URL),
-    such as a person's or company's internet address.</p>
+  <div class="body refbody"><p class="shortdesc"><span></span>The <code class="keyword markupname xmlelement">&lt;url&gt;</code> element specifies a Uniform Resource Locator (URL) for
+    an authoring organization. <span></span></p>
     <section class="section" id="url__specialization-hierarchy"><h2 class="title sectiontitle">Specialization hierarchy</h2>
       
       <p class="p"><span></span>The <code class="keyword markupname xmlelement">&lt;url&gt;</code> element is specialized from <code class="keyword markupname xmlelement">&lt;data&gt;</code>.
@@ -30,22 +30,51 @@ classes: ''
     </section>
     <div class="example non-normative" id="url__example"><h2 class="title sectiontitle">Example</h2>
       
-      <pre class="pre codeblock"><code>&lt;organizationinfo&gt;
- &lt;namedetails&gt;
-  &lt;organizationnamedetails&gt;
-   &lt;organizationname&gt;WizardWorks, Inc.&lt;/organizationname&gt;
-   &lt;otherinfo&gt;'Best wizard in Oz'&lt;/otherinfo&gt;
-  &lt;/organizationnamedetails&gt;
- &lt;/namedetails&gt;
- &lt;addressdetails&gt;
-  &lt;thoroughfare&gt;123 Yellow Brick Road&lt;/thoroughfare&gt;
-  &lt;locality&gt;Emerald City&lt;/locality&gt;
-  &lt;administrativearea&gt;Kansas&lt;/administrativearea&gt;
-  &lt;country&gt;USA&lt;/country&gt;
- &lt;/addressdetails&gt;
- &lt;contactnumbers&gt;&lt;contactnumber&gt;123-555-4678&lt;/contactnumber&gt;&lt;/contactnumbers&gt;
- &lt;emailaddresses&gt;&lt;emailaddress&gt;wizard@example.org&lt;/emailaddress&gt;&lt;/emailaddresses&gt;
- <strong class="ph b">&lt;urls&gt;&lt;url&gt;www.wizardworks.example.org&lt;/url&gt;&lt;/urls&gt;</strong>
-&lt;/organizationinfo&gt;</code></pre></div>
+      <p class="p">The following code sample shows how the <code class="keyword markupname xmlelement">&lt;url&gt;</code> element can be used to
+        specify a Uniform Resource Locator (URL) for an authoring organization:</p>
+      <pre class="pre codeblock" id="url__codeblock_xdt_rr2_nwb"><code>&lt;bookmeta&gt;
+ &lt;authorinformation&gt;
+  &lt;personinfo&gt;
+   &lt;namedetails&gt;&lt;personname&gt;
+     &lt;firstname&gt;Derek&lt;/firstname&gt;
+     &lt;middlename&gt;L.&lt;/middlename&gt;
+     &lt;lastname&gt;Singleton&lt;/lastname&gt;
+     &lt;generationidentifier&gt;Jr.&lt;/generationidentifier&gt;
+     &lt;otherinfo&gt;noted psychologist&lt;/otherinfo&gt;
+   &lt;/personname&gt;&lt;/namedetails&gt;
+   &lt;addressdetails&gt;
+     &lt;thoroughfare&gt;123 Yellow Brick Road&lt;/thoroughfare&gt;
+     &lt;locality&gt;
+      &lt;localityname&gt;Emerald City&lt;/localityname&gt;
+      &lt;postalcode&gt;66780&lt;/postalcode&gt;
+     &lt;/locality&gt;
+     &lt;administrativearea&gt;Kansas&lt;/administrativearea&gt;
+     &lt;country&gt;USA&lt;/country&gt;
+   &lt;/addressdetails&gt;
+   &lt;contactnumbers&gt;&lt;contactnumber&gt;123-555-4678&lt;/contactnumber&gt;&lt;/contactnumbers&gt;
+   &lt;emailaddresses&gt;&lt;emailaddress&gt;wizard@example.org&lt;/emailaddress&gt;&lt;/emailaddresses&gt;
+  &lt;/personinfo&gt;
+  &lt;organizationinfo&gt;
+   &lt;namedetails&gt;
+    &lt;organizationnamedetails&gt;
+     &lt;organizationname&gt;WizardWorks, Inc.&lt;/organizationname&gt;
+     &lt;otherinfo&gt;noted psychologist&lt;/otherinfo&gt;
+     &lt;/organizationnamedetails&gt;
+   &lt;/namedetails&gt;
+   &lt;addressdetails&gt;
+    &lt;thoroughfare&gt;123 Yellow Brick Road&lt;/thoroughfare&gt;
+     &lt;locality&gt;
+      &lt;localityname&gt;Emerald City&lt;/localityname&gt;
+      &lt;postalcode&gt;66780&lt;/postalcode&gt;
+      &lt;/locality&gt;
+    &lt;administrativearea&gt;Kansas&lt;/administrativearea&gt;
+    &lt;country&gt;USA&lt;/country&gt;
+   &lt;/addressdetails&gt;
+   &lt;contactnumbers&gt;&lt;contactnumber&gt;123-555-4678&lt;/contactnumber&gt;&lt;/contactnumbers&gt;
+   &lt;emailaddresses&gt;&lt;emailaddress&gt;wizard@example.org&lt;/emailaddress&gt;&lt;/emailaddresses&gt; 
+   &lt;urls&gt;<strong class="ph b">&lt;url&gt;</strong>www.wizardworks.example.org<strong class="ph b">&lt;/url&gt;</strong>&lt;/urls&gt;
+  &lt;/organizationinfo&gt;
+ &lt;/authorinformation&gt;
+&lt;/bookmeta&gt;</code></pre></div>
   </div>
 <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/xnal-d.html" title="The xNAL domain elements represent a subset of the Extensible Name and Address Standard. It is used to encode information about the author or authors of DITA information. The domain can be included in any DITA document type shell that requires additional metadata for names and addresses, although the implementations provided by OASIS only include it in the bookmap document type.">xNAL domain</a></div></div></nav></article></main>
