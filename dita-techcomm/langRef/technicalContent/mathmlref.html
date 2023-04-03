@@ -5,7 +5,7 @@ title: 'mathmlref'
 description: 'The mathmlref element is a reference to a non-DITA XML document that contains MathML markup.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '4b1c34b07921d945faf622a0e3d6168763072323'
+commit: 'af70b8b8981e4a5f47e18816cfce1359af9aa442'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -27,23 +27,14 @@ classes: ''
           <li class="li"><span></span>A URI that addresses an XML document and contains a fragment identifier that is the
             XML ID of a <code class="keyword markupname xmlelement">&lt;math&gt;</code> element within the document </li>
         </ul></div>
+      <div class="note note note_note non-normative" id="mathmlref__note_dw4_qg4_ywb"><span class="note__title">Note:</span> To reuse MathML markup stored within a DITA topic, use a
+          c<code class="keyword markupname xmlatt">@conref</code>  or <code class="keyword markupname xmlatt">@conkeyref</code> attribute on the
+          <code class="keyword markupname xmlelement">&lt;mathml&gt;</code> element.</div>
       
       <p class="p"><span></span>The reference can be direct, using the <code class="keyword markupname xmlatt">@href</code> attribute, or indirect, using
         the <code class="keyword markupname xmlatt">@keyref</code> attribute. <span></span>For indirect referencing, specify only the key name.
 <span></span>        Specify the ID of the <code class="keyword markupname xmlelement">&lt;mathml&gt;</code> element as part of the value for the
           <code class="keyword markupname xmlatt">@href</code> attribute on the key definition.</p>
-      <div class="p"><span></span>For example, to refer to the <code class="keyword markupname xmlelement">&lt;math&gt;</code> element with the
-          <code class="keyword markupname xmlatt">@id</code> of "equation-02" within a larger document using a key reference, you
-        would define the key in the following
-        way:<pre class="pre codeblock"><code>&lt;keydef 
-  keys="mathml-equation-02" 
-  href="math/mathml-equations.xml#equation-02"
-  format="mathml"
-/&gt;</code></pre>You
-        would refer to this key using just the key
-        name:<pre class="pre codeblock"><code>&lt;mathml&gt;
-  &lt;mathmlref keyref="mathml-equation-02"/&gt;
-&lt;/mathml&gt;</code></pre></div>
     </section>
     <section class="section" id="mathmlref__processing-expectations"><h2 class="title sectiontitle">Processing expectations</h2>
       
@@ -69,8 +60,8 @@ classes: ''
     </section>
     <div class="example non-normative" id="mathmlref__example"><h2 class="title sectiontitle">Example</h2>
       
-      <p class="p">The following code sample shows a reference to a <code class="keyword markupname xmlelement">&lt;math&gt;</code> element that
-        is the root element of its containing document:</p>
+      <p class="p">The following code sample shows how to reference a MathML <code class="keyword markupname xmlelement">&lt;math&gt;</code>
+        element that is the root element of its containing document:</p>
       <pre class="pre codeblock"><code>&lt;equation-block&gt;
  &lt;mathml&gt;
   <strong class="ph b">&lt;mathmlref href="../mathml-source/mathml-root-mathml.mml"/&gt;</strong>
@@ -95,7 +86,7 @@ classes: ''
   &lt;/mrow&gt;
  &lt;/mstyle&gt;
 <strong class="ph b">&lt;/math&gt;</strong></code></pre></div>
-      <p class="p">The following code sample shows a reference to a specific <code class="keyword markupname xmlelement">&lt;math&gt;</code>
+      <p class="p">The following code sample shows how to reference a specific <code class="keyword markupname xmlelement">&lt;math&gt;</code>
         element in a containing XML file:</p>
       <pre class="pre codeblock"><code>&lt;equation-block&gt;
  &lt;mathml&gt;
@@ -128,6 +119,17 @@ classes: ''
   &lt;/math&gt;
  &lt;/part&gt;
 &lt;/root&gt;</code></pre></div>
+      <div class="p">To refer to the <code class="keyword markupname xmlelement">&lt;math&gt;</code> element with the <code class="keyword markupname xmlatt">@id</code> of
+        "equation-02" within a larger document using a key reference, define the key in the
+        following way:<pre class="pre codeblock" id="mathmlref__codeblock_oj3_zqn_ywb"><code>&lt;keydef 
+  keys="mathml-equation-02" 
+  href="math/mathml-equations.xml#equation-02"
+  format="mathml"
+/&gt;</code></pre>Then refer to this key using just the key
+        name:<pre class="pre codeblock" id="mathmlref__codeblock_pj3_zqn_ywb"><code>&lt;mathml&gt;
+  &lt;mathmlref keyref="mathml-equation-02"/&gt;
+&lt;/mathml&gt;</code></pre></div>
+      
     </div>
   </div>
-<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/mathml-d.html" title="The MathML domain elements enable direct use of MathML markup within DITA documents, as well as use-by-reference of MathML markup that is stored separate, non-DITA documents. MathML is a W3C standard.">MathML domain</a></div></div></nav></article></main>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/mathml-d.html" title="The MathML domain elements enable direct use of MathML markup within DITA documents, as well as use-by-reference of MathML markup that is stored in separate, non-DITA documents. MathML is a W3C standard.">MathML domain</a></div></div></nav></article></main>

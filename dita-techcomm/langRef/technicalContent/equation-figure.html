@@ -5,7 +5,7 @@ title: 'equation-figure'
 description: 'The equation-figure element represents an equation that functions as a form of figure or display.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '4b1c34b07921d945faf622a0e3d6168763072323'
+commit: 'af70b8b8981e4a5f47e18816cfce1359af9aa442'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -24,9 +24,10 @@ classes: ''
         reference), or it can be one or more <code class="keyword markupname xmlelement">&lt;equation-block&gt;</code> elements, along
         with other elements allowed within figures.</p>
       <p class="p"><span></span>When an <code class="keyword markupname xmlelement">&lt;equation-figure&gt;</code> element has multiple direct child
-          <code class="keyword markupname xmlelement">&lt;mathml&gt;</code>, <code class="keyword markupname xmlelement">&lt;image&gt;</code>, or
-          <code class="keyword markupname xmlelement">&lt;pre&gt;</code> elements, each child represents an alternative form of the
-        equation.</p>
+          <code class="keyword markupname xmlelement">&lt;mathml&gt;</code>, <code class="keyword markupname xmlelement">&lt;equation-block&gt;</code>,
+          <code class="keyword markupname xmlelement">&lt;image&gt;</code>, or <code class="keyword markupname xmlelement">&lt;pre&gt;</code> elements, each child
+        represents an alternative form of the equation.</p>
+      
       <p class="p"><span></span>When the intent is to have equations combined with other commentary within an
           <code class="keyword markupname xmlelement">&lt;equation-figure&gt;</code>, the recommended best practice is to use child
           <code class="keyword markupname xmlelement">&lt;equation-block&gt;</code> elements to contain the equations and clearly
@@ -34,17 +35,23 @@ classes: ''
     </section>
     <section class="section" id="equation-figure__rendering-expectations"><h2 class="title sectiontitle">Rendering expectations</h2>
       
-      <p class="p"><span></span>Display equations are intended to be numbered when numbering is desired.</p>
+      <p class="p"><span></span>Display equations can be numbered if desired, either through standard figure numbering, or
+        through use of the <code class="keyword markupname xmlelement">&lt;equation-number&gt;</code>  element within
+          <code class="keyword markupname xmlelement">&lt;equation-block&gt;</code>.</p>
+      
       
     </section>
     <section class="section" id="equation-figure__processing-expectations"><h2 class="title sectiontitle">Processing expectations</h2>
       
-      <p class="p"><span></span>Processors are free to choose the form or forms that they use in deliverables. <span></span>For example,
-        if there is both an image and MathML markup, an HTML-generating processor could generate
-        both the image reference and the MathML with appropriate HTML <code class="keyword markupname xmlatt">@class</code> or
-          <code class="keyword markupname xmlatt">@id</code> values to enable dynamic rendering based on browser capability. <span></span>All
-        other direct-child elements of <code class="keyword markupname xmlelement">&lt;equation-figure&gt;</code> are treated
-        normally.</p>
+      <p class="p"><span></span>Processors are free to choose the form or forms that they use in deliverables from among
+        the  <code class="keyword markupname xmlelement">&lt;mathml&gt;</code>,  <code class="keyword markupname xmlelement">&lt;equation-block&gt;</code>,
+          <code class="keyword markupname xmlelement">&lt;image&gt;</code>, or <code class="keyword markupname xmlelement">&lt;pre&gt;</code> elements contained in the
+          <code class="keyword markupname xmlelement">&lt;equation-figure&gt;</code>. <span></span> For example, if there is both an image and
+        MathML markup, an HTML-generating processor could generate both the image reference and the
+        MathML with appropriate HTML <code class="keyword markupname xmlatt">@class</code> or <code class="keyword markupname xmlatt">@id</code> values to enable
+        dynamic rendering based on browser capability. <span></span>All other direct-child elements of
+          <code class="keyword markupname xmlelement">&lt;equation-figure&gt;</code> are treated normally.</p>
+      
       
     </section>
     <section class="section" id="equation-figure__specialization-hierarchy"><h2 class="title sectiontitle">Specialization hierarchy</h2>
@@ -60,8 +67,8 @@ classes: ''
     </section>
     <div class="example non-normative" id="equation-figure__example"><h2 class="title sectiontitle">Example</h2>
       
-      <div class="p">In the following code sample, the <code class="keyword markupname xmlelement">&lt;equation-figure&gt;</code> element contains
-        a title and MathML:<pre class="pre codeblock"><code>&lt;equation-figure&gt;
+      <div class="p">The following code sample shows how to use an <code class="keyword markupname xmlelement">&lt;equation-figure&gt;</code>
+        element to combine a title with MathML content:<pre class="pre codeblock"><code>&lt;equation-figure&gt;
   &lt;title&gt;Display equation with a MathML container&lt;/title&gt;
   &lt;mathml&gt;
     &lt;m:math display='block'&gt;
@@ -83,9 +90,10 @@ classes: ''
     &lt;/m:math&gt;
   &lt;/mathml&gt;
 &lt;/equation-figure&gt;</code></pre></div>
-      <div class="p">In the following example, the <code class="keyword markupname xmlelement">&lt;equation-figure&gt;</code> element contains a
-        title and an <code class="keyword markupname xmlelement">&lt;equation-block&gt;</code> element that contains MathML and
-        commentary:<pre class="pre codeblock"><code>&lt;equation-figure&gt;
+      <div class="p">The following example shows how to include both MathMl content and commentary within an
+          <code class="keyword markupname xmlelement">&lt;equation-block&gt;</code> element, and then place that
+          <code class="keyword markupname xmlelement">&lt;equation-block&gt;</code>, along with a title, within an
+          <code class="keyword markupname xmlelement">&lt;equation-figure&gt;</code>:<pre class="pre codeblock"><code>&lt;equation-figure&gt;
  &lt;title&gt;Display equation with a MathML container&lt;/title&gt;
  &lt;equation-block&gt;
   &lt;mathml&gt;
@@ -114,4 +122,4 @@ classes: ''
 &lt;/equation-figure&gt;</code></pre></div>
     </div>
   </div>
-<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/equation-elements.html" title="The elements in the equation domain enable authors to clearly distinguish equations from other type of content. These markup distinctions can enable formatting distinctions, numbering of equations, and more. This domain can be used independently of the MathML domain.">Equation domain</a></div></div></nav></article></main>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/equation-elements.html" title="The elements in the equation domain contain information that allows authors to identify, number, and format equations within a document This domain can be used independently of the MathML domain.">Equation domain</a></div></div></nav></article></main>
