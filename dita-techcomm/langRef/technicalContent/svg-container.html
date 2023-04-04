@@ -5,7 +5,7 @@ title: 'svg-container'
 description: 'The svg-container element stores content that contributes to a scalable vector graphic (SVG).'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: 'af70b8b8981e4a5f47e18816cfce1359af9aa442'
+commit: '5475c2f8f5cd2dc62a9a62b8398931cc35f18bb9'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -18,9 +18,9 @@ classes: ''
     scalable vector graphic (SVG).</p>
     <section class="section" id="svg-container__usage-information"><h2 class="title sectiontitle">Usage information</h2>
       
-      <p class="p"><span></span><code class="keyword markupname xmlelement">&lt;svg-container&gt;</code> content includes SVG elements, references to SVG
-        elements that are stored in separate, non-DITA documents, or <code class="keyword markupname xmlelement">&lt;data&gt;</code>
-          elements.</p>
+      <p class="p"><span></span>The <code class="keyword markupname xmlelement">&lt;svg-container&gt;</code> element can contain SVG
+        elements, references to SVG elements that are stored in separate,
+        non-DITA documents, or <code class="keyword markupname xmlelement">&lt;data&gt;</code> elements.</p>
       <p class="p"><span></span>The SVG markup must have a root element of <code class="keyword markupname xmlelement">&lt;svg&gt;</code> with the SVG
         namespace: "http://www.w3.org/2000/svg".</p>
     </section>
@@ -37,41 +37,43 @@ classes: ''
     </section>
     <div class="example non-normative" id="svg-container__example"><h2 class="title sectiontitle">Example</h2>
       
-      <div class="p">The following example shows how to use an <code class="keyword markupname xmlelement">&lt;svg-container&gt;</code> element to
-        generate both  inline SVG markup and a titled figure containing SVG
-        markup:<pre class="pre codeblock" id="svg-container__codeblock_ic5_msn_ywb"><code>&lt;topic id="svg-test-topic-01"&gt;
- &lt;title&gt;SVG Domain Test: Namespace Prefixed SVG Elements&lt;/title&gt;
- &lt;body&gt;
-  &lt;p&gt;SVG inline: &lt;svg-container&gt;
-   &lt;svg:svg width="100" height="100"&gt;
-    &lt;svg:defs&gt;
-     &lt;svg:filter id="f1" x="0" y="0"&gt;
-      &lt;svg:feGaussianBlur in="SourceGraphic" stdDeviation="15"/&gt;
-     &lt;/svg:filter&gt;
-    &lt;/svg:defs&gt;
-    &lt;svg:rect width="90" height="90" stroke="green"
-        stroke-width="3" fill="yellow" filter="url(#f1)"/&gt;
-   &lt;/svg:svg&gt;
-  &lt;/svg-container&gt;&lt;/p&gt;
-
-  &lt;p&gt;SVG Directly in body:&lt;/p&gt;
-  &lt;svg-container&gt;
-   &lt;svg:svg width="200" height="200"&gt;
-    &lt;svg:ellipse cx="100" cy="100" rx="80" ry="80" style="fill:blue;
-                 stroke:rgb(0,0,100);stroke-width:2"/&gt;
-   &lt;/svg:svg&gt;
-  &lt;/svg-container&gt;
-  &lt;fig&gt;
-   &lt;title&gt;Figure With SVG Container&lt;/title&gt;
-   &lt;svg-container&gt;
-    &lt;svg:svg width="4in" height="6in" version="1.1"&gt;
-     &lt;svg:circle cx="150" cy="200" r="100" fill="url(#grad_blue)"/&gt;
-     &lt;svg:rect x="70" y="320" height="40" width="80" fill="aqua"/&gt;
-     &lt;svg:text x="90" y="350" font-size="30" fill="green"&gt;Go&lt;/svg:text&gt;
-    &lt;/svg:svg&gt;
-   &lt;/svg-container&gt;
-  &lt;/fig&gt;
- &lt;/body&gt;
+      <div class="p">The following code sample shows how
+          <code class="keyword markupname xmlelement">&lt;svg-container&gt;</code> elements can be used in a
+        DITA topic. It is used to generate both inline SVG markup and a
+        titled figure that contains SVG
+        markup:<pre class="pre codeblock"><code>&lt;topic id="svg-test-topic-01"&gt;
+  &lt;title&gt;SVG Domain Test: Namespace Prefixed SVG Elements&lt;/title&gt;
+    &lt;body&gt;
+      &lt;!-- SVG inline --&gt;
+      <strong class="ph b">&lt;svg-container&gt;</strong>
+        &lt;svg:svg width="100" height="100"&gt;
+          &lt;svg:defs&gt;
+            &lt;svg:filter id="f1" x="0" y="0"&gt;
+              &lt;svg:feGaussianBlur in="SourceGraphic" stdDeviation="15"/&gt;
+            &lt;/svg:filter&gt;
+          &lt;/svg:defs&gt;
+          &lt;svg:rect width="90" height="90" stroke="green" stroke-width="3" fill="yellow" 
+                    filter="url(#f1)"/&gt;
+        &lt;/svg:svg&gt; 
+      <strong class="ph b">&lt;/svg-container&gt;</strong>
+      &lt;!-- ... --&gt;
+      <strong class="ph b">&lt;svg-container&gt;</strong>
+        &lt;svg:svg width="200" height="200"&gt;
+          &lt;svg:ellipse cx="100" cy="100" rx="80" ry="80" style="fill:blue; 
+                       stroke:rgb(0,0,100);stroke-width:2"/&gt;
+        &lt;/svg:svg&gt;
+      <strong class="ph b">&lt;/svg-container&gt;</strong>
+      &lt;fig&gt;
+        &lt;title&gt;Figure with SVG container&lt;/title&gt;
+        <strong class="ph b">&lt;svg-container&gt;</strong>
+          &lt;svg:svg width="4in" height="6in" version="1.1"&gt;
+            &lt;svg:circle cx="150" cy="200" r="100" fill="url(#grad_blue)"/&gt;
+            &lt;svg:rect x="70" y="320" height="40" width="80" fill="aqua"/&gt;
+            &lt;svg:text x="90" y="350" font-size="30" fill="green"&gt;Go&lt;/svg:text&gt;
+          &lt;/svg:svg&gt;
+        <strong class="ph b">&lt;/svg-container&gt;</strong>
+      &lt;/fig&gt;
+    &lt;/body&gt;
 &lt;/topic&gt;</code></pre></div>
     </div>
   </div>

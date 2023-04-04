@@ -2,10 +2,10 @@
 # Generated from DITA source
 layout: base
 title: 'mathmlref'
-description: 'The mathmlref element is a reference to a non-DITA XML document that contains MathML markup.'
+description: 'The mathmlref element references a non-DITA XML document that contains MathML markup.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: 'af70b8b8981e4a5f47e18816cfce1359af9aa442'
+commit: '5475c2f8f5cd2dc62a9a62b8398931cc35f18bb9'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -14,33 +14,35 @@ classes: ''
   <h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;mathmlref&gt;</code></h1>
   
   
-  <div class="body refbody"><p class="shortdesc"><span></span>The <code class="keyword markupname xmlelement">&lt;mathmlref&gt;</code> element is a reference to a non-DITA XML
-    document that contains MathML markup.</p>
+  <div class="body refbody"><p class="shortdesc"><span></span>The <code class="keyword markupname xmlelement">&lt;mathmlref&gt;</code> element references a
+    non-DITA XML document that contains MathML markup.</p>
     <section class="section" id="mathmlref__usage-information"><h2 class="title sectiontitle">Usage information</h2>
       
-      <p class="p"><span></span>The <code class="keyword markupname xmlelement">&lt;mathmlref&gt;</code> element enables you to use MathML markup by
-        reference.</p>
-      <div class="p"><span></span>The reference must be to a MathML <code class="keyword markupname xmlelement">&lt;math&gt;</code> element. <span></span>The reference can
-        be one of the following:<ul class="ul">
-          <li class="li"><span></span>A URI that addresses an XML document; the XML document has a MathML
-              <code class="keyword markupname xmlelement">&lt;math&gt;</code> element as the root element</li>
-          <li class="li"><span></span>A URI that addresses an XML document and contains a fragment identifier that is the
-            XML ID of a <code class="keyword markupname xmlelement">&lt;math&gt;</code> element within the document </li>
-        </ul></div>
-      <div class="note note note_note non-normative" id="mathmlref__note_dw4_qg4_ywb"><span class="note__title">Note:</span> To reuse MathML markup stored within a DITA topic, use a
-          c<code class="keyword markupname xmlatt">@conref</code>  or <code class="keyword markupname xmlatt">@conkeyref</code> attribute on the
-          <code class="keyword markupname xmlelement">&lt;mathml&gt;</code> element.</div>
-      
-      <p class="p"><span></span>The reference can be direct, using the <code class="keyword markupname xmlatt">@href</code> attribute, or indirect, using
-        the <code class="keyword markupname xmlatt">@keyref</code> attribute. <span></span>For indirect referencing, specify only the key name.
-<span></span>        Specify the ID of the <code class="keyword markupname xmlelement">&lt;mathml&gt;</code> element as part of the value for the
+      <p class="p"><span></span>The <code class="keyword markupname xmlelement">&lt;mathmlref&gt;</code> element enables the use
+        MathML markup by reference. <span></span>The reference must be to a MathML
+          <code class="keyword markupname xmlelement">&lt;math&gt;</code> element. <span></span>The reference can be one
+        of the following:</p>
+      <ul class="ul">
+        <li class="li"><span></span>A URI that addresses an XML document; the XML document has a
+          MathML <code class="keyword markupname xmlelement">&lt;math&gt;</code> element as the root
+          element</li>
+        <li class="li"><span></span>A URI that addresses an XML document and contains a fragment
+          identifier that is the XML ID of a <code class="keyword markupname xmlelement">&lt;math&gt;</code>
+          element within the document </li>
+      </ul>
+      <p class="p"><span></span>The reference can be direct, using the <code class="keyword markupname xmlatt">@href</code>
+        attribute, or indirect, using the <code class="keyword markupname xmlatt">@keyref</code>
+        attribute. <span></span>For indirect referencing, only the key name should be
+        specified. <span></span>The ID of the <code class="keyword markupname xmlelement">&lt;mathml&gt;</code> element
+        must be specified as part of the value for the
           <code class="keyword markupname xmlatt">@href</code> attribute on the key definition.</p>
     </section>
     <section class="section" id="mathmlref__processing-expectations"><h2 class="title sectiontitle">Processing expectations</h2>
       
-      <p class="p"><span></span>Processors <dfn class="term RFC-2119">SHOULD</dfn> process the MathML as though the
-          <code class="keyword markupname xmlelement">&lt;m:math&gt;</code> element had occurred directly in the content of the
-        containing <code class="keyword markupname xmlelement">&lt;mathml&gt;</code> element.</p>
+      <p class="p"><span></span>Processors <dfn class="term RFC-2119">SHOULD</dfn> process the
+        MathML as though the <code class="keyword markupname xmlelement">&lt;m:math&gt;</code> element occurs
+        directly in the content of the containing
+          <code class="keyword markupname xmlelement">&lt;mathml&gt;</code> element.</p>
     </section>
     <section class="section" id="mathmlref__specialization-hierarchy"><h2 class="title sectiontitle">Specialization hierarchy</h2>
       
@@ -58,77 +60,79 @@ classes: ''
             <span class="keyword">xml</span>.</li>
         </ul></div>
     </section>
-    <div class="example non-normative" id="mathmlref__example"><h2 class="title sectiontitle">Example</h2>
+    <div class="example non-normative" id="mathmlref__example"><h2 class="title sectiontitle">Examples</h2>
       
-      <p class="p">The following code sample shows how to reference a MathML <code class="keyword markupname xmlelement">&lt;math&gt;</code>
-        element that is the root element of its containing document:</p>
-      <pre class="pre codeblock"><code>&lt;equation-block&gt;
- &lt;mathml&gt;
-  <strong class="ph b">&lt;mathmlref href="../mathml-source/mathml-root-mathml.mml"/&gt;</strong>
- &lt;/mathml&gt;
-&lt;/equation-block&gt;</code></pre>
-      <div class="p">The <span class="ph filepath">mathml-root-mathml.mml</span> file contains the following content. Note
-        that the <code class="keyword markupname xmlelement">&lt;math&gt;</code> element sets the MathML namespace as the default
-        namespace, so there are no namespace prefixes on the MathML
-        markup:<pre class="pre codeblock"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-<strong class="ph b">&lt;math</strong> xmlns="http://www.w3.org/1998/Math/MathML" 
-          xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
- &lt;mstyle displaystyle="false" scriptlevel="0"&gt;
-  &lt;mrow&gt;
-   &lt;mfrac&gt;
-    &lt;mrow&gt;
-     &lt;mi mathcolor="gray"&gt;sin&lt;/mi&gt;
-     &lt;mo rspace="verythinmathspace"&gt;&lt;/mo&gt;                    
-     &lt;mi&gt;θ&lt;/mi&gt;
-    &lt;/mrow&gt;
-    &lt;mi&gt;π&lt;/mi&gt;
-   &lt;/mfrac&gt;
-  &lt;/mrow&gt;
- &lt;/mstyle&gt;
-<strong class="ph b">&lt;/math&gt;</strong></code></pre></div>
-      <p class="p">The following code sample shows how to reference a specific <code class="keyword markupname xmlelement">&lt;math&gt;</code>
-        element in a containing XML file:</p>
-      <pre class="pre codeblock"><code>&lt;equation-block&gt;
- &lt;mathml&gt;
-  <strong class="ph b">&lt;mathmlref</strong>
-     <strong class="ph b">href="../mathml-source/mathml-equation-library.xml#mathfrag-02"</strong>
-     <strong class="ph b">/&gt;</strong>
+      <p class="p">This section contains examples of how the
+          <code class="keyword markupname xmlelement">&lt;mathmlref&gt;</code> element can be used.</p>
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Referencing a MathML <code class="keyword markupname xmlelement">&lt;math&gt;</code> root
+          element</figcaption>
+        
+        <p class="p">The following code sample shows how a
+            <code class="keyword markupname xmlelement">&lt;mathmlref&gt;</code> element can be used to
+          reference a MathML <code class="keyword markupname xmlelement">&lt;math&gt;</code> element that is
+          the root element of its containing document:</p>
+        <pre class="pre codeblock"><code>&lt;equation-block&gt;
+  &lt;mathml&gt;
+    <strong class="ph b">&lt;mathmlref href="../mathml-source/mathml-root-mathml.mml"/&gt;</strong>
   &lt;/mathml&gt;
 &lt;/equation-block&gt;</code></pre>
-      <div class="p">The <span class="ph filepath">mathml-equation-library.xml</span> file contains the following
-        content:<pre class="pre codeblock"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;root&gt;
- &lt;part&gt;
-  &lt;math id="timeinday"
-        xmlns="http://www.w3.org/1998/Math/MathML"&gt;
-   &lt;mi&gt;x&lt;/mi&gt;
-  &lt;/math&gt;
-  <strong class="ph b">&lt;math id="mathfrag-02"</strong>
-        xmlns="http://www.w3.org/1998/Math/MathML"&gt;
-   &lt;math&gt;
+        <p class="p">The <span class="ph filepath">mathml-root-mathml.mml</span> file contains
+          the following content. Note that the
+            <code class="keyword markupname xmlelement">&lt;math&gt;</code> element sets the MathML namespace
+          as the default namespace, so there are no namespace prefixes on
+          the MathML markup.</p>
+        <pre class="pre codeblock"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;math <strong class="ph b">xmlns="http://www.w3.org/1998/Math/MathML"</strong> xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+  &lt;mstyle displaystyle="false" scriptlevel="0"&gt;
     &lt;mrow&gt;
-     &lt;mi&gt;y&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mn&gt;5&lt;/mn&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mn&gt;2&lt;/mn&gt;
+      &lt;mfrac&gt;
+        &lt;mrow&gt;
+          &lt;mi mathcolor="gray"&gt;sin&lt;/mi&gt;
+          &lt;mo rspace="verythinmathspace"/&gt;                    
+          &lt;mi&gt;θ&lt;/mi&gt;
+        &lt;/mrow&gt;
+        &lt;mi&gt;π&lt;/mi&gt;
+      &lt;/mfrac&gt;
     &lt;/mrow&gt;
-   &lt;/math&gt;
-  &lt;/math&gt;
- &lt;/part&gt;
- &lt;part&gt;
-  &lt;m:math id="mathfrag-03" display="inline" overflow="scroll"
-          xmlns:m="http://www.w3.org/1998/Math/MathML"&gt;
-   &lt;m:mi&gt;y&lt;/m:mi&gt;&lt;m:mo&gt;=&lt;/m:mo&gt;&lt;m:mi&gt;m&lt;/m:mi&gt;&lt;m:mi&gt;x&lt;/m:mi&gt;&lt;m:mo&gt;+&lt;/m:mo&gt;&lt;m:mi&gt;b&lt;/m:mi&gt;
-  &lt;/math&gt;
- &lt;/part&gt;
-&lt;/root&gt;</code></pre></div>
-      <div class="p">To refer to the <code class="keyword markupname xmlelement">&lt;math&gt;</code> element with the <code class="keyword markupname xmlatt">@id</code> of
-        "equation-02" within a larger document using a key reference, define the key in the
-        following way:<pre class="pre codeblock" id="mathmlref__codeblock_oj3_zqn_ywb"><code>&lt;keydef 
-  keys="mathml-equation-02" 
-  href="math/mathml-equations.xml#equation-02"
-  format="mathml"
-/&gt;</code></pre>Then refer to this key using just the key
-        name:<pre class="pre codeblock" id="mathmlref__codeblock_pj3_zqn_ywb"><code>&lt;mathml&gt;
-  &lt;mathmlref keyref="mathml-equation-02"/&gt;
-&lt;/mathml&gt;</code></pre></div>
+  &lt;/mstyle&gt;
+&lt;/math&gt;</code></pre>
+      </figure>
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>Referencing a specific <code class="keyword markupname xmlelement">&lt;math&gt;</code> element
+          within a document</figcaption>
+        
+        <p class="p">The following code sample shows how a
+            <code class="keyword markupname xmlelement">&lt;mathmlref&gt;</code> element can reference a
+          specific <code class="keyword markupname xmlelement">&lt;math&gt;</code> element in a containing
+          XML file:</p>
+        <pre class="pre codeblock"><code>&lt;equation-block&gt;
+  &lt;mathml&gt;
+    <strong class="ph b">&lt;mathmlref href="../mathml-source/mathml-equation-library.xml#mathfrag-02"/&gt;</strong>
+  &lt;/mathml&gt;
+&lt;/equation-block&gt;</code></pre>
+        <p class="p">The <span class="ph filepath">mathml-equation-library.xml</span> file
+          contains the following content:</p>
+        <pre class="pre codeblock"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;
+  &lt;part&gt;
+    &lt;math id="timeinday" xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+      &lt;mi&gt;x&lt;/mi&gt;
+    &lt;/math&gt;
+    &lt;math <strong class="ph b">id="mathfrag-02"</strong> xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+      &lt;math&gt;
+        &lt;mrow&gt;
+          &lt;mi&gt;y&lt;/mi&gt;
+          &lt;mo&gt;=&lt;/mo&gt;
+          &lt;mn&gt;5&lt;/mn&gt;
+          &lt;mi&gt;x&lt;/mi&gt;
+          &lt;mo&gt;+&lt;/mo&gt;
+          &lt;mn&gt;2&lt;/mn&gt;
+        &lt;/mrow&gt;
+      &lt;/math&gt;
+    &lt;/math&gt;
+  &lt;/part&gt;
+  &lt;!-- ... --&gt;
+&lt;/root&gt;</code></pre>
+      </figure>
       
     </div>
   </div>

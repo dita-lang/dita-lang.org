@@ -5,7 +5,7 @@ title: 'equation-inline'
 description: 'The equation-inline element represents an equation that is presented inline within a paragraph or similar context.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: 'af70b8b8981e4a5f47e18816cfce1359af9aa442'
+commit: '5475c2f8f5cd2dc62a9a62b8398931cc35f18bb9'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -25,7 +25,6 @@ classes: ''
       <section class="section" id="equation-inline__processing-expectations"><h2 class="title sectiontitle">Processing expectations</h2>
          
       
-      
       <p class="p"><span></span>Processors are free to choose the form or forms that they use in deliverables. <span></span>For example,
         if there is both an image and MathML markup, an HTML-generating processor could generate
         both the image reference and the MathML with appropriate HTML <code class="keyword markupname xmlatt">@class</code> or
@@ -42,35 +41,50 @@ classes: ''
         available on this element: <span class="ph"><a class="xref" href="../../baseSpec/specification/common/../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
                                                   attributes</a></span> and <a class="xref" href="../../baseSpec/specification/common/../langRef/attributes/commonAttributes.html#common-atts__attr-keyref"><code class="keyword markupname xmlatt">@keyref</code></a>.</p>
     </section>
-    <div class="example non-normative" id="equation-inline__example"><h2 class="title sectiontitle">Example</h2>
+    <div class="example non-normative" id="equation-inline__example"><h2 class="title sectiontitle">Examples</h2>
       
-      <p class="p">The following example contains a paragraph that contains an
-          <code class="keyword markupname xmlelement">&lt;equation-inline&gt;</code> element with MathML markup:</p>
-      <pre class="pre codeblock"><code>&lt;p&gt;MathML inline: <strong class="ph b">&lt;equation-inline&gt;</strong>
-  <strong class="ph b">&lt;mathml&gt;</strong>
-   <strong class="ph b">&lt;m:math display='inline'&gt;</strong>
-    &lt;m:semantics&gt;
-     &lt;m:mrow&gt;
-      &lt;m:msqrt&gt;
-       &lt;m:mrow&gt;
-        &lt;m:msup&gt;&lt;m:mi&gt;a&lt;/m:mi&gt;&lt;m:mn&gt;2&lt;/m:mn&gt;&lt;/m:msup&gt;
-        &lt;m:mo&gt;+&lt;/m:mo&gt;
-        &lt;m:msup&gt;&lt;m:mi&gt;b&lt;/m:mi&gt;&lt;m:mn&gt;2&lt;/m:mn&gt;&lt;/m:msup&gt;
-       &lt;/m:mrow&gt;
-      &lt;/m:msqrt&gt;        
-     &lt;/m:mrow&gt;
-    &lt;/m:semantics&gt;
-   <strong class="ph b">&lt;/m:math&gt;</strong>
-  <strong class="ph b">&lt;/mathml&gt;</strong>
- <strong class="ph b">&lt;/equation-inline&gt;</strong>&lt;/p&gt;</code></pre>
-      <p class="p">The following example contains an <code class="keyword markupname xmlelement">&lt;equation-inline&gt;</code> element that
-        uses an image as its content:</p>
-      <pre class="pre codeblock"><code>&lt;p&gt;An inline equation that contains an image:
-        <strong class="ph b">&lt;equation-inline&gt;</strong>
-        &lt;image keyref="equation-image-01"&gt;
-        &lt;alt&gt;a squared plus b squared.&lt;/alt&gt;
-        &lt;/image&gt;
-        <strong class="ph b">&lt;/equation-inline&gt;</strong>&lt;/p&gt;</code></pre>
+      <p class="p">This section contains examples of how the
+          <code class="keyword markupname xmlelement">&lt;equation-inline&gt;</code> element can be used.</p>
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>An inline equation</figcaption>
+        
+        <p class="p">The following code sample shows how a paragraph can contain an
+            <code class="keyword markupname xmlelement">&lt;equation-inline&gt;</code> element that holds
+          MathML markup:</p>
+        <pre class="pre codeblock"><code>&lt;p&gt;Consider the following equation:
+  <strong class="ph b">&lt;equation-inline&gt;</strong>
+    &lt;mathml&gt;
+      &lt;m:math display='inline'&gt;
+        &lt;m:semantics&gt;
+          &lt;m:mrow&gt;
+            &lt;m:msqrt&gt;
+              &lt;m:mrow&gt;
+                &lt;m:msup&gt;&lt;m:mi&gt;a&lt;/m:mi&gt;&lt;m:mn&gt;2&lt;/m:mn&gt;&lt;/m:msup&gt;
+                &lt;m:mo&gt;+&lt;/m:mo&gt;
+                &lt;m:msup&gt;&lt;m:mi&gt;b&lt;/m:mi&gt;&lt;m:mn&gt;2&lt;/m:mn&gt;&lt;/m:msup&gt;
+              &lt;/m:mrow&gt;
+            &lt;/m:msqrt&gt;        
+          &lt;/m:mrow&gt;
+        &lt;/m:semantics&gt;
+      &lt;/m:math&gt;
+    &lt;/mathml&gt;
+  <strong class="ph b">&lt;/equation-inline&gt;</strong>
+It is simple arithmetic that school children understand.&lt;/p&gt;</code></pre>
+      </figure>
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>An inline equation that is image-based</figcaption>
+        
+      </figure>
+      <p class="p">The following code sample shows how the
+          <code class="keyword markupname xmlelement">&lt;equation-inline&gt;</code> element can contain an
+        image:</p>
+      <pre class="pre codeblock"><code>&lt;p&gt;The Pythagorean Theorem describes the relationship among the three sides of a 
+   right triangle. In any right triangle, the sum of the areas of the squares formed on the 
+   legs of the triangle equals the area of the square formed on the hypotenuse:
+  <strong class="ph b">&lt;equation-inline&gt;</strong>
+    &lt;image keyref="equation-image-01"&gt;
+      &lt;alt&gt;a squared plus b squared.&lt;/alt&gt;
+    &lt;/image&gt;
+  <strong class="ph b">&lt;/equation-inline&gt;</strong>
+&lt;/p&gt;</code></pre>
     </div>
   </div>
 <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/equation-elements.html" title="The elements in the equation domain contain information that allows authors to identify, number, and format equations within a document This domain can be used independently of the MathML domain.">Equation domain</a></div></div></nav></article></main>

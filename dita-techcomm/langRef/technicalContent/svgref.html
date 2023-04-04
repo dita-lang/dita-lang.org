@@ -5,7 +5,7 @@ title: 'svgref'
 description: 'The svgref element references a non-DITA XML document that contains scalable vector graphic (SVG) markup.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: 'af70b8b8981e4a5f47e18816cfce1359af9aa442'
+commit: '5475c2f8f5cd2dc62a9a62b8398931cc35f18bb9'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -18,34 +18,40 @@ classes: ''
     contains scalable vector graphic (SVG) markup.</p>
     <section class="section" id="svgref__usage-information"><h2 class="title sectiontitle">Usage information</h2>
       
-      <div class="p"><span></span>This element enables you to use SVG markup by reference. <span></span>The reference must be to a SVG
-          <code class="keyword markupname xmlelement">&lt;svg&gt;</code> element. <span></span>The reference can be one of the following:<ul class="ul" id="svgref__ul_shh_hmp_rpb">
-          <li class="li"><span></span>A URI that addresses an XML document; the XML document has a SVG
-              <code class="keyword markupname xmlelement">&lt;svg&gt;</code> element as the root element</li>
-          <li class="li"><span></span>A URI that addresses an XML document and contains a fragment identifier that is the
-            XML ID of a <code class="keyword markupname xmlelement">&lt;svg&gt;</code> element within the document </li>
-        </ul></div>
+      <p class="p"><span></span>The <code class="keyword markupname xmlelement">&lt;svgref&gt;</code> element enables the use of SVG
+        markup by reference. <span></span>The reference must be to a SVG
+          <code class="keyword markupname xmlelement">&lt;svg&gt;</code> element. <span></span>The reference can be one of
+        the following:</p>
+      <ul class="ul">
+        <li class="li"><span></span>A URI that addresses an XML document which has a SVG
+            <code class="keyword markupname xmlelement">&lt;svg&gt;</code> element as the root element</li>
+        <li class="li"><span></span>A URI that addresses an XML document and contains a fragment
+          identifier that is the XML ID of a <code class="keyword markupname xmlelement">&lt;svg&gt;</code>
+          element within the document </li>
+      </ul>
       <p class="p"><span></span>The reference can be direct, using the <code class="keyword markupname xmlatt">@href</code> attribute, or indirect, using
         the <code class="keyword markupname xmlatt">@keyref</code> attribute. <span></span>For indirect referencing, only the key name should be
         specified. <span></span>The ID of the <code class="keyword markupname xmlelement">&lt;svg&gt;</code> element must be specified as part of
         the value for the <code class="keyword markupname xmlatt">@href</code> attribute on the key definition.</p>
-      <div class="p"><span></span>For example, to refer to the <code class="keyword markupname xmlelement">&lt;svg&gt;</code> element with the
-          <code class="keyword markupname xmlatt">@id</code> of "svg-fragment-02" within a larger document using a key reference,
-        you would define the key in the following
-        way:<pre class="pre codeblock"><code>&lt;keydef 
-  keys="svg-fragment-0002" 
-  href="svg/svg-library.xml#svg-fragment-02"
-/&gt;</code></pre>You
-        would refer to this key using just the key
-        name:<pre class="pre codeblock"><code>&lt;svg-container&gt;
-  &lt;svgref keyref="svg-fragment-0002"/&gt;
-&lt;/svg-container&gt;</code></pre></div>
+      <div class="div">
+        <p class="p"><span></span>For example, to refer to the <code class="keyword markupname xmlelement">&lt;svg&gt;</code>
+          element with the <code class="keyword markupname xmlatt">@id</code> of
+            <span class="keyword">svg-fragment-02</span> within a larger document
+          using a key reference, you would define the key in the following
+          way:</p>
+        <pre class="pre codeblock"><code>&lt;keydef keys="svg-fragment-0002" href="svg/svg-library.xml#svg-fragment-02"/&gt;</code></pre>
+        <p class="p"><span></span>You reference this key by using just the key name:</p>
+        <pre class="pre codeblock"><code>&lt;svg-container&gt;
+  &lt;svgref <strong class="ph b">keyref="svg-fragment-0002"</strong>/&gt;
+&lt;/svg-container&gt;</code></pre>
+      </div>
     </section>
     <section class="section" id="svgref__processing-information"><h2 class="title sectiontitle">Processing information</h2>
       
-      <p class="p"><span></span>Processors <dfn class="term RFC-2119">SHOULD</dfn> process the SVG as though the
-          <code class="keyword markupname xmlelement">&lt;svg&gt;</code> element had occurred directly in the content of the
-        containing <code class="keyword markupname xmlelement">&lt;svg-container&gt;</code> element.</p>
+      <p class="p"><span></span>Processors <dfn class="term RFC-2119">SHOULD</dfn> process the
+        SVG as though the <code class="keyword markupname xmlelement">&lt;svg&gt;</code> element occurs
+        directly in the content of the containing
+          <code class="keyword markupname xmlelement">&lt;svg-container&gt;</code> element.</p>
     </section>
     <section class="section" id="svgref__specialization-hierarchy"><h2 class="title sectiontitle">Specialization hierarchy</h2>
       
@@ -59,75 +65,77 @@ classes: ''
       <div class="p attr-exception" id="svgref__attr-exception"><span></span>For this element:<ul class="ul" id="svgref__ul_awv_nmp_rpb">
           <li class="li"><span></span>The <code class="keyword markupname xmlatt">@format</code> attribute has a default value of
             <span class="keyword">svg</span>.</li>
-          <li class="li"><span></span>The <code class="keyword markupname xmlatt">@href</code> attribute is a reference to an SVG document or SVG element.
-<span></span>            If the <code class="keyword markupname xmlelement">&lt;svg&gt;</code> element is the root element of the referenced
-            resource, then no fragment identifier is required, otherwise, a fragment identifier must
-            be specified, where the fragment identifier is the XML ID of the
-              <code class="keyword markupname xmlelement">&lt;svg&gt;</code> element to be used.</li>
+          <li class="li"><span></span>The <code class="keyword markupname xmlatt">@href</code> attribute is a reference to an SVG
+            document or SVG element. <span></span>If the <code class="keyword markupname xmlelement">&lt;svg&gt;</code>
+            element is the root element of the referenced resource, then no
+            fragment identifier is required. <span></span>Otherwise, a fragment
+            identifier must be specified, where the fragment identifier is
+            the XML ID of the <code class="keyword markupname xmlelement">&lt;svg&gt;</code> element .</li>
           <li class="li"><span></span>The <code class="keyword markupname xmlatt">@parse</code> attribute has a default value of
             <span class="keyword">xml</span>.</li>
         </ul></div>
     </section>
-    <div class="example non-normative" id="svgref__example"><h2 class="title sectiontitle">Example</h2>
+    <div class="example non-normative" id="svgref__example"><h2 class="title sectiontitle">Examples</h2>
       
-      <p class="p">The following code sample shows how to use <code class="keyword markupname xmlelement">&lt;svgref&gt;</code> to reference an
-          <code class="keyword markupname xmlelement">&lt;svg&gt;</code> element that is the root element of its containing
-        document:</p>
-      <pre class="pre codeblock"><code>&lt;fig&gt;
- &lt;title&gt;Figure With SVG Container&lt;/title&gt;
- &lt;svg-container&gt;
-  &lt;svgref href="media/svg/svg-graphic-01.xml"/&gt;
- &lt;/svg-container&gt;
+      <p class="p">This section contains examples of how the
+          <code class="keyword markupname xmlelement">&lt;svgref&gt;</code> element can be used.</p>
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Referencing an SVG that is a root element</figcaption>
+        
+        <p class="p">The following code sample shows how an
+            <code class="keyword markupname xmlelement">&lt;svgref&gt;</code> element can be used to
+          reference an <code class="keyword markupname xmlelement">&lt;svg&gt;</code> element that is the
+          root element of its containing document:</p>
+        <pre class="pre codeblock"><code>&lt;fig&gt;
+  &lt;title&gt;Figure with an SVG container&lt;/title&gt;
+  &lt;svg-container&gt;
+    <strong class="ph b">&lt;svgref href="media/svg/svg-graphic-01.xml"/&gt;</strong>
+  &lt;/svg-container&gt;
 &lt;/fig&gt;</code></pre>
-      <div class="p">The <span class="ph filepath">svg-graphic-01.xml</span> file contains the following content. Note that
-        the <code class="keyword markupname xmlelement">&lt;svg&gt;</code> element sets the SVG namespace as the default namespace, so
-        there are no namespace prefixes on the SVG
-        markup:<pre class="pre codeblock"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"&gt;
- &lt;defs&gt;
-  &lt;filter id="f1" x="0" y="0"&gt;
-   &lt;feGaussianBlur in="SourceGraphic" stdDeviation="15"/&gt;
-  &lt;/filter&gt;
- &lt;/defs&gt;
- &lt;rect width="90" height="90" stroke="green" stroke-width="3"
-                  fill="yellow" filter="url(#f1)"/&gt;
-&lt;/svg&gt;</code></pre></div>
-      <p class="p">The following code sample shows how to reference a specific <code class="keyword markupname xmlelement">&lt;svg&gt;</code>
-        element in a containing XML file:</p>
-      <pre class="pre codeblock"><code>&lt;fig&gt;
- &lt;title&gt;Figure with SVG Container&lt;/title&gt;
- &lt;svg-container&gt;
-   &lt;svgref href="media/svg/svg-library.xml#frag-0001" /&gt;
- &lt;/svg-container&gt;
-&lt;/fig&gt;</code></pre>
-      <div class="p">The <span class="ph filepath">svg-library.xml</span> file contains the following
-        content:<pre class="pre codeblock"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;root&gt;
- &lt;part&gt;
-  &lt;svg id="frag-0001" xmlns="http://www.w3.org/2000/svg" width="100" height="100"&gt;
-   &lt;defs&gt;
+        <div class="p">The <span class="ph filepath">svg-graphic-01.xml</span> file contains the
+          following content. Note that the <code class="keyword markupname xmlelement">&lt;svg&gt;</code>
+          element sets the SVG namespace as the default namespace, so there
+          are no namespace prefixes on the SVG
+          markup.<pre class="pre codeblock"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;svg <strong class="ph b">xmlns="http://www.w3.org/2000/svg"</strong> width="100" height="100"&gt;
+  &lt;defs&gt;
     &lt;filter id="f1" x="0" y="0"&gt;
-     &lt;feGaussianBlur in="SourceGraphic" stdDeviation="15"/&gt;
+      &lt;feGaussianBlur in="SourceGraphic" stdDeviation="15"/&gt;
     &lt;/filter&gt;
-   &lt;/defs&gt;
-   &lt;rect width="90" height="90" stroke="green"
-         stroke-width="3" fill="yellow" filter="url(#f1)"/&gt;
-  &lt;/svg&gt;
-  &lt;svg id="frag-0002" width="4in" height="6in" version="1.1"&gt;
-   &lt;circle cx="150" cy="200" r="100" fill="url(#grad_blue)"/&gt;
-  &lt;/svg&gt;
- &lt;/part&gt;
+  &lt;/defs&gt;
+  &lt;rect width="90" height="90" stroke="green" stroke-width="3" fill="yellow" 
+        filter="url(#f1)"/&gt;
+&lt;/svg&gt;</code></pre></div>
+      </figure>
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>Referencing a specific SVG within a document</figcaption>
+        
+        <p class="p">The following code sample shows an
+            <code class="keyword markupname xmlelement">&lt;svgref&gt;</code> element can be used to
+          reference a specific <code class="keyword markupname xmlelement">&lt;svg&gt;</code> element in a
+          containing XML file:</p>
+        <pre class="pre codeblock"><code>&lt;fig&gt;
+  &lt;title&gt;Figure with SVG container&lt;/title&gt;
+  &lt;svg-container&gt;
+    <strong class="ph b">&lt;svgref href="media/svg/svg-library.xml#frag-0001" /&gt;</strong>
+  &lt;/svg-container&gt;
+&lt;/fig&gt;</code></pre>
+        <div class="p">The <span class="ph filepath">svg-library.xml</span> file contains the
+          following
+          content:<pre class="pre codeblock"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;
+  &lt;part&gt;
+    &lt;svg <strong class="ph b">id="frag-0001"</strong> xmlns="http://www.w3.org/2000/svg" width="100" height="100"&gt;
+      &lt;defs&gt;
+        &lt;filter id="f1" x="0" y="0"&gt;
+          &lt;feGaussianBlur in="SourceGraphic" stdDeviation="15"/&gt;
+        &lt;/filter&gt;
+      &lt;/defs&gt;
+      &lt;rect width="90" height="90" stroke="green" stroke-width="3" fill="yellow" 
+            filter="url(#f1)"/&gt;
+    &lt;/svg&gt;
+    &lt;!-- ... --&gt;
+  &lt;/part&gt;
 &lt;/root&gt;</code></pre></div>
-      <div class="p">The following example shows how to define a key in order to use
-          <code class="keyword markupname xmlelement">&lt;svg&gt;</code> to include an SVG fragment with the <code class="keyword markupname xmlatt">@id</code> of
-        "svg-fragment-02" from within a larger
-        document:<pre class="pre codeblock" id="svgref__codeblock_w1r_ktn_ywb"><code>&lt;keydef 
-  keys="svg-fragment-0002" 
-  href="svg/svg-library.xml#svg-fragment-02"
-/&gt;</code></pre>Then refer to this key using just the key
-        name:<pre class="pre codeblock" id="svgref__codeblock_x1r_ktn_ywb"><code>&lt;svg-container&gt;
-  &lt;svgref keyref="svg-fragment-0002"/&gt;
-&lt;/svg-container&gt;</code></pre></div>
+      </figure>
       
     </div>
   </div>
