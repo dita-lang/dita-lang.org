@@ -26,6 +26,7 @@ runs:
         </val>
         EOF
     - name: Run single page DITA-OT
+      if: ${{ false }}
       shell: bash
       run: |
         $DITA_HOME/bin/dita \
@@ -39,7 +40,6 @@ runs:
           --root-chunk-override=to-content \
           -Dnav-toc=full -v
     - name: Run multi-page DITA-OT
-      if: ${{ false }}
       shell: bash
       run: |
         $DITA_HOME/bin/dita \
