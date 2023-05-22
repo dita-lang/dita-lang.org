@@ -2,10 +2,10 @@
 # Generated from DITA source
 layout: base
 title: 'revisionid'
-description: 'The revisionid element indicates the revision number or revision ID of the book.'
+description: 'The revisionid element specifies the revision of the book.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '8b5b66bb02ed6cb47ac8e3574cd05bb42ad4cf78'
+commit: '548003b18e3ad28a85287691876c9daccf8152d2'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -14,12 +14,13 @@ classes: ''
   <h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;revisionid&gt;</code></h1>
   
   
-  <div class="body refbody"><p class="shortdesc"><span></span>The <code class="keyword markupname xmlelement">&lt;revisionid&gt;</code> element indicates the revision number or
-    revision ID of the book.</p>
+  <div class="body refbody"><p class="shortdesc"><span></span>The <code class="keyword markupname xmlelement">&lt;revisionid&gt;</code> element specifies the revision of the
+    book.</p>
     <section class="section" id="revisionid__processing-expectations"><h2 class="title sectiontitle">Processing expectations</h2>
       
       <p class="p"><span></span>A processor determines how or whether the revision level is displayed. <span></span>Common methods
         include using a dash, for example "-01", or a period, such as ".01".</p>
+      
     </section>
     <section class="section" id="revisionid__specialization-hierarchy"><h2 class="title sectiontitle">Specialization hierarchy</h2>
       
@@ -34,17 +35,29 @@ classes: ''
     </section>
     <div class="example non-normative" id="revisionid__example"><h2 class="title sectiontitle">Example</h2>
       
-      <pre class="pre codeblock"><code>&lt;bookchangehistory&gt;
-  &lt;edited&gt;
-    &lt;person&gt;Joe T. Editor&lt;/person&gt;
-    <strong class="ph b">&lt;revisionid&gt;1&lt;/revisionid&gt;</strong>
-    &lt;completed&gt;&lt;year&gt;2020&lt;/year&gt;&lt;month&gt;03&lt;/month&gt;&lt;day&gt;15&lt;/day&gt;&lt;/completed&gt;
-  &lt;/edited&gt;
-  &lt;edited&gt;
-    &lt;person&gt;Joe T. Editor&lt;/person&gt;
-    <strong class="ph b">&lt;revisionid&gt;2&lt;/revisionid&gt;</strong>
-    &lt;completed&gt;&lt;year&gt;2020&lt;/year&gt;&lt;month&gt;10&lt;/month&gt;&lt;day&gt;13&lt;/day&gt;&lt;/completed&gt;
-  &lt;/edited&gt;
-&lt;/bookchangehistory&gt;</code></pre></div>
+      <p class="p">The following code sample shows how the <code class="keyword markupname xmlelement">&lt;revisionid&gt;</code> element can be
+        used to specify the book revision that was published and the revisions that were edited:</p>
+      <pre class="pre codeblock" id="revisionid__codeblock_j2v_nd4_1xb"><code>&lt;bookmeta&gt;
+  &lt;publisherinformation&gt;
+    &lt;organization&gt;NY Publishing&lt;/organization&gt;
+    &lt;printlocation&gt;United States of America&lt;/printlocation&gt;
+    &lt;published&gt;
+      <strong class="ph b">&lt;revisionid&gt;2&lt;/revisionid&gt;</strong>
+      &lt;completed&gt;&lt;month&gt;02&lt;/month&gt;&lt;year&gt;2023&lt;/year&gt;&lt;/completed&gt;
+    &lt;/published&gt;
+  &lt;/publisherinformation&gt;
+  &lt;bookchangehistory&gt;
+    &lt;edited&gt;
+      <strong class="ph b">&lt;revisionid&gt;1&lt;/revisionid&gt;</strong>
+      &lt;person&gt;Joe T. Editor&lt;/person&gt;
+      &lt;completed&gt;&lt;year&gt;2020&lt;/year&gt;&lt;month&gt;03&lt;/month&gt;&lt;day&gt;15&lt;/day&gt;&lt;/completed&gt;
+    &lt;/edited&gt;
+    &lt;edited&gt;
+      <strong class="ph b">&lt;revisionid&gt;2&lt;/revisionid&gt;</strong>
+      &lt;person&gt;Joe T. Editor&lt;/person&gt;
+      &lt;completed&gt;&lt;year&gt;2023&lt;/year&gt;&lt;month&gt;06&lt;/month&gt;&lt;day&gt;30&lt;/day&gt;&lt;/completed&gt;
+    &lt;/edited&gt;
+  &lt;/bookchangehistory&gt;
+&lt;/bookmeta&gt;</code></pre></div>
   </div>
 <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/bookmap-metadata-elements.html" title="The book map specialization supports standard book production. This section contains the metadata elements used by bookmap to store book-related metadata.">Book map metadata elements</a></div></div></nav></article></main>

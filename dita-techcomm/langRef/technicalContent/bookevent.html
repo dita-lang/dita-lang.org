@@ -2,10 +2,10 @@
 # Generated from DITA source
 layout: base
 title: 'bookevent'
-description: 'The bookevent element indicates a general event in the publication history of a book.'
+description: 'The bookevent element contains detailed information about a custom book event, such as the type of event, which book revision was part of the event, who was responsible for the event, and when the event occurred.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '8b5b66bb02ed6cb47ac8e3574cd05bb42ad4cf78'
+commit: '548003b18e3ad28a85287691876c9daccf8152d2'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -14,14 +14,15 @@ classes: ''
    <h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;bookevent&gt;</code></h1>
    
    
-   <div class="body refbody"><p class="shortdesc"><span></span>The <code class="keyword markupname xmlelement">&lt;bookevent&gt;</code> element indicates a general event in the
-      publication history of a book.</p>
+   <div class="body refbody"><p class="shortdesc"><span></span>The <code class="keyword markupname xmlelement">&lt;bookevent&gt;</code> element contains detailed information about a
+      custom book event, such as the type of event, which book revision was part of the event, who
+      was responsible for the event, and when the event occurred.</p>
       <section class="section" id="bookevent__usage-information"><h2 class="title sectiontitle">Usage information</h2>
          
-         <p class="p"><span></span>This element is appropriate for specialization if the current set of specific book event
-            types does not meet your needs. <span></span>If an element already exists to describe a specific type
-            of event, such as <code class="keyword markupname xmlelement">&lt;reviewed&gt;</code>, <code class="keyword markupname xmlelement">&lt;edited&gt;</code>, or
-               <code class="keyword markupname xmlelement">&lt;approved&gt;</code>, use that element instead.</p>
+         <p class="p"><span></span>This element is appropriate for specialization if the existing
+               <code class="keyword markupname xmlelement">&lt;reviewed&gt;</code>, <code class="keyword markupname xmlelement">&lt;edited&gt;</code>, or
+               <code class="keyword markupname xmlelement">&lt;approved&gt;</code> event type elements do not meet your needs.</p>
+         
       </section>
       <section class="section" id="bookevent__specialization-hierarchy"><h2 class="title sectiontitle">Specialization hierarchy</h2>
          <p class="p"><span></span>The <code class="keyword markupname xmlelement">&lt;bookevent&gt;</code> element is specialized from
@@ -32,6 +33,16 @@ classes: ''
                                                   attributes</a></span>, <span class="ph"><a class="xref" href="../../baseSpec/specification/common/../langRef/attributes/commonAttributes.html#common-atts__linkatts" title="Link relationship attributes include: format, href, type, and scope">link-relationship attributes</a></span>, and <span class="ph"><a class="xref" href="../../baseSpec/specification/common/../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
                                                   attributes</a></span>.</p>
       </section>
-      <div class="example non-normative" id="bookevent__example"><h2 class="title sectiontitle">Example</h2><p class="p">See the example in <a class="xref" href="bookchangehistory.html" title="The bookchangehistory element contains information about a book's publishing lifecycle">bookchangehistory</a>.</p></div>
+      <div class="example non-normative" id="bookevent__example"><h2 class="title sectiontitle">Example</h2><p class="p">The following code sample shows how the <code class="keyword markupname xmlelement">&lt;bookevent&gt;</code> element can be used to
+            specify that the book was indexed and when indexing ended:</p>
+         <pre class="pre codeblock" id="bookevent__codeblock_ryv_5sl_zwb"><code>
+&lt;bookmeta&gt;
+   &lt;bookchangehistory&gt;
+      <strong class="ph b">&lt;bookevent&gt;</strong>
+         &lt;bookeventtype name="indexed"/&gt;
+         &lt;completed&gt;&lt;month&gt;09&lt;/month&gt;&lt;year&gt;2022&lt;/year&gt;&lt;/completed&gt;
+      <strong class="ph b">&lt;/bookevent&gt;</strong>
+   &lt;/bookchangehistory&gt;
+&lt;/bookmeta&gt;</code></pre></div>
    </div>
 <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/bookmap-metadata-elements.html" title="The book map specialization supports standard book production. This section contains the metadata elements used by bookmap to store book-related metadata.">Book map metadata elements</a></div></div></nav></article></main>

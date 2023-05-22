@@ -5,7 +5,7 @@ title: 'mathmlref'
 description: 'The mathmlref element references a non-DITA XML document that contains MathML markup.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '8b5b66bb02ed6cb47ac8e3574cd05bb42ad4cf78'
+commit: '548003b18e3ad28a85287691876c9daccf8152d2'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -23,19 +23,29 @@ classes: ''
           <code class="keyword markupname xmlelement">&lt;math&gt;</code> element. <span></span>The reference can be one
         of the following:</p>
       <ul class="ul">
-        <li class="li"><span></span>A URI that addresses an XML document; the XML document has a
+        <li class="li"><span></span>A URI that addresses an XML document. <span></span>The XML document has a
           MathML <code class="keyword markupname xmlelement">&lt;math&gt;</code> element as the root
-          element</li>
+          element.</li>
         <li class="li"><span></span>A URI that addresses an XML document and contains a fragment
           identifier that is the XML ID of a <code class="keyword markupname xmlelement">&lt;math&gt;</code>
-          element within the document </li>
+          element within the document.</li>
       </ul>
       <p class="p"><span></span>The reference can be direct, using the <code class="keyword markupname xmlatt">@href</code>
         attribute, or indirect, using the <code class="keyword markupname xmlatt">@keyref</code>
         attribute. <span></span>For indirect referencing, only the key name should be
-        specified. <span></span>The ID of the <code class="keyword markupname xmlelement">&lt;mathml&gt;</code> element
-        must be specified as part of the value for the
-          <code class="keyword markupname xmlatt">@href</code> attribute on the key definition.</p>
+        specified. <span></span>The ID of the <code class="keyword markupname xmlelement">&lt;math&gt;</code> element must
+        be specified as part of the value for the <code class="keyword markupname xmlatt">@href</code>
+        attribute on the key definition.</p>
+      <div style="color:red;" class="div">
+        <p class="p"><span></span>For example, to refer to the <code class="keyword markupname xmlelement">&lt;math&gt;</code>
+          element with the <code class="keyword markupname xmlatt">@id</code> of
+            <span class="keyword">math-fragment-02</span> within a larger document
+          using a key reference, you would define the key in the following
+          way:</p>
+        <pre class="pre codeblock"><code>&lt;keydef keys="math-fragment-0002" href="mathml/mathml-library.xml#math-fragment-02"/&gt;</code></pre>
+        <p class="p"><span></span>You reference this key by using just the key name:</p>
+        <pre class="pre codeblock"><code>&lt;mathref <strong class="ph b">keyref="math-fragment-0002"</strong>/&gt;</code></pre>
+      </div>
     </section>
     <section class="section" id="mathmlref__processing-expectations"><h2 class="title sectiontitle">Processing expectations</h2>
       
@@ -53,11 +63,19 @@ classes: ''
       
       <p class="p"><span></span>The following attributes are available on this element: <span class="ph"><a class="xref" href="../../baseSpec/specification/common/../langRef/attributes/commonAttributes.html#common-atts__inclusionatts" title="Inclusion attributes include: encoding and parse">inclusion attributes</a></span>, <span class="ph"><a class="xref" href="../../baseSpec/specification/common/../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
                                                   attributes</a></span>, <a class="xref" href="../../baseSpec/specification/langRef/attributes/commonAttributes.html#common-atts__attr-format"><code class="keyword markupname xmlatt">@format</code></a>, <a class="xref" href="../../baseSpec/specification/langRef/attributes/commonAttributes.html#common-atts__attr-href"><code class="keyword markupname xmlatt">@href</code></a>, <a class="xref" href="../../baseSpec/specification/langRef/attributes/commonAttributes.html#common-atts__attr-keyref"><code class="keyword markupname xmlatt">@keyref</code></a>, and <a class="xref" href="../../baseSpec/specification/langRef/attributes/commonAttributes.html#common-atts__attr-scope"><code class="keyword markupname xmlatt">@scope</code></a>.</p>
-      <div class="p attr-exception" id="mathmlref__attr-exception"><span></span>For this element:<ul class="ul" id="mathmlref__ul_eyw_gg4_rpb">
+      <div class="p attr-exception" id="mathmlref__attr-exception"><span></span>For this element:<ul class="ul">
           <li class="li"><span></span>The <code class="keyword markupname xmlatt">@format</code> attribute has a default value of
-            <span class="keyword">mml</span>.</li>
+              <span class="keyword">mml</span>.</li>
+          <li style="color:red;" class="li"><span></span>The <code class="keyword markupname xmlatt">@href</code> attribute is a
+            reference to a MathML document or
+              <code class="keyword markupname xmlelement">&lt;mathml&gt;</code> element. <span></span>If the
+              <code class="keyword markupname xmlelement">&lt;mathml&gt;</code> element is the root element
+            of the referenced resource, then no fragment identifier is
+            required. <span></span>Otherwise, a fragment identifier must be specified,
+            where the fragment identifier is the XML ID of the
+              <code class="keyword markupname xmlelement">&lt;mathml&gt;</code> element.</li>
           <li class="li"><span></span>The <code class="keyword markupname xmlatt">@parse</code> attribute has a default value of
-            <span class="keyword">xml</span>.</li>
+              <span class="keyword">xml</span>.</li>
         </ul></div>
     </section>
     <div class="example non-normative" id="mathmlref__example"><h2 class="title sectiontitle">Examples</h2>
@@ -136,4 +154,4 @@ classes: ''
       
     </div>
   </div>
-<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/mathml-d.html" title="The MathML domain elements enable direct use of MathML markup within DITA documents, as well as use-by-reference of MathML markup that is stored in separate, non-DITA documents. MathML is a W3C standard.">MathML domain</a></div></div></nav></article></main>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/mathml-d.html" title="The MathML domain elements enable the use of embedded or referenced MathML markup. Referenced MathML markup must be stored in separate, non-DITA XML documents. MathML is a W3C standard.">MathML domain</a></div></div></nav></article></main>

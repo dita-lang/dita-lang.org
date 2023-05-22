@@ -2,10 +2,10 @@
 # Generated from DITA source
 layout: base
 title: 'edited'
-description: 'The edited element contains information about when and by whom the book was edited during its publication history.'
+description: 'The edited element contains detailed information about a book edit, such as the revision that was edited, who completed the edit, and when the edit occurred.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '8b5b66bb02ed6cb47ac8e3574cd05bb42ad4cf78'
+commit: '548003b18e3ad28a85287691876c9daccf8152d2'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -14,8 +14,9 @@ classes: ''
   <h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;edited&gt;</code></h1>
   
   
-  <div class="body refbody"><p class="shortdesc"><span></span>The <code class="keyword markupname xmlelement">&lt;edited&gt;</code> element contains information about when and by whom
-    the book was edited during its publication history.</p>
+  <div class="body refbody"><p class="shortdesc"><span></span>The <code class="keyword markupname xmlelement">&lt;edited&gt;</code> element contains detailed information about a book
+    edit, such as the revision that was edited, who completed the edit, and when the edit
+    occurred.</p>
     <section class="section" id="edited__specialization-hierarchy"><h2 class="title sectiontitle">Specialization hierarchy</h2>
       
       <p class="p"><span></span>The <code class="keyword markupname xmlelement">&lt;edited&gt;</code> element is specialized from
@@ -30,7 +31,28 @@ classes: ''
     </section>
     <div class="example non-normative" id="edited__example"><h2 class="title sectiontitle">Example</h2>
       
-      <p class="p">See the example in <a class="xref" href="bookchangehistory.html" title="The bookchangehistory element contains information about a book's publishing lifecycle">bookchangehistory</a>.</p>
+      <p class="p">The following code sample shows how the <code class="keyword markupname xmlelement">&lt;edited&gt;</code> element can be used
+        to show which revisions of the book were edited, who completed the edits, and when the edits
+        occurred:</p>
+      <pre class="pre codeblock" id="edited__codeblock_nz5_yf4_1xb"><code>&lt;bookmeta&gt;
+  &lt;bookchangehistory&gt;
+    &lt;reviewed&gt;
+      &lt;revisionid&gt;2&lt;/revisionid&gt;
+      &lt;started&gt;&lt;year&gt;2019&lt;/year&gt;&lt;month&gt;10&lt;/month&gt;&lt;/started&gt;
+      &lt;completed&gt;&lt;year&gt;2020&lt;/year&gt;&lt;month&gt;01&lt;/month&gt;&lt;/completed&gt;
+    &lt;/reviewed&gt;
+   <strong class="ph b">&lt;edited&gt;</strong>
+      &lt;revisionid&gt;1&lt;/revisionid&gt;
+      &lt;person&gt;Joe T. Editor&lt;/person&gt;
+      &lt;completed&gt;&lt;year&gt;2020&lt;/year&gt;&lt;month&gt;03&lt;/month&gt;&lt;day&gt;15&lt;/day&gt;&lt;/completed&gt;
+    <strong class="ph b">&lt;/edited&gt;</strong>
+    <strong class="ph b">&lt;edited&gt;</strong>
+      &lt;revisionid&gt;2&lt;/revisionid&gt;
+      &lt;person&gt;Joe T. Editor&lt;/person&gt;
+      &lt;completed&gt;&lt;year&gt;2023&lt;/year&gt;&lt;month&gt;06&lt;/month&gt;&lt;day&gt;30&lt;/day&gt;&lt;/completed&gt;
+    <strong class="ph b">&lt;/edited&gt;</strong>
+  &lt;/bookchangehistory&gt;
+&lt;/bookmeta&gt;</code></pre>
     </div>
   </div>
 <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/bookmap-metadata-elements.html" title="The book map specialization supports standard book production. This section contains the metadata elements used by bookmap to store book-related metadata.">Book map metadata elements</a></div></div></nav></article></main>

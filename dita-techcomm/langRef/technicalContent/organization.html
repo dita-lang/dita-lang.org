@@ -2,10 +2,10 @@
 # Generated from DITA source
 layout: base
 title: 'organization'
-description: 'The organization element contains the name of an organization.'
+description: 'The organization element contains the name of a business unit.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '8b5b66bb02ed6cb47ac8e3574cd05bb42ad4cf78'
+commit: '548003b18e3ad28a85287691876c9daccf8152d2'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -14,14 +14,8 @@ classes: ''
   <h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;organization&gt;</code></h1>
   
   
-  <div class="body refbody"><p class="shortdesc"><span></span>The <code class="keyword markupname xmlelement">&lt;organization&gt;</code> element contains the name of an organization.</p>
-    <section class="section" id="organization__usage-information"><h2 class="title sectiontitle">Usage information</h2>
-      
-      <p class="p"><span></span>Note that unlike <code class="keyword markupname xmlelement">&lt;organizationname&gt;</code>, the
-          <code class="keyword markupname xmlelement">&lt;organization&gt;</code> element is not restricted to use within
-          <code class="keyword markupname xmlelement">&lt;authorinformation&gt;</code>; it does not have to contain the name of an
-        authoring organization.</p>
-    </section>
+  <div class="body refbody"><p class="shortdesc"><span></span>The <code class="keyword markupname xmlelement">&lt;organization&gt;</code> element contains the name of a business
+    unit.</p>
     <section class="section" id="organization__specialization-hierarchy"><h2 class="title sectiontitle">Specialization hierarchy</h2>
       
       <p class="p"><span></span>The <code class="keyword markupname xmlelement">&lt;organization&gt;</code> element is specialized from
@@ -36,11 +30,39 @@ classes: ''
     </section>
     <div class="example non-normative" id="organization__example"><h2 class="title sectiontitle">Example</h2>
       
-      <pre class="pre codeblock"><code>&lt;bookmeta&gt;
+      <p class="p">The following code sample shows how the <code class="keyword markupname xmlelement">&lt;organization&gt;</code> element can
+        be used to specify the business units responsible for publishing, editing, and approving the
+        book as well as the business unit that owns the copyrights to the book:</p>
+      <pre class="pre codeblock" id="organization__codeblock_q2z_1cp_1xb"><code>&lt;bookmeta&gt;
+  &lt;publisherinformation&gt;
+      <strong class="ph b">&lt;organization&gt;NY Publishing&lt;/organization&gt;</strong>
+      &lt;printlocation&gt;United States of America&lt;/printlocation&gt;
+  &lt;/publisherinformation&gt;
+   &lt;bookid&gt;
+    &lt;isbn&gt;123-0-456-12345-1&lt;/isbn&gt;
+    &lt;maintainer&gt;
+      &lt;person&gt;John Smith&lt;/person&gt;
+    &lt;/maintainer&gt;
+  &lt;/bookid&gt;
+  &lt;bookchangehistory&gt;
+    &lt;reviewed&gt;
+      &lt;person&gt;Jack&lt;/person&gt;
+      &lt;completed&gt;&lt;month&gt;July&lt;/month&gt;&lt;year&gt;2022&lt;/year&gt;&lt;/completed&gt;
+    &lt;/reviewed&gt;
+    &lt;edited&gt;
+      <strong class="ph b">&lt;organization&gt;XYZ Editing&lt;/organization&gt;</strong>
+      &lt;completed&gt;&lt;month&gt;January&lt;/month&gt;&lt;year&gt;2023&lt;/year&gt;&lt;/completed&gt;
+    &lt;/edited&gt;
+    &lt;approved&gt;
+      <strong class="ph b">&lt;organization&gt;OASIS&lt;/organization&gt;</strong>
+    &lt;/approved&gt;
+  &lt;/bookchangehistory&gt;
   &lt;bookrights&gt;
-    &lt;copyrfirst&gt;&lt;year&gt;2016&lt;/year&gt;&lt;/copyrfirst&gt;
-    &lt;copyrlast&gt;&lt;year&gt;2020&lt;/year&gt;&lt;/copyrlast&gt;
-    &lt;bookowner&gt;&lt;organization&gt;OASIS&lt;/organization&gt;&lt;/bookowner&gt;
+    &lt;copyrfirst&gt;&lt;year&gt;2020&lt;/year&gt;&lt;/copyrfirst&gt;
+    &lt;copyrlast&gt;&lt;year&gt;2023&lt;/year&gt;&lt;/copyrlast&gt;
+    &lt;bookowner&gt;
+      <strong class="ph b">&lt;organization&gt;OASIS&lt;/organization&gt;</strong>
+    &lt;/bookowner&gt;
   &lt;/bookrights&gt;
 &lt;/bookmeta&gt;</code></pre></div>
   </div>

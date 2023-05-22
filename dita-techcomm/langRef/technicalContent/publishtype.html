@@ -2,10 +2,10 @@
 # Generated from DITA source
 layout: base
 title: 'publishtype'
-description: 'The publishtype element indicates whether the book is generally available from the publisher or is restricted in some way.'
+description: 'The publishtype element indicates whether there are any restrictions on the availability of the book.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '8b5b66bb02ed6cb47ac8e3574cd05bb42ad4cf78'
+commit: '548003b18e3ad28a85287691876c9daccf8152d2'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -14,12 +14,12 @@ classes: ''
   <h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;publishtype&gt;</code></h1>
   
   
-  <div class="body refbody"><p class="shortdesc"><span></span>The <code class="keyword markupname xmlelement">&lt;publishtype&gt;</code> element indicates whether the book is
-    generally available from the publisher or is restricted in some way.</p>
+  <div class="body refbody"><p class="shortdesc"><span></span>The <code class="keyword markupname xmlelement">&lt;publishtype&gt;</code> element indicates whether there are any
+    restrictions on the availability of the book.</p>
     <section class="section" id="publishtype__usage-information"><h2 class="title sectiontitle">Usage information</h2>
       
-      <p class="p"><span></span>The <code class="keyword markupname xmlatt">@value</code> attribute indicates the restrictions, such as beta release,
-        limited availability, or general availability.</p>
+      <p class="p"><span></span>The <code class="keyword markupname xmlatt">@value</code> attribute is required to specify the type of availability, for
+        example, beta release, limited availability, or general availability.</p>
     </section>
     <section class="section" id="publishtype__specialization-hierarchy"><h2 class="title sectiontitle">Specialization hierarchy</h2>
       
@@ -34,10 +34,24 @@ classes: ''
                                                   attributes</a></span>.</p>
       <p class="p attr-exception" id="publishtype__attr-exception"><span></span>For this element, the <code class="keyword markupname xmlatt">@value</code> attribute specifies any
         restrictions on the availability of the publication.</p>
+      
     </section>
     <div class="example non-normative" id="publishtype__example"><h2 class="title sectiontitle">Example</h2>
       
-      <p class="p">See the example in <a class="xref" href="publisherinformation.html" title="The publisherinformation contains information about what group or person published the book, where it was published, and certain details about its publication history.">publisherinformation</a>.</p>
+      <p class="p">The following code sample shows how the <code class="keyword markupname xmlelement">&lt;publishtype&gt;</code> element can be
+        used to specify any restrictions on the availability of the book. In this example, there are
+        no restrictions.</p>
+      <pre class="pre codeblock" id="publishtype__codeblock_cth_cgp_1xb"><code>&lt;bookmeta&gt;
+  &lt;publisherinformation&gt;
+      &lt;organization&gt;NY Publishing&lt;/organization&gt;
+      &lt;printlocation&gt;United States of America&lt;/printlocation&gt;
+      &lt;published&gt;
+        <strong class="ph b">&lt;publishtype value="general"/&gt;</strong>
+        &lt;revisionid&gt;1&lt;/revisionid&gt;
+        &lt;completed&gt;&lt;month&gt;02&lt;/month&gt;&lt;year&gt;2023&lt;/year&gt;&lt;/completed&gt;
+      &lt;/published&gt;
+  &lt;/publisherinformation&gt;
+&lt;/bookmeta&gt;</code></pre>
     </div>
   </div>
 <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/bookmap-metadata-elements.html" title="The book map specialization supports standard book production. This section contains the metadata elements used by bookmap to store book-related metadata.">Book map metadata elements</a></div></div></nav></article></main>

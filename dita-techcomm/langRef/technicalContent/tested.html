@@ -2,10 +2,10 @@
 # Generated from DITA source
 layout: base
 title: 'tested'
-description: 'The tested element contains information about when and by whom the book was tested during its publication history.'
+description: 'The tested element contains detailed information about book testing, such as the revision that was tested, who tested the book, and when testing occurred.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '8b5b66bb02ed6cb47ac8e3574cd05bb42ad4cf78'
+commit: '548003b18e3ad28a85287691876c9daccf8152d2'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -14,8 +14,9 @@ classes: ''
   <h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;tested&gt;</code></h1>
   
   
-  <div class="body refbody"><p class="shortdesc"><span></span>The <code class="keyword markupname xmlelement">&lt;tested&gt;</code> element contains information about when and by whom
-    the book was tested during its publication history.</p>
+  <div class="body refbody"><p class="shortdesc"><span></span>The <code class="keyword markupname xmlelement">&lt;tested&gt;</code> element contains detailed information about book
+    testing, such as the revision that was tested, who tested the book, and when testing
+    occurred.</p>
     <section class="section" id="tested__specialization-hierarchy"><h2 class="title sectiontitle">Specialization hierarchy</h2>
       
       <p class="p"><span></span>The <code class="keyword markupname xmlelement">&lt;tested&gt;</code> element is specialized from
@@ -30,7 +31,25 @@ classes: ''
     </section>
     <div class="example non-normative" id="tested__example"><h2 class="title sectiontitle">Example</h2>
       
-      <p class="p">See the example in <a class="xref" href="bookchangehistory.html" title="The bookchangehistory element contains information about a book's publishing lifecycle">bookchangehistory</a>.</p>
+      <p class="p">The following code sample shows how the <code class="keyword markupname xmlelement">&lt;tested&gt;</code> element can be used
+        to indicate who completed testing and when testing occurred:</p>
+      <pre class="pre codeblock" id="tested__codeblock_qsq_ch4_1xb"><code>&lt;bookmeta&gt;
+  &lt;bookchangehistory&gt;
+    &lt;reviewed&gt;
+      &lt;revisionid&gt;2&lt;/revisionid&gt;
+      &lt;started&gt;&lt;year&gt;2019&lt;/year&gt;&lt;month&gt;10&lt;/month&gt;&lt;/started&gt;
+      &lt;completed&gt;&lt;year&gt;2020&lt;/year&gt;&lt;month&gt;01&lt;/month&gt;&lt;/completed&gt;
+    &lt;/reviewed&gt;
+    <strong class="ph b">&lt;tested&gt;</strong>
+      &lt;organization&gt;OASIS&lt;/organization&gt;
+      &lt;completed&gt;&lt;year&gt;2020&lt;/year&gt;&lt;month&gt;04&lt;/month&gt;&lt;/completed&gt;
+    <strong class="ph b">&lt;/tested&gt;</strong>
+    &lt;approved&gt;
+      &lt;organization&gt;OASIS&lt;/organization&gt;
+      &lt;completed&gt;&lt;year&gt;2020&lt;/year&gt;&lt;month&gt;05&lt;/month&gt;&lt;/completed&gt;
+    &lt;/approved&gt;
+  &lt;/bookchangehistory&gt;
+&lt;/bookmeta&gt;</code></pre>
     </div>
   </div>
 <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/bookmap-metadata-elements.html" title="The book map specialization supports standard book production. This section contains the metadata elements used by bookmap to store book-related metadata.">Book map metadata elements</a></div></div></nav></article></main>

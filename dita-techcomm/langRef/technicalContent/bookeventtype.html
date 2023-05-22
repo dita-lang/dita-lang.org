@@ -2,10 +2,10 @@
 # Generated from DITA source
 layout: base
 title: 'bookeventtype'
-description: 'The bookeventtype element indicates the specific nature of a bookevent, such as updated, indexed, or deprecated.'
+description: 'The bookeventtype element indicates a custom publication event, for example, updated, indexed, or deprecated.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '8b5b66bb02ed6cb47ac8e3574cd05bb42ad4cf78'
+commit: '548003b18e3ad28a85287691876c9daccf8152d2'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -14,11 +14,11 @@ classes: ''
    <h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;bookeventtype&gt;</code></h1>
    
    
-   <div class="body refbody"><p class="shortdesc"><span></span>The <code class="keyword markupname xmlelement">&lt;bookeventtype&gt;</code> element indicates the specific nature of a
-         <code class="keyword markupname xmlelement">&lt;bookevent&gt;</code>, such as updated, indexed, or deprecated.</p>
+   <div class="body refbody"><p class="shortdesc"><span></span>The <code class="keyword markupname xmlelement">&lt;bookeventtype&gt;</code> element indicates a custom publication
+      event, for example, updated, indexed, or deprecated.</p>
       <section class="section" id="bookeventtype__usage-information"><h2 class="title sectiontitle">Usage information</h2>
          
-         <p class="p"><span></span>The required <code class="keyword markupname xmlatt">@name</code> attribute indicates the event's type.</p>
+         <p class="p"><span></span>The <code class="keyword markupname xmlatt">@name</code> attribute is required to indicate the event type.</p>
       </section>
       <section class="section" id="bookeventtype__specialization-hierarchy"><h2 class="title sectiontitle">Specialization hierarchy</h2>
          <p class="p"><span></span>The <code class="keyword markupname xmlelement">&lt;bookeventtype&gt;</code> element is specialized from
@@ -30,7 +30,21 @@ classes: ''
                                                   attributes</a></span>.</p>
          <p class="p attr-exception" id="bookeventtype__attr-exception"><span></span>For this element, the <code class="keyword markupname xmlatt">@name</code> attribute is
             required.</p>
+         
       </section>
-      <div class="example non-normative" id="bookeventtype__example"><h2 class="title sectiontitle">Example</h2><p class="p">See the example in <a class="xref" href="bookchangehistory.html" title="The bookchangehistory element contains information about a book's publishing lifecycle">bookchangehistory</a>.</p></div>
+      <div class="example non-normative" id="bookeventtype__example"><h2 class="title sectiontitle">Example</h2>
+         
+         <p class="p">The following code sample shows how the <code class="keyword markupname xmlelement">&lt;bookeventtype&gt;</code> element
+            can be used to specify a custom publication event:</p>
+         <pre class="pre codeblock" id="bookeventtype__codeblock_ryv_5sl_zwb"><code>
+&lt;bookmeta&gt;
+   &lt;bookchangehistory&gt;
+      &lt;bookevent&gt;
+         <strong class="ph b">&lt;bookeventtype name="indexed"/&gt;</strong>
+          &lt;completed&gt;&lt;month&gt;09&lt;/month&gt;&lt;year&gt;2022&lt;/year&gt;&lt;/completed&gt;
+      &lt;/bookevent&gt;
+   &lt;/bookchangehistory&gt;
+&lt;/bookmeta&gt;</code></pre>
+      </div>
    </div>
 <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/bookmap-metadata-elements.html" title="The book map specialization supports standard book production. This section contains the metadata elements used by bookmap to store book-related metadata.">Book map metadata elements</a></div></div></nav></article></main>
