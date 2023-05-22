@@ -55,12 +55,14 @@ runs:
     - name: Reset unchanged
       shell: bash
       run: |
-        git diff --name-only | while read i; do
+        changed="$(git diff --name-only)"
+        echo "$changed" | while read i; do
           if [[ -e "$i" ]]; then
             lines="$(git diff --no-color -U0 "$i" | wc -l)"
             if [ $lines -eq 7 ]; then
               if [[ "$(git diff --no-color -U0 "$i" | sed -n '6p' | grep -c '^-commit:')" -eq 1 ]]; then
                 if [[ "$(git diff --no-color -U0 "$i" | sed -n '7p' | grep -c '^+commit:')" -eq 1 ]]; then
+                  echo "Reset $i"
                   git checkout -- "$i"
                 fi
               fi
