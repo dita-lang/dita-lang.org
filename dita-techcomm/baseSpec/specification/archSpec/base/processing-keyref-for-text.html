@@ -5,7 +5,7 @@ title: 'Processing key references to generate text or link text'
 description: 'Variable text can be specified by key definitions. Processors determine the effective text by retrieving the content of elements in a specific sequence.'
 index: '../../../../toc.html'
 notices: '../../../../resources/oasis-notices.html'
-commit: '8b5b66bb02ed6cb47ac8e3574cd05bb42ad4cf78'
+commit: 'f1139a79f6af240cb5ce57703b7d6171362067d2'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -13,51 +13,51 @@ classes: ''
 <nav class="col-lg-3" role="toc"><ul></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
     <h1 class="title topictitle1" id="ariaid-title1">Processing key references to generate text or link text</h1>
     
-    <div class="body conbody"><p class="shortdesc"><span></span>Variable text can be specified by key definitions. <span></span>Processors determine the effective
+    <div class="body conbody"><p class="shortdesc">Variable text can be specified by key definitions. Processors determine the effective
         text by retrieving the content of elements in a specific sequence.</p>
         <dl class="dl">
             
                 <dt class="dt dlterm">Empty elements</dt>
-                <dd class="dd"><span></span>
-                    <p class="p"><span></span>Empty elements that specify a key reference might get their effective content
-                        from the referenced key definitions. <span></span>For the purpose of determining variable
+                <dd class="dd">
+                    <p class="p">Empty elements that specify a key reference might get their effective content
+                        from the referenced key definitions. For the purpose of determining variable
                         text, <dfn class="term">empty elements</dfn> are defined as elements that meet the
                         following criteria:</p>
                     <ul class="ul" id="processing-key-references__ul_ylq_w1w_bpb">
-                        <li class="li"><span></span>Have no text content, including white space</li>
-                        <li class="li"><span></span>Have no
+                        <li class="li">Have no text content, including white space</li>
+                        <li class="li">Have no
                             sub-elements</li>
-                        <li class="li"><span></span>Have no attributes that would be used as text content</li>
+                        <li class="li">Have no attributes that would be used as text content</li>
                     </ul>
                 </dd>
             
             
                 <dt class="dt dlterm">Key definitions with child <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> elements</dt>
-                <dd class="dd"><span></span>
-                    <p class="p"><span></span>When an empty element references a key definition that has a child
+                <dd class="dd">
+                    <p class="p">When an empty element references a key definition that has a child
                             <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> element, content from that
                             <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> element is used to determine the
-                        effective content of the referencing element. <span></span>Effective content from the key
+                        effective content of the referencing element. Effective content from the key
                         definition becomes the element content, with the following exceptions: </p>
                     <ul class="ul" id="processing-key-references__ul_zlq_w1w_bpb">
-                        <li class="li"><span></span>For empty <code class="keyword markupname xmlelement">&lt;image&gt;</code> elements, the effective content
-                            is used as alternate text. <span></span>This is equivalent to creating an
+                        <li class="li">For empty <code class="keyword markupname xmlelement">&lt;image&gt;</code> elements, the effective content
+                            is used as alternate text. This is equivalent to creating an
                                 <code class="keyword markupname xmlelement">&lt;alt&gt;</code> sub-element to hold that content.</li>
-                        <li class="li"><span></span>For empty <code class="keyword markupname xmlelement">&lt;link&gt;</code> elements, the effective content
-                            is used as link text. <span></span>This is equivalent to creating a
+                        <li class="li">For empty <code class="keyword markupname xmlelement">&lt;link&gt;</code> elements, the effective content
+                            is used as link text. This is equivalent to creating a
                                 <code class="keyword markupname xmlelement">&lt;linktext&gt;</code> sub-element to hold that
                             content.</li>
-                        <li class="li"><span></span>For empty <code class="keyword markupname xmlelement">&lt;link&gt;</code> and
+                        <li class="li">For empty <code class="keyword markupname xmlelement">&lt;link&gt;</code> and
                                 <code class="keyword markupname xmlelement">&lt;xref&gt;</code> elements, a key definition can provide
-                            a short description in addition to the normal effective content. <span></span>If the
+                            a short description in addition to the normal effective content. If the
                             key definition includes <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code> inside of
                                 <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code>, the content of the
                                 <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code> element also provides effective
                             content for a <code class="keyword markupname xmlelement">&lt;desc&gt;</code> sub-element.</li>
-                        <li class="li"><span></span>The <code class="keyword markupname xmlelement">&lt;longdescref&gt;</code> element is an empty element
-                            with no effective content. <span></span>Key definitions do not set effective text for
+                        <li class="li">The <code class="keyword markupname xmlelement">&lt;longdescref&gt;</code> element is an empty element
+                            with no effective content. Key definitions do not set effective text for
                             this element.</li>
-                        <li class="li"><span></span>The <code class="keyword markupname xmlelement">&lt;param&gt;</code> element does not have any effective
+                        <li class="li">The <code class="keyword markupname xmlelement">&lt;param&gt;</code> element does not have any effective
                             content, so key definitions do not result in effective content for
                                 <code class="keyword markupname xmlelement">&lt;param&gt;</code> elements.</li>
                     </ul>
@@ -66,44 +66,44 @@ classes: ''
             
             
                 <dt class="dt dlterm">Processing rules</dt>
-                <dd class="dd"><span></span>
-                    <div class="p"><span></span>Processors <dfn class="term RFC-2119">MUST</dfn> resolve variable text
+                <dd class="dd">
+                    <div class="p">Processors <dfn class="term RFC-2119">MUST</dfn> resolve variable text
                         that is defined using keys by using the following sequence:<ol class="ol" id="processing-key-references__ol_amq_w1w_bpb">
-                            <li class="li"><span></span>Effective text content is taken from the
+                            <li class="li">Effective text content is taken from the
                                     <code class="keyword markupname xmlelement">&lt;keytext&gt;</code> element.</li>
-                            <li class="li"><span></span>Effective text content is taken from the
+                            <li class="li">Effective text content is taken from the
                                     <code class="keyword markupname xmlelement">&lt;titlealt&gt;</code> element with
                                     <code class="keyword markupname xmlatt">@title-role</code> set to
                                 <span class="keyword">linking</span>.</li>
-                            <li class="li"><span></span>Effective text content is taken from the
+                            <li class="li">Effective text content is taken from the
                                     <code class="keyword markupname xmlelement">&lt;titlealt&gt;</code> element with
                                     <code class="keyword markupname xmlatt">@title-role</code> set to
                                 <span class="keyword">navigation</span>.</li>
-                            <li class="li"><span></span>Effective text content is taken from the
+                            <li class="li">Effective text content is taken from the
                                     <code class="keyword markupname xmlelement">&lt;titlealt&gt;</code> element with
                                     <code class="keyword markupname xmlatt">@title-role</code> set to a processor-recognized
                                 value.</li>
-                            <li class="li"><span></span>Effective text content is taken from the title of the referenced
+                            <li class="li">Effective text content is taken from the title of the referenced
                                 document, if available.</li>
-                            <li class="li"><span></span>Effective text content is determined by the processor.</li>
+                            <li class="li">Effective text content is determined by the processor.</li>
                         </ol></div>
                 </dd>
             
             
                 <dt class="dt dlterm">Generalization of effective content</dt>
-                <dd class="dd"><span></span>
-                    <p class="p"><span></span>When the effective content for a key reference element results in invalid
+                <dd class="dd">
+                    <p class="p">When the effective content for a key reference element results in invalid
                         elements, those elements <dfn class="term RFC-2119">SHOULD</dfn> be
-                        generalized to produce a valid result. <span></span></p>
-                    <p class="p"><span></span>For example, <code class="keyword markupname xmlelement">&lt;keytext&gt;</code> in the key definition might use
+                        generalized to produce a valid result. </p>
+                    <p class="p">For example, <code class="keyword markupname xmlelement">&lt;keytext&gt;</code> in the key definition might use
                         a domain specialization of <code class="keyword markupname xmlelement">&lt;keyword&gt;</code> that is not
                         valid in the key reference context, in which case the specialized element is
-                        generalized to <code class="keyword markupname xmlelement">&lt;keyword&gt;</code>. <span></span>If the generalized content
-                        is also not valid, a text equivalent is used instead. <span></span>For example,
+                        generalized to <code class="keyword markupname xmlelement">&lt;keyword&gt;</code>. If the generalized content
+                        is also not valid, a text equivalent is used instead. For example,
                             <code class="keyword markupname xmlelement">&lt;keytext&gt;</code> might include
                             <code class="keyword markupname xmlelement">&lt;ph&gt;</code> or a specialized <code class="keyword markupname xmlelement">&lt;ph&gt;</code>
                         in the key definition, but neither of those are valid as the effective
-                        content for a <code class="keyword markupname xmlelement">&lt;keyword&gt;</code>. <span></span>In that case, the text
+                        content for a <code class="keyword markupname xmlelement">&lt;keyword&gt;</code>. In that case, the text
                         content of the <code class="keyword markupname xmlelement">&lt;ph&gt;</code> is used.</p>
                 </dd>
             

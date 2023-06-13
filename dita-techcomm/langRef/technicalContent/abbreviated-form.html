@@ -5,7 +5,7 @@ title: 'abbreviated-form'
 description: 'The abbreviated-form element represents a reference to a term that might appear in an abbreviated form (often an acronym).'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '8b5b66bb02ed6cb47ac8e3574cd05bb42ad4cf78'
+commit: 'f1139a79f6af240cb5ce57703b7d6171362067d2'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -14,71 +14,71 @@ classes: ''
 <h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code></h1>
 
   
-<div class="body refbody"><p class="shortdesc"><span></span>The <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code> element represents a reference to a term
+<div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code> element represents a reference to a term
     that might appear in an abbreviated form (often an acronym).</p>
     <section class="section" id="abbreviated-form__usage-information"><h2 class="title sectiontitle">Usage information</h2>
       
-      <p class="p"><span></span>The long and short forms of the term are generally defined in a
-          <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code> topic. <span></span>Processors display the referenced term when
+      <p class="p">The long and short forms of the term are generally defined in a
+          <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code> topic. Processors display the referenced term when
         rendering an <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code> element.</p>
     </section>
     <section class="section" id="abbreviated-form__rendering-expectations"><h2 class="title sectiontitle">Rendering expectations</h2>
       
       
-      <p class="p"><span></span>The <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code> element is intended
+      <p class="p">The <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code> element is intended
         to reference a <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code> topic that
-        contains both a term and an abbreviated form of that term. <span></span>The
+        contains both a term and an abbreviated form of that term. The
         topic might also provide a surface form that differs from the
-        original term. <span></span>The full term or surface form is rendered in
+        original term. The full term or surface form is rendered in
         introductory contexts where the term might be unfamiliar to a
-        reader or in other contexts where a precise term is appropriate. <span></span>In
+        reader or in other contexts where a precise term is appropriate. In
         other contexts a processor substitutes the abbreviated form of the
-        term. <span></span>Note that the definition of an introductory context will
+        term. Note that the definition of an introductory context will
         differ for every deliverable format.</p>
-      <p class="p"><span></span>For instance, a process composing a book deliverable might emit
+      <p class="p">For instance, a process composing a book deliverable might emit
         the surface form of a term on the first reference to the
           <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code> topic within the book or for
-        every reference within a copyright or a warranty-related warning. <span></span>A
+        every reference within a copyright or a warranty-related warning. A
         process generating an online page might emit the surface form as a
         hover tooltip on every instance of the term.</p>
-      <div class="p"><span></span>The following rules determine how to render an
-          <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code> element. <span></span>As described,
+      <div class="p">The following rules determine how to render an
+          <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code> element. As described,
         the definition of "introductory context" will vary based on the
         rendered format and processor.<ol class="ol" id="abbreviated-form__ol_iwv_w5t_wbb">
-          <li class="li"><span></span>If the referenced topic is not a
+          <li class="li">If the referenced topic is not a
               <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code> topic (or a
             specialization of <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code>), the
             title of the topic <dfn class="term RFC-2119">SHOULD</dfn>
             be displayed.</li>
-          <li class="li"><span></span>Otherwise, if <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code> is
+          <li class="li">Otherwise, if <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code> is
             located in an introductory context, and the referenced topic
             contains a non-empty <code class="keyword markupname xmlelement">&lt;glossSurfaceForm&gt;</code>
             element, processors <dfn class="term RFC-2119">SHOULD</dfn>
             render the contents of the
               <code class="keyword markupname xmlelement">&lt;glossSurfaceForm&gt;</code> element from the
             referenced <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code> topic.</li>
-          <li class="li"><span></span>Otherwise, if <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code> is
+          <li class="li">Otherwise, if <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code> is
             located in an introductory context, processors <dfn class="term RFC-2119">SHOULD</dfn> render the contents of
             the <code class="keyword markupname xmlelement">&lt;glossterm&gt;</code> element from the
             referenced <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code> topic.</li>
-          <li class="li"><span></span>Otherwise (in non-introductory contexts), if the referenced
+          <li class="li">Otherwise (in non-introductory contexts), if the referenced
               <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code> topic contains a
             non-empty <code class="keyword markupname xmlelement">&lt;glossAcronym&gt;</code> element,
             processors <dfn class="term RFC-2119">SHOULD</dfn> render
             the abbreviated form of the term by displaying the contents of
             the <code class="keyword markupname xmlelement">&lt;glossAcronym&gt;</code> element from the
             referenced <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code> topic.</li>
-          <li class="li"><span></span>Otherwise, processors <dfn class="term RFC-2119">SHOULD</dfn> render the contents of the
+          <li class="li">Otherwise, processors <dfn class="term RFC-2119">SHOULD</dfn> render the contents of the
               <code class="keyword markupname xmlelement">&lt;glossterm&gt;</code> element from the
             referenced <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code> topic.</li>
         </ol></div>
-      <p class="p"><span></span>For instance, if an <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code>
+      <p class="p">For instance, if an <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code>
         element with the attribute <code class="ph codeph">keyref="abs"</code> provided
         the first occurrence of the ABS term within a book, the sentence
         could be rendered as follows:</p>
       <blockquote class="lq">"The Anti-lock Brake System (ABS) will prevent the car from
         skidding in adverse weather conditions."</blockquote>
-      <p class="p"><span></span>If the ABS term had appeared previously within the book, the same
+      <p class="p">If the ABS term had appeared previously within the book, the same
         sentence could instead be rendered as follows:</p>
       <blockquote class="lq">"The ABS will prevent the car from skidding in adverse weather
         conditions."</blockquote>
@@ -89,12 +89,12 @@ classes: ''
     </section>
     <section class="section" id="abbreviated-form__specialization-hierarchy"><h2 class="title sectiontitle">Specialization hierarchy</h2>
       
-      <p class="p"><span></span>The <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code> element is specialized from
-          <code class="keyword markupname xmlelement">&lt;term&gt;</code>. <span></span>It is defined in the abbreviated-form domain module.</p>
+      <p class="p">The <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code> element is specialized from
+          <code class="keyword markupname xmlelement">&lt;term&gt;</code>. It is defined in the abbreviated-form domain module.</p>
     </section>
     <section class="section" id="abbreviated-form__attributes"><h2 class="title sectiontitle">Attributes</h2>
       
-      <p class="p"><span></span>The following attributes are available on this element: <span class="ph"><a class="xref" href="../../baseSpec/specification/common/../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
+      <p class="p">The following attributes are available on this element: <span class="ph"><a class="xref" href="../../baseSpec/specification/common/../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
                                                   attributes</a></span> and <a class="xref" href="../../baseSpec/specification/langRef/attributes/commonAttributes.html#common-atts__attr-keyref"><code class="keyword markupname xmlatt">@keyref</code></a>.</p>
     </section>
     <div class="example non-normative" id="abbreviated-form__example"><h2 class="title sectiontitle">Example</h2>

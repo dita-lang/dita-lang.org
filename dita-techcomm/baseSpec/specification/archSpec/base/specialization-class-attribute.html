@@ -5,7 +5,7 @@ title: 'The class attribute rules and syntax'
 description: 'The specialization hierarchy of each DITA element is declared as the value of the class attribute. The class attribute provides a mapping from the current name of the element to its more general equivalents. The class attribute also can provide a mapping from the current name to more specialized equivalents. All specialization-aware processing can be defined in terms of class attribute values.'
 index: '../../../../toc.html'
 notices: '../../../../resources/oasis-notices.html'
-commit: '8b5b66bb02ed6cb47ac8e3574cd05bb42ad4cf78'
+commit: 'f1139a79f6af240cb5ce57703b7d6171362067d2'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -14,62 +14,62 @@ classes: ''
   <h1 class="title topictitle1" id="ariaid-title1">The <code class="keyword markupname xmlatt">@class</code> attribute rules and syntax</h1>
   
   
-  <div class="body conbody"><p class="shortdesc"><span></span>The specialization hierarchy of each DITA element is declared
-    as the value of the <code class="keyword markupname xmlatt">@class</code> attribute. <span></span>The
+  <div class="body conbody"><p class="shortdesc">The specialization hierarchy of each DITA element is declared
+    as the value of the <code class="keyword markupname xmlatt">@class</code> attribute. The
       <code class="keyword markupname xmlatt">@class</code> attribute provides a mapping from the current
     name of the element to its more general equivalents.<span style="color:red;" class="ph">
       The <code class="keyword markupname xmlatt">@class</code> attribute</span> also can provide a mapping
-    from the current name to more specialized equivalents. <span></span>All
+    from the current name to more specialized equivalents. All
     specialization-aware processing can be defined in terms of
       <code class="keyword markupname xmlatt">@class</code> attribute values.</p>
-    <p class="p"><span></span>The <code class="keyword markupname xmlatt">@class</code> attribute tells a processor what general
-      classes of elements the current element belongs to. <span></span>DITA scopes
+    <p class="p">The <code class="keyword markupname xmlatt">@class</code> attribute tells a processor what general
+      classes of elements the current element belongs to. DITA scopes
       elements by module type instead of document type<span style="color:red;" class="ph">.
-<span></span>        Examples of module types are topic type, domain type, or map type.
-<span></span>        This enables document-type developers to </span>combine multiple
+        Examples of module types are topic type, domain type, or map type.
+        This enables document-type developers to </span>combine multiple
       module types in a single document without complicating transformation
       logic.</p>
-    <p class="p"><span></span>The sequence of values in the <code class="keyword markupname xmlatt">@class</code> attribute is important because it tells
-      processors which value is the most general and which is most specific. <span></span>This sequence is what
+    <p class="p">The sequence of values in the <code class="keyword markupname xmlatt">@class</code> attribute is important because it tells
+      processors which value is the most general and which is most specific. This sequence is what
       enables both specialization aware processing and generalization.</p>
     <section class="section" id="classatt__syntax"><h2 class="title sectiontitle">Syntax</h2>
       
-      <div class="p"><span></span>Values for the <code class="keyword markupname xmlatt">@class</code> attribute have the following syntax requirements:<ul class="ul">
-          <li class="li"><span></span>An initial "-" or "+" character followed by one or more spaces. <span></span>Use "-" for element
+      <div class="p">Values for the <code class="keyword markupname xmlatt">@class</code> attribute have the following syntax requirements:<ul class="ul">
+          <li class="li">An initial "-" or "+" character followed by one or more spaces. Use "-" for element
             types that are defined in structural vocabulary modules, and use "+" for element types
             that are defined in domain modules.</li>
-          <li class="li"><span></span>A sequence of one or more tokens of the form
+          <li class="li">A sequence of one or more tokens of the form
                 <code class="ph codeph">"<var class="keyword varname">modulename</var>/<var class="keyword varname">typename</var>",</code> with
             each token separated by one or more spaces, where
               <var class="keyword varname">modulename</var> is the short name of the vocabulary module and
-              <var class="keyword varname">typename</var> is the element type name. <span></span>Tokens are ordered left to right
-            from most general to most specialized.<p class="p"><span></span>These tokens provide a mapping for every
-              structural type or domain in the ancestry of the specialized element. <span></span>The
+              <var class="keyword varname">typename</var> is the element type name. Tokens are ordered left to right
+            from most general to most specialized.<p class="p">These tokens provide a mapping for every
+              structural type or domain in the ancestry of the specialized element. The
               specialization hierarchy for a given element type must reflect any intermediate
               modules between the base type and the specialization type, even those in which no
               element renaming occurs.</p></li>
-          <li class="li"><span></span>At least one trailing space character (" "). <span></span>The trailing space ensures that string
+          <li class="li">At least one trailing space character (" "). The trailing space ensures that string
             matches on the tokens can always include a leading and trailing space in order to
-            reliably match full tokens. <span></span></li>
+            reliably match full tokens. </li>
         </ul></div>
     </section>
     <section class="section" id="classatt__rules"><h2 class="title sectiontitle">Rules</h2>
       
       
-      <p class="p"><span></span>Every DITA element (except the <code class="keyword markupname xmlelement">&lt;dita&gt;</code> element that is used as the
+      <p class="p">Every DITA element (except the <code class="keyword markupname xmlelement">&lt;dita&gt;</code> element that is used as the
         root of a ditabase document) <dfn class="term RFC-2119">MUST</dfn> declare a
           <code class="keyword markupname xmlatt">@class</code> attribute.</p>
-      <p class="p"><span></span>When the <code class="keyword markupname xmlatt">@class</code> attribute is declared in an XML grammar, it <dfn class="term RFC-2119">MUST</dfn> be declared with a default value. <span></span>In order to support
+      <p class="p">When the <code class="keyword markupname xmlatt">@class</code> attribute is declared in an XML grammar, it <dfn class="term RFC-2119">MUST</dfn> be declared with a default value. In order to support
         generalization round-tripping (generalizing specialized content into a generic form and then
         returning it to the specialized form) the default value <dfn class="term RFC-2119">MUST
-          NOT</dfn> be fixed. <span></span>This allows a generalization process to overwrite the default values
+          NOT</dfn> be fixed. This allows a generalization process to overwrite the default values
         that are defined by a general document type with specialized values taken from the document
         being generalized.</p>
-      <p class="p"><span></span>A vocabulary module <dfn class="term RFC-2119">MUST NOT</dfn> change the
+      <p class="p">A vocabulary module <dfn class="term RFC-2119">MUST NOT</dfn> change the
           <code class="keyword markupname xmlatt">@class</code> attribute for elements that it does not specialize, but simply
         reuses by reference from more generic levels.</p>
-      <p class="p"><span></span>Authors <dfn class="term RFC-2119">SHOULD NOT</dfn> modify the
-          <code class="keyword markupname xmlatt">@class</code> attribute. <span></span>The <code class="keyword markupname xmlatt">@class</code>
+      <p class="p">Authors <dfn class="term RFC-2119">SHOULD NOT</dfn> modify the
+          <code class="keyword markupname xmlatt">@class</code> attribute. The <code class="keyword markupname xmlatt">@class</code>
         attribute and its value is generally not surfaced in authored DITA
         topics, although it might be made explicit as part of a processing
         operation.</p>
