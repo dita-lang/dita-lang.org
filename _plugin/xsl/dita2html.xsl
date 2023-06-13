@@ -179,16 +179,16 @@
 
   <xsl:template match="processing-instruction('sentence')">
     <xsl:variable name="values" select="tokenize(., '\s+')" as="xs:string*"/>
-    <span>
-      <xsl:if test="$values = 'error-statement'">
+    <xsl:if test="$values = 'error-statement'">
+      <span>
   <!--      <xsl:variable name="next" select="(following::processing-instruction('sentence'))[1]" as="processing-instruction()?"/>-->
   <!--      <xsl:if test="not($next = 'error-statement')">-->
         <xsl:attribute name="class" select="'error-statement'"/>
         <xsl:attribute name="id" select="string-join((ancestor::*[contains(@class, ' topic/topic ')][1]/@id, substring($values[1], 2)), '__')"/>
         <xsl:attribute name="data-id" select="substring($values[starts-with(., '#')][2], 2)"/>
   <!--      </xsl:if>-->
-      </xsl:if>
-    </span>
+      </span>
+    </xsl:if>
   </xsl:template>
 
 </xsl:stylesheet>
