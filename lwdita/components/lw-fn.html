@@ -5,7 +5,7 @@ title: 'Footnote'
 description: 'A footnote is ancillary information that typically is rendered in the footer of a page or at the end of an online article. Such content is usually inappropriate for inline inclusion.'
 index: '../toc.html'
 notices: '../resources/oasis-notices.html'
-commit: '00424d80a56888b6eaf72e772c2542b1d421f01a'
+commit: 'e205e135fa4d9fd94cacda67362ff94696099fb8'
 repository: 'oasis-tcs/dita-lwdita'
 classes: ''
 ---
@@ -13,30 +13,30 @@ classes: ''
 <nav class="col-lg-3" role="toc"><ul><li><a href="../introduction/introduction.html">Introduction</a></li><li><a href="../authoring-formats/formats-introduction.html">LwDITA authoring formats</a></li><li><a href="../components/component-reference.html">Component reference</a></li><li><a href="../attributes/attributes.html">Attributes</a></li><li><a href="../conformance/conformance.html">Conformance</a></li><li><a href="../acknowledgements/acknowledgements.html">Acknowledgements</a></li><li><a href="../commonspec/specification/non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../introduction/revision-history.html">Revision history</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
   <h1 class="title topictitle1" id="ariaid-title1">Footnote</h1>
   
-    <div class="body refbody"><p class="shortdesc"><span></span>A footnote is ancillary
+    <div class="body refbody"><p class="shortdesc">A footnote is ancillary
     information that typically is rendered in the footer of a page or at
-    the end of an online article. <span></span>Such content is usually inappropriate for
+    the end of an online article. Such content is usually inappropriate for
     inline inclusion.</p>
     <section class="section"><h2 class="title sectiontitle">Syntax</h2>
       
       <dl class="dl">
         
           <dt class="dt dlterm">XDITA</dt>
-          <dd class="dd"><span></span><p class="p"><span></span><code class="keyword markupname xmlelement">&lt;fn&gt;</code>. <span></span>The footnote component is composed of two elements: the cross-reference that calls it,
+          <dd class="dd"><p class="p"><code class="keyword markupname xmlelement">&lt;fn&gt;</code>. The footnote component is composed of two elements: the cross-reference that calls it,
               and the actual footnote content.</p></dd>
           
         
           <dt class="dt dlterm">HDITA</dt>
-          <dd class="dd"><span></span><p class="p"><span></span><code class="keyword markupname xmlelement">&lt;span data-class="fn"&gt;</code>. <span></span>The footnote division should have a unique
-                <code class="keyword markupname xmlatt">@id</code> attribute. <span></span>In the body of the text, where the footnote is called
+          <dd class="dd"><p class="p"><code class="keyword markupname xmlelement">&lt;span data-class="fn"&gt;</code>. The footnote division should have a unique
+                <code class="keyword markupname xmlatt">@id</code> attribute. In the body of the text, where the footnote is called
               from, an internal cross-reference in the form of <code class="ph codeph">&lt;a
                 href="#footnote-id"&gt;</code> should include the text that you want to make
               clickable for the footnote.</p></dd>
         
         
           <dt class="dt dlterm">MDITA (extended profile)</dt>
-          <dd class="dd"><span></span>
-            <p class="p"><span></span>A footnote is composed of two elements: a marker in the text that will become a
+          <dd class="dd">
+            <p class="p">A footnote is composed of two elements: a marker in the text that will become a
               superscript number; a footnote definition that will be placed in a list of footnotes
               at the end of the document, following the <a class="xref" href="https://michelf.ca/projects/php-markdown/extra/#footnotes" target="_blank" rel="external noopener">PHP Markdown Extra syntax for footnotes</a>.</p></dd>
         
@@ -45,7 +45,7 @@ classes: ''
 
       <section class="section"><h2 class="title sectiontitle">Usage information</h2>
       
-      <p class="p"><span></span>There are two types of footnotes:
+      <p class="p">There are two types of footnotes:
           <dfn class="term">single-use footnote</dfn> and <dfn class="term">use-by-reference
           footnote</dfn>.</p>
       
@@ -53,23 +53,23 @@ classes: ''
         <dl class="dl">
           
             <dt class="dt dlterm">Single-use footnote</dt>
-            <dd class="dd"><span></span>This is produced by a footnote component that does not specify a value for the
+            <dd class="dd">This is produced by a footnote component that does not specify a value for the
                 <code class="keyword markupname xmlatt">@id</code> attribute.</dd>
           
           
             <dt class="dt dlterm">Use-by-reference footnote</dt>
-            <dd class="dd"><span></span>This is produced by a footnote component that specifies a value for the
-                <code class="keyword markupname xmlatt">@id</code> attribute. <span></span>It must be used in conjunction with a cross reference
+            <dd class="dd">This is produced by a footnote component that specifies a value for the
+                <code class="keyword markupname xmlatt">@id</code> attribute. It must be used in conjunction with a cross reference
               component with <code class="keyword markupname xmlatt">@type</code> set to <span class="keyword">fn</span>.</dd>
           
         </dl>
-        <p class="p"><span></span>To reference a footnote that is located in another topic, the conkeyref mechanism is
+        <p class="p">To reference a footnote that is located in another topic, the conkeyref mechanism is
           used.</p>
       </div>
     </section>
       <section class="section"><h2 class="title sectiontitle">Rendering expectations</h2>
       
-      <p class="p"><span></span>The two footnote types typically produce
+      <p class="p">The two footnote types typically produce
         different types of output:</p>
       <div class="div">
         
@@ -78,27 +78,27 @@ classes: ''
         <dl class="dl">
           
             <dt class="dt dlterm">Single-use footnote</dt>
-            <dd class="dd"><span></span>When rendered, a superscript symbol (numeral or character) is produced at the
-              location of the footnote component. <span></span>The superscript symbol is hyperlinked to the
+            <dd class="dd">When rendered, a superscript symbol (numeral or character) is produced at the
+              location of the footnote component. The superscript symbol is hyperlinked to the
               content of the footnote, which is placed at the bottom of a PDF page or the end of an
-              online article. <span></span>The superscript symbol can be specified by the value of the
-                <code class="keyword markupname xmlatt">@callout</code> attribute. <span></span>When no <code class="keyword markupname xmlatt">@callout</code> value is
+              online article. The superscript symbol can be specified by the value of the
+                <code class="keyword markupname xmlatt">@callout</code> attribute. When no <code class="keyword markupname xmlatt">@callout</code> value is
               specified, footnotes are typically numbered.</dd>
           
           
             <dt class="dt dlterm">Use-by-reference footnote</dt>
-            <dd class="dd"><span></span>Nothing is rendered at the location of the footnote component. <span></span>The content of a
+            <dd class="dd">Nothing is rendered at the location of the footnote component. The content of a
               use-by-reference footnote is only rendered when it is referenced by a cross reference
-              with the <code class="keyword markupname xmlatt">@type</code> attribute set to <span class="keyword">fn</span>. <span></span>If a cross
+              with the <code class="keyword markupname xmlatt">@type</code> attribute set to <span class="keyword">fn</span>. If a cross
               reference with the <code class="keyword markupname xmlatt">@type</code> attribute set to <span class="keyword">fn</span> is
               present, a superscript symbol is rendered at the location of the cross reference
-              component. <span></span>Unless conkeyref is used, the footnote and cross reference components must
+              component. Unless conkeyref is used, the footnote and cross reference components must
               be located in the same topic.</dd>
           
         </dl>
       </div>
-      <p class="p"><span></span>However, the details of footnote processing
-        and formatting are implementation dependent. <span></span>For example, a tool
+      <p class="p">However, the details of footnote processing
+        and formatting are implementation dependent. For example, a tool
         that renders DITA as PDF might lack support for the
           <code class="keyword markupname xmlatt">@callout</code> attribute, or footnotes might be
         collected as end notes for certain types of publications.</p>
@@ -107,12 +107,12 @@ classes: ''
       
       
       <div class="div">
-        <p class="p"><span></span>The available attributes vary based on the
+        <p class="p">The available attributes vary based on the
         authoring format:</p>
         <dl class="dl">
           
             <dt class="dt dlterm">XDITA</dt>
-            <dd class="dd"><span></span>The following attributes are available on this element: <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__id-attributes" title="ID and conref attributes include conref and id.">ID
+            <dd class="dd">The following attributes are available on this element: <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__id-attributes" title="ID and conref attributes include conref and id.">ID
                   attributes</a></span>, <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__localization-attributes" title="Localization attributes include dir, translate, and xml:lang.">localization attributes</a></span>,
                 <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__universal-attributes" title="Universal attributes include class and outputclass..">universal
                   attributes</a></span>,
@@ -121,7 +121,7 @@ classes: ''
           
           
             <dt class="dt dlterm">HDITA</dt>
-            <dd class="dd"><span></span>The following attributes are available on this element: <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__id-attributes" title="ID and conref attributes include conref and id.">ID
+            <dd class="dd">The following attributes are available on this element: <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__id-attributes" title="ID and conref attributes include conref and id.">ID
                   attributes</a></span>, <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__localization-attributes" title="Localization attributes include dir, translate, and xml:lang.">localization attributes</a></span>,
                 <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__universal-attributes" title="Universal attributes include class and outputclass..">universal
                   attributes</a></span>,
@@ -129,20 +129,20 @@ classes: ''
           
           
             <dt class="dt dlterm">MDITA</dt>
-            <dd class="dd"><span></span><span class="ph">For the MDITA core profile, the equivalent
-          of the XDITA <code class="keyword markupname xmlatt">@keyref</code> attribute is supported. <span></span>For
+            <dd class="dd"><span class="ph">For the MDITA core profile, the equivalent
+          of the XDITA <code class="keyword markupname xmlatt">@keyref</code> attribute is supported. For
           the MDITA extended profile, attributes can be specified by using
           the HDITA representation.</span></dd>
           
         </dl>
       </div>
-      <p class="p"><span></span>For XDITA, the
+      <p class="p">For XDITA, the
         following additional attribute is also available: </p>
       <dl class="dl">
         
           <dt class="dt dlterm" id="lw-fn__attr-callout"><a id="lw-fn__lwdita-callout"></a><code class="keyword markupname xmlatt">@callout</code></dt>
-          <dd class="dd"><span></span>Specifies the character <span class="ph">or character
-              string</span> that is used for the footnote link. <span></span><span class="ph"> This attribute is available only in
+          <dd class="dd">Specifies the character <span class="ph">or character
+              string</span> that is used for the footnote link. <span class="ph"> This attribute is available only in
               XDITA.</span></dd>
         
       </dl>

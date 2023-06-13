@@ -5,7 +5,7 @@ title: 'Attribute generalization'
 description: 'DITA provides a syntax to generalize attributes that have been specialized from the props or base attribute.'
 index: '../../../../toc.html'
 notices: '../../../../resources/oasis-notices.html'
-commit: '00424d80a56888b6eaf72e772c2542b1d421f01a'
+commit: 'e205e135fa4d9fd94cacda67362ff94696099fb8'
 repository: 'oasis-tcs/dita-lwdita'
 classes: ''
 ---
@@ -14,45 +14,45 @@ classes: ''
   <h1 class="title topictitle1" id="ariaid-title1">Attribute generalization</h1>
   
   
-  <div class="body conbody"><p class="shortdesc"><span></span>DITA provides a syntax to generalize attributes that have been specialized from the
+  <div class="body conbody"><p class="shortdesc">DITA provides a syntax to generalize attributes that have been specialized from the
       <code class="keyword markupname xmlatt">@props</code> or <code class="keyword markupname xmlatt">@base</code> attribute.</p>
-    <p class="p"><span></span>Specialization-aware processors <dfn class="term RFC-2119">MUST</dfn> process both the
+    <p class="p">Specialization-aware processors <dfn class="term RFC-2119">MUST</dfn> process both the
       specialized and generalized forms of an attribute as equivalent in their values.</p>
-    <p class="p"><span></span>When a specialized attribute is generalized to an ancestor attribute, the value of the
+    <p class="p">When a specialized attribute is generalized to an ancestor attribute, the value of the
       ancestor attribute consists of the name of the specialized attribute followed by its
       specialized value in parentheses.</p>
     <div class="div">
-      <p class="p"><span></span>For example, if <code class="keyword markupname xmlatt">@jobrole</code> is an attribute specialized from
+      <p class="p">For example, if <code class="keyword markupname xmlatt">@jobrole</code> is an attribute specialized from
           <code class="keyword markupname xmlatt">@person</code>, which in turn is specialized from <code class="keyword markupname xmlatt">@props</code>:</p>
       <ul class="ul">
-        <li class="li"><span></span><code class="ph codeph">jobrole="programmer"</code> can be generalized to
+        <li class="li"><code class="ph codeph">jobrole="programmer"</code> can be generalized to
             <code class="ph codeph">person="jobrole(programmer)"</code> or to
             <code class="ph codeph">props="jobrole(programmer)"</code></li>
-        <li class="li"><span></span><code class="ph codeph">props="jobrole(programmer)"</code> can be respecialized to
+        <li class="li"><code class="ph codeph">props="jobrole(programmer)"</code> can be respecialized to
             <code class="ph codeph">person="jobrole(programmer)"</code> or to
             <code class="ph codeph">jobrole="programmer"</code></li>
       </ul>
     </div>
-    <p class="p"><span></span>In this example, processors performing generalization and respecialization can use the
+    <p class="p">In this example, processors performing generalization and respecialization can use the
         <code class="keyword markupname xmlatt">@specializations</code> attribute to determine the ancestry of the specialized
         <code class="keyword markupname xmlatt">@jobrole</code> attribute, and therefore the validity of the specialized
         <code class="keyword markupname xmlatt">@person</code> attribute as an intermediate target for generalization.</p>
-    <p class="p"><span></span>If more than one attribute is generalized, the value of each is separately represented in
+    <p class="p">If more than one attribute is generalized, the value of each is separately represented in
       this way in the value of the ancestor attribute.</p>
-    <p class="p"><span></span>Generalized attributes are typically not expected to be authored or edited directly. <span></span>They are
+    <p class="p">Generalized attributes are typically not expected to be authored or edited directly. They are
       used by processors to preserve the values of the specialized attributes during the time or in
       the circumstances in which the document is in a generalized form.</p>
-    <p class="p"><span></span>A single element <dfn class="term RFC-2119">MUST NOT</dfn> contain both generalized and
+    <p class="p">A single element <dfn class="term RFC-2119">MUST NOT</dfn> contain both generalized and
       specialized values for the same attribute.</p>
     <div class="div">
-      <p class="p"><span></span>For example, the following <code class="keyword markupname xmlelement">&lt;p&gt;</code> element provides two values for the
+      <p class="p">For example, the following <code class="keyword markupname xmlelement">&lt;p&gt;</code> element provides two values for the
           <code class="keyword markupname xmlatt">@jobrole</code> attribute, one in a generalized syntax and the other in a
         specialized syntax:</p>
       <pre class="pre codeblock"><code>&lt;p person="jobrole(programmer)" jobrole="admin"&gt;
-    &lt;!-- ... <span></span>--&gt;
+    &lt;!-- ... --&gt;
 &lt;/p&gt;</code></pre>
     </div>
     <p class="p"><span class="error-statement" id="attributegeneralize__d627e131" data-id=""></span>This is an error condition, since it means the document has been only partially generalized,
-      or that the document has been generalized and then edited using a specialized document type. <span></span></p>
+      or that the document has been generalized and then edited using a specialized document type. </p>
   </div>
 </article></main>
