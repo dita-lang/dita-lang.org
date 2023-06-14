@@ -5,7 +5,7 @@ title: 'resourceid'
 description: 'A resource ID is an identifier that is designed for applications that need to use their own identifier scheme, such as context-sensitive help systems and databases.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '7e7a11ff130cd273e9235b7da503a3782fa30582'
+commit: '1dfa1822aeebe83ed43664fd070003fc327678bc'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -14,156 +14,156 @@ classes: ''
 <h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;resourceid&gt;</code></h1>
 
   
-<div class="body refbody"><p class="shortdesc"><span></span>A resource ID is an identifier that is designed for applications
+<div class="body refbody"><p class="shortdesc">A resource ID is an identifier that is designed for applications
     that need to use their own identifier scheme, such as context-sensitive
     help systems and databases.</p>
     <section class="section" id="resourceid__usage-information"><h2 class="title sectiontitle">Usage information</h2>
       
       
-      <p class="p"><span></span>The <code class="keyword markupname xmlatt">@appid</code> and <code class="keyword markupname xmlatt">@appname</code> attributes
+      <p class="p">The <code class="keyword markupname xmlatt">@appid</code> and <code class="keyword markupname xmlatt">@appname</code> attributes
         work in combination to specify a specific ID for an application.
-<span></span>        Multiple <code class="keyword markupname xmlatt">@appid</code> values can be associated with a
+        Multiple <code class="keyword markupname xmlatt">@appid</code> values can be associated with a
         single <code class="keyword markupname xmlatt">@appname</code> value, and multiple
           <code class="keyword markupname xmlatt">@appname</code> values can be associated with a single
           <code class="keyword markupname xmlatt">@appid</code> value.Accordingly, each combination of
         values for the <code class="keyword markupname xmlatt">@appid</code> and <code class="keyword markupname xmlatt">@appname</code>
         attributes need to be unique within the context of the main
         map.</p>
-      <p class="p"><span></span>When the <code class="keyword markupname xmlatt">@appid-role</code> attribute is set to
+      <p class="p">When the <code class="keyword markupname xmlatt">@appid-role</code> attribute is set to
           <span class="keyword">deliverable-anchor</span>, the value that it
         specifies contributes to deliverable anchors for a topic.
-<span></span>        According, certain limitations apply to the value of the
+        According, certain limitations apply to the value of the
           <code class="keyword markupname xmlatt">@appid</code> attribute:</p>
       <ul class="ul">
-        <li class="li"><span></span>It specifies only a single URI component.</li>
-        <li class="li"><span></span>It is limited to values that can contribute to the following
+        <li class="li">It specifies only a single URI component.</li>
+        <li class="li">It is limited to values that can contribute to the following
           URI components:<ul class="ul">
-            <li class="li"><span></span>The last path component of a URI path</li>
-            <li class="li"><span></span>A fragment identifier</li>
-            <li class="li"><span></span>A query parameter</li>
+            <li class="li">The last path component of a URI path</li>
+            <li class="li">A fragment identifier</li>
+            <li class="li">A query parameter</li>
           </ul></li>
-        <li class="li"><span></span>It should not specify components of URIs that are specific to a
+        <li class="li">It should not specify components of URIs that are specific to a
           particular deliverable, such as a file extension.</li>
       </ul>
       
       
-      <p class="p"><span></span></p>
+      <p class="p"></p>
     </section>
     <section class="section" id="resourceid__processing-expectations"><h2 class="title sectiontitle">Processing expectations</h2>
       
-      <p class="p"><span></span>By design, the <code class="keyword markupname xmlelement">&lt;resourceid&gt;</code> element will not apply to all processors
-        in all situations. <span></span>Processors can examine the <code class="keyword markupname xmlatt">@appname</code> and
+      <p class="p">By design, the <code class="keyword markupname xmlelement">&lt;resourceid&gt;</code> element will not apply to all processors
+        in all situations. Processors can examine the <code class="keyword markupname xmlatt">@appname</code> and
           <code class="keyword markupname xmlatt">@appid-role</code> attributes to determine whether a given
           <code class="keyword markupname xmlelement">&lt;resourceid&gt;</code> element is relevant to a specific deliverable; if
           <code class="keyword markupname xmlatt">@appname</code> is not present, processors can assume that the element
         applies.</p>
-      <p class="p"><span></span>When <code class="keyword markupname xmlatt">@appid-role</code> is set to <span class="keyword">deliverable-anchor</span>, and the
+      <p class="p">When <code class="keyword markupname xmlatt">@appid-role</code> is set to <span class="keyword">deliverable-anchor</span>, and the
           <code class="keyword markupname xmlelement">&lt;resourceid&gt;</code> applies to a deliverable, processors <dfn class="term RFC-2119">SHOULD</dfn> use the <code class="keyword markupname xmlatt">@appid</code> value when
-        constructing a URI for the delivered resource. <span></span>Effective <code class="keyword markupname xmlatt">@appid</code> values for
+        constructing a URI for the delivered resource. Effective <code class="keyword markupname xmlatt">@appid</code> values for
         this reflect the application of any prefix or suffix values from <a class="xref" href="dvrKeyscopePrefix.html" title="The dvrKeyscopePrefix element specifies the prefix to use when constructing the effective key scope names for the map branch that is implied by the ancestor ditavalref element.">dvrKeyscopePrefix</a> and <a class="xref" href="dvrResourceSuffix.html" title="The dvrResourceSuffix element specifies the prefix to use when constructing the effective file names or resource IDs of the resources that are referenced from within the map branch that is implied by the ancestor ditavalref element.">dvrResourceSuffix</a>.
-<span></span>        Actual delivery anchors depend on the rendered format; for example, the anchor can be the
-        base part of an HTML file name, a PDF anchor name, or a URI fragment identifier. <span></span>While
+        Actual delivery anchors depend on the rendered format; for example, the anchor can be the
+        base part of an HTML file name, a PDF anchor name, or a URI fragment identifier. While
         anchors values will vary by deliverable, the resulting URI should reflect the specified
-        anchor as much as possible. <span></span></p>
-      <p class="p"><span></span>When <code class="keyword markupname xmlatt">@appid-role</code> is set to <span class="keyword">context-sensitive-help</span> or
+        anchor as much as possible. </p>
+      <p class="p">When <code class="keyword markupname xmlatt">@appid-role</code> is set to <span class="keyword">context-sensitive-help</span> or
         another value, processors can optionally use the <code class="keyword markupname xmlatt">@appid</code> value IDs to
-        construct deliverable anchors. <span></span>Deliverable components MAY have any number of anchors when
+        construct deliverable anchors. Deliverable components MAY have any number of anchors when
         the deliverable format allows.</p>
-      <p class="p"><span></span>Processors can use other properties of the referenced resource, or properties of the
-        reference itself, when constructing full deliverable anchors. <span></span>For example, key scope names,
+      <p class="p">Processors can use other properties of the referenced resource, or properties of the
+        reference itself, when constructing full deliverable anchors. For example, key scope names,
         key names, or source file names can all be used with the resource ID when constructing
         unique anchor values.</p>
     </section>
     <section class="section" id="resourceid__attributes"><h2 class="title sectiontitle">Attributes</h2>
       
-      <p class="p"><span></span>The following attributes are available on this element: <span class="ph"><a class="xref" href="../../common/../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
+      <p class="p">The following attributes are available on this element: <span class="ph"><a class="xref" href="../../common/../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
                                                   attributes</a></span> and the attributes defined below.</p>
       <dl class="dl">
         
           <dt class="dt dlterm" id="resourceid__attr-appname"><a id="resourceid__appname"></a><code class="keyword markupname xmlatt">@appname</code></dt>
-          <dd class="dd"><span></span><span class="ph">Specifies a name for the external application.</span>
+          <dd class="dd"><span class="ph">Specifies a name for the external application.</span>
           </dd>
         
         
           <dt class="dt dlterm" id="resourceid__attr-appid"><a id="resourceid__appid"></a><code class="keyword markupname xmlatt">@appid</code></dt>
-          <dd class="dd"><span></span>Specifies an ID that can be used by an application to
-            identify the topic.<p class="p"><span></span>When <code class="keyword markupname xmlatt">@app-role</code> is set to
+          <dd class="dd">Specifies an ID that can be used by an application to
+            identify the topic.<p class="p">When <code class="keyword markupname xmlatt">@app-role</code> is set to
                 <span class="keyword">deliverable-anchor</span>, certain restrictions
               apply to the value of the <code class="keyword markupname xmlatt">@appid</code> attribute.
-<span></span>              See <a class="xref" href="resourceid.html#resourceid__usage-information">Usage information</a>.</p></dd>
+              See <a class="xref" href="resourceid.html#resourceid__usage-information">Usage information</a>.</p></dd>
         
         
           <dt class="dt dlterm" id="resourceid__attr-appid-role"><code class="keyword markupname xmlatt">@appid-role</code></dt>
-          <dd class="dd"><span></span>Specifies the role that the <code class="keyword markupname xmlatt">@appid</code> value
-            plays for applications. <span></span>The value is a single name token. <span></span>The
+          <dd class="dd">Specifies the role that the <code class="keyword markupname xmlatt">@appid</code> value
+            plays for applications. The value is a single name token. The
             default value is <span class="keyword">context-sensitive-help</span>.
-<span></span>            While applications can define their own values, the following
+            While applications can define their own values, the following
             values are defined by OASIS:<dl class="dl">
               
                 <dt class="dt dlterm">context-sensitive-help</dt>
-                <dd class="dd"><span></span>Specifies that the value of the <code class="keyword markupname xmlatt">@appid</code>
+                <dd class="dd">Specifies that the value of the <code class="keyword markupname xmlatt">@appid</code>
                   attribute is used to connect the associated resource with
                   applications that use the associated resource as context
                   sensitive help.</dd>
               
               
                 <dt class="dt dlterm">deliverable-anchor</dt>
-                <dd class="dd"><span></span>Specifies that the value of the <code class="keyword markupname xmlatt">@appid</code>
+                <dd class="dd">Specifies that the value of the <code class="keyword markupname xmlatt">@appid</code>
                   attribute is used to construct anchors for the associated
-                    resource.<p class="p"><span></span>When <code class="keyword markupname xmlatt">@app-role</code> is set to
+                    resource.<p class="p">When <code class="keyword markupname xmlatt">@app-role</code> is set to
                       <span class="keyword">deliverable-anchor</span>, certain
                     restrictions apply to the value of the
-                      <code class="keyword markupname xmlatt">@appid</code> attribute. <span></span>See <a class="xref" href="resourceid.html#resourceid__usage-information">Usage information</a>.</p></dd>
+                      <code class="keyword markupname xmlatt">@appid</code> attribute. See <a class="xref" href="resourceid.html#resourceid__usage-information">Usage information</a>.</p></dd>
               
             </dl></dd>
         
         
           <dt class="dt dlterm" id="resourceid__attr-ux-context-string"><code class="keyword markupname xmlatt">@ux-context-string</code></dt>
-          <dd class="dd"><span></span>Specifies the value of a user-assistance context-string that is used to identify the
+          <dd class="dd">Specifies the value of a user-assistance context-string that is used to identify the
             topic.</dd>
         
         
           <dt class="dt dlterm" id="resourceid__attr-ux-source-priority"><code class="keyword markupname xmlatt">@ux-source-priority</code></dt>
-          <dd class="dd"><span></span>
-            <p class="p"><span></span>Specifies precedence for handling
+          <dd class="dd">
+            <p class="p">Specifies precedence for handling
                 <code class="keyword markupname xmlelement">&lt;resourceid&gt;</code> definitions that exist
-              in both a map and a topic. <span></span>This attribute is only valid when
+              in both a map and a topic. This attribute is only valid when
               used within a <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element in a
-              map. <span></span>The following values are valid:</p>
+              map. The following values are valid:</p>
             <dl class="dl">
               
                 <dt class="dt dlterm">map-only</dt>
-                <dd class="dd"><span></span>Use IDs from the map only.</dd>
+                <dd class="dd">Use IDs from the map only.</dd>
               
               
                 <dt class="dt dlterm">map-takes-priority</dt>
-                <dd class="dd"><span></span>Use the IDs from the map, if they exist. <span></span>Otherwise, use
+                <dd class="dd">Use the IDs from the map, if they exist. Otherwise, use
                   IDs from the topic.</dd>
               
               
                 <dt class="dt dlterm">topic-and-map</dt>
-                <dd class="dd"><span></span>Use IDs from both the topic and map.</dd>
+                <dd class="dd">Use IDs from both the topic and map.</dd>
               
               
                 <dt class="dt dlterm">topic-only</dt>
-                <dd class="dd"><span></span>Use IDs from the topic only.</dd>
+                <dd class="dd">Use IDs from the topic only.</dd>
               
               
                 <dt class="dt dlterm">topic-takes-priority</dt>
-                <dd class="dd"><span></span>Use the IDs from the topic, if they exist. <span></span>Otherwise,
+                <dd class="dd">Use the IDs from the topic, if they exist. Otherwise,
                   use IDs from the map.</dd>
               
               
           <dt class="dt dlterm"><span class="keyword">-dita-use-conref-target</span></dt>
-          <dd class="dd"><span></span>See <a class="xref" href="../../common/../archSpec/base/ditauseconreftarget.html" title="The value -dita-use-conref-target is available on enumerated attributes and can also be specified on other attributes. When an element uses conref to pull in content, for any of its attributes assigned a value of -dita-use-conref-target, the resulting value for those attributes is also pulled in from the referenced element.">Using the -dita-use-conref-target value</a>
-            for more information. <span></span></dd>
+          <dd class="dd">See <a class="xref" href="../../common/../archSpec/base/ditauseconreftarget.html" title="The value -dita-use-conref-target is available on enumerated attributes and can also be specified on other attributes. When an element uses conref to pull in content, for any of its attributes assigned a value of -dita-use-conref-target, the resulting value for those attributes is also pulled in from the referenced element.">Using the -dita-use-conref-target value</a>
+            for more information. </dd>
         
             </dl>
           </dd>
         
         
           <dt class="dt dlterm" id="resourceid__attr-ux-windowref"><code class="keyword markupname xmlatt">@ux-windowref</code></dt>
-          <dd class="dd"><span></span>References the <code class="keyword markupname xmlatt">@name</code> attribute on the
+          <dd class="dd">References the <code class="keyword markupname xmlatt">@name</code> attribute on the
               <code class="keyword markupname xmlelement">&lt;ux-window&gt;</code> element that is used to display the topic when
             called from a help API.</dd>
         

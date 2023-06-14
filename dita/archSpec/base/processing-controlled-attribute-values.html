@@ -5,7 +5,7 @@ title: 'Processing controlled attribute values'
 description: 'An enumeration of controlled values can be defined with hierarchical levels by nesting subject definitions. This affects how processors perform filtering and flagging.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '7e7a11ff130cd273e9235b7da503a3782fa30582'
+commit: '1dfa1822aeebe83ed43664fd070003fc327678bc'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -14,30 +14,30 @@ classes: ''
  <h1 class="title topictitle1" id="ariaid-title1">Processing controlled attribute values</h1>
  
   
- <div class="body conbody"><p class="shortdesc"><span></span>An enumeration of controlled values can be defined with hierarchical levels by nesting
-    subject definitions. <span></span>This affects how processors perform filtering and flagging.</p>
-    <div class="p"><span></span>The following behavior is expected of processors in regard to subject scheme maps:<ul class="ul">
-        <li class="li"><span></span>Processors <dfn class="term RFC-2119">SHOULD</dfn> be aware of the hierarchies of
+ <div class="body conbody"><p class="shortdesc">An enumeration of controlled values can be defined with hierarchical levels by nesting
+    subject definitions. This affects how processors perform filtering and flagging.</p>
+    <div class="p">The following behavior is expected of processors in regard to subject scheme maps:<ul class="ul">
+        <li class="li">Processors <dfn class="term RFC-2119">SHOULD</dfn> be aware of the hierarchies of
           attribute values that are defined in subject scheme maps for purposes of filtering,
           flagging, or other metadata-based categorization.</li>
-        <li class="li"><span></span>Processors <dfn class="term RFC-2119">SHOULD</dfn> validate
+        <li class="li">Processors <dfn class="term RFC-2119">SHOULD</dfn> validate
           that the values of attributes that are bound to controlled values
-          contain only valid values from those sets. <span></span><span style="color:red;" class="ph">This requirement is needed because basic XML parsers do not
+          contain only valid values from those sets. <span style="color:red;" class="ph">This requirement is needed because basic XML parsers do not
             validate the list of controlled values.</span> If the controlled
           values are part of a named key scope, the scope name is ignored
           for the purpose of validating the controlled values.</li>
-        <li class="li"><span></span>Processors <dfn class="term RFC-2119">SHOULD</dfn> check that all values listed for
+        <li class="li">Processors <dfn class="term RFC-2119">SHOULD</dfn> check that all values listed for
           an attribute in a DITAVAL file are bound to the attribute by the subject scheme before
-          filtering or flagging. <span></span>If a processor encounters values that are not included in the
+          filtering or flagging. If a processor encounters values that are not included in the
           subject scheme, it <dfn class="term RFC-2119">SHOULD</dfn> issue a warning.</li>
       </ul></div>
-    <div class="p"><span></span>Processors <dfn class="term RFC-2119">SHOULD</dfn> apply the following algorithm when they
+    <div class="p">Processors <dfn class="term RFC-2119">SHOULD</dfn> apply the following algorithm when they
       apply filtering and flagging rules to attribute values that are defined as a hierarchy of
       controlled values and bound to an enumeration:<ol class="ol">
-        <li class="li"><span></span>If an attribute specifies a value in the taxonomy, and a DITAVAL or other categorization
+        <li class="li">If an attribute specifies a value in the taxonomy, and a DITAVAL or other categorization
           tool is configured with that value, the rule matches.</li>
-        <li class="li"><span></span>Otherwise, if the parent value in the taxonomy has a rule, that matches.</li>
-        <li class="li"><span></span>Otherwise, continue up the chain in the taxonomy until a matching rule is found.</li>
+        <li class="li">Otherwise, if the parent value in the taxonomy has a rule, that matches.</li>
+        <li class="li">Otherwise, continue up the chain in the taxonomy until a matching rule is found.</li>
       </ol></div>
     <div class="example non-normative" id="concept_afh_lx1_wp__example-hierarchy"><h2 class="title sectiontitle">Example: A hierarchy of controlled values and conditional processing</h2>
       

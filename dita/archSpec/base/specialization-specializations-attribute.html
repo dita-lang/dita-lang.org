@@ -5,7 +5,7 @@ title: 'The specializations attribute rules and syntax'
 description: 'The specializations attribute enables processors to determine what attribute specializations are available in a document. The attribute is declared on the root element for each topic or map type. Each attribute domain defines a token to declare the extension. The effective value of the specializations attribute is composed of these tokens.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '7e7a11ff130cd273e9235b7da503a3782fa30582'
+commit: '1dfa1822aeebe83ed43664fd070003fc327678bc'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -15,35 +15,35 @@ classes: ''
     syntax</h1>
 
   
-<div class="body conbody"><p class="shortdesc"><span></span>The <code class="keyword markupname xmlatt">@specializations</code> attribute enables
+<div class="body conbody"><p class="shortdesc">The <code class="keyword markupname xmlatt">@specializations</code> attribute enables
     processors to determine what attribute specializations are available in
-    a document. <span></span>The attribute is declared on the root element for each
-    topic or map type. <span></span>Each attribute domain defines a token to declare the
-      extension<span style="color:red;" class="ph">. <span></span>The </span>effective value of the
+    a document. The attribute is declared on the root element for each
+    topic or map type. Each attribute domain defines a token to declare the
+      extension<span style="color:red;" class="ph">. The </span>effective value of the
       <code class="keyword markupname xmlatt">@specializations</code> attribute is composed of these
     tokens.</p>
     <section class="section" id="domainsatt__syntax"><h2 class="title sectiontitle">Syntax and rules</h2>
       
-      <p class="p"><span></span>The <code class="keyword markupname xmlatt">@props</code> and <code class="keyword markupname xmlatt">@base</code> attributes are the only two core
+      <p class="p">The <code class="keyword markupname xmlatt">@props</code> and <code class="keyword markupname xmlatt">@base</code> attributes are the only two core
         attributes available for specialization.</p>
-      <p class="p"><span></span>Each specialization of the <code class="keyword markupname xmlatt">@props</code> and <code class="keyword markupname xmlatt">@base</code> attributes
+      <p class="p">Each specialization of the <code class="keyword markupname xmlatt">@props</code> and <code class="keyword markupname xmlatt">@base</code> attributes
           <dfn class="term RFC-2119">MUST</dfn> provide a token for use by the
           <code class="keyword markupname xmlatt">@specializations</code> attribute.</p>
-      <p class="p"><span></span>The <code class="keyword markupname xmlatt">@specializations</code> token for an attribute specialization begins with
+      <p class="p">The <code class="keyword markupname xmlatt">@specializations</code> token for an attribute specialization begins with
         either <code class="keyword markupname xmlatt">@props</code> or <code class="keyword markupname xmlatt">@base</code> followed by a slash, followed by the
         name of the new attribute:</p>
       <pre class="pre codeblock"><code>'@', <var class="keyword varname">props-or-base</var>, ('/', <var class="keyword varname">attname</var>)+</code></pre>
-      <div class="p"><span></span>For example:<ul class="ul" id="domainsatt__ul_arf_pxx_gkb">
-          <li class="li"><span></span>If <code class="keyword markupname xmlatt">@props</code> is specialized to create <code class="keyword markupname xmlatt">@myNewProp</code>, this
+      <div class="p">For example:<ul class="ul" id="domainsatt__ul_arf_pxx_gkb">
+          <li class="li">If <code class="keyword markupname xmlatt">@props</code> is specialized to create <code class="keyword markupname xmlatt">@myNewProp</code>, this
             results in the following token: <code class="ph codeph">@props/myNewProp</code></li>
-          <li class="li"><span></span>If <code class="keyword markupname xmlatt">@base</code> is specialized to create <code class="keyword markupname xmlatt">@myFirstBase</code>, this
+          <li class="li">If <code class="keyword markupname xmlatt">@base</code> is specialized to create <code class="keyword markupname xmlatt">@myFirstBase</code>, this
             results in the following token: <code class="ph codeph">@base/myFirstBase</code></li>
-          <li class="li"><span></span>If that specialized attribute <code class="keyword markupname xmlatt">@myFirstBase</code> is further specialized to
+          <li class="li">If that specialized attribute <code class="keyword markupname xmlatt">@myFirstBase</code> is further specialized to
             create <code class="keyword markupname xmlatt">@mySecondBase</code>, this results in the following token:
               <code class="ph codeph">@base/myFirstBase/mySecondBase</code></li>
         </ul></div>
-      <p class="p"><span></span>Note that the value for the <code class="keyword markupname xmlatt">@specializations</code>
-        attribute is not authored. <span></span>Instead, the value is defaulted based on
+      <p class="p">Note that the value for the <code class="keyword markupname xmlatt">@specializations</code>
+        attribute is not authored. Instead, the value is defaulted based on
         the modules that are included in the document type shell.</p>
     </section>
 <div class="example non-normative" id="domainsatt__example"><h2 class="title sectiontitle">Example: <code class="keyword markupname xmlatt">@specializations attribute for </code> a task with multiple

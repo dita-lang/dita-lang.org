@@ -5,7 +5,7 @@ title: 'foreign'
 description: 'Foreign content is non-DITA content, such as MathML, SVG, or Rich Text Format (RTF).'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '7e7a11ff130cd273e9235b7da503a3782fa30582'
+commit: '1dfa1822aeebe83ed43664fd070003fc327678bc'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -14,52 +14,52 @@ classes: ''
 <h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;foreign&gt;</code></h1>
   
 
-<div class="body refbody"><div class="abstract"><span></span>
-     <span class="shortdesc"><span></span>Foreign content is non-DITA content, such as MathML, SVG, or
+<div class="body refbody"><div class="abstract">
+     <span class="shortdesc">Foreign content is non-DITA content, such as MathML, SVG, or
       Rich Text Format (RTF).</span>
     
   </div>
     <section class="section" id="foreign__usage-information"><h2 class="title sectiontitle">Usage information</h2>
       
-      <p class="p"><span></span>The <code class="keyword markupname xmlelement">&lt;unknown&gt;</code> element is intended primarily
-        as a base for specialization. <span></span>Specializations of the
+      <p class="p">The <code class="keyword markupname xmlelement">&lt;unknown&gt;</code> element is intended primarily
+        as a base for specialization. Specializations of the
           <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> element are typically
         implemented as domains, but it is also possible to implement
         foreign vocabularies as structural specializations.</p>
-      <p class="p"><span></span>The <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> element can contain non-DITA
+      <p class="p">The <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> element can contain non-DITA
         content or a mix of DITA and non-DITA content.</p>
-      <p class="p"><span></span>If alternate content is wanted, use or specialize the
+      <p class="p">If alternate content is wanted, use or specialize the
           <code class="keyword markupname xmlelement">&lt;desc&gt;</code> element inside of the
-          <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> specialization. <span></span>Such alternate
+          <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> specialization. Such alternate
         content needs to be valid wherever the
-          <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> specialization is valid. <span></span>This
+          <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> specialization is valid. This
         way, if a processor is not able to recognize or render the
           <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> content itself, it can use the
         alternate content from <code class="keyword markupname xmlelement">&lt;desc&gt;</code>.</p>
     </section>
     <section class="section" id="foreign__processing-expectations"><h2 class="title sectiontitle">Processing expectations</h2>
       
-      <p class="p"><span></span>Processors attempt to display <code class="keyword markupname xmlelement">&lt;foreign&gt;</code>
-        content unless otherwise instructed. <span></span>If a processor cannot render
+      <p class="p">Processors attempt to display <code class="keyword markupname xmlelement">&lt;foreign&gt;</code>
+        content unless otherwise instructed. If a processor cannot render
         the content, it <dfn class="term RFC-2119">MAY</dfn> issue a
         warning.</p>
       
-      <p class="p"><span></span>The enabler of the foreign vocabulary must provide the processing and override the base
-        processing for <code class="keyword markupname xmlelement">&lt;foreign&gt;</code>. <span></span></p>
+      <p class="p">The enabler of the foreign vocabulary must provide the processing and override the base
+        processing for <code class="keyword markupname xmlelement">&lt;foreign&gt;</code>. </p>
       <ul class="ul" id="foreign__ul_f2h_3kf_bbb">
-        <li class="li"><span></span>If <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> contains more than one alternative content element,
-          they should all be processed. <span></span>In the case of <code class="keyword markupname xmlelement">&lt;desc&gt;</code> they should be
+        <li class="li">If <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> contains more than one alternative content element,
+          they should all be processed. In the case of <code class="keyword markupname xmlelement">&lt;desc&gt;</code> they should be
           concatenated in a similar way to <code class="keyword markupname xmlelement">&lt;section&gt;</code>, but with no title
-          (analogous to <code class="keyword markupname xmlelement">&lt;div&gt;</code> in HTML). <span></span></li>
-        <li class="li"><span></span> If no <code class="keyword markupname xmlelement">&lt;desc&gt;</code>, <code class="keyword markupname xmlelement">&lt;object&gt;</code>, or
+          (analogous to <code class="keyword markupname xmlelement">&lt;div&gt;</code> in HTML). </li>
+        <li class="li"> If no <code class="keyword markupname xmlelement">&lt;desc&gt;</code>, <code class="keyword markupname xmlelement">&lt;object&gt;</code>, or
             <code class="keyword markupname xmlelement">&lt;image&gt;</code> element is found within an instance of the
             <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> element, the base processing can emit a warning about
           the absence of processable content.</li>
-        <li class="li"><span></span>The base processing for <code class="keyword markupname xmlelement">&lt;object&gt;</code> might emit the content of
+        <li class="li">The base processing for <code class="keyword markupname xmlelement">&lt;object&gt;</code> might emit the content of
             <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> as a file at the location specified by the
-            <code class="keyword markupname xmlatt">@data</code> attribute of the <code class="keyword markupname xmlelement">&lt;object&gt;</code> element. <span></span>The
+            <code class="keyword markupname xmlatt">@data</code> attribute of the <code class="keyword markupname xmlelement">&lt;object&gt;</code> element. The
             <code class="keyword markupname xmlelement">&lt;object&gt;</code> element should have a data attribute or a
-            <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> sub-element but not both. <span></span>In the event that an
+            <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> sub-element but not both. In the event that an
             <code class="keyword markupname xmlelement">&lt;object&gt;</code> element contains both a data attribute and an
             <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> sub-element the processing system should ignore one of
           them.</li>
@@ -67,7 +67,7 @@ classes: ''
     </section>
     <section class="section" id="foreign__attributes"><h2 class="title sectiontitle">Attributes</h2>
       
-      <p class="p"><span></span>The following attributes are
+      <p class="p">The following attributes are
         available on this element: <span class="ph"><a class="xref" href="../../common/../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
                                                   attributes</a></span>.</p>
     </section>

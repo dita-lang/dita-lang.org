@@ -5,7 +5,7 @@ title: 'Overview of specialization'
 description: 'Specialization allows information architects to define new kinds of information (new structural types or new domains of information), while reusing as much of existing design and code as possible, and minimizing or eliminating the costs of interchange, migration, and maintenance.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '7e7a11ff130cd273e9235b7da503a3782fa30582'
+commit: '1dfa1822aeebe83ed43664fd070003fc327678bc'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -14,67 +14,67 @@ classes: ''
  <h1 class="title topictitle1" id="ariaid-title1">Overview of specialization</h1>
  
  
- <div class="body conbody"><p class="shortdesc"><span></span>Specialization allows information architects to define new kinds of information (new
+ <div class="body conbody"><p class="shortdesc">Specialization allows information architects to define new kinds of information (new
   structural types or new domains of information), while reusing as much of existing design and code
   as possible, and minimizing or eliminating the costs of interchange, migration, and
   maintenance.</p>
-  <p class="p"><span></span>Specialization modules enable information architects to create new element types and
-   attributes. <span></span>These new element types and attributes are derived from existing element types and
+  <p class="p">Specialization modules enable information architects to create new element types and
+   attributes. These new element types and attributes are derived from existing element types and
    attributes.</p>
-  <p class="p"><span></span>In traditional XML applications, all semantics for a given element instance are bound to the
+  <p class="p">In traditional XML applications, all semantics for a given element instance are bound to the
    element type, such as <code class="keyword markupname xmlelement">&lt;para&gt;</code> for a paragraph or
-    <code class="keyword markupname xmlelement">&lt;title&gt;</code> for a title. <span></span>The XML specification provides no built-in mechanism
-   for relating two element types to say "element type B is a subtype of element type A". <span></span></p>
-  <p class="p"><span></span>In contrast, the DITA specialization mechanism provides a standard mechanism for declaring that
-   an element type or attribute is derived from an ancestor type. <span></span>This means that a specialized type
-   inherits the semantics and default processing behavior from its ancestor type. <span></span>Additional
+    <code class="keyword markupname xmlelement">&lt;title&gt;</code> for a title. The XML specification provides no built-in mechanism
+   for relating two element types to say "element type B is a subtype of element type A". </p>
+  <p class="p">In contrast, the DITA specialization mechanism provides a standard mechanism for declaring that
+   an element type or attribute is derived from an ancestor type. This means that a specialized type
+   inherits the semantics and default processing behavior from its ancestor type. Additional
    processing behavior optionally can be associated with the specialized descendant type.</p>
-  <p class="p"><span></span>For example, the <code class="keyword markupname xmlelement">&lt;section&gt;</code> element type is part of
-   the DITA base. <span></span>It represents an organizational division in a topic. <span></span>Within the task information
+  <p class="p">For example, the <code class="keyword markupname xmlelement">&lt;section&gt;</code> element type is part of
+   the DITA base. It represents an organizational division in a topic. Within the task information
    type (itself a specialization of <code class="keyword markupname xmlelement">&lt;topic&gt;</code>), the
     <code class="keyword markupname xmlelement">&lt;section&gt;</code> element type is further specialized to other element types
    (such as <code class="keyword markupname xmlelement">&lt;prereq&gt;</code> and <code class="keyword markupname xmlelement">&lt;context&gt;</code>) that provide more
-   precise semantics about the type of organizational division that they represent. <span></span>The specialized
+   precise semantics about the type of organizational division that they represent. The specialized
    element types inherit both semantic meaning and default processing from the ancestor
    elements.</p>
-  <p class="p"><span></span>There are two types of DITA specializations:</p>
+  <p class="p">There are two types of DITA specializations:</p>
   <dl class="dl">
    
     <dt class="dt dlterm">Structural specialization</dt>
-    <dd class="dd"><span></span>
-     <p class="p"><span></span>Structural specializations are developed from either topic or map
-            types. <span></span>Structural specializations enable information
+    <dd class="dd">
+     <p class="p">Structural specializations are developed from either topic or map
+            types. Structural specializations enable information
               architect<span style="color:red;" class="ph">s</span> to add new document types
-            to DITA. <span></span>The structures defined in the new document types
+            to DITA. The structures defined in the new document types
             either directly use<span style="color:red;" class="ph">,</span> or inherit from<span style="color:red;" class="ph">,</span> elements found in other document types.
-<span></span>            For example<span style="color:red;" class="ph">,</span> concept, task, and
+            For example<span style="color:red;" class="ph">,</span> concept, task, and
             reference are specialized from topic, <span style="color:red;" class="ph">and</span> bookmap is specialized from map.</p>
     </dd>
    
    
     <dt class="dt dlterm">Domain specialization</dt>
-    <dd class="dd"><span></span>Domain specializations are developed from elements defined <span style="color:red;" class="ph">within</span> topic or map, or from the
+    <dd class="dd">Domain specializations are developed from elements defined <span style="color:red;" class="ph">within</span> topic or map, or from the
             <code class="keyword markupname xmlatt">@props</code> or <code class="keyword markupname xmlatt">@base</code> attributes.
-<span></span>          They define markup for a specific information domain or subject
-          area. <span></span>Domain specializations can be added to document-type
+          They define markup for a specific information domain or subject
+          area. Domain specializations can be added to document-type
           shells.</dd>
    
   </dl>
-  <p class="p"><span></span>Each type of specialization module represents an <q class="q">is a</q> hierarchy, in object-oriented terms,
-   with each structural type or domain being a subclass of its parent. <span></span>For example, a specialization
+  <p class="p">Each type of specialization module represents an <q class="q">is a</q> hierarchy, in object-oriented terms,
+   with each structural type or domain being a subclass of its parent. For example, a specialization
    of task is still a task, and a specialization of the user interface domain is still part of the
-   user interface domain. <span></span>A given domain can be used with any map or topic type. <span></span>In addition,
+   user interface domain. A given domain can be used with any map or topic type. In addition,
    specific structural types might require the use of specific domains.</p>
-  <p class="p"><span></span><span class="ph">Use specialization when you need a new structural type or
+  <p class="p"><span class="ph">Use specialization when you need a new structural type or
     domain.</span> Specialization is appropriate in the following circumstances:</p>
   <ul class="ul">
-   <li class="li"><span></span>You need to create markup to represent new semantics (meaningful categories of information).
-<span></span>    This might enable you to have increased consistency or descriptiveness in your content
+   <li class="li">You need to create markup to represent new semantics (meaningful categories of information).
+    This might enable you to have increased consistency or descriptiveness in your content
     model.</li>
-   <li class="li"><span></span>You have specific needs for output processing and formatting that cannot be addressed using
+   <li class="li">You have specific needs for output processing and formatting that cannot be addressed using
     the current content model.</li>
   </ul>
-  <p class="p"><span></span>Do not use specialization to simply eliminate element types from specific content models. <span></span>Use
+  <p class="p">Do not use specialization to simply eliminate element types from specific content models. Use
    constraint modules to <span class="ph">restrict</span> content models and attribute lists without changing
    semantics.</p>
  </div>

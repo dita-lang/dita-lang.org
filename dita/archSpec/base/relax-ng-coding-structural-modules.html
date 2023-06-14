@@ -5,7 +5,7 @@ title: 'RELAX NG: Coding requirements for structural modules'
 description: 'A structural vocabulary module defines a new topic or map type as a specialization of a topic or map type.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '7e7a11ff130cd273e9235b7da503a3782fa30582'
+commit: '1dfa1822aeebe83ed43664fd070003fc327678bc'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -14,105 +14,105 @@ classes: ''
   <h1 class="title topictitle1" id="ariaid-title1">RELAX NG: Coding requirements for structural modules</h1>
   
   
-  <div class="body conbody"><p class="shortdesc"><span></span>A structural vocabulary module defines a new topic or map type as a specialization of a
+  <div class="body conbody"><p class="shortdesc">A structural vocabulary module defines a new topic or map type as a specialization of a
     topic or map type.</p>
     <section class="section" id="relax-ng-structural-module-coding-requirements__architectural-attributes"><h2 class="title sectiontitle">Required topic and map element attributes</h2>
       
-      <p class="p"><span></span>The topic or map element type references the <code class="ph codeph">arch-atts</code> pattern, which
+      <p class="p">The topic or map element type references the <code class="ph codeph">arch-atts</code> pattern, which
         defines the <code class="keyword markupname xmlatt">@DITAArchVersion</code> attribute in the DITA architecture namespace
-        and sets the attribute to the version of DITA. <span></span>In addition, the topic or map element type
+        and sets the attribute to the version of DITA. In addition, the topic or map element type
         references the <code class="ph codeph">specializations-att</code> pattern, which pulls in a definition for
         the <code class="keyword markupname xmlatt">@specializations</code> attribute.</p>
       <div class="div">
-        <p class="p"><span></span>For example, the following definition references the <code class="ph codeph">arch-atts</code> and
+        <p class="p">For example, the following definition references the <code class="ph codeph">arch-atts</code> and
             <code class="ph codeph">specializations-att</code> patterns as part of the definition for the
             <code class="keyword markupname xmlelement">&lt;concept&gt;</code> element.</p>
         <pre class="pre codeblock"><code>&lt;div&gt;
   &lt;a:documentation&gt; LONG NAME: Concept &lt;/a:documentation&gt;
-  &lt;!-- ... <span></span>--&gt;
+  &lt;!-- ... --&gt;
   &lt;define name="concept.attlist" combine="interleave"&gt;
     &lt;ref name="concept.attributes"/&gt;
     <strong class="ph b">&lt;ref name="arch-atts"/&gt;
     &lt;ref name="specializations-att"/&gt;</strong>
   &lt;/define&gt;
-  &lt;!-- ... <span></span>--&gt;
+  &lt;!-- ... --&gt;
 &lt;/div&gt;
 </code></pre>
       </div>
-      <p class="p"><span></span>The <code class="keyword markupname xmlatt">@DITAArchVersion</code> and <code class="keyword markupname xmlatt">@specializations</code> attributes give
+      <p class="p">The <code class="keyword markupname xmlatt">@DITAArchVersion</code> and <code class="keyword markupname xmlatt">@specializations</code> attributes give
         processors a reliable way to check the DITA version and the attribute domains that are
         used.</p>
     </section>
     <section class="section" id="relax-ng-structural-module-coding-requirements__topic-nesting"><h2 class="title sectiontitle">Controlling nesting in topic types</h2>
       
-      <p class="p"><span></span><span class="ph">A structural module that defines a new topic
+      <p class="p"><span class="ph">A structural module that defines a new topic
           type</span> typically defines an <code class="ph codeph">info-types</code> style
         pattern to specify a default for what topic types are permitted to
-        nest. <span></span>Document-type shells then can control how topics are allowed
-        to nest by redefining the pattern. <span></span></p>
-      <p class="p"><span></span>The following rules apply when using a pattern to control topic
+        nest. Document-type shells then can control how topics are allowed
+        to nest by redefining the pattern. </p>
+      <p class="p">The following rules apply when using a pattern to control topic
         nesting.</p>
       <dl class="dl">
         
           <dt class="dt dlterm">Pattern name</dt>
-          <dd class="dd"><span></span>
-            <p class="p"><span></span>The pattern name is the topic element name plus the suffix
+          <dd class="dd">
+            <p class="p">The pattern name is the topic element name plus the suffix
                 <code class="ph codeph">-info-types</code>.</p>
-            <p class="p"><span></span>For example, the info-types pattern for the concept topic type
+            <p class="p">For example, the info-types pattern for the concept topic type
               is <code class="ph codeph">concept-info-types</code>.</p>
           </dd>
         
         
           <dt class="dt dlterm">Pattern value</dt>
-          <dd class="dd"><span></span>
-            <p class="p"><span></span>To set up default topic-nesting rules, set the pattern to the desired topic elements.
-<span></span>              The default topic nesting is used when a document-type shell does not set up different
+          <dd class="dd">
+            <p class="p">To set up default topic-nesting rules, set the pattern to the desired topic elements.
+              The default topic nesting is used when a document-type shell does not set up different
               rules.</p>
             <div class="div">
-              <p class="p"><span></span>For example:</p>
+              <p class="p">For example:</p>
               <pre class="pre codeblock"><code>&lt;div&gt;
   &lt;a:documentation&gt;INFO TYPES PATTERNS&lt;/a:documentation&gt;
   &lt;define name="mytopic-info-types"&gt;
     &lt;ref name="subtopictype-01.element"/&gt;
     &lt;ref name="subtopictype-02.element"/&gt;
   &lt;/define&gt;
-  &lt;!-- ... <span></span>--&gt;
+  &lt;!-- ... --&gt;
 &lt;/div&gt;</code></pre>
             </div>
-            <p class="p"><span></span>To disable topic nesting, specify the <code class="keyword markupname xmlelement">&lt;empty&gt;</code> element.</p>
+            <p class="p">To disable topic nesting, specify the <code class="keyword markupname xmlelement">&lt;empty&gt;</code> element.</p>
             <div class="div">
-              <p class="p"><span></span>For example:</p>
+              <p class="p">For example:</p>
               <pre class="pre codeblock"><code>&lt;define name="learningAssessment-info-types"&gt;
   &lt;empty/&gt;
 &lt;/define&gt;</code></pre>
             </div>
-            <p class="p"><span></span>The <code class="ph codeph">info-types</code> pattern also can be used to refer to common nesting
+            <p class="p">The <code class="ph codeph">info-types</code> pattern also can be used to refer to common nesting
               rules across the document-type shell.</p>
             <div class="div">
-              <p class="p"><span></span>For example:</p>
+              <p class="p">For example:</p>
               <pre class="pre codeblock"><code>&lt;div&gt;
   &lt;a:documentation&gt;INFO TYPES PATTERNS&lt;/a:documentation&gt;
   &lt;define name="mytopic-info-types"&gt;
     &lt;ref name="info-types"/&gt;
   &lt;/define&gt;
-  &lt;!-- ... <span></span>--&gt;
+  &lt;!-- ... --&gt;
 &lt;/div&gt;</code></pre>
             </div>
           </dd>
         
         
           <dt class="dt dlterm">Content model of the root element</dt>
-          <dd class="dd"><span></span>
-            <p class="p"><span></span>In the declaration of the root element of a topic type, the last position in the
+          <dd class="dd">
+            <p class="p">In the declaration of the root element of a topic type, the last position in the
               content model is the <code class="ph codeph"><var class="keyword varname">topictype</var>-info-types</code>
               pattern.</p>
             <div class="div">
-              <p class="p"><span></span>For example, the <code class="keyword markupname xmlelement">&lt;concept&gt;</code> element places the pattern after
+              <p class="p">For example, the <code class="keyword markupname xmlelement">&lt;concept&gt;</code> element places the pattern after
                   <code class="keyword markupname xmlelement">&lt;related-links&gt;</code>:</p>
               <pre class="pre codeblock"><code>&lt;div&gt;
   &lt;a:documentation&gt;LONG NAME: Concept&lt;/a:documentation&gt;
   &lt;define name="concept.content"&gt;
-    &lt;!-- ... <span></span>--&gt;
+    &lt;!-- ... --&gt;
     &lt;optional&gt;
       &lt;ref name="related-links"/&gt;
     &lt;/optional&gt;
@@ -125,12 +125,12 @@ classes: ''
           </dd>
         
       </dl>
-      <p class="p"><span></span>In certain cases, you do not need to use the <code class="ph codeph">info-types</code> pattern to control
+      <p class="p">In certain cases, you do not need to use the <code class="ph codeph">info-types</code> pattern to control
         topic nesting:</p>
       <ul class="ul">
-        <li class="li"><span></span>If a topic type will never permit topic nesting, regardless of context, it can be
+        <li class="li">If a topic type will never permit topic nesting, regardless of context, it can be
           defined without any pattern or any nested topics.</li>
-        <li class="li"><span></span>If a topic type will allow only specific nesting patterns, such
+        <li class="li">If a topic type will allow only specific nesting patterns, such
           as allowing only other topic types that are defined in the same
           module, it can nest those topics directly in the same way that
           other nested elements are defined.</li>

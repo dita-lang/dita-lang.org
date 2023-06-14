@@ -5,7 +5,7 @@ title: 'DTD: Coding requirements for structural and element-domain modules'
 description: 'This topic covers general coding requirements for defining element types in both structural and element-domain vocabulary modules.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '7e7a11ff130cd273e9235b7da503a3782fa30582'
+commit: '1dfa1822aeebe83ed43664fd070003fc327678bc'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -15,22 +15,22 @@ classes: ''
     modules</h1>
   
   
-  <div class="body conbody"><p class="shortdesc"><span></span>This topic covers general coding requirements for defining element types in both
+  <div class="body conbody"><p class="shortdesc">This topic covers general coding requirements for defining element types in both
     structural and element-domain vocabulary modules.</p>
     <section class="section" id="general-coding-requirements__files"><h2 class="title sectiontitle">Module files</h2>
       
-      <p class="p"><span></span>A vocabulary module that defines a structural or element-domain specialization is composed
+      <p class="p">A vocabulary module that defines a structural or element-domain specialization is composed
         of two files:</p>
       <dl class="dl">
         
           <dt class="dt dlterm">Definition module file</dt>
-          <dd class="dd"><span></span>This (<span class="ph filepath">.mod</span>) file declares the element
+          <dd class="dd">This (<span class="ph filepath">.mod</span>) file declares the element
             names, content models, and attribute lists for the element
             types that are defined in the vocabulary module.</dd>
         
         
           <dt class="dt dlterm">Entity declaration file</dt>
-          <dd class="dd"><span></span>This (<span class="ph filepath">.ent</span>) file declares the <span style="color:red;" class="ph">general</span> and parameter entities that are
+          <dd class="dd">This (<span class="ph filepath">.ent</span>) file declares the <span style="color:red;" class="ph">general</span> and parameter entities that are
             used to integrate the vocabulary module into a document-type
             shell.</dd>
         
@@ -38,44 +38,44 @@ classes: ''
     </section>
     <section class="section" id="general-coding-requirements__element-definitions"><h2 class="title sectiontitle">Element definitions</h2>
       
-      <p class="p"><span></span>A structural or element-domain vocabulary module contains a declaration for each element
-        type that is named by the module. <span></span>While the XML standard allows content models to refer to
-        undeclared element types, the DITA standard does not permit this. <span></span>All element types or
+      <p class="p">A structural or element-domain vocabulary module contains a declaration for each element
+        type that is named by the module. While the XML standard allows content models to refer to
+        undeclared element types, the DITA standard does not permit this. All element types or
         attribute lists that are named within a vocabulary module are declared in one of the
         following objects:</p>
       <ul class="ul">
-        <li class="li"><span></span>The vocabulary module</li>
-        <li class="li"><span></span>A base module of which the vocabulary module is a direct or indirect specialization</li>
-        <li class="li"><span></span><span style="color:red;" class="ph">(For structural modules) </span>A required
+        <li class="li">The vocabulary module</li>
+        <li class="li">A base module of which the vocabulary module is a direct or indirect specialization</li>
+        <li class="li"><span style="color:red;" class="ph">(For structural modules) </span>A required
           domain module</li>
       </ul>
-      <p class="p"><span></span>The following components make up a single element definition in a DITA DTD-based vocabulary
+      <p class="p">The following components make up a single element definition in a DITA DTD-based vocabulary
         module.</p>
       <dl class="dl">
         
           <dt class="dt dlterm">Element name entities</dt>
-          <dd class="dd"><span></span>
-            <p class="p"><span></span>For each element type, there is a parameter entity with a
-              name that matches the element-type name. <span></span>The value is the
-              element-type name. <span></span></p>
+          <dd class="dd">
+            <p class="p">For each element type, there is a parameter entity with a
+              name that matches the element-type name. The value is the
+              element-type name. </p>
             <div class="example non-normative"><h2 class="title sectiontitle">Example</h2>
               <p class="p">For example:</p>
               <pre class="pre codeblock"><code>&lt;!ENTITY % topichead "topichead"&gt;</code></pre>
             </div>
-            <p class="p"><span></span>The parameter entity provides a layer of abstraction when
-              setting up content models. <span></span>It can be redefined in a
+            <p class="p">The parameter entity provides a layer of abstraction when
+              setting up content models. It can be redefined in a
               document-type shell in order to create domain extensions <span class="ph">or implement element configuration (constraint
                 and expansion).</span></p>
-            <p class="p"><span></span>Element name entities for a vocabulary module typically are
-              grouped together at the top of the vocabulary module. <span></span>They
+            <p class="p">Element name entities for a vocabulary module typically are
+              grouped together at the top of the vocabulary module. They
               can occur in any order.</p>
           </dd>
         
         
           <dt class="dt dlterm">Content-model parameter entity</dt>
-          <dd class="dd"><span></span>
-            <p class="p"><span></span>For each element type, there is a parameter entity that defines the content model.
-<span></span>              The name of the parameter entity is
+          <dd class="dd">
+            <p class="p">For each element type, there is a parameter entity that defines the content model.
+              The name of the parameter entity is
                 <code class="ph codeph"><var class="keyword varname">tagname</var>.content</code>, and the value is the content
               model definition.</p>
             <div class="example non-normative"><h2 class="title sectiontitle">Example</h2>
@@ -91,9 +91,9 @@ classes: ''
         
         
           <dt class="dt dlterm">Attribute-list parameter entity</dt>
-          <dd class="dd"><span></span>
-            <p class="p"><span></span>For each element type, there is a parameter entity that declares the attributes that
-              are available on the element. <span></span>The name of the parameter entity is
+          <dd class="dd">
+            <p class="p">For each element type, there is a parameter entity that declares the attributes that
+              are available on the element. The name of the parameter entity is
                   <code class="ph codeph"><var class="keyword varname">tagname</var>.attributes</code>, and the value is a list of
               the attributes that are used by the element type (except for
               <code class="keyword markupname xmlatt">@class</code>).</p>
@@ -105,15 +105,15 @@ classes: ''
   %univ-atts;"
 &gt;</code></pre>
             </div>
-            <p class="p"><span></span>Consistent use and naming of the <code class="ph codeph"><var class="keyword varname">tagname</var>.content</code>
+            <p class="p">Consistent use and naming of the <code class="ph codeph"><var class="keyword varname">tagname</var>.content</code>
               parameter entity enables the use of <span class="ph">element-configuration modules
                 (constraint and expansion) to redefine the content model.</span></p>
           </dd>
         
         
           <dt class="dt dlterm">Element declaration</dt>
-          <dd class="dd"><span></span>
-            <p class="p"><span></span>For each element type, there is an element declaration that consists of a reference
+          <dd class="dd">
+            <p class="p">For each element type, there is an element declaration that consists of a reference
               to the content-model parameter entity.</p>
             <div class="example non-normative"><h2 class="title sectiontitle">Example</h2>
               <p class="p">For example:</p>
@@ -123,8 +123,8 @@ classes: ''
         
         
           <dt class="dt dlterm">Attribute list declaration</dt>
-          <dd class="dd"><span></span>
-            <p class="p"><span></span>For each element type, there is an attribute<span style="color:red;" class="ph">-</span>list declaration that consists of a
+          <dd class="dd">
+            <p class="p">For each element type, there is an attribute<span style="color:red;" class="ph">-</span>list declaration that consists of a
               reference to the attribute-list parameter entity.</p>
             <div class="example non-normative"><h2 class="title sectiontitle">Example</h2>
               <p class="p">For example:</p>
@@ -134,9 +134,9 @@ classes: ''
         
         
           <dt class="dt dlterm">Specialization attribute declarations</dt>
-          <dd class="dd"><span></span>
-            <p class="p"><span></span>A vocabulary module defines a <code class="keyword markupname xmlatt">@class</code> attribute for every element that
-              is declared in the module. <span></span>The value of the attribute is constructed according to the
+          <dd class="dd">
+            <p class="p">A vocabulary module defines a <code class="keyword markupname xmlatt">@class</code> attribute for every element that
+              is declared in the module. The value of the attribute is constructed according to the
               rules in <a class="xref" href="specialization-class-attribute.html" title="The specialization hierarchy of each DITA element is declared as the value of the class attribute. The class attribute provides a mapping from the current name of the element to its more general equivalents. The class attribute also can provide a mapping from the current name to more specialized equivalents. All specialization-aware processing can be defined in terms of class attribute values.">The class attribute rules and syntax</a>.</p>
             <div class="example non-normative"><h2 class="title sectiontitle">Example</h2>
               <p class="p">For example, the <code class="ph codeph">ATTLIST</code> definition for the

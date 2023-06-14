@@ -5,7 +5,7 @@ title: 'The keyscope attribute'
 description: 'The keyscope attribute consists of one or more space-separated key scope names. Map authors define the boundaries for key scopes by specifying the keyscope attribute on map elements, topicref elements, or elements that are specializations of map or topicref. Such elements, their contents, and any locally-scoped content referenced from within the element, are considered to be part of the scope. Keys defined within a scope are only directly referenceable from within the same scope. They can be referenced from the parent scope using the scope''s name, followed by a period, followed by the key name.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '7e7a11ff130cd273e9235b7da503a3782fa30582'
+commit: '1dfa1822aeebe83ed43664fd070003fc327678bc'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -14,22 +14,22 @@ classes: ''
   <h1 class="title topictitle1" id="ariaid-title1">The <code class="keyword markupname xmlatt">@keyscope</code> attribute</h1>
   
   
-  <div class="body refbody"><p class="shortdesc"><span></span>The <code class="keyword markupname xmlatt">@keyscope</code> attribute consists of one or more space-separated key
-    scope names. <span></span>Map authors define the boundaries for key scopes by specifying the
+  <div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlatt">@keyscope</code> attribute consists of one or more space-separated key
+    scope names. Map authors define the boundaries for key scopes by specifying the
       <code class="keyword markupname xmlatt">@keyscope</code> attribute on <code class="keyword markupname xmlelement">&lt;map&gt;</code> elements,
       <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements, or elements that are specializations of
-      <code class="keyword markupname xmlelement">&lt;map&gt;</code> or <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>. <span></span>Such elements, their
+      <code class="keyword markupname xmlelement">&lt;map&gt;</code> or <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>. Such elements, their
     contents, and any locally-scoped content referenced from within the element, are considered to
-    be part of the scope. <span></span>Keys defined within a scope are only directly referenceable from within
-    the same scope. <span></span>They can be referenced from the parent scope using the scope's name, followed by
+    be part of the scope. Keys defined within a scope are only directly referenceable from within
+    the same scope. They can be referenced from the parent scope using the scope's name, followed by
     a period, followed by the key name.</p>
     <section class="section" id="keyscope-attribute__duplicate-scope">
       
-      <p class="p" id="keyscope-attribute__non-intersecting"><span></span>All key scopes are contiguous and non-intersecting. <span></span>Within a root
+      <p class="p" id="keyscope-attribute__non-intersecting">All key scopes are contiguous and non-intersecting. Within a root
         map, two distinct key scopes with the same name have no relationship with each other aside
-        from that implied by their relative locations in the key scope hierarchy. <span></span>They do not, for
-        example, share key definitions. <span></span>The only processing impact of a key scope's names is in
-        defining the prefixes used when contributing qualified key names to the parent scope. <span></span>For
+        from that implied by their relative locations in the key scope hierarchy. They do not, for
+        example, share key definitions. The only processing impact of a key scope's names is in
+        defining the prefixes used when contributing qualified key names to the parent scope. For
         example, consider the following map segment:</p>
       <pre class="pre codeblock"><code>&lt;map&gt;
   &lt;topicgroup keyscope="xyz" id="scope1"&gt;
@@ -42,18 +42,18 @@ classes: ''
   &lt;/topicgroup&gt;
   &lt;!-- lots of other content --&gt;
 &lt;/map&gt;</code></pre>
-      <p class="p"><span></span>This map creates two distinct scopes that happen to use the same name
-          (<span class="keyword">xyz</span>). <span></span>This results in the following:</p>
+      <p class="p">This map creates two distinct scopes that happen to use the same name
+          (<span class="keyword">xyz</span>). This results in the following:</p>
       <ul class="ul">
-        <li class="li"><span></span>Each <code class="keyword markupname xmlelement">&lt;topicgroup&gt;</code> sets a scope of <span class="keyword">xyz</span> and
-          includes a key <span class="keyword">a</span>. <span></span>From outside of those two scopes, references to
+        <li class="li">Each <code class="keyword markupname xmlelement">&lt;topicgroup&gt;</code> sets a scope of <span class="keyword">xyz</span> and
+          includes a key <span class="keyword">a</span>. From outside of those two scopes, references to
             <code class="ph codeph">keyref="xyz.a"</code> (key <span class="keyword">a</span> within the scope
             <span class="keyword">xyz</span>) will always resolve to the first instance of that value, which
           is in the first <code class="keyword markupname xmlelement">&lt;topicgroup&gt;</code>.</li>
-        <li class="li"><span></span>Within the first <code class="keyword markupname xmlelement">&lt;topicgroup&gt;</code>, content uses
+        <li class="li">Within the first <code class="keyword markupname xmlelement">&lt;topicgroup&gt;</code>, content uses
             <code class="ph codeph">keyref="a"</code> will resolve to the key in that branch (defined on the
           element with <code class="ph codeph">id="def1"</code>).</li>
-        <li class="li"><span></span>Within the second <code class="keyword markupname xmlelement">&lt;topicgroup&gt;</code>, content uses
+        <li class="li">Within the second <code class="keyword markupname xmlelement">&lt;topicgroup&gt;</code>, content uses
             <code class="ph codeph">keyref="a"</code> will resolve to the key in that branch (defined on the
           element with <code class="ph codeph">id="def2"</code>).</li>
       </ul>

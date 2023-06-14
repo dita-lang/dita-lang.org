@@ -5,7 +5,7 @@ title: 'The conrefend attribute'
 description: 'The conrefend attribute is used when referencing a range of elements with the conref mechanism. The conref or conkeyref attribute references the first element in the range, while conrefend references the last element in the range.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '7e7a11ff130cd273e9235b7da503a3782fa30582'
+commit: '1dfa1822aeebe83ed43664fd070003fc327678bc'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -14,52 +14,52 @@ classes: ''
   <h1 class="title topictitle1" id="ariaid-title1">The <code class="keyword markupname xmlatt">@conrefend</code> attribute</h1>
   
   
-  <div class="body refbody"><p class="shortdesc"><span></span>The <code class="keyword markupname xmlatt">@conrefend</code> attribute is used when referencing a range of elements
-    with the conref mechanism. <span></span>The <code class="keyword markupname xmlatt">@conref</code> or <code class="keyword markupname xmlatt">@conkeyref</code> attribute
+  <div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlatt">@conrefend</code> attribute is used when referencing a range of elements
+    with the conref mechanism. The <code class="keyword markupname xmlatt">@conref</code> or <code class="keyword markupname xmlatt">@conkeyref</code> attribute
     references the first element in the range, while <code class="keyword markupname xmlatt">@conrefend</code> references the last
-    element in the range. <span></span></p>
+    element in the range. </p>
     <section class="section" id="theconrefendattribute__section_v1f_5xy_qpb">
       
     </section>
     <section class="section" id="theconrefendattribute__section-1"><h2 class="title sectiontitle">Using <code class="keyword markupname xmlatt">@conref</code> together with
           <code class="keyword markupname xmlatt">@conrefend</code></h2>
-      <div class="p"><span></span>The following markup rules apply when using or implementing <code class="keyword markupname xmlatt">@conrefend</code>:<ul class="ul">
-          <li class="li"><span></span>The start and end elements of a range <dfn class="term RFC-2119">MUST</dfn> be of
+      <div class="p">The following markup rules apply when using or implementing <code class="keyword markupname xmlatt">@conrefend</code>:<ul class="ul">
+          <li class="li">The start and end elements of a range <dfn class="term RFC-2119">MUST</dfn> be of
             the same type as the referencing element or generalizable to the referencing
             element.</li>
-          <li class="li"><span></span>The start and end elements in a range <dfn class="term RFC-2119">MUST</dfn> share
+          <li class="li">The start and end elements in a range <dfn class="term RFC-2119">MUST</dfn> share
             the same parent, and the start element <dfn class="term RFC-2119">MUST</dfn> precede
             the end element in document order.</li>
-          <li class="li"><span></span>The parent of the referencing element <dfn class="term RFC-2119">MUST</dfn> be the
+          <li class="li">The parent of the referencing element <dfn class="term RFC-2119">MUST</dfn> be the
             same as the parent of the referenced range or generalizable to the parent of the
             referencing element.
-<span></span>            </li>
-        </ul></div><p class="p"><span></span>In addition, several other items must be taken into account:</p><ul class="ul">
-        <li class="li"><span></span>Processors will resolve the range by pulling in the start target and following sibling
+            </li>
+        </ul></div><p class="p">In addition, several other items must be taken into account:</p><ul class="ul">
+        <li class="li">Processors will resolve the range by pulling in the start target and following sibling
           XML nodes across to and including the end target.</li>
-        <li class="li"><span></span>As with <code class="keyword markupname xmlatt">@conref</code>, if the <code class="keyword markupname xmlatt">@conrefend</code> references a more
+        <li class="li">As with <code class="keyword markupname xmlatt">@conref</code>, if the <code class="keyword markupname xmlatt">@conrefend</code> references a more
           specialized version of the referencing element, applications should generalize the target
-          when resolving. <span></span></li>
-        <li class="li"><span></span>It is not valid to use <code class="keyword markupname xmlatt">@conrefend</code> to reference a more general version of
+          when resolving. </li>
+        <li class="li">It is not valid to use <code class="keyword markupname xmlatt">@conrefend</code> to reference a more general version of
           an element (such as using <code class="keyword markupname xmlelement">&lt;step&gt;</code> to reference an
             <code class="keyword markupname xmlelement">&lt;li&gt;</code> element).</li>
-        <li class="li"><span></span>Other nodes (such as elements or text) between the start and end of a range do not have
+        <li class="li">Other nodes (such as elements or text) between the start and end of a range do not have
           to match the referencing element.</li>
-        <li class="li"><span></span>With single conref, an <code class="keyword markupname xmlatt">@id</code> attribute from the referenced element will
-          not be preserved on the resolved content. <span></span>With a range, an <code class="keyword markupname xmlatt">@id</code> on both the
-          start and the end elements will not be preserved. <span></span><code class="keyword markupname xmlatt">@id</code> attributes on
+        <li class="li">With single conref, an <code class="keyword markupname xmlatt">@id</code> attribute from the referenced element will
+          not be preserved on the resolved content. With a range, an <code class="keyword markupname xmlatt">@id</code> on both the
+          start and the end elements will not be preserved. <code class="keyword markupname xmlatt">@id</code> attributes on
           intermediate or child nodes should be preserved; if this results in duplicate
             <code class="keyword markupname xmlatt">@id</code> values, an application <span class="ph">can recover by changing the
               <code class="keyword markupname xmlatt">@id</code>, warning the user, or implementing another strategy.</span></li>
-        <li class="li"><span></span>With a single conref, attributes specified on the referencing element<span class="ph">can</span> be
-          used to override attributes on the referenced element. <span></span>With a conref range, the same is
+        <li class="li">With a single conref, attributes specified on the referencing element<span class="ph">can</span> be
+          used to override attributes on the referenced element. With a conref range, the same is
           true, with the following clarifications: <ul class="ul">
-            <li class="li"><span></span>When an <code class="keyword markupname xmlatt">@id</code> attribute is specified on the referencing element, it
+            <li class="li">When an <code class="keyword markupname xmlatt">@id</code> attribute is specified on the referencing element, it
               will only be preserved on the first element of the resolved range.</li>
-            <li class="li"><span></span>When other attributes are specified, they will only apply to referenced elements of
-              the same type. <span></span>For example, if <code class="keyword markupname xmlelement">&lt;step&gt;</code> is used to pull in a
+            <li class="li">When other attributes are specified, they will only apply to referenced elements of
+              the same type. For example, if <code class="keyword markupname xmlelement">&lt;step&gt;</code> is used to pull in a
               range of sequential <code class="keyword markupname xmlelement">&lt;step&gt;</code> elements, locally specified
-              attributes apply to all steps in the range. <span></span>If <code class="keyword markupname xmlelement">&lt;ol&gt;</code> is used to
+              attributes apply to all steps in the range. If <code class="keyword markupname xmlelement">&lt;ol&gt;</code> is used to
               pull in a series of (<code class="keyword markupname xmlelement">&lt;ol&gt;</code>, <code class="keyword markupname xmlelement">&lt;p&gt;</code>,
                 <code class="keyword markupname xmlelement">&lt;ol&gt;</code>), locally specified attributes apply only to the
                 <code class="keyword markupname xmlelement">&lt;ol&gt;</code> elements in that range.</li>
@@ -159,17 +159,17 @@ classes: ''
     </div>
     <section class="section" id="theconrefendattribute__conkeyref"><h2 class="title sectiontitle">Using <code class="keyword markupname xmlatt">@conrefend</code> together with <code class="keyword markupname xmlatt">@conkeyref</code></h2>
       
-      <p class="p"><span></span>When the <code class="keyword markupname xmlatt">@conkeyref</code> attribute is used in place of <code class="keyword markupname xmlatt">@conref</code>,
-        a key is used to address the target of the reference. <span></span>The <code class="keyword markupname xmlatt">@conrefend</code>
+      <p class="p">When the <code class="keyword markupname xmlatt">@conkeyref</code> attribute is used in place of <code class="keyword markupname xmlatt">@conref</code>,
+        a key is used to address the target of the reference. The <code class="keyword markupname xmlatt">@conrefend</code>
         attribute, which indicates the end of a <code class="keyword markupname xmlatt">@conref</code> range, cannot use a key.
-<span></span>        Instead the map or topic element addressed by the key name component of the
+        Instead the map or topic element addressed by the key name component of the
           <code class="keyword markupname xmlatt">@conkeyref</code> is used in place of whatever map or topic element is addressed
         by the <code class="keyword markupname xmlatt">@conrefend</code> attribute.</p>
-      <p class="p"><span></span>For example, if the value of the <code class="keyword markupname xmlatt">@conkeyref</code> attribute is
+      <p class="p">For example, if the value of the <code class="keyword markupname xmlatt">@conkeyref</code> attribute is
           <span class="keyword">config/step1</span> and the value of the <code class="keyword markupname xmlatt">@conrefend</code> is
           <span class="keyword">defaultconfig.dita#config/laststep</span>, the conref range will end with the
         step that has <code class="ph codeph">id="laststep"</code> in whatever topic is addressed by the key name
-          <span class="keyword">config</span>. <span></span>If the key name <span class="keyword">config</span> is not defined, and
+          <span class="keyword">config</span>. If the key name <span class="keyword">config</span> is not defined, and
         the <code class="keyword markupname xmlatt">@conref</code> attribute itself is not present for fallback, the
           <code class="keyword markupname xmlatt">@conrefend</code> attribute is ignored.</p>
     </section>
@@ -246,7 +246,7 @@ classes: ''
             <tr class="row">
               <td class="entry" headers="theconrefendattribute__error-conditions__entry__1">The <code class="keyword markupname xmlatt">@conref</code> attribute cannot be resolved in the
                 target document (the target element <span class="ph">might</span> have been removed or its id has
-                changed). <span></span></td>
+                changed). </td>
               <td class="entry" headers="theconrefendattribute__error-conditions__entry__2">The <code class="keyword markupname xmlatt">@conref</code> is ignored.</td>
             </tr>
             <tr class="row">
@@ -260,7 +260,7 @@ classes: ''
               <td class="entry" headers="theconrefendattribute__error-conditions__entry__1">Start and end elements are not siblings in the target
                 document.</td>
               <td class="entry" headers="theconrefendattribute__error-conditions__entry__2">If the start element exists, optional recovery processes the
-                result as a simple conref. <span></span></td>
+                result as a simple conref. </td>
             </tr>
             <tr class="row">
               <td class="entry" headers="theconrefendattribute__error-conditions__entry__1">End element occurs before the start element in the target

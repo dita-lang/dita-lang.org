@@ -5,7 +5,7 @@ title: 'RELAX NG: Coding requirements for attribute-domain modules'
 description: 'An attribute-domain vocabulary module declares a new attribute specialized from either the props or base attribute.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '7e7a11ff130cd273e9235b7da503a3782fa30582'
+commit: '1dfa1822aeebe83ed43664fd070003fc327678bc'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -14,33 +14,33 @@ classes: ''
  <h1 class="title topictitle1" id="ariaid-title1">RELAX NG: Coding requirements for attribute-domain modules</h1>
   
   
- <div class="body conbody"><p class="shortdesc"><span></span>An attribute-domain vocabulary module declares a new attribute specialized from either
+ <div class="body conbody"><p class="shortdesc">An attribute-domain vocabulary module declares a new attribute specialized from either
     the <code class="keyword markupname xmlatt">@props</code> or <code class="keyword markupname xmlatt">@base</code> attribute.</p>
-    <p class="p"><span></span>The name of an attribute domain is the name of the attribute
-        plus <span class="keyword">Att</span>. <span></span>For example, for the attribute named
-          <code class="keyword markupname xmlatt">@deliveryTarget</code>, the attribute-domain name is "deliveryTargetAtt". <span></span>The
-        attribute-domain name is used to construct pattern names for the domain. <span></span></p>
-   <p class="p"><span></span>An attribute-domain module consists of a single file, which has three sections:</p>
+    <p class="p">The name of an attribute domain is the name of the attribute
+        plus <span class="keyword">Att</span>. For example, for the attribute named
+          <code class="keyword markupname xmlatt">@deliveryTarget</code>, the attribute-domain name is "deliveryTargetAtt". The
+        attribute-domain name is used to construct pattern names for the domain. </p>
+   <p class="p">An attribute-domain module consists of a single file, which has three sections:</p>
     <dl class="dl">
       
         <dt class="dt dlterm">Specializations attribute contribution</dt>
-        <dd class="dd"><span></span>
-          <p class="p"><span></span>The contribution to the <code class="keyword markupname xmlatt">@specializations</code> attribute is documented in the
-            module. <span></span>The value is constructed according to the rules found in <a class="xref" href="specialization-specializations-attribute.html" title="The specializations attribute enables processors to determine what attribute specializations are available in a document. The attribute is declared on the root element for each topic or map type. Each attribute domain defines a token to declare the extension. The effective value of the specializations attribute is composed of these tokens.">The specializations attribute rules and syntax</a>.</p>
-          <p class="p"><span></span>The OASIS grammar files use a <code class="keyword markupname xmlelement">&lt;domainsContribution&gt;</code> element to
+        <dd class="dd">
+          <p class="p">The contribution to the <code class="keyword markupname xmlatt">@specializations</code> attribute is documented in the
+            module. The value is constructed according to the rules found in <a class="xref" href="specialization-specializations-attribute.html" title="The specializations attribute enables processors to determine what attribute specializations are available in a document. The attribute is declared on the root element for each topic or map type. Each attribute domain defines a token to declare the extension. The effective value of the specializations attribute is composed of these tokens.">The specializations attribute rules and syntax</a>.</p>
+          <p class="p">The OASIS grammar files use a <code class="keyword markupname xmlelement">&lt;domainsContribution&gt;</code> element to
             document the contribution; this element is used to help enable generation of DTD and XSD
-            grammar files. <span></span>An XML comment or <code class="keyword markupname xmlelement">&lt;a:documentation&gt;</code> element also
+            grammar files. An XML comment or <code class="keyword markupname xmlelement">&lt;a:documentation&gt;</code> element also
             can be used.</p>
         </dd>
       
       
         <dt class="dt dlterm">Attribute declaration pattern</dt>
-        <dd class="dd"><span></span>
-          <p class="p"><span></span>The specialized attribute is declared in a pattern named
-                <code class="ph codeph"><var class="keyword varname">domainName</var>-d-attribute</code>. <span></span>The attribute is defined
+        <dd class="dd">
+          <p class="p">The specialized attribute is declared in a pattern named
+                <code class="ph codeph"><var class="keyword varname">domainName</var>-d-attribute</code>. The attribute is defined
             as optional.</p>
           <div class="div">
-            <p class="p"><span></span>For example, the following code samples shows the the <code class="keyword markupname xmlatt">@audience</code>
+            <p class="p">For example, the following code samples shows the the <code class="keyword markupname xmlatt">@audience</code>
               specialization of <code class="keyword markupname xmlatt">@props</code>:</p>
             <pre class="pre codeblock"><code>&lt;define name="audienceAtt-d-attribute"&gt;
   &lt;optional&gt;
@@ -54,21 +54,21 @@ classes: ''
       
       
         <dt class="dt dlterm">Attribute extension pattern</dt>
-        <dd class="dd"><span></span>
-          <p class="p"><span></span>The attribute extension pattern extends either the
+        <dd class="dd">
+          <p class="p">The attribute extension pattern extends either the
               <code class="keyword markupname xmlatt">@props</code> or <code class="keyword markupname xmlatt">@base</code>
             <span style="color:red;" class="ph">attribute-list</span> pattern to include the
             attribute specialization.</p>
           <dl class="dl">
             
               <dt class="dt dlterm">Specializations of <code class="keyword markupname xmlatt">@props</code></dt>
-              <dd class="dd"><span></span>
-                <p class="p"><span></span>The pattern is named <code class="ph codeph">props-attribute-extensions</code>. <span></span>The pattern
+              <dd class="dd">
+                <p class="p">The pattern is named <code class="ph codeph">props-attribute-extensions</code>. The pattern
                   specifies a <code class="keyword markupname xmlatt">@combine</code> value of <span class="keyword">interleave</span>, and
                   the content of the pattern is a reference to the specialized-attribute declaration
                   pattern.</p>
                 <div class="div">
-                  <p class="p"><span></span>For example:</p>
+                  <p class="p">For example:</p>
                   <pre class="pre codeblock"><code>&lt;define name="props-attribute-extensions" combine="interleave"&gt;
   &lt;ref name="audienceAtt-d-attribute"/&gt;
 &lt;/define&gt;</code></pre>
@@ -77,13 +77,13 @@ classes: ''
             
             
               <dt class="dt dlterm">Specializations of <code class="keyword markupname xmlatt">@base</code></dt>
-              <dd class="dd"><span></span>
-                <p class="p"><span></span>The pattern is named <code class="ph codeph">base-attribute-extensions</code>. <span></span>The pattern
+              <dd class="dd">
+                <p class="p">The pattern is named <code class="ph codeph">base-attribute-extensions</code>. The pattern
                   specifies a <code class="keyword markupname xmlatt">@combine</code> value of <span class="keyword">interleave</span>, and
                   the content of the pattern is a reference to the specialized-attribute declaration
                   pattern.</p>
                 <div class="div">
-                  <p class="p"><span></span>For example:</p>
+                  <p class="p">For example:</p>
                   <pre class="pre codeblock"><code>&lt;define name="base-attribute-extensions" combine="interleave"&gt;
     &lt;ref name="myBaseSpecializationAtt-d-attribute"/&gt;
 &lt;/define&gt;</code></pre>

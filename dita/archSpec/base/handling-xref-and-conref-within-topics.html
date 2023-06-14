@@ -5,7 +5,7 @@ title: 'Processing xrefs and conrefs within a conref'
 description: 'When referenced content contains a content reference or cross reference, the effective target of the reference depends on the form of address that is used in the referenced content. It also might depend on the map context, especially when key scopes are present.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '7e7a11ff130cd273e9235b7da503a3782fa30582'
+commit: '1dfa1822aeebe83ed43664fd070003fc327678bc'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -14,40 +14,40 @@ classes: ''
  <h1 class="title topictitle1" id="ariaid-title1"><span class="ph">Processing</span> xrefs and conrefs within a conref</h1>
  
   
- <div class="body conbody"><p class="shortdesc"><span></span>When referenced content contains a content reference or cross reference, the effective
+ <div class="body conbody"><p class="shortdesc">When referenced content contains a content reference or cross reference, the effective
     target of the reference depends on the form of address that is used in the referenced content.
-<span></span>    It also might depend on the map context, especially when key scopes are present.</p>
+    It also might depend on the map context, especially when key scopes are present.</p>
     <dl class="dl">
       
         <dt class="dt dlterm">Direct URI reference (but not a same-topic fragment identifier )</dt>
-        <dd class="dd"><span></span>When the address is a direct URI reference of any form other than a same-topic fragment
+        <dd class="dd">When the address is a direct URI reference of any form other than a same-topic fragment
           identifier, processors <dfn class="term RFC-2119">MUST</dfn> resolve it relative to the
           source document that contains the original URI reference.</dd>
       
       
         <dt class="dt dlterm">Same-topic fragment identifier</dt>
-        <dd class="dd"><span></span>When the address is a same-topic fragment identifier, processors <dfn class="term RFC-2119">MUST</dfn> resolve it relative to the location
-          of the content reference (referencing context). <span></span></dd>
+        <dd class="dd">When the address is a same-topic fragment identifier, processors <dfn class="term RFC-2119">MUST</dfn> resolve it relative to the location
+          of the content reference (referencing context). </dd>
       
       
         <dt class="dt dlterm">Key reference</dt>
-        <dd class="dd"><span></span>When the address is a key reference, processors <dfn class="term RFC-2119">MUST</dfn> resolve it relative to the location of the content
-          reference (referencing context). <span></span></dd>
+        <dd class="dd">When the address is a key reference, processors <dfn class="term RFC-2119">MUST</dfn> resolve it relative to the location of the content
+          reference (referencing context). </dd>
       
     </dl>
-    <p class="p"><span></span>When resolving key references or same-topic fragment identifiers, the phrase
-        <dfn class="term">location of the content reference</dfn> means the final resolved context. <span></span>For
+    <p class="p">When resolving key references or same-topic fragment identifiers, the phrase
+        <dfn class="term">location of the content reference</dfn> means the final resolved context. For
       example, in a case where content references are chained (topic A pulls from topic B, which in
       turn pulls a reference from topic C), the reference is resolved relative to the topic that is
-      rendered. <span></span>When topic B is rendered, the reference is resolved relative to the content
+      rendered. When topic B is rendered, the reference is resolved relative to the content
       reference in topic B; when topic A is rendered, the reference is resolved relative to topic A.
-<span></span>        <span class="ph">If content is pushed from topic A to topic B to topic C, then the
+        <span class="ph">If content is pushed from topic A to topic B to topic C, then the
         same-topic fragment identifier is resolved in the context of topic C.</span></p>
-    <p class="p"><span></span>The implication is that a content reference or cross reference can resolve to
-      different targets in different use contexts. <span></span>This is because a URI reference that contains a
+    <p class="p">The implication is that a content reference or cross reference can resolve to
+      different targets in different use contexts. This is because a URI reference that contains a
       same-topic fragment identifier is resolved in the context of the topic that contains the
       content reference, and a key reference is resolved in the context of the key scope that is in
-      effect for each use of the topic that contains the content reference. <span></span></p>
+      effect for each use of the topic that contains the content reference. </p>
     <div class="note note note_note non-normative"><span class="note__title">Note:</span> In the case of same-topic fragment identifiers, it is the responsibility of the author of
       the content reference to ensure that any element IDs that are specified in same-topic fragment
       identifiers in the referenced content will also be available in the referencing topic at

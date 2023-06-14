@@ -5,7 +5,7 @@ title: 'titlealt'
 description: 'An alternative title is used to convey information about a document in contexts other than straightforward display.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '7e7a11ff130cd273e9235b7da503a3782fa30582'
+commit: '1dfa1822aeebe83ed43664fd070003fc327678bc'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -14,38 +14,38 @@ classes: ''
     <h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;titlealt&gt;</code></h1>
     
     
-    <div class="body refbody"><p class="shortdesc"><span></span>An alternative title is used to convey information about a document in contexts other
+    <div class="body refbody"><p class="shortdesc">An alternative title is used to convey information about a document in contexts other
         than straightforward display.</p>
         <section class="section" id="titlealt__usage-information"><h2 class="title sectiontitle">Usage Information</h2>
             
-            <p class="p"><span></span>Alternative titles can be used in both maps and topics:</p>
+            <p class="p">Alternative titles can be used in both maps and topics:</p>
       <ul class="ul">
-        <li class="li"><span></span>When used in the <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> of a root
+        <li class="li">When used in the <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> of a root
             <code class="keyword markupname xmlelement">&lt;map&gt;</code> element, the alternative title
           applies to the map itself.</li>
-        <li class="li"><span></span>When used inside a <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>
+        <li class="li">When used inside a <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>
           <span style="color:red;" class="ph">element</span>, the alternative title applies to
           the resource <span style="color:red;" class="ph">that is</span> referenced by the
             <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>
           <span style="color:red;" class="ph">element</span>.</li>
-        <li class="li"><span></span>When the referenced resource is a DITA topic, the alternative
+        <li class="li">When the referenced resource is a DITA topic, the alternative
           titles from the <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>
           <span style="color:red;" class="ph">element</span> are merged with those authored
           directly in the topic, with the alternative titles from the
             <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>
           <span style="color:red;" class="ph">element</span> taking higher priority.</li>
       </ul>
-            <p class="p"><span></span>The roles of an alternative title are specified by the
-          <code class="keyword markupname xmlatt">@title-role</code> attribute. <span></span>Multiple roles can be
-        specified, separated by white space. <span></span>An alternative title specifies
-        at least one role. <span></span>Other tokens for the <code class="keyword markupname xmlatt">@title-role</code>
-        attribute can be defined for specific purposes. <span></span></p>
-      <p class="p"><span></span>Some roles might not be meaningful in certain contexts. <span></span>For
+            <p class="p">The roles of an alternative title are specified by the
+          <code class="keyword markupname xmlatt">@title-role</code> attribute. Multiple roles can be
+        specified, separated by white space. An alternative title specifies
+        at least one role. Other tokens for the <code class="keyword markupname xmlatt">@title-role</code>
+        attribute can be defined for specific purposes. </p>
+      <p class="p">Some roles might not be meaningful in certain contexts. For
         example, a navigational alternate title is not meaningful in the
         context of a <code class="keyword markupname xmlelement">&lt;topicgroup&gt;</code> element, since the
-        element is not part of the navigation <span style="color:red;" class="ph">structure</span> of a publication. <span></span>Such alternate titles are
+        element is not part of the navigation <span style="color:red;" class="ph">structure</span> of a publication. Such alternate titles are
         ignored by processors.</p>
-      <p class="p"><span></span>The base DITA vocabulary contains an alternative titles domain
+      <p class="p">The base DITA vocabulary contains an alternative titles domain
         that contains convenience elements that are equivalent to
           <code class="keyword markupname xmlelement">&lt;titlealt&gt;</code> elements with the
           <code class="keyword markupname xmlatt">@title-role</code> attribute set to the tokens outlined
@@ -54,69 +54,69 @@ classes: ''
         <section class="section" id="titlealt__processing-expectations"><h2 class="title sectiontitle">Processing expectations</h2>
             
             
-            <div class="p"><span></span>The processing of an alternative title depends on its roles.
-<span></span>        Processors <dfn class="term RFC-2119">SHOULD</dfn> support the
+            <div class="p">The processing of an alternative title depends on its roles.
+        Processors <dfn class="term RFC-2119">SHOULD</dfn> support the
         following tokens for the <code class="keyword markupname xmlatt">@title-role</code> attribute:<dl class="dl">
           
             <dt class="dt dlterm"><code class="ph codeph">linking</code></dt>
-            <dd class="dd"><span></span>Specifies that the content of the
+            <dd class="dd">Specifies that the content of the
                 <code class="keyword markupname xmlelement">&lt;titlealt&gt;</code> element contains the
               title for use in references to the resources generated from
               DITA map structures, such as hierarchical
               parent/child/sibling links and links generated from
-              relationship tables. <span></span>In addition, this is the fallback
+              relationship tables. In addition, this is the fallback
               alternative title for <code class="ph codeph">navigation</code> and
-                <code class="ph codeph">search</code> roles. <span></span>Custom title roles meant for
+                <code class="ph codeph">search</code> roles. Custom title roles meant for
               use in link generation should also use this as a
               fallback.</dd>
           
           
             <dt class="dt dlterm"><code class="ph codeph">navigation</code></dt>
-            <dd class="dd"><span></span>Specifies that the content of the
+            <dd class="dd">Specifies that the content of the
                 <code class="keyword markupname xmlelement">&lt;titlealt&gt;</code> element contains the
               title for use in tables of content and other navigation aids.
-<span></span>              In some cases, when processing a
+              In some cases, when processing a
                 <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> that has no
                 <code class="keyword markupname xmlatt">@href</code>, this is also used as the title of
-              the generated topic, if applicable. <span></span>If not present, this role
+              the generated topic, if applicable. If not present, this role
               is fulfilled by the <code class="ph codeph">linking</code> role.</dd>
           
           
             <dt class="dt dlterm"><code class="ph codeph">search</code></dt>
-            <dd class="dd"><span></span>Specifies that the content of the
+            <dd class="dd">Specifies that the content of the
                 <code class="keyword markupname xmlelement">&lt;titlealt&gt;</code> element contains a title
               for use in search results for systems that support content
-              search. <span></span>If not present, this role is fulfilled by the
+              search. If not present, this role is fulfilled by the
                 <code class="ph codeph">linking</code> role.</dd>
           
           
             <dt class="dt dlterm"><code class="ph codeph">subtitle</code></dt>
-            <dd class="dd"><span></span>Specifies that the content of the
+            <dd class="dd">Specifies that the content of the
                 <code class="keyword markupname xmlelement">&lt;titlealt&gt;</code> element contains a
               subtitle for the document.</dd>
           
           
             <dt class="dt dlterm"><code class="ph codeph">hint</code></dt>
-            <dd class="dd"><span></span>Specifies that the content of the
+            <dd class="dd">Specifies that the content of the
                 <code class="keyword markupname xmlelement">&lt;titlealt&gt;</code> element contains a hint
-              about the referenced resource. <span></span>This is intended for the
+              about the referenced resource. This is intended for the
               benefit of map authors; it does not have an effect on
               processing or output.</dd>
           
           
           <dt class="dt dlterm"><span class="keyword">-dita-use-conref-target</span></dt>
-          <dd class="dd"><span></span>See <a class="xref" href="../../common/../archSpec/base/ditauseconreftarget.html" title="The value -dita-use-conref-target is available on enumerated attributes and can also be specified on other attributes. When an element uses conref to pull in content, for any of its attributes assigned a value of -dita-use-conref-target, the resulting value for those attributes is also pulled in from the referenced element.">Using the -dita-use-conref-target value</a>
-            for more information. <span></span></dd>
+          <dd class="dd">See <a class="xref" href="../../common/../archSpec/base/ditauseconreftarget.html" title="The value -dita-use-conref-target is available on enumerated attributes and can also be specified on other attributes. When an element uses conref to pull in content, for any of its attributes assigned a value of -dita-use-conref-target, the resulting value for those attributes is also pulled in from the referenced element.">Using the -dita-use-conref-target value</a>
+            for more information. </dd>
         
         </dl></div>
-            <p class="p"><span></span>Alternative titles with the <code class="keyword markupname xmlatt">@title-role</code>
+            <p class="p">Alternative titles with the <code class="keyword markupname xmlatt">@title-role</code>
         attribute set to tokens that are not recognized by the processor
           <span class="keyword RFC-2119">SHOULD</span> be ignored and
         not appear in output.</p>
         </section>
         <section class="section" id="titlealt__attributes"><h2 class="title sectiontitle">Attributes</h2>
             
-            <p class="p"><span></span>The following attributes are available on this element: <span class="ph"><a class="xref" href="../../common/../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
+            <p class="p">The following attributes are available on this element: <span class="ph"><a class="xref" href="../../common/../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
                                                   attributes</a></span> and <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-title-role"><code class="keyword markupname xmlatt">@title-role</code></a>.</p>
         </section>
         <div class="example non-normative" id="titlealt__example"><h2 class="title sectiontitle">Examples</h2>

@@ -5,7 +5,7 @@ title: 'Constraint rules'
 description: 'There are certain rules that apply to the design and implementation of constraints.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '7e7a11ff130cd273e9235b7da503a3782fa30582'
+commit: '1dfa1822aeebe83ed43664fd070003fc327678bc'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -14,55 +14,55 @@ classes: ''
  <h1 class="title topictitle1" id="ariaid-title1">Constraint rules</h1>
  
  
- <div class="body conbody"><p class="shortdesc"><span></span>There are certain rules that apply to the design and implementation of
+ <div class="body conbody"><p class="shortdesc">There are certain rules that apply to the design and implementation of
   constraints.</p>
   <dl class="dl">
    
     <dt class="dt dlterm">Content model</dt>
-    <dd class="dd"><span></span>
-     <p class="p"><span></span>The content model for a constrained element must be at least as restrictive as the
+    <dd class="dd">
+     <p class="p">The content model for a constrained element must be at least as restrictive as the
       unconstrained content model for the element.
-<span></span>      </p>
+      </p>
      
     </dd>
    
    
     <dt class="dt dlterm">Domain constraints</dt>
-    <dd class="dd"><span></span>
-     <p class="p"><span></span>When a domain module is integrated into a document-type shell, the base domain element can
-      be omitted from the domain extension group or parameter entity. <span></span>In such a case, there is no
+    <dd class="dd">
+     <p class="p">When a domain module is integrated into a document-type shell, the base domain element can
+      be omitted from the domain extension group or parameter entity. In such a case, there is no
       separate constraint declaration, because the content model is configured directly in the
       document-type shell.</p>
-     <p class="p"><span></span>A domain module can be constrained by only one constraint module. <span></span>This means that all
+     <p class="p">A domain module can be constrained by only one constraint module. This means that all
       restrictions for the extension elements that are defined in the domain must be contained
       within that one constraint module.</p>
     </dd>
    
    
     <dt class="dt dlterm">Structural constraints</dt>
-    <dd class="dd"><span></span>
-     <p class="p"><span></span>Each constraint module can constrain elements from only one vocabulary module. <span></span>For example,
+    <dd class="dd">
+     <p class="p">Each constraint module can constrain elements from only one vocabulary module. For example,
       a single constraint module that constrains <code class="keyword markupname xmlelement">&lt;refsyn&gt;</code> from
        <span class="ph filepath">reference.mod</span> and constrains <code class="keyword markupname xmlelement">&lt;context&gt;</code> from
-       <span class="ph filepath">task.mod</span> is not allowed. <span></span>This rule maintains granularity of reuse at the
+       <span class="ph filepath">task.mod</span> is not allowed. This rule maintains granularity of reuse at the
       module level.</p>
-     <p class="p"><span></span>Constraint modules that restrict different elements from within the same vocabulary module
-      can be combined with one another. <span></span>Such combinations of constraints on a single vocabulary
+     <p class="p">Constraint modules that restrict different elements from within the same vocabulary module
+      can be combined with one another. Such combinations of constraints on a single vocabulary
       module have no meaningful order or precedence.</p>
     </dd>
    
       
           <dt class="dt dlterm">Aggregation of constraint modules</dt>
-          <dd class="dd"><span></span>
-            <p class="p"><span></span>The content model of an element can be modified by either of
+          <dd class="dd">
+            <p class="p">The content model of an element can be modified by either of
               the following element-configuration modules:</p>
             <ul class="ul">
-              <li class="li"><span></span>Constraint module</li>
-              <li class="li"><span></span>Expansion module</li>
+              <li class="li">Constraint module</li>
+              <li class="li">Expansion module</li>
             </ul>
-            <p class="p"><span></span><span style="color:red;" class="ph">For any document-type shell, the</span>
+            <p class="p"><span style="color:red;" class="ph">For any document-type shell, the</span>
               content model of an element can only be modified by a single
-              element-type configuration module. <span></span>If multiple constraints or
+              element-type configuration module. If multiple constraints or
               extensions need to be applied to a single element, the
               element configurations must be combined into a single module
               that reflects all the constraints and expansions that were

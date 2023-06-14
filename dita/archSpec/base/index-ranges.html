@@ -5,7 +5,7 @@ title: 'Index ranges'
 description: 'Authors can use the start and end attributes on indexterm elements to index extended discussions. Processors generate index entries that range over several locators.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '7e7a11ff130cd273e9235b7da503a3782fa30582'
+commit: '1dfa1822aeebe83ed43664fd070003fc327678bc'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -14,66 +14,66 @@ classes: ''
     <h1 class="title topictitle1" id="ariaid-title1">Index ranges</h1>
     
     
-    <div class="body conbody"><p class="shortdesc"><span></span>Authors can use the <code class="keyword markupname xmlatt">@start</code> and <code class="keyword markupname xmlatt">@end</code> attributes on
-            <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements to index extended discussions. <span></span>Processors
-        generate index entries that range over several locators. <span></span></p>
-        <p class="p"><span></span>The start of an index range is indicated by an <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> with a
-                <code class="keyword markupname xmlatt">@start</code> attribute. <span></span><span class="ph">This is called a <dfn class="term">start
+    <div class="body conbody"><p class="shortdesc">Authors can use the <code class="keyword markupname xmlatt">@start</code> and <code class="keyword markupname xmlatt">@end</code> attributes on
+            <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements to index extended discussions. Processors
+        generate index entries that range over several locators. </p>
+        <p class="p">The start of an index range is indicated by an <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> with a
+                <code class="keyword markupname xmlatt">@start</code> attribute. <span class="ph">This is called a <dfn class="term">start
                     element</dfn>.</span></p>
-        <p class="p"><span></span>The end of a range is indicated by whichever of the following occurs first:</p>
+        <p class="p">The end of a range is indicated by whichever of the following occurs first:</p>
         <ul class="ul">
-            <li class="li"><span></span>An <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element with an <code class="keyword markupname xmlatt">@end</code> attribute
+            <li class="li">An <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element with an <code class="keyword markupname xmlatt">@end</code> attribute
                 with a value that matches the <code class="keyword markupname xmlatt">@start</code> attribute on the
-                    <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element that begins the range. <span></span><span class="ph">This is called an <dfn class="term">end element</dfn>.</span></li>
-            <li class="li"><span></span>The applicable scope boundary.</li>
+                    <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element that begins the range. <span class="ph">This is called an <dfn class="term">end element</dfn>.</span></li>
+            <li class="li">The applicable scope boundary.</li>
         </ul>
-        <p class="p"><span></span>The applicable scope boundary depends on the location of the start element:</p>
+        <p class="p">The applicable scope boundary depends on the location of the start element:</p>
         <dl class="dl">
             
                 <dt class="dt dlterm">Topic body</dt>
-                <dd class="dd"><span></span>End of the topic body.</dd>
+                <dd class="dd">End of the topic body.</dd>
             
             
                 <dt class="dt dlterm">Topic prolog</dt>
-                <dd class="dd"><span></span>End of the topic that contains the start element, including any child
+                <dd class="dd">End of the topic that contains the start element, including any child
                     topics</dd>
             
             
                 <dt class="dt dlterm">DITA map</dt>
-                <dd class="dd"><span></span>
-                    <p class="p"><span></span>Whichever of the following occurs first:</p>
+                <dd class="dd">
+                    <p class="p">Whichever of the following occurs first:</p>
                     <ul class="ul">
-                        <li class="li"><span></span>End of the topic that <span class="ph">the start element
+                        <li class="li">End of the topic that <span class="ph">the start element
                                 references,</span>, including any child topics</li>
-                        <li class="li"><span></span>End of the DITA map</li>
+                        <li class="li">End of the DITA map</li>
                     </ul>
                     
                 </dd>
             
         </dl>
         
-        <div class="p"><span></span>Processors that support index ranges <dfn class="term RFC-2119">SHOULD</dfn> do the following:<ul class="ul">
-                <li class="li"><span></span>Match <code class="keyword markupname xmlatt">@start</code> and <code class="keyword markupname xmlatt">@end</code> attributes by a
+        <div class="p">Processors that support index ranges <dfn class="term RFC-2119">SHOULD</dfn> do the following:<ul class="ul">
+                <li class="li">Match <code class="keyword markupname xmlatt">@start</code> and <code class="keyword markupname xmlatt">@end</code> attributes by a
                     character-by-character comparison with all characters significant and no case
                     folding.
-<span></span>                    occurring</li>
-                <li class="li"><span></span>Ignore <code class="keyword markupname xmlatt">@start</code> and <code class="keyword markupname xmlatt">@end</code> attributes if they occur
+                    occurring</li>
+                <li class="li">Ignore <code class="keyword markupname xmlatt">@start</code> and <code class="keyword markupname xmlatt">@end</code> attributes if they occur
                     on an <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element that has child
                         <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements.</li>
-                <li class="li"><span></span>When index ranges with the same identifier overlap, <span class="ph">the
+                <li class="li">When index ranges with the same identifier overlap, <span class="ph">the
                         effective range is determined by matching the earliest start element from
                         the set of overlapping ranges with the latest end element from the set of
                         overlapping
                     ranges.</span></li>
-                <li class="li"><span></span>Handle an end-of-range <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element that is nested
-                    within one or more <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements. <span></span>The end-of-range
+                <li class="li">Handle an end-of-range <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element that is nested
+                    within one or more <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements. The end-of-range
                         <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element should have no content of its
                     own; if it contains content, that content is ignored.</li>
-                <li class="li"><span></span>Ignore unmatched end-of-range <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements.</li>
+                <li class="li">Ignore unmatched end-of-range <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements.</li>
             </ul></div>
         
-        <p class="p"><span></span>The <code class="keyword markupname xmlatt">@start</code> and <code class="keyword markupname xmlatt">@end</code> attributes are defined
-            as CDATA. <span></span>However, we recommend that authors do not include whitespace characters
+        <p class="p">The <code class="keyword markupname xmlatt">@start</code> and <code class="keyword markupname xmlatt">@end</code> attributes are defined
+            as CDATA. However, we recommend that authors do not include whitespace characters
             (spaces or tabs) or control characters in values for these attributes.</p>
     </div>
 <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/indexes.html" title="Processors can generate an index from the content of indexing elements.">Indexes</a></div></div></nav></article></main>

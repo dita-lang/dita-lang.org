@@ -5,7 +5,7 @@ title: 'Reconciling topic and map metadata elements'
 description: 'The topicmeta element in maps can contain numerous metadata elements. These metadata elements can have an effect on the parent topicref element, any child topicref elements, and – if a direct child of the map element – on the .'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '7e7a11ff130cd273e9235b7da503a3782fa30582'
+commit: '1dfa1822aeebe83ed43664fd070003fc327678bc'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -13,19 +13,19 @@ classes: ''
 <nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction</a></li><li><a href="../../archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="../../archSpec/base/accessibility-and-translation.html">Accessibility and translation</a></li><li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a><ul class="nav nav-list"><li><a href="../../archSpec/base/dita-maps-and-their-usage.html">DITA maps and their usage</a></li><li><a href="../../archSpec/base/subject-scheme-maps-and-usage.html">Subject scheme maps and their usage</a></li><li><a href="../../archSpec/base/map-cascading.html">Metadata cascading</a><ul class="nav nav-list"><li><a href="../../archSpec/base/cascading-in-a-ditamap.html">Cascading of metadata attributes in a DITA map</a></li><li class="active"><a href="../../archSpec/base/reconciling-topic-and-map-metadata.html">Reconciling topic and map metadata elements</a></li><li><a href="../../archSpec/base/map-to-map-cascading-of-metadata.html">Map-to-map cascading behaviors</a></li><li><a href="../../archSpec/base/examples-of-cascading.html">Examples of metadata cascading</a></li></ul></li><li><a href="../../archSpec/base/chunking.html">Chunking</a></li></ul></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a></li><li><a href="../../langRef/langRef-base.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../non-normative/developing-constraint-and-expansion-modules.html">Constraint modules</a></li><li><a href="../../non-normative/expansion-modules.html">Expansion modules</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../non-normative/formatting-expectations.html">Formatting expectations</a></li><li><a href="../../non-normative/migrating-to-dita-2.0.html">Migrating to DITA 2.0</a></li><li><a href="../../non-normative/basedoctypes.html">OASIS grammar files</a></li><li><a href="../../non-normative/interoperability-considerations.html">Processing interoperability considerations</a></li><li><a href="../../non-normative/revision-history.html">Revision history</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
 <h1 class="title topictitle1" id="ariaid-title1"><span class="ph">Reconciling topic and map metadata elements</span></h1>
 
-<div class="body refbody"><p class="shortdesc"><span></span>The <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> element in maps <span style="color:red;" class="ph">can contain</span> numerous metadata elements. <span></span>These
+<div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> element in maps <span style="color:red;" class="ph">can contain</span> numerous metadata elements. These
     metadata elements <span style="color:red;" class="ph">can</span> have an effect on the
     parent <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element, any child
       <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements, and – if a direct child
     of the <code class="keyword markupname xmlelement">&lt;map&gt;</code> element – on the .</p>
-<section class="section" id="reconciling-topic-and-map-metadata__section"><div class="p"><span></span>For each element that can be contained in the <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> element, the
+<section class="section" id="reconciling-topic-and-map-metadata__section"><div class="p">For each element that can be contained in the <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> element, the
     following table addresses the following questions:<dl class="dl">
      
       <dt class="dt dlterm">How does it apply to the topic?</dt>
-      <dd class="dd"><span></span>This column describes how the metadata specified within the
+      <dd class="dd">This column describes how the metadata specified within the
                 <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> element interacts with
-              the metadata specified in the <span style="color:red;" class="ph">referenced</span> topic. <span></span>In most cases, the properties are
-              additive. <span></span><span style="color:red;" class="ph">For example, when a topic
+              the metadata specified in the <span style="color:red;" class="ph">referenced</span> topic. In most cases, the properties are
+              additive. <span style="color:red;" class="ph">For example, when a topic
                 reference in a map contains <code style="color:red;" class="ph codeph">&lt;category&gt;installation&lt;/category&gt;</code>,
                   <code style="color:red;" class="ph codeph">&lt;category&gt;installation&lt;/category&gt;</code> is
                 added during processing to any metadata that is specified
@@ -33,24 +33,24 @@ classes: ''
      
      
       <dt class="dt dlterm">Does it cascade to other topics in the map?</dt>
-      <dd class="dd"><span></span>This column indicates whether the specified metadata <span style="color:red;" class="ph">element</span> cascades to nested
-                <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements. <span></span><span style="color:red;" class="ph">For example, when a topic reference in a map
+      <dd class="dd">This column indicates whether the specified metadata <span style="color:red;" class="ph">element</span> cascades to nested
+                <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements. <span style="color:red;" class="ph">For example, when a topic reference in a map
                 contains <code style="color:red;" class="ph codeph">&lt;author&gt;Jane
                   Doe&lt;/author&gt;</code>, <code style="color:red;" class="ph codeph">&lt;author&gt;Jane Doe&lt;/author&gt;</code> is added during
                 processing to the metadata for all child topic references.
-<span></span>                Some elements do not cascade.</span></dd>
+                Some elements do not cascade.</span></dd>
      
      
       <dt class="dt dlterm">What is the purpose when specified on the <code class="keyword markupname xmlelement">&lt;map&gt;</code> element?</dt>
-      <dd class="dd"><span></span>The map element <span style="color:red;" class="ph">permits</span> metadata to be
-              specified for the map. <span></span>This column describes <span style="color:red;" class="ph">the effect that</span> an element has when
+      <dd class="dd">The map element <span style="color:red;" class="ph">permits</span> metadata to be
+              specified for the map. This column describes <span style="color:red;" class="ph">the effect that</span> an element has when
               specified at this level.
-<span></span>              </dd>
+              </dd>
      
           
             <dt style="color:red;" class="dt dlterm">When set on the <code class="keyword markupname xmlelement">&lt;map&gt;</code> element, does
               it apply to all topics referenced in the map?</dt>
-            <dd style="color:red;" class="dd"><span></span>When specified on the  <code class="keyword markupname xmlelement">&lt;map&gt;</code> element
+            <dd style="color:red;" class="dd">When specified on the  <code class="keyword markupname xmlelement">&lt;map&gt;</code> element
               element, some metadata elements then apply to all the topics
               that are referenced in the map.</dd>
           

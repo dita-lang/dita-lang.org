@@ -5,7 +5,7 @@ title: 'Expansion module rules'
 description: 'There are certain rules that apply to the design and implementation of expansion modules. These rules all stem from the requirement that the content model of a specialized element must be consistent with the content model of the specialization base. After generalization, the content model of an element affected by an expansion module must match the original content model for that element.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '7e7a11ff130cd273e9235b7da503a3782fa30582'
+commit: '1dfa1822aeebe83ed43664fd070003fc327678bc'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -14,12 +14,12 @@ classes: ''
   <h1 class="title topictitle1" id="ariaid-title1">Expansion module rules</h1>
   
   
-  <div class="body conbody"><div class="abstract"><span></span>
-     <span class="shortdesc"><span></span>There are certain rules that apply to the design and
-      implementation of expansion modules. <span></span><span class="ph">These rules all
+  <div class="body conbody"><div class="abstract">
+     <span class="shortdesc">There are certain rules that apply to the design and
+      implementation of expansion modules. <span class="ph">These rules all
         stem from the requirement that the content model of a specialized
         element must be consistent with the content model of the
-        specialization base. <span></span>After generalization, the content model of an
+        specialization base. After generalization, the content model of an
         element affected by an expansion module must match the original
         content model for that element.</span></span>
   </div>
@@ -27,19 +27,19 @@ classes: ''
     <dl class="dl">
       
         <dt class="dt dlterm">Specialization base of expanded elements</dt>
-        <dd class="dd"><span></span>
-          <p class="p"><span></span>Elements that are added to content models by expansion models
+        <dd class="dd">
+          <p class="p">Elements that are added to content models by expansion models
             must be specializations of existing elements that are permitted
             in the original content model.</p>
         </dd>
       
       
         <dt class="dt dlterm">Content model of expanded elements</dt>
-        <dd class="dd"><span></span>
-          <p class="p"><span></span>Elements that are added to content models by expansion models
+        <dd class="dd">
+          <p class="p">Elements that are added to content models by expansion models
             must be allowed only where their specialization base is
             allowed.</p>
-          <p class="p"><span></span>For example, when creating an expansion
+          <p class="p">For example, when creating an expansion
             model that adds a specialization of
               <code class="keyword markupname xmlelement">&lt;data&gt;</code> to <code class="keyword markupname xmlelement">&lt;ol&gt;</code>,
             the specialization of <code class="keyword markupname xmlelement">&lt;data&gt;</code> must only
@@ -51,34 +51,34 @@ classes: ''
       
       
         <dt class="dt dlterm">Ordinality of expanded elements</dt>
-        <dd class="dd"><span></span>
-          <p class="p"><span></span>Elements that are added to content models by expansion modules
+        <dd class="dd">
+          <p class="p">Elements that are added to content models by expansion modules
             must not <span class="ph">violate</span> the ordinality of the
-            original content model. <span></span><span class="ph">If the original content
+            original content model. <span class="ph">If the original content
               model requires a child element to occur at least once, then
               the expanded content model cannot break this
               requirement.</span> If the original content model only permits
             a <span class="ph">child</span> element to occur once, then the
             expanded content model cannot break this requirement.</p>
           <div class="div">
-            <p class="p"><span></span>For example, in the expansion module that adds a
+            <p class="p">For example, in the expansion module that adds a
               specialization of <code class="keyword markupname xmlelement">&lt;data&gt;</code> to
                 <code class="keyword markupname xmlelement">&lt;ol&gt;</code>, the redefined content model
               for <code class="keyword markupname xmlelement">&lt;ol&gt;</code> cannot make the
                 <code class="keyword markupname xmlelement">&lt;li&gt;</code> element optional.</p>
-            <p class="p"><span></span>However, <span style="color:red;" class="ph">an</span> expansion
+            <p class="p">However, <span style="color:red;" class="ph">an</span> expansion
               module that adds a specialization of
                 <code class="keyword markupname xmlelement">&lt;li&gt;</code>
                 (<code class="keyword markupname xmlelement">&lt;listIntro&gt;</code>) to
                 <code class="keyword markupname xmlelement">&lt;ol&gt;</code> can redefine the content model
               of <code class="keyword markupname xmlelement">&lt;ol&gt;</code> in the following ways:</p>
             <ul class="ul">
-              <li class="li"><span></span>Make <code class="keyword markupname xmlelement">&lt;listIntro&gt;</code> the first child
+              <li class="li">Make <code class="keyword markupname xmlelement">&lt;listIntro&gt;</code> the first child
                 element and be required</li>
-              <li class="li"><span></span>Make <code class="keyword markupname xmlelement">&lt;li&gt;</code> the second child element
+              <li class="li">Make <code class="keyword markupname xmlelement">&lt;li&gt;</code> the second child element
                 and optional</li>
             </ul>
-            <p class="p"><span></span>When a DITA topic affected by this expansion
+            <p class="p">When a DITA topic affected by this expansion
               module is generalized, the resulting markup would be valid;
               the content model of <code class="keyword markupname xmlelement">&lt;ol&gt;</code> would be
               respected.</p>
@@ -89,16 +89,16 @@ classes: ''
       
       
           <dt class="dt dlterm">Aggregation of constraint modules</dt>
-          <dd class="dd"><span></span>
-            <p class="p"><span></span>The content model of an element can be modified by either of
+          <dd class="dd">
+            <p class="p">The content model of an element can be modified by either of
               the following element-configuration modules:</p>
             <ul class="ul">
-              <li class="li"><span></span>Constraint module</li>
-              <li class="li"><span></span>Expansion module</li>
+              <li class="li">Constraint module</li>
+              <li class="li">Expansion module</li>
             </ul>
-            <p class="p"><span></span><span style="color:red;" class="ph">For any document-type shell, the</span>
+            <p class="p"><span style="color:red;" class="ph">For any document-type shell, the</span>
               content model of an element can only be modified by a single
-              element-type configuration module. <span></span>If multiple constraints or
+              element-type configuration module. If multiple constraints or
               extensions need to be applied to a single element, the
               element configurations must be combined into a single module
               that reflects all the constraints and expansions that were

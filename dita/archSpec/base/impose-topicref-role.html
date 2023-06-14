@@ -5,7 +5,7 @@ title: 'Imposing roles when referencing a map'
 description: 'When specialized topicref elements reference a map, they might imply a semantic role for the referenced content. The impose-role attribute provides a mechanism to declare that such references impose their original role on referenced content.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '7e7a11ff130cd273e9235b7da503a3782fa30582'
+commit: '1dfa1822aeebe83ed43664fd070003fc327678bc'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -14,69 +14,69 @@ classes: ''
  <h1 class="title topictitle1" id="ariaid-title1">Imposing roles when referencing a map</h1>
  
  
- <div class="body conbody"><p class="shortdesc"><span></span>When specialized <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements reference a map, they might
-    imply a semantic role for the referenced content. <span></span>The <code class="keyword markupname xmlatt">@impose-role</code> attribute
+ <div class="body conbody"><p class="shortdesc">When specialized <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements reference a map, they might
+    imply a semantic role for the referenced content. The <code class="keyword markupname xmlatt">@impose-role</code> attribute
     provides a mechanism to declare that such references impose their original role on referenced
     content.</p>
-    <p class="p"><span></span>In many cases the <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element is specialized in order to create
-      a specific role for the reference. <span></span><span class="ph">For example, the
+    <p class="p">In many cases the <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element is specialized in order to create
+      a specific role for the reference. <span class="ph">For example, the
           <code class="keyword markupname xmlelement">&lt;keydef&gt;</code> element creates a new role for the reference, but does not
         create a role for the target of the reference.</span> In other cases, the element is
-      specialized to create a role for the target of the reference. <span></span><span class="ph">For
+      specialized to create a role for the target of the reference. <span class="ph">For
         example, in the Bookmap specialization from the DITA Technical Communication
         specializations, the <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> element creates a role for the target
         of the reference: it declares that the referenced content is a chapter in the context of
         this map.</span></p>
-    <p class="p"><span></span>The declaration of roles can be harder to follow when the target of a reference is a map or
-      branch of a map. <span></span>In such cases, a <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element can reference a
-      map, which in turn references content. <span></span>When resolving those references, processors need to
+    <p class="p">The declaration of roles can be harder to follow when the target of a reference is a map or
+      branch of a map. In such cases, a <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element can reference a
+      map, which in turn references content. When resolving those references, processors need to
       know which roles created by the <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements need to be
       preserved for the content.</p>
-    <p class="p"><span></span>For example, assume a <code class="keyword markupname xmlelement">&lt;setupProject&gt;</code> element that is specialized from
+    <p class="p">For example, assume a <code class="keyword markupname xmlelement">&lt;setupProject&gt;</code> element that is specialized from
         <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> indicates that the referenced content plays the "setup a
-      project" role in a publication. <span></span>This might result in special formatting or generated headings
-      when the content is rendered. <span></span>If that element refers to a map instead of a topic, that
+      project" role in a publication. This might result in special formatting or generated headings
+      when the content is rendered. If that element refers to a map instead of a topic, that
       specialized role still needs to be passed on to topics in the referenced map - regardless of
       what <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements might be used in that referenced map.</p>
-    <p class="p"><span></span>The <code class="keyword markupname xmlatt">@impose-role</code> attribute provides a way for specialized elements to declare
-      whether processors should use this behavior. <span></span>This attribute is only evaluated when a
-        <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element refers to a map or branch of a map. <span></span>In that case,
+    <p class="p">The <code class="keyword markupname xmlatt">@impose-role</code> attribute provides a way for specialized elements to declare
+      whether processors should use this behavior. This attribute is only evaluated when a
+        <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element refers to a map or branch of a map. In that case,
       it indicates whether the element provides a role for content that should be passed on to
       content in the referenced map.</p>
-    <p class="p"><span></span>The role created by a <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> is reflected by the
-        <code class="keyword markupname xmlatt">@class</code> hierarchy of the element. <span></span>Processors that need to do something with
-      the role do it based on that <code class="keyword markupname xmlatt">@class</code> attribute. <span></span>In the
+    <p class="p">The role created by a <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> is reflected by the
+        <code class="keyword markupname xmlatt">@class</code> hierarchy of the element. Processors that need to do something with
+      the role do it based on that <code class="keyword markupname xmlatt">@class</code> attribute. In the
         <code class="keyword markupname xmlelement">&lt;setupProject&gt;</code> example above, that might be a <code class="keyword markupname xmlatt">@class</code>
-      attribute like <code class="ph codeph">"- map/topicref taskmap/setupProject "</code>. <span></span>Processors working
-      with the reference know to render the referenced content based on that value. <span></span>When
+      attribute like <code class="ph codeph">"- map/topicref taskmap/setupProject "</code>. Processors working
+      with the reference know to render the referenced content based on that value. When
         <code class="keyword markupname xmlelement">&lt;setupProject&gt;</code> instead pulls in content from another map, processors
-      need to preserve that intent. <span></span>Effectively, they need to preserve awareness of that
+      need to preserve that intent. Effectively, they need to preserve awareness of that
         <code class="keyword markupname xmlatt">@class</code> attribute value for topics that are indirectly referenced through the
       other map.</p>
-    <p class="p"><span></span>Specialized topic references achieve this behavior by setting up a default value for the
+    <p class="p">Specialized topic references achieve this behavior by setting up a default value for the
         <code class="keyword markupname xmlatt">@impose-role</code> attribute on the new element:
         <code class="ph codeph">impose-role="impose"</code>.</p>
-    <p class="p"><span></span>When a role is imposed in this manner, it does not apply to all content referenced by the
-      element. <span></span>If a <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> refers to a branch of a map, the role is
-      imposed only on the root element of that branch. <span></span>If a <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> refers
+    <p class="p">When a role is imposed in this manner, it does not apply to all content referenced by the
+      element. If a <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> refers to a branch of a map, the role is
+      imposed only on the root element of that branch. If a <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> refers
       to an entire map, the role is imposed only on the highest-level topic references within that
-      map. <span></span>The role does not cascade to other nested referencs within the map. <span></span>For example, if a
+      map. The role does not cascade to other nested referencs within the map. For example, if a
         <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> element applied that role to every reference in another
       map, that map would be made up only of chapters nested within chapters.</p>
-    <p class="p"><span></span>For elements that do not create a role for the referenced content, the
+    <p class="p">For elements that do not create a role for the referenced content, the
         <code class="keyword markupname xmlatt">@impose-role</code> attribute is defined with a default value indicating that the
       target of the reference keeps its original role: <code class="ph codeph">impose-role="keeptarget"</code>.
-<span></span>      For example, the <code class="keyword markupname xmlelement">&lt;mapref&gt;</code> element is a convenience element used to
-      simplify references to other maps. <span></span>It does not force the content in other maps to be treated
+      For example, the <code class="keyword markupname xmlelement">&lt;mapref&gt;</code> element is a convenience element used to
+      simplify references to other maps. It does not force the content in other maps to be treated
       as <code class="keyword markupname xmlelement">&lt;mapref&gt;</code> - no special role is created for the referenced content.
-<span></span>      For this reason, it is defined in the grammar file with a fixed value of <span class="keyword">keeptarget</span>.</p>
-  <p class="p"><span></span>In some cases, preserving the role of a referencing element might result in out-of-context
-      content. <span></span>For example, a <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> element in one bookmap could pull in
+      For this reason, it is defined in the grammar file with a fixed value of <span class="keyword">keeptarget</span>.</p>
+  <p class="p">In some cases, preserving the role of a referencing element might result in out-of-context
+      content. For example, a <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> element in one bookmap could pull in
       a <code class="keyword markupname xmlelement">&lt;part&gt;</code> element from another bookmap, where that referenced
         <code class="keyword markupname xmlelement">&lt;part&gt;</code> also contains nested <code class="keyword markupname xmlelement">&lt;chapter&gt;</code>
-      elements. <span></span>Treating the <code class="keyword markupname xmlelement">&lt;part&gt;</code> element as a
+      elements. Treating the <code class="keyword markupname xmlelement">&lt;part&gt;</code> element as a
         <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> will result in a chapter that nests other chapters, which
-      is not valid in bookmap and might not be understandable by processors. <span></span>The result is
+      is not valid in bookmap and might not be understandable by processors. The result is
       implementation specific. <span class="error-statement" id="cascading-of-roles-in-specialized-maps__d3504t178" data-id="DITAERR-0010"></span>Processors <dfn class="term RFC-2119">MAY</dfn> choose to treat
       this as an error, issue a warning, or simply assign new roles to the problematic elements.</p>
     <div class="example non-normative"><h2 class="title sectiontitle">Defining a fixed role for a specialized element</h2>

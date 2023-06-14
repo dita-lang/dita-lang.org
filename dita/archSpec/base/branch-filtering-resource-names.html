@@ -5,7 +5,7 @@ title: 'Branch filtering: Impact on resource and key names'
 description: 'When map branches are cloned by a processor in order to support multiple condition sets, processors must manage conflicting resource and key names. The DITAVALref domain includes metadata elements that authors can use to specify how resource and key names are renamed.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '7e7a11ff130cd273e9235b7da503a3782fa30582'
+commit: '1dfa1822aeebe83ed43664fd070003fc327678bc'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -14,33 +14,33 @@ classes: ''
     <h1 class="title topictitle1" id="ariaid-title1">Branch filtering: Impact on resource and key names</h1>
     
     
-    <div class="body conbody"><p class="shortdesc"><span></span>When map branches are cloned by a processor in order to support multiple condition
-        sets, processors must manage conflicting resource and key names. <span></span>The DITAVALref domain
+    <div class="body conbody"><p class="shortdesc">When map branches are cloned by a processor in order to support multiple condition
+        sets, processors must manage conflicting resource and key names. The DITAVALref domain
         includes metadata elements that authors can use to specify how resource and key names are
         renamed.</p>
         <div class="note note note_note non-normative"><span class="note__title">Note:</span> While the processing controls that are described here are intended primarily for use
             with map branches that specify multiple condition sets, they also can be used with map
             branches that include only a single <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element.</div>
-        <p class="p"><span></span>When a map branch uses multiple condition sets, processors create multiple effective
-            copies of the branch to support the different conditions. <span></span>This results in potential
-            conflicts for resource names, key names, and key scopes. <span></span>Metadata elements inside of the
+        <p class="p">When a map branch uses multiple condition sets, processors create multiple effective
+            copies of the branch to support the different conditions. This results in potential
+            conflicts for resource names, key names, and key scopes. Metadata elements inside of the
                 <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element are available to provide control over
             these values, so that keys, key scopes, and URIs can be individually referenced within a
             branch.</p>
-        <p class="p"><span></span>For example, the following map branch references two DITAVAL documents:</p>
+        <p class="p">For example, the following map branch references two DITAVAL documents:</p>
         <pre class="pre codeblock"><code>&lt;topicref href="productFeatures.dita" keys="features" keyscope="prodFeatures"&gt;
   &lt;ditavalref href="novice.ditaval"/&gt;
   &lt;ditavalref href="admin.ditaval"/&gt;
   &lt;topicref href="newFeature.dita" keys="newThing"/&gt;
 &lt;/topicref&gt;</code></pre>
-        <p class="p"><span></span>In this case, the processor has two effective copies of
+        <p class="p">In this case, the processor has two effective copies of
                 <span class="ph filepath">productFeatures.dita</span> and <span class="ph filepath">newFeature.dita</span>.
-<span></span>            One copy of each topic is filtered using the conditions specified in
+            One copy of each topic is filtered using the conditions specified in
                 <span class="ph filepath">novice.ditaval</span>, and the other copy is filtered using the
             conditions specified in <span class="ph filepath">admin.ditaval</span>.</p>
-        <p class="p"><span></span>If an author has referenced a topic using <code class="ph codeph">keyref="features"</code> or
+        <p class="p">If an author has referenced a topic using <code class="ph codeph">keyref="features"</code> or
                 <code class="ph codeph">keyref="prodFeatures.features"</code>, a processor cannot distinguish
-            which filtered copy is the intended target. <span></span>The metadata elements in the DITAVALref
+            which filtered copy is the intended target. The metadata elements in the DITAVALref
             domain provide a way to control this scenario.</p>
     </div>
 <nav role="navigation" class="related-links"><ul class="ullinks"><li class="link ulchildlink"><strong><a href="../../archSpec/base/branch-filtering-metadata-elements.html">Using metadata elements in the DITAVAL reference domain</a></strong><div class="desc">Metadata within the <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element makes it possible to         control changes to resource names and key scope names, so that each distinct filtered copy         can be referenced in a predictable manner.</div></li><li class="link ulchildlink"><strong><a href="../../archSpec/base/branch-filtering-renaming-multiple-times.html">Renaming based on multiple ditavalref elements</a></strong><div class="desc">It is possible for a branch with <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> already in         effect to specify an additional <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code>, where each             <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> includes renaming metadata.</div></li><li class="link ulchildlink"><strong><a href="../../archSpec/base/branch-filtering-handling-conflicts.html">Handling resource name conflicts caused by branch filtering</a></strong><div class="desc">It is possible to construct a root map where the branch filtering mechanism results         in resource name conflicts.</div></li></ul><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/branch-filtering.html" title="The branch filtering mechanism enables map authors to set filtering conditions for specific branches of a map. This makes it possible for multiple conditional-processing profiles to be applied within a single publication.">Branch filtering</a></div></div></nav></article></main>

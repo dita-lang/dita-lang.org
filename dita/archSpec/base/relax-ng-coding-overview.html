@@ -5,7 +5,7 @@ title: 'RELAX NG: Overview of coding requirements'
 description: 'This topic contains general information about the self-integrating aspect of domain specialization modules, RELAX NG grammar files, and the two RNG syntaxes'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '7e7a11ff130cd273e9235b7da503a3782fa30582'
+commit: '1dfa1822aeebe83ed43664fd070003fc327678bc'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -14,23 +14,23 @@ classes: ''
  <h1 class="title topictitle1" id="ariaid-title1">RELAX NG: Overview of coding requirements</h1>
   
  
- <div class="body conbody"><p style="color:red;" class="shortdesc"><span></span>This topic contains general information about
+ <div class="body conbody"><p style="color:red;" class="shortdesc">This topic contains general information about
     the self-integrating aspect of domain specialization modules, RELAX NG
     grammar files, and the two RNG syntaxes</p>
     <section class="section"><h2 class="title sectiontitle">Self-integration of RELAX NG <span style="color:red;" class="ph">domain
           modules</span></h2>
       
-      <p class="p"><span></span><span style="color:red;" class="ph">Domain modules coded in RELAX NG</span> are
+      <p class="p"><span style="color:red;" class="ph">Domain modules coded in RELAX NG</span> are
         self-integrating; they automatically add to the content models and
-        attribute lists that they extend. <span></span>This aspect of RELAX NG results
+        attribute lists that they extend. This aspect of RELAX NG results
         in the following coding practices:</p>
       <ul class="ul">
-        <li class="li"><span></span>Each <span style="color:red;" class="ph">domain</span> module consists of a single
+        <li class="li">Each <span style="color:red;" class="ph">domain</span> module consists of a single
           file, unlike the two required for DTDs.</li>
-        <li class="li"><span></span>The domain modules directly extend elements, unlike DTDs, which
+        <li class="li">The domain modules directly extend elements, unlike DTDs, which
           rely on an extra file and extensions within the document-type
           shell.</li>
-        <li class="li"><span></span>Element-configuration modules (constraint and
+        <li class="li">Element-configuration modules (constraint and
           expansion) directly include the modules that they extend, which
           means that just by referencing an element-configuration module,
           the document-type shell gets everything it needs to redefine a
@@ -39,22 +39,22 @@ classes: ''
     </section>
     <section class="section"><h2 class="title sectiontitle" style="color:red;">General RELAX NG information</h2>
       
-      <div class="p"><span></span>RELAX NG grammars for DITA document-type shells, vocabulary
+      <div class="p">RELAX NG grammars for DITA document-type shells, vocabulary
         modules, and <span class="ph">element-configuration modules
           (constraint and expansion) </span>
         <span style="color:red;" class="ph">can</span> do the following:<ul class="ul">
-          <li class="li"><span></span>Use the <code class="keyword markupname xmlelement">&lt;a:documentation&gt;</code> element
-            anywhere that foreign elements are allowed by RELAX NG. <span></span>The
+          <li class="li">Use the <code class="keyword markupname xmlelement">&lt;a:documentation&gt;</code> element
+            anywhere that foreign elements are allowed by RELAX NG. The
               <code class="keyword markupname xmlelement">&lt;a:documentation&gt;</code> element refers to
             the <code class="keyword markupname xmlelement">&lt;documentation&gt;</code> element type from
             the
               <code class="keyword markupname xmlnsname">http://relaxng.org/ns/compatibility/annotations/1.0</code>
-            as defined by the DTD compatibility specification. <span></span>The prefix
+            as defined by the DTD compatibility specification. The prefix
             "a" is used by convention.</li>
-          <li class="li"><span></span>Use <code class="keyword markupname xmlelement">&lt;div&gt;</code> to group pattern
+          <li class="li">Use <code class="keyword markupname xmlelement">&lt;div&gt;</code> to group pattern
             declarations.</li>
-          <li class="li"><span></span>Include embedded Schematron rules or any other foreign
-            vocabulary. <span></span>Processors can ignore any foreign vocabularies
+          <li class="li">Include embedded Schematron rules or any other foreign
+            vocabulary. Processors can ignore any foreign vocabularies
             within DITA grammars that are not in the
               <code class="keyword markupname xmlnsname">http://relaxng.org/ns/compatibility/annotations/1.0</code>
             or
@@ -64,19 +64,19 @@ classes: ''
     </section>
   <section class="section" id="rng-requirements-overview__complex-vs-xml-syntax"><h2 class="title sectiontitle"><span style="color:red;" class="ph">Syntaxes</span> for RELAX NG grammars</h2>
    
-   <p class="p"><span></span>The RELAX NG specification defines two syntaxes for RELAX NG grammars: the XML syntax and the
-    compact syntax. <span></span>The two syntaxes are functionally equivalent, and either syntax can be reliably
-    converted into the other by using, for example, the open-source Trang tool. <span></span></p>
-      <p class="p"><span></span>The DITA coding requirements are defined for the RELAX NG XML
-        syntax. <span></span><span style="color:red;" class="ph">Document-type</span> shells, vocabulary
+   <p class="p">The RELAX NG specification defines two syntaxes for RELAX NG grammars: the XML syntax and the
+    compact syntax. The two syntaxes are functionally equivalent, and either syntax can be reliably
+    converted into the other by using, for example, the open-source Trang tool. </p>
+      <p class="p">The DITA coding requirements are defined for the RELAX NG XML
+        syntax. <span style="color:red;" class="ph">Document-type</span> shells, vocabulary
         modules, and <span class="ph">element-configuration modules
           (constraints and expansion)</span> that use the RELAX NG compact
         syntax can use the same <span style="color:red;" class="ph">organizational
-          structures</span> as those defined for the RELAX NG XML syntax. <span></span></p>
-   <p class="p"><span></span>DITA practitioners can author DITA modules using one RELAX NG syntax,
-        and then use tools to generate modules in the other syntax. <span></span>The
+          structures</span> as those defined for the RELAX NG XML syntax. </p>
+   <p class="p">DITA practitioners can author DITA modules using one RELAX NG syntax,
+        and then use tools to generate modules in the other syntax. The
         resulting RELAX NG modules are <span style="color:red;" class="ph">equivalent</span>
-        if there is a one-to-one file correspondence. <span></span></p>
+        if there is a one-to-one file correspondence. </p>
       
   </section>
  </div>

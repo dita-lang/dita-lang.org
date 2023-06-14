@@ -5,7 +5,7 @@ title: 'URI-based (direct) addressing'
 description: 'Content reference and link relationships can be established from DITA elements by using URI references. DITA uses URI references in href, conref, and other attributes for all direct addressing of resources.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '7e7a11ff130cd273e9235b7da503a3782fa30582'
+commit: '1dfa1822aeebe83ed43664fd070003fc327678bc'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -13,76 +13,76 @@ classes: ''
 <nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction</a></li><li><a href="../../archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="../../archSpec/base/accessibility-and-translation.html">Accessibility and translation</a></li><li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a><ul class="nav nav-list"><li><a href="../../archSpec/base/id.html">id attribute</a></li><li><a href="../../archSpec/base/dita-linking.html">DITA linking</a></li><li class="active"><a href="../../archSpec/base/uri-based-addressing.html">URI-based (direct) addressing</a></li><li><a href="../../archSpec/base/key-based-addressing.html">Indirect key-based addressing</a></li><li><a href="../../archSpec/base/context-hooks-for-user-assistance.html">Context hooks for user assistance</a></li></ul></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a></li><li><a href="../../langRef/langRef-base.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../non-normative/developing-constraint-and-expansion-modules.html">Constraint modules</a></li><li><a href="../../non-normative/expansion-modules.html">Expansion modules</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../non-normative/formatting-expectations.html">Formatting expectations</a></li><li><a href="../../non-normative/migrating-to-dita-2.0.html">Migrating to DITA 2.0</a></li><li><a href="../../non-normative/basedoctypes.html">OASIS grammar files</a></li><li><a href="../../non-normative/interoperability-considerations.html">Processing interoperability considerations</a></li><li><a href="../../non-normative/revision-history.html">Revision history</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
   <h1 class="title topictitle1" id="ariaid-title1">URI-based (direct) addressing</h1>
   
-  <div class="body conbody"><p class="shortdesc"><span></span>Content reference and link relationships can be established from DITA elements by using
-    URI references. <span></span>DITA uses URI references in <code class="keyword markupname xmlatt">@href</code>, <code class="keyword markupname xmlatt">@conref</code>, and
-    other attributes for all direct addressing of resources. <span></span></p>
-    <p class="p"><span></span>URI references address <dfn class="term">resources</dfn> and (in some cases) subcomponents of those
-      resources. <span></span>In this context, a resource is a DITA document (map, topic, or DITA base document)
+  <div class="body conbody"><p class="shortdesc">Content reference and link relationships can be established from DITA elements by using
+    URI references. DITA uses URI references in <code class="keyword markupname xmlatt">@href</code>, <code class="keyword markupname xmlatt">@conref</code>, and
+    other attributes for all direct addressing of resources. </p>
+    <p class="p">URI references address <dfn class="term">resources</dfn> and (in some cases) subcomponents of those
+      resources. In this context, a resource is a DITA document (map, topic, or DITA base document)
       or a non-DITA resource (for example, an image, a Web page, or a PDF document).</p>
-    <p class="p"><span></span>URI references that are URLs must conform to the rules for URLs and URIs. <span></span>Windows paths that
+    <p class="p">URI references that are URLs must conform to the rules for URLs and URIs. Windows paths that
       contain a backslash (\) are not valid URLs.</p>
     <section class="section" id="uri-based-addressing__URIs"><h2 class="title sectiontitle">URIs and fragment identifiers</h2>
       
-      <p class="p"><span></span>For DITA resources, fragment identifiers can be used with the URI to address individual
-        elements. <span></span>The fragment identifier is the part of the URI that starts with a number sign (#),
-        for example, <code class="ph codeph">#topicid/elementid</code>. <span></span>URI references also can include a query
-        component that is introduced with a question mark (?). <span></span></p>
-      <p class="p"><span></span>DITA processors <dfn class="term RFC-2119">MAY</dfn> ignore queries on URI references to
-        DITA resources. <span></span><span class="ph">URI references that address components in the same document <dfn class="term RFC-2119">MAY</dfn> consist of just the fragment identifier. <span></span></span></p>
-      <p class="p"><span></span>For addressing DITA elements within maps and topics or individual topics within documents
+      <p class="p">For DITA resources, fragment identifiers can be used with the URI to address individual
+        elements. The fragment identifier is the part of the URI that starts with a number sign (#),
+        for example, <code class="ph codeph">#topicid/elementid</code>. URI references also can include a query
+        component that is introduced with a question mark (?). </p>
+      <p class="p">DITA processors <dfn class="term RFC-2119">MAY</dfn> ignore queries on URI references to
+        DITA resources. <span class="ph">URI references that address components in the same document <dfn class="term RFC-2119">MAY</dfn> consist of just the fragment identifier. </span></p>
+      <p class="p">For addressing DITA elements within maps and topics or individual topics within documents
         containing multiple topics, URI references must include the appropriate DITA-defined
-        fragment identifier. <span></span>URI references can be relative or absolute. <span></span>A relative URI reference
-        can consist of just a fragment identifier. <span></span>Such a reference is a reference to the document
+        fragment identifier. URI references can be relative or absolute. A relative URI reference
+        can consist of just a fragment identifier. Such a reference is a reference to the document
         that contains the reference.</p>
     </section>
     <section class="section" id="uri-based-addressing__non-dita"><h2 class="title sectiontitle">Addressing non-DITA targets using a URI</h2>
       
-      <p class="p"><span></span><span class="ph">DITA can use URI references to directly address non-DITA
+      <p class="p"><span class="ph">DITA can use URI references to directly address non-DITA
           resources.</span> Any fragment identifier used must conform to the fragment identifier
         requirements that are defined for the target media type or provided by processors.</p>
     </section>
     <section class="section" id="uri-based-addressing__elements-within-maps"><h2 class="title sectiontitle">Addressing elements within maps using a URI</h2>
       
-      <p class="p"><span></span>When addressing elements within maps, URI references can include a fragment identifier that
+      <p class="p">When addressing elements within maps, URI references can include a fragment identifier that
         includes the ID of the map element, for example, <code class="ph codeph">filename.ditamap#mapId</code> or
-          <code class="ph codeph">#mapId</code>. <span></span><span class="ph">The same-topic, URI-reference fragment identifier of a period
+          <code class="ph codeph">#mapId</code>. <span class="ph">The same-topic, URI-reference fragment identifier of a period
           (.) <span class="ph">can not</span> be used in URI references to elements within
           maps.</span></p>
     </section>
     <section class="section" id="uri-based-addressing__topics-with-uri"><h2 class="title sectiontitle">Addressing topics using a URI</h2>
       
-      <p class="p"><span></span>When addressing a DITA topic element, URI references <span class="ph">can</span>
+      <p class="p">When addressing a DITA topic element, URI references <span class="ph">can</span>
         include a fragment identifier that includes the ID of the topic element
-          (<code class="ph codeph">filename.dita#topicId</code> or <code class="ph codeph">#topicId</code>). <span></span><span class="ph">When addressing
+          (<code class="ph codeph">filename.dita#topicId</code> or <code class="ph codeph">#topicId</code>). <span class="ph">When addressing
           the DITA topic element that contains the URI reference, the URI reference <span class="ph">might</span> include the same topic fragment identifier of "."
             (<code class="ph codeph">#.</code>).</span></p>
-      <p class="p"><span></span>Topics always can be addressed by a URI reference whose fragment identifier consists of the
-        topic ID. <span></span>For the purposes of linking, a reference to a topic-containing document addresses
-        the first topic within that document in document order. <span></span>For the purposes of rendering, a
-        reference to a topic-containing document addresses the root element of the document. <span></span></p>
-      <div class="p"><span></span>Consider the following examples:<ul class="ul">
-          <li class="li"><span></span>Given a document whose root element is a topic, a URI reference (with no fragment
+      <p class="p">Topics always can be addressed by a URI reference whose fragment identifier consists of the
+        topic ID. For the purposes of linking, a reference to a topic-containing document addresses
+        the first topic within that document in document order. For the purposes of rendering, a
+        reference to a topic-containing document addresses the root element of the document. </p>
+      <div class="p">Consider the following examples:<ul class="ul">
+          <li class="li">Given a document whose root element is a topic, a URI reference (with no fragment
             identifier) that addresses that document implicitly references the topic element.</li>
-          <li class="li"><span></span>Given a <code class="keyword markupname xmlelement">&lt;dita&gt;</code> document that contains multiple topics, for the
+          <li class="li">Given a <code class="keyword markupname xmlelement">&lt;dita&gt;</code> document that contains multiple topics, for the
             purposes of linking, a URI reference that addresses the <code class="keyword markupname xmlelement">&lt;dita&gt;</code>
             document implicitly references the first child topic.</li>
-          <li class="li"><span></span>Given a <code class="keyword markupname xmlelement">&lt;dita&gt;</code> document that contains multiple topics, for the
+          <li class="li">Given a <code class="keyword markupname xmlelement">&lt;dita&gt;</code> document that contains multiple topics, for the
             purposes of rendering, a URI reference that addresses the <code class="keyword markupname xmlelement">&lt;dita&gt;</code>
             document implicitly references all the topics that are contained by the
-              <code class="keyword markupname xmlelement">&lt;dita&gt;</code> element. <span></span>This means that all the topics that are
+              <code class="keyword markupname xmlelement">&lt;dita&gt;</code> element. This means that all the topics that are
             contained by the<code class="keyword markupname xmlelement">&lt;dita&gt;</code> element are rendered in the result.</li>
         </ul></div>
     </section>
     <section class="section" id="uri-based-addressing__non-topic-with-uri"><h2 class="title sectiontitle">Addressing non-topic elements using a URI</h2>
       
-      <p class="p"><span></span>When addressing a non-topic element within a DITA topic, a URI reference must use a
+      <p class="p">When addressing a non-topic element within a DITA topic, a URI reference must use a
         fragment identifier that contains the ID of the ancestor topic element of the non-topic
         element being referenced, a <span class="ph">slash</span> ("/"), and the ID of the
         non-topic element (<code class="ph codeph">filename.dita#topicId/elementId</code> or
-          <code class="ph codeph">#topicId/elementId</code>). <span></span><span class="ph">When addressing a non-topic element within the topic that contains the URI reference, the
+          <code class="ph codeph">#topicId/elementId</code>). <span class="ph">When addressing a non-topic element within the topic that contains the URI reference, the
           URI reference can use an abbreviated fragment-identifier syntax that replaces the topic ID
           with "." (<code class="ph codeph">#./elementId</code>).</span></p>
-      <p class="p"><span></span>This addressing model makes it possible to reliably address elements that have values for
+      <p class="p">This addressing model makes it possible to reliably address elements that have values for
         the <code class="keyword markupname xmlatt">@id</code> attribute that are unique within a single DITA topic, but which
         might not be unique within a larger XML document that contains multiple DITA topics.</p>
     </section>
