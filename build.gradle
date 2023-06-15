@@ -1,0 +1,32 @@
+buildscript {
+  repositories {
+    mavenCentral()
+    maven { url "https://dev.saxonica.com/maven" }
+  }
+
+  // The XQuery task requires Saxon 12.x (or 11.6 or later when
+  // that is available.)
+  dependencies {
+    classpath group: 'net.sf.saxon', name: 'Saxon-HE', version: '12.1'
+  }
+}
+
+plugins {
+  id("com.nwalsh.gradle.saxon.saxon-gradle") version "0.10.6"
+}
+
+import com.nwalsh.gradle.saxon.SaxonXsltTask
+
+defaultTasks = ["xslt"]
+
+task xslt(type: SaxonXsltTask) {
+  // Use URIs, just to show a simple arg
+  stylesheet file("${projectDir}/_plugin/xsl/content-model.xsl")
+  input file(project.property('input')).toURL()
+  output file(project.property('output')).toURL()
+  arg '-u'
+//  parameters([
+//    "title": "spoon",
+//    "padding": "1em"
+//  ])
+}
