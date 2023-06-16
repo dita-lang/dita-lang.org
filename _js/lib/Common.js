@@ -59,7 +59,7 @@ function Common(index) {
         const abs = URI(href)
           .absoluteTo(window.location.href)
           .href()
-        const $li = $nav.find(`a[href="${abs}"]`).parent('li')
+        const $li = $nav.find(`a[href="${abs}"],a[href="${abs}.html"]`).parent('li')
         $li.addClass('active')
         exposeNode($li)
       }

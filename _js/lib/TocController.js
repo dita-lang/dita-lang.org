@@ -33,7 +33,7 @@ function TocController($toc, index) {
           .absoluteTo(index)
           .href()
         $a.attr('href', abs)
-        if (abs === location) {
+        if (abs === location || abs === location + '.html') {
           $current = $a
         }
       })
