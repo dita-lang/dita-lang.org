@@ -169,6 +169,9 @@
         </title>
         <p>
           <xsl:for-each select="element">
+            <xsl:if test="empty(*)">
+              <xsl:text>EMPTY</xsl:text>
+            </xsl:if>
             <xsl:for-each select="*">
               <xsl:if test="position() ne 1">, </xsl:if>
               <xsl:apply-templates select="."/>
@@ -234,7 +237,7 @@
   </xsl:template>
 
   <xsl:template match="element">
-    <xref keyref="elements-{@name}">
+    <xref keyref="elements-{@name}" href="{@name}.dita">
       <xmlelement>
         <xsl:value-of select="@name"/>
       </xmlelement>
