@@ -15,11 +15,19 @@ jobs:
           path: dita-lang
       - name: Init
         uses: ./dita-lang/.github/actions/init
+
       - uses: actions/checkout@v3
         with:
           repository: 'oasis-tcs/dita'
           ref: 'DITA-2.0'
           path: dita
+      - name: Generate content models
+        uses: ./dita-lang/.github/actions/content-model
+        with:
+          INPUT: dita/doctypes/rng/base/basetopic.rng
+          OUTPUT: content-models.dita
+          DIR: dita/specification/langRef/base
+          SCHEMAS: 'basetopic.rng:basemap.rng'
       - name: Publish DITA
         uses: ./dita-lang/.github/actions/publish
         with:
@@ -27,6 +35,7 @@ jobs:
           FILTER: dita/specification/resources/DITA2.0-spec.ditaval
           DIR: dita
           REPOSITORY: oasis-tcs/dita
+
       - uses: actions/checkout@v3
         with:
           repository: 'oasis-tcs/dita-techcomm'
@@ -40,6 +49,7 @@ jobs:
           FILTER: dita-techcomm/specification/resources/DITA2.0-tc-spec.ditaval
           DIR: dita-techcomm
           REPOSITORY: oasis-tcs/dita-techcomm
+
       - uses: actions/checkout@v3
         with:
           repository: 'oasis-tcs/dita-lwdita'
@@ -53,6 +63,7 @@ jobs:
           FILTER: lwdita/Spec/resources/lwdita.ditaval
           DIR: lwdita
           REPOSITORY: oasis-tcs/dita-lwdita
+
       - name: Push changes
         run: |
           git push -v origin main

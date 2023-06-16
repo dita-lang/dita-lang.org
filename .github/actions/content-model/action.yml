@@ -6,6 +6,8 @@ inputs:
     required: true
   DIR:
     required: true
+  SCHEMAS:
+    required: true
 runs:
   using: 'composite'
   steps:
@@ -18,7 +20,10 @@ runs:
     - name: Generate content models
       shell: bash
       run: |
-        gradle -Pinput="../${{ inputs.INPUT }}" -Poutput="../${{ inputs.DIR }}/${{ inputs.OUTPUT }}"
+        gradle \
+          -Pinput="../${{ inputs.INPUT }}" \
+          -Poutput="../${{ inputs.DIR }}/${{ inputs.OUTPUT }}" \
+          -Pschemas="${{ inputs.SCHEMAS }}"
       working-directory: dita-lang
     - name: Insert content models
       shell: bash
