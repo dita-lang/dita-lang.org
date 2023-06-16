@@ -1,0 +1,31 @@
+name: content-model
+inputs:
+  INPUT:
+    required: true
+  OUTPUT:
+    required: true
+  DIR:
+    required: true
+runs:
+  using: 'composite'
+  steps:
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+        cache: 'gradle'
+    - name: Generate content models
+      shell: bash
+      run: |
+        gradle -Pinput="../${{ inputs.INPUT }}" -Poutput="../${{ inputs.DIR }}/${{ inputs.OUTPUT }}"
+      working-directory: dita-lang
+    - name: Insert content models
+      shell: bash
+      run: |
+        for i in *.dita; do
+          echo "$i"
+          perl -p -e 's/(<section\s+conkeyref="reuse-([\w-]+)\/attributes"\s+id="attributes"(\s*\/>|>\s*<\/section>))/\1<section conref="${{ inputs.OUTPUT }}#content-model\/\2.element" id="content-model"\/>/' "$i" > "$i.bak"
+          mv "$i.bak" "$i"
+        done
+      working-directory: ${{ inputs.DIR }}

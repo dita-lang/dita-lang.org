@@ -17,6 +17,12 @@ jobs:
           repository: 'oasis-tcs/dita'
           ref: 'DITA-2.0'
           path: dita
+      - name: Generate content models
+        uses: ./dita-lang/.github/actions/content-model
+        with:
+          INPUT: dita/doctypes/rng/base/basetopic.rng
+          OUTPUT: basetopic.dita
+          DIR: dita/specification/langRef/base
       - name: Publish DITA
         uses: ./dita-lang/.github/actions/publish
         with:
