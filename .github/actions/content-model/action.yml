@@ -30,7 +30,9 @@ runs:
       run: |
         for i in *.dita; do
           echo "$i"
-          perl -p -e 's/(<section\s+conkeyref="reuse-([\w-]+)\/attributes"\s+id="attributes"(\s*\/>|>\s*<\/section>))/\1<section conref="${{ inputs.OUTPUT }}#content-model\/\2.element" id="content-model"\/>/' "$i" > "$i.bak"
+          xmllint "$i" \
+            | perl -p -e 's/(<section(?:\s+conkeyref="reuse-([\w-]+)\/attributes"|\s+id="attributes")+?\/>)/<section conref="${{ inputs.OUTPUT }}#content-models\/\2.element" id="content-model"\/>\1/' \
+            > "$i.bak"
           mv "$i.bak" "$i"
         done
       working-directory: ${{ inputs.DIR }}

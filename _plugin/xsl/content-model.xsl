@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  exclude-result-prefixes="xs dita a"
-  xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
+  exclude-result-prefixes="xs dita a" xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
   xpath-default-namespace="http://relaxng.org/ns/structure/1.0" version="3.0">
 
@@ -10,11 +9,11 @@
   <xsl:output indent="no" doctype-public="-//OASIS//DTD DITA Topic//EN" doctype-system="topic.dtd"/>
 
   <xsl:param name="schemas" as="xs:string"/>
-  
+
   <xsl:variable name="root" select="."/>
 
   <xsl:template match="/">
-    <topic id="content-model">
+    <topic id="content-models">
       <title>Generated content models</title>
       <body>
         <xsl:for-each select="tokenize($schemas, ':')">
@@ -35,7 +34,7 @@
                 <xsl:apply-templates select="$resolved/*" mode="clean"/>
               </xsl:document>
             </xsl:variable>
-            
+
             <xsl:result-document href="{$schema}_normalized.rng">
               <xsl:copy-of select="$cleaned"/>
             </xsl:result-document>
@@ -112,7 +111,9 @@
     <xsl:param name="visited" select="()" as="xs:string*" tunnel="yes"/>
     <!--xsl:message select="$visited"></xsl:message-->
     <xsl:choose>
-      <xsl:when test="some $i in $visited satisfies @name = $i">
+      <xsl:when test="
+          some $i in $visited
+            satisfies @name = $i">
         <xsl:copy-of select="."/>
       </xsl:when>
       <xsl:otherwise>
@@ -214,12 +215,12 @@
   </xsl:template>
 
   <xsl:template match="choice">
-    <xsl:if test="count(*) gt 1">(</xsl:if>
+    <xsl:if test="count(*) gt 1 and empty(parent::choice)">(</xsl:if>
     <xsl:for-each select="*">
       <xsl:if test="position() ne 1"> | </xsl:if>
       <xsl:apply-templates select="."/>
     </xsl:for-each>
-    <xsl:if test="count(*) gt 1">)</xsl:if>
+    <xsl:if test="count(*) gt 1 and empty(parent::choice)">)</xsl:if>
   </xsl:template>
 
   <xsl:template match="text">
