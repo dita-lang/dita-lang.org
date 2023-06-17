@@ -30,9 +30,8 @@
       </xsl:document>
     </xsl:variable>
     <xsl:document>
-      <xsl:sequence select="
-          x:chain($cleaned/*, (
-          function ($elem) {
+      <xsl:variable name="simplify-functions" as="(function(element()) as xs:boolean)+" select="
+          (function ($elem) {
             not(
             exists($elem/self::zeroOrMore/parent::choice/parent::zeroOrMore) or
             exists($elem/self::zeroOrMore/parent::choice/parent::oneOrMore) or
@@ -49,8 +48,8 @@
             not(
             exists($elem/self::group/parent::element)
             )
-          }
-          ))"/>
+          })"/>
+      <xsl:sequence select="x:chain($cleaned/*, ($simplify-functions, $simplify-functions))"/>
     </xsl:document>
   </xsl:function>
 
@@ -113,7 +112,7 @@
   <xsl:template match="ref" mode="resolve">
     <xsl:apply-templates select="." mode="resolve-ref"/>
   </xsl:template>
-  
+
 
   <xsl:template match="@* | node()" mode="resolve-ref" priority="-10">
     <xsl:copy>
@@ -183,9 +182,8 @@
       </xsl:choose>
     </xsl:if>
   </xsl:template>
-  
-  <xsl:template match="grammar/define[not(ends-with(@name, '.element'))]" mode="clean"/>
 
+  <xsl:template match="grammar/define[not(ends-with(@name, '.element'))]" mode="clean"/>
 
   <!-- Filter -->
 
@@ -204,7 +202,7 @@
         </xsl:copy>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:apply-templates select="node() | @*" mode="#current"/>
+        <xsl:apply-templates select="node()" mode="#current"/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
