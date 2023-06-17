@@ -17,16 +17,13 @@ function StyleController() {
       activateStylesheet(e.target.value)
       window.localStorage.setItem('STYLESHEET', e.target.value)
     })
-    const stored = window.localStorage.getItem('STYLESHEET')
-    if (stored !== null) {
-      toggleStyle.value = stored
-      toggleStyle.dispatchEvent(new Event('change'))
-    }
+    const stored = window.localStorage.getItem('STYLESHEET') || '0'
+    toggleStyle.value = stored
+    toggleStyle.dispatchEvent(new Event('change'))
 
     function activateStylesheet(value) {
-      for (const s of document.styleSheets) {
-        const title = s.title !== null ? s.title : ''
-        s.disabled = title !== value
+      for (let i = 0; i < document.styleSheets.length; i++) {
+        document.styleSheets[i].disabled = i !== Number.parseInt(value)
       }
     }
   })
