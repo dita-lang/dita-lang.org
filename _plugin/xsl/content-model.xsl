@@ -171,23 +171,13 @@
   </xsl:template>
   
   <xsl:template match="zeroOrMore" mode="prose">
-    <xsl:if test="count(*) gt 1">(</xsl:if>
-    <xsl:for-each select="*">
-      <xsl:if test="position() ne 1">, </xsl:if>
-      <xsl:apply-templates select="." mode="#current"/>
-    </xsl:for-each>
-    <xsl:if test="count(*) gt 1">)</xsl:if>
-    <xsl:text>*</xsl:text>
+    <xsl:text>Zero or more </xsl:text>
+    <xsl:apply-templates select="*" mode="#current"/>
   </xsl:template>
   
   <xsl:template match="oneOrMore" mode="prose">
-    <xsl:if test="count(*) gt 1">(</xsl:if>
-    <xsl:for-each select="*">
-      <xsl:if test="position() ne 1">, </xsl:if>
-      <xsl:apply-templates select="." mode="#current"/>
-    </xsl:for-each>
-    <xsl:if test="count(*) gt 1">)</xsl:if>
-    <xsl:text>+</xsl:text>
+    <xsl:text>One or more </xsl:text>
+    <xsl:apply-templates select="*" mode="#current"/>
   </xsl:template>
   
   <xsl:template match="group" mode="prose">
