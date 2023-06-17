@@ -17,10 +17,9 @@ plugins {
 
 import com.nwalsh.gradle.saxon.SaxonXsltTask
 
-defaultTasks = ["xslt"]
+defaultTasks = ["contentModels"]
 
-task xslt(type: SaxonXsltTask) {
-  // Use URIs, just to show a simple arg
+task contentModels(type: SaxonXsltTask) {
   stylesheet file("${projectDir}/_plugin/xsl/content-model.xsl")
   input file(project.property('input')).toURL()
   output file(project.property('output')).toURL()
@@ -28,4 +27,11 @@ task xslt(type: SaxonXsltTask) {
   parameters([
     "schemas": project.property('schemas')
   ])
+}
+
+task schema(type: SaxonXsltTask) {
+  stylesheet file("${projectDir}/_plugin/xsl/schema.xsl")
+  input file("${projectDir}/../dita/doctypes/rng/base/basetopic.rng").toURL()
+  output file("${buildDir}/basetopic.rng").toURL()
+  arg '-u'
 }

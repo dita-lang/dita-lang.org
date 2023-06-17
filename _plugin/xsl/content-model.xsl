@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  exclude-result-prefixes="xs dita a" xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
-  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  exclude-result-prefixes="xs dita a x" xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:x="x"
   xpath-default-namespace="http://relaxng.org/ns/structure/1.0" version="3.0">
+
+  <xsl:import href="schema.xsl"/>
 
   <xsl:strip-space elements="*"/>
 
@@ -17,43 +19,25 @@
       <title>Generated content models</title>
       <body>
         <xsl:variable name="sections" as="element()*">
-         <xsl:for-each select="tokenize($schemas, ':')">
-           <xsl:variable name="schema" select="."/>
-          <xsl:variable name="merged" as="document-node()">
-            <xsl:document>
-              <xsl:apply-templates select="document($schema, $root)/*" mode="merge"/>
-            </xsl:document>
-          </xsl:variable>
-          <xsl:variable name="resolved" as="document-node()">
-            <xsl:document>
-              <xsl:apply-templates select="$merged/*" mode="resolve"/>
-            </xsl:document>
-          </xsl:variable>
-          <xsl:variable name="cleaned" as="document-node()">
-            <xsl:document>
-              <xsl:apply-templates select="$resolved/*" mode="clean"/>
-            </xsl:document>
-          </xsl:variable>
-          <!-- 
-          <xsl:result-document href="{$schema}_normalized.rng">
-            <xsl:copy-of select="$cleaned"/>
-          </xsl:result-document>
-          -->
-          <!--
-          <xsl:result-document href="basetopic.ditamap" doctype-public="-//OASIS//DTD DITA Map//EN" doctype-system="map.dtd">
-            <map>
-              <xsl:for-each select="$cleaned/grammar/define[ends-with(@name, '.element')]">
-                <keydef keys="{@name}" href="basetopic.dita#basetopic/{@name}"/>
-              </xsl:for-each>
-            </map>
-          </xsl:result-document>
-          -->
-          <xsl:apply-templates select="$cleaned/grammar"/>
-         </xsl:for-each>
+          <xsl:for-each select="tokenize($schemas, ':')">
+            <xsl:variable name="schema" select="."/>
+            <xsl:variable name="simplified" select="x:simplify(document($schema, $root))" as="document-node()"/>
+            <!--
+            <xsl:result-document href="basetopic.ditamap" doctype-public="-//OASIS//DTD DITA Map//EN"
+              doctype-system="map.dtd">
+              <map>
+                <xsl:for-each select="$simplified/grammar/define[ends-with(@name, '.element')]">
+                  <keydef keys="{@name}" href="basetopic.dita#basetopic/{@name}"/>
+                </xsl:for-each>
+              </map>
+            </xsl:result-document>
+            -->
+            <xsl:apply-templates select="$simplified/grammar"/>
+          </xsl:for-each>
         </xsl:variable>
         <xsl:for-each-group select="$sections" group-by="@id">
           <xsl:copy-of select="current-group()[1]"/>
-        </xsl:for-each-group>        
+        </xsl:for-each-group>
       </body>
     </topic>
   </xsl:template>
