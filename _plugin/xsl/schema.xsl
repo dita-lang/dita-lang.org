@@ -74,6 +74,11 @@
             not(
             exists($elem/self::choice/parent::choice)
             )
+          },
+          function ($elem) {
+            not(
+            exists($elem/self::group/parent::element)
+            )
           }
           ))"/>
     </xsl:document>
@@ -192,6 +197,8 @@
       </xsl:choose>
     </xsl:if>
   </xsl:template>
+  
+  <xsl:template match="grammar/define[not(ends-with(@name, '.element'))]" mode="clean"/>
 
   <!-- Simplify duplicates -->
 <!--

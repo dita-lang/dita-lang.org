@@ -73,7 +73,7 @@
             <xsl:apply-templates mode="prose"/>
           </xsl:when>
           <xsl:otherwise>
-            <p>In order:</p>
+            <p>In order</p>
             <ol>
               <xsl:for-each select="*">
                 <li>
@@ -102,20 +102,22 @@
 
   <xsl:template match="zeroOrMore">
     <xsl:if test="count(*) gt 1">(</xsl:if>
-    <xsl:for-each select="*">
+    <xsl:apply-templates/>
+    <!--xsl:for-each select="*">
       <xsl:if test="position() ne 1">, </xsl:if>
       <xsl:apply-templates select="."/>
-    </xsl:for-each>
+    </xsl:for-each-->
     <xsl:if test="count(*) gt 1">)</xsl:if>
     <xsl:text>*</xsl:text>
   </xsl:template>
 
   <xsl:template match="oneOrMore">
     <xsl:if test="count(*) gt 1">(</xsl:if>
-    <xsl:for-each select="*">
+    <xsl:apply-templates/>
+    <!--xsl:for-each select="*">
       <xsl:if test="position() ne 1">, </xsl:if>
       <xsl:apply-templates select="."/>
-    </xsl:for-each>
+    </xsl:for-each-->
     <xsl:if test="count(*) gt 1">)</xsl:if>
     <xsl:text>+</xsl:text>
   </xsl:template>
@@ -130,16 +132,16 @@
   </xsl:template>
 
   <xsl:template match="choice">
-    <xsl:if test="count(*) gt 1 and empty(parent::choice)">(</xsl:if>
+    <xsl:if test="count(*) gt 1">(</xsl:if>
     <xsl:for-each select="*">
       <xsl:if test="position() ne 1"> | </xsl:if>
       <xsl:apply-templates select="."/>
     </xsl:for-each>
-    <xsl:if test="count(*) gt 1 and empty(parent::choice)">)</xsl:if>
+    <xsl:if test="count(*) gt 1">)</xsl:if>
   </xsl:template>
 
   <xsl:template match="text">
-    <xsl:text>text</xsl:text>
+    <xsl:text>Text</xsl:text>
   </xsl:template>
 
   <xsl:template match="element">
@@ -155,16 +157,7 @@
   </xsl:template>
   
   <!-- Prose -->
-  
-  <!--
-  <xsl:template match="define" mode="prose">
-    <xsl:for-each select="*">
-      <xsl:if test="position() ne 1">, </xsl:if>
-      <xsl:apply-templates select="." mode="#current"/>
-    </xsl:for-each>
-  </xsl:template>
-  -->
-  
+    
   <xsl:template match="optional" mode="prose">
     <xsl:text>Optional </xsl:text>
     <xsl:apply-templates mode="#current"/>
@@ -181,10 +174,6 @@
   </xsl:template>
   
   <xsl:template match="group" mode="prose">
-    <xsl:choose>
-      <xsl:when test="parent::oneOrMore">One or more </xsl:when>
-      <xsl:when test="parent::zeroOrMore">Zero or more </xsl:when>
-    </xsl:choose>
     <ol>
       <xsl:for-each select="*">
         <li>
@@ -195,10 +184,6 @@
   </xsl:template>
   
   <xsl:template match="choice" mode="prose">
-    <xsl:choose>
-      <xsl:when test="parent::oneOrMore">One or more </xsl:when>
-      <xsl:when test="parent::zeroOrMore">Zero or more </xsl:when>
-    </xsl:choose>
     <ul>
      <xsl:for-each select="*">
        <li>
@@ -209,7 +194,7 @@
   </xsl:template>
   
   <xsl:template match="text" mode="prose">
-    <xsl:text>text</xsl:text>
+    <xsl:text>Text</xsl:text>
   </xsl:template>
   
   <xsl:template match="element" mode="prose">
