@@ -165,7 +165,7 @@
     </xsl:copy>
   </xsl:template>
 
-  <xsl:template match="optional | define | empty" mode="clean">
+  <xsl:template match="optional | define | empty | choice" mode="clean">
     <xsl:variable name="contents" as="element()*">
       <xsl:apply-templates select="*" mode="#current"/>
     </xsl:variable>
