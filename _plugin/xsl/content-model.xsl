@@ -53,7 +53,7 @@
         <title>
           <xsl:text>Content model</xsl:text>
         </title>
-        <p>
+        <p outputclass="content-model">
           <xsl:for-each select="element">
             <xsl:if test="empty(*)">
               <xsl:text>EMPTY</xsl:text>
@@ -64,26 +64,28 @@
             </xsl:for-each>
           </xsl:for-each>
         </p>
-        <xsl:for-each select="element">
-        <xsl:choose>
-          <xsl:when test="empty(*)">
-            <xsl:text>EMPTY</xsl:text>
-          </xsl:when>
-          <xsl:when test="count(*) eq 1">
-            <xsl:apply-templates mode="prose"/>
-          </xsl:when>
-          <xsl:otherwise>
-            <p>In order</p>
-            <ol>
-              <xsl:for-each select="*">
-                <li>
-                  <xsl:apply-templates select="." mode="prose"/>
-                </li>
-              </xsl:for-each>  
-            </ol>
-          </xsl:otherwise>
-        </xsl:choose>
-        </xsl:for-each>
+        <div outputclass="content-model-prose">
+          <xsl:for-each select="element">
+            <xsl:choose>
+              <xsl:when test="empty(*)">
+                <xsl:text>EMPTY</xsl:text>
+              </xsl:when>
+              <xsl:when test="count(*) eq 1">
+                <xsl:apply-templates mode="prose"/>
+              </xsl:when>
+              <xsl:otherwise>
+                <p>In order</p>
+                <ol>
+                  <xsl:for-each select="*">
+                    <li>
+                      <xsl:apply-templates select="." mode="prose"/>
+                    </li>
+                  </xsl:for-each>
+                </ol>
+              </xsl:otherwise>
+            </xsl:choose>
+          </xsl:for-each>
+        </div>
       </section>
     </xsl:for-each>
   </xsl:template>
@@ -155,24 +157,24 @@
   <xsl:template match="@* | node()">
     <xsl:apply-templates/>
   </xsl:template>
-  
+
   <!-- Prose -->
-    
+
   <xsl:template match="optional" mode="prose">
     <xsl:text>Optional </xsl:text>
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
-  
+
   <xsl:template match="zeroOrMore" mode="prose">
     <xsl:text>Zero or more </xsl:text>
     <xsl:apply-templates select="*" mode="#current"/>
   </xsl:template>
-  
+
   <xsl:template match="oneOrMore" mode="prose">
     <xsl:text>One or more </xsl:text>
     <xsl:apply-templates select="*" mode="#current"/>
   </xsl:template>
-  
+
   <xsl:template match="group" mode="prose">
     <ol>
       <xsl:for-each select="*">
@@ -182,21 +184,21 @@
       </xsl:for-each>
     </ol>
   </xsl:template>
-  
+
   <xsl:template match="choice" mode="prose">
     <ul>
-     <xsl:for-each select="*">
-       <li>
-         <xsl:apply-templates select="." mode="#current"/>
-       </li>
-     </xsl:for-each>
+      <xsl:for-each select="*">
+        <li>
+          <xsl:apply-templates select="." mode="#current"/>
+        </li>
+      </xsl:for-each>
     </ul>
   </xsl:template>
-  
+
   <xsl:template match="text" mode="prose">
     <xsl:text>Text</xsl:text>
   </xsl:template>
-  
+
   <xsl:template match="element" mode="prose">
     <xref keyref="elements-{@name}" href="{@name}.dita">
       <xmlelement>
@@ -204,7 +206,7 @@
       </xmlelement>
     </xref>
   </xsl:template>
-  
+
   <xsl:template match="@* | node()" mode="prose" priority="-1"/>
 
 </xsl:stylesheet>
