@@ -29,36 +29,6 @@
         <xsl:apply-templates select="$resolved/*" mode="clean"/>
       </xsl:document>
     </xsl:variable>
-    <!--
-    <xsl:variable name="simplified-duplicates" as="document-node()">
-      <xsl:document>
-        <xsl:apply-templates select="$cleaned/*" mode="filter">
-          <xsl:with-param name="filter" tunnel="yes" as="function(element()) as xs:boolean" select="
-              function ($elem) {
-                not(
-                exists($elem/self::choice/parent::choice)
-                )
-              }"/>
-        </xsl:apply-templates>
-      </xsl:document>
-    </xsl:variable>
-    <xsl:variable name="simplified-count" as="document-node()">
-      <xsl:document>
-        <xsl:apply-templates select="$simplified-duplicates/*" mode="filter">
-          <xsl:with-param name="filter" tunnel="yes" as="function(element()) as xs:boolean" select="
-              function ($elem) {
-                not(
-                exists($elem/self::zeroOrMore/parent::choice/parent::zeroOrMore) or
-                exists($elem/self::zeroOrMore/parent::choice/parent::oneOrMore) or
-                exists($elem/self::oneOrMore/parent::choice/parent::zeroOrMore) or
-                exists($elem/self::oneOrMore/parent::choice/parent::oneOrMore)
-                )
-              }"/>
-        </xsl:apply-templates>
-      </xsl:document>
-    </xsl:variable>
-    <xsl:sequence select="$simplified-count"/>
-    -->
     <xsl:document>
       <xsl:sequence select="
           x:chain($cleaned/*, (
@@ -140,7 +110,12 @@
     </xsl:copy>
   </xsl:template>
 
-  <xsl:template match="@* | node()" mode="resolve-ref">
+  <xsl:template match="ref" mode="resolve">
+    <xsl:apply-templates select="." mode="resolve-ref"/>
+  </xsl:template>
+  
+
+  <xsl:template match="@* | node()" mode="resolve-ref" priority="-10">
     <xsl:copy>
       <xsl:apply-templates select="@* | node()" mode="#current"/>
     </xsl:copy>
@@ -164,9 +139,20 @@
         <xsl:copy-of select="."/>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:apply-templates select="key('define', @name)[1]" mode="#current">
-          <xsl:with-param name="visited" select="($visited, @name)" as="xs:string*" tunnel="yes"/>
-        </xsl:apply-templates>
+        <xsl:choose>
+          <xsl:when test="count(key('define', @name)) gt 1">
+            <xsl:element name="choice" namespace="http://relaxng.org/ns/structure/1.0">
+              <xsl:apply-templates select="key('define', @name)/*" mode="#current">
+                <xsl:with-param name="visited" select="($visited, @name)" as="xs:string*" tunnel="yes"/>
+              </xsl:apply-templates>
+            </xsl:element>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:apply-templates select="key('define', @name)[1]/*" mode="#current">
+              <xsl:with-param name="visited" select="($visited, @name)" as="xs:string*" tunnel="yes"/>
+            </xsl:apply-templates>
+          </xsl:otherwise>
+        </xsl:choose>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
@@ -200,35 +186,6 @@
   
   <xsl:template match="grammar/define[not(ends-with(@name, '.element'))]" mode="clean"/>
 
-  <!-- Simplify duplicates -->
-<!--
-  <xsl:template match="node() | @*" mode="simplify-duplicates">
-    <xsl:copy>
-      <xsl:apply-templates select="node() | @*" mode="#current"/>
-    </xsl:copy>
-  </xsl:template>
-
-  <xsl:template match="choice/choice" mode="simplify-duplicates">
-    <xsl:apply-templates select="*" mode="#current"/>
-  </xsl:template>
-
--->
-  <!-- Simplify count -->
-  <!--
-  <xsl:template match="node() | @*" mode="simplify-count">
-    <xsl:copy>
-      <xsl:apply-templates select="node() | @*" mode="#current"/>
-    </xsl:copy>
-  </xsl:template>
-
-  <xsl:template match="
-      zeroOrMore/choice/zeroOrMore
-      | zeroOrMore/choice/oneOrMore
-      | oneOrMore/choice/oneOrMore
-      | oneOrMore/choice/zeroOrMore" mode="simplify-count">
-    <xsl:apply-templates select="*" mode="#current"/>
-  </xsl:template>
-  -->
 
   <!-- Filter -->
 
