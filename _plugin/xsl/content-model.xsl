@@ -10,7 +10,7 @@
 
   <xsl:output indent="no" doctype-public="-//OASIS//DTD DITA Topic//EN" doctype-system="topic.dtd"/>
 
-  <xsl:param name="schemas" as="xs:string"/>
+  <xsl:param name="schema" as="xs:string"/>
 
   <xsl:variable name="root" select="."/>
 
@@ -18,26 +18,28 @@
     <topic id="content-models">
       <title>Generated content models</title>
       <body>
-        <xsl:variable name="sections" as="element()*">
-          <xsl:for-each select="tokenize($schemas, ':')">
-            <xsl:variable name="schema" select="."/>
-            <xsl:variable name="simplified" select="x:simplify(document($schema, $root))" as="document-node()"/>
-            <!--
-            <xsl:result-document href="basetopic.ditamap" doctype-public="-//OASIS//DTD DITA Map//EN"
-              doctype-system="map.dtd">
-              <map>
-                <xsl:for-each select="$simplified/grammar/define[ends-with(@name, '.element')]">
-                  <keydef keys="{@name}" href="basetopic.dita#basetopic/{@name}"/>
-                </xsl:for-each>
-              </map>
-            </xsl:result-document>
-            -->
-            <xsl:apply-templates select="$simplified/grammar"/>
-          </xsl:for-each>
+        <!--xsl:variable name="sections" as="element()*"-->
+        <!--xsl:for-each select="tokenize($schemas, ':')"-->
+        <!--xsl:variable name="schema" select="."/-->
+        <xsl:variable name="simplified" select="x:simplify(.)" as="document-node()"/>
+        <xsl:result-document href="{tokenize($schema, '\.')[1]}.ditamap" doctype-public="-//OASIS//DTD DITA Map//EN"
+          doctype-system="map.dtd">
+          <map>
+            <xsl:for-each select="$simplified/grammar/define[ends-with(@name, '.element')]">
+              <keydef keys="content-models-{tokenize(@name, '\.')[1]}"
+                href="{tokenize($schema, '\.')[1]}.dita#content-models"/>
+              <!--/{@name}-->
+            </xsl:for-each>
+          </map>
+        </xsl:result-document>
+        <xsl:apply-templates select="$simplified/grammar"/>
+        <!--/xsl:for-each-->
+        <!--
         </xsl:variable>
         <xsl:for-each-group select="$sections" group-by="@id">
           <xsl:copy-of select="current-group()[1]"/>
         </xsl:for-each-group>
+        -->
       </body>
     </topic>
   </xsl:template>

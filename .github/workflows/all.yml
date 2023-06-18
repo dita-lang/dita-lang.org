@@ -24,10 +24,11 @@ jobs:
       - name: Generate content models
         uses: ./dita-lang/.github/actions/content-model
         with:
-          INPUT: dita/doctypes/rng/base/basetopic.rng
+          INPUT: dita/doctypes/rng/base
           OUTPUT: content-models.dita
-          DIR: dita/specification/langRef/base
-          SCHEMAS: 'basetopic.rng:basemap.rng'
+          DIR: dita/specification/langRef/content-models
+          MAP: ../base-elements.ditamap
+          SCHEMAS: 'basetopic.rng:basemap.rng:subjectScheme.rng'
       - name: Publish DITA
         uses: ./dita-lang/.github/actions/publish
         with:

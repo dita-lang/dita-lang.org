@@ -6,6 +6,8 @@ inputs:
     required: true
   DIR:
     required: true
+  MAP:
+    required: true
   SCHEMAS:
     required: true
 runs:
@@ -20,10 +22,12 @@ runs:
     - name: Generate content models
       shell: bash
       run: |
-        gradle \
-          -Pinput="../${{ inputs.INPUT }}" \
-          -Poutput="../${{ inputs.DIR }}/${{ inputs.OUTPUT }}" \
-          -Pschemas="${{ inputs.SCHEMAS }}"
+        for schema in $(echo "${{ inputs.SCHEMAS }}" | tr ':' '\n'); do
+          gradle \
+            -Pinput="../${{ inputs.INPUT }}/${schema}" \
+            -Poutput="../${{ inputs.DIR }}/${schema}.dita" \
+            -Pschema="${schema}"
+        done
       working-directory: dita-lang
     - name: Insert content models
       shell: bash
@@ -31,7 +35,12 @@ runs:
         for i in *.dita; do
           echo "$i"
           name=${i%%.*}
-          perl -p -e "s/(<section(?:\s+[\w-]+=[\"'].+?[\"'])*(\s+id=\"attributes\")(?:\s+[\w-]+=[\"'].+?[\"'])*+\s*\/?>)/<section conref=\"${{ inputs.OUTPUT }}#content-models\/${name}.element\" id=\"content-model\"\/>\1/" "$i" > "$i.bak"
+          perl -p -e "s/(<section(?:\s+[\w-]+=[\"'].+?[\"'])*(\s+id=\"attributes\")(?:\s+[\w-]+=[\"'].+?[\"'])*+\s*\/?>)/<section conkeyref=\"content-models-${name}\/${name}.element\" id=\"content-model\"\/>\1/" "$i" > "$i.bak"
           mv "$i.bak" "$i"
         done
+        for schema in $(echo "${{ inputs.SCHEMAS }}" | tr ':' '\n'); do
+          perl -p -e "s/(<\/map>)/<mapref href='content-models\/${schema%%.rng}.ditamap'\/>\1/" "${{ inputs.MAP }}" > "${{ inputs.MAP }}.bak"
+          mv "${{ inputs.MAP }}.bak" "${{ inputs.MAP }}"
+        done
+        git status
       working-directory: ${{ inputs.DIR }}
