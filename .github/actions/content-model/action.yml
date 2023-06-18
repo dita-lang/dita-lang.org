@@ -2,6 +2,8 @@ name: content-model
 inputs:
   INPUT:
     required: true
+  OUTPUT:
+    required: true
   DIR:
     required: true
   MAP:
@@ -39,8 +41,9 @@ runs:
         done
         for schema in $(echo "${{ inputs.SCHEMAS }}" | tr ':' '\n'); do
           file="$(basename ${schema})"
+          echo "file=$file"
           perl -p -e "s/(<\/map>)/<mapref href='content-models\/${file%%.rng}.ditamap'\/>\1/" "${{ inputs.MAP }}" > "${{ inputs.MAP }}.bak"
           mv "${{ inputs.MAP }}.bak" "${{ inputs.MAP }}"
         done
         git status
-      working-directory: ${{ inputs.DIR }}
+      working-directory: ${{ inputs.OUTPUT }}
