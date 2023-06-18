@@ -29,6 +29,7 @@ runs:
             -Poutput="../${{ inputs.DIR }}/${file}.dita" \
             -Pschema="${file}"
         done
+        ls ../${{ inputs.DIR }}
       working-directory: dita-lang
     - name: Insert content models
       shell: bash
@@ -41,9 +42,9 @@ runs:
         done
         for schema in $(echo "${{ inputs.SCHEMAS }}" | tr ':' '\n'); do
           file="$(basename ${schema})"
-          echo "file=$file"
           perl -p -e "s/(<\/map>)/<mapref href='content-models\/${file%%.rng}.ditamap'\/>\1/" "${{ inputs.MAP }}" > "${{ inputs.MAP }}.bak"
           mv "${{ inputs.MAP }}.bak" "${{ inputs.MAP }}"
         done
         git status
+        git diff -- "${{ inputs.MAP }}"
       working-directory: ${{ inputs.OUTPUT }}
