@@ -70,7 +70,7 @@
           <xsl:for-each select="element">
             <xsl:choose>
               <xsl:when test="empty(*)">
-                <xsl:text>EMPTY</xsl:text>
+                <xsl:text>Empty</xsl:text>
               </xsl:when>
               <xsl:when test="count(*) eq 1">
                 <xsl:apply-templates mode="prose"/>
