@@ -190,6 +190,8 @@
   <xsl:template match="choice" mode="prose">
     <ul>
       <xsl:for-each select="*">
+        <xsl:sort select="exists(self::text)" order="ascending"/>
+        <xsl:sort select="self::element/@name | child::element/@name"/>
         <li>
           <xsl:apply-templates select="." mode="#current"/>
         </li>
