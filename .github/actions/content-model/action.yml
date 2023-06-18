@@ -2,8 +2,6 @@ name: content-model
 inputs:
   INPUT:
     required: true
-  OUTPUT:
-    required: true
   DIR:
     required: true
   MAP:
@@ -23,10 +21,11 @@ runs:
       shell: bash
       run: |
         for schema in $(echo "${{ inputs.SCHEMAS }}" | tr ':' '\n'); do
+          file="$(basename ${schema})"
           gradle \
             -Pinput="../${{ inputs.INPUT }}/${schema}" \
-            -Poutput="../${{ inputs.DIR }}/${schema}.dita" \
-            -Pschema="${schema}"
+            -Poutput="../${{ inputs.DIR }}/${file}.dita" \
+            -Pschema="${file}"
         done
       working-directory: dita-lang
     - name: Insert content models
@@ -39,7 +38,8 @@ runs:
           mv "$i.bak" "$i"
         done
         for schema in $(echo "${{ inputs.SCHEMAS }}" | tr ':' '\n'); do
-          perl -p -e "s/(<\/map>)/<mapref href='content-models\/${schema%%.rng}.ditamap'\/>\1/" "${{ inputs.MAP }}" > "${{ inputs.MAP }}.bak"
+          file="$(basename ${schema})"
+          perl -p -e "s/(<\/map>)/<mapref href='content-models\/${file%%.rng}.ditamap'\/>\1/" "${{ inputs.MAP }}" > "${{ inputs.MAP }}.bak"
           mv "${{ inputs.MAP }}.bak" "${{ inputs.MAP }}"
         done
         git status
