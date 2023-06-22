@@ -25,7 +25,7 @@
         <xsl:result-document href="{tokenize($schema, '\.')[1]}.ditamap" doctype-public="-//OASIS//DTD DITA Map//EN"
           doctype-system="map.dtd">
           <map>
-            <xsl:for-each select="$simplified/grammar/define[ends-with(@name, '.element')]">
+            <xsl:for-each select="$simplified/grammar/define[ends-with(@name, $element-suffix)]">
               <keydef keys="content-models-{tokenize(@name, '\.')[1]}"
                 href="{tokenize($schema, '\.')[1]}.dita#content-models"/>
               <!--/{@name}-->
@@ -45,7 +45,7 @@
   </xsl:template>
 
   <xsl:template match="grammar">
-    <xsl:for-each select="define[ends-with(@name, '.element')]">
+    <xsl:for-each select="define[ends-with(@name, $element-suffix)]">
       <!--
       <xsl:comment>
         <xsl:value-of select="element/@dita:longName"/>

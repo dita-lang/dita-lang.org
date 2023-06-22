@@ -8,6 +8,8 @@
 
   <xsl:output indent="yes"/>
 
+  <xsl:param name="element-suffix" as="xs:string" select="'.element'"/>
+
   <xsl:template match="/">
     <xsl:sequence select="x:simplify(.)"/>
   </xsl:template>
@@ -183,7 +185,7 @@
     </xsl:if>
   </xsl:template>
 
-  <xsl:template match="grammar/define[not(ends-with(@name, '.element'))]" mode="clean"/>
+  <xsl:template match="grammar/define[not(ends-with(@name, $element-suffix))]" mode="clean"/>
 
   <!-- Filter -->
 

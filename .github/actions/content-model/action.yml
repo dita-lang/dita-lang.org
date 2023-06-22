@@ -25,10 +25,16 @@ runs:
         for schema in $(echo "${{ inputs.SCHEMAS }}" | tr ':' '\n'); do
           dir="$(dirname ${schema})"
           file="$(basename ${schema})"
+          if [[ "$file" == "ditaval.rng" ]]; then
+            elementSuffix=""
+          else
+            elementSuffix=".element"
+          fi
           gradle \
             -Pinput="../${{ inputs.INPUT }}/${schema}" \
             -Poutput="../${{ inputs.DIR }}/${file%%.rng}.dita" \
-            -Pschema="${file}"
+            -Pschema="${file}" \
+            -Pelement-suffix="${elementSuffix}"
         done
         echo "Generated:"
         ls ../${{ inputs.DIR }}
