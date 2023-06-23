@@ -81,7 +81,7 @@
   </xsl:template>
 
   <xsl:template match="include" mode="merge">
-    <xsl:apply-templates select="document(@href)/grammar/*" mode="#current"/>
+    <xsl:apply-templates select="document(x:resolve(@href))/grammar/*" mode="#current"/>
   </xsl:template>
 
   <xsl:template match="div" mode="merge">
@@ -208,5 +208,34 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
+
+  <xsl:function name="x:resolve" as="xs:string">
+    <xsl:param name="href" as="attribute()"/>
+    <xsl:variable name="base" select="base-uri($href)"/>
+    <xsl:message select="$base, $href/string()"/>
+    <xsl:choose>
+      <xsl:when test="matches($href, 'urn:pubid:oasis:names:tc:dita:rng:mapGroupMod.rng:2.0')">
+        <xsl:value-of select="resolve-uri(
+            replace($href,
+            'urn:pubid:oasis:names:tc:dita:rng:mapGroupMod.rng:2.0',
+            '../../../../dita/doctypes/rng/base/mapGroupDomain.rng'), $base)"/>
+      </xsl:when>
+      <xsl:when test="matches($href, 'urn:pubid:oasis:names:tc:dita:rng:hazardDomain.rng:2.0')">
+        <xsl:value-of select="resolve-uri(
+            replace($href,
+            'urn:pubid:oasis:names:tc:dita:rng:hazardDomain.rng:2.0',
+            '../../../../dita/doctypes/rng/base/hazardstatementDomain.rng'), $base)"/>
+      </xsl:when>
+      <xsl:when test="matches($href, 'urn:pubid:oasis:names:tc:dita:rng:(.+):2.0')">
+        <xsl:value-of select="resolve-uri(
+          replace($href,
+          'urn:pubid:oasis:names:tc:dita:rng:(.+):2.0',
+          '../../../../dita/doctypes/rng/base/$1'), $base)"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="resolve-uri($href/string(), $base)"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:function>
 
 </xsl:stylesheet>
