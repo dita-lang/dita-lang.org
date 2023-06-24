@@ -22,13 +22,10 @@ runs:
     - name: Generate content models
       shell: bash
       run: |
+        elementSuffix=".element"
         for schema in $(echo "${{ inputs.SCHEMAS }}" | tr ':' '\n'); do
           dir="$(dirname ${schema})"
           file="$(basename ${schema})"
-          if [[ "$file" == "ditaval.rng" ]]; then
-            elementSuffix=""
-          else
-            elementSuffix=".element"
           fi
           gradle \
             -Pinput="../${{ inputs.INPUT }}/${schema}" \
