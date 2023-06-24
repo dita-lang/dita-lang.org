@@ -26,7 +26,6 @@ runs:
         for schema in $(echo "${{ inputs.SCHEMAS }}" | tr ':' '\n'); do
           dir="$(dirname ${schema})"
           file="$(basename ${schema})"
-          fi
           gradle \
             -Pinput="../${{ inputs.INPUT }}/${schema}" \
             -Poutput="../${{ inputs.DIR }}/${file%%.rng}.dita" \
