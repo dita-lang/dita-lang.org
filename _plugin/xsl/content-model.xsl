@@ -23,12 +23,13 @@
         <!--xsl:for-each select="tokenize($schemas, ':')"-->
         <!--xsl:variable name="schema" select="."/-->
         <xsl:variable name="simplified" select="x:simplify(.)" as="document-node()"/>
-        <xsl:result-document href="{tokenize($schema, '\.')[1]}.ditamap" doctype-public="-//OASIS//DTD DITA Map//EN"
+        <xsl:variable name="base" select="tokenize(tokenize($schema, '/')[last()], '\.')[1]"/>
+        <xsl:result-document href="{$base}.ditamap" doctype-public="-//OASIS//DTD DITA Map//EN"
           doctype-system="map.dtd">
           <map>
             <xsl:for-each select="$simplified/grammar/define[ends-with(@name, $element-suffix)]">
               <keydef keys="content-models-{tokenize(@name, '\.')[1]}"
-                href="{tokenize($schema, '\.')[1]}.dita#content-models"/>
+                href="{tokenize($base, '/')[last()]}.dita#content-models"/>
               <!--/{@name}-->
             </xsl:for-each>
           </map>
