@@ -39,18 +39,25 @@ runs:
       shell: bash
       run: |
         # Insert to topics
-        for i in *.dita; do
-          echo "$i"
-          name=${i%%.*}
-          perl -p -e "s/(<section(?:\s+[\w-]+=[\"'].+?[\"'])*(\s+id=\"attributes\")(?:\s+[\w-]+=[\"'].+?[\"'])*+\s*\/?>)/<section conkeyref=\"content-models-${name}\/${name}.element\" id=\"content-model\"\/>\1/" "$i" > "$i.bak"
-          mv "$i.bak" "$i"
+        for output in $(echo "${{ inputs.OUTPUT }}" | tr ':' '\n'); do
+          dir=$(basename ${output})
+          cd $output
+          for i in *.dita; do
+            name=${i%%.*}
+            name=${name##${dir}-}
+            echo "$i $name"
+            perl -p -e "s/(<section(?:\s+[\w-]+=[\"'].+?[\"'])*(\s+id=\"attributes\")(?:\s+[\w-]+=[\"'].+?[\"'])*+\s*\/?>)/<section conkeyref=\"content-models-${name}\/${name}.element\" id=\"content-model\"\/>\1/" "$i" > "$i.bak"
+            mv "$i.bak" "$i"
+          done
+          cd -
         done
         # Insert to map
         for schema in $(echo "${{ inputs.SCHEMAS }}" | tr ':' '\n'); do
           file="$(basename ${schema})"
-          perl -p -e "s/(<\/map>)/<mapref href='content-models\/${file%%.rng}.ditamap'\/>\1/" "${{ inputs.MAP }}" > "${{ inputs.MAP }}.bak"
+          name=${file%%.rng}
+          perl -p -e "s/(<\/map>)/<mapref href='content-models\/${name}.ditamap'\/>\1/" "${{ inputs.MAP }}" > "${{ inputs.MAP }}.bak"
           mv "${{ inputs.MAP }}.bak" "${{ inputs.MAP }}"
         done
         git status
         git diff -- "${{ inputs.MAP }}"
-      working-directory: ${{ inputs.OUTPUT }}
+      #working-directory: ${{ inputs.OUTPUT }}
