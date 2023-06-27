@@ -10,6 +10,7 @@
 
   <xsl:output indent="no" doctype-public="-//OASIS//DTD DITA Topic//EN" doctype-system="topic.dtd"/>
 
+  <xsl:param name="element-prefix" as="xs:string" select="''"/>
   <xsl:param name="schema" as="xs:string"/>
 
   <xsl:variable name="root" select="."/>
@@ -149,7 +150,7 @@
   </xsl:template>
 
   <xsl:template match="element">
-    <xref keyref="elements-{@name}" href="{@name}.dita">
+    <xref keyref="elements-{@name}" href="{$element-prefix}{@name}.dita">
       <xmlelement>
         <xsl:value-of select="@name"/>
       </xmlelement>
@@ -204,7 +205,7 @@
   </xsl:template>
 
   <xsl:template match="element" mode="prose">
-    <xref keyref="elements-{@name}" href="{@name}.dita">
+    <xref keyref="elements-{@name}" href="{$element-prefix}{@name}.dita">
       <xmlelement>
         <xsl:value-of select="@name"/>
       </xmlelement>
