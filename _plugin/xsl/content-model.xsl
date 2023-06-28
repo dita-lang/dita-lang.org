@@ -78,7 +78,7 @@
                 <xsl:apply-templates mode="prose"/>
               </xsl:when>
               <xsl:otherwise>
-                <xsl:text>In order</xsl:text>In order
+                <xsl:text>In order</xsl:text>
                 <ol>
                   <xsl:for-each select="*">
                     <li>
@@ -185,6 +185,9 @@
   </xsl:template>
 
   <xsl:template match="group" mode="prose">
+    <xsl:if test="empty(parent::optional | parent::zeroOrMore | parent::oneOrMore)">
+      <xsl:text>In order</xsl:text>
+    </xsl:if>
     <ol>
       <xsl:for-each select="*">
         <li>
@@ -195,6 +198,9 @@
   </xsl:template>
 
   <xsl:template match="choice" mode="prose">
+    <xsl:if test="empty(parent::optional | parent::zeroOrMore | parent::oneOrMore)">
+      <xsl:text>One of the following</xsl:text>
+    </xsl:if>
     <ul>
       <xsl:for-each select="*">
         <xsl:sort select="exists(self::text)" order="descending"/>
