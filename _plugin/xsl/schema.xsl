@@ -130,6 +130,10 @@
     </xsl:copy>
   </xsl:template>
 
+  <xsl:template match="ref[@name = 'any']" mode="resolve-ref" priority="10">
+    <xsl:element name="any" namespace="http://relaxng.org/ns/structure/1.0"/>
+  </xsl:template>
+
   <xsl:template match="ref" mode="resolve-ref">
     <xsl:param name="visited" select="()" as="xs:string*" tunnel="yes"/>
     <!--xsl:message select="$visited"></xsl:message-->

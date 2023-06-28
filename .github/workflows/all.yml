@@ -25,10 +25,19 @@ jobs:
         uses: ./dita-lang/.github/actions/content-model
         with:
           INPUT: dita/doctypes/rng
-          OUTPUT: 'dita/specification/langRef/base:dita/specification/langRef/ditaval'
+          OUTPUT: dita/specification/langRef/base
           DIR: dita/specification/langRef/content-models
           MAP: dita/specification/langRef/base-elements.ditamap
-          SCHEMAS: 'base/basetopic.rng:base/basemap.rng:subjectScheme/subjectScheme.rng:ditaval/ditaval.rng'
+          SCHEMAS: 'base/basetopic.rng:base/basemap.rng:subjectScheme/subjectScheme.rng'
+      - name: Generate content models
+        uses: ./dita-lang/.github/actions/content-model
+        with:
+          INPUT: dita/doctypes/rng
+          OUTPUT: dita/specification/langRef/ditaval
+          DIR: dita/specification/langRef/content-models
+          MAP: dita/specification/langRef/base-elements.ditamap
+          PREFIX: 'ditaval-'
+          SCHEMAS: 'ditaval/ditaval.rng'
       - name: Publish DITA
         uses: ./dita-lang/.github/actions/publish
         with:

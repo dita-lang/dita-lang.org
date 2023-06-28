@@ -28,7 +28,7 @@ runs:
         elementSuffix=".element"
         elementPrefix="${{ inputs.PREFIX }}"
         for schema in $(echo "${{ inputs.SCHEMAS }}" | tr ':' '\n'); do
-          dir="$(dirname ${schema})"
+          #dir="$(dirname ${schema})"
           file="$(basename ${schema})"
           gradle \
             -Pinput="../${{ inputs.INPUT }}/${schema}" \

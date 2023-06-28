@@ -150,6 +150,11 @@
     <xsl:text>Text</xsl:text>
   </xsl:template>
 
+  <xsl:template match="any">
+    <xsl:text>Any</xsl:text>
+  </xsl:template>
+  
+
   <xsl:template match="element">
     <xref keyref="elements-{@name}" href="{$element-prefix}{@name}.dita">
       <xmlelement>
@@ -203,6 +208,10 @@
 
   <xsl:template match="text" mode="prose">
     <xsl:text>Text</xsl:text>
+  </xsl:template>
+
+  <xsl:template match="any" mode="prose">
+    <xsl:text>Any content</xsl:text>
   </xsl:template>
 
   <xsl:template match="element" mode="prose">
