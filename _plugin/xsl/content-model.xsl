@@ -156,7 +156,7 @@
   
 
   <xsl:template match="element">
-    <xref keyref="elements-{@name}" href="{$element-prefix}{@name}.dita">
+    <xref keyref="elements-{@name}"><!-- href="{$element-prefix}{@name}.dita"-->
       <xmlelement>
         <xsl:value-of select="@name"/>
       </xmlelement>
@@ -221,7 +221,7 @@
   </xsl:template>
 
   <xsl:template match="element" mode="prose">
-    <xref keyref="elements-{@name}" href="{$element-prefix}{@name}.dita">
+    <xref keyref="elements-{@name}"><!--href="{$element-prefix}{@name}.dita"-->
       <xmlelement>
         <xsl:value-of select="@name"/>
       </xmlelement>
