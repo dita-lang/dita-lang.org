@@ -78,7 +78,7 @@
                 <xsl:apply-templates mode="prose"/>
               </xsl:when>
               <xsl:otherwise>
-                <p>In order</p>
+                <xsl:text>In order</xsl:text>In order
                 <ol>
                   <xsl:for-each select="*">
                     <li>
