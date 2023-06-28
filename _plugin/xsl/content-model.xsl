@@ -68,7 +68,7 @@
             </xsl:for-each>
           </xsl:for-each>
         </p>
-        <div outputclass="content-model-prose">
+        <p outputclass="content-model-prose">
           <xsl:for-each select="element">
             <xsl:choose>
               <xsl:when test="empty(*)">
@@ -89,7 +89,7 @@
               </xsl:otherwise>
             </xsl:choose>
           </xsl:for-each>
-        </div>
+        </p>
       </section>
     </xsl:for-each>
   </xsl:template>
