@@ -23,15 +23,11 @@ StyleController()
 try {
   const indexAttr = $('link[rel=index]').attr('href')
   if (indexAttr && window.history) {
-    const index = URI(indexAttr)
-      .absoluteTo(window.location.href)
-      .href()
+    const index = URI(indexAttr).absoluteTo(window.location.href).href()
     fetch(index)
-      .then(data => data.text())
-      .then(data => {
-        const $toc = $('<body>')
-          .append($.parseHTML(data))
-          .find('nav')
+      .then((data) => data.text())
+      .then((data) => {
+        const $toc = $('<body>').append($.parseHTML(data)).find('nav')
         TocController($toc, index)
         SearchController($toc, index)
         HelpController()

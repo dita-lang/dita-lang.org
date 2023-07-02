@@ -13,7 +13,7 @@ function StyleController() {
   document.addEventListener('readystatechange', () => {
     const toggleStyle = document.getElementById('toggleStyle')
 
-    toggleStyle.addEventListener('change', e => {
+    toggleStyle.addEventListener('change', (e) => {
       activateStylesheet(e.target.value)
       window.localStorage.setItem('STYLESHEET', e.target.value)
     })

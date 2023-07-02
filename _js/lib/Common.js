@@ -6,7 +6,7 @@ import { tabs } from '../dom'
 import t from '../translations'
 
 const platformMap = {
-  unix: ['linux', 'mac']
+  unix: ['linux', 'mac'],
 }
 
 function Common(index) {
@@ -15,36 +15,30 @@ function Common(index) {
 
   const editController = EditController()
 
-  const base = index
-    ? URI('.')
-        .absoluteTo(index)
-        .href()
-    : URI(window.location.href).href()
+  const base = index ? URI('.').absoluteTo(index).href() : URI(window.location.href).href()
 
   const $nav = $('nav[role=toc]')
   const $main = $('main[role=main]')
   const $footer = $('footer')
 
-  window.onpopstate = function(event) {
+  window.onpopstate = function (event) {
     loadMain(document.location, undefined, false)
   }
 
   return {
     loadMain,
     initializeMain,
-    isLocal
+    isLocal,
   }
 
   function loadMain(href, $tocLink, pushState = true) {
-    const abs = URI(href)
-      .absoluteTo(window.location.href)
-      .href()
+    const abs = URI(href).absoluteTo(window.location.href).href()
     if (pushState) {
       history.pushState({}, '', href)
     }
     fetch(abs)
-      .then(data => data.text())
-      .then(data => {
+      .then((data) => data.text())
+      .then((data) => {
         updateToc(href, $tocLink)
         updateMain(data)
       })
@@ -56,9 +50,7 @@ function Common(index) {
         $li.addClass('active')
         exposeNode($li)
       } else {
-        const abs = URI(href)
-          .absoluteTo(window.location.href)
-          .href()
+        const abs = URI(href).absoluteTo(window.location.href).href()
         const $li = $nav.find(`a[href="${abs}"],a[href="${abs}.html"]`).parent('li')
         $li.addClass('active')
         exposeNode($li)
@@ -110,10 +102,7 @@ function Common(index) {
     }
 
     function addLinkHandlers() {
-      $main
-        .find('a[href]')
-        .filter(isLocal)
-        .click(mainClickHandler)
+      $main.find('a[href]').filter(isLocal).click(mainClickHandler)
 
       function mainClickHandler(event) {
         event.preventDefault()
@@ -130,7 +119,7 @@ function Common(index) {
         .find(
           'article[id] > h2:first-child, section[id] > h2:first-child, section[id] > h3:first-child , dt[id]'
         )
-        .each(function() {
+        .each(function () {
           const $current = $(this)
           const id = getId($current)
           if (id) {
@@ -141,12 +130,7 @@ function Common(index) {
         })
 
       function getId($current) {
-        return $current
-          .parents('*[id]')
-          .addBack()
-          .filter(hasNonAriaId)
-          .last()
-          .attr('id')
+        return $current.parents('*[id]').addBack().filter(hasNonAriaId).last().attr('id')
 
         function hasNonAriaId() {
           const id = this.getAttribute('id')
@@ -168,9 +152,7 @@ function Common(index) {
     if (href.startsWith('mailto:')) {
       return false
     }
-    const abs = URI(href)
-      .absoluteTo(window.location.href)
-      .href()
+    const abs = URI(href).absoluteTo(window.location.href).href()
     return abs.indexOf(base) !== -1
   }
 }
@@ -178,7 +160,7 @@ function Common(index) {
 export function addPlatformTabs($main = $('main[role=main]')) {
   const activePlatform = getActivePlatform()
   function activeFirst(items) {
-    const firstActive = items.find(item => intersect(activePlatform, [item.id]).length !== 0)
+    const firstActive = items.find((item) => intersect(activePlatform, [item.id]).length !== 0)
     if (firstActive) {
       firstActive.active = true
     } else {
@@ -188,7 +170,7 @@ export function addPlatformTabs($main = $('main[role=main]')) {
   }
   $main
     .find('pre.multi-platform')
-    .filter(function() {
+    .filter(function () {
       let $current = $(this)
       return (
         $current.parents('.platform-tab-content').length === 0 &&
@@ -196,19 +178,15 @@ export function addPlatformTabs($main = $('main[role=main]')) {
           0
       )
     })
-    .each(function() {
+    .each(function () {
       const $current = $(this)
       const items = activeFirst([
         {
           title: 'Linux or macOS',
           id: 'linux_macos',
           platforms: ['linux', 'mac'],
-          content: $current
-            .clone()
-            .wrapAll(`<div class="tab-pane-wrapper"></div>`)
-            .parent()
-            .get(),
-          active: false
+          content: $current.clone().wrapAll(`<div class="tab-pane-wrapper"></div>`).parent().get(),
+          active: false,
         },
         {
           title: 'Windows',
@@ -218,19 +196,19 @@ export function addPlatformTabs($main = $('main[role=main]')) {
             .wrapAll(`<div class="tab-pane-wrapper"></div>`)
             .parent()
             .get(),
-          active: false
-        }
+          active: false,
+        },
       ])
       $current.after(tabs(Math.floor(Math.random() * 26), items))
       $current.remove()
     })
   $main
     .find('.choicetable.multi-platform')
-    .filter(function() {
+    .filter(function () {
       let $current = $(this)
       return $current.parents('.platform-tab-content').length === 0
     })
-    .each(function() {
+    .each(function () {
       const $current = $(this)
       // console.log('$current', $current)
       const $rows = $current.find('.chrow')
@@ -239,22 +217,16 @@ export function addPlatformTabs($main = $('main[role=main]')) {
         // console.log('every row has platform', $rows)
         const items = activeFirst(
           $rows
-            .map(function() {
+            .map(function () {
               const $row = $(this)
               const platforms = getPlatforms($row)
-              const $content = $row
-                .find('.chdesc')
-                .contents()
-                .clone()
+              const $content = $row.find('.chdesc').contents().clone()
               return {
                 title: $row.find('.choption').text(),
                 id: platforms.join('_'),
                 platforms,
-                content: $content
-                  .wrapAll(`<div class="tab-pane-wrapper"></div>`)
-                  .parent()
-                  .get(),
-                active: false
+                content: $content.wrapAll(`<div class="tab-pane-wrapper"></div>`).parent().get(),
+                active: false,
               }
             })
             .get()
@@ -268,26 +240,26 @@ export function addPlatformTabs($main = $('main[role=main]')) {
     })
   $main
     .find('.steps.multi-platform')
-    .filter(function() {
+    .filter(function () {
       let $current = $(this)
       return $current.parents('.platform-tab-content').length === 0
     })
-    .each(function() {
+    .each(function () {
       const $current = $(this)
       const platforms = [
         ...new Set(
           $current
             .find('[data-platform]')
-            .map(function() {
+            .map(function () {
               return getPlatforms($(this))
             })
             .get()
             .flat()
-        )
+        ),
       ].sort()
       if (platforms.length !== 0) {
         const items = activeFirst(
-          platforms.map(platform => {
+          platforms.map((platform) => {
             const $content = simplify(
               filterByPlatform(
                 platform === 'windows' ? toWindows($current.clone()) : $current.clone(),
@@ -298,11 +270,8 @@ export function addPlatformTabs($main = $('main[role=main]')) {
               title: t(platform),
               id: platform,
               platforms: [platform],
-              content: $content
-                .wrapAll(`<div class="tab-pane-wrapper"></div>`)
-                .parent()
-                .get(),
-              active: false
+              content: $content.wrapAll(`<div class="tab-pane-wrapper"></div>`).parent().get(),
+              active: false,
             }
           })
         )
@@ -318,17 +287,14 @@ export function addPlatformTabs($main = $('main[role=main]')) {
       return !getPlatforms($(this)).includes(platform)
     }
 
-    $content
-      .find('[data-platform]')
-      .filter(noMatch)
-      .remove()
+    $content.find('[data-platform]').filter(noMatch).remove()
     return $content
   }
 
   function simplify($content) {
     $content
       .find('.choices')
-      .filter(function() {
+      .filter(function () {
         const $current = $(this)
         return $current.find('.choice').length === 1
       })
@@ -355,10 +321,10 @@ export function addPlatformTabs($main = $('main[role=main]')) {
     $contents
       .find('.filepath:not(.preserve-separator), .filepath:not(.preserve-separator) *')
       .contents()
-      .filter(function() {
+      .filter(function () {
         return this.nodeType === Node.TEXT_NODE
       })
-      .each(function() {
+      .each(function () {
         this.data = this.data.replace(/\//g, '\\')
       })
     $contents
@@ -366,10 +332,10 @@ export function addPlatformTabs($main = $('main[role=main]')) {
       .addBack()
       .children()
       .contents()
-      .filter(function() {
+      .filter(function () {
         return this.nodeType === Node.TEXT_NODE
       })
-      .each(function() {
+      .each(function () {
         this.data = this.data.replace(/\\\n/g, '^\n').replace(/(^|\n)\$/g, '$1>')
       })
     return $contents
@@ -377,16 +343,11 @@ export function addPlatformTabs($main = $('main[role=main]')) {
 }
 
 export function getPlatforms($elem) {
-  return expandPlatforms(
-    $elem
-      .attr('data-platform')
-      .trim()
-      .split(/\s+/)
-  )
+  return expandPlatforms($elem.attr('data-platform').trim().split(/\s+/))
 }
 
 export function expandPlatforms(platforms) {
-  return platforms.map(p => platformMap[p] || [p]).flat()
+  return platforms.map((p) => platformMap[p] || [p]).flat()
 }
 
 function getActivePlatform() {
@@ -413,7 +374,7 @@ function getActivePlatform() {
 }
 
 export function intersect(array1, array2) {
-  return array1.filter(value => array2.includes(value))
+  return array1.filter((value) => array2.includes(value))
 }
 
 export default Common
