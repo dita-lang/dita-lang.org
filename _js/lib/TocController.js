@@ -27,11 +27,9 @@ function TocController($toc, index) {
     function initializeToc($dummy) {
       let $current
       const location = URI(window.location.href).href()
-      $dummy.find('a').each(function() {
+      $dummy.find('a').each(function () {
         const $a = $(this)
-        const abs = URI($a.attr('href'))
-          .absoluteTo(index)
-          .href()
+        const abs = URI($a.attr('href')).absoluteTo(index).href()
         $a.attr('href', abs)
         if (abs === location || abs === location + '.html') {
           $current = $a
@@ -54,10 +52,10 @@ function TocController($toc, index) {
       }
       if ($current) {
         $current.parent('li').addClass('active')
-        $dummy.find('li').each(function() {
+        $dummy.find('li').each(function () {
           toggleNode($(this))
         })
-        $current.parents('li').each(function() {
+        $current.parents('li').each(function () {
           toggleNode($(this))
         })
       }
@@ -73,24 +71,16 @@ function TocController($toc, index) {
   }
 
   function addTocControllers() {
-    $nav.find('li').each(function() {
+    $nav.find('li').each(function () {
       const $li = $(this)
       if (!$li.hasClass(CLASS_OPEN)) {
         $li.addClass(CLASS_OPEN)
       }
       if ($li.children('ul').length !== 0) {
-        $('<span class="controller"></span>')
-          .click(toggleHandler)
-          .prependTo($li)
-        $li
-          .children('a[href]')
-          .filter(common.isLocal)
-          .click(expandHandler)
+        $('<span class="controller"></span>').click(toggleHandler).prependTo($li)
+        $li.children('a[href]').filter(common.isLocal).click(expandHandler)
       }
-      $li
-        .children('a[href]')
-        .filter(common.isLocal)
-        .click(navigateHandler)
+      $li.children('a[href]').filter(common.isLocal).click(navigateHandler)
     })
 
     function expandHandler(event) {

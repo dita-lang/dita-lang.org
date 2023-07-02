@@ -5,7 +5,7 @@ export function elem() {
   const attrs = arguments.length === 3 ? arguments[1] : {}
   const content = arguments.length === 3 ? arguments[2] : arguments[1]
   const installBlock = document.createElement(name)
-  Object.keys(attrs).forEach(key => {
+  Object.keys(attrs).forEach((key) => {
     installBlock.setAttribute(key, attrs[key])
   })
   append(installBlock, content)
@@ -22,7 +22,7 @@ export function append(parent, content) {
       break
     case 'object':
       if (Array.isArray(content)) {
-        content.forEach(c => {
+        content.forEach((c) => {
           append(parent, c)
         })
         break
@@ -56,12 +56,12 @@ export function tabs(id, items) {
                 'data-toggle': 'tab',
                 'data-platform': item.platforms.join(' '),
                 href: `#v${id}_${i}`,
-                role: 'tab'
+                role: 'tab',
               },
               item.title
             )
           )
-            .click(function(e) {
+            .click(function (e) {
               e.preventDefault()
               const $current = $(this)
               if ($current.hasClass('active')) {
@@ -69,18 +69,18 @@ export function tabs(id, items) {
               }
               $current.tab('show')
             })
-            .on('shown.bs.tab', function() {
+            .on('shown.bs.tab', function () {
               window.localStorage.setItem('DITA-OT_PLATFORM', JSON.stringify(item.platforms))
             })
-            .on('shown.bs.tab', function(e) {
+            .on('shown.bs.tab', function (e) {
               const $current = $(e.target)
               const $currentTabs = $current.parents('.platform-tabs')
               $('.platform-tabs')
                 .not($currentTabs)
-                .each(function() {
+                .each(function () {
                   $(this)
                     .find('.platform-tab')
-                    .filter(function() {
+                    .filter(function () {
                       const ps = getPlatforms($(this))
                       return intersect(item.platforms, ps).length !== 0
                     })
@@ -102,11 +102,11 @@ export function tabs(id, items) {
           {
             class: `tab-pane fade ${item.active ? 'show active' : ''}`,
             id: `v${id}_${i}`,
-            role: 'tabpanel'
+            role: 'tabpanel',
           },
           item.content
         )
       )
-    )
+    ),
   ]
 }
