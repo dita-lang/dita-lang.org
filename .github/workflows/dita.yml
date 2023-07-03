@@ -40,8 +40,10 @@ jobs:
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git remote set-url --push origin https://github.com/jelovirt/dita.git
+          git remote set-url origin https://github.com/jelovirt/dita.git
           git remote -v
+          git fetch
+          
           git add --all
           git commit -m "generated"
           git push -v --force-with-lease origin DITA-2.0:DITA-2.0-generated
