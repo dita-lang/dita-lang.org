@@ -8,7 +8,7 @@
 
   <xsl:strip-space elements="*"/>
 
-  <xsl:output indent="no" doctype-public="-//OASIS//DTD DITA Topic//EN" doctype-system="topic.dtd"/>
+  <xsl:output indent="yes" doctype-public="-//OASIS//DTD DITA Topic//EN" doctype-system="topic.dtd"/>
 
   <xsl:param name="element-prefix" as="xs:string" select="''"/>
   <xsl:param name="schema" as="xs:string"/>
@@ -25,7 +25,7 @@
         <xsl:variable name="simplified" select="x:simplify(.)" as="document-node()"/>
         <xsl:variable name="base" select="tokenize(tokenize($schema, '/')[last()], '\.')[1]"/>
         <xsl:result-document href="{$base}.ditamap" doctype-public="-//OASIS//DTD DITA Map//EN"
-          doctype-system="map.dtd">
+          doctype-system="map.dtd" indent="yes">
           <map>
             <xsl:for-each select="$simplified/grammar/define[ends-with(@name, $element-suffix)]">
               <keydef keys="content-models-{tokenize(@name, '\.')[1]}"
@@ -153,7 +153,7 @@
   <xsl:template match="any">
     <xsl:text>Any</xsl:text>
   </xsl:template>
-  
+
 
   <xsl:template match="element">
     <xref keyref="elements-{@name}"><!-- href="{$element-prefix}{@name}.dita"-->

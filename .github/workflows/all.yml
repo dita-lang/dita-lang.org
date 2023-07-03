@@ -21,6 +21,7 @@ jobs:
           repository: 'oasis-tcs/dita'
           ref: 'DITA-2.0'
           path: dita
+          token: ${{ secrets.UPLOAD_GITHUB_TOKEN }}
       - name: Generate content models
         uses: ./dita-lang/.github/actions/content-model
         with:
@@ -37,6 +38,19 @@ jobs:
           DIR: dita/specification/langRef/content-models
           MAP: dita/specification/langRef/base-elements.ditamap
           SCHEMAS: 'ditaval/ditaval.rng'
+
+      - name: Push source changes
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git remote set-url origin https://github.com/jelovirt/dita.git
+          git fetch
+
+          git add --all
+          git commit -m "Generate content models"
+          git push -v --force-with-lease origin DITA-2.0:DITA-2.0-generated
+        working-directory: dita
+
       - name: Publish DITA
         uses: ./dita-lang/.github/actions/publish
         with:
@@ -51,6 +65,7 @@ jobs:
           ref: 'DITA-2.0'
           path: dita-techcomm
           submodules: recursive
+          token: ${{ secrets.UPLOAD_GITHUB_TOKEN }}
       - name: Generate content models
         uses: ./dita-lang/.github/actions/content-model
         with:
@@ -59,6 +74,19 @@ jobs:
           DIR: dita-techcomm/specification/langRef/content-models
           MAP: dita-techcomm/specification/langRef/technicalContent-elements.ditamap
           SCHEMAS: 'bookmap/bookmap.rng'
+
+      - name: Push source changes
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git remote set-url origin https://github.com/jelovirt/dita-techcomm.git
+          git fetch
+
+          git add --all
+          git commit -m "Generate content models"
+          git push -v --force-with-lease origin DITA-2.0:DITA-2.0-generated
+        working-directory: dita-techcomm
+
       - name: Publish DITA TC
         uses: ./dita-lang/.github/actions/publish
         with:
