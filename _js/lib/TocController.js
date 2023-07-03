@@ -26,13 +26,13 @@ function TocController($toc, index) {
 
     function initializeToc($dummy) {
       let $current
-      const location = URI(window.location.href).href().toLower()
+      const location = URI(window.location.href).href().toLowerCase()
       // https://dita-lang.org/dita/archspec/base/using-relax-ng.html
       $dummy.find('a').each(function () {
         const $a = $(this)
         const abs = URI($a.attr('href')).absoluteTo(index).href()
         $a.attr('href', abs)
-        if (abs.toLower() === location || abs.toLower() === `${location}.html`) {
+        if (abs.toLowerCase() === location || abs.toLowerCase() === `${location}.html`) {
           $current = $a
         }
       })
