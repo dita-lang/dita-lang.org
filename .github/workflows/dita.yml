@@ -42,6 +42,18 @@ jobs:
           DIR: dita
           REPOSITORY: oasis-tcs/dita
 
+      - name: Push source changes
+        run: |
+          git config user.email "ditaotbot@gmail.com"
+          git config user.name "DITA-OT Bot"
+          git remote add fork https://github.com/jelovirt/dita.git
+          git add --all
+          git push -v fork DITA-2.0-generated
+          UPLOAD_GITHUB_TOKEN
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+        working-directory: dita
+
       - name: Push changes
         run: |
           git push -v origin main
