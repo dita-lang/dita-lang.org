@@ -33,7 +33,7 @@ task contentModels(type: SaxonXsltTask) {
 
 task schema(type: SaxonXsltTask) {
   stylesheet file("${projectDir}/_plugin/xsl/schema.xsl")
-  input file("${projectDir}/../dita/doctypes/rng/base/basetopic.rng").toURL()
-  output file("${buildDir}/basetopic.rng").toURL()
+  input file(project.property('input')).toURL()
+  output file(project.property('output') + ".rng").toURL()
   arg '-u'
 }
