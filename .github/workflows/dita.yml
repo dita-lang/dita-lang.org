@@ -18,6 +18,7 @@ jobs:
           repository: 'oasis-tcs/dita'
           ref: 'DITA-2.0'
           path: dita
+          token: ${{ secrets.UPLOAD_GITHUB_TOKEN }}
       - name: Generate content models
         uses: ./dita-lang/.github/actions/content-model
         with:
@@ -37,12 +38,13 @@ jobs:
 
       - name: Push source changes
         run: |
-          git config user.email "jarno@elovirta.com"
-          git config user.name "Jarno Elovirta"
-          git remote add fork https://${{ secrets.UPLOAD_GITHUB_TOKEN }}@github.com/jelovirt/dita.git
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git remote set-url --push origin https://github.com/jelovirt/dita.git
           git remote -v
           git add --all
-          git push -v --force-with-lease fork DITA-2.0:DITA-2.0-generated
+          git commit -m "generated"
+          git push -v --force-with-lease origin DITA-2.0:DITA-2.0-generated
         working-directory: dita
 
       - name: Publish DITA
