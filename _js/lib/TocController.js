@@ -12,10 +12,9 @@ function TocController($toc, index) {
   const $nav = $('nav[role=toc]')
 
   common.initializeMain()
+  addTocControllers()
   if ($toc) {
     loadFullToc()
-  } else {
-    addTocControllers()
   }
 
   $nav.wrapInner(`<div class="toc-wrapper"></div>`)
@@ -31,8 +30,9 @@ function TocController($toc, index) {
       // https://dita-lang.org/dita/archspec/base/using-relax-ng.html
       $dummy.find('a').each(function () {
         const $a = $(this)
-        const abs = URI($a.attr('href')).absoluteTo(index).href().toLower()
-        if (abs === location || abs === location + '.html') {
+        const abs = URI($a.attr('href')).absoluteTo(index).href()
+        $a.attr('href', abs)
+        if (abs.toLower() === location || abs.toLower() === `${location}.html`) {
           $current = $a
         }
       })
