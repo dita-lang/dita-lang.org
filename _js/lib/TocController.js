@@ -12,9 +12,10 @@ function TocController($toc, index) {
   const $nav = $('nav[role=toc]')
 
   common.initializeMain()
-  addTocControllers()
   if ($toc) {
     loadFullToc()
+  } else {
+    addTocControllers()
   }
 
   $nav.wrapInner(`<div class="toc-wrapper"></div>`)
@@ -27,6 +28,7 @@ function TocController($toc, index) {
     function initializeToc($dummy) {
       let $current
       const location = URI(window.location.href).href()
+      console.log(`location ${location}`)
       $dummy.find('a').each(function () {
         const $a = $(this)
         const abs = URI($a.attr('href')).absoluteTo(index).href()
@@ -35,12 +37,14 @@ function TocController($toc, index) {
           $current = $a
         }
       })
+      console.log(`1 current ${$current}`)
       if (!$current || !$current.length) {
         const target = URI(window.location.href)
         if (target.fragment().length > 0) {
           $current = $dummy.find(`a[href="${target.fragment('')}"]:first`)
         }
       }
+      console.log(`2 current ${$current}`)
       if (!$current || !$current.length) {
         if (_.endsWith(window.location.href, '/')) {
           const target = `${window.location.href}index.html`
@@ -50,6 +54,7 @@ function TocController($toc, index) {
           $current = $dummy.find(`a[href="${target}"]:first`)
         }
       }
+      console.log(`final current ${$current}`)
       if ($current) {
         $current.parent('li').addClass('active')
         $dummy.find('li').each(function () {
