@@ -204,7 +204,10 @@
     <ul>
       <xsl:for-each select="*">
         <xsl:sort select="exists(self::text)" order="descending"/>
-        <xsl:sort select="self::element/@name | child::element/@name"/>
+        <xsl:sort select="self::element/@name
+                        | self::optional/child::element/@name
+                        | self::zeroOrMore/child::element/@name
+                        | self::oneOrMore/child::element/@name"/>
         <li>
           <xsl:apply-templates select="." mode="#current"/>
         </li>
