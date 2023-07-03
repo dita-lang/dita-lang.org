@@ -52,7 +52,7 @@ runs:
           name=${i%%.*}
           name=${name##${{ inputs.PREFIX }}}
           echo "$i $name"
-          perl -p -e "s/(<section(?:\s+[\w-]+=[\"'].+?[\"'])*(\s+id=\"attributes\")(?:\s+[\w-]+=[\"'].+?[\"'])*+\s*\/?>)/<section conkeyref=\"content-models-${name}\/${name}.element\" id=\"content-model\"\/>\1/" "$i" > "$i.bak"
+          perl -p -e "s/(<section(?:\s+[\w-]+=[\"'].+?[\"'])*(\s+id=\"attributes\")(?:\s+[\w-]+=[\"'].+?[\"'])*+\s*\/?>)/<section conkeyref=\"content-models-${name}\/${name}.element\" id=\"content-model\"\/>\n\1/" "$i" > "$i.bak"
           mv "$i.bak" "$i"
         done
         cd -
@@ -61,7 +61,7 @@ runs:
         for schema in $(echo "${{ inputs.SCHEMAS }}" | tr ':' '\n'); do
           file="$(basename ${schema})"
           name=${file%%.rng}
-          perl -p -e "s/(<\/map>)/<mapref href='content-models\/${name}.ditamap'\/>\1/" "${{ inputs.MAP }}" > "${{ inputs.MAP }}.bak"
+          perl -p -e "s/(<\/map>)/<mapref href='content-models\/${name}.ditamap'\/>\n\1/" "${{ inputs.MAP }}" > "${{ inputs.MAP }}.bak"
           mv "${{ inputs.MAP }}.bak" "${{ inputs.MAP }}"
         done
         #git status
