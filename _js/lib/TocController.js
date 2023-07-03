@@ -27,31 +27,21 @@ function TocController($toc, index) {
 
     function initializeToc($dummy) {
       let $current
-      const location = URI(window.location.href).href()
-      console.log(`location ${location}`)
+      const location = URI(window.location.href).href().toLower()
       // https://dita-lang.org/dita/archspec/base/using-relax-ng.html
       $dummy.find('a').each(function () {
         const $a = $(this)
-        const abs = URI($a.attr('href')).absoluteTo(index).href()
-        console.log({
-          old: $a.attr('href'),
-          abs: { value: abs, type: typeof abs },
-          location: { value: location, type: typeof location }
-        })
-        $a.attr('href', abs)
+        const abs = URI($a.attr('href')).absoluteTo(index).href().toLower()
         if (abs === location || abs === location + '.html') {
-          console.log('    Found')
           $current = $a
         }
       })
-      console.log(`1 current ${$current}`)
       if (!$current || !$current.length) {
         const target = URI(window.location.href)
         if (target.fragment().length > 0) {
           $current = $dummy.find(`a[href="${target.fragment('')}"]:first`)
         }
       }
-      console.log(`2 current ${$current}`)
       if (!$current || !$current.length) {
         if (_.endsWith(window.location.href, '/')) {
           const target = `${window.location.href}index.html`
@@ -61,7 +51,6 @@ function TocController($toc, index) {
           $current = $dummy.find(`a[href="${target}"]:first`)
         }
       }
-      console.log(`final current ${$current}`)
       if ($current) {
         $current.parent('li').addClass('active')
         $dummy.find('li').each(function () {
