@@ -29,11 +29,18 @@ function TocController($toc, index) {
       let $current
       const location = URI(window.location.href).href()
       console.log(`location ${location}`)
+      // https://dita-lang.org/dita/archspec/base/using-relax-ng.html
       $dummy.find('a').each(function () {
         const $a = $(this)
         const abs = URI($a.attr('href')).absoluteTo(index).href()
+        console.log({
+          old: $a.attr('href'),
+          abs: { value: abs, type: typeof abs },
+          location: { value: location, type: typeof location }
+        })
         $a.attr('href', abs)
         if (abs === location || abs === location + '.html') {
+          console.log('    Found')
           $current = $a
         }
       })
