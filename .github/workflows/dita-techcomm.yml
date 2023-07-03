@@ -18,6 +18,14 @@ jobs:
           ref: 'DITA-2.0'
           path: dita-techcomm
           submodules: recursive
+      - name: Generate content models
+        uses: ./dita-lang/.github/actions/content-model
+        with:
+          INPUT: dita-techcomm/doctypes/rng
+          OUTPUT: dita-techcomm/specification/langRef/technicalContent
+          DIR: dita-techcomm/specification/langRef/content-models
+          MAP: dita-techcomm/specification/langRef/technicalContent-elements.ditamap
+          SCHEMAS: 'bookmap/bookmap.rng'
       - name: Publish DITA TC
         uses: ./dita-lang/.github/actions/publish
         with:

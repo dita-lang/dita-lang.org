@@ -50,7 +50,8 @@
             not(
             exists($elem/self::group/parent::element)
             )
-          },
+          }
+          (:,
           function ($elem) {
             not(
             exists($elem/self::group[count(*) eq 1 and exists(element)])
@@ -60,7 +61,9 @@
             not(
             exists($elem/self::optional/parent::optional)
             )
-          })"/>
+          }
+          :)
+          )"/>
       <xsl:sequence select="x:chain($cleaned/*, ($simplify-functions, $simplify-functions))"/>
     </xsl:document>
   </xsl:function>
