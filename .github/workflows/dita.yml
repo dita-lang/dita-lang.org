@@ -34,6 +34,17 @@ jobs:
           DIR: dita/specification/langRef/content-models
           MAP: dita/specification/langRef/base-elements.ditamap
           SCHEMAS: 'ditaval/ditaval.rng'
+
+      - name: Push source changes
+        run: |
+          git config user.email "jarno@elovirta.com"
+          git config user.name "Jarno Elovirta"
+          git remote add fork https://${{ secrets.UPLOAD_GITHUB_TOKEN }}@github.com/jelovirt/dita.git
+          git remote -v
+          git add --all
+          git push -v --force-with-lease fork DITA-2.0:DITA-2.0-generated
+        working-directory: dita
+
       - name: Publish DITA
         uses: ./dita-lang/.github/actions/publish
         with:
@@ -41,15 +52,6 @@ jobs:
           FILTER: dita/specification/resources/DITA2.0-spec.ditaval
           DIR: dita
           REPOSITORY: oasis-tcs/dita
-
-      - name: Push source changes
-        run: |
-          git config user.email "ditaotbot@gmail.com"
-          git config user.name "DITA-OT Bot"
-          git remote add fork https://${{ secrets.UPLOAD_GITHUB_TOKEN }}@github.com/jelovirt/dita.git
-          git add --all
-          git push -v --force-with-lease fork DITA-2.0:DITA-2.0-generated
-        working-directory: dita
 
       - name: Push changes
         run: |
