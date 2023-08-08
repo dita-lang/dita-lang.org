@@ -5,12 +5,12 @@ title: 'glossUsage'
 description: 'The glossUsage element provides information about the correct use of a term, such as where or how it can be used.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '96bfd949fbdacb0a86db5962aa32a719817ac894'
+commit: '47388835f12d54dcc6c417a4f70c96c5b2b73dc6'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
 
-<nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/specIntroTechnicalContent.html">Introduction</a></li><li><a href="../../archSpec/technicalContent/dita-technicalContent-InformationTypes.html">Topic and map document types</a></li><li><a href="../../langRef/langRef-technicalContent.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../baseSpec/specification/langRef/attributes/attributes.html">Attributes</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../revision-history/revision-history.html">Revision history</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
+<nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/specIntroTechnicalContent.html">Introduction</a></li><li><a href="../../archSpec/technicalContent/dita-technicalContent-InformationTypes.html">Topic and map document types</a></li><li><a href="../../archSpec/technicalContent/glossary-entry-topics-and-terminology-management.html">Glossary entry topics and terminology management</a></li><li><a href="../../langRef/langRef-technicalContent.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../baseSpec/specification/langRef/attributes/attributes.html">Attributes</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../revision-history/revision-history.html">Revision history</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
   <h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;glossUsage&gt;</code></h1>
   
   
@@ -61,7 +61,24 @@ classes: ''
         </section>
     <div class="example non-normative" id="glossUsage__example"><h2 class="title sectiontitle">Example</h2>
       
-      <p class="p">See the example in <a class="xref" href="glossentry.html#glossentry__example"><code class="keyword markupname xmlelement">&lt;glossentry&gt;</code>.</a></p>
+      <p class="p">The following code sample shows how the
+          <code class="keyword markupname xmlelement">&lt;glossUsage&gt;</code> element is used to provide
+        additional information about possible variants for the term "USB
+        flash drive":</p>
+      <pre class="pre codeblock"><code>&lt;glossentry id="usbfd"&gt;
+  &lt;glossterm&gt;USB flash drive&lt;/glossterm&gt;
+  &lt;glossdef&gt;A small portable drive.&lt;/glossdef&gt;
+  &lt;glossBody&gt;
+    &lt;glossPartOfSpeech value="noun"/&gt;
+    <strong class="ph b">&lt;glossUsage&gt;Do not use upper case (as in "USB Flash Drive")
+      because that suggests a trademark.&lt;/glossUsage&gt;</strong>
+    &lt;glossAlt&gt;
+      &lt;glossAbbreviation&gt;flash&lt;/glossAbbreviation&gt;
+      &lt;glossStatus value="prohibited"/&gt;
+      <strong class="ph b">&lt;glossUsage&gt;This short form is ambiguous.&lt;/glossUsage&gt;</strong>
+    &lt;/glossAlt&gt;
+  &lt;/glossBody&gt;
+&lt;/glossentry&gt;</code></pre>
     </div>
   </div>
-<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/glossentry-elements.html" title="Use the glossary entry topic type to define glossary terms. Each glossentry topic should define a single sense of a term.">Glossentry elements</a></div></div></nav></article></main>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/glossentry-elements.html" title="The glossary entry specialization contains markup that supports terminological information. In addition to recording information for glossaries, it can be used for other purposes such as inclusion in a terminology database, extraction for pre-translation, reuse in controlled authoring applications, and recording information that may be later retrieved for other lexical resources.">Glossary entry elements</a></div></div></nav></article></main>
