@@ -5,7 +5,7 @@ title: 'Cascading of roles from map to map'
 description: 'When specialized topicref elements, such as chapter or mapref, reference a map, they typically imply a semantic role for the referenced content.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '1dfa1822aeebe83ed43664fd070003fc327678bc'
+commit: '24f98d8ec1034baaad3f6c93146ea8c8ef2564f3'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -55,17 +55,14 @@ classes: ''
       processed as if they are <code class="keyword markupname xmlelement">&lt;mapref&gt;</code> elements. The <code class="keyword markupname xmlatt">@class</code>
       attribute from the <code class="keyword markupname xmlelement">&lt;mapref&gt;</code> element (<code class="ph codeph">"+ map/topicref
         mapgroup-d/mapref "</code>) does not cascade to the referenced map.</p>
-  <p class="p">In some cases, preserving the role of the referencing element might
-      result in out-of-context content. For example, a
-        <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> element that references a bookmap
-      might pull in <code class="keyword markupname xmlelement">&lt;part&gt;</code> elements that contain
-      nested <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> elements. Treating the
-        <code class="keyword markupname xmlelement">&lt;part&gt;</code> element as a
-        <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> will result in a chapter that
-      nests other chapters, which is not valid in bookmap and might not be
-      understandable by processors. The result is implementation
-        specific<span style="color:red;" class="ph">. P</span>rocessors <dfn class="term RFC-2119">MAY</dfn> choose to treat this as an error,
-      issue a warning, or simply assign new roles to the problematic
-      elements.</p>
+  <p class="p errorcondition">In some cases, preserving the role of the referencing element
+      might result in out-of-context content. For example, a <code class="keyword markupname xmlelement">&lt;chapter&gt;</code>
+      element that references a bookmap might pull in <code class="keyword markupname xmlelement">&lt;part&gt;</code> elements that
+      contain nested <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> elements. Treating the
+        <code class="keyword markupname xmlelement">&lt;part&gt;</code> element as a <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> will result in a
+      chapter that nests other chapters, which is not valid in bookmap and might not be
+      understandable by processors. The result is implementation specific<span style="color:red;" class="ph">.
+      P</span>rocessors <dfn class="term RFC-2119">MAY</dfn> choose to treat this as an error,
+      issue a warning, or simply assign new roles to the problematic elements.</p>
  </div>
 </article></main>

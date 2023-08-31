@@ -5,7 +5,7 @@ title: 'Imposing roles when referencing a map'
 description: 'When specialized topicref elements reference a map, they might imply a semantic role for the referenced content. The impose-role attribute provides a mechanism to declare that such references impose their original role on referenced content.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '29c22f16da481d9858f629920e8ce2dcfa7e9fa1'
+commit: '24f98d8ec1034baaad3f6c93146ea8c8ef2564f3'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -70,15 +70,16 @@ classes: ''
       simplify references to other maps. It does not force the content in other maps to be treated
       as <code class="keyword markupname xmlelement">&lt;mapref&gt;</code> - no special role is created for the referenced content.
       For this reason, it is defined in the grammar file with a fixed value of <span class="keyword">keeptarget</span>.</p>
-  <p class="p">In some cases, preserving the role of a referencing element might result in out-of-context
-      content. For example, a <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> element in one bookmap could pull in
-      a <code class="keyword markupname xmlelement">&lt;part&gt;</code> element from another bookmap, where that referenced
-        <code class="keyword markupname xmlelement">&lt;part&gt;</code> also contains nested <code class="keyword markupname xmlelement">&lt;chapter&gt;</code>
-      elements. Treating the <code class="keyword markupname xmlelement">&lt;part&gt;</code> element as a
-        <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> will result in a chapter that nests other chapters, which
-      is not valid in bookmap and might not be understandable by processors. The result is
-      implementation specific. <span class="error-statement" id="cascading-of-roles-in-specialized-maps__d3552t178" data-id="DITAERR-0010"></span>Processors <dfn class="term RFC-2119">MAY</dfn> choose to treat
-      this as an error, issue a warning, or simply assign new roles to the problematic elements.</p>
+  <p class="p errorcondition">In some cases, preserving the role of a referencing element might
+      result in out-of-context content. For example, a <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> element in
+      one bookmap could pull in a <code class="keyword markupname xmlelement">&lt;part&gt;</code> element from another bookmap, where
+      that referenced <code class="keyword markupname xmlelement">&lt;part&gt;</code> also contains nested
+        <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> elements. Treating the <code class="keyword markupname xmlelement">&lt;part&gt;</code>
+      element as a <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> will result in a chapter that nests other
+      chapters, which is not valid in bookmap and might not be understandable by processors. The
+      result is implementation specific. <span class="error-statement" id="cascading-of-roles-in-specialized-maps__d3552t178" data-id="DITAERR-0010"></span>Processors <dfn class="term RFC-2119">MAY</dfn> choose
+      to treat this as an error, issue a warning, or simply assign new roles to the problematic
+      elements.</p>
     <div class="example non-normative"><h2 class="title sectiontitle">Defining a fixed role for a specialized element</h2>
       
       <p class="p">In the Bookmap specialization from the OASIS DITA Technical Communications specializations,
