@@ -5,7 +5,7 @@ title: 'object'
 description: 'The DITA object element corresponds to the HTML object element, and the attribute semantics derive from the HTML definitions. Because of this, the type attribute on object differs from the type attribute on many other DITA elements.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '255272a40678be39bbbd54787b75718aba980b69'
+commit: 'ac0ac58f12e6ef7db73aa5f0ca77a549e70e5eea'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -28,7 +28,20 @@ classes: ''
         </section>
         <section class="section" id="object__rendering-expectations"><h2 class="title sectiontitle">Rendering expectations</h2>
             
-            <p class="p"></p>
+            <div class="p">Processors <dfn class="term RFC-2119">SHOULD</dfn> scale the object when values
+        are provided for the <code class="keyword markupname xmlatt">@height</code> and
+          <code class="keyword markupname xmlatt">@width</code> attributes. The following expectations apply:<ul class="ul">
+          <li class="li">If a height value is specified and no width value is
+            specified, processors <dfn class="term RFC-2119">SHOULD</dfn> scale the width by the same factor as the
+            height.</li>
+          <li class="li">If a width value is specified and no height value is
+            specified, processors <dfn class="term RFC-2119">SHOULD</dfn> scale the height by the same factor as the
+            width.</li>
+          <li class="li">If both a height value and width value are specified,
+            implementations <dfn class="term RFC-2119">MAY</dfn> ignore
+            one of the two values when they are unable to scale to each
+            direction using different factors.</li>
+        </ul></div>
             <p class="p">When an object cannot be rendered in a meaningful way, processors <dfn class="term RFC-2119">SHOULD</dfn> present the contents of the
                     <code class="keyword markupname xmlelement">&lt;fallback&gt;</code> element, if it is present.</p>
         </section>

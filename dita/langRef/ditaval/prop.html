@@ -5,7 +5,7 @@ title: 'prop'
 description: 'The prop element in a DITAVAL document specifies filtering or flagging actions that occur when rendering. The actions target the props attribute or specializations of props, including audience, deliveryTarget, otherprops, platform, and product.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '24f98d8ec1034baaad3f6c93146ea8c8ef2564f3'
+commit: 'ac0ac58f12e6ef7db73aa5f0ca77a549e70e5eea'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -51,11 +51,37 @@ classes: ''
     </section>
     <section class="section" id="ditaval-prop__rendering-expectations"><h2 class="title sectiontitle">Rendering expectations</h2>
       
-      <div class="div"></div>
+      <div class="div">
+                <div class="p" id="ditaval-prop__color-backcolor-style">For the
+            <code class="keyword markupname xmlatt">@color</code> and <code class="keyword markupname xmlatt">@backcolor</code>
+          attributes on <code style="color:red;" class="keyword markupname xmlelement">&lt;prop&gt;</code> and
+            <code class="keyword markupname xmlelement">&lt;revprop&gt;</code>, processors <dfn class="term RFC-2119">SHOULD</dfn> support <span style="color:red;" class="ph">at least</span> the following values:<ul class="ul">
+            <li class="li">The color names listed under the heading "&lt;color&gt;" in
+                <a class="xref" href="http://www.w3.org/TR/2006/REC-xsl11-20061205/#datatype" target="_blank" rel="external noopener">the XSL version 1.1
+              specification</a></li>
+            <li class="li">The associated hex
+              code</li>
+          </ul></div>
+                <div class="p" id="ditaval-prop__style-attr">For the <code class="keyword markupname xmlatt">@style</code> attribute
+          on <code class="keyword markupname xmlelement">&lt;rev&gt;</code> and
+            <code class="keyword markupname xmlelement">&lt;revprop&gt;</code>, processors <dfn class="term RFC-2119">SHOULD</dfn> support the following tokens:<ul class="ul">
+            <li class="li">bold</li>
+            <li class="li">double-underline</li>
+            <li class="li">italics</li>
+            <li class="li">overline</li>
+            <li class="li">underline</li>
+          </ul></div>
+                <p class="p" id="ditaval-prop__other-tokens-style">In addition, processors <dfn class="term RFC-2119">MAY</dfn> support proprietary tokens
+          for the <code class="keyword markupname xmlatt">@style</code> attribute. Such tokens <dfn class="term RFC-2119">SHOULD</dfn> have a processor-specific
+          prefix to identify them as proprietary. If a processor encounters
+          an unsupported style token, it <dfn class="term RFC-2119">MAY</dfn> issue a warning, and it <dfn class="term RFC-2119">MAY</dfn> render content that is
+          flagged with such a style token by using some default
+          formatting.</p>
+            </div>
     </section>
     <section class="section" id="ditaval-prop__processing-expectations"><h2 class="title sectiontitle">Processing expectations</h2>
       
-      <div class="p errorcondition"><span class="error-statement" id="ditaval-prop__d3456e167" data-id="DITAERR-0270"></span>The following markup in a DITAVAL document is an error condition:<ul class="ul">
+      <div class="p errorcondition"><span class="error-statement" id="ditaval-prop__d3457e258" data-id="DITAERR-0270"></span>The following markup in a DITAVAL document is an error condition:<ul class="ul">
           <li class="li">More than one <code class="keyword markupname xmlelement">&lt;prop&gt;</code> element with no <code class="keyword markupname xmlatt">@att</code>
             attribute</li>
           <li class="li">More than one <code class="keyword markupname xmlelement">&lt;prop&gt;</code> element with the same <code class="keyword markupname xmlatt">@att</code>
