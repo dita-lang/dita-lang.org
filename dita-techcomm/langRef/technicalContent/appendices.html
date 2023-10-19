@@ -5,7 +5,7 @@ title: 'appendices'
 description: 'The appendices element is an optional container for appendix elements.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '46359a39a58bcd1e4d14d69621b16d60c279bbd1'
+commit: '394916a0fa9c3e376f2eaa4ae62177a384ae1432'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -47,13 +47,33 @@ classes: ''
                                 </div></section>
     <div class="example non-normative" id="appendices__example"><h2 class="title sectiontitle">Example</h2>
       <p class="p">The following code sample shows how the <code class="keyword markupname xmlelement">&lt;appendices&gt;</code> element
-        functions as a container to hold several appendix topics for an HTML publication:</p><pre class="pre codeblock"><code>&lt;appendices toc="yes" deliveryTarget="html"&gt;
-  &lt;topicmeta&gt;
-    &lt;navtitle&gt;Appendices&lt;/navtitle&gt;
-  &lt;/topicmeta&gt;
-  &lt;appendix href="return-codes.dita"/&gt;
-  &lt;appendix href="messages.dita"/&gt;
-  &lt;appendix href="extra-info.dita"/&gt;
-&lt;/appendices&gt;</code></pre></div>
+        functions as a container to hold several appendix topics for an HTML publication:</p><pre style="color:red;" class="pre codeblock"><code>&lt;bookmap&gt;
+  &lt;booktitle&gt;
+    &lt;mainbooktitle&gt;About operating the widget&lt;/mainbooktitle&gt;
+  &lt;/booktitle&gt;
+  &lt;frontmatter&gt;
+    &lt;!-- TOC, preface, and other front matter --&gt;
+  &lt;/frontmatter&gt;
+  &lt;part href="introduction.dita"&gt;
+    &lt;!-- Part with introductory material about the widget --&gt;
+  &lt;/part&gt;
+  &lt;part href="using.dita"&gt;
+    &lt;!-- Part about using the widget --&gt;
+  &lt;/part&gt;
+  &lt;part href="troubleshooting.dita"&gt;
+    &lt;!-- Troubleshooting information --&gt;
+  &lt;/part&gt;
+  &lt;appendices toc="yes"&gt;
+    &lt;topicmeta&gt;
+      &lt;navtitle&gt;Appendices&lt;/navtitle&gt;
+    &lt;/topicmeta&gt;
+    &lt;appendix href="return-codes.dita"/&gt;
+    &lt;appendix href="messages.dita"/&gt;
+    &lt;appendix href="extra-info.dita"/&gt;
+  &lt;/appendices&gt;
+  &lt;backmatter&gt;
+    &lt;booklists&gt;&lt;indexlist/&gt;&lt;/booklists&gt;
+  &lt;/backmatter&gt;
+&lt;/bookmap&gt;</code></pre></div>
   </div>
-<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/bookmap-content-elements.html" title="The bookmap specialization of map supports standard book production for collections of DITA topics.">Bookmap content elements</a></div></div></nav></article></main>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/bookmap-content-elements.html" title="The bookmap specialization of map supports standard book production for collections of DITA topics.">Book map content elements</a></div></div></nav></article></main>

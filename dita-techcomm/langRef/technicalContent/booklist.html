@@ -2,10 +2,10 @@
 # Generated from DITA source
 layout: base
 title: 'booklist'
-description: 'A booklist indicates a list of items within the book.'
+description: 'The booklist element either references a topic that contains a list of items in the book, or it indicates to a processor that a list of items should be generated at this location in the book. This is a general purpose element designed for use in specializations.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '46359a39a58bcd1e4d14d69621b16d60c279bbd1'
+commit: '394916a0fa9c3e376f2eaa4ae62177a384ae1432'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -14,16 +14,28 @@ classes: ''
     <h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;booklist&gt;</code></h1>
     
     
-    <div class="body refbody"><p class="shortdesc">A <code class="keyword markupname xmlelement">&lt;booklist&gt;</code> indicates a list of items within the
-        book.</p>
+    <div class="body refbody"><p class="shortdesc"><span style="color:red;" class="ph">The <code class="keyword markupname xmlelement">&lt;booklist&gt;</code> element either references a
+            topic that contains a list of items in the book, or it indicates to a processor that a
+            list of items should be generated at this location in the book. This is a general
+            purpose element designed for use in specializations.</span></p>
         <section class="section" id="booklist__usage-information"><h2 class="title sectiontitle">Usage information</h2>
             
-            <p class="p">The <code class="keyword markupname xmlelement">&lt;booklist&gt;</code> element is a general purpose element, designed
-                for use in specializations, that references a topic or map containing a list of
-                items within the book. For example, it could be used to reference a topic that
-                contains a list of authors for the book. When a more specific element is already
-                available, such as <code class="keyword markupname xmlelement">&lt;tablelist&gt;</code> for a list of tables, use that
-                element instead.</p>
+            <p style="color:red;" class="p">The <code class="keyword markupname xmlelement">&lt;booklist&gt;</code> element is a general purpose
+                element that references a topic or map containing a list of items within the book.
+                For example, it could be used to reference a topic that contains a list of authors
+                for the book. When a more specific element is already available, such as
+                    <code class="keyword markupname xmlelement">&lt;tablelist&gt;</code> for a list of tables, use that element
+                instead. If the element does not reference a topic or map, a processor might be able
+                to generate a list of items based on an <code class="keyword markupname xmlatt">@outputclass</code> or based on
+                specialization ancestry.</p>
+        </section>
+        <section style="color:red;" class="section" id="booklist__processing-expectations"><h2 class="title sectiontitle">Processing expectations</h2>
+            
+            <p class="p">When the element does not reference a topic or map, a processor might generate a list
+                of items at the specified location in the map. Because this is a general purpose
+                element, the type of list would need to be specified for the processor; for example,
+                it could be provided using <code class="keyword markupname xmlatt">@outputclass</code> or by further specializing
+                the element.</p>
         </section>
         <section class="section" id="booklist__specialization-hierarchy"><h2 class="title sectiontitle">Specialization hierarchy</h2>
             <p class="p">The <code class="keyword markupname xmlelement">&lt;booklist&gt;</code> element is specialized from
@@ -38,23 +50,18 @@ classes: ''
                                                 <span class="ph"><a class="xref" href="../../common/../baseSpec/specification/common/../langRef/attributes/commonAttributes.html#common-atts__commonmapatts" title="Common map attributes include: cascade, chunk, collection-type, keyscope, linking, processing-role, search, and toc">common map attributes</a></span>, <span class="ph"><a class="xref" href="../../common/../baseSpec/specification/common/../langRef/attributes/commonAttributes.html#common-atts__linkatts" title="Link relationship attributes include: format, href, type, and scope">link-relationship attributes</a></span>, <span class="ph"><a class="xref" href="../../common/../baseSpec/specification/common/../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
                                                   attributes</a></span>,
                                         and <a class="xref" href="../../common/../baseSpec/specification/langRef/attributes/commonAttributes.html#common-atts__attr-keyref"><code class="keyword markupname xmlatt">@keyref</code></a>.</p>
-                                <p class="p attr-exception" id="booklist__attr-exception-booklist">For this element, the
-                                                <code class="keyword markupname xmlatt">@href</code> attribute references a manual
-                                        listing for the current element. If the
-                                                <code class="keyword markupname xmlatt">@href</code> attribute is not specified,
-                                        processors can choose to generate an appropriate listing for
-                                        this element.
+                                <p style="color:red;" class="p attr-exception" id="booklist__attr-exception-booklist">For this element, the <code class="keyword markupname xmlatt">@href</code>
+                                        or <code class="keyword markupname xmlatt">@keyref</code> attribute references a manual
+                                        listing for the current element. If the element does not
+                                        reference a topic or map, processors can choose to generate
+                                        an appropriate listing for this element.
                                         </p>
                                 </div></section>
         <div class="example non-normative" id="booklist__example"><h2 class="title sectiontitle">Example</h2><p class="p">The following code sample shows how to use <code class="keyword markupname xmlelement">&lt;booklist&gt;</code> to reference a topic
                 that contains a list of authors of topics in this document:</p><pre class="pre codeblock"><code>&lt;booklists&gt;
   &lt;toc/&gt;
   &lt;tablelist/&gt;
-  <strong class="ph b">&lt;booklist href="authors.dita"&gt;</strong>
-    &lt;topicmeta&gt;
-      &lt;navtitle&gt;List of authors&lt;/navtitle&gt;
-    &lt;/topicmeta&gt;
-  <strong class="ph b">&lt;/booklist&gt;</strong>
+  <strong class="ph b">&lt;booklist href="authors.dita"/&gt;</strong>
 &lt;/booklists&gt;</code></pre></div>
     </div>
-<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/bookmap-content-elements.html" title="The bookmap specialization of map supports standard book production for collections of DITA topics.">Bookmap content elements</a></div></div></nav></article></main>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/bookmap-content-elements.html" title="The bookmap specialization of map supports standard book production for collections of DITA topics.">Book map content elements</a></div></div></nav></article></main>
