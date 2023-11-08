@@ -2,10 +2,10 @@
 # Generated from DITA source
 layout: base
 title: 'Glossary group'
-description: 'Glossary group topics are designed to enable authors to author and edit glossary entries in a single file, rather than working with many single glossary entry topics.'
+description: 'Glossary group topics enable the authoring of glossary entries in a single topic document, rather than working with many individual glossary entry topic documents.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '394916a0fa9c3e376f2eaa4ae62177a384ae1432'
+commit: '4975b135d9aacaf2a408317104cc47bf673e6610'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -14,26 +14,67 @@ classes: ''
   <h1 class="title topictitle1" id="ariaid-title1">Glossary group</h1>
   
   <div class="body conbody"><div class="abstract">
-     <span class="shortdesc">Glossary group topics are designed to enable authors to
-      author and edit glossary entries in a single file, rather than
-      working with many single glossary entry topics.</span>
+     <span class="shortdesc">Glossary group topics enable the authoring of glossary entries in a single topic
+      document, rather than working with many individual glossary entry topic documents.</span>
     
   </div>
     <section class="section" id="glossary-group-topic__purpose"><h2 class="title sectiontitle">Purpose</h2>
       
-      <p class="p">The glossary group topic has the following purposes:</p>
-      <ul class="ul">
-        <li class="li"></li>
-      </ul>
+      <p class="p">The glossary group topic type is primarily an authoring convenience where it is useful to
+        author and manage multiple glossary entries in a single file.</p>
+      <div class="p">Note that it is possible to create separate topicrefs, such as
+        <code class="keyword markupname xmlelement">&lt;glossref&gt;</code>, for individual glossary entry topics within a glossary
+        group topic, for example:<pre class="pre codeblock" id="glossary-group-topic__codeblock_dyt_3bx_czb"><code>&lt;map&gt;
+  ...
+  &lt;topicref keys="glossary" href="glossary/glossary-group.dita"&gt;
+    <strong class="ph b">&lt;glossref keys="term-01" href="glossary/glossary-group.dita#term-01"/&gt;</strong>
+    &lt;glossref keys="term-02" href="glossary/glossary-group.dita#term-02"/&gt;
+    ...
+    &lt;glossref keys="term-99" href="glossary/glossary-group.dita#term-99"/&gt;
+  &lt;/topicref&gt;
+&lt;/map&gt;</code></pre></div>
     </section>
     <section class="section" id="glossary-group-topic__content-model"><h2 class="title sectiontitle">Content model</h2>
       
-      <p class="p"></p>
+      <p class="p">A glossary group topic has a required title, an optional prolog, and zero or more
+        <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code> or <code class="keyword markupname xmlelement">&lt;glossgroup&gt;</code> elements.</p>
     </section>
     <div class="example non-normative"><h2 class="title sectiontitle">Example</h2>
       
-      <p class="p">The following code sample shows a glossary group topic:</p>
-      <pre class="pre codeblock"><code></code></pre>
+      <p class="p">The following code sample shows a glossary group topic with multiple nested glossary
+        groups, one for each English letter group.</p>
+      <pre class="pre codeblock"><code><strong class="ph b">&lt;glossgroup id="glossgroup" xml:lang="en-US"&gt;</strong>
+  &lt;title&gt;Glossary&lt;/title&gt;
+  <strong class="ph b">&lt;glossgroup id="glossgroup-a"&gt;</strong>
+    &lt;title&gt;A&lt;/title&gt;
+    &lt;glossentry id="apple-fruit"&gt;
+      &lt;glossterm&gt;apple&lt;/glossterm&gt;
+      &lt;glossdef&gt;A round, edible fruit produced by an apple tree (Malus domestica).&lt;/glossdef&gt;
+    &lt;/glossentry&gt;
+    &lt;glossentry id="apple-corp"&gt;
+      &lt;glossterm&gt;Apple Inc.&lt;/glossterm&gt;
+      &lt;glossdef&gt;An American multinational technology company headquartered in Cupertino, California.&lt;/glossdef&gt;
+      &lt;glossBody&gt;
+        &lt;glossAlt&gt;
+          &lt;glossAbbreviation&gt;APPL&lt;/glossAbbreviation&gt;
+        &lt;/glossAlt&gt;
+      &lt;/glossBody&gt;
+    &lt;/glossentry&gt;
+  <strong class="ph b">&lt;/glossgroup&gt;</strong>
+  ... (groups B to Y here ) ...
+  <strong class="ph b">&lt;glossgroup id="glossgroup-z"&gt;</strong>
+    &lt;title&gt;Z&lt;/title&gt;
+    &lt;glossentry id="ziziphus-fruit"&gt;
+      &lt;glossterm&gt;ziziphus&lt;/glossterm&gt;
+      &lt;glossdef&gt;The edible drupe of ziziphus shrubs (Ziziphus jujuba).&lt;/glossdef&gt;
+      &lt;glossBody&gt;
+        &lt;glossAlt&gt;
+          &lt;glossSynonym&gt;jujube&lt;/glossSynonym&gt;
+        &lt;/glossAlt&gt;
+      &lt;/glossBody&gt;
+    &lt;/glossentry&gt;
+  <strong class="ph b">&lt;/glossgroup&gt;</strong>
+<strong class="ph b">&lt;/glossgroup&gt;</strong></code></pre>
     </div>
   </div>
 <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/technicalContent/dita-technicalContent-InformationTypes.html" title="The Technical Content package contains various document types: concept, glossary entry, glossary group, reference, general task, strict task, and troubleshooting. The package also includes the book map document type.">Topic and map document types</a></div></div></nav></article></main>

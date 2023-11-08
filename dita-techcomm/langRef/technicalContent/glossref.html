@@ -2,10 +2,10 @@
 # Generated from DITA source
 layout: base
 title: 'glossref'
-description: 'The glossref element is a convenience element in maps for creating a reference to a glossary topic. It has a required keys attribute, which forces the author to create a key by which inline terms can reference their definition. For example, when glossentry topics are used to define acronyms, this reminds authors to create a key which abbreviated-form elements can use to reference the short and expanded versions of that acronym.'
+description: 'Glossary reference topic references are a convenience element for creating references to glossary topics. It has a required keys attribute, which forces the author to create a key by which inline terms can reflect the glossary terms and become navigable links to the glossary definition. For example, when glossentry topics are used to define acronyms, this reminds authors to create a key that abbreviated-form elements can use to refer to the short and expanded versions of the acronyms.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '47388835f12d54dcc6c417a4f70c96c5b2b73dc6'
+commit: '4975b135d9aacaf2a408317104cc47bf673e6610'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -14,18 +14,19 @@ classes: ''
 <h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;glossref&gt;</code></h1>
 
 
-<div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;glossref&gt;</code> element is a convenience element in maps for
-creating a reference to a glossary topic. It has a required <code class="keyword markupname xmlatt">@keys</code> attribute, which
-forces the author to create a key by which inline terms can reference their definition. For example,
-when <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code> topics are used to define acronyms, this reminds authors to
-create a key which <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code> elements can use to reference the short
-and expanded versions of that acronym.</p>
-    <section class="section" id="glossref__usage-information"><h2 class="title sectiontitle">Usage information</h2>Note that the key value does not
-      need to match the target term or acronym. In fact, using a more qualified value for the
-        <code class="keyword markupname xmlatt">@keyref</code> will reduce conflicts in situations where the same term or acronym
-        <span class="ph">might</span> resolve in many ways. For example, an information set could use
-        <q class="q">cars.abs</q> as the key for the term Anti-lock Braking System, and <q class="q">ship.abs</q> to
-      refer to the term American Bureau of Shipping.</section>
+<div class="body refbody"><p class="shortdesc">Glossary reference topic references are a convenience element for creating references to
+    glossary topics. It has a required <code class="keyword markupname xmlatt">@keys</code> attribute, which forces the author to
+    create a key by which inline terms can reflect the glossary terms and become navigable links to
+    the glossary definition. For example, when <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code> topics are used
+    to define acronyms, this reminds authors to create a key that
+    <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code> elements can use to refer to the short and expanded
+    versions of the acronyms.</p>
+    <section class="section" id="glossref__usage-information"><h2 class="title sectiontitle">Usage information</h2>Note that the key names defined
+      in the <code class="keyword markupname xmlatt">@keys</code> attribute do not need to match the target term or acronym. Using
+      more qualified values or distinct key scopes for the keys will reduce conflicts in situations
+      where the same key name might be associated with different terms. For example, an information
+      set could use <q class="q">cars.abs</q> as the key for the term Anti-lock Braking System, and
+      <q class="q">ship.abs</q> to refer to the term American Bureau of Shipping.</section>
     <section class="section" id="glossref__specialization-hierarchy"><h2 class="title sectiontitle">Specialization hierarchy</h2>
       
       <p class="p">The <code class="keyword markupname xmlelement">&lt;glossref&gt;</code> element is specialized from
@@ -46,17 +47,30 @@ and expanded versions of that acronym.</p>
           <li class="li">The <code class="keyword markupname xmlatt">@linking</code> attribute has a default value of
             <span class="keyword">none</span>.</li>
           <li class="li">The <code class="keyword markupname xmlatt">@toc</code> attribute has a default value of <span class="keyword">no</span>.</li>
+        <li class="li">The <code class="keyword markupname xmlatt">@search</code> attribute has a default value of <span class="keyword">no</span>.</li>
         </ul></div>
     </section>
     <div class="example non-normative" id="glossref__example"><h2 class="title sectiontitle">Example</h2>
       
+      <p class="p">The following code sample demonstrates using a <code class="keyword markupname xmlelement">&lt;glossref&gt;</code> element to
+        include a car-specific glossary entry in the map. The glossary reference has the key "abs".
+        The <code class="keyword markupname xmlelement">&lt;glossref&gt;</code> element is within the key scope "cars", so references
+        to this glossary entry from outside the "cars" key scope will be of the form
+        <code class="ph codeph">&lt;keyword keyref="cars.abs"/&gt;</code>.</p>
       <pre class="pre codeblock"><code>&lt;map&gt;
   &lt;!-- ... --&gt;
   &lt;topicref href="car-maintenance.dita"/&gt;
   &lt;!-- ... --&gt;
-  &lt;glossref keys="cars.abs" href="antiLockBrake.dita"/&gt;
-  &lt;!-- ... key declarations for other referenced acronyms ... --&gt;
+  &lt;topichead keyscope="cars"&gt;
+   &lt;topicmeta&gt;&lt;navtitle&gt;Car Terminalogy&lt;/navtitle&gt;&lt;/topicmeta&gt;
+   <strong class="ph b">&lt;glossref keys="abs" href="glossary/a/antiLockBrake.dita"/&gt;</strong>
+   &lt;!-- ... key declarations for other referenced acronyms ... --&gt;
+  &lt;/topichead&gt;
 &lt;/map&gt;</code></pre>
+      <p class="p">When this is map is rendered using typical output processing, the table of contents will
+        have an entry for the topic head "Car Terminology" but will not have entries for the
+        glossary entries because <code class="keyword markupname xmlelement">&lt;glossref&gt;</code> sets the value of
+        <code class="keyword markupname xmlatt">@toc</code> to <span class="keyword">no</span> by default.</p>
     </div>
 </div>
 <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/glossary-reference-domain-elements.html">Glossary-reference domain elements</a></div></div></nav></article></main>
