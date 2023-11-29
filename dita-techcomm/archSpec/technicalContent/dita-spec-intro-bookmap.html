@@ -5,7 +5,7 @@ title: 'Book map'
 description: 'The DITA bookmap specialization represents the key markup requirements for managing DITA content through book-oriented publication processes, including book metadata and book structures for organizing content.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '394916a0fa9c3e376f2eaa4ae62177a384ae1432'
+commit: '748408a594eaed97a43b68dd9462fa70cc517bff'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -30,6 +30,8 @@ classes: ''
       <ul class="ul">
         <li class="li">Titles</li>
         <li class="li">Metadata</li>
+        <li style="color:red;" class="li">DITAVAL references for filtering</li>
+        <li style="color:red;" class="li">Map resources</li>
         <li style="color:red;" class="li">Front matter</li>
         <li class="li">Parts</li>
         <li class="li">Chapters</li>
@@ -40,6 +42,12 @@ classes: ''
       <p class="p">Other components of a book map enable authors to specify that
         artifacts such as a table of contents (TOC) or an index should be
         generated.</p>
+      <p style="color:red;" class="p">The bookmap module has a dependency on two domains from the base
+        specification. The <code class="keyword markupname xmlelement">&lt;mapresources&gt;</code> element comes from the
+        mapgroup-domain module, and can be used to group resources such as key definitions near the
+        start of the map. The <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element comes from the
+        DITAVAL-reference domain module, and can be used to support branch filtering for the entire
+        book.</p>
     </section>
     
     <div class="example non-normative" id="dita_spec_intro_bookmap__example"><h2 class="title sectiontitle">Example</h2>
@@ -58,6 +66,9 @@ classes: ''
       &lt;/copyrfirst&gt;
     &lt;/bookrights&gt;
   &lt;/bookmeta&gt;
+  <span style="color:red;" class="ph">&lt;mapresources&gt;
+    &lt;!-- Key definitions used for the map --&gt;
+  &lt;/mapresources&gt;</span>
   &lt;frontmatter&gt;
     &lt;preface href="task-preface.dita"/&gt;
   &lt;/frontmatter&gt;

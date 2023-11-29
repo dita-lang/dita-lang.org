@@ -5,7 +5,7 @@ title: 'booklist'
 description: 'The booklist element either references a topic that contains a list of items in the book, or it indicates to a processor that a list of items should be generated at this location in the book. This is a general purpose element designed for use in specializations.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '394916a0fa9c3e376f2eaa4ae62177a384ae1432'
+commit: '748408a594eaed97a43b68dd9462fa70cc517bff'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -31,11 +31,14 @@ classes: ''
         </section>
         <section style="color:red;" class="section" id="booklist__processing-expectations"><h2 class="title sectiontitle">Processing expectations</h2>
             
-            <p class="p">When the element does not reference a topic or map, a processor might generate a list
-                of items at the specified location in the map. Because this is a general purpose
-                element, the type of list would need to be specified for the processor; for example,
-                it could be provided using <code class="keyword markupname xmlatt">@outputclass</code> or by further specializing
-                the element.</p>
+            <p style="color:red;" class="p"><span style="color:red;" class="ph">When a list element in the bookmap module uses
+            <code class="keyword markupname xmlatt">@href</code> or <code class="keyword markupname xmlatt">@keyref</code> to reference a topic or map, the
+          referenced content provides the list content. When the list element does not reference a
+          topic or map, a processor might generate a an appropriate list at the specified location
+          in the map.</span> Because
+                    <code class="keyword markupname xmlelement">&lt;booklist&gt;</code> is a general purpose element, the type of list
+                would need to be specified for the processor; for example, it could be provided
+                using <code class="keyword markupname xmlatt">@outputclass</code> or by further specializing the element.</p>
         </section>
         <section class="section" id="booklist__specialization-hierarchy"><h2 class="title sectiontitle">Specialization hierarchy</h2>
             <p class="p">The <code class="keyword markupname xmlelement">&lt;booklist&gt;</code> element is specialized from
@@ -54,8 +57,7 @@ classes: ''
                                         or <code class="keyword markupname xmlatt">@keyref</code> attribute references a manual
                                         listing for the current element. If the element does not
                                         reference a topic or map, processors can choose to generate
-                                        an appropriate listing for this element.
-                                        </p>
+                                        an appropriate listing for this element. </p>
                                 </div></section>
         <div class="example non-normative" id="booklist__example"><h2 class="title sectiontitle">Example</h2><p class="p">The following code sample shows how to use <code class="keyword markupname xmlelement">&lt;booklist&gt;</code> to reference a topic
                 that contains a list of authors of topics in this document:</p><pre class="pre codeblock"><code>&lt;booklists&gt;

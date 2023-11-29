@@ -5,7 +5,7 @@ title: 'toc'
 description: 'The toc element either references a topic that contains a table of contents for the book, or it indicates to a processor that a table of contents should be generated at this location in the book.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '394916a0fa9c3e376f2eaa4ae62177a384ae1432'
+commit: '748408a594eaed97a43b68dd9462fa70cc517bff'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -20,10 +20,13 @@ classes: ''
     location in the book.</p>
     <section class="section" id="toc__processing-expectations"><h2 class="title sectiontitle">Processing expectations</h2>
       
-      <p class="p">When the <code class="keyword markupname xmlatt">@href</code> attribute is not specified, a processor might generate a
-        table of contents at the specified location in the map. If the <code class="keyword markupname xmlatt">@href</code>
-        attribute is specified, the referenced topic or map contains a manually created table of
-        contents.</p>
+      <p style="color:red;" class="p"><span style="color:red;" class="ph">When a list element in the bookmap module uses
+            <code class="keyword markupname xmlatt">@href</code> or <code class="keyword markupname xmlatt">@keyref</code> to reference a topic or map, the
+          referenced content provides the list content. When the list element does not reference a
+          topic or map, a processor might generate a an appropriate list at the specified location
+          in the map.</span> For the
+          <code class="keyword markupname xmlelement">&lt;toc&gt;</code> element, a processor typically generates a table of contents
+        based on topics used in the book.</p>
     </section>
     <section class="section" id="toc__specialization-hierarchy"><h2 class="title sectiontitle">Specialization hierarchy</h2>
       
@@ -46,12 +49,11 @@ classes: ''
                                         or <code class="keyword markupname xmlatt">@keyref</code> attribute references a manual
                                         listing for the current element. If the element does not
                                         reference a topic or map, processors can choose to generate
-                                        an appropriate listing for this element.
-                                        </p>
+                                        an appropriate listing for this element. </p>
                                 </div></section>
     <div class="example non-normative" id="toc__example"><h2 class="title sectiontitle">Example</h2>
       
-      <p class="p">See the example in <a class="xref" href="bookmap.html" title="The bookmap element is a map specialization that is used to configure DITA topics as a traditional book.">bookmap</a>.</p>
+      <p class="p">See the example in <a class="xref" href="bookmap.html" title="The bookmap element is a map specialization that is used to assemble DITA topics as a traditional book.">bookmap</a>.</p>
     </div>
   </div>
 <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/bookmap-content-elements.html" title="The bookmap specialization of map supports standard book production for collections of DITA topics.">Book map content elements</a></div></div></nav></article></main>
