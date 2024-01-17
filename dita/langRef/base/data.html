@@ -5,7 +5,7 @@ title: 'data'
 description: 'Data is a generic component that represents metadata within a topic or map. Complex metadata is represented by nested data structures.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '255272a40678be39bbbd54787b75718aba980b69'
+commit: '364d8f8f7a910d12ec36372d21fc5fde0f61f945'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -280,56 +280,63 @@ classes: ''
     </section>
     <div class="example non-normative" id="data__example"><h2 class="title sectiontitle">Examples</h2>
       
-      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Using the <code class="keyword markupname xmlatt">@name</code> attribute on unspecialized <code class="keyword markupname xmlelement">&lt;data&gt;</code>
-elements</figcaption>
-
-<p class="p">The following code sample shows how the <code class="keyword markupname xmlelement">&lt;data&gt;</code> element can be used to
-          provide metadata. Rendering tools that recognize this metadata can automatically apply
-          highlighting to the code.</p><pre class="pre codeblock"><code>&lt;codeblock&gt;
-  &lt;data name="codestyle" value="javascript"/&gt;
+      <p class="p">This section contains examples of how the <code class="keyword markupname xmlelement">&lt;data&gt;</code> element can be
+        used.</p>
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Using the <code class="keyword markupname xmlatt">@name</code> attribute on unspecialized
+            <code class="keyword markupname xmlelement">&lt;data&gt;</code> elements</figcaption>
+        
+        <p class="p">The following code sample shows how the <code class="keyword markupname xmlelement">&lt;data&gt;</code> element can be used
+          to provide metadata. Rendering tools that recognize this metadata can automatically apply
+          highlighting to the code.</p>
+        <pre class="pre codeblock"><code>&lt;codeblock&gt;
+  <strong class="ph b">&lt;data name="codestyle" value="javascript"/&gt;</strong>
   &lt;!-- JavaScript code block --&gt;
 &lt;/codeblock&gt;</code></pre>
-</figure>
-<figure class="fig fignone" id="data__fig_qsw_2lc_t2b"><figcaption><span class="fig--title-label">Figure 2. </span>Nesting <code class="keyword markupname xmlelement">&lt;data&gt;</code> elements for complex
-metadata</figcaption><p class="p">The following code sample shows how nested <code class="keyword markupname xmlelement">&lt;data&gt;</code> elements can provide
-          complex inventory metadata for a part that is described in the topic.</p><pre class="pre codeblock"><code>&lt;topic id="sample"&gt;
+      </figure>
+      <figure class="fig fignone" id="data__fig_qsw_2lc_t2b"><figcaption><span class="fig--title-label">Figure 2. </span>Nesting <code class="keyword markupname xmlelement">&lt;data&gt;</code> elements for complex metadata</figcaption>
+        
+        <p class="p">The following code sample shows how nested <code class="keyword markupname xmlelement">&lt;data&gt;</code> elements can
+          provide complex inventory metadata for a part that is described in the topic:</p>
+        <pre class="pre codeblock"><code>&lt;topic id="sample"&gt;
   &lt;title&gt;How to purchase items from the warehouse&lt;/title&gt;
   &lt;prolog&gt;
-    &lt;data name="inventory"&gt;
+    <strong class="ph b">&lt;data name="inventory"&gt;</strong>
       &lt;data name="aisle" value="4"/&gt;
       &lt;data name="bin" value="13"/&gt;
       &lt;data name="restock" value="weekly"/&gt;
-    &lt;/data&gt;
+    <strong class="ph b">&lt;/data&gt;</strong>
   &lt;/prolog&gt;
   &lt;body&gt;
     &lt;!-- ... --&gt;
   &lt;/body&gt;
-&lt;/topic&gt;</code></pre></figure>
+&lt;/topic&gt;</code></pre>
+      </figure>
       <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 3. </span>Specializing <code class="keyword markupname xmlelement">&lt;data&gt;</code> for structured metadata</figcaption>
-
-<p class="p">The following code sample contains specializations of the <code class="keyword markupname xmlelement">&lt;data&gt;</code> element:
-            <code class="keyword markupname xmlelement">&lt;change-item&gt;</code>, <code class="keyword markupname xmlelement">&lt;change-completed&gt;</code>, and
-            <code class="keyword markupname xmlelement">&lt;change-summary&gt;</code>. These specialized elements each provide a
+        
+        <p class="p">The following code sample contains specializations of the <code class="keyword markupname xmlelement">&lt;data&gt;</code>
+          element: <code class="keyword markupname xmlelement">&lt;change-item&gt;</code>, <code class="keyword markupname xmlelement">&lt;change-completed&gt;</code>,
+          and <code class="keyword markupname xmlelement">&lt;change-summary&gt;</code>. These specialized elements each provide a
           default for <code class="keyword markupname xmlatt">@name</code> inside the grammar files, so that processors can work
-          with the data without authors having to specify the attribute.</p><pre class="pre codeblock"><code>&lt;topic id="data"&gt;
+          with the data without authors having to specify the attribute.</p>
+        <pre class="pre codeblock"><code>&lt;topic id="data"&gt;
   &lt;title&gt;&lt;xmlelement&gt;data&lt;/xmlelement&gt;&lt;/title&gt;
   &lt;prolog&gt;
     &lt;change-historylist&gt;
-      &lt;change-item&gt;
+      <strong class="ph b">&lt;change-item&gt;</strong>
         &lt;change-completed&gt;2017-08-20&lt;/change-completed&gt;
         &lt;change-summary&gt;Refactored topic to use new template&lt;/change-summary&gt;
-      &lt;/change-item&gt;
-      &lt;change-item&gt;
+      <strong class="ph b">&lt;/change-item&gt;</strong>
+      <strong class="ph b">&lt;change-item&gt;</strong>
         &lt;change-completed&gt;2018-06-06&lt;/change-completed&gt;
         &lt;change-summary&gt;Created new examples&lt;/change-summary&gt;
-      &lt;/change-item&gt;
+      <strong class="ph b">&lt;/change-item&gt;</strong>
     &lt;/change-historylist&gt;
   &lt;/prolog&gt;
   &lt;body&gt;
     &lt;!-- ... --&gt;
   &lt;/body&gt;
 &lt;/topic&gt;</code></pre>
-</figure>
+      </figure>
     </div>
   </div>
-<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/specialization-elements.html" title="Several DITA elements exist either for architectural reasons or for support of specialized markup yet to be designed. Although there is little need to use these elements unless you are directed to, some of them, such as state, can be used if your content makes use of these semantic distinctions. For example, a discussion of signals on a gate of an integrated logic circuit might use the state element to represent either on or off conditions of that gate.">Specialization elements</a></div></div></nav></article></main>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/specialization-elements.html" title="Several DITA elements exist either for architectural reasons or for support of specialized markup yet to be designed.">Specialization elements</a></div></div></nav></article></main>
