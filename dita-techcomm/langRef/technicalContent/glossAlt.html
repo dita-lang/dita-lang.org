@@ -2,10 +2,10 @@
 # Generated from DITA source
 layout: base
 title: 'glossAlt'
-description: 'The glossAlt element contains information about a variant for the preferred term.'
+description: 'The glossAlt element contains information about a variant for the term specified in the topic''s glossterm element. A variant might include an acronym, abbreviation, or shortened form of the term, as well as synonyms or other alternate terms.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '9d8c8f22bd46680059e08eeff238d9768856ffbb'
+commit: '15b2805661de662501c0a2665c8997a0e8fe27df'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -15,9 +15,10 @@ classes: ''
   
   
   <div class="body refbody"><div class="abstract">
-     <span class="shortdesc">The <code class="keyword markupname xmlelement">&lt;glossAlt&gt;</code> element contains
-      information about a variant for the preferred term.</span>
-    
+     <span class="shortdesc">The <code class="keyword markupname xmlelement">&lt;glossAlt&gt;</code> element contains information about a variant
+      for the term specified in the topic's <code class="keyword markupname xmlelement">&lt;glossterm&gt;</code> element. A variant
+      might include an acronym, abbreviation, or shortened form of the term, as well as synonyms or
+      other alternate terms.</span>
   </div>
     <section class="section" id="glossAlt__usage-information"><h2 class="title sectiontitle">Usage information</h2>
       
@@ -44,7 +45,35 @@ classes: ''
     </section>
     <div class="example non-normative" id="glossAlt__example"><h2 class="title sectiontitle">Example</h2>
       
-      <p class="p">See the example in <a class="xref" href="glossentry.html#glossentry__example"><code class="keyword markupname xmlelement">&lt;glossentry&gt;</code>.</a></p>
+      <p class="p">The following code samples shows how a glossary entry topic might provide alternative forms
+        of the term.</p>
+      <pre class="pre codeblock"><code>&lt;glossentry id="usa"&gt;
+  &lt;glossterm&gt;United States of America&lt;/glossterm&gt;
+  &lt;glossdef&gt;A federal republic in the northern Western Hemisphere comprising 48 contiguous 
+     states, the District of Columbia, Alaska in North America, and Hawaii in the North 
+     Pacific, and in some contexts considered along with its five inhabited island 
+     territories (Puerto Rico, U.S. Virgin Islands, Guam, North Mariana Islands, American 
+     Samoa).&lt;/glossdef&gt;
+  &lt;glossBody&gt;
+    <strong class="ph b">&lt;glossAlt&gt;</strong>
+      &lt;glossAcronym&gt;US&lt;/glossSynonym&gt;
+      &lt;glossUsage&gt;Used as an adjective.&lt;/glossUsage&gt;
+    <strong class="ph b">&lt;/glossAlt&gt;
+    &lt;glossAlt&gt;</strong>
+      &lt;glossAcronym&gt;USA&lt;/glossSynonym&gt;
+      &lt;glossUsage&gt;Used as a noun.&lt;/glossUsage&gt;
+    <strong class="ph b">&lt;/glossAlt&gt;
+    &lt;glossAlt&gt;</strong>
+      &lt;glossSynonym&gt;America&lt;/glossSynonym&gt;
+      &lt;glossUsage&gt;Do not use; the American continents include other countries.&lt;/glossUsage&gt;
+    <strong class="ph b">&lt;/glossAlt&gt;
+    &lt;glossAlt&gt;</strong>
+      &lt;glossAbbreviation&gt;the States&lt;/glossAbbreviation&gt;
+      &lt;glossUsage&gt;Informal. Typically used by English speakers outside of the country.&lt;/glossUsage&gt;
+    <strong class="ph b">&lt;/glossAlt&gt;</strong>
+  &lt;/glossBody&gt;<strong class="ph b">
+&lt;/glossentry&gt;
+</strong></code></pre>
     </div>
   </div>
 <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/glossentry-elements.html" title="The glossary entry specialization contains markup that supports terminological information. In addition to recording information for glossaries, it can be used for other purposes such as inclusion in a terminology database, extraction for pre-translation, reuse in controlled authoring applications, and recording information that may be later retrieved for other lexical resources.">Glossary entry elements</a></div></div></nav></article></main>

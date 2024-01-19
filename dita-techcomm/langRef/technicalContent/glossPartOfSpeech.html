@@ -2,10 +2,10 @@
 # Generated from DITA source
 layout: base
 title: 'glossPartOfSpeech'
-description: 'The glossPartOfSpeech element identifies the part of speech for the preferred and alternate terms. Alternate terms must have the same part of speech as the preferred term, because all terms in the glossentry topic designate the same subject.'
+description: 'The glossPartOfSpeech element identifies the part of speech for the term specified in the topic''s glossterm element, and any variant forms of the term also defined within the topic. term and any alternate or variant forms of the term defined within the topic.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '9d8c8f22bd46680059e08eeff238d9768856ffbb'
+commit: '15b2805661de662501c0a2665c8997a0e8fe27df'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -14,23 +14,19 @@ classes: ''
   <h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;glossPartOfSpeech&gt;</code></h1>
   
   
-  <div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;glossPartOfSpeech&gt;</code> element
-    identifies the part of speech for the preferred and alternate terms.
-    Alternate terms must have the same part of speech as the preferred
-    term, because all terms in the <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code>
-    topic designate the same subject.</p>
+  <div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;glossPartOfSpeech&gt;</code> element identifies the part of speech
+    for the term specified in the topic's <code class="keyword markupname xmlelement">&lt;glossterm&gt;</code> element, and any
+    variant forms of the term also defined within the topic. term and any alternate or variant forms
+    of the term defined within the topic.</p>
     <section class="section" id="glossPartOfSpeech__usage-information"><h2 class="title sectiontitle">Usage information</h2>
       
+      <p class="p">The part of speech is defined within the <code class="keyword markupname xmlatt">@value</code> attribute. If validation is
+        required, use a subject scheme to configure controlled values for the <code class="keyword markupname xmlatt">@value</code>
+        attribute on the <code class="keyword markupname xmlelement">&lt;glossPartOfSpeech&gt;</code>. This approach avoids the need
+        to hard code values in the XML grammar files, which would limit extension and would make
+        values difficult to change for different languages. </p>
+      <p class="p">When the part of speech is not specified, the default is "noun."</p>
       
-      <p class="p">When the part of speech is not specified, the default is
-        "noun."</p>
-      
-      <p class="p">If validation is required, use a subject scheme to configure
-        controlled values for the <code class="keyword markupname xmlatt">@value</code> attribute on the
-          <code class="keyword markupname xmlelement">&lt;glossPartOfSpeech&gt;</code>. This avoids the need
-        to hard code values in the XML grammar files, which would limit
-        extension and would make values difficult to change for different
-        languages.</p>
       
     </section>
     <section class="section" id="glossPartOfSpeech__specialization-hierarchy"><h2 class="title sectiontitle">Specialization hierarchy</h2>
@@ -67,10 +63,6 @@ classes: ''
     &lt;/glossAlt&gt;
   &lt;/glossBody&gt;
 &lt;/glossentry&gt;</code></pre>
-      <p class="p">Note that because the <code class="keyword markupname xmlelement">&lt;glossPartOfSpeech&gt;</code>
-        applies to the entire glossary entry topic, the preferred term and
-        any variants must belong to the same syntactical category (take the
-        same part of speech).</p>
     </div>
   </div>
 <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/glossentry-elements.html" title="The glossary entry specialization contains markup that supports terminological information. In addition to recording information for glossaries, it can be used for other purposes such as inclusion in a terminology database, extraction for pre-translation, reuse in controlled authoring applications, and recording information that may be later retrieved for other lexical resources.">Glossary entry elements</a></div></div></nav></article></main>

@@ -2,10 +2,10 @@
 # Generated from DITA source
 layout: base
 title: 'glossAlternateFor'
-description: 'The glossAlternateFor element indicates when a variant term has a relationship to another variant term in addition to the preferred term.'
+description: 'The glossAlternateFor element indicates when a variant term has a relationship to another variant term in addition to the term specified in the topic''s glossterm element.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '9d8c8f22bd46680059e08eeff238d9768856ffbb'
+commit: '15b2805661de662501c0a2665c8997a0e8fe27df'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -14,19 +14,18 @@ classes: ''
 <h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;glossAlternateFor&gt;</code></h1>
 
 
-<div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;glossAlternateFor&gt;</code> element indicates
-    when a variant term has a relationship to another variant term in
-    addition to the preferred term.</p>
+<div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;glossAlternateFor&gt;</code> element indicates when a variant term has
+    a relationship to another variant term in addition to the term specified in the topic's
+      <code class="keyword markupname xmlelement">&lt;glossterm&gt;</code> element.</p>
     <section class="section" id="glossAlternateFor__usage-information"><h2 class="title sectiontitle">Usage information</h2>
       
-      <p class="p">The <code class="keyword markupname xmlelement">&lt;glossAlternateFor&gt;</code> element is
-        available inside the <code class="keyword markupname xmlelement">&lt;glossAlt&gt;</code> element,
-        which is a container that provides a variant for the primary term.
-        The <code class="keyword markupname xmlelement">&lt;glossAlternateFor&gt;</code> element makes it
-        clear that there is a relationship between the primary term, the
-        variant term defined directly in the glossary entry topic, and the
-        term defined in the external glossary entry topic that is linked
-        to.</p>
+      <p class="p">The <code class="keyword markupname xmlelement">&lt;glossAlternateFor&gt;</code> element is available inside the
+          <code class="keyword markupname xmlelement">&lt;glossAlt&gt;</code> element, which is a container that provides a variant
+        for the term specified in the topic's <code class="keyword markupname xmlelement">&lt;glossterm&gt;</code> element. The
+          <code class="keyword markupname xmlelement">&lt;glossAlternateFor&gt;</code> element makes it clear that there is a
+        relationship between the current topic's term, the variant term defined in the parent
+          <code class="keyword markupname xmlelement">&lt;glossAlt&gt;</code> element, and the term defined in the external glossary
+        entry topic that it is linked to.</p>
     </section>
     <section class="section" id="glossAlternateFor__specialization-hierarchy"><h2 class="title sectiontitle">Specialization hierarchy</h2>
       
@@ -38,23 +37,23 @@ classes: ''
       
       <p class="p">The following attributes are available on this element: <span class="ph"><a class="xref" href="../../baseSpec/specification/common/../langRef/attributes/commonAttributes.html#common-atts__linkatts" title="Link relationship attributes include: format, href, type, and scope">link-relationship attributes</a></span>, <span class="ph"><a class="xref" href="../../baseSpec/specification/common/../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
                                                   attributes</a></span>, and <a class="xref" href="../../baseSpec/specification/langRef/attributes/commonAttributes.html#common-atts__attr-keyref"><code class="keyword markupname xmlatt">@keyref</code></a>.</p>
-      <p class="p attr-exception" id="glossAlternateFor__attr-exception">For this element, the <code class="keyword markupname xmlatt">@href</code> attribute references a term
-        for which the current variant is an alternate (in addition to the primary term of this
-          <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code> topic). The reference will often be to another
-          <code class="keyword markupname xmlelement">&lt;glossAlt&gt;</code> element within the same
-          <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code> topic, indicating that the current variant is an
-        alternate for both the primary term and the referenced alternate term.</p>
-      
+      <p class="p attr-exception" id="glossAlternateFor__attr-exception">For this element, the
+          <code class="keyword markupname xmlatt">@href</code> or <code class="keyword markupname xmlatt">@keyref</code> attribute references a term for which the
+        current variant is an alternate (in addition to the <code class="keyword markupname xmlelement">&lt;glossterm&gt;</code> of
+        this <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code> topic). The reference could be to another
+          <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code> topic or to a <code class="keyword markupname xmlelement">&lt;glossAlt&gt;</code>
+        element within the same <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code> topic (indicating that the
+        current variant is an alternate for both the <code class="keyword markupname xmlelement">&lt;glossterm&gt;</code> and the
+        referenced alternate term).</p>
       
     </section>
     <div class="example non-normative" id="glossAlternateFor__example"><h2 class="title sectiontitle">Example</h2>
       
-      <p class="p">The following code sample shows a glossary entry topic for the
-        term "Refrigerator". In addition to providing a definition, the
-        glossary entry topic defines a variant term ("fridge"). It also
-        links to another glossary entry topic for a variant term ("icebox")
-        which is defined in a separate glossary entry topic:</p>
-      <pre class="pre codeblock"><code>&lt;glossentry id="refridgerator"&gt;
+      <p class="p">The following code sample shows a glossary entry topic for the term "Refrigerator". In
+        addition to providing a definition, the glossary entry topic defines a variant term
+        ("fridge"). It also links to another glossary entry topic for a variant term ("icebox")
+        which is defined in a separate glossary entry topic.</p>
+      <pre class="pre codeblock"><code>&lt;glossentry id="refrigerator"&gt;
     &lt;glossterm&gt;Refrigerator&lt;/glossterm&gt;
     &lt;glossdef&gt;A refrigerator is a commercial and home appliance consisting
     of a thermally insulated compartment and a heat pump (mechanical,

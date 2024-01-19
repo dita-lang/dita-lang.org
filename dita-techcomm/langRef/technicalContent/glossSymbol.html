@@ -2,10 +2,10 @@
 # Generated from DITA source
 layout: base
 title: 'glossSymbol'
-description: 'The glossSymbol element identifies a standard image that is associated with the subject of the term.'
+description: 'The glossSymbol element identifies a standard image that is associated with the subject of the term specified by the topic''s glossterm element. For example, the image might serve to visually classify the term into a specific taxonomy.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '9d8c8f22bd46680059e08eeff238d9768856ffbb'
+commit: '15b2805661de662501c0a2665c8997a0e8fe27df'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -14,9 +14,10 @@ classes: ''
 <h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;glossSymbol&gt;</code></h1>
 
 
-<div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;glossSymbol&gt;</code> element identifies a
-    standard image that is associated with the subject of the
-      term.</p>
+<div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;glossSymbol&gt;</code> element identifies a standard image that is
+    associated with the subject of the term specified by the topic's
+      <code class="keyword markupname xmlelement">&lt;glossterm&gt;</code> element. For example, the image might serve to visually
+    classify the term into a specific taxonomy.</p>
     <section class="section" id="glossSymbol__specialization-hierarchy"><h2 class="title sectiontitle">Specialization hierarchy</h2>
       
       <p class="p">The <code class="keyword markupname xmlelement">&lt;glossSymbol&gt;</code> element is specialized from
@@ -111,16 +112,18 @@ classes: ''
     </section>
     <div class="example non-normative" id="glossSymbol__example"><h2 class="title sectiontitle">Example</h2>
       
-      <p class="p">The following code sample shows how the
-          <code class="keyword markupname xmlelement">&lt;glossSymbol&gt;</code> can be used to associate an
-        image with glossary entry topic for Atlantic penguins:</p>
-      
+      <p class="p">The following code sample shows how the <code class="keyword markupname xmlelement">&lt;glossSymbol&gt;</code> can be used to
+        associate a regional classification icon with the Atlantic puffin:</p>
       <pre class="pre codeblock"><code>&lt;glossentry id="atlanticpuffin"&gt;
   &lt;glossterm&gt;Atlantic Puffin&lt;/glossterm&gt;
-  &lt;glossdef&gt;A sea bird that lives in the Atlantic&lt;/glossdef&gt;
+  &lt;glossdef&gt;A sea bird that lives in the Atlantic
+    &lt;image href="puffinicon.jpg"&gt;
+      &lt;alt&gt;Image of an atlantic puffin&lt;/alt&gt;
+    &lt;/image&gt;
+  &lt;/glossdef&gt;
   &lt;glossBody&gt;
-    <strong class="ph b">&lt;glossSymbol href="puffinicon.jpg" scope="local"&gt;</strong>
-      &lt;alt&gt;Atlantic puffin icon&lt;/alt&gt;
+    <strong class="ph b">&lt;glossSymbol href="atlantic.jpg" scope="local"&gt;</strong>
+      &lt;alt&gt;Icon denoting the Atlantic region&lt;/alt&gt;
     <strong class="ph b">&lt;/glossSymbol&gt;</strong>
   &lt;/glossBody&gt;
 &lt;/glossentry&gt;</code></pre>

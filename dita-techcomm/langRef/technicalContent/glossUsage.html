@@ -2,10 +2,10 @@
 # Generated from DITA source
 layout: base
 title: 'glossUsage'
-description: 'The glossUsage element provides information about the correct use of a term, such as where or how it can be used.'
+description: 'The glossUsage element provides information about how to use the term specified in the topic''s glossterm element or any of its alternative forms specified within a glossAlt element.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '9d8c8f22bd46680059e08eeff238d9768856ffbb'
+commit: '15b2805661de662501c0a2665c8997a0e8fe27df'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -14,13 +14,15 @@ classes: ''
   <h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;glossUsage&gt;</code></h1>
   
   
-  <div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;glossUsage&gt;</code> element provides
-    information about the correct use of a term, such as where or how it
-    can be used.</p>
+  <div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;glossUsage&gt;</code> element provides information about how to use
+    the term specified in the topic's <code class="keyword markupname xmlelement">&lt;glossterm&gt;</code> element or any of its
+    alternative forms specified within a <code class="keyword markupname xmlelement">&lt;glossAlt&gt;</code> element.</p>
     <section class="section" id="glossUsage__specialization-hierarchy"><h2 class="title sectiontitle">Specialization hierarchy</h2>
       
       <p class="p">The <code class="keyword markupname xmlelement">&lt;glossUsage&gt;</code> element is specialized from
           <code class="keyword markupname xmlelement">&lt;note&gt;</code>. It is defined in the glossary entry module.</p>
+      
+      
     </section>
     <section class="section" id="glossUsage__content-model"></section>
     <section class="section" id="glossUsage__attributes"><h2 class="title sectiontitle">Attributes</h2>
@@ -62,22 +64,24 @@ classes: ''
         </section>
     <div class="example non-normative" id="glossUsage__example"><h2 class="title sectiontitle">Example</h2>
       
-      <p class="p">The following code sample shows how the
-          <code class="keyword markupname xmlelement">&lt;glossUsage&gt;</code> element is used to provide
-        additional information about possible variants for the term "USB
-        flash drive":</p>
-      
-      <pre class="pre codeblock"><code>&lt;glossentry id="usbfd"&gt;
-  &lt;glossterm&gt;USB flash drive&lt;/glossterm&gt;
-  &lt;glossdef&gt;A small portable drive.&lt;/glossdef&gt;
+      <p class="p">The following code sample shows how the <code class="keyword markupname xmlelement">&lt;glossUsage&gt;</code> element is used
+        to provide additional information about possible variants for the term "soft drink:"</p>
+      <pre class="pre codeblock"><code>&lt;glossentry id="softdrink"&gt;
+  &lt;glossterm&gt;soft drink&lt;/glossterm&gt;
+  &lt;glossdef&gt;A nonalcoholic drink, especially one that is carbonated.&lt;/glossdef&gt;
   &lt;glossBody&gt;
     &lt;glossPartOfSpeech value="noun"/&gt;
-    <strong class="ph b">&lt;glossUsage&gt;Do not use upper case (as in "USB Flash Drive")
-      because that suggests a trademark.&lt;/glossUsage&gt;</strong>
     &lt;glossAlt&gt;
-      &lt;glossAbbreviation&gt;flash&lt;/glossAbbreviation&gt;
-      &lt;glossStatus value="prohibited"/&gt;
-      <strong class="ph b">&lt;glossUsage&gt;This short form is ambiguous.&lt;/glossUsage&gt;</strong>
+      &lt;glossSynonym&gt;pop&lt;/glossSynonym&gt;
+      <strong class="ph b">&lt;glossUsage&gt;Used primarily in the North and Midwest&lt;/glossUsage&gt;</strong>
+    &lt;/glossAlt&gt;
+    &lt;glossAlt&gt;
+      &lt;glossSynonym&gt;soda&lt;/glossSynonym&gt;  
+      <strong class="ph b">&lt;glossUsage&gt;Used primarily in the West and Northeast&lt;/glossUsage&gt;</strong>
+    &lt;/glossAlt&gt;
+    &lt;glossAlt&gt;
+      &lt;glossSynonym&gt;Coke&lt;/glossSynonym&gt;
+      <strong class="ph b">&lt;glossUsage&gt;Used primarily in the South&lt;/glossUsage&gt;</strong>
     &lt;/glossAlt&gt;
   &lt;/glossBody&gt;
 &lt;/glossentry&gt;</code></pre>

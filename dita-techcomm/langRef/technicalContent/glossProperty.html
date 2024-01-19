@@ -2,10 +2,10 @@
 # Generated from DITA source
 layout: base
 title: 'glossProperty'
-description: 'The glossProperty element specifies additional details about the term or its subject, such as the gender of a noun.'
+description: 'The glossProperty element specifies additional details about the term specified in the topic''s glossterm element. For example, this element might be specified to specify the gender of a term in languages that have such a distinction or it might provide the term''s etymological origins.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '9d8c8f22bd46680059e08eeff238d9768856ffbb'
+commit: '15b2805661de662501c0a2665c8997a0e8fe27df'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -14,12 +14,17 @@ classes: ''
 <h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;glossProperty&gt;</code></h1>
 
 
-<div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;glossProperty&gt;</code> element specifies
-    additional details about the term or its subject, such as the gender of
-    a noun.</p>
+<div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;glossProperty&gt;</code> element specifies additional details about the
+    term specified in the topic's <code class="keyword markupname xmlelement">&lt;glossterm&gt;</code> element. For example, this
+    element might be specified to specify the gender of a term in languages that have such a
+    distinction or it might provide the term's etymological origins.</p>
     <section class="section" id="glossProperty__usage-information"><h2 class="title sectiontitle">Usage information</h2>
       
-      
+      <p class="p">The specific type of detail being defined is specified in the <code class="keyword markupname xmlatt">@name</code>
+        attribute and its corresponding value in the <code class="keyword markupname xmlatt">@value</code> attribute. Because any
+        number of properties can therefore be defined, implementers may want to control these values
+        using subject scheme maps to bind values to these attributes within
+          <code class="keyword markupname xmlelement">&lt;glossProperty&gt;</code>.</p>
     </section>
     <section class="section" id="glossProperty__specialization-hierarchy"><h2 class="title sectiontitle">Specialization hierarchy</h2>
       
@@ -36,15 +41,26 @@ classes: ''
     </section>
     <div class="example non-normative" id="glossProperty__example"><h2 class="title sectiontitle">Example</h2>
       
-      <p class="p">The following code sample shows how the
-          <code class="keyword markupname xmlelement">&lt;glossProperty&gt;</code> element can be used to
-        provide information about the gender of a term:</p>
+      <p class="p">The following code sample shows how the <code class="keyword markupname xmlelement">&lt;glossProperty&gt;</code> element can
+        be used to provide information about the gender of a term:</p>
       <pre class="pre codeblock"><code>&lt;glossentry id="algorithm" xml:lang="es-es"&gt;
   &lt;glossterm&gt;El algoritmo&lt;/glossterm&gt;
   &lt;glossdef&gt;Un algoritmo define un método de calcular un resultado.&lt;/glossdef&gt;
   &lt;glossBody&gt;
     &lt;glossPartOfSpeech value="noun"/&gt;
     <strong class="ph b">&lt;glossProperty name="gender" value="masculine"/&gt;</strong>
+  &lt;/glossBody&gt;
+&lt;/glossentry&gt;</code></pre>
+      <p class="p">The following code sample shows how the <code class="keyword markupname xmlelement">&lt;glossProperty&gt;</code> element can
+        be used to capture the part number and OEM for equipment or parts defined in a glossary
+        term:</p>
+      <pre class="pre codeblock" id="glossProperty__codeblock_eqv_tr5_b1c"><code>&lt;glossentry id="anvil"&gt;
+  &lt;glossterm&gt;anvil&lt;/glossterm&gt;
+  &lt;glossdef&gt;A heavy steel or iron block with a flat top, concave sides, and pointed end, on which
+     metal can be hammered and shaped. Handy for dropping on roadrunners.&lt;/glossdef&gt;
+  &lt;glossBody&gt;
+    <strong class="ph b">&lt;glossProperty name="part_number" value="123456"/&gt;</strong>
+    <strong class="ph b">&lt;glossProperty name="eom" value="Acme Company"/&gt;</strong>
   &lt;/glossBody&gt;
 &lt;/glossentry&gt;</code></pre>
     </div>
