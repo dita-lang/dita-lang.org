@@ -6,6 +6,8 @@ inputs:
     required: true
   DIR:
     required: true
+  OUTPUT_DIR:
+    required: true
   REPOSITORY:
     required: true
 runs:
@@ -29,10 +31,10 @@ runs:
       if: ${{ false }}
       shell: bash
       run: |
-        rm -rf dita-lang/${{ inputs.DIR }}/*
+        rm -rf dita-lang/${{ inputs.OUTPUT_DIR }}/*
         $DITA_HOME/bin/dita \
           -i ${{ inputs.MAP }} \
-          -o dita-lang/${{ inputs.DIR }} \
+          -o dita-lang/${{ inputs.OUTPUT_DIR }} \
           -f org.dita-ot.html \
           --filter=${{ inputs.FILTER }}.external-publishing-engine.ditaval \
           --filter=${{ inputs.FILTER }} \
@@ -43,11 +45,10 @@ runs:
     - name: Run multi-page DITA-OT
       shell: bash
       run: |
-        mkdir -p dita-lang/${{ inputs.DIR }}
-        rm -rf dita-lang/${{ inputs.DIR }}/*
+        rm -rf dita-lang/${{ inputs.OUTPUT_DIR }}/*
         $DITA_HOME/bin/dita \
           -i ${{ inputs.MAP }} \
-          -o dita-lang/${{ inputs.DIR }} \
+          -o dita-lang/${{ inputs.OUTPUT_DIR }} \
           -f org.dita-ot.html \
           --filter=${{ inputs.FILTER }}.external-publishing-engine.ditaval \
           --filter=${{ inputs.FILTER }} \
