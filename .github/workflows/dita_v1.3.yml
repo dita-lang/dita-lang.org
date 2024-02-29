@@ -1,0 +1,62 @@
+name: Build DITA 1.3
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      DITA_OT_VERSION: '4.1'
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          path: dita-lang
+      - name: Init
+        uses: ./dita-lang/.github/actions/init
+
+      - uses: actions/checkout@v3
+        with:
+          repository: 'oasis-tcs/dita'
+          ref: 'master'
+          path: dita
+          token: ${{ secrets.UPLOAD_GITHUB_TOKEN }}
+#      - name: Generate content models
+#        uses: ./dita-lang/.github/actions/content-model
+#        with:
+#          INPUT: dita/doctypes/rng
+#          OUTPUT: dita/specification/langRef/base
+#          DIR: dita/specification/langRef/content-models
+#          MAP: dita/specification/langRef/base-elements.ditamap
+#          SCHEMAS: 'base/basetopic.rng:base/basemap.rng:subjectScheme/subjectScheme.rng'
+#      - name: Generate content models
+#        uses: ./dita-lang/.github/actions/content-model
+#        with:
+#          INPUT: dita/doctypes/rng
+#          OUTPUT: dita/specification/langRef/ditaval
+#          DIR: dita/specification/langRef/content-models
+#          MAP: dita/specification/langRef/base-elements.ditamap
+#          SCHEMAS: 'ditaval/ditaval.rng'
+
+#      - name: Push source changes
+#        run: |
+#          git config user.name github-actions
+#          git config user.email github-actions@github.com
+#          git remote set-url origin https://github.com/dita-lang/dita.git
+#          git fetch
+#
+#          git add --all
+#          git commit -m "Generate content models"
+#          git push -v --force-with-lease origin DITA-2.0:DITA-2.0-generated
+#        working-directory: dita
+
+      - name: Publish DITA
+        uses: ./dita-lang/.github/actions/publish
+        with:
+          MAP: dita/specification/dita-1.3-errata-specification-learningTraining.ditamap
+          FILTER: dita/specification/resources/DITA1.3-spec-learningTraining.ditaval
+          DIR: 1.3/dita
+          REPOSITORY: oasis-tcs/dita
+
+      - name: Push changes
+        run: |
+          git push -v origin main
+        working-directory: dita-lang
