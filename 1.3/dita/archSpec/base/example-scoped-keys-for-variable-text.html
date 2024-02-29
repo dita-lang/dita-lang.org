@@ -1,0 +1,109 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Example: Scoped key definitions for variable text'
+description: 'Scoped key definitions can be used for variable text. This enables you to use the same DITA topic multiple times in a DITA map, and in each instance the variable text can resolve differently.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '1ef1836fa5adc371402b2e9d6b31fef551ef88ff'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a><ul class="nav nav-list"><li><a href="../../archSpec/base/introduction-to-dita.html">Introduction to DITA</a></li><li><a href="../../archSpec/base/ditamarkup.html">DITA markup </a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a><ul class="nav nav-list"><li><a href="../../archSpec/base/id.html">ID attribute</a></li><li><a href="../../archSpec/base/dita-linking.html">DITA linking</a></li><li><a href="../../archSpec/base/uri-based-addressing.html">URI-based (direct) addressing</a></li><li><a href="../../archSpec/base/key-based-addressing.html">Indirect key-based addressing</a><ul class="nav nav-list"><li><a href="../../archSpec/base/keys-core-concepts.html">Core concepts for working with keys</a></li><li><a href="../../archSpec/base/keyScopes.html">Key scopes</a></li><li><a href="../../archSpec/base/using-keys-for-addressing.html">Using keys for addressing</a></li><li><a href="../../archSpec/base/using-keys-to-address-keys-across-scopes.html">Addressing keys across scopes</a></li><li><a href="../../archSpec/base/links-between-maps.html">Cross-deliverable addressing and linking</a></li><li><a href="../../archSpec/base/processing-key-references-general.html">Processing key references</a></li><li><a href="../../archSpec/base/processing-keyref-for-links.html">Processing key references for navigation links and images</a></li><li><a href="../../archSpec/base/processing-keyref-on-topicref.html">Processing key references on topicref elements</a></li><li><a href="../../archSpec/base/processing-keyref-for-text.html">Processing key references to generate text or link text</a></li><li><a href="../../archSpec/base/examples-of-keys.html">Examples of keys</a><ul class="nav nav-list"><li><a href="../../archSpec/base/example-key-definition.html">Examples: Key definition</a></li><li><a href="../../archSpec/base/example-key-definition-for-variable-text.html">Examples: Key definitions for variable text</a></li><li class="active"><a href="../../archSpec/base/example-scoped-keys-for-variable-text.html">Example: Scoped key definitions for variable text</a></li><li><a href="../../archSpec/base/example-resolution-of-duplicate-key-definitions.html">Example: Duplicate key definitions within a single map</a></li><li><a href="../../archSpec/base/example-resolution-of-duplicate-key-definitions-multiple-maps.html">Example: Duplicate key definitions across multiple maps</a></li><li><a href="../../archSpec/base/example-keydef-with-keyref.html">Example: Key definition with key reference</a></li><li><a href="../../archSpec/base/example-scoped-key-references.html">Example: References to scoped keys</a></li><li><a href="../../archSpec/base/example-nested-key-scopes.html">Example: Key definitions in nested key scopes</a></li><li><a href="../../archSpec/base/example-key-use-for-link-redirection.html">Example: Link redirection</a></li><li><a href="../../archSpec/base/example-keys-removing-link.html">Example: Link modification or removal</a></li><li><a href="../../archSpec/base/example-keys-links-to-terms.html">Example: Links from term or keyword elements</a></li><li><a href="../../archSpec/base/example-keys-conref-redirection.html">Example: conref redirection</a></li><li><a href="../../archSpec/base/example-key-scopes-omnibus-publications.html">Example: Key scopes and omnibus publications</a></li><li><a href="../../archSpec/base/example-keys-scope-defining-precedence.html">Example: How key scopes affect key precedence</a></li><li><a href="../../archSpec/base/example-keys-splitting-combining-targets.html">Example: Keys and collaboration</a></li></ul></li></ul></li></ul></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration, specialization, generalization, and constraints </a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../archSpec/technicalContent/technical-content-specializations.html">Technical content specializations</a></li><li><a href="../../archSpec/learningTraining/learning-and-training-specializations.html">Learning and training specializations</a></li></ul></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9 non-normative"><article role="article" aria-labelledby="ariaid-title1">
+ <h1 class="title topictitle1" id="ariaid-title1">Example: Scoped key definitions for variable text</h1>
+ 
+ <div class="body conbody"><p class="shortdesc">Scoped key definitions can be used for variable text. This enables you to use the same
+    DITA topic multiple times in a DITA map, and in each instance the variable text can resolve
+    differently.</p>
+  <p class="p">The Acme Tractor Company produces two models of tractor: X and Y. Their product manual contains
+      sets of instructions for each model. While most maintenance procedures are different for each
+      model, the instructions for changing the oil are identical for both model X and model Y. The
+      company policies call for including the specific model number in each topic, so a generic
+      topic that could be used for both models is not permitted.</p>
+  <ol class="ol">
+   <li class="li">
+    <p class="p">The authoring team references the model information in the
+      <span class="ph filepath">changing-the-oil.dita</span> topic by using the following mark-up:</p>
+    <pre class="pre codeblock"><code>&lt;keyword keyref="model"/&gt;</code></pre>
+   </li>
+   <li class="li">
+    <p class="p">The information architect examines the root map for the manual, and decides how to define key
+          scopes. Originally, the map looked like the following:</p>
+    <pre class="pre codeblock"><code>&lt;map&gt;
+  &lt;!-- Model X: Maintenance procedures --&gt;
+  &lt;topicref href="model-x-procedures.dita"&gt;
+    &lt;topicref href="model-x/replacing-a-tire.dita"/&gt;
+    &lt;topicref href="model-x/adding-fluid.dita"/&gt;
+  &lt;/topicref&gt;
+
+&lt;!-- Model Y: Maintenance procedures --&gt;
+  &lt;topicref href="model-y-procedures.dita"&gt;
+    &lt;topicref href="model-y/replacing-a-tire.dita"/&gt;
+    &lt;topicref href="model-y/adding-fluid.dita"/&gt;
+  &lt;/topicref&gt;
+&lt;/map&gt;</code></pre>
+   </li>
+   <li class="li">
+    <p class="p">The information architect wraps each set of procedures in a
+      <code class="keyword markupname xmlelement">&lt;topicgroup&gt;</code> element and sets the <code class="keyword markupname xmlatt">@keyscope</code>
+     attribute.</p>
+    <pre class="pre codeblock"><code>&lt;map&gt;
+  &lt;!-- Model X: Maintenance procedures --&gt;
+  &lt;topicgroup <strong class="ph b">keyscope="model-x"</strong>&gt;
+    &lt;topicref href="model-x-procedures.dita"&gt;
+      &lt;topicref href="model-x/replacing-a-tire.dita"/&gt;
+      &lt;topicref href="model-x/adding-fluid.dita"/&gt;
+    &lt;/topicref&gt;
+  &lt;/topicgroup&gt;
+
+&lt;!-- Model Y: Maintenance procedures --&gt;
+  &lt;topicgroup <strong class="ph b">keyscope="model-y"</strong>&gt;
+    &lt;topicref href="model-y-procedures.dita"&gt;
+      &lt;topicref href="model-y/replacing-a-tire.dita"/&gt;
+      &lt;topicref href="model-y/adding-fluid.dita"/&gt;
+    &lt;/topicref&gt;
+  &lt;/topicgroup&gt;
+&lt;/map&gt;</code></pre>
+    <p class="p">This defines the key scopes for each set of procedures.</p>
+   </li>
+   <li class="li">
+    <p class="p">The information architect then adds key definitions to each set of procedures, as well as a
+     reference to the <span class="ph filepath">changing-the-oil.dita</span> topic.</p>
+    <pre class="pre codeblock"><code>&lt;map&gt;
+  &lt;!-- Model X: Maintenance procedures --&gt;
+  &lt;topicgroup keyscope="model-x"&gt;
+    <strong class="ph b">&lt;keydef keys="model"&gt;
+      &lt;topicmeta&gt;
+        &lt;linktext&gt;X&lt;/linktext&gt;
+      &lt;/topicmeta&gt;
+    &lt;/keydef&gt;</strong>
+    &lt;topicref href="model-x-procedures.dita"&gt;
+      &lt;topicref href="model-x/replacing-a-tire.dita"/&gt;
+      &lt;topicref href="model-x/adding-fluid.dita"/&gt;
+      <strong class="ph b">&lt;topicref href="common/changing-the-oil.dita"/&gt;</strong>
+    &lt;/topicref&gt;
+  &lt;/topicgroup&gt;
+
+&lt;!-- Model Y: Maintenance procedures --&gt;
+  &lt;topicgroup keyscope="model-y"&gt;
+    <strong class="ph b">&lt;keydef keys="model"&gt;
+      &lt;topicmeta&gt;
+        &lt;linktext&gt;Y&lt;/linktext&gt;
+      &lt;/topicmeta&gt;
+    &lt;/keydef&gt;</strong>
+    &lt;topicref href="model-y-procedures.dita"&gt;
+      &lt;topicref href="model-y/replacing-a-tire.dita"/&gt;
+      &lt;topicref href="model-y/adding-fluid.dita"/&gt;
+      <strong class="ph b">&lt;topicref href="common/changing-the-oil.dita"/&gt;</strong>
+    &lt;/topicref&gt;
+  &lt;/topicgroup&gt;
+&lt;/map&gt;</code></pre>
+    <p class="p">When the DITA map is processed, the <span class="ph filepath">changing-the-oil.dita</span> topic is
+          rendered twice. The model variable is rendered differently in each instance, using the
+          text as specified in the scoped key definition. <span class="ph">Without key scopes, the first key
+            definition would win, and "model "X" would be used in all topics.</span></p>
+   </li>
+  </ol>
+ </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/examples-of-keys.html" title="This section of the specification contains examples and scenarios. They illustrate a wide variety of ways that keys can be used.">Examples of keys</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../../archSpec/base/example-key-definition-for-variable-text.html" title="Key definitions can be used to store variable text, such as product names and user-interface labels. Depending on the key definition, the rendered output might have a link to a related resource.">Examples: Key definitions for variable text</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../../archSpec/base/example-resolution-of-duplicate-key-definitions.html" title="In this scenario, a DITA map contains duplicate key definitions. How a processor finds the effective key definition depends on document order and the effect of filtering applied to the key definitions.">Example: Duplicate key definitions within a single map</a></div></div></nav></article></main>

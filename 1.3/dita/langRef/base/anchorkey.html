@@ -1,0 +1,115 @@
+---
+# Generated from DITA source
+layout: base
+title: 'anchorkey'
+description: 'The anchorkey element allows an author to define a conref target that will be resolved dynamically when rendered for an end user of the content. This element is useful when doing an initial process of the DITA content prior to final rendering of the content; it allows specified keys to be preserved after that process, and conref relationships which use that key will not be resolved during that initial process.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '1ef1836fa5adc371402b2e9d6b31fef551ef88ff'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a><ul class="nav nav-list"><li><a href="../../langRef/containers/element-quick-reference.html">Element quick reference</a></li><li><a href="../../langRef/containers/topic-elements.html">Topic elements</a></li><li><a href="../../langRef/containers/map-elements.html">Map elements</a></li><li><a href="../../langRef/containers/metadata-elements.html">Metadata elements</a><ul class="nav nav-list"><li><a href="../../langRef/containers/prolog-elements.html">Prolog (metadata) elements</a></li><li><a href="../../langRef/containers/indexing-d.html">Indexing group elements</a></li><li><a href="../../langRef/containers/delayconref-d.html">Delayed conref resolution elements</a><ul class="nav nav-list"><li><a href="../../langRef/base/exportanchors.html">exportanchors</a></li><li><a href="../../langRef/base/anchorid.html">anchorid</a></li><li class="active"><a href="../../langRef/base/anchorkey.html">anchorkey</a></li></ul></li></ul></li><li><a href="../../langRef/containers/domain-elements.html">Domain elements</a></li><li><a href="../../langRef/containers/classification-elements.html">Classification elements</a></li><li><a href="../../langRef/containers/specialization-elements.html">Specialization elements</a></li><li><a href="../../langRef/containers/legacy-conversion-elements.html">Legacy conversion elements</a></li><li><a href="../../langRef/containers/ditaval-elements.html">DITAVAL elements</a></li><li><a href="../../langRef/containers/technical-content-elements.html">Technical content elements</a></li><li><a href="../../langRef/containers/learningTraining-elements.html">Learning and training elements</a></li><li><a href="../../langRef/attributes/attributes.html">Attributes</a></li></ul></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
+<h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;anchorkey&gt;</code></h1>
+
+
+<div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;anchorkey&gt;</code> element allows an author to define a
+      <code class="keyword markupname xmlatt">@conref</code> target that will be resolved dynamically when rendered for an end user
+    of the content. This element is useful when doing an initial process of the DITA content prior
+    to final rendering of the content; it allows specified keys to be preserved after that process,
+    and conref relationships which use that key will not be resolved during that initial
+    process.</p>
+<section class="section" id="anchorkey__section-1"><p class="p">When a <code class="keyword markupname xmlatt">@keyref</code> attribute is specified on an <code class="keyword markupname xmlelement">&lt;anchorkey&gt;</code>
+        element, it indicates that any conref relationships using that key will not be resolved.
+        Applications that support run-time resolution of <code class="keyword markupname xmlatt">@conref</code> with keys will then
+        be able to dynamically resolve this <code class="keyword markupname xmlatt">@conref</code> at display time.</p><p class="p">There is no difference between specifying <code class="keyword markupname xmlelement">&lt;anchorkey&gt;</code> within a map (in
+          <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code>) and specifying <code class="keyword markupname xmlelement">&lt;anchorkey&gt;</code>
+        within a topic. In both cases, processors are instructed to delay resolution of that key for
+        the current set of information. However, the best practice is to only use
+          <code class="keyword markupname xmlelement">&lt;anchorkey&gt;</code> within a map. If it is specified in a topic, that topic
+        will define a usage for the key for every user of that topic. This makes the topic less
+        portable, because users that do not want to delay resolution of that specific key will not
+        be able to include the topic in their information.</p>
+      <p class="p">Many publishing systems for which DITA is
+        used as a source format do not have a way to dynamically resolve content references; those
+        systems will not see any benefit from this element. When DITA is used for those systems,
+        behaviors related to this element <span class="ph">are</span> ignored.</p></section>
+<section class="section" id="anchorkey__contains"><h2 class="title sectiontitle">Content models</h2><p class="p">See <span class="xref">appendix</span> for information about this element in OASIS document type shells.</p></section>
+<section class="section" id="anchorkey__inheritance"><h2 class="title sectiontitle">Inheritance</h2><p class="p">+
+topic/keyword delay-d/anchorkey </p></section>
+<div class="example non-normative" id="anchorkey__example"><h2 class="title sectiontitle">Example</h2><p class="p">In this example, a set of information contains multiple components. Some references to component
+        A use keys rather than a direct reference, so that <code class="keyword markupname xmlatt">@conref</code> can be redirected
+        to a different component when component A is not installed. The keys <span class="ph">might</span> be exported, in addition to the IDs, so that some
+        references become bound to the actual component while other references <span class="ph">might</span> be redirected.</p><pre class="pre codeblock"><code>&lt;map&gt;
+  &lt;topicref keys="componentAconfig commonconfig" 
+            href="componentA/configA.dita#configA"&gt;
+    &lt;topicmeta&gt;
+      &lt;exportanchors&gt;
+        &lt;anchorkey keyref="commonconfig"/&gt;
+        &lt;anchorid id="step1"/&gt;
+        &lt;anchorid id="step2"/&gt;
+      &lt;/exportanchors&gt;
+    &lt;/topicmeta&gt;
+  &lt;/topicref&gt;
+&lt;/map&gt;</code></pre><p class="p">The <code class="keyword markupname xmlatt">@keys</code> attributes declares two distinct keys that <span class="ph">can</span> be used to refer to this topic (componentAconfig and commonconfig). Only the
+        second is preserved using <code class="keyword markupname xmlelement">&lt;anchorkey&gt;</code>. A task topic from another
+        component <span class="ph">might</span> reuse steps within this topic in a variety of
+        ways.</p><pre class="pre codeblock"><code>&lt;steps&gt;
+  &lt;step conkeyref="componentAconfig/step1"&gt;&lt;cmd/&gt;&lt;/step&gt;
+  &lt;step conkeyref="componentAconfig/step1.5"&gt;&lt;cmd/&gt;&lt;/step&gt;
+  &lt;step conkeyref="commonconfig/step2"&gt;&lt;cmd/&gt;&lt;/step&gt;
+  &lt;step conkeyref="commonconfig/step2.5"&gt;&lt;cmd/&gt;&lt;/step&gt;
+  &lt;step&gt;&lt;cmd&gt;And that is the end of that&lt;/cmd&gt;&lt;/step&gt;
+&lt;/steps&gt;</code></pre><ul class="ul">
+<li class="li">The componentAconfig key is not preserved, so the first <code class="keyword markupname xmlelement">&lt;step&gt;</code> becomes
+            <code class="ph codeph">&lt;step
+            conref="componentA/configA.dita#configA/step1"&gt;&lt;cmd/&gt;&lt;/step&gt;</code>. At that
+          point the <code class="keyword markupname xmlelement">&lt;anchorid&gt;</code> element instructs the step1 ID to be
+          preserved; for runtime applications which support it, this relationship will be preserved
+          in the processed DITA output.</li>
+<li class="li">The second <code class="keyword markupname xmlelement">&lt;step&gt;</code> with the same key becomes <code class="ph codeph">&lt;step
+            conref="componentA/configA.dita#configA/step1.5"&gt;&lt;cmd/&gt;&lt;/step&gt;</code>. However,
+          conref relationships to step1.5 are not preserved, so this conref should be resolved into
+          static content.</li>
+<li class="li">For <code class="keyword markupname xmlelement">&lt;step&gt;</code> three, the map instructs that both the key commonconfig and
+          the ID step2 should be preserved in any content generated for this DITA topic. For formats
+          that support runtime resolution through keys, a process must convert the
+            <code class="keyword markupname xmlatt">@conkeyref</code> value into an equivalent value for that format.</li>
+<li class="li">Although resolution for the key used in <code class="keyword markupname xmlelement">&lt;step&gt;</code> four is delayed, the
+          specific element that is referenced should not be delayed. Thus the fourth step becomes
+            <code class="ph codeph">&lt;step
+            conref="componentA/configA.dita#configA/step2.5"&gt;&lt;cmd/&gt;&lt;/step&gt;</code>. This
+          value is then processed as an ordinary <code class="keyword markupname xmlatt">@conref</code> value.</li>
+</ul><p class="p">This allows the information assembler to resolve references
+that must be to componentA while deferring references that can be
+fulfilled by alternative component content.</p><div class="note note note_note non-normative"><span class="note__title">Note:</span> This example demonstrates why the <code class="keyword markupname xmlelement">&lt;anchorid&gt;</code> element cannot reference
+        an element with the usual topicid/elementid format. If the two
+          <code class="keyword markupname xmlelement">&lt;anchorid&gt;</code> elements in the example had been set to config/step1 and
+        config/step2, then they would only ever apply in a topic with id="config". It would not be
+        possible to redirect the key to another topic, but still preserve conref behaviors as
+        desired.</div><div class="note note note_note non-normative"><span class="note__title">Note:</span> Although it is not specifically called out in this example, it is possible to delay
+          <code class="keyword markupname xmlatt">@conref</code> resolution for an entire topic using the key. If
+          <code class="keyword markupname xmlatt">@conkeyref</code> on a task topic element is set to "componentAconfig", which
+          <em class="ph i">is not</em> delayed, the <code class="keyword markupname xmlatt">@conref</code> will be evaluated as usual. However, if
+          <code class="keyword markupname xmlatt">@conkeyref</code> on the task is set to "commonconfig", which <em class="ph i">is</em> delayed,
+        resolution of <code class="keyword markupname xmlatt">@conref</code> on that element should be delayed by a
+        processor.</div></div>
+<section class="section" id="anchorkey__attributes"><h2 class="title sectiontitle">Attributes</h2>
+      <p class="p">The following attributes are available on this element: <a class="xref" href="../attributes/universalAttributes.html" title="The universal attribute group defines a set of common attributes available on most DITA elements. The universal attribute group includes all attributes from the metadata, ID, localization, and debug attribute groups, plus the class attribute.">Universal attribute group</a>, <a class="xref" href="../attributes/commonAttributes.html#common-atts__outputclass">outputclass</a>, and the attribute
+        defined below.</p>
+      <dl class="dl">
+        
+          <dt class="dt dlterm"><code class="keyword markupname xmlatt">@keyref</code>
+            <span class="ph">(REQUIRED)</span></dt>
+          <dd class="dd">Defines a key that, when possible, <span class="ph">is</span> preserved in
+            content generated from the DITA source material. Conref relationships that use this key
+              <span class="ph">are</span> not resolved when generating that material, so that
+              <code class="keyword markupname xmlatt">@conref</code>
+            <span class="ph">might</span> be resolved at run-time when an end user is reading
+            the content. </dd>
+        
+      </dl>
+      </section>
+</div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/delayconref-d.html" title="The delayed conref resolution domain provides several elements for use when using DITA in situations that enable delayed or delivery time resolution of conref. The elements allow users to resolve some conref values statically, while delaying others for later resolution.">Delayed conref resolution elements</a></div></div></nav></article></main>

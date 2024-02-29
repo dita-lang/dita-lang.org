@@ -1,0 +1,125 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Processing key references to generate text or link text'
+description: 'Key references can be used to pull text from the key definition. This topic explains how to generate text from a key definition, regardless of whether the key reference also results in a link.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '1ef1836fa5adc371402b2e9d6b31fef551ef88ff'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a><ul class="nav nav-list"><li><a href="../../archSpec/base/introduction-to-dita.html">Introduction to DITA</a></li><li><a href="../../archSpec/base/ditamarkup.html">DITA markup </a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a><ul class="nav nav-list"><li><a href="../../archSpec/base/id.html">ID attribute</a></li><li><a href="../../archSpec/base/dita-linking.html">DITA linking</a></li><li><a href="../../archSpec/base/uri-based-addressing.html">URI-based (direct) addressing</a></li><li><a href="../../archSpec/base/key-based-addressing.html">Indirect key-based addressing</a><ul class="nav nav-list"><li><a href="../../archSpec/base/keys-core-concepts.html">Core concepts for working with keys</a></li><li><a href="../../archSpec/base/keyScopes.html">Key scopes</a></li><li><a href="../../archSpec/base/using-keys-for-addressing.html">Using keys for addressing</a></li><li><a href="../../archSpec/base/using-keys-to-address-keys-across-scopes.html">Addressing keys across scopes</a></li><li><a href="../../archSpec/base/links-between-maps.html">Cross-deliverable addressing and linking</a></li><li><a href="../../archSpec/base/processing-key-references-general.html">Processing key references</a></li><li><a href="../../archSpec/base/processing-keyref-for-links.html">Processing key references for navigation links and images</a></li><li><a href="../../archSpec/base/processing-keyref-on-topicref.html">Processing key references on topicref elements</a></li><li class="active"><a href="../../archSpec/base/processing-keyref-for-text.html">Processing key references to generate text or link text</a></li><li><a href="../../archSpec/base/examples-of-keys.html">Examples of keys</a></li></ul></li></ul></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration, specialization, generalization, and constraints </a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../archSpec/technicalContent/technical-content-specializations.html">Technical content specializations</a></li><li><a href="../../archSpec/learningTraining/learning-and-training-specializations.html">Learning and training specializations</a></li></ul></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Processing key references to generate text or link text</h1>
+    
+    <div class="body conbody"><p class="shortdesc">Key references can be used to pull text from the key definition. This topic explains
+        how to generate text from a key definition, regardless of whether the key reference also
+        results in a link.</p>
+        <div class="note note note_note non-normative"><span class="note__title">Note:</span> The processing described in this topic is unrelated to the <code class="keyword markupname xmlatt">@conkeyref</code>
+            attribute. In that case <code class="keyword markupname xmlatt">@conkeyref</code> is used to determine the target of a
+                <code class="keyword markupname xmlatt">@conref</code> attribute, after which the normal <code class="keyword markupname xmlatt">@conref</code>
+            rules apply.</div>
+        <p class="p">Empty elements that include a key reference with a defined key might get their effective
+            content from the key definition. Empty elements are defined as elements that meet the
+            following criteria:</p>
+        <ul class="ul">
+            <li class="li">Have no text content<span class="ph">, including white space</span></li>
+            <li class="li">Have no
+                sub-elements</li>
+            <li class="li">Have no attributes that would be used as text content (such as <code class="keyword markupname xmlatt">@alt</code>
+                on the <code class="keyword markupname xmlelement">&lt;image&gt;</code> element)</li>
+        </ul>
+        <p class="p">When an empty element as defined above references a key definition that
+            has a child <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> element, content from that
+                <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> element is used to determine the effective
+            content of the referencing element. Effective content from the key definition becomes
+            the element content, with the following exceptions: </p>
+        <ul class="ul">
+            <li class="li">For empty <code class="keyword markupname xmlelement">&lt;image&gt;</code> elements, effective content is used as
+                alternate text, equivalent to creating an <code class="keyword markupname xmlelement">&lt;alt&gt;</code> sub-element
+                to hold that content.</li>
+            <li class="li">For empty <code class="keyword markupname xmlelement">&lt;link&gt;</code> elements, effective content is used as link
+                text, equivalent to creating a <code class="keyword markupname xmlelement">&lt;linktext&gt;</code> sub-element to hold
+                that content.</li>
+            <li class="li">For empty <code class="keyword markupname xmlelement">&lt;link&gt;</code> and <code class="keyword markupname xmlelement">&lt;xref&gt;</code> elements,
+                a key definition can be used to provide a short description in addition to the
+                normal effective content. If the key definition includes
+                    <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code> inside of <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code>,
+                that <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code> should be used to provide effective content
+                for a <code class="keyword markupname xmlelement">&lt;desc&gt;</code>
+                sub-element.</li>
+            <li class="li">The <code class="keyword markupname xmlelement">&lt;longdescref&gt;</code> and <code class="keyword markupname xmlelement">&lt;longquoteref&gt;</code>
+                elements are empty elements with no effective content. Key definitions are not used
+                to set effective text for these elements.</li>
+            <li class="li">The <code class="keyword markupname xmlelement">&lt;param&gt;</code> element does not have any effective content, <span class="ph">so key definitions do not result in any effective content
+                    for <code class="keyword markupname xmlelement">&lt;param&gt;</code> elements.</span></li>
+            <li class="li">The <code class="keyword markupname xmlelement">&lt;indextermref&gt;</code> element is not completely defined, so
+                determining effective content for this element is also left undefined.</li>
+            <li class="li">The <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code>
+                <span class="ph">element is an empty element with special rules that
+                    determine its effective content.</span></li>
+        </ul>
+        <p class="p">Effective text content is determined using the following set of rules:</p>
+        <ol class="ol">
+            <li class="li">For the <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code>
+                element, see the rules described in <a class="xref" href="../../langRef/technicalContent/abbreviated-form.html" title="The abbreviated-form element represents a reference to a term that might appear in an abbreviated form (often an acronym). The long and short forms of the term are generally defined in a glossentry topic. Processors display the referenced term when rendering an abbreviated-form element.">abbreviated-form</a></li>
+            <li class="li">For elements that also exist as a child of
+                    <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> in the key definition, effective content is
+                taken from the first matching direct child of <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code>.
+                For example, given the following key definition, an empty
+                    <code class="keyword markupname xmlelement">&lt;author&gt;</code> element with the attribute
+                    <code class="ph codeph">keyref="justMe"</code> would result in the matching content "Just M.
+                Name":<pre class="pre codeblock"><code>&lt;keydef keys="justMe" href="http://www.example.com/my-profile" format="html" scope="external"&gt;
+  &lt;topicmeta&gt;
+    &lt;author&gt;Just M. Name&lt;/author&gt;
+  &lt;/topicmeta&gt;
+&lt;/keydef&gt;</code></pre></li>
+            <li class="li">For elements that do not allow the <code class="keyword markupname xmlatt">@href</code> attribute, content is taken
+                from the first <code class="keyword markupname xmlelement">&lt;keyword&gt;</code> element inside of
+                    <code class="keyword markupname xmlelement">&lt;keywords&gt;</code> inside of the
+                    <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code>. For example, given the following key
+                definition, empty <code class="keyword markupname xmlelement">&lt;keyword&gt;</code>, <code class="keyword markupname xmlelement">&lt;term&gt;</code>,
+                and <code class="keyword markupname xmlelement">&lt;dt&gt;</code> elements with the attribute
+                    <code class="ph codeph">keyref="nohref"</code> would all result in the matching content
+                "first":<pre class="pre codeblock"><code>&lt;keydef keys="nohref"&gt;
+  &lt;topicmeta&gt;
+    &lt;keywords&gt;&lt;keyword&gt;first&lt;/keyword&gt;&lt;keyword&gt;second&lt;/keyword&gt;&lt;keyword&gt;third&lt;/keyword&gt;&lt;/keywords&gt;
+  &lt;/topicmeta&gt;
+&lt;/keydef&gt;</code></pre></li>
+            <li class="li">For elements that do allow <code class="keyword markupname xmlatt">@href</code>, elements from within
+                    <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> that are legal within the element using
+                    <code class="keyword markupname xmlatt">@keyref</code> are considered matching text. For example, the
+                    <code class="keyword markupname xmlelement">&lt;xref&gt;</code> element allows <code class="keyword markupname xmlatt">@href</code>, and also
+                allows <code class="keyword markupname xmlelement">&lt;keyword&gt;</code> as a child. Using the code sample from the
+                previous item, an empty <code class="keyword markupname xmlelement">&lt;xref&gt;</code> with <code class="ph codeph">keyref="nohref"</code> would use all three of these
+                elements as text content; after processing, the result would be equivalent
+                to:<pre class="pre codeblock"><code>&lt;xref keyref="test"&gt;&lt;keyword&gt;first&lt;/keyword&gt;&lt;keyword&gt;second&lt;/keyword&gt;&lt;keyword&gt;third&lt;/keyword&gt;&lt;/xref&gt;</code></pre></li>
+            <li class="li">Otherwise, if <code class="keyword markupname xmlelement">&lt;linktext&gt;</code> is specified inside of
+                    <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code>, the contents of
+                    <code class="keyword markupname xmlelement">&lt;linktext&gt;</code> are used as the effective content. <div class="note note note_note non-normative"><span class="note__title">Note:</span> Because all elements that <span class="ph">get effective
+                        content</span> will eventually look for content in the
+                        <code class="keyword markupname xmlelement">&lt;linktext&gt;</code> element, using
+                        <code class="keyword markupname xmlelement">&lt;linktext&gt;</code> for effective content is a best practice
+                    for cases where all elements getting text from a key definition should result in
+                    the same value.</div></li>
+            <li class="li">Otherwise, if the element with the key reference results in a link, normal link text
+                determination rules apply as they would for <code class="keyword markupname xmlelement">&lt;xref&gt;</code> (for
+                example, using the <code class="keyword markupname xmlelement">&lt;navtitle&gt;</code> or falling back to the URI of
+                the link target).</li>
+        </ol>
+        <p class="p">When the effective content for a key reference element results in <span class="ph">invalid elements,
+                those elements <dfn class="term RFC-2119">SHOULD</dfn> be generalized to produce
+                a valid result.</span> For example, <code class="keyword markupname xmlelement">&lt;linktext&gt;</code> in the key
+            definition <span class="ph">might</span> use a domain specialization of
+                <code class="keyword markupname xmlelement">&lt;keyword&gt;</code> that is not valid in the key reference context, in
+            which case the specialized element should be generalized to
+                <code class="keyword markupname xmlelement">&lt;keyword&gt;</code>. If the generalized content is also not valid, a
+            text equivalent should be used instead. For example, <code class="keyword markupname xmlelement">&lt;linktext&gt;</code>
+            <span class="ph">might</span> include <code class="keyword markupname xmlelement">&lt;ph&gt;</code> or a
+            specialized <code class="keyword markupname xmlelement">&lt;ph&gt;</code> in the key definition, but neither of those are
+            valid as the effective content for a <code class="keyword markupname xmlelement">&lt;keyword&gt;</code>. In that case, the
+            text content of the <code class="keyword markupname xmlelement">&lt;ph&gt;</code> should be used.</p>
+        
+    </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/key-based-addressing.html" title="DITA keys provide an alternative to direct addressing. The key reference mechanism provides a layer of indirection so that resources (for example, URIs, metadata, or variable text strings) can be defined at the DITA map level instead of locally in each topic.">Indirect key-based addressing</a></div></div></nav></article></main>

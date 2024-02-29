@@ -1,0 +1,142 @@
+---
+# Generated from DITA source
+layout: base
+title: 'relcolspec'
+description: 'The relcolspec element is used to define a column in a relationship table. The relcolspec element can be used to set default attribute values for the topicref elements in the column.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '1ef1836fa5adc371402b2e9d6b31fef551ef88ff'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a><ul class="nav nav-list"><li><a href="../../langRef/containers/element-quick-reference.html">Element quick reference</a></li><li><a href="../../langRef/containers/topic-elements.html">Topic elements</a></li><li><a href="../../langRef/containers/map-elements.html">Map elements</a><ul class="nav nav-list"><li><a href="../../langRef/containers/basic-map-elements.html">Basic map elements</a><ul class="nav nav-list"><li><a href="../../langRef/base/map.html">map</a></li><li><a href="../../langRef/base/topicref.html">topicref</a></li><li><a href="../../langRef/base/topicmeta.html">topicmeta</a></li><li><a href="../../langRef/base/anchor.html">anchor</a></li><li><a href="../../langRef/base/navref.html">navref</a></li><li><a href="../../langRef/base/reltable.html">reltable</a></li><li><a href="../../langRef/base/relrow.html">relrow</a></li><li><a href="../../langRef/base/relcell.html">relcell</a></li><li><a href="../../langRef/base/relheader.html">relheader</a></li><li class="active"><a href="../../langRef/base/relcolspec.html">relcolspec</a></li><li><a href="../../langRef/base/ux-window.html">ux-window</a></li></ul></li><li><a href="../../langRef/containers/mapgroup-d.html">Map group elements</a></li></ul></li><li><a href="../../langRef/containers/metadata-elements.html">Metadata elements</a></li><li><a href="../../langRef/containers/domain-elements.html">Domain elements</a></li><li><a href="../../langRef/containers/classification-elements.html">Classification elements</a></li><li><a href="../../langRef/containers/specialization-elements.html">Specialization elements</a></li><li><a href="../../langRef/containers/legacy-conversion-elements.html">Legacy conversion elements</a></li><li><a href="../../langRef/containers/ditaval-elements.html">DITAVAL elements</a></li><li><a href="../../langRef/containers/technical-content-elements.html">Technical content elements</a></li><li><a href="../../langRef/containers/learningTraining-elements.html">Learning and training elements</a></li><li><a href="../../langRef/attributes/attributes.html">Attributes</a></li></ul></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
+<h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;relcolspec&gt;</code></h1>
+
+  
+<div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;relcolspec&gt;</code> element is used to define a column in a
+    relationship table. The <code class="keyword markupname xmlelement">&lt;relcolspec&gt;</code> element <span class="ph">can</span> be used to set default attribute values for the <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>
+    elements in the column.</p>
+<section class="section" id="relcolspec__section-1"><p class="p">You can use the <code class="keyword markupname xmlelement">&lt;relcolspec&gt;</code> element to set default values for the
+        attributes of the topics that are referenced in the column. For example, when you set the
+          <code class="keyword markupname xmlatt">@type</code> attribute to "concept," all <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>
+        elements in the column that do not have a <code class="keyword markupname xmlatt">@type</code> attribute specified are
+        treated as concepts. When values are specified for attributes of
+          <code class="keyword markupname xmlelement">&lt;relcell&gt;</code> or <code class="keyword markupname xmlelement">&lt;relrow&gt;</code> elements, those values
+        are inherited before those defined for <code class="keyword markupname xmlelement">&lt;relcolspec&gt;</code> attributes.
+        Values specified for attributes of <code class="keyword markupname xmlelement">&lt;relcolspec&gt;</code> elements are
+        inherited before those defined for the <code class="keyword markupname xmlelement">&lt;reltable&gt;</code> element.</p><p class="p">Beginning with DITA 1.2, you also can add <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements to the
+          <code class="keyword markupname xmlelement">&lt;relcolspec&gt;</code> element; this defines a relationship between the
+        topics that are referenced in the <code class="keyword markupname xmlelement">&lt;relcolspec&gt;</code> element and the topics
+        that are referenced in the column of the relationship table. Note that this does not define
+        a relationship between two cells in the same column; the only new relationship is between
+          <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> targets in a <code class="keyword markupname xmlelement">&lt;relcell&gt;</code> and
+          <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> targets in that column's
+          <code class="keyword markupname xmlelement">&lt;relcolspec&gt;</code>.</p><div class="p">Also beginning with DITA 1.2, if you add a <code class="keyword markupname xmlelement">&lt;title&gt;</code> element to the
+          <code class="keyword markupname xmlelement">&lt;relcolspec&gt;</code> element, the content of the
+          <code class="keyword markupname xmlelement">&lt;title&gt;</code> element is used as the label for the related links that are
+        defined and generated by the column. If the <code class="keyword markupname xmlelement">&lt;title&gt;</code> element is not
+        present, the labels for the related links are generated in the following ways:<ul class="ul">
+          <li class="li">If the <code class="keyword markupname xmlelement">&lt;relcolspec&gt;</code> element contains a
+              <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element that references a non-DITA resource, the
+            value of the <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element's navigation title is used for
+            the label.</li>
+          <li class="li">If the <code class="keyword markupname xmlelement">&lt;relcolspec&gt;</code> element contains a
+              <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element that references a DITA resource and the
+              <code class="keyword markupname xmlatt">@locktitle</code> attribute is set to "yes," the value of the
+              <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element's navigation title is used for the
+            label.</li>
+          <li class="li">If the <code class="keyword markupname xmlelement">&lt;relcolspec&gt;</code> element contains a
+              <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element that references a DITA resource and the
+              <code class="keyword markupname xmlatt">@locktitle</code> attribute is missing or set to "no," the label is derived
+            from the <code class="keyword markupname xmlelement">&lt;navtitle&gt;</code> or <code class="keyword markupname xmlelement">&lt;title&gt;</code> element
+            specified within the topic.</li>
+          <li class="li">If no title is specified and no <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> is present in the
+              <code class="keyword markupname xmlelement">&lt;relcolspec&gt;</code>, a rendering tool <span class="ph">might</span> choose to generate a title for the links generated from that column.</li>
+        </ul></div></section>
+<section class="section" id="relcolspec__contains"><h2 class="title sectiontitle">Content models</h2><p class="p">See <span class="xref">appendix</span> for information about this element in OASIS document type shells.</p></section>
+<section class="section" id="relcolspec__inheritance"><h2 class="title sectiontitle">Inheritance</h2><p class="p">-
+map/relcolspec </p></section>
+<div class="example non-normative" id="relcolspec__example"><h2 class="title sectiontitle">Example</h2><p class="p">In this example, a relationship table is defined with three columns; one for "concept", one for
+        "task", and one for "reference". Three cells are defined within one row. The first cell
+        contains one concept topic: <span class="ph filepath">puffins.dita</span>. The second cell contains two
+        task topics: <span class="ph filepath">puffinFeeding.dita</span> and
+          <span class="ph filepath">puffinCleaning.dita</span>. The third cell contains a reference topic:
+          <span class="ph filepath">puffinHistory.dita</span>. Setting the <code class="keyword markupname xmlatt">@type</code> on each column
+        allows (but does not require) processors to validate that the topics in each column are of
+        the expected type.</p><pre class="pre codeblock"><code>&lt;map&gt;
+ &lt;reltable&gt;
+  &lt;relheader&gt;
+   <strong class="ph b">&lt;relcolspec type="concept"/&gt;</strong>
+   <strong class="ph b">&lt;relcolspec type="task"/&gt;</strong>
+   <strong class="ph b">&lt;relcolspec type="reference"/&gt;</strong>
+  &lt;/relheader&gt;
+  &lt;relrow&gt;
+   &lt;relcell&gt;&lt;topicref href="puffins.dita"/&gt;&lt;/relcell&gt;
+   &lt;relcell&gt;
+     &lt;topicref href="puffinFeeding.dita"/&gt;
+     &lt;topicref href="puffinCleaning.dita"/&gt;
+   &lt;/relcell&gt;
+   &lt;relcell&gt;
+     &lt;topicref href="puffinHistory.dita"/&gt;
+   &lt;/relcell&gt;
+  &lt;/relrow&gt;
+ &lt;/reltable&gt;
+&lt;/map&gt;</code></pre></div>
+<div class="example non-normative" id="relcolspec__example-with-titles"><h2 class="title sectiontitle">Example with column titles</h2>
+      
+      <p class="p">Consider the following relationship table:</p>
+      <pre class="pre codeblock"><code>&lt;reltable&gt;
+  &lt;relheader&gt;
+    <strong class="ph b">&lt;relcolspec type="task"&gt;</strong>
+      &lt;topicref navtitle="Troubleshooting" href="tbs.dita" locktitle="yes"/&gt;
+    <strong class="ph b">&lt;/relcolspec&gt;</strong>
+    <strong class="ph b">&lt;relcolspec type="reference"&gt;</strong>
+      &lt;topicref navtitle="Messages" href="msg.dita" locktitle="yes"/&gt;
+    <strong class="ph b">&lt;/relcolspec&gt;</strong>
+  &lt;/relheader&gt;
+  &lt;relrow&gt;
+    &lt;relcell&gt;
+      &lt;topicref navtitle="Debugging login errors" href="debug_login.dita"/&gt;
+    &lt;/relcell&gt;
+    &lt;relcell&gt;
+      &lt;topicref navtitle="Login not found" href="login_error_1.dita"/&gt;
+    &lt;/relcell&gt;
+  &lt;/relrow&gt;
+  &lt;relrow&gt;
+    &lt;relcell&gt;
+      &lt;topicref navtitle="Checking access controls" href="checking_access.dita"/&gt;
+    &lt;/relcell&gt;
+    &lt;relcell&gt;
+      &lt;topicref navtitle="Login not allowed" href="login_error_2.dita"/&gt;
+    &lt;/relcell&gt;
+  &lt;/relrow&gt;
+&lt;/reltable&gt;</code></pre>
+      <div class="p">In addition to the relationships defined by the rows in the relationship table, the
+        following relationships are now defined by the columns in the relationship table:<ul class="ul">
+          <li class="li"><span class="ph filepath">tbs.dita</span> &lt;–&gt; <span class="ph filepath">debug_login.dita</span></li>
+          <li class="li"><span class="ph filepath">tbs.dita</span> &lt;–&gt; <span class="ph filepath">checking_access.dit</span>a</li>
+          <li class="li"><span class="ph filepath">msg.dita</span> &lt;–&gt; <span class="ph filepath">login_error_1.dita</span></li>
+          <li class="li"><span class="ph filepath">msg.dita</span> &lt;–&gt; <span class="ph filepath">login_error_2.dita</span></li>
+        </ul></div>
+      <p class="p">Ignoring the headers for a moment, the <code class="keyword markupname xmlelement">&lt;reltable&gt;</code> here would
+        ordinarily define a two-way relationship between <span class="ph filepath">debug_login.dita</span> and
+          <span class="ph filepath">login_error1.dita</span>. This will typically be expressed as a link from
+        each to the other. An application <dfn class="term RFC-2119">MAY</dfn>
+        render the link with a language-appropriate heading such as "Related reference", indicating
+        that the target of the link is a reference topic.</p>
+      <p class="p">The headers change this by specifying a new title. In the second column, the
+          <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> specifies a title of "Messages", which should now be
+        used together with the link to anything in that column. So, a generated link from
+          <span class="ph filepath">debug_login.dita</span> to <span class="ph filepath">login_error1.dita</span> should be
+        rendered together with the title of "Messages". How this is rendered together with the link
+        is up to the application.</p>
+    </div>
+<section class="section" id="relcolspec__attributes"><h2 class="title sectiontitle">Attributes</h2>
+      <p class="p">The following attributes are available on this element: <a class="xref" href="../attributes/universalAttributes.html" title="The universal attribute group defines a set of common attributes available on most DITA elements. The universal attribute group includes all attributes from the metadata, ID, localization, and debug attribute groups, plus the class attribute.">Universal attribute group</a>, <a class="xref" href="../attributes/commonMapAttributes.html" title="This attribute group collects several attributes that are used on a variety of map elements. For a few elements, the group is modified slightly to remove an attribute such as toc or format; in those cases the element definition will clarify that the element does not use this full set. That is generally done in order to specify a default for one attribute, such as defaulting format to &#34;ditamap&#34; on the mapref element.">Attributes common to many map elements</a> (without <code class="keyword markupname xmlatt">@keyscope</code>
+        attribute), and <a class="xref" href="../attributes/commonAttributes.html#common-atts__outputclass">outputclass</a>.
+        This element also uses <code class="keyword markupname xmlatt">@type</code>, <code class="keyword markupname xmlatt">@scope</code>, and
+          <code class="keyword markupname xmlatt">@format</code> from <a class="xref" href="../attributes/linkRelationshipAttributes.html" title="The link relationship attribute group includes attributes whose values can be used for representing navigational relationships. These attributes occur only on elements that represent relationships among DITA elements or between DITA elements and non-DITA resources.">Link relationship attribute group</a>.</p>
+      </section>
+</div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/basic-map-elements.html" title="DITA maps are built from a few core elements that are used for referencing and organizing topics. The topicmeta element is also available to specify metadata for the map, for individual topics, or for groups of topics. Many elements inside topicmeta are also available inside the topic prolog.">Basic map elements</a></div></div></nav></article></main>

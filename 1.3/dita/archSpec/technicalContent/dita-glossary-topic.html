@@ -1,0 +1,107 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Glossary entry topic'
+description: 'Each glossary entry glossentry topic defines a single sense of one term. Besides identifying the term and providing a definition, the topic accommodates basic terminology information, such as part of speech. A glossentry topic might also include acronyms and acronym expansions. Glossentry topics can be assembled by authors or processes to create glossaries for various purposes, including books, websites, or other projects.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '1ef1836fa5adc371402b2e9d6b31fef551ef88ff'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a><ul class="nav nav-list"><li><a href="../../archSpec/base/introduction-to-dita.html">Introduction to DITA</a></li><li><a href="../../archSpec/base/ditamarkup.html">DITA markup </a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration, specialization, generalization, and constraints </a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../archSpec/technicalContent/technical-content-specializations.html">Technical content specializations</a><ul class="nav nav-list"><li><a href="../../archSpec/technicalContent/dita-technicalContent-InformationTypes.html">Technical content: Document types</a><ul class="nav nav-list"><li><a href="../../archSpec/technicalContent/dita-concept-topic.html">Concept topic</a></li><li><a href="../../archSpec/technicalContent/dita-reference-topic.html">Reference topic</a></li><li><a href="../../archSpec/technicalContent/dita-generic-task-topic.html">General task topic</a></li><li><a href="../../archSpec/technicalContent/dita-task-topic.html">Task topic (strict task)</a></li><li><a href="../../archSpec/technicalContent/dita-machinerytask-topic.html">Machinery Task topic</a></li><li><a href="../../archSpec/technicalContent/dita-troubleshooting-topic.html">Troubleshooting topic</a></li><li class="active"><a href="../../archSpec/technicalContent/dita-glossary-topic.html">Glossary entry topic</a></li><li><a href="../../archSpec/technicalContent/dita-glossarygroup-topic.html">Glossary group topic</a></li><li><a href="../../archSpec/technicalContent/dita-spec-intro-bookmap.html">Bookmap</a></li></ul></li><li><a href="../../archSpec/technicalContent/technical-content-domains.html">Technical content domains</a></li><li><a href="../../archSpec/technicalContent/TroubleshootingElements.html">Troubleshooting information</a></li></ul></li><li><a href="../../archSpec/learningTraining/learning-and-training-specializations.html">Learning and training specializations</a></li></ul></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Glossary entry topic</h1>
+  
+  <div class="body conbody"><p class="shortdesc">Each glossary entry <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code> topic defines a single sense of
+    one term. Besides identifying the term and providing a definition, the topic accommodates basic
+    terminology information, such as part of speech. A glossentry topic <span class="ph">might</span> also include acronyms and acronym expansions. Glossentry topics can be assembled
+    by authors or processes to create glossaries for various purposes, including books, websites, or
+    other projects.</p>
+    <section class="section" id="glossaryArch__purpose"><h2 class="title sectiontitle">The purpose of the glossary entry topic</h2>
+      
+      <p class="p">Defining terminology in a glossary ensures that a team of writers uses the same term for
+        the same concept. A glossary added to a book or available online in conjunction with other
+        subject matter provides the reader with definitions of unfamiliar terms and expands
+        acronyms. </p>
+      
+    </section>
+    <section class="section" id="glossaryArch__structure"><h2 class="title sectiontitle">The structure of the glossentry topic</h2>
+      
+      <p class="p">The top-level element for a DITA glossentry topic is the <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code>
+        element. Every glossentry topic contains a <code class="keyword markupname xmlelement">&lt;glossterm&gt;</code> and a <code class="keyword markupname xmlelement">&lt;glossdef&gt;</code> element and
+        optional <code class="keyword markupname xmlelement">&lt;related-links&gt;</code>. </p>
+      <p class="p">Where a term has multiple definitions, <span class="ph">best practices call for
+          the writer to</span> create multiple glossentry topics with the same term in the
+          <code class="keyword markupname xmlelement">&lt;glossterm&gt;</code> element but different definitions in the
+          <code class="keyword markupname xmlelement">&lt;glossdef&gt;</code> element. A process can collate and group glossentry
+        topics by term when generating formatted output. Note that definitions with the same term in
+        one language can have different terms in other languages, so translations can result in
+        different collation and grouping of the same set of glossentry topics. </p>
+      <p class="p">Here is an example of a simple glossentry topic:</p>
+      <pre class="pre codeblock"><code>&lt;glossentry id="ddl"&gt;
+    &lt;glossterm&gt;Data Definition Language&lt;/glossterm&gt;
+    &lt;glossdef&gt;A language used for defining database schemas.&lt;/glossdef&gt;
+&lt;/glossentry&gt;</code></pre>
+      <div class="p">To create a glossary, authors can group multiple entries together by<ul class="ul">
+          <li class="li">authoring in a single document using the Glossary group document type</li>
+          <li class="li">authoring in a single document under a container topic using the ditabase document
+            type</li>
+          <li class="li">referencing the glossentry topics from a map</li>
+          <li class="li">using an automated process</li>
+        </ul>For example, an automated process <span class="ph">might</span> assemble
+        glossentry topics from a repository based on the <code class="keyword markupname xmlelement">&lt;term&gt;</code> markup in a
+        particular collection of topics. </div>
+      
+    </section>
+    <section class="section" id="glossaryArch__acronyms"><h2 class="title sectiontitle">Acronyms defined within glossentry topics</h2>
+      
+      <div class="p">The glossentry topic <span class="ph">can</span> be used to provide expansions of
+        acronyms in online text and assist in the proper translation of acronyms into multiple
+        languages. The acronym elements of the glossentry topic include the following:<ul class="ul" id="glossaryArch__ul_584c0ec8-47d8-48db-8f4c-4e8e67e87d52">
+          <li class="li">&lt;glossterm&gt; to enter the full text to which the acronym refers</li>
+          <li class="li">&lt;glossSurfaceForm&gt; to provide the appropriate rendering of the full text plus the
+            acronym in each language</li>
+          <li class="li">&lt;glossAcronym&gt; to provide the acronym text itself</li>
+        </ul></div>
+      <p class="p">Here is an example of an acronym used in the glossentry topic:</p>
+      <pre class="pre codeblock"><code>&lt;glossentry id="wmd" xml:lang="en"&gt;
+  &lt;glossterm&gt;Weapons of Mass Destruction&lt;/glossterm&gt;
+  &lt;glossBody&gt;
+    &lt;glossSurfaceForm&gt;Weapons of Mass Destruction (WMD)&lt;/glossSurfaceForm&gt;
+    &lt;glossAlt&gt;
+      &lt;glossAcronym&gt;WMD&lt;/glossAcronym&gt;
+    &lt;/glossAlt&gt;
+  &lt;/glossBody&gt;
+&lt;/glossentry&gt;</code></pre>
+      <p class="p">Here is an example of how the glossentry topic would be translated into Spanish:</p>
+      <pre class="pre codeblock"><code>&lt;glossentry id="wmd" xml:lang="es"&gt;
+  &lt;glossterm&gt;armas de destrucción masiva&lt;/glossterm&gt;
+  &lt;glossBody&gt;
+    &lt;glossSurfaceForm&gt;&lt;/glossSurfaceForm&gt;
+    &lt;glossAlt&gt;
+      &lt;glossAcronym&gt;&lt;/glossAcronym&gt;
+    &lt;/glossAlt&gt;
+  &lt;/glossBody&gt;
+&lt;/glossentry&gt;</code></pre>
+      <p class="p">Note that because no acronym exists for the term in Spanish, the <code class="keyword markupname xmlelement">&lt;glossSurfaceForm&gt;</code> and
+        <code class="keyword markupname xmlelement">&lt;glossAcronym&gt;</code> elements are left blank. </p>
+      <p class="p">In some languages, the surface form that expands the acronym in its first use handles the
+        formatting differently than in English. For example, in Polish, the acronym precedes the
+        expansion. </p>
+      <pre class="pre codeblock"><code>&lt;glossentry id="eu" xml:lang="pl"&gt;
+  &lt;glossterm&gt;Unia Europejska&lt;/glossterm&gt;
+  &lt;glossBody&gt;
+    &lt;glossSurfaceForm&gt;UE (Unia Europejska)&lt;/glossSurfaceForm&gt;
+    &lt;glossAlt&gt;
+      &lt;glossAcronym&gt;UE&lt;/glossAcronym&gt;
+    &lt;/glossAlt&gt;
+  &lt;/glossBody&gt;
+&lt;/glossentry&gt;</code></pre>
+      <p class="p">For more information about the correct use of acronym expansions in multiple languages, see
+          <em class="ph i">Best Practice for Managing Acronyms and Abbreviations in DITA</em>, produced by the DITA
+        Translation Subcommittee. <a class="xref" href="http://www.oasis-open.org/committees/download.php/29734/AcronymBestPractice_08112008.doc" target="_blank" rel="external noopener">http://www.oasis-open.org/committees/download.php/29734/AcronymBestPractice_08112008.doc</a></p>
+    </section>
+    
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/technicalContent/dita-technicalContent-InformationTypes.html" title="The Technical Content package contains various document types: concept, reference, general task, strict task, machinery task, troubleshooting, glossary entry, and glossary group. These document types are designed specifically for information that describes how to use products and processes. The Technical Content package also includes the map document type.">Technical content: Document types</a></div></div></nav></article></main>

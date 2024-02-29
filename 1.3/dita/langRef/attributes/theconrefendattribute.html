@@ -1,0 +1,280 @@
+---
+# Generated from DITA source
+layout: base
+title: 'The conrefend attribute'
+description: 'The conrefend attribute is used when referencing a range of elements with the conref mechanism. The conref or conkeyref attribute references the first element in the range, while conrefend references the last element in the range.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '1ef1836fa5adc371402b2e9d6b31fef551ef88ff'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a><ul class="nav nav-list"><li><a href="../../langRef/containers/element-quick-reference.html">Element quick reference</a></li><li><a href="../../langRef/containers/topic-elements.html">Topic elements</a></li><li><a href="../../langRef/containers/map-elements.html">Map elements</a></li><li><a href="../../langRef/containers/metadata-elements.html">Metadata elements</a></li><li><a href="../../langRef/containers/domain-elements.html">Domain elements</a></li><li><a href="../../langRef/containers/classification-elements.html">Classification elements</a></li><li><a href="../../langRef/containers/specialization-elements.html">Specialization elements</a></li><li><a href="../../langRef/containers/legacy-conversion-elements.html">Legacy conversion elements</a></li><li><a href="../../langRef/containers/ditaval-elements.html">DITAVAL elements</a></li><li><a href="../../langRef/containers/technical-content-elements.html">Technical content elements</a></li><li><a href="../../langRef/containers/learningTraining-elements.html">Learning and training elements</a></li><li><a href="../../langRef/attributes/attributes.html">Attributes</a><ul class="nav nav-list"><li><a href="../../langRef/attributes/universalAttributes.html">Universal attribute group</a></li><li><a href="../../langRef/attributes/architecturalAttributes.html">Architectural attribute group</a></li><li><a href="../../langRef/attributes/commonMapAttributes.html">Attributes common to many map elements</a></li><li><a href="../../langRef/attributes/calsTableAttributes.html">Complex-table attribute group</a></li><li><a href="../../langRef/attributes/dataElementAttributes.html">Data element attributes group</a></li><li><a href="../../langRef/attributes/dateAttributes.html">Date attributes group</a></li><li><a href="../../langRef/attributes/displayAttributes.html">Display attribute group</a></li><li><a href="../../langRef/attributes/linkRelationshipAttributes.html">Link relationship attribute group</a></li><li><a href="../../langRef/attributes/commonAttributes.html">Other common attributes</a></li><li><a href="../../langRef/attributes/simpletableAttributes.html">Simpletable attribute group</a></li><li><a href="../../langRef/attributes/specializationAttributes.html">Specialization attributes group</a></li><li><a href="../../langRef/attributes/topicrefElementAttributes.html">Topicref element attributes group</a></li><li><a href="../../langRef/attributes/complexattributedefinitions.html">Complex attribute definitions</a><ul class="nav nav-list"><li><a href="../../langRef/attributes/thehrefattribute.html">The href attribute</a></li><li><a href="../../langRef/attributes/thekeysattribute.html">The keys attribute</a></li><li><a href="../../langRef/attributes/thekeyrefattribute.html">The keyref attribute</a></li><li><a href="../../langRef/attributes/the-key-scope-attribute.html">The keyscope attribute</a></li><li><a href="../../langRef/attributes/theconrefattribute.html">The conref attribute</a></li><li><a href="../../langRef/attributes/theconactionattribute.html">The conaction attribute</a></li><li class="active"><a href="../../langRef/attributes/theconrefendattribute.html">The conrefend attribute</a></li><li><a href="../../langRef/attributes/theconkeyrefattribute.html">The conkeyref attribute</a></li><li><a href="../../langRef/attributes/thetypeattribute.html">The type attribute</a></li><li><a href="../../langRef/attributes/theformatattribute.html">The format attribute</a></li><li><a href="../../langRef/attributes/thescopeattribute.html">The scope attribute</a></li><li><a href="../../langRef/attributes/theroleattribute.html">The role and otherrole attributes</a></li></ul></li></ul></li></ul></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
+<h1 class="title topictitle1" id="ariaid-title1">The <code class="keyword markupname xmlatt">@conrefend</code> attribute</h1>
+  
+  
+<div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlatt">@conrefend</code> attribute is used when referencing a range of elements
+    with the conref mechanism. The <code class="keyword markupname xmlatt">@conref</code> or <code class="keyword markupname xmlatt">@conkeyref</code> attribute
+    references the first element in the range, while <code class="keyword markupname xmlatt">@conrefend</code> references the last
+    element in the range. </p>
+<section class="section" id="theconrefendattribute__section-1"><h2 class="title sectiontitle">Using <code class="keyword markupname xmlatt">@conref</code> together with <code class="keyword markupname xmlatt">@conrefend</code></h2><p class="p">Several items must be taken into account when using or implementing
+        <code class="keyword markupname xmlatt">@conrefend</code>.</p><ul class="ul">
+<li class="li">Processors will resolve the range by pulling in the start target and following sibling XML nodes
+          across to and including the end target.</li>
+<li class="li">The start and end elements of a range <dfn class="term RFC-2119">MUST</dfn> be of the same type as the referencing element or generalizable to the
+          referencing element. For example, <code class="keyword markupname xmlatt">@conref</code> and <code class="keyword markupname xmlatt">@conrefend</code>
+          attributes on an <code class="keyword markupname xmlelement">&lt;li&gt;</code> element might reference other
+            <code class="keyword markupname xmlelement">&lt;li&gt;</code> elements, or they might reference specializations of
+            <code class="keyword markupname xmlelement">&lt;li&gt;</code> such as <code class="keyword markupname xmlelement">&lt;step&gt;</code>.</li>
+<li class="li">As with <code class="keyword markupname xmlatt">@conref</code>, if the <code class="keyword markupname xmlatt">@conrefend</code> references a more specialized
+          version of the referencing element, applications should generalize the target when
+          resolving. </li>
+<li class="li">It is not valid to use <code class="keyword markupname xmlatt">@conrefend</code> to reference a more general version of an
+          element (such as using <code class="keyword markupname xmlelement">&lt;step&gt;</code> to reference an
+            <code class="keyword markupname xmlelement">&lt;li&gt;</code> element).</li>
+<li class="li">Other nodes (such as elements or text) between the start and end
+of a range do not have to match the referencing element.</li>
+<li class="li">The start and end elements in a range <dfn class="term RFC-2119">MUST</dfn>
+          share the same parent, and the start element <dfn class="term RFC-2119">MUST</dfn> precede the end element in document order.</li>
+<li class="li">The parent of the referencing element <dfn class="term RFC-2119">MUST</dfn> be the same as
+          the parent of the referenced range or generalizable to the parent of the referencing
+          element. For example, it is possible to pull a range from <code class="keyword markupname xmlelement">&lt;conbody&gt;</code>
+          into <code class="keyword markupname xmlelement">&lt;body&gt;</code>, because <code class="keyword markupname xmlelement">&lt;conbody&gt;</code> is
+          generalizable to <code class="keyword markupname xmlelement">&lt;body&gt;</code>. It is not possible to pull a range from
+            <code class="keyword markupname xmlelement">&lt;body&gt;</code> into <code class="keyword markupname xmlelement">&lt;conbody&gt;</code>, because the result
+            <span class="ph">might</span> not be valid in
+          <code class="keyword markupname xmlelement">&lt;conbody&gt;</code>.</li>
+<li class="li">With single conref, an <code class="keyword markupname xmlatt">@id</code> attribute from the referenced element will not be
+          preserved on the resolved content. With a range, an <code class="keyword markupname xmlatt">@id</code> on both the start
+          and the end elements will not be preserved. <code class="keyword markupname xmlatt">@id</code> attributes on intermediate
+          or child nodes should be preserved; if this results in duplicate <code class="keyword markupname xmlatt">@id</code>
+          values, an application <span class="ph">can recover by changing the <code class="keyword markupname xmlatt">@id</code>,
+            warning the user, or implementing another strategy.</span></li>
+<li class="li">With a single conref, attributes specified on the referencing element<span class="ph">can</span> be used to override attributes on the referenced element. With a conref range,
+          the same is true, with the following clarifications: <ul class="ul">
+            <li class="li">When an <code class="keyword markupname xmlatt">@id</code> attribute is specified on the referencing element, it
+              will only be preserved on the first element of the resolved range.</li>
+            <li class="li">When other attributes are specified, they will only apply to referenced elements of
+              the same type. For example, if <code class="keyword markupname xmlelement">&lt;step&gt;</code> is used to pull in a
+              range of sequential <code class="keyword markupname xmlelement">&lt;step&gt;</code> elements, locally specified
+              attributes apply to all steps in the range. If <code class="keyword markupname xmlelement">&lt;ol&gt;</code> is used to
+              pull in a series of (<code class="keyword markupname xmlelement">&lt;ol&gt;</code>, <code class="keyword markupname xmlelement">&lt;p&gt;</code>,
+                <code class="keyword markupname xmlelement">&lt;ol&gt;</code>), locally specified attributes apply only to the
+                <code class="keyword markupname xmlelement">&lt;ol&gt;</code> elements in that range.</li>
+          </ul></li>
+</ul></section>
+<div class="example non-normative" id="theconrefendattribute__example-reuse-li"><h2 class="title sectiontitle">Example: reusing a set of list items</h2>
+      
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>List example: Source <span class="ph filepath">topic.dita</span> with ids</figcaption>
+        
+        <pre class="pre codeblock"><code>&lt;topic id="x"&gt;
+ 	...
+ 	&lt;body&gt;
+ 		&lt;ol&gt;
+ 			&lt;li id="apple"&gt;A&lt;/li&gt;
+ 			&lt;li id="bear"&gt;B&lt;/li&gt;
+ 			&lt;li id="cat"&gt;C&lt;/li&gt;
+ 			&lt;li id="dog"&gt;D&lt;/li&gt;
+ 			&lt;li id="eel"&gt;E&lt;/li&gt;
+ 		&lt;/ol&gt;
+ 	&lt;/body&gt;
+ &lt;/topic&gt;
+ </code></pre>
+      </figure>
+      <figure class="fig fignone" id="theconrefendattribute__fig_C0AF6F23F1E74AF98540F736113DFFAB"><figcaption><span class="fig--title-label">Figure 2. </span>List example: Reusing topic with conrefs</figcaption>
+        
+        <pre class="pre codeblock"><code> &lt;topic id="y"&gt;
+ 	...
+ 	&lt;body&gt;
+ 		&lt;ol&gt;
+ 			&lt;li&gt;My own first item&lt;/li&gt;
+ 			&lt;li conref="topic.dita#x/bear" conrefend="topic.dita#x/dog"/&gt;
+ 			&lt;li&gt;And a different final item&lt;/li&gt;
+ 		&lt;/ol&gt;
+ 	&lt;/body&gt;
+ &lt;/topic&gt;
+ </code></pre>
+      </figure>
+      <figure class="fig fignone" id="theconrefendattribute__fig_A79BE8A6869B4DFDAAFA2F55BC113AA1"><figcaption><span class="fig--title-label">Figure 3. </span>List example: Processed result of reusing topic</figcaption>
+        
+        <pre class="pre codeblock"><code> &lt;topic id="y"&gt;
+ 	...
+ 	&lt;body&gt;
+ 		&lt;ol&gt;
+ 			&lt;li&gt;My own first item&lt;/li&gt;
+ 			&lt;li&gt;B&lt;/li&gt;
+ 			&lt;li id="cat"&gt;C&lt;/li&gt;
+ 			&lt;li&gt;D&lt;/li&gt;
+ 			&lt;li&gt;And a different final item&lt;/li&gt;
+ 		&lt;/ol&gt;
+ 	&lt;/body&gt;
+&lt;/topic&gt;
+</code></pre>
+      </figure>
+    </div>
+<div class="example non-normative" id="theconrefendattribute__example-reuse-blocks"><h2 class="title sectiontitle">Example: Reusing a set of blocks</h2>
+      
+      <figure class="fig fignone" id="theconrefendattribute__fig_7BB281DFE28F474BB9197BAE691B927C"><figcaption><span class="fig--title-label">Figure 4. </span>Block level example: Source <span class="ph filepath">topic.dita</span> with ids</figcaption>
+        
+        <pre class="pre codeblock"><code>&lt;topic id="x"&gt;
+ 	...
+ 	&lt;body&gt;
+   &lt;p id="p1"&gt;First para&lt;/p&gt;
+ 	 &lt;ol id="mylist"&gt;
+     &lt;li id="apple"&gt;A&lt;/li&gt;
+     &lt;li id="bear"&gt;B&lt;/li&gt;
+     &lt;li id="cat"&gt;C&lt;/li&gt;
+     &lt;li id="dog"&gt;D&lt;/li&gt;
+     &lt;li id="eel"&gt;E&lt;/li&gt;
+   &lt;/ol&gt;
+   &lt;p id="p2"&gt;Second para&lt;/p&gt;
+ 	&lt;/body&gt;
+ &lt;/topic&gt;
+ </code></pre>
+      </figure>
+      <figure class="fig fignone" id="theconrefendattribute__fig_BF890E35527C41FBA93878660EFC1636"><figcaption><span class="fig--title-label">Figure 5. </span>Block level example: Reusing topic with conrefs</figcaption>
+        
+        <pre class="pre codeblock"><code> &lt;topic id="y"&gt;
+ 	...
+ 	&lt;body&gt;
+ 		&lt;p conref="topic.dita#x/p1" conrefend="topic.dita#x/p2"/&gt;
+ 	&lt;/body&gt;
+ &lt;/topic&gt;</code></pre>
+      </figure>
+      <figure class="fig fignone" id="theconrefendattribute__fig_D257C3B1EE2B49DA85457B1753A8C79D"><figcaption><span class="fig--title-label">Figure 6. </span>Block level example: Processed result of reusing topic</figcaption>
+        
+        <pre class="pre codeblock"><code> &lt;topic id="y"&gt;
+ 	...
+ 	&lt;body&gt;
+    &lt;p&gt;First para&lt;/p&gt;
+ 	  &lt;ol id="mylist"&gt;
+      &lt;li id="apple"&gt;A&lt;/li&gt;
+      &lt;li id="bear"&gt;B&lt;/li&gt;
+      &lt;li id="cat"&gt;C&lt;/li&gt;
+      &lt;li id="dog"&gt;D&lt;/li&gt;
+      &lt;li id="eel"&gt;E&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;p&gt;Second para&lt;/p&gt;
+ 	&lt;/body&gt;
+&lt;/topic&gt;
+</code></pre>
+      </figure>
+    </div>
+    <section class="section" id="theconrefendattribute__conkeyref"><h2 class="title sectiontitle">Using <code class="keyword markupname xmlatt">@conrefend</code> together with <code class="keyword markupname xmlatt">@conkeyref</code></h2>
+      
+      <p class="p">When the <code class="keyword markupname xmlatt">@conkeyref</code> attribute is used in place of <code class="keyword markupname xmlatt">@conref</code>,
+        a key is used to address the target of the reference. The <code class="keyword markupname xmlatt">@conrefend</code>
+        attribute, which indicates the end of a <code class="keyword markupname xmlatt">@conref</code> range, <span class="ph">cannot</span> use a key. Instead the the map or topic element
+        addressed by the key name component of the <code class="keyword markupname xmlatt">@conkeyref</code> is used in place of
+        whatever map or topic element is addressed by the <code class="keyword markupname xmlatt">@conrefend</code> attribute.</p>
+      <p class="p">For example, if the value of the <code class="keyword markupname xmlatt">@conkeyref</code> attribute is "config/step1" and
+        the value of the <code class="keyword markupname xmlatt">@conrefend</code> is
+          <code class="ph codeph">defaultconfig.dita#config/laststep</code>, the conref range will end with the
+        step that has id="laststep" in whatever topic is addressed by the key name "config". If the
+        key name "config" is not defined, and the <code class="keyword markupname xmlatt">@conref</code> attribute itself is not
+        present for fallback, the <code class="keyword markupname xmlatt">@conrefend</code> attribute is ignored.</p>
+    </section>
+    <div class="example non-normative" id="theconrefendattribute__conrefend-with-conkeyref"><h2 class="title sectiontitle">Example: Combining <code class="keyword markupname xmlatt">@conrefend</code> with <code class="keyword markupname xmlatt">@conkeyref</code></h2>
+      
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 7. </span>Defining and referencing a key with <code class="keyword markupname xmlatt">@conkeyref</code></figcaption>
+        
+        <p class="p">In this example the key "xmp" is defined as the first topic in the file
+            <span class="ph filepath">examples.dita.</span></p>
+        <pre class="pre codeblock"><code>&lt;map&gt;
+  &lt;!-- ... --&gt;
+  &lt;keydef keys="xmp" href="examples.dita"/&gt;
+  &lt;!-- ... --&gt;
+&lt;/map&gt;
+
+examples.dita:
+&lt;topic id="examples"&gt;
+  &lt;title&gt;These are examples&lt;/title&gt;
+  &lt;body&gt;
+    &lt;ul&gt;
+      &lt;li id="first"&gt;A first example&lt;/li&gt;
+      &lt;li&gt;Another trivial example&lt;/li&gt;
+      &lt;li id="last"&gt;Final example&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/body&gt;
+&lt;/topic&gt;
+</code></pre>
+        <div class="p">To reuse these list items by using the key, the <code class="keyword markupname xmlatt">@conkeyref</code> attribute
+          combines the key itself with the sub-topic id (first) to define the start of the range.
+          The <code class="keyword markupname xmlatt">@conrefend</code> attribute defines a default high-level object along with
+          the sub-topic id (last) that ends the
+          range:<pre class="pre codeblock"><code>  &lt;li conkeyref="xmp/first" 
+      conrefend="default.dita#default/last"/&gt;</code></pre></div>
+        <p class="p">The <code class="keyword markupname xmlatt">@conkeyref</code> attribute uses a key to reference the first topic in
+            <span class="ph filepath">examples.dita</span>, so the range begins with the object
+            <code class="ph codeph">examples.dita#examples/first</code>. The high-level object in the
+            <code class="keyword markupname xmlatt">@conrefend</code> attribute (<code class="ph codeph">default.dita#default</code>) is replaced
+          with the object represented by the key (the first topic in
+            <span class="ph filepath">examples.dita</span>), resulting in a range that ends with the object
+            <code class="ph codeph">examples.dita#examples/last</code>.</p>
+      </figure>
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 8. </span>Combining <code class="keyword markupname xmlatt">@conref</code>, <code class="keyword markupname xmlatt">@conkeyref</code>, and
+            <code class="keyword markupname xmlatt">@conrefend</code></figcaption>
+        
+        <p class="p">When <code class="keyword markupname xmlatt">@conref</code>, <code class="keyword markupname xmlatt">@conkeyref</code>, and <code class="keyword markupname xmlatt">@conrefend</code>
+          are all specified, the key value takes priority.</p>
+        <pre class="pre codeblock"><code>  &lt;li conkeyref="thisconfig/start"
+      conref="standardconfig.dita#config/start"
+      conrefend="standardconfig.dita#config/end"/&gt;</code></pre>
+        <ul class="ul">
+          <li class="li">If the key "thisconfig" is defined as <code class="ph codeph">mySpecialConfig.dita#myconfig</code>,
+            then the range will go from the list item with id="start" to the list item with id="end"
+            in the topic <code class="ph codeph">mySpecialConfig.dita#myconfig</code>.</li>
+          <li class="li">If the key "thisconfig" is defined as <code class="ph codeph">myConfig.dita</code>, then the range
+            will go from the list item with id="start" to the list item with id="end" within the
+            first topic in <code class="ph codeph">myConfig.dita</code>.</li>
+          <li class="li">If the key "thisconfig" is not defined, then the unchanged <code class="keyword markupname xmlatt">@conref</code> and
+              <code class="keyword markupname xmlatt">@conrefend</code> attributes are used as fallback. In that case, the range
+            will go from the list item with id="start" to the list item with id="end" within the
+            topic <code class="ph codeph">standardconfig.dita#config</code>.</li>
+        </ul>
+      </figure>
+    </div>
+<section class="section" id="theconrefendattribute__error-conditions"><h2 class="title sectiontitle">Error conditions</h2>
+      
+      <p class="p"><span class="error-statement" id="theconrefendattribute__d5208e460" data-id="DITAERR-0430"></span>When encountering an error condition, an implementation can issue an error message.</p>
+      <table class="table"><caption></caption><colgroup><col style="width:50%"><col style="width:50%"></colgroup><thead class="thead">
+            <tr class="row">
+              <th class="entry" id="theconrefendattribute__error-conditions__entry__1">Condition or Issue</th>
+              <th class="entry" id="theconrefendattribute__error-conditions__entry__2">Result</th>
+            </tr>
+          </thead><tbody class="tbody">
+            <tr class="row">
+              <td class="entry" headers="theconrefendattribute__error-conditions__entry__1">The <code class="keyword markupname xmlatt">@conref</code> attribute cannot be resolved in the
+                target document (the target element <span class="ph">might</span> have been
+                removed or its id has changed). </td>
+              <td class="entry" headers="theconrefendattribute__error-conditions__entry__2">The <code class="keyword markupname xmlatt">@conref</code> is ignored.</td>
+            </tr>
+            <tr class="row">
+              <td class="entry" headers="theconrefendattribute__error-conditions__entry__1">The <code class="keyword markupname xmlatt">@conrefend</code> attribute cannot be resolved in
+                the target document (the target element <span class="ph">might</span> have
+                been removed or its id has changed).</td>
+              <td class="entry" headers="theconrefendattribute__error-conditions__entry__2">Range cannot be resolved, optional recovery processes the result
+                as a simple conref.</td>
+            </tr>
+            <tr class="row">
+              <td class="entry" headers="theconrefendattribute__error-conditions__entry__1">Start and end elements are not siblings in the target
+                document.</td>
+              <td class="entry" headers="theconrefendattribute__error-conditions__entry__2">If the start element exists, optional recovery processes the
+                result as a simple conref. </td>
+            </tr>
+            <tr class="row">
+              <td class="entry" headers="theconrefendattribute__error-conditions__entry__1">End element occurs before the start element in the target
+                document.</td>
+              <td class="entry" headers="theconrefendattribute__error-conditions__entry__2">If the start element exists, optional recovery processes the
+                result as a simple conref.</td>
+            </tr>
+            <tr class="row">
+              <td class="entry" headers="theconrefendattribute__error-conditions__entry__1">An element has a <code class="keyword markupname xmlatt">@conrefend</code> attribute but is
+                missing the <code class="keyword markupname xmlatt">@conref</code> attribute.</td>
+              <td class="entry" headers="theconrefendattribute__error-conditions__entry__2">No result.</td>
+            </tr>
+          </tbody></table>
+    </section>
+</div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/attributes/complexattributedefinitions.html" title="Several DITA attributes require more explanation than can fit in a single table cell. Those attributes are collected here.">Complex attribute definitions</a></div></div></nav></article></main>

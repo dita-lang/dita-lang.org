@@ -1,0 +1,95 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Filtering'
+description: 'At processing time, a conditional processing profile can be used to specify profiling attribute values that determine whether an element with those values is included or excluded.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '1ef1836fa5adc371402b2e9d6b31fef551ef88ff'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a><ul class="nav nav-list"><li><a href="../../archSpec/base/introduction-to-dita.html">Introduction to DITA</a></li><li><a href="../../archSpec/base/ditamarkup.html">DITA markup </a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a><ul class="nav nav-list"><li><a href="../../archSpec/base/navigation.html">Navigation</a></li><li><a href="../../archSpec/base/conref.html">Content reference (conref)</a></li><li><a href="../../archSpec/base/condproc.html">Conditional processing (profiling)</a><ul class="nav nav-list"><li><a href="../../archSpec/base/usage-of-conditional-processing-attributes.html">Conditional processing values and groups</a></li><li class="active"><a href="../../archSpec/base/filtering.html">Filtering</a></li><li><a href="../../archSpec/base/flagging.html">Flagging</a></li><li><a href="../../archSpec/base/conditional-processing-for-specific-output-types.html">Conditional processing to generate multiple deliverable types</a></li><li><a href="../../archSpec/base/examples-of-conditional-processing.html">Examples of conditional processing</a></li></ul></li><li><a href="../../archSpec/base/branch-filtering.html">Branch filtering</a></li><li><a href="../../archSpec/base/chunking.html">Chunking</a></li><li><a href="../../archSpec/base/translation.html">Translation and localization</a></li><li><a href="../../archSpec/base/module-compatibility.html">Processing documents with different values of the domains attribute</a></li><li><a href="../../archSpec/base/sort-as-processing.html">Sorting</a></li></ul></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration, specialization, generalization, and constraints </a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../archSpec/technicalContent/technical-content-specializations.html">Technical content specializations</a></li><li><a href="../../archSpec/learningTraining/learning-and-training-specializations.html">Learning and training specializations</a></li></ul></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
+ <h1 class="title topictitle1" id="ariaid-title1">Filtering</h1>
+ 
+ <div class="body conbody"><p class="shortdesc">At processing time, a conditional processing profile can be used to specify profiling
+  attribute values that determine whether an element with those values is included or
+  excluded.</p>
+  <p class="p">By default, values in conditional processing attributes that are not defined in a DITAVAL
+   profile evaluate to "include". For example, if the value audience="novice" is used on a
+   paragraph, but this value is not defined in a DITAVAL profile, the attribute evaluates to
+   "include".</p>
+  <p class="p">However, the DITAVAL profile can change this default to "exclude", so that any value not
+   explicitly defined in the DITAVAL profile will evaluate to "exclude". The DITAVAL profile also
+   can be used to change the default for a single attribute; for example, it can declare that values
+   in the <code class="keyword markupname xmlatt">@platform</code> attribute default to "exclude", while those in the
+    <code class="keyword markupname xmlatt">@product</code> attribute default to include. See <a class="xref" href="../../langRef/containers/ditaval-elements.html" title="A conditional processing profile (DITAVAL file) is used to identify which values are to be used for conditional processing during a particular output, build, or some other purpose. The profile should have an extension of .ditaval.">DITAVAL elements</a> for information on how to set up a
+   DITAVAL profile and how to change default behaviors.</p>
+  <p class="p">When deciding whether to include or exclude a particular element, a processor should evaluate
+   each attribute independently:</p>
+  <ol class="ol">
+   <li class="li">For each attribute:<ul class="ul">
+<li class="li">If the attribute is empty, or contains only empty groups, it is equivalent
+to omitting the attribute from the element. If evaluated for the purposes of filtering, the
+attribute is treated as "include", because an omitted attribute cannot evaluate to "exclude".</li>
+     <li class="li">If the attribute value does not contain any groups, then if any token in the attribute
+      value evaluates to "include", the element evaluates to "include"; otherwise it evaluates to
+      "exclude". In other words, the attribute evaluates to "exclude" only when <strong class="ph b">all</strong> the
+      values in that attribute evaluate to "exclude".</li>
+     <li class="li">If the attribute value does include groups, evaluate as
+      follows, treating ungrouped tokens together as a group: <ol class="ol" type="a">
+       <li class="li">For each group (including the group of ungrouped tokens), if any token inside the group
+        evaluates to "include", the group evaluates to "include"; otherwise it evaluates to
+        "exclude". In other words, a group evaluates to "exclude" only when every token in that
+        group evaluates to "exclude".</li>
+       <li class="li">If any group within an attribute evaluates to "exclude", that attribute evaluates to
+        "exclude"; otherwise it evaluates to "include".</li>
+      </ol></li>
+    </ul></li>
+   <li class="li">If <strong class="ph b">any single attribute</strong> evaluates to exclude, the element is excluded.</li>
+  </ol>
+  
+  <p class="p">For example, if a paragraph applies to three products and the publisher has chosen to exclude
+   all of them, the processor should exclude the paragraph. This is true even if the paragraph
+   applies to an audience or platform that is not excluded. But if the paragraph applies to an
+   additional product that has not been excluded, then its content is still relevant for the
+   intended output and should be preserved.</p>
+  <div class="p">Similarly, with groups, a step might apply to one application
+   server and two database applications:
+   <pre class="pre codeblock" id="filtering__groupcodesample"><code>&lt;steps&gt;
+  &lt;step&gt;&lt;cmd&gt;Common step&lt;/cmd&gt;&lt;/step&gt;
+  &lt;step product="appserver(mySERVER) database(ABC dbOtherName)"&gt;
+    &lt;cmd&gt;Do something special for databases ABC or OtherName when installing on mySERVER&lt;/cmd&gt;
+  &lt;/step&gt;
+  &lt;!-- additional steps --&gt;
+&lt;/steps&gt;</code></pre></div>
+  <p class="p">If a publisher decides to exclude the application server mySERVER,
+   then the appserver() group evaluates to exclude. This can be done by setting
+    <code class="ph codeph">product="mySERVER"</code> to exclude <em class="ph i">or</em> by setting
+    <code class="ph codeph">appserver="mySERVER"</code> to exclude. This means the step should be excluded,
+   regardless of how the values "ABC" or "dbOtherName" evaluate. If a rule is specified for both
+    <code class="ph codeph">product="mySERVER"</code> and <code class="ph codeph">appserver="mySERVER"</code>, the rule for the
+   more specific group name "appserver" takes precedence.</p>
+  <p class="p">Similarly, if both "ABC" and "dbOtherName" evaluate to exclude,
+   then the database() group evaluates to exclude and the element should be excluded regardless of
+   how the "mySERVER" value is set.</p>
+  <div class="p">In more advanced usage, a DITAVAL can be used to specify a rule
+   for a group name. For example, an author could create a DITAVAL rule that sets
+    <code class="ph codeph">product="database"</code> to "exclude". This is equivalent to setting a default of
+   "exclude" for any individual value in a database() group; it also excludes the more common usage
+   of "database" as a single value within the <code class="keyword markupname xmlatt">@product</code> attribute. Thus when "myDB"
+   appears in a database() group within the <code class="keyword markupname xmlatt">@product</code> attribute, the full precedence
+   for determining whether to include or exclude the value is as follows: <ol class="ol">
+    <li class="li">Check for a DITAVAL rule for <code class="ph codeph">database="myDB"</code></li>
+    <li class="li">Check for a DITAVAL rule for <code class="ph codeph">product="myDB"</code></li>
+    <li class="li">Check for a DITAVAL rule for <code class="ph codeph">product="database"</code> (default for the database
+     group)</li>
+    <li class="li">Check for a DITAVAL rule for "product" (default for the <code class="keyword markupname xmlatt">@product</code>
+     attribute)</li>
+    <li class="li">Check for a default rule for all conditions (default of include or exclude for all
+     attributes)</li>
+    <li class="li">Otherwise, evaluate to "include"</li>
+   </ol></div>
+ </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/condproc.html" title="Conditional processing, also known as profiling, is the filtering or flagging of information based on processing-time criteria.">Conditional processing (profiling)</a></div></div><div class="linklist relref"><strong>Related reference</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="../../langRef/attributes/metadataAttributes.html" title="The metadata attribute group includes common metadata attributes, several of which support conditional processing (filtering and flagging) or the creation of new attribute domain specializations.">Metadata attribute group</a></li><li class="linklist"><a class="link" href="../../langRef/ditaval/ditaval-val.html" title="The val element is the root element of a DITAVAL file.">DITAVAL markup with extended filtering example</a></li></ul></div></nav></article></main>

@@ -1,0 +1,90 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Bookmap'
+description: 'The DITA bookmap specialization represents the key markup requirements for managing DITA content through book-oriented publication processes, including book metadata and book structures for organizing content.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '1ef1836fa5adc371402b2e9d6b31fef551ef88ff'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a><ul class="nav nav-list"><li><a href="../../archSpec/base/introduction-to-dita.html">Introduction to DITA</a></li><li><a href="../../archSpec/base/ditamarkup.html">DITA markup </a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration, specialization, generalization, and constraints </a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../archSpec/technicalContent/technical-content-specializations.html">Technical content specializations</a><ul class="nav nav-list"><li><a href="../../archSpec/technicalContent/dita-technicalContent-InformationTypes.html">Technical content: Document types</a><ul class="nav nav-list"><li><a href="../../archSpec/technicalContent/dita-concept-topic.html">Concept topic</a></li><li><a href="../../archSpec/technicalContent/dita-reference-topic.html">Reference topic</a></li><li><a href="../../archSpec/technicalContent/dita-generic-task-topic.html">General task topic</a></li><li><a href="../../archSpec/technicalContent/dita-task-topic.html">Task topic (strict task)</a></li><li><a href="../../archSpec/technicalContent/dita-machinerytask-topic.html">Machinery Task topic</a></li><li><a href="../../archSpec/technicalContent/dita-troubleshooting-topic.html">Troubleshooting topic</a></li><li><a href="../../archSpec/technicalContent/dita-glossary-topic.html">Glossary entry topic</a></li><li><a href="../../archSpec/technicalContent/dita-glossarygroup-topic.html">Glossary group topic</a></li><li class="active"><a href="../../archSpec/technicalContent/dita-spec-intro-bookmap.html">Bookmap</a></li></ul></li><li><a href="../../archSpec/technicalContent/technical-content-domains.html">Technical content domains</a></li><li><a href="../../archSpec/technicalContent/TroubleshootingElements.html">Troubleshooting information</a></li></ul></li><li><a href="../../archSpec/learningTraining/learning-and-training-specializations.html">Learning and training specializations</a></li></ul></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Bookmap</h1>
+  
+  <div class="body conbody"><p class="shortdesc">The DITA bookmap specialization represents the key markup requirements for managing
+    DITA content through book-oriented publication processes, including book metadata and book
+    structures for organizing content.</p>
+    <section class="section" id="dita_spec_intro_bookmap__purpose"><h2 class="title sectiontitle">The purpose of the bookmap specialization</h2>
+      
+      <p class="p">Books and other printed media are popular ways to present DITA content. By specializing the
+        general DITA map structure into the general structure and subject areas used by most
+        book-oriented DTDs, bookmaps enable users to organize their DITA information into front
+        matter, parts, chapters, and so forth. A rich set of metadata allows for recording
+        information about the book, such as its authors and owners, versions, and production
+        history.</p>
+    </section>
+    <section class="section" id="dita_spec_intro_bookmap__structure"><h2 class="title sectiontitle">The structure of the bookmap specialization</h2>
+      
+      <p class="p">The <code class="keyword markupname xmlelement">&lt;bookmap&gt;</code> element is the top-level element for a DITA bookmap.
+        Most of the content for a bookmap is optional, allowing for specializations that further
+        restrict the bookmap model.</p>
+      <p class="p">A bookmap allows the following parts:</p>
+      <ul class="ul">
+        <li class="li">An initial title or booktitle (booktitle has more semantics)</li>
+        <li class="li">Book metadata (publisher, author, copyright holders and dates, etc.)</li>
+        <li class="li">Front matter (placement for Table of Contents and other preliminary information) </li>
+        <li class="li">Any number of chapters or parts (parts can group chapters, chapters can group
+          topics)</li>
+        <li class="li">An appendices section (similar to a part or a chapter, can group multiple
+          appendices)</li>
+        <li class="li">Back matter (similar to front matter, notices, glossary, index, etc.)</li>
+        <li class="li">Relationship table</li>
+      </ul>
+      <p class="p">In book-oriented XML grammars, authors typically manage content structures as external
+        entities, separate from the body of the book and referenced as embedded elements into the
+        overall structure. Bookmap follows the same organizational approach, using the
+        topicref-based structure of DITA maps as the archetype for the major divisions of a
+        book.</p>
+    </section>
+    <div class="example non-normative" id="dita_spec_intro_bookmap__example"><h2 class="title sectiontitle">Example</h2>
+      <p class="p">Here is an example of a simple bookmap. It uses several mechanisms to include chapter
+        content:</p>
+      <ul class="ul">
+        <li class="li">Referencing a DITA map</li>
+        <li class="li">Referencing a DITA topic</li>
+        <li class="li">Nesting <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements</li>
+      </ul>
+      <pre class="pre codeblock"><code>&lt;bookmap id="taskbook"&gt;
+  &lt;booktitle&gt;
+    &lt;mainbooktitle&gt;Product tasks&lt;/mainbooktitle&gt;
+    &lt;booktitlealt&gt;Tasks and what they do&lt;/booktitlealt&gt;
+  &lt;/booktitle&gt;
+  &lt;bookmeta&gt;
+    &lt;author&gt;John Doe&lt;/author&gt;
+    &lt;bookrights&gt;
+      &lt;copyrfirst&gt;
+        &lt;year&gt;2006&lt;/year&gt;
+      &lt;/copyrfirst&gt;
+      &lt;bookowner&gt;
+        &lt;person href="task_preface.dita"&gt;Jane Doe&lt;/person&gt;
+      &lt;/bookowner&gt;
+    &lt;/bookrights&gt;
+  &lt;/bookmeta&gt;
+  &lt;frontmatter&gt;
+    &lt;preface/&gt;
+  &lt;/frontmatter&gt;
+  &lt;chapter format="ditamap" href="installing.ditamap"/&gt;
+  &lt;chapter href="configuring.dita"/&gt;
+  &lt;chapter href="maintaining.dita"&gt;
+    &lt;topicref href="maintainstorage.dita"/&gt;
+    &lt;topicref href="maintainserver.dita"/&gt;
+    &lt;topicref href="maintaindatabase.dita"/&gt;
+  &lt;/chapter&gt;
+  &lt;appendix href="task_appendix.dita"/&gt;
+  &lt;/bookmap&gt;</code></pre>
+    </div>
+    
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/technicalContent/dita-technicalContent-InformationTypes.html" title="The Technical Content package contains various document types: concept, reference, general task, strict task, machinery task, troubleshooting, glossary entry, and glossary group. These document types are designed specifically for information that describes how to use products and processes. The Technical Content package also includes the map document type.">Technical content: Document types</a></div></div></nav></article></main>

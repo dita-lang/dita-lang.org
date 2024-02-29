@@ -1,0 +1,183 @@
+---
+# Generated from DITA source
+layout: base
+title: 'RELAX NG: Coding requirements for document-type shells'
+description: 'A document-type shell integrates one or more topic type or map type modules, zero or more domain modules, and zero or more constraint modules.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '1ef1836fa5adc371402b2e9d6b31fef551ef88ff'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a><ul class="nav nav-list"><li><a href="../../archSpec/base/introduction-to-dita.html">Introduction to DITA</a></li><li><a href="../../archSpec/base/ditamarkup.html">DITA markup </a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration, specialization, generalization, and constraints </a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a><ul class="nav nav-list"><li><a href="../../archSpec/base/recognizedconstraintmechanisms.html">Recognized XML-document grammar mechanisms</a></li><li><a href="../../archSpec/base/using-relax-ng.html">Normative versions of DITA grammar files</a></li><li><a href="../../archSpec/base/dtd-requirements.html">DTD coding requirements</a></li><li><a href="../../archSpec/base/relax-ng-requirements.html">RELAX NG coding requirements</a><ul class="nav nav-list"><li><a href="../../archSpec/base/relax-ng-coding-overview.html">RELAX NG: Overview of coding requirements</a></li><li class="active"><a href="../../archSpec/base/relax-ng-coding-doctype-shell.html">RELAX NG: Coding requirements for document-type shells</a></li><li><a href="../../archSpec/base/relax-ng-coding-element-types.html">RELAX NG: Coding requirements for element type declarations</a></li><li><a href="../../archSpec/base/relax-ng-coding-structural-modules.html">RELAX NG: Coding requirements for structural modules</a></li><li><a href="../../archSpec/base/relax-ng-coding-element-domains.html">RELAX NG: Coding requirements for element domain modules</a></li><li><a href="../../archSpec/base/relax-ng-coding-attribute-domains.html">RELAX NG: Coding requirements for attribute domain modules</a></li><li><a href="../../archSpec/base/relax-ng-coding-constraint-modules.html">RELAX NG: Coding requirements for constraint modules</a></li></ul></li><li><a href="../../archSpec/base/xsd-requirements.html">XML Schema coding requirements</a></li></ul></li><li><a href="../../archSpec/technicalContent/technical-content-specializations.html">Technical content specializations</a></li><li><a href="../../archSpec/learningTraining/learning-and-training-specializations.html">Learning and training specializations</a></li></ul></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">RELAX NG: Coding requirements for document-type shells</h1>
+  
+  <div class="body conbody"><p class="shortdesc">A document-type shell integrates one or more topic type or map type modules, zero or
+    more domain modules, and zero or more constraint modules.</p>
+    <p class="p">Because RELAX NG modules are self-integrating, document-type shells only need to include
+      vocabulary modules. Unlike DTDs, there is no separate specification required in order to
+      integrate domain and nested topic elements into the base content models.
+      </p>
+    
+    <dl class="dl">
+      
+        <dt class="dt dlterm">Root element declaration</dt>
+        <dd class="dd">
+          <p class="p">Document type shells use the RELAX NG start declaration to specify the root element of
+            the document type. The <code class="keyword markupname xmlelement">&lt;start&gt;</code> element defines one root element,
+            using a reference to a <code class="ph codeph"><var class="keyword varname">tagname</var>.element</code> pattern.</p>
+          <div class="p">For
+            example:<pre class="pre codeblock"><code>&lt;div&gt;
+  &lt;a:documentation&gt;ROOT ELEMENT DECLARATION&lt;/a:documentation&gt;
+  &lt;start combine="choice"&gt;
+    &lt;ref name="topic.element"/&gt;
+  &lt;/start&gt;
+&lt;/div&gt;</code></pre></div>
+        </dd>
+      
+      
+        <dt class="dt dlterm">DITA domains attribute</dt>
+        <dd class="dd">
+          <p class="p">The document-type shell must list the domain or structural modules that are named as
+            dependencies in the <code class="keyword markupname xmlatt">@domains</code> attribute value. Unlike DTDs, a default
+            value for <code class="keyword markupname xmlatt">@domains</code> cannot automatically be constructed using RELAX NG
+            facilities. Instead, the values used to construct <code class="keyword markupname xmlatt">@domains</code> are taken
+            from each vocabulary and constraint module, in addition to any domains contributions
+            based on constraints implemented within the shell. </p>
+          <div class="p">For
+            example:<pre class="pre codeblock"><code>&lt;div&gt;
+  &lt;a:documentation&gt;DOMAINS ATTRIBUTE&lt;/a:documentation&gt;
+  &lt;define name="domains-att"&gt;
+    &lt;optional&gt;
+      &lt;attribute name="domains"
+                 a:defaultValue="(topic hazard-d)
+                                 (topic hi-d)
+                                 (topic indexing-d)
+                                 (topic ut-d)
+                                 a(props deliveryTarget)"
+      /&gt;
+    &lt;/optional&gt;
+  &lt;/define&gt;
+&lt;/div&gt;</code></pre></div>
+        </dd>
+      
+      
+        <dt class="dt dlterm" id="concept_rrq_p45_dn__content-constraint">Content constraint integration</dt>
+        <dd class="dd">
+          <p class="p">The document-type shell must include any constraint modules. Constraint modules include
+            the module they override and override the patterns that they constrain directly in the
+            constraint module itself. Any module that is constrained in this section (including the
+            base topic or map modules) will be left out of the following section.</p>
+          <div class="p">For example, when the following constraint
+            is included for the task module, the task module itself will <em class="ph i">not</em> be included in
+            the shell; the task module itself is included within
+              <span class="ph filepath">strictTaskbodyConstraintMod.rng</span>:<pre class="pre codeblock"><code>&lt;div&gt;
+&lt;a:documentation&gt;CONTENT CONSTRAINT INTEGRATION&lt;/a:documentation&gt;
+  &lt;include href="strictTaskbodyConstraintMod.rng"&gt;
+    &lt;define name="task-info-types"&gt;
+      &lt;ref name="task.element"/&gt;
+    &lt;/define&gt;            
+  &lt;/include&gt;
+&lt;/div&gt;</code></pre></div>
+        </dd>
+      
+      
+        <dt class="dt dlterm" id="concept_rrq_p45_dn__module-inclusion">Module inclusions</dt>
+        <dd class="dd">
+          <p class="p">The document-type shell must include any unconstrained domain or structural module. If
+            the top-level map or topic type is unconstrained, it is also included in this
+            section.</p>
+          <div class="p">For
+            example:<pre class="pre codeblock"><code>&lt;div&gt;
+  &lt;a:documentation&gt;MODULE INCLUSIONS&lt;/a:documentation&gt;
+  &lt;include href="topicMod.rng"/&gt;
+  &lt;include href="highlightDomainMod.rng"/&gt;
+  &lt;include href="utilitiesDomainMod.rng"/&gt;
+  &lt;include href="indexingDomainMod.rng"/&gt;
+  &lt;include href="hazardstatementDomainMod.rng"/&gt;
+&lt;/div&gt;</code></pre></div>
+        </dd>
+      
+      
+        <dt class="dt dlterm" id="concept_rrq_p45_dn__constrain-domains-in-shell">Constraining domains in the shell</dt>
+        <dd class="dd">
+          <p class="p">Domains can be constrained to disallow some extension elements without the use of a
+            separate module file. This is done by overriding the base type pattern within the
+            reference to the domain module. In this case, the constraint represented by the pattern
+            redefinition still must be declared in the <code class="keyword markupname xmlatt">@domains</code> attribute; the
+              <code class="keyword markupname xmlatt">@domains</code> contribution should be documented in the document-type shell
+            with the constraint. There is not a designated section of the document-type shell for
+            this type of constraint; it can be placed either in <a class="xref" href="#concept_rrq_p45_dn__content-constraint">Content constraint integration</a> or <a class="xref" href="#concept_rrq_p45_dn__module-inclusion">Module inclusions</a>.</p>
+          <p class="p">The following example demonstrates the portion of a document type
+            shell that includes the highlight domain module while directly constraining that module
+            to remove the <code class="keyword markupname xmlelement">&lt;u&gt;</code> element. The
+              <code class="keyword markupname xmlelement">&lt;ditaarch:domainsContribution&gt;</code> element is used to document the
+              <code class="keyword markupname xmlatt">@domains</code> contribution for this constraint. </p>
+          <pre class="pre codeblock"><code>
+  &lt;div&gt;
+    &lt;a:documentation&gt;MODULE INCLUSIONS&lt;/a:documentation&gt;
+    &lt;include href="topicMod.rng"/&gt;
+    &lt;include href="hazardstatementDomainMod.rng"/&gt;
+    &lt;include href="highlightDomainMod.rng"&gt;
+      &lt;ditaarch:domainsContribution
+        &gt;(topic hi-d-noUnderline-c)&lt;/ditaarch:domainsContribution&gt;
+      &lt;define name="u"&gt;
+        &lt;notAllowed&gt;&lt;/notAllowed&gt;
+      &lt;/define&gt;
+    &lt;/include&gt;
+    &lt;include href="indexingDomainMod.rng"/&gt;
+    &lt;include href="utilitiesDomainMod.rng"/&gt;
+  &lt;/div&gt;
+</code></pre>
+        </dd>
+      
+      
+        <dt class="dt dlterm">ID-defining element overrides</dt>
+        <dd class="dd">
+          <p class="p">This section must declare any element in the document type that uses an
+              <code class="keyword markupname xmlatt">@id</code> attribute with an XML data type of "ID". This declaration is
+            required in order to avoid errors from RELAX NG parsers that would otherwise complain
+            about different uses of the <code class="keyword markupname xmlatt">@id</code> attribute. </p>
+          <p class="p">Typically, this section lists only a few elements, such as topic types or the
+              <code class="keyword markupname xmlelement">&lt;anchor&gt;</code> element, but it could include specializations that
+            constrain <code class="keyword markupname xmlatt">@id</code>. In addition, foreign vocabularies require you to include
+            exclusions for the namespaces used by those domains.</p>
+          <div class="p">For example, this section declares that
+              <code class="keyword markupname xmlelement">&lt;topic&gt;</code> and <code class="keyword markupname xmlelement">&lt;task&gt;</code> use an
+              <code class="keyword markupname xmlatt">@id</code> attribute with an XML data type of ID, along with any elements in
+            the SVG or MathML namespaces. Each of these is excluded from the "any" pattern by
+            placing them within the <code class="keyword markupname xmlelement">&lt;except&gt;</code> rule as shown
+            below:<pre class="pre codeblock"><code>  &lt;div&gt;
+      &lt;a:documentation&gt; ID-DEFINING-ELEMENT OVERRIDES &lt;/a:documentation&gt;
+      &lt;define name="any"&gt;
+         &lt;zeroOrMore&gt;
+            &lt;choice&gt;
+               &lt;ref name="idElements"/&gt;
+               &lt;element&gt;
+                  &lt;anyName&gt;
+                     &lt;except&gt;
+                        &lt;name&gt;topic&lt;/name&gt;
+                        &lt;name&gt;task&lt;/name&gt;
+                        &lt;nsName ns="http://www.w3.org/2000/svg"/&gt;
+                        &lt;nsName ns="http://www.w3.org/1998/Math/MathML"/&gt;
+                     &lt;/except&gt;
+                  &lt;/anyName&gt;
+                  &lt;zeroOrMore&gt;
+                     &lt;attribute&gt;
+                        &lt;anyName/&gt;
+                     &lt;/attribute&gt;
+                  &lt;/zeroOrMore&gt;
+                  &lt;ref name="any"/&gt;
+               &lt;/element&gt;
+               &lt;text/&gt;
+            &lt;/choice&gt;
+         &lt;/zeroOrMore&gt;
+      &lt;/define&gt;
+  &lt;/div&gt;
+</code></pre></div>
+        </dd>
+      
+    </dl>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/relax-ng-requirements.html" title="This section explains how to implement RELAX NG based document-type shells, specializations, and constraints.">RELAX NG coding requirements</a></div></div></nav></article></main>

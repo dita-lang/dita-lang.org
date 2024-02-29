@@ -1,0 +1,53 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Example: Multiple ditavalref elements in a reference to a map'
+description: 'Using multiple instances of the ditavalref element in a reference to a map is equivalent to referencing that map multiple times, with each reference nesting one of the ditavalref elements.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '1ef1836fa5adc371402b2e9d6b31fef551ef88ff'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a><ul class="nav nav-list"><li><a href="../../archSpec/base/introduction-to-dita.html">Introduction to DITA</a></li><li><a href="../../archSpec/base/ditamarkup.html">DITA markup </a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a><ul class="nav nav-list"><li><a href="../../archSpec/base/navigation.html">Navigation</a></li><li><a href="../../archSpec/base/conref.html">Content reference (conref)</a></li><li><a href="../../archSpec/base/condproc.html">Conditional processing (profiling)</a></li><li><a href="../../archSpec/base/branch-filtering.html">Branch filtering</a><ul class="nav nav-list"><li><a href="../../archSpec/base/branch-filtering-overview.html">Overview of branch filtering</a></li><li><a href="../../archSpec/base/branch-filtering-single-set.html">Branch filtering: Single condition set for a branch</a></li><li><a href="../../archSpec/base/branch-filtering-multiple-sets.html">Branch filtering: Multiple condition sets for a branch</a></li><li><a href="../../archSpec/base/branch-filtering-resource-names.html">Branch filtering: Impact on resource and key names</a></li><li><a href="../../archSpec/base/branch-filtering-implications-of-processing-order.html">Branch filtering: Implications of processing order</a></li><li><a href="../../archSpec/base/examples-of-branch-filter.html">Examples of branch filtering</a><ul class="nav nav-list"><li><a href="../../archSpec/base/example-single-ditavalref-on-branch.html">Example: Single ditavalref on a branch</a></li><li><a href="../../archSpec/base/example-multiple-ditavalref.html">Example: Multiple ditavalref elements on a branch</a></li><li><a href="../../archSpec/base/example-ditavalref-as-child-of-map.html">Example: Single ditavalref as a child of map</a></li><li><a href="../../archSpec/base/example-ditavalref-with-mapref.html">Example: Single ditavalref in a reference to a map</a></li><li><a href="../../archSpec/base/example-multiple-ditavalref-as-child-of-map.html">Example: Multiple ditavalref elements as children of map in a root map</a></li><li class="active"><a href="../../archSpec/base/example-multiple-ditavalref-with-mapref.html">Example: Multiple ditavalref elements in a reference to a map</a></li><li><a href="../../archSpec/base/example-ditavalref-in-filtered-branch.html">Example: ditavalref within a branch that already uses ditavalref</a></li><li><a href="../../archSpec/base/example-ditavalref-error-conditions.html">Example: ditavalref error conditions</a></li></ul></li></ul></li><li><a href="../../archSpec/base/chunking.html">Chunking</a></li><li><a href="../../archSpec/base/translation.html">Translation and localization</a></li><li><a href="../../archSpec/base/module-compatibility.html">Processing documents with different values of the domains attribute</a></li><li><a href="../../archSpec/base/sort-as-processing.html">Sorting</a></li></ul></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration, specialization, generalization, and constraints </a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../archSpec/technicalContent/technical-content-specializations.html">Technical content specializations</a></li><li><a href="../../archSpec/learningTraining/learning-and-training-specializations.html">Learning and training specializations</a></li></ul></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9 non-normative"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Example: Multiple <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> elements in a reference to a
+    map</h1>
+  
+  <div class="body conbody"><p class="shortdesc">Using multiple instances of the <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element in a
+    reference to a map is equivalent to referencing that map multiple times, with each reference
+    nesting one of the <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> elements.</p>
+    <div class="example non-normative" id="example-multiple-ditavalref-with-mapref__multiple-ditavalref-in-reference-to-map"><h2 class="title sectiontitle">Example</h2>
+      <p class="p">In the following example, <span class="ph filepath">other.ditamap</span> is referenced by a root map.
+        The <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> elements provide conflicting sets of filter
+        conditions.</p>
+      <figure class="fig fignone" id="example-multiple-ditavalref-with-mapref__fragment"><figcaption><span class="fig--title-label">Figure 1. </span>Map fragment</figcaption>
+        
+        <pre class="pre codeblock"><code>&lt;topicref href="parent.dita"&gt;
+  &lt;topicref href="other.ditamap" format="ditamap"&gt;
+    &lt;ditavalref href="audienceA.ditaval"/&gt;
+    &lt;ditavalref href="audienceB.ditaval"/&gt;
+    &lt;ditavalref href="audienceC.ditaval"/&gt;
+  &lt;/topicref&gt;
+&lt;/topicref&gt;</code></pre>
+      </figure>
+      <p class="p">This markup is functionally equivalent to referencing <span class="ph filepath">other.ditamap</span>
+        three times, with each reference including a single <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code>
+        elements. The fragment could be rewritten as:</p>
+      <figure class="fig fignone" id="example-multiple-ditavalref-with-mapref__fig_szk_hhh_1r"><figcaption><span class="fig--title-label">Figure 2. </span>Map fragment</figcaption>
+        
+        <pre class="pre codeblock"><code>&lt;topicref href="parent.dita"&gt;
+  &lt;topicref href="other.ditamap" format="ditamap"&gt;
+    &lt;ditavalref href="audienceA.ditaval"/&gt;
+  &lt;/topicref&gt;
+  &lt;topicref href="other.ditamap" format="ditamap"&gt;
+    &lt;ditavalref href="audienceB.ditaval"/&gt;
+  &lt;/topicref&gt;
+  &lt;topicref href="other.ditamap" format="ditamap"&gt;
+    &lt;ditavalref href="audienceC.ditaval"/&gt;
+  &lt;/topicref&gt;
+&lt;/topicref&gt;</code></pre>
+      </figure>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/examples-of-branch-filter.html" title="The branch filtering examples illustrate the processing expectations for various scenarios that involve ditavalref elements. Processing examples use either before and after sample markup or expanded syntax that shows the equivalent markup without the ditavalref elements.">Examples of branch filtering</a></div></div></nav></article></main>

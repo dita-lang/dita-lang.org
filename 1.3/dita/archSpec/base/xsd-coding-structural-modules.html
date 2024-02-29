@@ -1,0 +1,73 @@
+---
+# Generated from DITA source
+layout: base
+title: 'XML Schema: Coding requirements for structural modules'
+description: 'An XSD structural module declares a top-level map or topic type. It is implemented as a pair of XSD documents, one that defines groups used to integrate and override the type and one that defines the element types specific to the type.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '1ef1836fa5adc371402b2e9d6b31fef551ef88ff'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a><ul class="nav nav-list"><li><a href="../../archSpec/base/introduction-to-dita.html">Introduction to DITA</a></li><li><a href="../../archSpec/base/ditamarkup.html">DITA markup </a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration, specialization, generalization, and constraints </a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a><ul class="nav nav-list"><li><a href="../../archSpec/base/recognizedconstraintmechanisms.html">Recognized XML-document grammar mechanisms</a></li><li><a href="../../archSpec/base/using-relax-ng.html">Normative versions of DITA grammar files</a></li><li><a href="../../archSpec/base/dtd-requirements.html">DTD coding requirements</a></li><li><a href="../../archSpec/base/relax-ng-requirements.html">RELAX NG coding requirements</a></li><li><a href="../../archSpec/base/xsd-requirements.html">XML Schema coding requirements</a><ul class="nav nav-list"><li><a href="../../archSpec/base/xsd-coding-overview.html">XML Schema: Overview and limitations of coding requirements</a></li><li><a href="../../archSpec/base/xsd-coding-doctype-shell.html">XML Schema: Coding requirements for document-type shells</a></li><li><a href="../../archSpec/base/xsd-coding-element-types.html">XML Schema: Coding requirements for element type declarations</a></li><li class="active"><a href="../../archSpec/base/xsd-coding-structural-modules.html">XML Schema: Coding requirements for structural modules</a></li><li><a href="../../archSpec/base/xsd-coding-attribute-domains.html">XML Schema: Coding requirements for attribute domain modules</a></li><li><a href="../../archSpec/base/xsd-coding-constraint-modules.html">XML Schema: Coding requirements for constraint modules</a></li></ul></li></ul></li><li><a href="../../archSpec/technicalContent/technical-content-specializations.html">Technical content specializations</a></li><li><a href="../../archSpec/learningTraining/learning-and-training-specializations.html">Learning and training specializations</a></li></ul></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">XML Schema: Coding requirements for structural modules</h1>
+  
+  <div class="body conbody"><p class="shortdesc">An XSD structural module declares a top-level map or topic type. It is implemented as a
+    pair of XSD documents, one that defines groups used to integrate and override the type and one
+    that defines the element types specific to the type.</p>
+    <p class="p">All vocabulary and constraint modules must document their
+          <code class="keyword markupname xmlatt">@domains</code> attribute contribution. The OASIS grammar files use a
+          <code class="keyword markupname xmlelement">&lt;dita:domainsModule&gt;</code> element to document the contribution; this
+        element is used consistently to make it easy to find values when creating a document type
+        shell. An XML comment or <code class="keyword markupname xmlelement">&lt;xs:appinfo&gt;</code> element can also be used.</p>
+    <section class="section" id="xsdStructuralSpecializationReqs__module-files"><h2 class="title sectiontitle">Module files</h2>
+      
+      <p class="p">A structural vocabulary module has two files:</p>
+      <ul class="ul">
+        <li class="li">A module schema document.</li>
+        <li class="li">A module group definition schema document.</li>
+      </ul>
+    </section>
+    <section class="section" id="xsdStructuralSpecializationReqs__requried-atts"><h2 class="title sectiontitle">Required topic and map element attributes</h2>
+      
+      <p class="p">The root element for a structural type must reference the <code class="keyword markupname xmlatt">@DITAArchVersion</code>
+        attribute and the <code class="keyword markupname xmlatt">@domains</code> attribute. These attributes give processors a
+        reliable way to check the architecture version and look up the list of domains available in
+        the document type. The attributes are referenced as in the following example:</p>
+      <pre class="pre codeblock"><code>&lt;xs:attributeGroup name="concept.attributes"&gt;
+  &lt;!-- Various other attributes --&gt;
+  &lt;xs:attribute ref="ditaarch:DITAArchVersion"/&gt;
+  &lt;xs:attributeGroup ref="domains-att"/&gt;
+  &lt;xs:attributeGroup ref="global-atts"/&gt;
+&lt;/xs:attributeGroup&gt;</code></pre>
+    </section>
+    <section class="section" id="xsdStructuralSpecializationReqs__topic-nesting"><h2 class="title sectiontitle">Controlling nesting in topic types</h2>
+      
+      <p class="p">For topic modules, the last position in the content model is typically a reference to the
+            <code class="ph codeph"><var class="keyword varname">topictype</var>-info-types</code> group. Document types shells
+        can control how topics are allowed to nest by redefining the group. If topic nesting is hard
+        coded in the structural module, and cannot be modified from the document-type shell, the
+            <code class="ph codeph"><var class="keyword varname">topictype</var>-info-types</code> group is not needed.</p>
+      <div class="p">For example, the vocabulary module for the
+          <code class="keyword markupname xmlelement">&lt;concept&gt;</code> structural type uses the group
+          <code class="ph codeph">concept-info-types</code>; this group is given a default value, and then
+        referenced from the content model for the <code class="keyword markupname xmlelement">&lt;concept&gt;</code> element
+        type:<pre class="pre codeblock"><code>&lt;xs:group name="concept-info-types"&gt;
+  &lt;xs:choice&gt;
+    &lt;xs:group ref="concept"/&gt;
+    &lt;xs:group ref="info-types"/&gt;
+  &lt;/xs:choice&gt;
+&lt;/xs:group&gt;
+
+&lt;xs:group name="concept.content"&gt;
+  &lt;xs:sequence&gt;
+    &lt;xs:group ref="title"/&gt;
+    &lt;!-- ...other elements, such as shortdesc and body, and then... --&gt;
+    &lt;xs:group ref="related-links" minOccurs="0"/&gt;
+    &lt;xs:group ref="concept-info-types" minOccurs="0" maxOccurs="unbounded"/&gt;
+  &lt;/xs:sequence&gt;
+&lt;/xs:group&gt;</code></pre></div>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/xsd-requirements.html" title="This section explains how to implement XML Schema (XSD) based document-type shells, specializations, and constraints.">XML Schema coding requirements</a></div></div></nav></article></main>

@@ -1,0 +1,86 @@
+---
+# Generated from DITA source
+layout: base
+title: 'foreign'
+description: 'The foreign element allows the introduction of non-DITA content, for example, MathML, SVG, or Rich Text Format (RTF). The foreign element or a specialization can contain more than one type of non-DITA content or a mix of DITA and non-DITA content. Specialization of the foreign element generally is implemented as a domain, but architects looking for more control over the content can implement foreign vocabularies as structural specializations.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '1ef1836fa5adc371402b2e9d6b31fef551ef88ff'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a><ul class="nav nav-list"><li><a href="../../langRef/containers/element-quick-reference.html">Element quick reference</a></li><li><a href="../../langRef/containers/topic-elements.html">Topic elements</a></li><li><a href="../../langRef/containers/map-elements.html">Map elements</a></li><li><a href="../../langRef/containers/metadata-elements.html">Metadata elements</a></li><li><a href="../../langRef/containers/domain-elements.html">Domain elements</a></li><li><a href="../../langRef/containers/classification-elements.html">Classification elements</a></li><li><a href="../../langRef/containers/specialization-elements.html">Specialization elements</a><ul class="nav nav-list"><li><a href="../../langRef/base/boolean.html">boolean</a></li><li><a href="../../langRef/base/data.html">data</a></li><li><a href="../../langRef/base/data-about.html">data-about</a></li><li class="active"><a href="../../langRef/base/foreign.html">foreign</a></li><li><a href="../../langRef/base/index-base.html">index-base</a></li><li><a href="../../langRef/base/itemgroup.html">itemgroup</a></li><li><a href="../../langRef/base/no-topic-nesting.html">no-topic-nesting</a></li><li><a href="../../langRef/base/state.html">state</a></li><li><a href="../../langRef/base/unknown.html">unknown</a></li></ul></li><li><a href="../../langRef/containers/legacy-conversion-elements.html">Legacy conversion elements</a></li><li><a href="../../langRef/containers/ditaval-elements.html">DITAVAL elements</a></li><li><a href="../../langRef/containers/technical-content-elements.html">Technical content elements</a></li><li><a href="../../langRef/containers/learningTraining-elements.html">Learning and training elements</a></li><li><a href="../../langRef/attributes/attributes.html">Attributes</a></li></ul></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
+<h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;foreign&gt;</code></h1>
+
+
+<div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> element allows the introduction of non-DITA content,
+    for example, MathML, SVG, or Rich Text Format (RTF). The <code class="keyword markupname xmlelement">&lt;foreign&gt;</code>
+    element or a specialization <span class="ph">can</span> contain more than one type of
+    non-DITA content or a mix of DITA and non-DITA content. Specialization of the
+      <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> element generally is implemented as a domain, but architects
+    looking for more control over the content <span class="ph">can</span> implement foreign
+    vocabularies as structural specializations.</p>
+<section class="section" id="foreign__section-1">       <p class="p">Processors should attempt to display <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> content unless
+        otherwise instructed. If the processor cannot render the content, it <dfn class="term RFC-2119">MAY</dfn> issue a warning.</p><p class="p">The enabler of the foreign vocabulary must provide the processing and override the base
+        processing for <code class="keyword markupname xmlelement">&lt;foreign&gt;</code>. </p><ul class="ul">
+<li class="li">If <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> contains more than one alternative content element, they
+          should all be processed. In the case of <code class="keyword markupname xmlelement">&lt;desc&gt;</code> they should be
+          concatenated in a similar way to <code class="keyword markupname xmlelement">&lt;section&gt;</code>, but with no title
+          (analogous to <code class="keyword markupname xmlelement">&lt;div&gt;</code> in HTML). </li>
+<li class="li">If alternate content is desired, specialize the <code class="keyword markupname xmlelement">&lt;desc&gt;</code> element to contain
+          it. This specialization of <code class="keyword markupname xmlelement">&lt;desc&gt;</code> should be used within the element
+          specialized from <code class="keyword markupname xmlelement">&lt;foreign&gt;</code>. Such alternate content must of course
+          be valid wherever the <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> specialization is valid.</li>
+<li class="li"> If no <code class="keyword markupname xmlelement">&lt;desc&gt;</code>, <code class="keyword markupname xmlelement">&lt;object&gt;</code>, or
+            <code class="keyword markupname xmlelement">&lt;image&gt;</code> element is found within an instance of the
+            <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> element, the base processing <span class="ph">can</span> emit a warning about the absence of processable content.</li>
+<li class="li">The base processing for <code class="keyword markupname xmlelement">&lt;object&gt;</code>
+          <span class="ph">might</span> emit the content of <code class="keyword markupname xmlelement">&lt;foreign&gt;</code>
+          as a file at the location specified by the <code class="keyword markupname xmlatt">@data</code> attribute of the
+            <code class="keyword markupname xmlelement">&lt;object&gt;</code> element. The <code class="keyword markupname xmlelement">&lt;object&gt;</code> element
+          should have a data attribute or a <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> sub-element but not
+          both. In the event that an <code class="keyword markupname xmlelement">&lt;object&gt;</code> element contains both a data
+          attribute and an <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> sub-element the processing system should
+          ignore one of them.</li>
+</ul>     </section>
+<section class="section" id="foreign__contains"><h2 class="title sectiontitle">Content models</h2><p class="p">See <span class="xref">appendix</span> for information about this element in OASIS document type shells.</p></section>
+<section class="section" id="foreign__inheritance"><h2 class="title sectiontitle">Inheritance</h2>        
+     <p class="p">- topic/foreign </p>     </section>
+<div class="example non-normative" id="foreign__example"><h2 class="title sectiontitle">SVG Example within a <code class="keyword markupname xmlelement">&lt;p&gt;</code> element</h2>       <pre class="pre codeblock"><code>&lt;p&gt;... as in the formula 
+  &lt;svg&gt;
+    &lt;svg:svg width="100%" height="100%" version="1.1"
+xmlns="http://www.w3.org/2000/svg"&gt;
+
+&lt;ellipse cx="300" cy="150" rx="200" ry="80"
+style="fill:rgb(200,100,50);
+stroke:rgb(0,0,100);stroke-width:2"/&gt;
+
+    &lt;/svg:svg&gt;    
+  &lt;/svg&gt;.
+&lt;/p&gt; </code></pre>     </div>
+<div class="example non-normative" id="foreign__example-math"><h2 class="title sectiontitle">MathML Example within an <code class="keyword markupname xmlelement">&lt;object&gt;</code> element</h2>
+      
+      <pre class="pre codeblock"><code>&lt;p&gt;... as in the formula 
+&lt;object&gt;
+  &lt;desc&gt;4 + x&lt;/desc&gt;
+  &lt;mathml&gt;
+    &lt;m:math display="block"&gt;
+      &lt;m:mrow&gt;
+        &lt;m:mo&gt;sum&lt;/m:mo&gt;
+        &lt;m:mn&gt;4&lt;/m:mn&gt;
+        &lt;m:mo&gt;+&lt;/m:mo&gt;
+        &lt;m:mi&gt;x&lt;/m:mi&gt;
+      &lt;/m:mrow&gt;
+    &lt;/m:math&gt;    
+  &lt;/mathml&gt;
+ &lt;/object&gt;.
+&lt;/p&gt; </code></pre>
+    </div>
+<section class="section" id="foreign__attributes"><h2 class="title sectiontitle">Attributes</h2>
+      <p class="p">The following attributes are
+                                available on this element: <a class="xref" href="../../common/../langRef/attributes/universalAttributes.html" title="The universal attribute group defines a set of common attributes available on most DITA elements. The universal attribute group includes all attributes from the metadata, ID, localization, and debug attribute groups, plus the class attribute.">Universal attribute group</a> and
+                                        <a class="xref" href="../../common/../langRef/attributes/commonAttributes.html#common-atts__outputclass">outputclass</a>.</p>
+</section>
+</div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/specialization-elements.html" title="Several DITA elements exist either for architectural reasons or for support of specialized markup yet to be designed. Although there is little need to use these elements unless you are directed to, some of them, such as state, can be used if your content makes use of these semantic distinctions. For example, a discussion of signals on a gate of an integrated logic circuit might use the state element to represent either on or off conditions of that gate.">Specialization elements</a></div></div></nav></article></main>

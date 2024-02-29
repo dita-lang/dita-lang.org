@@ -1,0 +1,76 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Conditional processing values and groups'
+description: 'Conditional processing attributes classify elements with metadata. The metadata is specified using space-delimited string values or grouped values.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '1ef1836fa5adc371402b2e9d6b31fef551ef88ff'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a><ul class="nav nav-list"><li><a href="../../archSpec/base/introduction-to-dita.html">Introduction to DITA</a></li><li><a href="../../archSpec/base/ditamarkup.html">DITA markup </a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a><ul class="nav nav-list"><li><a href="../../archSpec/base/navigation.html">Navigation</a></li><li><a href="../../archSpec/base/conref.html">Content reference (conref)</a></li><li><a href="../../archSpec/base/condproc.html">Conditional processing (profiling)</a><ul class="nav nav-list"><li class="active"><a href="../../archSpec/base/usage-of-conditional-processing-attributes.html">Conditional processing values and groups</a></li><li><a href="../../archSpec/base/filtering.html">Filtering</a></li><li><a href="../../archSpec/base/flagging.html">Flagging</a></li><li><a href="../../archSpec/base/conditional-processing-for-specific-output-types.html">Conditional processing to generate multiple deliverable types</a></li><li><a href="../../archSpec/base/examples-of-conditional-processing.html">Examples of conditional processing</a></li></ul></li><li><a href="../../archSpec/base/branch-filtering.html">Branch filtering</a></li><li><a href="../../archSpec/base/chunking.html">Chunking</a></li><li><a href="../../archSpec/base/translation.html">Translation and localization</a></li><li><a href="../../archSpec/base/module-compatibility.html">Processing documents with different values of the domains attribute</a></li><li><a href="../../archSpec/base/sort-as-processing.html">Sorting</a></li></ul></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration, specialization, generalization, and constraints </a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../archSpec/technicalContent/technical-content-specializations.html">Technical content specializations</a></li><li><a href="../../archSpec/learningTraining/learning-and-training-specializations.html">Learning and training specializations</a></li></ul></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Conditional processing values and groups</h1>
+  
+  <div class="body conbody"><p class="shortdesc">Conditional processing attributes classify elements with metadata. The metadata is
+    specified using space-delimited string values or grouped values.</p>
+    <p class="p">For example, the string values within <code class="keyword markupname xmlatt">@product</code> in <code class="ph codeph">&lt;p
+        product="basic deluxe"&gt;</code> indicate that the paragraph applies to the <q class="q">basic</q> product
+      and to the <q class="q">deluxe</q> product. </p>
+    <p class="p">Groups organize classification metadata into subcategories. <span class="ph">This is
+intended to support situations where a predefined metadata attribute applies to multiple specialized
+subcategories. <span class="ph">For example, the <code class="keyword markupname xmlatt">@product</code> attribute can be
+used to classify an element based on both related databases and related application servers. Using
+groups for these subcategories allows each category to be processed independently; when filter
+conditions exclude all applicable databases within a group, the element can be safely excluded,
+regardless of any other <code class="keyword markupname xmlatt">@product</code> conditions.</span></span></p>
+<p class="p">Groups can be used within <code class="keyword markupname xmlatt">@audience</code>, <code class="keyword markupname xmlatt">@product</code>,
+<code class="keyword markupname xmlatt">@platform</code>, or <code class="keyword markupname xmlatt">@otherprops</code>. The following rules apply:</p>
+    <ul class="ul">
+      <li class="li">Groups consist of a name immediately followed by a parenthetical group of <span style="color:red;" class="ph">►zero◄</span> or more space-delimited string values. For example,
+          <code class="ph codeph">"groupName(valueOne valueTwo)"</code>.</li>
+      <li class="li">Groups cannot be nested.</li>
+      <li class="li">If two groups with the same name are found in a single attribute, they should be treated
+        as if all values are specified in the same group. The following values for the
+          <code class="keyword markupname xmlatt">@otherprops</code> attribute are
+        equivalent:<pre class="pre codeblock"><code>otherprops="groupA(a b) groupA(c) groupZ(APPNAME)"
+otherprops="groupA(a b c) groupZ(APPNAME)"</code></pre></li>
+      <li class="li">If both grouped values and ungrouped values are found in a single attribute, the ungrouped
+        values belong to an implicit group; the name of that group matches the name of the
+        attribute. Therefore, the following values for the <code class="keyword markupname xmlatt">@product</code> attribute are
+        equivalent:
+        <pre class="pre codeblock"><code>product="a database(dbA dbB) b appserver(mySERVER) c"
+product="product(a b c) database(dbA dbB) appserver(mySERVER)"</code></pre></li>
+    </ul>
+    <p class="p">Setting a conditional processing attribute to an empty value,
+      such as <code class="ph codeph">product=""</code>, is equivalent to omitting that attribute from the
+      element. An empty group within an attribute is equivalent to omitting that group from the
+      attribute. For example, <code class="ph codeph">&lt;ph product="database() A"&gt;</code> is equivalent to
+        <code class="ph codeph">&lt;ph product="A"&gt;</code>. Combining both rules into one example, <code class="ph codeph">&lt;ph
+        product="operatingSystem()"&gt;</code> is equivalent to <code class="ph codeph">&lt;ph&gt;</code>.</p>
+    <p class="p">If two groups with the same name exist on different attributes,
+      a rule specified for that group will evaluate the same way on each attribute. For example, if
+      the group "sampleGroup" is specified within both <code class="keyword markupname xmlatt">@platform</code> and
+        <code class="keyword markupname xmlatt">@otherprops</code>, a DITAVAL rule for <code class="ph codeph">sampleGroup="value"</code> will
+      evaluate the same in each attribute.
+      
+      If there is a need to distinguish between similarly named groups on different attributes, the
+      best practice is to use more specific group names such as platformGroupname and
+      productGroupname. Alternatively, DITAVAL rules can be specified based on the attribute name
+      rather than the group name.</p>
+    <p class="p">If the same group name is used in different attributes, a
+      complex scenario could be created where different defaults are specified for different
+      attributes, with no rule set for a group or individual value. In this case a value might end
+      up evaluating differently in the different attributes. For example, a DITAVAL can set a
+      default of "exclude" for <code class="keyword markupname xmlatt">@platform</code> and a default of "flag" for
+        <code class="keyword markupname xmlatt">@product</code>. If no rules are specified for group <code class="ph codeph">oddgroup()</code>,
+      or for the value <code class="ph codeph">oddgroup="edgecase"</code>, the attribute
+        <code class="ph codeph">platform="oddgroup(edgecase)"</code> will evaluate to "exclude" while
+        <code class="ph codeph">product="oddgroup(edgecase)"</code> will resolve to "flag". See <a class="xref" href="../../langRef/containers/ditaval-elements.html" title="A conditional processing profile (DITAVAL file) is used to identify which values are to be used for conditional processing during a particular output, build, or some other purpose. The profile should have an extension of .ditaval.">DITAVAL elements</a> for information on how to change
+      default behaviors in DITAVAL provile.</p>
+    <div class="note note note_note non-normative"><span class="note__title">Note:</span> While the grouped values  reuse the generalized attribute syntax found in <a class="xref" href="generalization-attributes.html#attributegeneralize" title="DITA provides a syntax to generalize attributes that have been specialized from the props or base attribute. Specialization-aware processors SHOULD process both the specialized and generalized forms of an attribute as equivalent in their values.">Attribute generalization</a>, the
+        <code class="keyword markupname xmlatt">@audience</code>, <code class="keyword markupname xmlatt">@product</code>, <code class="keyword markupname xmlatt">@platform</code>, and
+        <code class="keyword markupname xmlatt">@otherprops</code> attributes cannot be specialized or generalized.</div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/condproc.html" title="Conditional processing, also known as profiling, is the filtering or flagging of information based on processing-time criteria.">Conditional processing (profiling)</a></div></div><div class="linklist relref"><strong>Related reference</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="../../langRef/attributes/metadataAttributes.html" title="The metadata attribute group includes common metadata attributes, several of which support conditional processing (filtering and flagging) or the creation of new attribute domain specializations.">Metadata attribute group</a></li><li class="linklist"><a class="link" href="../../langRef/containers/ditaval-elements.html" title="A conditional processing profile (DITAVAL file) is used to identify which values are to be used for conditional processing during a particular output, build, or some other purpose. The profile should have an extension of .ditaval.">DITAVAL elements</a></li></ul></div></nav></article></main>

@@ -1,0 +1,68 @@
+---
+# Generated from DITA source
+layout: base
+title: 'style-conflict'
+description: 'The style-conflict element declares behavior to be used when one or more flagging methods collide on a single content element.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '1ef1836fa5adc371402b2e9d6b31fef551ef88ff'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a><ul class="nav nav-list"><li><a href="../../langRef/containers/element-quick-reference.html">Element quick reference</a></li><li><a href="../../langRef/containers/topic-elements.html">Topic elements</a></li><li><a href="../../langRef/containers/map-elements.html">Map elements</a></li><li><a href="../../langRef/containers/metadata-elements.html">Metadata elements</a></li><li><a href="../../langRef/containers/domain-elements.html">Domain elements</a></li><li><a href="../../langRef/containers/classification-elements.html">Classification elements</a></li><li><a href="../../langRef/containers/specialization-elements.html">Specialization elements</a></li><li><a href="../../langRef/containers/legacy-conversion-elements.html">Legacy conversion elements</a></li><li><a href="../../langRef/containers/ditaval-elements.html">DITAVAL elements</a><ul class="nav nav-list"><li><a href="../../langRef/ditaval/ditaval-val.html">val</a></li><li class="active"><a href="../../langRef/ditaval/ditaval-style-conflict.html">style-conflict</a></li><li><a href="../../langRef/ditaval/ditaval-prop.html">prop</a></li><li><a href="../../langRef/ditaval/ditaval-revprop.html">revprop</a></li><li><a href="../../langRef/ditaval/ditaval-startflag.html">startflag</a></li><li><a href="../../langRef/ditaval/ditaval-endflag.html">endflag</a></li><li><a href="../../langRef/ditaval/ditaval-alt-text.html">alt-text</a></li></ul></li><li><a href="../../langRef/containers/technical-content-elements.html">Technical content elements</a></li><li><a href="../../langRef/containers/learningTraining-elements.html">Learning and training elements</a></li><li><a href="../../langRef/attributes/attributes.html">Attributes</a></li></ul></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
+<h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;style-conflict&gt;</code></h1>
+
+
+<div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;style-conflict&gt;</code> element declares behavior to be used when one
+  or more flagging methods collide on a single content element. </p>
+<section class="section" id="ditaval-style-conflict__section-1"><p class="p">In case of conflicts between flagging methods at different
+levels (for example, a section is flagged green and a paragraph within
+the section is flagged red), the most deeply nested flagging method
+applies. </p><div class="p">In case of conflicts between flagging methods on the
+same element (for example, a single element is being flagged with
+both green and red color), it is recommended that the conflicts be
+resolved as follows:<dl class="dl">
+
+<dt class="dthd"><strong>Flagging method</strong></dt><dd class="ddhd"><strong>Conflict behavior</strong></dd>
+
+
+<dt class="dt dlterm"><code class="keyword markupname xmlelement">&lt;startflag&gt;</code> / <code class="keyword markupname xmlelement">&lt;endflag&gt;</code></dt>
+<dd class="dd">Add all flags that apply.</dd>
+
+<dt class="dt dlterm">color</dt>
+<dd class="dd">Follow the <code class="keyword markupname xmlelement">&lt;style-conflict&gt;</code>
+       <code class="keyword markupname xmlatt">@foreground-conflict-color</code> setting, or use an output-appropriate default
+       color if no conflict color is set.</dd>
+
+<dt class="dt dlterm">backcolor</dt>
+<dd class="dd">Follow the <code class="keyword markupname xmlelement">&lt;style-conflict&gt;</code>
+       <code class="keyword markupname xmlatt">@background-conflict-color</code> setting, or use an output-appropriate default
+       color if no conflict color is set.</dd>
+
+<dt class="dt dlterm">style</dt>
+<dd class="dd">Add all font styles that apply. If two different kinds of underline are used, default to the
+       heaviest (double underline) and use the <code class="keyword markupname xmlatt">@foreground-conflict-color</code>.</dd>
+
+<dt class="dt dlterm">changebar</dt>
+<dd class="dd">Add all change bars that apply.</dd>
+</dl></div></section>
+<section class="section" id="ditaval-style-conflict__contains"><h2 class="title sectiontitle">Contains</h2><p class="p"><em class="ph i">(empty)</em></p></section>
+<section class="section" id="ditaval-style-conflict__containedby"><h2 class="title sectiontitle">Contained by</h2><p class="p"><a class="xref" href="ditaval-val.html" title="The val element is the root element of a DITAVAL file.">val</a></p></section>
+<div class="example non-normative" id="ditaval-style-conflict__example"><h2 class="title sectiontitle">Example</h2><p class="p">See the example
+in the <a class="xref" href="ditaval-val.html" title="The val element is the root element of a DITAVAL file.">&lt;val&gt;</a> description.</p></div>
+<section class="section" id="ditaval-style-conflict__attributes"><h2 class="title sectiontitle">Attributes</h2>
+   <div class="p">The following attributes are available on this element: <dl class="dl">
+     
+      <dt class="dt dlterm"><code class="keyword markupname xmlatt">@foreground-conflict-color</code></dt>
+      <dd class="dd">The color to be used when more than one flagging color applies to a single content
+              element.</dd>
+     
+     
+      <dt class="dt dlterm"><code class="keyword markupname xmlatt">@background-conflict-color</code></dt>
+      <dd class="dd">The color to be used when more than one flagging background color applies to a single
+              content element.</dd>
+     
+    </dl></div></section>
+</div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/ditaval-elements.html" title="A conditional processing profile (DITAVAL file) is used to identify which values are to be used for conditional processing during a particular output, build, or some other purpose. The profile should have an extension of .ditaval.">DITAVAL elements</a></div></div></nav></article></main>

@@ -1,0 +1,70 @@
+---
+# Generated from DITA source
+layout: base
+title: 'relatedSubjects'
+description: 'The relatedSubjects element establishes associative relationships between each child subject and every other child subject (unless the association is restricted by the linking attribute of the subjects).'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '1ef1836fa5adc371402b2e9d6b31fef551ef88ff'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a><ul class="nav nav-list"><li><a href="../../langRef/containers/element-quick-reference.html">Element quick reference</a></li><li><a href="../../langRef/containers/topic-elements.html">Topic elements</a></li><li><a href="../../langRef/containers/map-elements.html">Map elements</a></li><li><a href="../../langRef/containers/metadata-elements.html">Metadata elements</a></li><li><a href="../../langRef/containers/domain-elements.html">Domain elements</a></li><li><a href="../../langRef/containers/classification-elements.html">Classification elements</a><ul class="nav nav-list"><li><a href="../../langRef/containers/subjectScheme.html">Subject scheme elements</a><ul class="nav nav-list"><li><a href="../../langRef/base/subjectScheme.html">subjectScheme</a></li><li><a href="../../langRef/base/schemeref.html">schemeref</a></li><li><a href="../../langRef/base/hasInstance.html">hasInstance</a></li><li><a href="../../langRef/base/hasKind.html">hasKind</a></li><li><a href="../../langRef/base/hasNarrower.html">hasNarrower</a></li><li><a href="../../langRef/base/hasPart.html">hasPart</a></li><li><a href="../../langRef/base/hasRelated.html">hasRelated</a></li><li><a href="../../langRef/base/enumerationdef.html">enumerationdef</a></li><li><a href="../../langRef/base/elementdef.html">elementdef</a></li><li><a href="../../langRef/base/attributedef.html">attributedef</a></li><li><a href="../../langRef/base/defaultSubject.html">defaultSubject</a></li><li><a href="../../langRef/base/subjectHead.html">subjectHead</a></li><li><a href="../../langRef/base/subjectHeadMeta.html">subjectHeadMeta</a></li><li><a href="../../langRef/base/subjectdef.html">subjectdef</a></li><li class="active"><a href="../../langRef/base/relatedSubjects.html">relatedSubjects</a></li><li><a href="../../langRef/base/subjectRelTable.html">subjectRelTable</a></li><li><a href="../../langRef/base/subjectRelHeader.html">subjectRelHeader</a></li><li><a href="../../langRef/base/subjectRel.html">subjectRel</a></li><li><a href="../../langRef/base/subjectRole.html">subjectRole</a></li></ul></li><li><a href="../../langRef/containers/classify-d.html">Classification domain elements</a></li></ul></li><li><a href="../../langRef/containers/specialization-elements.html">Specialization elements</a></li><li><a href="../../langRef/containers/legacy-conversion-elements.html">Legacy conversion elements</a></li><li><a href="../../langRef/containers/ditaval-elements.html">DITAVAL elements</a></li><li><a href="../../langRef/containers/technical-content-elements.html">Technical content elements</a></li><li><a href="../../langRef/containers/learningTraining-elements.html">Learning and training elements</a></li><li><a href="../../langRef/attributes/attributes.html">Attributes</a></li></ul></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
+<h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;relatedSubjects&gt;</code></h1>
+
+
+<div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;relatedSubjects&gt;</code> element establishes associative
+relationships between each child subject and every other child subject (unless the association is
+restricted by the <code class="keyword markupname xmlatt">@linking</code> attribute of the subjects).</p>
+<section class="section" id="relatedSubjects__section-1"><p class="p">For filtering and flagging, processors need only inspect
+the subordinate hierarchies under category subjects that are bound
+to attributes. Filtering and flagging processors do not have to understand
+specific types of relationships. Explicit relationships are useful
+primarily for information viewers with advanced capabilities.</p><p class="p">The content provider can identify the relationship by specifying a <code class="keyword markupname xmlatt">@keys</code>
+attribute, label the relationship by specifying a <code class="keyword markupname xmlelement">&lt;navtitle&gt;</code> element or
+<code class="keyword markupname xmlatt">@navtitle</code> attribute, and provide a consensus definition of the
+relationship including by referencing a topic. If the relationship has an identifying key, the
+content provider can use the <code class="keyword markupname xmlatt">@keyref</code> attribute to specify the same relationship for
+different subjects.</p></section>
+<section class="section" id="relatedSubjects__contains"><h2 class="title sectiontitle">Content models</h2><p class="p">See <span class="xref">appendix</span> for information about this element in OASIS document type shells.</p></section>
+<section class="section" id="relatedSubjects__inheritance"><h2 class="title sectiontitle">Inheritance</h2><p class="p">-
+map/topicref subjectScheme/relatedSubjects </p></section>
+<div class="example non-normative" id="relatedSubjects__example"><h2 class="title sectiontitle">Example</h2><div class="p">The following scheme
+establishes that the Linux, the Apache Web Server, and the MySQL Database
+are related:<pre class="pre codeblock"><code>&lt;subjectScheme&gt;
+  &lt;!-- ... --&gt;
+  &lt;relatedSubjects&gt;
+    &lt;subjectdef keys="linux"     navtitle="Linux"/&gt;
+    &lt;subjectdef keys="apacheweb" navtitle="Apache Web Server"/&gt;
+    &lt;subjectdef keys="mysql"     navtitle="MySQL Database"/&gt;
+  &lt;/relatedSubjects&gt;
+  &lt;!-- ... --&gt;
+&lt;/subjectScheme&gt;</code></pre></div></div>
+<section class="section" id="relatedSubjects__attributes"><h2 class="title sectiontitle">Attributes</h2>
+<p class="p">The following attributes are available on this element: <a class="xref" href="../attributes/universalAttributes.html" title="The universal attribute group defines a set of common attributes available on most DITA elements. The universal attribute group includes all attributes from the metadata, ID, localization, and debug attribute groups, plus the class attribute.">Universal attribute group</a>, <a class="xref" href="../attributes/linkRelationshipAttributes.html" title="The link relationship attribute group includes attributes whose values can be used for representing navigational relationships. These attributes occur only on elements that represent relationships among DITA elements or between DITA elements and non-DITA resources.">Link relationship attribute group</a> (with a narrowed definition of
+<code class="keyword markupname xmlatt">@href</code>, given below), <code class="keyword markupname xmlatt">@navtitle</code> and <code class="keyword markupname xmlatt">@query</code> from <a class="xref" href="../attributes/topicrefElementAttributes.html" title="The topicref element attributes group includes attributes that are defined for the topicref element, and are reused on most or all specializations of the topicref element.">Topicref element attributes group</a>, <a class="xref" href="../attributes/commonAttributes.html#common-atts__outputclass">outputclass</a>, <a class="xref" href="../attributes/thekeysattribute.html" title="A keys attribute consists of one or more space-separated keys. Map authors define keys using a topicref or topicref specialization that contains the keys attribute. Each key definition introduces an identifier for a resource referenced from a map. Keys resolve to the resources given as the href value on the key definition topicref element, to content contained within the key definition topicref element, or both."><code class="keyword markupname xmlatt">@keys</code></a>, and <a class="xref" href="../attributes/thekeyrefattribute.html" title="The keyref attribute provides an indirect, late-bound reference to topics, to collections of topics (ditabase), to maps, to referenceable portions of maps, to non-DITA documents, to external URIs, or to XML content contained within a key definition topic reference. When the DITA content is processed, the key references are resolved using key definitions from DITA maps."><code class="keyword markupname xmlatt">@keyref</code></a>. This element also uses
+<code class="keyword markupname xmlatt">@processing-role</code>, <code class="keyword markupname xmlatt">@collection-type</code>, and a narrowed definition of
+<code class="keyword markupname xmlatt">@linking</code> (given below) from <a class="xref" href="../attributes/commonMapAttributes.html" title="This attribute group collects several attributes that are used on a variety of map elements. For a few elements, the group is modified slightly to remove an attribute such as toc or format; in those cases the element definition will clarify that the element does not use this full set. That is generally done in order to specify a default for one attribute, such as defaulting format to &#34;ditamap&#34; on the mapref element.">Attributes common to many map elements</a>.</p>
+<dl class="dl">
+
+                                                <dt class="dt dlterm"><code class="keyword markupname xmlatt">@href</code></dt>
+                                                <dd class="dd">A pointer to the resource represented by the
+                                                  <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>. See <a class="xref" href="../../common/../langRef/attributes/thehrefattribute.html" title="The href attribute is used to reference another DITA topic or map, a specific element inside a DITA topic or map, an external Web page, or another non-DITA resource.">The href attribute</a> for detailed information on supported values
+                                                  and processing implications. References to DITA
+                                                  content cannot be below the topic level: that is,
+                                                  you cannot reference individual elements inside a
+                                                  topic. References to content other than DITA
+                                                  topics should use the <code class="keyword markupname xmlatt">@format</code>
+                                                  attribute to identify the kind of resource being
+                                                  referenced.</dd>
+                                        
+
+<dt class="dt dlterm" id="relatedSubjects__linking"><code class="keyword markupname xmlatt">@linking</code></dt>
+<dd class="dd">On this element, the <code class="keyword markupname xmlatt">@linking</code> attribute has a default value of "normal".
+Otherwise, the attribute is the same as defined in <a class="xref" href="../attributes/commonMapAttributes.html" title="This attribute group collects several attributes that are used on a variety of map elements. For a few elements, the group is modified slightly to remove an attribute such as toc or format; in those cases the element definition will clarify that the element does not use this full set. That is generally done in order to specify a default for one attribute, such as defaulting format to &#34;ditamap&#34; on the mapref element.">Attributes common to many map elements</a>.</dd>
+
+</dl>
+</section>
+</div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/subjectScheme.html" title="Subject scheme maps are used to define sets of controlled values and taxonomic subjects; bind controlled values to attributes; and specify relationships among taxonomic subjects.">Subject scheme elements</a></div></div></nav></article></main>

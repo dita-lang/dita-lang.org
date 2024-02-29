@@ -1,0 +1,142 @@
+---
+# Generated from DITA source
+layout: base
+title: 'subjectRelTable'
+description: 'The subjectRelTable element is a specialized relationship table which establishes relationships between the subjects in different columns of the same row. This element provides an efficient way to author non-hierarchical relationships between subjects. Tools (such as search tools) that use subject relationships to find related content might use these associative relationships in a similar way to the hierarchical relationships.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '1ef1836fa5adc371402b2e9d6b31fef551ef88ff'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a><ul class="nav nav-list"><li><a href="../../langRef/containers/element-quick-reference.html">Element quick reference</a></li><li><a href="../../langRef/containers/topic-elements.html">Topic elements</a></li><li><a href="../../langRef/containers/map-elements.html">Map elements</a></li><li><a href="../../langRef/containers/metadata-elements.html">Metadata elements</a></li><li><a href="../../langRef/containers/domain-elements.html">Domain elements</a></li><li><a href="../../langRef/containers/classification-elements.html">Classification elements</a><ul class="nav nav-list"><li><a href="../../langRef/containers/subjectScheme.html">Subject scheme elements</a><ul class="nav nav-list"><li><a href="../../langRef/base/subjectScheme.html">subjectScheme</a></li><li><a href="../../langRef/base/schemeref.html">schemeref</a></li><li><a href="../../langRef/base/hasInstance.html">hasInstance</a></li><li><a href="../../langRef/base/hasKind.html">hasKind</a></li><li><a href="../../langRef/base/hasNarrower.html">hasNarrower</a></li><li><a href="../../langRef/base/hasPart.html">hasPart</a></li><li><a href="../../langRef/base/hasRelated.html">hasRelated</a></li><li><a href="../../langRef/base/enumerationdef.html">enumerationdef</a></li><li><a href="../../langRef/base/elementdef.html">elementdef</a></li><li><a href="../../langRef/base/attributedef.html">attributedef</a></li><li><a href="../../langRef/base/defaultSubject.html">defaultSubject</a></li><li><a href="../../langRef/base/subjectHead.html">subjectHead</a></li><li><a href="../../langRef/base/subjectHeadMeta.html">subjectHeadMeta</a></li><li><a href="../../langRef/base/subjectdef.html">subjectdef</a></li><li><a href="../../langRef/base/relatedSubjects.html">relatedSubjects</a></li><li class="active"><a href="../../langRef/base/subjectRelTable.html">subjectRelTable</a></li><li><a href="../../langRef/base/subjectRelHeader.html">subjectRelHeader</a></li><li><a href="../../langRef/base/subjectRel.html">subjectRel</a></li><li><a href="../../langRef/base/subjectRole.html">subjectRole</a></li></ul></li><li><a href="../../langRef/containers/classify-d.html">Classification domain elements</a></li></ul></li><li><a href="../../langRef/containers/specialization-elements.html">Specialization elements</a></li><li><a href="../../langRef/containers/legacy-conversion-elements.html">Legacy conversion elements</a></li><li><a href="../../langRef/containers/ditaval-elements.html">DITAVAL elements</a></li><li><a href="../../langRef/containers/technical-content-elements.html">Technical content elements</a></li><li><a href="../../langRef/containers/learningTraining-elements.html">Learning and training elements</a></li><li><a href="../../langRef/attributes/attributes.html">Attributes</a></li></ul></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
+<h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;subjectRelTable&gt;</code></h1>
+
+
+<div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;subjectRelTable&gt;</code> element is a specialized relationship table
+    which establishes relationships between the subjects in different columns of the same row. This
+    element provides an efficient way to author non-hierarchical relationships between subjects.
+    Tools (such as search tools) that use subject relationships to find related content <span class="ph">might</span> use these associative relationships in a similar way to the
+    hierarchical relationships.</p>
+<section class="section" id="subjectRelTable__contains"><h2 class="title sectiontitle">Content models</h2><p class="p">See <span class="xref">appendix</span> for information about this element in OASIS document type shells.</p></section>
+<section class="section" id="subjectRelTable__inheritance"><h2 class="title sectiontitle">Inheritance</h2><p class="p">-
+map/reltable subjectScheme/subjectRelTable </p></section>
+    <div class="example non-normative" id="subjectRelTable__example"><h2 class="title sectiontitle">Example</h2>
+      
+      <p class="p">The subject relationship table in this example establishes relationships between operating
+        systems and applications. Based on the <code class="keyword markupname xmlelement">&lt;subjectRole&gt;</code> element,
+        subjects in the first column are operating systems which are the environment for an
+        application, while subjects in the second column are applications that run in that
+        environment. For a user interested in content about the operating system, content about the
+        applications <span class="ph">might</span> also be relevant.</p>
+      <pre class="pre codeblock"><code>&lt;subjectScheme&gt;
+  &lt;hasKind&gt;
+    &lt;subjectdef keys="operatingSystem"&gt;
+        &lt;subjectdef keys="linuxOS"/&gt;
+        &lt;subjectdef keys="windowsOS"/&gt;
+    &lt;/subjectdef&gt;
+    &lt;subjectdef keys="application"&gt;
+        &lt;subjectdef keys="IDE"&gt;
+            &lt;subjectdef keys="eclipseIDE"/&gt;
+            &lt;subjectdef keys="visualStudioIDE"/&gt;
+        &lt;/subjectdef&gt;
+        &lt;subjectdef keys="webBrowser"&gt;
+            &lt;subjectdef keys="firefoxBrowser"/&gt;
+            &lt;subjectdef keys="ieBrowser"/&gt;
+        &lt;/subjectdef&gt;
+    &lt;/subjectdef&gt;
+  &lt;/hasKind&gt;
+  &lt;!-- ... --&gt;
+  &lt;subjectRelTable&gt;
+    &lt;subjectRelHeader&gt;
+      &lt;subjectRole&gt;
+        &lt;subjectdef keyref="operatingSystem"&gt;
+          &lt;hasRelated keyref="environmentFor"&gt;
+            &lt;subjectdef keyref="application"/&gt;
+          &lt;/hasRelated&gt;
+        &lt;/subjectdef&gt;
+      &lt;/subjectRole&gt;
+      &lt;subjectRole&gt;
+        &lt;subjectdef keyref="application"/&gt;
+      &lt;/subjectRole&gt;
+    &lt;/subjectRelHeader&gt;
+    &lt;subjectRel&gt;
+      &lt;subjectRole&gt;
+        &lt;subjectdef keyref="linuxOS"/&gt;
+        &lt;subjectdef keyref="windowsOS"/&gt;
+      &lt;/subjectRole&gt;
+      &lt;subjectRole&gt;
+        &lt;subjectdef keyref="eclipseIDE"/&gt;
+        &lt;subjectdef keyref="firefoxBrowser"/&gt;
+      &lt;/subjectRole&gt;
+    &lt;/subjectRel&gt;
+    &lt;subjectRel&gt;
+      &lt;subjectRole&gt;
+        &lt;subjectdef keyref="windowsOS"/&gt;
+      &lt;/subjectRole&gt;
+      &lt;subjectRole&gt;
+        &lt;subjectdef keyref="ieBrowser"/&gt;
+        &lt;subjectdef keyref="visualStudioIDE"/&gt;
+      &lt;/subjectRole&gt;
+    &lt;/subjectRel&gt;
+  &lt;/subjectRelTable&gt;
+&lt;/subjectScheme&gt;</code></pre>
+      <div class="p">A table view of the <code class="keyword markupname xmlelement">&lt;subjectRelTable&gt;</code>
+        <span class="ph">might</span> look like this; each
+          <code class="keyword markupname xmlelement">&lt;subjectRel&gt;</code> represents a single row, and each
+          <code class="keyword markupname xmlelement">&lt;subjectRole&gt;</code> represents a cell.<table class="table" id="subjectRelTable__table_em3_syg_dn"><caption><span class="table--title-label">Table 1. </span><span class="title"><code class="keyword markupname xmlelement">&lt;subjectRelTable&gt;</code> as a table</span></caption><colgroup><col><col></colgroup><thead class="thead">
+              <tr class="row valign-bottom">
+                <th class="entry" id="subjectRelTable__table_em3_syg_dn__entry__1">
+                  <pre class="pre codeblock"><code><em class="ph i">&lt;subjectdef keyref="operatingSystem"&gt;
+ &lt;hasRelated keyref="environmentFor"&gt;
+  &lt;subjectdef keyref="application"/&gt;
+ &lt;/hasRelated&gt;
+&lt;/subjectdef&gt;</em></code></pre>
+                </th>
+                <th class="entry" id="subjectRelTable__table_em3_syg_dn__entry__2">
+                  <pre class="pre codeblock"><code><em class="ph i">&lt;subjectdef keyref="application"/&gt;</em></code></pre>
+                </th>
+              </tr>
+            </thead><tbody class="tbody">
+              <tr class="row">
+                <td class="entry" headers="subjectRelTable__table_em3_syg_dn__entry__1">
+                  <pre class="pre codeblock"><code>&lt;subjectdef keyref="linuxOS"/&gt;
+&lt;subjectdef keyref="windowsOS"/&gt;</code></pre>
+                </td>
+                <td class="entry" headers="subjectRelTable__table_em3_syg_dn__entry__2">
+                  <pre class="pre codeblock"><code>&lt;subjectdef keyref="eclipseIDE"/&gt;
+&lt;subjectdef keyref="firefoxBrowser"/&gt;</code></pre>
+                </td>
+              </tr>
+              <tr class="row">
+                <td class="entry" headers="subjectRelTable__table_em3_syg_dn__entry__1">
+                  <pre class="pre codeblock"><code>&lt;subjectdef keyref="windowsOS"/&gt;</code></pre>
+                </td>
+                <td class="entry" headers="subjectRelTable__table_em3_syg_dn__entry__2">
+                  <pre class="pre codeblock"><code>&lt;subjectdef keyref="ieBrowser"/&gt;
+&lt;subjectdef keyref="visualStudioIDE"/&gt;</code></pre>
+                </td>
+              </tr>
+            </tbody></table></div>
+    </div>
+<section class="section" id="subjectRelTable__attributes"><h2 class="title sectiontitle">Attributes</h2><div class="sectiondiv">
+                                <p class="p">The following attributes are available on this element: <a class="xref" href="../../common/../langRef/attributes/universalAttributes.html" title="The universal attribute group defines a set of common attributes available on most DITA elements. The universal attribute group includes all attributes from the metadata, ID, localization, and debug attribute groups, plus the class attribute.">Universal attribute group</a> and <a class="xref" href="../../common/../langRef/attributes/commonMapAttributes.html" title="This attribute group collects several attributes that are used on a variety of map elements. For a few elements, the group is modified slightly to remove an attribute such as toc or format; in those cases the element definition will clarify that the element does not use this full set. That is generally done in order to specify a default for one attribute, such as defaulting format to &#34;ditamap&#34; on the mapref element.">Attributes common to many map elements</a> (with a narrowed definition of <code class="keyword markupname xmlatt">@toc</code>,
+                                        given below). This element also uses <code class="keyword markupname xmlatt">@type</code>,
+                                                <code class="keyword markupname xmlatt">@scope</code>, and <code class="keyword markupname xmlatt">@format</code>
+                                        from <a class="xref" href="../../common/../langRef/attributes/linkRelationshipAttributes.html" title="The link relationship attribute group includes attributes whose values can be used for representing navigational relationships. These attributes occur only on elements that represent relationships among DITA elements or between DITA elements and non-DITA resources.">Link relationship attribute group</a>.</p>
+                                <dl class="dl">
+                                        
+                                                <dt class="dt dlterm"><code class="keyword markupname xmlatt">@toc</code></dt>
+                                                <dd class="dd">Specifies whether a topic appears in the table
+                                                  of contents (TOC). If the value is not specified
+                                                  locally, but is specified on an ancestor, the
+                                                  value will cascade from the closest ancestor. On
+                                                  this element the default value for
+                                                  <code class="keyword markupname xmlatt">@toc</code> is "no". See <a class="xref" href="../../common/../langRef/attributes/commonMapAttributes.html" title="This attribute group collects several attributes that are used on a variety of map elements. For a few elements, the group is modified slightly to remove an attribute such as toc or format; in those cases the element definition will clarify that the element does not use this full set. That is generally done in order to specify a default for one attribute, such as defaulting format to &#34;ditamap&#34; on the mapref element.">Attributes common to many map elements</a> for a complete definition of
+                                                  <code class="keyword markupname xmlatt">@toc</code>.</dd>
+                                        
+                                </dl>
+                        </div></section>
+</div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/subjectScheme.html" title="Subject scheme maps are used to define sets of controlled values and taxonomic subjects; bind controlled values to attributes; and specify relationships among taxonomic subjects.">Subject scheme elements</a></div></div></nav></article></main>

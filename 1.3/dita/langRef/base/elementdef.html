@@ -1,0 +1,84 @@
+---
+# Generated from DITA source
+layout: base
+title: 'elementdef'
+description: 'The elementdef element identifies an element to which an attribute is bound. If the enumerationdef element does not contain an elementdef element, the enumeration is bound to the attribute in all elements.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '1ef1836fa5adc371402b2e9d6b31fef551ef88ff'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a><ul class="nav nav-list"><li><a href="../../langRef/containers/element-quick-reference.html">Element quick reference</a></li><li><a href="../../langRef/containers/topic-elements.html">Topic elements</a></li><li><a href="../../langRef/containers/map-elements.html">Map elements</a></li><li><a href="../../langRef/containers/metadata-elements.html">Metadata elements</a></li><li><a href="../../langRef/containers/domain-elements.html">Domain elements</a></li><li><a href="../../langRef/containers/classification-elements.html">Classification elements</a><ul class="nav nav-list"><li><a href="../../langRef/containers/subjectScheme.html">Subject scheme elements</a><ul class="nav nav-list"><li><a href="../../langRef/base/subjectScheme.html">subjectScheme</a></li><li><a href="../../langRef/base/schemeref.html">schemeref</a></li><li><a href="../../langRef/base/hasInstance.html">hasInstance</a></li><li><a href="../../langRef/base/hasKind.html">hasKind</a></li><li><a href="../../langRef/base/hasNarrower.html">hasNarrower</a></li><li><a href="../../langRef/base/hasPart.html">hasPart</a></li><li><a href="../../langRef/base/hasRelated.html">hasRelated</a></li><li><a href="../../langRef/base/enumerationdef.html">enumerationdef</a></li><li class="active"><a href="../../langRef/base/elementdef.html">elementdef</a></li><li><a href="../../langRef/base/attributedef.html">attributedef</a></li><li><a href="../../langRef/base/defaultSubject.html">defaultSubject</a></li><li><a href="../../langRef/base/subjectHead.html">subjectHead</a></li><li><a href="../../langRef/base/subjectHeadMeta.html">subjectHeadMeta</a></li><li><a href="../../langRef/base/subjectdef.html">subjectdef</a></li><li><a href="../../langRef/base/relatedSubjects.html">relatedSubjects</a></li><li><a href="../../langRef/base/subjectRelTable.html">subjectRelTable</a></li><li><a href="../../langRef/base/subjectRelHeader.html">subjectRelHeader</a></li><li><a href="../../langRef/base/subjectRel.html">subjectRel</a></li><li><a href="../../langRef/base/subjectRole.html">subjectRole</a></li></ul></li><li><a href="../../langRef/containers/classify-d.html">Classification domain elements</a></li></ul></li><li><a href="../../langRef/containers/specialization-elements.html">Specialization elements</a></li><li><a href="../../langRef/containers/legacy-conversion-elements.html">Legacy conversion elements</a></li><li><a href="../../langRef/containers/ditaval-elements.html">DITAVAL elements</a></li><li><a href="../../langRef/containers/technical-content-elements.html">Technical content elements</a></li><li><a href="../../langRef/containers/learningTraining-elements.html">Learning and training elements</a></li><li><a href="../../langRef/attributes/attributes.html">Attributes</a></li></ul></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
+<h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;elementdef&gt;</code></h1>
+
+
+<div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;elementdef&gt;</code> element identifies an element to
+    which an attribute is bound. If the <code class="keyword markupname xmlelement">&lt;enumerationdef&gt;</code> element does not
+    contain an <code class="keyword markupname xmlelement">&lt;elementdef&gt;</code> element, the enumeration is bound to the
+    attribute in all elements.</p>
+<section class="section" id="elementdef__contains"><h2 class="title sectiontitle">Content models</h2><p class="p">See <span class="xref">appendix</span> for information about this element in OASIS document type shells.</p></section>
+<section class="section" id="elementdef__inheritance"><h2 class="title sectiontitle">Inheritance</h2><p class="p">-
+topic/data subjectScheme/elementdef </p></section>
+<div class="example non-normative" id="elementdef__example"><h2 class="title sectiontitle">Example</h2><p class="p">In this example, the <code class="keyword markupname xmlatt">@value</code> attribute for the
+          <code class="keyword markupname xmlelement">&lt;lomDifficulty&gt;</code> element is bound to a specified set of values.
+        Processors should limit the values for the <code class="keyword markupname xmlatt">@value</code> attribute on the
+          <code class="keyword markupname xmlelement">&lt;lomDifficulty&gt;</code> element to the following set of values: easy,
+        medium, or difficult. Other elements that have a <code class="keyword markupname xmlatt">@value</code> attribute are not
+        affected.</p><pre class="pre codeblock"><code>&lt;subjectScheme&gt;
+  &lt;subjectdef keys="difficulty"&gt;
+    &lt;subjectdef keys="easy"/&gt;
+    &lt;subjectdef keys="medium"/&gt;
+    &lt;subjectdef keys="difficult"/&gt;
+  &lt;/subjectdef&gt;
+  &lt;!-- ... --&gt;
+  &lt;enumerationdef&gt;
+    <strong class="ph b">&lt;elementdef name="lomDifficulty"/&gt;</strong>
+    &lt;attributedef name="value"/&gt;
+    &lt;subjectdef keyref="difficulty"/&gt;
+  &lt;/enumerationdef&gt;
+&lt;/subjectScheme&gt;</code></pre></div>
+<section class="section" id="elementdef__attributes"><h2 class="title sectiontitle">Attributes</h2>
+      <p class="p">The following attributes are available on this element: <a class="xref" href="../attributes/idAttributes.html" title="The ID attribute group includes attributes that enable the naming and referencing of elements in topics and maps.">ID attribute group</a>, <code class="keyword markupname xmlatt">@status</code> and
+          <code class="keyword markupname xmlatt">@base</code> from <a class="xref" href="../attributes/metadataAttributes.html#select-atts" title="The metadata attribute group includes common metadata attributes, several of which support conditional processing (filtering and flagging) or the creation of new attribute domain specializations.">Metadata attribute group</a>, <a class="xref" href="../attributes/commonAttributes.html#common-atts__outputclass">outputclass</a>, <a class="xref" href="../attributes/debugAttributes.html" title="The debug attributes group includes a set of debugging attributes that are normally hidden from authoring view. These attributes are defined for every DITA element.">Debug attribute group</a>, <a class="xref" href="../attributes/universalAttributes.html#univ-atts__class">class (Not for use by authors)</a>, and the attributes
+        defined below.</p>
+      <dl class="dl">
+        
+          <dt class="dt dlterm"><code class="keyword markupname xmlatt">@name</code>
+            <span class="ph">(REQUIRED)</span></dt>
+          <dd class="dd">Defines the element for which an attribute enumeration is defined.
+            </dd>
+        
+        
+                                                <dt class="dt dlterm"><code class="keyword markupname xmlatt">@translate</code></dt>
+                                                <dd class="dd">Indicates whether the content of the element
+                                                  should be translated or not. For this element the
+                                                  default value is "no". Setting to "yes" will
+                                                  override the default. The DITA architectural
+                                                  specification contains a list of each OASIS DITA
+                                                  element and its common processing default for the
+                                                  translate value; because this element uses an
+                                                  actual default, it will always be treated as
+                                                  <code class="ph codeph">translate="no"</code> unless overridden
+                                                  as described. Available values are: <dl class="dl">
+                                                  
+                                                  <dt class="dt dlterm">no </dt>
+                                                  <dd class="dd">The content of this element is not
+                                                  translateable.</dd>
+                                                  
+                                                  
+                                                  <dt class="dt dlterm">yes</dt>
+                                                  <dd class="dd">The content of this element is
+                                                  translateable.</dd>
+                                                  
+                                                  
+                                        <dt class="dt dlterm">-dita-use-conref-target </dt>
+                                        <dd class="dd">See <a class="xref" href="../../common/../langRef/attributes/ditauseconreftarget.html" title="The value -dita-use-conref-target is available on enumerated attributes and can also be specified on other attributes. When an element uses conref to pull in content, for any of its attributes assigned a value of &#34;-dita-use-conref-target&#34;, the resulting value for those attributes is also pulled in from the referenced element.">Using the -dita-use-conref-target value</a> for more information. </dd>
+                                
+                                                  </dl></dd>
+                                        
+      </dl>
+</section>
+</div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/subjectScheme.html" title="Subject scheme maps are used to define sets of controlled values and taxonomic subjects; bind controlled values to attributes; and specify relationships among taxonomic subjects.">Subject scheme elements</a></div></div></nav></article></main>

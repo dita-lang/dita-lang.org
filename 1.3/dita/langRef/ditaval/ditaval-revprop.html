@@ -1,0 +1,130 @@
+---
+# Generated from DITA source
+layout: base
+title: 'revprop'
+description: 'Identifies a value in the rev attribute that should be flagged in some manner. Unlike the other conditional processing attributes, which can be used for both filtering and flagging, the rev attribute can only be used for flagging.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '1ef1836fa5adc371402b2e9d6b31fef551ef88ff'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a><ul class="nav nav-list"><li><a href="../../langRef/containers/element-quick-reference.html">Element quick reference</a></li><li><a href="../../langRef/containers/topic-elements.html">Topic elements</a></li><li><a href="../../langRef/containers/map-elements.html">Map elements</a></li><li><a href="../../langRef/containers/metadata-elements.html">Metadata elements</a></li><li><a href="../../langRef/containers/domain-elements.html">Domain elements</a></li><li><a href="../../langRef/containers/classification-elements.html">Classification elements</a></li><li><a href="../../langRef/containers/specialization-elements.html">Specialization elements</a></li><li><a href="../../langRef/containers/legacy-conversion-elements.html">Legacy conversion elements</a></li><li><a href="../../langRef/containers/ditaval-elements.html">DITAVAL elements</a><ul class="nav nav-list"><li><a href="../../langRef/ditaval/ditaval-val.html">val</a></li><li><a href="../../langRef/ditaval/ditaval-style-conflict.html">style-conflict</a></li><li><a href="../../langRef/ditaval/ditaval-prop.html">prop</a></li><li class="active"><a href="../../langRef/ditaval/ditaval-revprop.html">revprop</a></li><li><a href="../../langRef/ditaval/ditaval-startflag.html">startflag</a></li><li><a href="../../langRef/ditaval/ditaval-endflag.html">endflag</a></li><li><a href="../../langRef/ditaval/ditaval-alt-text.html">alt-text</a></li></ul></li><li><a href="../../langRef/containers/technical-content-elements.html">Technical content elements</a></li><li><a href="../../langRef/containers/learningTraining-elements.html">Learning and training elements</a></li><li><a href="../../langRef/attributes/attributes.html">Attributes</a></li></ul></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
+<h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;revprop&gt;</code></h1>
+
+
+<div class="body refbody"><p class="shortdesc">Identifies a value in the <code class="keyword markupname xmlatt">@rev</code> attribute that should be flagged in some
+        manner. Unlike the other conditional processing attributes, which <span class="ph">can</span> be used for both filtering and flagging, the <code class="keyword markupname xmlatt">@rev</code> attribute
+            <span class="ph">can</span> only be used for flagging. </p>
+<section class="section RFC-2119" id="ditaval-revprop__section-1">It is an error to include more than one
+                <code class="keyword markupname xmlelement">&lt;revprop&gt;</code> element with the same <code class="keyword markupname xmlatt">@val</code>
+            attribute setting. <span class="error-statement" id="ditaval-revprop__d3486t41" data-id="DITAERR-0350"></span>Recovery from this error is implementation dependent; in such cases
+            processors <dfn class="term RFC-2119">MAY</dfn> provide an error or warning
+            message.</section>
+<section class="section" id="ditaval-revprop__section-2"><span class="ph" id="ditaval-revprop__default-text">When no alternate text is specified for a revision flag, the default
+                alternate text for <code class="keyword markupname xmlelement">&lt;revprop&gt;</code> start of change is a localized
+                translation of "Start of change", and the default alternate text for
+                    <code class="keyword markupname xmlelement">&lt;revprop&gt;</code> end of change is a localized translation of
+                "End of change". </span></section>
+<section class="section" id="ditaval-revprop__section-3">The <code class="keyword markupname xmlatt">@rev</code> attribute identifies when a particular section of a document was
+            added in the lifetime of that document. The attribute is not considered a filtering
+            attribute because this is not sufficient to be used for full version control, such as
+            single-sourcing multiple product variants based on version level – it only represents
+            one aspect of the revision level. </section>
+<section class="section" id="ditaval-revprop__contains"><h2 class="title sectiontitle">Contains</h2><p class="p"><a class="xref" href="ditaval-startflag.html" title="The startflag takes an optional image reference and an optional alt-text element for identifying the beginning of flagged content. If an image is specified, the specified image will be used to flag the beginning of the content, with the alt-text contents as alternative text. If alt-text is specified without an image, that text will be used to flag the content instead of an image. If no image and no alt-text are specified, then this element has no defined purpose. The startflag element is allowed inside either prop or revprop.">startflag</a> (<em class="ph i">optional</em>) then <a class="xref" href="ditaval-endflag.html" title="The endflag element takes an optional image reference and an optional alt-text element for identifying the end of flagged content. If an image is specified, the specified image will be used to flag the end of the content, with the alt-text contents as alternative text. If alt-text is specified without an image, that text will be used to flag the content instead of an image. If no image and no alt-text are specified, then this element has no defined purpose. The endflag element is allowed inside either prop or revprop.">endflag</a> (<em class="ph i">optional</em>)</p></section>
+<section class="section" id="ditaval-revprop__containedby"><h2 class="title sectiontitle">Contained by</h2><p class="p"><a class="xref" href="ditaval-val.html" title="The val element is the root element of a DITAVAL file.">val</a></p></section>
+<div class="example non-normative" id="ditaval-revprop__example"><h2 class="title sectiontitle">Example</h2><p class="p">See the example
+in the <a class="xref" href="ditaval-val.html" title="The val element is the root element of a DITAVAL file.">&lt;val&gt;</a> description.</p></div>
+<section class="section" id="ditaval-revprop__attrs"><h2 class="title sectiontitle">Attributes</h2>
+            <div class="p">The following attributes are available on this element:<dl class="dl">
+                    
+                        <dt class="dt dlterm"><code class="keyword markupname xmlatt">@val</code></dt>
+                        <dd class="dd">The value to be acted upon. If the <code class="keyword markupname xmlatt">@val</code> attribute is
+                            absent, then the <code class="keyword markupname xmlelement">&lt;revprop&gt;</code> element declares a
+                            default behavior for any value in the <code class="keyword markupname xmlatt">@rev</code>
+                            attribute.</dd>
+                    
+                    
+                        <dt class="dt dlterm"><code class="keyword markupname xmlatt">@action</code>
+                            <span class="ph">(REQUIRED)</span></dt>
+                        <dd class="dd">The action to be taken. Allowable values are:<dl class="dl">
+                                
+                                    <dt class="dt dlterm">include</dt>
+                                    <dd class="dd">Include the content in output without flags. This is the
+                                        default behavior unless otherwise set.</dd>
+                                
+                                
+                                    <dt class="dt dlterm">passthrough</dt>
+                                    <dd class="dd">Include the content in output, and preserve the attribute
+                                        value as part of the output stream for further processing by
+                                        a runtime engine, for example runtime filtering based on
+                                        individual user settings. The value should be preserved in
+                                        whatever syntax is required by the target runtime. Values
+                                        that are not explicitly passed through should be removed
+                                        from the output stream, even though the content is still
+                                        included.</dd>
+                                
+                                
+                                    <dt class="dt dlterm">flag</dt>
+                                    <dd class="dd">Include and flag the content on output (if the content has
+                                        not been excluded).</dd>
+                                
+                            </dl></dd>
+                    
+                    
+                        <dt class="dt dlterm"><code class="keyword markupname xmlatt">@changebar</code></dt>
+                        <dd class="dd">When flag has been set, specify a changebar color, style, or character,
+                            according to the changebar support of the target output format. If flag
+                            has not been set, this attribute is ignored.</dd>
+                    
+                    
+                                                <dt class="dt dlterm"><code class="keyword markupname xmlatt">@color</code></dt>
+                                                <dd class="dd">If flag has been set, the color to use to flag
+                                                text. Colors <span class="ph">can</span> be
+                                                entered by name or code. Processors <dfn class="term RFC-2119">SHOULD</dfn> support the
+                                                color names listed under the heading "&lt;color&gt;" in
+                                                  <a class="xref" href="http://www.w3.org/TR/2006/REC-xsl11-20061205/#datatype" target="_blank" rel="external noopener">http://www.w3.org/TR/2006/REC-xsl11-20061205/#datatype</a> and for the 6 digit hex code
+                                                form (#rrggbb, case insensitive). If flag has not
+                                                been set, this attribute is ignored.</dd>
+                                        
+                    
+                                                <dt class="dt dlterm"><code class="keyword markupname xmlatt">@backcolor</code></dt>
+                                                <dd class="dd">If flag has been set, the color to use as
+                                                background for flagged text. Colors <span class="ph">can</span> be entered by name
+                                                or code. Processor support is recommended for the
+                                                color names listed under the heading "&lt;color&gt;" in
+                                                  <a class="xref" href="http://www.w3.org/TR/2006/REC-xsl11-20061205/#datatype" target="_blank" rel="external noopener">http://www.w3.org/TR/2006/REC-xsl11-20061205/#datatype</a> and for the 6
+                                                digit hex code form (#rrggbb, case insensitive). If
+                                                flag has not been set, this attribute is
+                                                ignored.</dd>
+                                        
+                    
+                                                <dt class="dt dlterm"><code class="keyword markupname xmlatt">@style</code></dt>
+                                                <dd class="dd">
+                                                  <p class="p">If flag has been set, the text styles to use
+                                                  for flagged text. <span class="ph">This attribute can contain multiple
+                                                  space-delimited tokens. The following tokens <dfn class="term RFC-2119">SHOULD</dfn> be processed by all DITAVAL
+                                                  processors:</span></p>
+                                                  <ul class="ul" id="ditaval-revprop__ul_m1x_cxn_3k">
+                                                  <li class="li">underline</li>
+                                                  <li class="li">double-underline</li>
+                                                  <li class="li">italics</li>
+                                                  <li class="li">overline</li>
+                                                  <li class="li">bold</li>
+                                                  </ul>
+                                                  <p class="p">In addition, processors <span class="ph">might</span> support other
+                                                  proprietary tokens for different types of styling.
+                                                  Such tokens <dfn class="term RFC-2119">SHOULD</dfn> have a processor-specific prefix to
+                                                  identify them as proprietary. If a processor
+                                                  encounters an unsupported style token, it <dfn class="term RFC-2119">MAY</dfn> issue a warning,
+                                                  and <dfn class="term RFC-2119">MAY</dfn> render
+                                                  content flagged with such a style token using some
+                                                  default formatting.</p>
+                                                  <p class="p">If flag has not been set, this attribute is
+                                                  ignored.</p>
+                                                </dd>
+                                        
+                </dl></div></section>
+</div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/ditaval-elements.html" title="A conditional processing profile (DITAVAL file) is used to identify which values are to be used for conditional processing during a particular output, build, or some other purpose. The profile should have an extension of .ditaval.">DITAVAL elements</a></div></div><div class="linklist relconcepts"><strong>Related concepts</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="../../archSpec/base/flagging.html" title="Flagging is the application of text, images, or styling during rendering. This can highlight the fact that content applies to a specific audience or operating system, for example; it also can draw a reader's attention to content that has been marked as being revised.">Flagging</a></li></ul></div></nav></article></main>

@@ -1,0 +1,56 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Context hooks and window metadata for user assistance'
+description: 'Context hook information specified in the resourceid element in the DITA map or in a DITA topic enables processors to generate the header, map, alias and other types of support files that are required to integrate the user assistance with the application. Some user assistance topics might need to be displayed in a specific window or viewport, and this windowing metadata can be defined in the DITA map within the ux-window element.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '1ef1836fa5adc371402b2e9d6b31fef551ef88ff'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a><ul class="nav nav-list"><li><a href="../../archSpec/base/introduction-to-dita.html">Introduction to DITA</a></li><li><a href="../../archSpec/base/ditamarkup.html">DITA markup </a><ul class="nav nav-list"><li><a href="../../archSpec/base/topicover.html">DITA topics</a></li><li><a href="../../archSpec/base/ditamaps.html">DITA maps</a></li><li><a href="../../archSpec/base/subject-scheme-maps-and-usage.html">Subject scheme maps and their usage</a></li><li><a href="../../archSpec/base/dita-metadata.html">DITA metadata</a><ul class="nav nav-list"><li><a href="../../archSpec/base/metadata-elements.html">Metadata elements</a></li><li><a href="../../archSpec/base/metadata-attributes.html">Metadata attributes</a></li><li><a href="../../archSpec/base/metadata-in-maps-and-topics.html">Metadata in maps and topics</a></li><li><a href="../../archSpec/base/cascading-in-a-ditamap.html">Cascading of metadata attributes in a DITA map</a></li><li><a href="../../archSpec/base/reconciling-topic-and-map-metadata.html">Reconciling topic and map metadata elements</a></li><li><a href="../../archSpec/base/map-to-map-cascading-of-metadata.html">Map-to-map cascading behaviors</a></li><li class="active"><a href="../../archSpec/base/help-systems-and-other-user-assistance.html">Context hooks and window metadata for user assistance</a></li></ul></li></ul></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration, specialization, generalization, and constraints </a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../archSpec/technicalContent/technical-content-specializations.html">Technical content specializations</a></li><li><a href="../../archSpec/learningTraining/learning-and-training-specializations.html">Learning and training specializations</a></li></ul></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
+ <h1 class="title topictitle1" id="ariaid-title1">Context hooks and window metadata for user assistance</h1>
+ 
+ <div class="body conbody"><p class="shortdesc">Context hook information specified in the <code class="keyword markupname xmlelement">&lt;resourceid&gt;</code> element in
+    the DITA map or in a DITA topic enables processors to generate the header, map, alias and other
+    types of support files that are required to integrate the user assistance with the application.
+    Some user assistance topics might need to be displayed in a specific window or viewport, and
+    this windowing metadata can be defined in the DITA map within the
+      <code class="keyword markupname xmlelement">&lt;ux-window&gt;</code> element.</p>
+    <p class="p">Context hook and windowing information is ignored if the processor does not support this
+      metadata.</p>
+  <p class="p">User interfaces for software application often are linked to user assistance (such as help
+systems and tool tips) through <dfn class="term">context hooks</dfn>. Context hooks are identifiers that
+associate a part of the user interface with the location of a help topic. Context hooks can be
+direct links to URIs, but more often they are indirect links (numeric context identifiers and
+context strings) that can processed into external resource files. These external resource and
+mapping files are then used directly by context-sensitive help systems and other downstream
+applications.</p>
+  <p class="p">Context hooks can define either one-to-one or one-to-many relationships between user interface
+      controls and target help content.</p>
+    <p class="p">The metadata that is available in <code class="keyword markupname xmlelement">&lt;resourceid&gt;</code> and
+        <code class="keyword markupname xmlelement">&lt;ux-window&gt;</code> provides flexibility for content developers: </p>
+    <ul class="ul">
+      <li class="li">You can overload maps and topics with all the metadata needed to support multiple target
+        help systems. This supports single-sourcing of help content and help metadata.</li>
+      <li class="li">You can choose whether to add <code class="keyword markupname xmlelement">&lt;resourceid&gt;</code> metadata to
+          <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements, <code class="keyword markupname xmlelement">&lt;prolog&gt;</code> elements, or
+        both. Context-dependent metadata might be best be kept with maps, while persistent,
+        context-independent metadata might best stay with topics in <code class="keyword markupname xmlelement">&lt;prolog&gt;</code>
+        elements</li>
+    </ul>
+    <p class="p">Context hook information is defined within DITA topics and DITA maps through attributes of
+the <code class="keyword markupname xmlelement">&lt;resourceid&gt;</code> element.</p>
+  <p class="p">In some help systems, a topic might need to be displayed in a specifically sized or featured
+      window. For example, a help topic might need to be displayed immediately adjacent to the user
+      interface control that it supports in a window of a specific size that always remains on top,
+      regardless of the focus within the operating system. Windowing metadata can be defined in the
+      DITA map within the <code class="keyword markupname xmlelement">&lt;ux-window&gt;</code> element.</p>
+  <p class="p">The <code class="keyword markupname xmlelement">&lt;ux-window&gt;</code> element provides the <code class="keyword markupname xmlatt">@top</code>,
+        <code class="keyword markupname xmlatt">@left</code>, <code class="keyword markupname xmlatt">@height</code>, <code class="keyword markupname xmlatt">@width</code>,
+        <code class="keyword markupname xmlatt">@on-top</code>, <code class="keyword markupname xmlatt">@features</code>, <code class="keyword markupname xmlatt">@relative</code>, and
+        <code class="keyword markupname xmlatt">@full-screen</code> attributes.</p>
+ </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/dita-metadata.html" title="Metadata can be applied in both DITA topics and DITA maps. Metadata that is assigned in DITA topics can be supplemented or overridden by metadata that is assigned in a DITA map; this design facilitates the reuse of DITA topics in different DITA maps and use-specific contexts.">DITA metadata</a></div></div><div class="linklist relref"><strong>Related reference</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="../../langRef/base/resourceid.html" title="The resourceid element provides an identifier for applications that must use their own identifier scheme, such as context-sensitive help systems and databases.">resourceid</a></li><li class="linklist"><a class="link" href="../../langRef/base/ux-window.html" title="Use the ux-window element to provide specifications for a window or viewport in which a user assistance topic or Web page can be displayed. The window or viewport can be referenced by the resourceid element associated with a topic or topicref element.">ux-window</a></li></ul></div></nav></article></main>

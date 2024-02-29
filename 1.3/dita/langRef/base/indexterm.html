@@ -1,0 +1,264 @@
+---
+# Generated from DITA source
+layout: base
+title: 'indexterm'
+description: 'The content of an indexterm element is used to produce an index entry in a generated index. You can nest indexterm elements to create multi-level indexes. The content is not output as part of the topic content, only as part of an index.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '1ef1836fa5adc371402b2e9d6b31fef551ef88ff'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a><ul class="nav nav-list"><li><a href="../../langRef/containers/element-quick-reference.html">Element quick reference</a></li><li><a href="../../langRef/containers/topic-elements.html">Topic elements</a></li><li><a href="../../langRef/containers/map-elements.html">Map elements</a></li><li><a href="../../langRef/containers/metadata-elements.html">Metadata elements</a><ul class="nav nav-list"><li><a href="../../langRef/containers/prolog-elements.html">Prolog (metadata) elements</a></li><li><a href="../../langRef/containers/indexing-d.html">Indexing group elements</a><ul class="nav nav-list"><li class="active"><a href="../../langRef/base/indexterm.html">indexterm</a></li><li><a href="../../langRef/base/indextermref.html">indextermref</a></li><li><a href="../../langRef/base/index-see.html">index-see</a></li><li><a href="../../langRef/base/index-see-also.html">index-see-also</a></li><li><a href="../../langRef/base/index-sort-as.html">index-sort-as</a></li></ul></li><li><a href="../../langRef/containers/delayconref-d.html">Delayed conref resolution elements</a></li></ul></li><li><a href="../../langRef/containers/domain-elements.html">Domain elements</a></li><li><a href="../../langRef/containers/classification-elements.html">Classification elements</a></li><li><a href="../../langRef/containers/specialization-elements.html">Specialization elements</a></li><li><a href="../../langRef/containers/legacy-conversion-elements.html">Legacy conversion elements</a></li><li><a href="../../langRef/containers/ditaval-elements.html">DITAVAL elements</a></li><li><a href="../../langRef/containers/technical-content-elements.html">Technical content elements</a></li><li><a href="../../langRef/containers/learningTraining-elements.html">Learning and training elements</a></li><li><a href="../../langRef/attributes/attributes.html">Attributes</a></li></ul></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
+<h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;indexterm&gt;</code></h1>
+
+
+<div class="body refbody"><p class="shortdesc">The content of an <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element is used to produce an index
+    entry in a generated index. You can nest <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements to create
+    multi-level indexes. The content is not output as part of the topic content, only as part of an
+    index.</p>
+<section class="section" id="indexterm__section-1"><p class="p">An <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element without the <code class="keyword markupname xmlatt">@start</code> or
+          <code class="keyword markupname xmlatt">@end</code> attribute specified is interpreted as a point reference that
+        contributes the number of the current page to an index entry; the content of the index entry
+        is the content of the <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element. All
+          <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements with the same content are "merged" to form a
+        single index entry in the resulting index, and all contributed page numbers are included in
+        that index entry.</p><p class="p">In the case of nested <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements, each
+          <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> with no <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> children
+        (the "leaves") contributes a page number to the generated index; the ancestral
+          <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements for each leaf
+          <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> provide the higher levels for the multilevel entry.</p><p class="p">An <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> that occurs in a topic <code class="keyword markupname xmlelement">&lt;prolog&gt;</code> is
+        interpreted as a point reference to the title of the topic. Likewise, in a DITA map, an
+          <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> that occurs in <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code>
+        inside of a <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> is interpreted as a point reference to the
+        title of the referenced topic.</p><p class="p"><span class="error-statement" id="indexterm__d3699e82" data-id="DITAERR-0140"></span>It is an error if an <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> containing no
+          <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> children contains both an
+          <code class="keyword markupname xmlelement">&lt;index-see&gt;</code> and an <code class="keyword markupname xmlelement">&lt;index-see-also&gt;</code>. <span class="error-statement" id="indexterm__d3699t95" data-id="DITAERR-0150"></span>(Note:
+          <code class="keyword markupname xmlelement">&lt;index-see&gt;</code> and <code class="keyword markupname xmlelement">&lt;index-see-also&gt;</code> elements
+        within <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements that do contain
+          <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> children are ignored.) In the case of this error
+        condition, an implementation <dfn class="term RFC-2119">MAY</dfn> give an error message,
+        and <span class="ph">might</span> recover by treating all such
+          <code class="keyword markupname xmlelement">&lt;index-see&gt;</code> elements as <code class="keyword markupname xmlelement">&lt;index-see-also&gt;</code>
+        elements.</p><div class="note note note_note non-normative"><span class="note__title">Note:</span> The <code class="keyword markupname xmlelement">&lt;index-see&gt;</code> and <code class="keyword markupname xmlelement">&lt;index-see-also&gt;</code> elements
+        are domain specializations of the <code class="keyword markupname xmlelement">&lt;index-base&gt;</code> element, and are discussed in detail with
+        the indexing domain.</div></section>
+<section class="section" id="indexterm__section-2"><p class="p">The <code class="keyword markupname xmlatt">@start</code> and <code class="keyword markupname xmlatt">@end</code> attribute on
+          <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> can be used in cases where one wants to index an
+        extended discussion that <span class="ph">might</span> continue over a number of
+        pages. The start of a range is indicated by an <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> with a
+          <code class="keyword markupname xmlatt">@start</code> attribute. The end of a range is indicated with an
+          <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> with an <code class="keyword markupname xmlatt">@end</code> attribute whose value
+        matches that of the <code class="keyword markupname xmlatt">@start</code> attribute on the start-of-range
+          <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code>. Such markup contributes to the generated index a page
+        range covering all pages in the index range. </p><p class="p">The end-of-range <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> should have no content of its own; if it
+        contains content, that content is ignored. There is no reason for the end-of-range
+          <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> to have any <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code>
+        ancestors; however, an implementation should be able to handle an end-of-range
+          <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> that is nested within one or more
+          <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements.</p><p class="p">The <code class="keyword markupname xmlatt">@start</code> and <code class="keyword markupname xmlatt">@end</code> attributes are defined as CDATA, <span class="ph">although it is a best practice</span> that the values should not
+        contain any whitespace characters (such as a space or tab) or control characters. Matching
+        of <code class="keyword markupname xmlatt">@start</code> and <code class="keyword markupname xmlatt">@end</code> attributes is done as a
+        character-by-character comparison with all characters significant and no case folding
+        occurring. The <code class="keyword markupname xmlatt">@start</code> and <code class="keyword markupname xmlatt">@end</code> attributes are ignored if
+        they occur on an <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element that has child
+          <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements.</p><div class="p">Index range indications <span class="ph">can</span> occur in the
+          <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> of a <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> at the map
+        level, in the prolog of a topic, or in the body of a topic, and are interpreted as follows
+        (see <a class="xref" href="#indexterm__ranges">Figure 3</a> for samples):<ul class="ul">
+          <li class="li">In a map, the start range points to the start of the topic title of the topic being
+            referenced by its containing <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>. The end range points to
+            the end of the final child contained by the topic being referenced by its containing
+              <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>, or to the end of the final topic referenced by the
+            current map (whichever comes first). When a start and end range occur in the same
+              <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code>, the range applies to the containing
+              <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> and its children.</li>
+          <li class="li">In the prolog of a topic, the start range points to the start of the containing
+            topic's title. The range ends with a matching index range end in the same prolog,
+            regardless of whether the end range is specified. The range applies to the containing
+            topic and all its children including child relationships defined in a map.</li>
+          <li class="li">In the body of a topic, the range starts where the start
+              <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> occurs and ends at the matching index range end
+            indication within the same body, or at the end of the body, whichever comes first. Such
+            an index range does not span sub-topics of the topic.</li>
+        </ul></div><p class="p">When index ranges with the same identifier overlap, the
+widest range applies, and end ranges are matched with start ranges
+by last-in-first-out. In other words, the ranges are interpreted as
+nested rather than overlapping with the highest-level container taking
+precedence over narrower contained ranges.</p><p class="p">As defined above, there is no such thing as an index range start that isn't terminated by either
+        a matching end or some maximum scope. There can, however, be unmatched index range end
+        indications; these <span class="ph">are</span> ignored.</p></section>
+<section class="section" id="indexterm__contains"><h2 class="title sectiontitle">Content models</h2><p class="p">See <span class="xref">appendix</span> for information about this element in OASIS document type shells.</p></section>
+<section class="section" id="indexterm__inheritance"><h2 class="title sectiontitle">Inheritance</h2><p class="p">-
+topic/indexterm </p></section>
+<div class="example non-normative" id="indexterm__example"><h2 class="title sectiontitle">Example</h2><figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Single
+point index terms</figcaption>
+<ul class="ul">
+<li class="li">The following <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> is a point reference to a specific paragraph
+            within a topic:
+            <pre class="pre codeblock"><code>&lt;p&gt;&lt;indexterm&gt;databases&lt;/indexterm&gt;Databases are used to ...&lt;/p&gt;</code></pre></li>
+<li class="li">The following <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> is a point reference to the start of the title
+            of the
+            concept:<pre class="pre codeblock"><code>&lt;concept id="db"&gt;
+  &lt;title&gt;About databases&lt;/title&gt;
+  &lt;prolog&gt;
+    &lt;metadata&gt;
+      &lt;keywords&gt;&lt;indexterm&gt;databases&lt;/indexterm&gt;&lt;/keywords&gt;
+    &lt;/metadata&gt;
+  &lt;/prolog&gt;
+  &lt;body&gt;&lt;!-- content... --&gt;&lt;/body&gt;
+&lt;/concept&gt;</code></pre></li>
+<li class="li">The following <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> is a point reference to the start of the title
+            of
+            <span class="ph filepath">aboutdatabases.dita</span>:<pre class="pre codeblock"><code>&lt;topicref href="aboutdatabases.dita"&gt;
+  &lt;topicmeta&gt;
+    &lt;keywords&gt;&lt;indexterm&gt;databases&lt;/indexterm&gt;&lt;/keywords&gt;
+  &lt;/topicmeta&gt;
+  &lt;!-- other topicref elements --&gt;
+&lt;/topicref&gt;</code></pre></li>
+</ul>
+</figure><figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>Nested index terms</figcaption>
+<div class="p">The following sample represents three levels of index markup:<pre class="pre codeblock"><code>&lt;indexterm&gt;cheese
+  &lt;indexterm&gt;sheeps milk
+    &lt;indexterm&gt;pecorino&lt;/indexterm&gt;
+  &lt;/indexterm&gt;
+  &lt;indexterm&gt;goats milk
+    &lt;indexterm&gt;chevre&lt;/indexterm&gt;
+  &lt;/indexterm&gt;
+&lt;/indexterm&gt;</code></pre></div>
+<div class="p">The previous sample is equivalent to the following sample:<pre class="pre codeblock"><code>&lt;indexterm&gt;cheese
+  &lt;indexterm&gt;sheeps milk
+    &lt;indexterm&gt;pecorino&lt;/indexterm&gt;
+  &lt;/indexterm&gt;
+&lt;/indexterm&gt;
+&lt;indexterm&gt;cheese
+  &lt;indexterm&gt;goats milk
+    &lt;indexterm&gt;chevre&lt;/indexterm&gt;
+  &lt;/indexterm&gt;
+&lt;/indexterm&gt;</code></pre></div>
+<div class="p">In each case, a generated index would include something like the
+this:<ul class="ul">
+<li class="li">cheese<ul class="ul">
+<li class="li">goats milk<ul class="ul">
+<li class="li">chevre 14</li>
+</ul></li>
+</ul><ul class="ul">
+<li class="li">sheeps milk<ul class="ul">
+<li class="li">pecorino 14</li>
+</ul></li>
+</ul></li>
+</ul></div>
+</figure><figure class="fig fignone" id="indexterm__ranges"><figcaption><span class="fig--title-label">Figure 3. </span>Index ranges</figcaption>
+<div class="p">A simple index range will look something like this:<pre class="pre codeblock"><code>&lt;indexterm start="cheese"&gt;Cheese&lt;/indexterm&gt;
+&lt;!-- ... additional content --&gt;
+&lt;indexterm end="cheese"/&gt;</code></pre></div>
+<div class="p">The previous combination of terms will generate a top-level index
+term for "Cheese" that covers a series of pages, such as:<ul class="ul">
+<li class="li">Cheese 18-24</li>
+</ul></div>
+<div class="p">Specifying a range for nested terms is similar. In this sample,
+the range is specified for the tertiary index entry "pecorino":<pre class="pre codeblock"><code>&lt;indexterm&gt;cheese
+  &lt;indexterm&gt;sheeps milk
+    &lt;indexterm start="level-3-pecorino"&gt;pecorino&lt;/indexterm&gt;
+  &lt;/indexterm&gt;
+&lt;/indexterm&gt;
+ &lt;!-- ... additional content ... --&gt;
+&lt;indexterm end="level-3-pecorino"/&gt;</code></pre></div>
+<div class="p">The generated index for that range would look something like this: <ul class="ul">
+<li class="li">cheese<ul class="ul">
+<li class="li">sheeps milk<ul class="ul">
+<li class="li">pecorino 18-24</li>
+</ul></li>
+</ul></li>
+</ul></div>
+<p class="p">There are three locations that <span class="ph">can</span> declare a range - the body of a
+          topic, the prolog of a topic, and a map.</p>
+<ul class="ul">
+<li class="li">In the following example, the range begins at the start of the
+second paragraph, and continues to the last paragraph. If the matching
+end range was not included, the range would end at the end of the
+body element.<pre class="pre codeblock"><code>&lt;topic id="accounting"&gt;
+  &lt;title&gt;Accounting regulations&lt;/title&gt;
+  &lt;body&gt;
+    &lt;p&gt;Be ethical in your accounting.&lt;/p&gt;
+    &lt;p&gt;&lt;indexterm start="acctrules"&gt;Rules&lt;/indexterm&gt;Remember to do all of the following: ...&lt;/p&gt;
+    &lt;!-- ...pages worth of rules... --&gt;
+    &lt;p&gt;&lt;indexterm end="acctrules"/&gt;Failure to comply will get you audited.&lt;/p&gt;
+  &lt;/body&gt;
+  &lt;!-- Potential sub-topics --&gt;
+&lt;/topic&gt;</code></pre></li>
+<li class="li">In the following example, the range begins with the start of the topic's title, and covers
+            the entire topic and any sub-topics. The range ends within the same prolog, regardless
+            of whether <code class="ph codeph">&lt;indexterm end="acct"/&gt;</code> is specified in the
+            prolog.<pre class="pre codeblock"><code>&lt;topic id="accounting"&gt;
+  &lt;title&gt;Accounting r<span style="color:red;" class="ph">►e◄</span>gulations&lt;/title&gt;
+  &lt;prolog&gt;
+    &lt;metadata&gt;
+      &lt;keywords&gt;&lt;indexterm start="acct"&gt;Accounting&lt;/indexterm&gt;&lt;/keywords&gt;
+    &lt;/metadata&gt;
+  &lt;/prolog&gt;
+  &lt;!-- Body and sub-topics --&gt;
+&lt;/topic&gt;</code></pre></li>
+<li class="li">Now assume that the topic in the previous sample is named <span class="ph filepath">acct.dita</span>. Ranges
+            defined in a prolog cover sub-topics, including those nested based on a map; in the
+            following example, this means that the range covers all of
+              <span class="ph filepath">acct.dita</span>, as well as <span class="ph filepath">procedures.dita</span> and
+              <span class="ph filepath">forms.dita</span>:<pre class="pre codeblock"><code>&lt;topicref href="acct.dita"&gt;
+  &lt;topicref href="procedures.dita"/&gt;
+  &lt;topicref href="forms.dita"/&gt;
+&lt;/topicref&gt;</code></pre></li>
+<li class="li">In the final example, the range is specified in a map. The index range for "Accounting" begins
+            with the start of the first topic title in <span class="ph filepath">acct.dita</span>, and covers
+            that file as well as any sub-topics. The index range for "Government forms" begins with
+            the start of the first topic title in <span class="ph filepath">acct.dita</span>, and continues
+            until the end of the last element in the file <span class="ph filepath">taxfiling.dita</span>. If
+            the end range for "govt" was not specified, the range would continue to the end of the
+            map.<pre class="pre codeblock"><code>&lt;topicref href="acct.dita"&gt;
+  &lt;topicmeta&gt;
+    &lt;keywords&gt;
+      &lt;indexterm start="acct"&gt;Accounting&lt;/indexterm&gt;
+      &lt;indexterm end="acct"/&gt;
+      &lt;indexterm start="govt"&gt;Government forms&lt;/indexterm&gt;
+    &lt;/keywords&gt;
+  &lt;/topicmeta&gt;
+  &lt;!-- Nested topicref elements --&gt;
+&lt;/topicref&gt;
+&lt;topicref href="taxfiling.dita"&gt;
+  &lt;topicmeta&gt;
+    &lt;keywords&gt;
+      &lt;indexterm end="govt"/&gt;
+    &lt;/keywords&gt;
+  &lt;/topicmeta&gt;
+&lt;/topicref&gt;</code></pre></li>
+</ul>
+</figure>
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 4. </span>Index term with <code class="keyword markupname xmlelement">&lt;ph&gt;</code> or <code class="keyword markupname xmlelement">&lt;ph&gt;</code>
+          specializations</figcaption>
+        
+        <pre class="pre codeblock"><code>&lt;p&gt;Einstein's most famous equation
+E=mc&lt;sup&gt;2&lt;/sup&gt;&lt;indexterm&gt;E=mc&lt;sup&gt;2&lt;/sup&gt;&lt;/indexterm&gt; 
+expresses the relationship between mass and energy.&lt;/p&gt;</code></pre>
+        <p class="p">All the elements in the highlighting domain are specializations of
+            <code class="keyword markupname xmlelement">&lt;ph&gt;</code>.</p>
+      </figure></div>
+<section class="section" id="indexterm__attributes"><h2 class="title sectiontitle">Attributes</h2>
+      <p class="p">The following attributes are available on this element: <a class="xref" href="../attributes/universalAttributes.html" title="The universal attribute group defines a set of common attributes available on most DITA elements. The universal attribute group includes all attributes from the metadata, ID, localization, and debug attribute groups, plus the class attribute.">Universal attribute group</a>, <a class="xref" href="../attributes/thekeyrefattribute.html" title="The keyref attribute provides an indirect, late-bound reference to topics, to collections of topics (ditabase), to maps, to referenceable portions of maps, to non-DITA documents, to external URIs, or to XML content contained within a key definition topic reference. When the DITA content is processed, the key references are resolved using key definitions from DITA maps."><code class="keyword markupname xmlatt">@keyref</code></a>, and the
+        attributes defined below.</p>
+      <dl class="dl">
+        
+          <dt class="dt dlterm" id="indexterm__start"><code class="keyword markupname xmlatt">@start</code></dt>
+          <dd class="dd">Specifies that an index entry is positioned at the beginning of a range. The value
+            matches the <code class="keyword markupname xmlatt">@end</code> attribute on another
+            <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code>. </dd>
+        
+        
+          <dt class="dt dlterm" id="indexterm__end"><code class="keyword markupname xmlatt">@end</code></dt>
+          <dd class="dd">Specifies that an index entry is positioned at the end of a range; value matches the
+              <code class="keyword markupname xmlatt">@start</code> attribute on another <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code>.
+            </dd>
+        
+      </dl>
+      </section>
+</div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/indexing-d.html" title="The indexing domain provides elements for use with indexing. The elements allow authors to define &#34;See&#34; and &#34;See also&#34; references, and to override the default sort order for a term.">Indexing group elements</a></div></div></nav></article></main>

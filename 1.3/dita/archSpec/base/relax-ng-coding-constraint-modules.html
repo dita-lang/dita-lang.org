@@ -1,0 +1,96 @@
+---
+# Generated from DITA source
+layout: base
+title: 'RELAX NG: Coding requirements for constraint modules'
+description: 'A structural constraint module defines the constraints for a map or topic element type. A domain constraint module defines the constraints for an element or attribute domain.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '1ef1836fa5adc371402b2e9d6b31fef551ef88ff'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a><ul class="nav nav-list"><li><a href="../../archSpec/base/introduction-to-dita.html">Introduction to DITA</a></li><li><a href="../../archSpec/base/ditamarkup.html">DITA markup </a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration, specialization, generalization, and constraints </a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a><ul class="nav nav-list"><li><a href="../../archSpec/base/recognizedconstraintmechanisms.html">Recognized XML-document grammar mechanisms</a></li><li><a href="../../archSpec/base/using-relax-ng.html">Normative versions of DITA grammar files</a></li><li><a href="../../archSpec/base/dtd-requirements.html">DTD coding requirements</a></li><li><a href="../../archSpec/base/relax-ng-requirements.html">RELAX NG coding requirements</a><ul class="nav nav-list"><li><a href="../../archSpec/base/relax-ng-coding-overview.html">RELAX NG: Overview of coding requirements</a></li><li><a href="../../archSpec/base/relax-ng-coding-doctype-shell.html">RELAX NG: Coding requirements for document-type shells</a></li><li><a href="../../archSpec/base/relax-ng-coding-element-types.html">RELAX NG: Coding requirements for element type declarations</a></li><li><a href="../../archSpec/base/relax-ng-coding-structural-modules.html">RELAX NG: Coding requirements for structural modules</a></li><li><a href="../../archSpec/base/relax-ng-coding-element-domains.html">RELAX NG: Coding requirements for element domain modules</a></li><li><a href="../../archSpec/base/relax-ng-coding-attribute-domains.html">RELAX NG: Coding requirements for attribute domain modules</a></li><li class="active"><a href="../../archSpec/base/relax-ng-coding-constraint-modules.html">RELAX NG: Coding requirements for constraint modules</a></li></ul></li><li><a href="../../archSpec/base/xsd-requirements.html">XML Schema coding requirements</a></li></ul></li><li><a href="../../archSpec/technicalContent/technical-content-specializations.html">Technical content specializations</a></li><li><a href="../../archSpec/learningTraining/learning-and-training-specializations.html">Learning and training specializations</a></li></ul></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
+ <h1 class="title topictitle1" id="ariaid-title1">RELAX NG: Coding requirements for constraint modules</h1>
+ 
+ 
+ <div class="body conbody"><p class="shortdesc">A structural constraint module defines the constraints for a map or topic element type.
+  A domain constraint module defines the constraints for an element or attribute domain.</p>
+  <p class="p">All vocabulary and constraint modules must document their
+          <code class="keyword markupname xmlatt">@domains</code> attribute contribution. The value of the contribution is
+        constructed according to the rules found in <a class="xref" href="../../common/../archSpec/base/specialization-domains-attribute.html" title="The domains attribute enables processors to determine whether two elements or two documents use compatible domains. The attribute is declared on the root element for each topic or map type. Each structural, domain, and constraint module defines its ancestry as a parenthesized sequence of space-separated module names; the effective value of the domains attribute is composed of these parenthesized sequences.">domains attribute rules and syntax</a>. The OASIS grammar files
+        use a <code class="keyword markupname xmlelement">&lt;domainsContribution&gt;</code> element to document the contribution;
+        this element is used to help enable generation of DTD and XSD grammar files. An XML comment
+        or <code class="keyword markupname xmlelement">&lt;a:documentation&gt;</code> element can also be used.</p>
+  <p class="p">Constraint modules are implemented by importing the constraint module into a document type
+   shell in place of the module that the constraint modifies. The constraint module itself imports
+   the base module to be constrained; within the import, the module redefines patterns as needed to
+   implement the constraint.</p>
+  <div class="p">For example, a constraint module that modifies the
+    <code class="keyword markupname xmlelement">&lt;section&gt;</code> element needs to import the base module
+    <span class="ph filepath">topicMod.rng</span>. Within that import, it will constrain the
+    <code class="ph codeph">section.content</code>
+   pattern:<pre class="pre codeblock"><code>&lt;include href="topicMod.rng"&gt;
+  &lt;define name="section.content"&gt;
+    &lt;!-- Define constrained model here --&gt;
+  &lt;/define&gt;
+&lt;/include&gt;
+</code></pre></div>
+  <p class="p">For a more complete example, see
+    <span class="ph filepath">strictTaskbodyConstraintMod.rng</span>, delivered with the DITA 1.3 grammar
+   files.</p>
+  <div class="p">Because the constraint module imports the module that it modifies, only one constraint module
+   can be used per vocabulary module (otherwise the module being constrained would be imported
+   multiple times). If multiple constraints are combined for a single vocabulary module, they must
+   be implemented in one of the following ways:<ul class="ul">
+    <li class="li">The constraints <span class="ph">can</span> be combined into a single module. For
+          example, when combining separate constraints for <code class="keyword markupname xmlelement">&lt;section&gt;</code> and
+            <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code>, a single module <span class="ph">can</span>
+          be defined as
+          follows:<pre class="pre codeblock"><code>&lt;include href="topicMod.rng"&gt;
+  &lt;define name="section.content"&gt;
+    &lt;!-- Constrained model for section --&gt;
+  &lt;/define&gt;
+  &lt;define name="shortdesc.content"&gt;
+    &lt;!-- Constrained model for shortdesc --&gt;
+  &lt;/define&gt;
+&lt;/include&gt;
+</code></pre></li>
+    <li class="li">Constraints <span class="ph">can</span> be chained so that each constraint imports
+          another, until the final constraint imports the base vocabulary module. For example, when
+          combining separate constraints for <code class="keyword markupname xmlelement">&lt;section&gt;</code>,
+            <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code>, and <code class="keyword markupname xmlelement">&lt;li&gt;</code> from the base
+          vocabulary, the <code class="keyword markupname xmlelement">&lt;section&gt;</code> constraint can import the
+            <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code> constraint, which in turn imports the
+            <code class="keyword markupname xmlelement">&lt;li&gt;</code> constraint, which finally imports
+            <span class="ph filepath">topicMod.rng</span>.</li>
+   </ul>
+  </div>
+  <div class="example non-normative" id="relax-ng-constraint-module-coding-requirements__structural-constraint-contribution"><h2 class="title sectiontitle">Example: contribution to the <code class="keyword markupname xmlatt">@domains</code> attribute for structural
+        constraint module</h2>
+      
+      <div class="p">The following code fragment specifies the contribution to the
+          <code class="keyword markupname xmlatt">@domains</code> attribute as <code class="ph codeph">(topic task
+        strictTaskbody-c)</code>:<pre class="pre codeblock"><code>&lt;moduleDesc&gt;
+  &lt;!-- ... --&gt;
+  &lt;moduleMetadata&gt;
+    &lt;!-- ... --&gt;  
+    &lt;domainsContribution&gt;(topic task strictTaskbody-c)&lt;/domainsContribution&gt;
+  &lt;/moduleMetadata&gt;
+&lt;/moduleDesc&gt;</code></pre></div>
+    </div>
+  <div class="example non-normative" id="relax-ng-constraint-module-coding-requirements__domain-constraint-contribution"><h2 class="title sectiontitle">Example: contribution to the <code class="keyword markupname xmlatt">@domains</code> attribute for domain constraint
+        module</h2>
+      
+      <div class="p">The following code fragment illustrates the domains contribution for
+        a constraint module <span class="ph">that restricts the task requirements
+          domain:</span><pre class="pre codeblock"><code>&lt;moduleDesc&gt;
+  &lt;!-- ... --&gt;
+  &lt;moduleMetadata&gt;
+    &lt;!-- ... --&gt;   
+    &lt;domainsContribution&gt;(topic task taskreq-d requiredReqcondsTaskreq-c)&lt;/domainsContribution&gt;
+  &lt;/moduleMetadata&gt;
+&lt;/moduleDesc&gt;</code></pre></div>
+    </div>
+ </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/relax-ng-requirements.html" title="This section explains how to implement RELAX NG based document-type shells, specializations, and constraints.">RELAX NG coding requirements</a></div></div></nav></article></main>

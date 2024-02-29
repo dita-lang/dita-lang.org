@@ -1,0 +1,88 @@
+---
+# Generated from DITA source
+layout: base
+title: 'imagemap'
+description: 'The imagemap element supports the basic functionality of the HTML "client-side" image map markup. imagemap allows you to designate a linkable area or region over an image, allowing a link in that region to display another topic.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '1ef1836fa5adc371402b2e9d6b31fef551ef88ff'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a><ul class="nav nav-list"><li><a href="../../langRef/containers/element-quick-reference.html">Element quick reference</a></li><li><a href="../../langRef/containers/topic-elements.html">Topic elements</a></li><li><a href="../../langRef/containers/map-elements.html">Map elements</a></li><li><a href="../../langRef/containers/metadata-elements.html">Metadata elements</a></li><li><a href="../../langRef/containers/domain-elements.html">Domain elements</a><ul class="nav nav-list"><li><a href="../../langRef/containers/hazard-d.html">Hazard statement elements</a></li><li><a href="../../langRef/containers/hi-d.html">Highlighting elements</a></li><li><a href="../../langRef/containers/ut-d.html">Utilities elements</a><ul class="nav nav-list"><li><a href="../../langRef/base/area.html">area</a></li><li><a href="../../langRef/base/coords.html">coords</a></li><li class="active"><a href="../../langRef/base/imagemap.html">imagemap</a></li><li><a href="../../langRef/base/shape.html">shape</a></li><li><a href="../../langRef/base/sort-as.html">sort-as</a></li></ul></li><li><a href="../../langRef/containers/ditaval-d.html">DITAVAL reference domain</a></li></ul></li><li><a href="../../langRef/containers/classification-elements.html">Classification elements</a></li><li><a href="../../langRef/containers/specialization-elements.html">Specialization elements</a></li><li><a href="../../langRef/containers/legacy-conversion-elements.html">Legacy conversion elements</a></li><li><a href="../../langRef/containers/ditaval-elements.html">DITAVAL elements</a></li><li><a href="../../langRef/containers/technical-content-elements.html">Technical content elements</a></li><li><a href="../../langRef/containers/learningTraining-elements.html">Learning and training elements</a></li><li><a href="../../langRef/attributes/attributes.html">Attributes</a></li></ul></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1"> 
+  <h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;imagemap&gt;</code></h1> 
+   
+   
+  <div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;imagemap&gt;</code> element supports the basic
+	 functionality of the HTML "client-side" image map markup.
+	 <code class="keyword markupname xmlelement">&lt;imagemap&gt;</code> allows you to designate a linkable area or
+	 region over an image, allowing a link in that region to display another topic. 
+  </p> 
+	 <section class="section" id="imagemap__section-1"> 
+		<p class="p">An HTML client-side image map binds an image to the navigation
+		  structure (the "map") by means of an ID association from the map to the image.
+		  In contrast, the DITA version of <code class="keyword markupname xmlelement">&lt;imagemap&gt;</code> markup
+		  simply includes the target image as the first required element in the markup,
+		  followed by a sequence of <code class="keyword markupname xmlelement">&lt;area&gt;</code> elements that represent
+		  the links associated with the contained image. 
+		</p> 
+		<p class="p">An <code class="keyword markupname xmlelement">&lt;imagemap&gt;</code> structure can be output either to a standard HTML image
+				map or to alternative forms of navigation (such as table-based image maps). When
+				output as PDF, the minimal form would be to represent at least the image; advanced
+				PDF output processors should provide equivalent region-oriented hyperlinks. </p> 
+		<p class="p">The <code class="keyword markupname xmlelement">&lt;xref&gt;</code> content within
+		  <code class="keyword markupname xmlelement">&lt;area&gt;</code> contains the intended alternative text or hover
+		  text for that image map area. 
+		</p> 
+	 </section> 
+	 <section class="section" id="imagemap__contains"><h2 class="title sectiontitle">Content models</h2><p class="p">See <span class="xref">appendix</span> for information about this element in OASIS document type shells.</p></section> 
+	 <section class="section" id="imagemap__inheritance"><h2 class="title sectiontitle">Inheritance</h2> 
+		 
+		<p class="p">+ topic/fig ut-d/imagemap 
+		</p> 
+	 </section> 
+	 <div class="example non-normative" id="imagemap__example"><h2 class="title sectiontitle">Example</h2> 
+		 
+		<div class="p">A simple <code class="keyword markupname xmlelement">&lt;imagemap&gt;</code> looks like this (note that
+		  the rendering will depend on how this markup is supported for particular output
+		  formats): 
+		  <pre class="pre codeblock"><code>&lt;imagemap&gt;
+ &lt;image href="imagemapworld.jpg"&gt;
+   &lt;alt&gt;Map of the world showing 5 areas&lt;/alt&gt;
+ &lt;/image&gt;
+ &lt;area&gt;&lt;shape&gt;rect&lt;/shape&gt;&lt;coords&gt;2,0,53,59&lt;/coords&gt;
+  &lt;xref href="d1-s1.dita"&gt;Section 1 alternative text&lt;/xref&gt;
+ &lt;/area&gt;
+ &lt;area&gt;&lt;shape&gt;rect&lt;/shape&gt;&lt;coords&gt;54,1,117,60&lt;/coords&gt;
+  &lt;xref href="d1-s2.dita"&gt;&lt;!-- Pull title from d1-s2.dita --&gt;&lt;/xref&gt;
+ &lt;/area&gt;
+ &lt;area&gt;&lt;shape&gt;rect&lt;/shape&gt;&lt;coords&gt;54,62,114,116&lt;/coords&gt;
+  &lt;xref href="#inline" type="topic"&gt;Alternative text for this rectangle&lt;/xref&gt;
+ &lt;/area&gt;
+ &lt;area&gt;&lt;shape&gt;circle&lt;/shape&gt;&lt;coords&gt;120,154,29&lt;/coords&gt;
+  &lt;xref format="html" href="test.html"&gt;Link to a test html file&lt;/xref&gt;
+ &lt;/area&gt;
+ &lt;area&gt;&lt;shape&gt;poly&lt;/shape&gt;
+  &lt;coords&gt;246,39,200,35,173,52,177,86,215,90,245,84,254,65&lt;/coords&gt;
+  &lt;xref format="pdf" href="test.pdf"&gt;Link to a test PDF file&lt;/xref&gt;
+ &lt;/area&gt;
+&lt;/imagemap&gt;</code></pre> 
+		</div> 
+		<div class="p">The areas defined correspond to this graphic image with the areas visible:<br><img class="image" id="imagemap__image_445FC20D011A400F8D51CD6C31A3E1F4" src="../../images/imagemapworld.png" alt="Diagram showing a graphic image annotated to show the areas of an imagemap. Each area is indicated with a bordered region on the image. To the right of the image there is a list correlating the areas of the imagemap to the targets of their respective links."><br>
+			</div> 
+		<p class="p">The values for use in the <code class="keyword markupname xmlelement">&lt;shape&gt;</code> and
+		  <code class="keyword markupname xmlelement">&lt;coords&gt;</code> elements follow the guidelines defined for
+		  image maps in HTML 4.1, 
+		  <a class="xref" href="http://www.w3.org/TR/html401/struct/objects.html#edef-MAP" target="_blank" rel="external noopener">Client-side image maps: the MAP and AREA elements</a> 
+		</p> 
+	 </div> 
+	 <section class="section" id="imagemap__attributes"><h2 class="title sectiontitle">Attributes</h2> 
+		 
+		<p class="p">The following attributes are available
+                                on this element: <a class="xref" href="../../common/../langRef/attributes/universalAttributes.html" title="The universal attribute group defines a set of common attributes available on most DITA elements. The universal attribute group includes all attributes from the metadata, ID, localization, and debug attribute groups, plus the class attribute.">Universal attribute group</a>,
+                                        <a class="xref" href="../../common/../langRef/attributes/displayAttributes.html" title="The display attribute group includes attributes whose values can be used for affecting the display of many elements.">Display attribute group</a>,
+                                        <a class="xref" href="../../common/../langRef/attributes/commonAttributes.html#common-atts__outputclass">outputclass</a>, and <a class="xref" href="../../common/../langRef/attributes/specializationAttributes.html#specialization-atts__spectitle">spectitle</a>.</p> 
+	 </section> 
+  </div> 
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/ut-d.html" title="The utilities domain elements represent common features of a language that might not necessarily be semantic, such as image maps.">Utilities elements</a></div></div></nav></article></main>

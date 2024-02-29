@@ -1,0 +1,67 @@
+---
+# Generated from DITA source
+layout: base
+title: 'dvrKeyscopeSuffix'
+description: 'The dvrKeyscopeSuffix element specifies the suffix to use when constructing the effective key scope names for the map branch that is implied by the ancestor ditavalref element.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '1ef1836fa5adc371402b2e9d6b31fef551ef88ff'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a><ul class="nav nav-list"><li><a href="../../langRef/containers/element-quick-reference.html">Element quick reference</a></li><li><a href="../../langRef/containers/topic-elements.html">Topic elements</a></li><li><a href="../../langRef/containers/map-elements.html">Map elements</a></li><li><a href="../../langRef/containers/metadata-elements.html">Metadata elements</a></li><li><a href="../../langRef/containers/domain-elements.html">Domain elements</a><ul class="nav nav-list"><li><a href="../../langRef/containers/hazard-d.html">Hazard statement elements</a></li><li><a href="../../langRef/containers/hi-d.html">Highlighting elements</a></li><li><a href="../../langRef/containers/ut-d.html">Utilities elements</a></li><li><a href="../../langRef/containers/ditaval-d.html">DITAVAL reference domain</a><ul class="nav nav-list"><li><a href="../../langRef/base/ditavalref.html">ditavalref</a></li><li><a href="../../langRef/base/ditavalmeta.html">ditavalmeta</a></li><li><a href="../../langRef/base/dvrResourcePrefix.html">dvrResourcePrefix</a></li><li><a href="../../langRef/base/dvrResourceSuffix.html">dvrResourceSuffix</a></li><li><a href="../../langRef/base/dvrKeyscopePrefix.html">dvrKeyscopePrefix</a></li><li class="active"><a href="../../langRef/base/dvrKeyscopeSuffix.html">dvrKeyscopeSuffix</a></li></ul></li></ul></li><li><a href="../../langRef/containers/classification-elements.html">Classification elements</a></li><li><a href="../../langRef/containers/specialization-elements.html">Specialization elements</a></li><li><a href="../../langRef/containers/legacy-conversion-elements.html">Legacy conversion elements</a></li><li><a href="../../langRef/containers/ditaval-elements.html">DITAVAL elements</a></li><li><a href="../../langRef/containers/technical-content-elements.html">Technical content elements</a></li><li><a href="../../langRef/containers/learningTraining-elements.html">Learning and training elements</a></li><li><a href="../../langRef/attributes/attributes.html">Attributes</a></li></ul></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;dvrKeyscopeSuffix&gt;</code></h1>
+  
+  
+  <div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;dvrKeyscopeSuffix&gt;</code> element specifies the suffix to use
+    when constructing the effective key scope names for the map branch that is implied by the
+    ancestor <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element.</p>
+    <section class="section" id="dvrKeyscopeSuffix__section-1">
+      <p class="p">For map branches that are implied by <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> elements, the
+        value of the <code class="keyword markupname xmlelement">&lt;dvrKeyscopeSuffix&gt;</code> element contributes to the
+        effective key scope names of the branch. The effective key scope names end with the value of
+        the <code class="keyword markupname xmlelement">&lt;dvrKeyscopeSuffix&gt;</code> element. Note that if the branch as authored
+        does not specify a <code class="keyword markupname xmlatt">@keyscope</code> value, specifying
+          <code class="keyword markupname xmlelement">&lt;dvrKeyscopeSuffix&gt;</code> (without also specifying
+          <code class="keyword markupname xmlelement">&lt;dvrKeyscopePrefix&gt;</code>) results in the branch establishing a key
+        scope whose name is the value of the <code class="keyword markupname xmlelement">&lt;dvrKeyscopeSuffix&gt;</code> element.
+        The full key scope names also will reflect the value of a
+          <code class="keyword markupname xmlelement">&lt;dvrKeyscopePrefix&gt;</code> element if one is specified, regardless of
+        whether the branch as authored specifies a <code class="keyword markupname xmlatt">@keyscope</code> value.</p>
+    </section>
+    <section class="section" id="dvrKeyscopeSuffix__contains"><h2 class="title sectiontitle">Content models</h2><p class="p">See <span class="xref">appendix</span> for information about this element in OASIS document type shells.</p></section>
+    <section class="section" id="dvrKeyscopeSuffix__inheritance"><h2 class="title sectiontitle">Inheritance</h2>
+      
+      <p class="p">+ topic/data ditavalref-d/dvrKeyscopeSuffix </p>
+    </section>
+    <div class="example non-normative" id="dvrKeyscopeSuffix__example"><h2 class="title sectiontitle">Example</h2>
+      
+      <div class="p">If the <code class="keyword markupname xmlelement">&lt;dvrKeyscopeSuffix&gt;</code> is specified in the following
+        way:<pre class="pre codeblock"><code>&lt;topicref keys="branch-01"
+    href="branch-01.dita" 
+    keyscope="branch-01"
+  &gt;
+  &lt;ditavalref href="condition-01.ditaval"&gt;
+    &lt;ditavalmeta&gt;
+      &lt;dvrKeyscopeSuffix&gt;-cond01&lt;/dvrKeyscopeSuffix&gt;
+    &lt;/ditavalmeta&gt;
+  &lt;/ditavalref&gt;
+  &lt;topicref href="topics/subtopic-01.dita"/&gt;
+&lt;/topicref&gt;</code></pre></div>
+      <p class="p">Then the effective key scope name for the branch "branch-01" is "branch-01-cond01".</p>
+    </div>
+    <section class="section" id="dvrKeyscopeSuffix__attributes"><h2 class="title sectiontitle">Attributes</h2>
+      
+      <p class="p">The following attributes are available on this element: <a class="xref" href="../attributes/universalAttributes.html" title="The universal attribute group defines a set of common attributes available on most DITA elements. The universal attribute group includes all attributes from the metadata, ID, localization, and debug attribute groups, plus the class attribute.">Universal attribute group</a> (except for <code class="keyword markupname xmlatt">@conkeyref</code>,
+        which is removed for all elements in this domain) and the attribute defined below.</p>
+      <dl class="dl">
+        
+          <dt class="dt dlterm"><code class="keyword markupname xmlatt">@name</code></dt>
+          <dd class="dd">The name of the metadata item. For this element the default value is
+            "dvrKeyscopeSuffix".</dd>
+        
+      </dl>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/ditaval-d.html" title="The DITAVAL reference domain is used to reference a DITAVAL file that contains conditions that apply only to a subset of a DITA map. It also can be used to replicate a subset of a DITA map for multiple audiences.">DITAVAL reference domain</a></div></div></nav></article></main>

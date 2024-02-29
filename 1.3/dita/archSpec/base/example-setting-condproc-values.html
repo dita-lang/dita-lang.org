@@ -1,0 +1,48 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Example: Setting conditional processing values and groups'
+description: 'Conditional processing attributes can be used to classify content using either individual values or using groups.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '1ef1836fa5adc371402b2e9d6b31fef551ef88ff'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a><ul class="nav nav-list"><li><a href="../../archSpec/base/introduction-to-dita.html">Introduction to DITA</a></li><li><a href="../../archSpec/base/ditamarkup.html">DITA markup </a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a><ul class="nav nav-list"><li><a href="../../archSpec/base/navigation.html">Navigation</a></li><li><a href="../../archSpec/base/conref.html">Content reference (conref)</a></li><li><a href="../../archSpec/base/condproc.html">Conditional processing (profiling)</a><ul class="nav nav-list"><li><a href="../../archSpec/base/usage-of-conditional-processing-attributes.html">Conditional processing values and groups</a></li><li><a href="../../archSpec/base/filtering.html">Filtering</a></li><li><a href="../../archSpec/base/flagging.html">Flagging</a></li><li><a href="../../archSpec/base/conditional-processing-for-specific-output-types.html">Conditional processing to generate multiple deliverable types</a></li><li><a href="../../archSpec/base/examples-of-conditional-processing.html">Examples of conditional processing</a><ul class="nav nav-list"><li class="active"><a href="../../archSpec/base/example-setting-condproc-values.html">Example: Setting conditional processing values and groups</a></li><li><a href="../../archSpec/base/evaluating-conditional-processing-attributes.html">Example: Filtering and flagging topic content</a></li></ul></li></ul></li><li><a href="../../archSpec/base/branch-filtering.html">Branch filtering</a></li><li><a href="../../archSpec/base/chunking.html">Chunking</a></li><li><a href="../../archSpec/base/translation.html">Translation and localization</a></li><li><a href="../../archSpec/base/module-compatibility.html">Processing documents with different values of the domains attribute</a></li><li><a href="../../archSpec/base/sort-as-processing.html">Sorting</a></li></ul></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration, specialization, generalization, and constraints </a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../archSpec/technicalContent/technical-content-specializations.html">Technical content specializations</a></li><li><a href="../../archSpec/learningTraining/learning-and-training-specializations.html">Learning and training specializations</a></li></ul></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9 non-normative"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Example: Setting conditional processing values and groups</h1>
+  
+  <div class="body conbody"><p class="shortdesc">Conditional processing attributes can be used to classify content
+    using either individual values or using groups.</p>
+    <div class="example non-normative" id="example-condproc-values__example"><h2 class="title sectiontitle">Example: Simple product values</h2>
+      
+      <p class="p">In the following example, the first configuration option applies only to the "extendedprod"
+        product, while the second option applies to both "extendedprod" and to "baseprod". The
+        entire <code class="keyword markupname xmlelement">&lt;p&gt;</code> element containing the list applies to an audience of
+        "administrator".</p>
+      <pre class="pre codeblock"><code>&lt;p audience="administrator"&gt;Set the configuration options:
+  &lt;ul&gt;
+    &lt;li product="extendedprod"&gt;Set foo to bar&lt;/li&gt;
+    &lt;li product="basicprod extendedprod"&gt;Set your blink rate&lt;/li&gt;
+    &lt;li&gt;Do some other stuff&lt;/li&gt;
+    &lt;li&gt;Do a special thing for Linux&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/p&gt;
+</code></pre>
+    </div>
+    <div class="example non-normative" id="example-condproc-values__groupexample"><h2 class="title sectiontitle">Example: Grouped values on an attribute</h2>
+      
+      <p class="p">The following example indicates that a step applies to one application server and two
+        databases. Specifically, this step only applies when it is taken on the server "mySERVER";
+        likewise, it only applies when used with the databases "ABC" or "dbOtherName". </p>
+      <pre class="pre codeblock" id="example-condproc-values__groupcodesample"><code>&lt;steps&gt;
+  &lt;step&gt;&lt;cmd&gt;Common step&lt;/cmd&gt;&lt;/step&gt;
+  &lt;step product="appserver(mySERVER) database(ABC dbOtherName)"&gt;
+    &lt;cmd&gt;Do something special for databases ABC or OtherName when installing on mySERVER&lt;/cmd&gt;
+  &lt;/step&gt;
+  &lt;!-- additional steps --&gt;
+&lt;/steps&gt;</code></pre>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/examples-of-conditional-processing.html" title="This section provides examples that illustrate the ways that conditional processing attributes can be set and used.">Examples of conditional processing</a></div></div></nav></article></main>

@@ -1,0 +1,108 @@
+---
+# Generated from DITA source
+layout: base
+title: 'abbreviated-form'
+description: 'The abbreviated-form element represents a reference to a term that might appear in an abbreviated form (often an acronym). The long and short forms of the term are generally defined in a glossentry topic. Processors display the referenced term when rendering an abbreviated-form element.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '1ef1836fa5adc371402b2e9d6b31fef551ef88ff'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a><ul class="nav nav-list"><li><a href="../../langRef/containers/element-quick-reference.html">Element quick reference</a></li><li><a href="../../langRef/containers/topic-elements.html">Topic elements</a></li><li><a href="../../langRef/containers/map-elements.html">Map elements</a></li><li><a href="../../langRef/containers/metadata-elements.html">Metadata elements</a></li><li><a href="../../langRef/containers/domain-elements.html">Domain elements</a></li><li><a href="../../langRef/containers/classification-elements.html">Classification elements</a></li><li><a href="../../langRef/containers/specialization-elements.html">Specialization elements</a></li><li><a href="../../langRef/containers/legacy-conversion-elements.html">Legacy conversion elements</a></li><li><a href="../../langRef/containers/ditaval-elements.html">DITAVAL elements</a></li><li><a href="../../langRef/containers/technical-content-elements.html">Technical content elements</a><ul class="nav nav-list"><li><a href="../../langRef/containers/concept-elements.html">Concept elements</a></li><li><a href="../../langRef/containers/task-elements.html">Task elements</a></li><li><a href="../../langRef/containers/reference-elements.html">Reference elements</a></li><li><a href="../../langRef/containers/troubleshooting-elements.html">Troubleshooting elements</a></li><li><a href="../../langRef/containers/glossary-elements.html">Glossary elements</a><ul class="nav nav-list"><li><a href="../../langRef/containers/glossentry-elements.html">Glossentry elements</a></li><li><a href="../../langRef/containers/glossary-related-elements.html">Glossary related elements</a><ul class="nav nav-list"><li class="active"><a href="../../langRef/technicalContent/abbreviated-form.html">abbreviated-form</a></li><li><a href="../../langRef/technicalContent/glossref.html">glossref</a></li><li><a href="../../langRef/technicalContent/glossgroup.html">glossgroup</a></li></ul></li></ul></li><li><a href="../../langRef/containers/bookmap-elements.html">Bookmap elements</a></li><li><a href="../../langRef/containers/technicalContent-domain-elements.html">Technical-content domains elements</a></li></ul></li><li><a href="../../langRef/containers/learningTraining-elements.html">Learning and training elements</a></li><li><a href="../../langRef/attributes/attributes.html">Attributes</a></li></ul></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
+<h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code></h1>
+
+  
+<div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code> element represents a reference to a term
+    that might appear in an abbreviated form (often an acronym). The long and short forms of the
+    term are generally defined in a <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code> topic. Processors display
+    the referenced term when rendering an <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code>
+    element.</p>
+    <section class="section" id="abbreviated-form__section-1"><h2 class="title sectiontitle">Rendering the <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code> element</h2>
+      
+      <p class="p">The <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code> element is intended to reference a
+          <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code> topic that contains both a term and an abbreviated
+        form of that term. The topic <span class="ph">might</span> also provide a surface
+        form that differs from the original term. The full term or surface form <span class="ph">is</span> rendered in introductory contexts where the term might be
+        unfamiliar to a reader or in other contexts where a precise term is appropriate. In other
+        contexts a <span class="ph">processor substitutes</span> the abbreviated form of the
+        term. Note that the definition of an introductory context will differ for every deliverable
+        format.</p>
+      <p class="p">For instance, a process composing a book deliverable <span class="ph">might</span>
+        emit the surface form of a term on the first reference to the
+          <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code> topic within the book or for every reference within a
+        copyright or a warranty-related warning. A process generating an online page <span class="ph">might</span> emit the surface form as a hover tooltip on every
+        instance of the term.</p>
+      <div class="p"><span class="ph">The following rules</span> determine how to render an
+          <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code> element. As described, the definition of
+        "introductory context" will vary based on the rendered format and processor.<ol class="ol">
+          <li class="li">If the referenced topic is not a <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code> topic (or a
+            specialization of <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code>), the title of the topic <dfn class="term RFC-2119">SHOULD</dfn> be displayed.</li>
+          <li class="li">Otherwise, if <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code> is located in an introductory
+            context, and the referenced topic contains a non-empty
+              <code class="keyword markupname xmlelement">&lt;glossSurfaceForm&gt;</code> element, processors <dfn class="term RFC-2119">SHOULD</dfn> render the contents of the
+              <code class="keyword markupname xmlelement">&lt;glossSurfaceForm&gt;</code> element from the referenced
+              <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code> topic.</li>
+          <li class="li">Otherwise, if <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code> is located in an introductory
+            context, processors <dfn class="term RFC-2119">SHOULD</dfn> render the contents of
+            the <code class="keyword markupname xmlelement">&lt;glossterm&gt;</code> element from the referenced
+              <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code> topic.</li>
+          <li class="li">Otherwise (in non-introductory contexts), if the referenced
+              <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code> topic contains a non-empty
+              <code class="keyword markupname xmlelement">&lt;glossAcronym&gt;</code> element, processors <dfn class="term RFC-2119">SHOULD</dfn> render the abbreviated form of the term by displaying the contents of
+            the <code class="keyword markupname xmlelement">&lt;glossAcronym&gt;</code> element from the referenced
+              <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code> topic.</li>
+          <li class="li">Otherwise, processors <dfn class="term RFC-2119">SHOULD</dfn> render the contents
+            of the <code class="keyword markupname xmlelement">&lt;glossterm&gt;</code> element from the referenced
+              <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code> topic.</li>
+        </ol></div>
+      <p class="p">For instance, if an <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code> element with the attribute
+          <code class="ph codeph">keyref="abs"</code> provided the first occurrence of the ABS term within a book,
+        the sentence could be rendered as follows: </p>
+      <blockquote class="lq">"The Anti-lock Brake System (ABS) will prevent the car from skidding in adverse weather
+        conditions."</blockquote>
+      <p class="p">If the ABS term had appeared previously within the book, the same sentence could instead be
+        rendered as follows: </p>
+      <blockquote class="lq">"The ABS will prevent the car from skidding in adverse weather conditions."</blockquote>
+    </section>
+<section class="section" id="abbreviated-form__contains"><h2 class="title sectiontitle">Content models</h2><p class="p">See <span class="xref">appendix</span> for information about this element in OASIS document type shells.</p></section>
+
+<section class="section" id="abbreviated-form__inheritance"><h2 class="title sectiontitle">Inheritance</h2><p class="p">+
+topic/term abbrev-d/abbreviated-form </p></section>
+<div class="example non-normative" id="abbreviated-form__example"><h2 class="title sectiontitle">Example</h2><p class="p">The term and acronym <span class="ph">can</span> be defined as follows, in a
+          <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code> topic. Note that the <code class="keyword markupname xmlatt">@id</code> attribute of
+        the topic does not need to match the term or acronym.</p><pre class="pre codeblock"><code>&lt;glossentry id="abs-definition"&gt;
+  &lt;glossterm&gt;Anti-lock Braking System&lt;/glossterm&gt;
+  &lt;glossBody&gt;
+    &lt;glossSurfaceForm&gt;Anti-lock Braking System (ABS)&lt;/glossSurfaceForm&gt;
+    &lt;glossAlt&gt;
+      &lt;glossAcronym&gt;ABS&lt;/glossAcronym&gt;
+    &lt;/glossAlt&gt;
+  &lt;/glossBody&gt;
+&lt;/glossentry&gt;</code></pre><p class="p">Note that there are three important elements for the purposes of rendering the
+          <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code> element.</p><ul class="ul">
+<li class="li">The <code class="keyword markupname xmlelement">&lt;glossSurfaceForm&gt;</code> element defines the term as it should be displayed
+          in an introductory context.</li>
+<li class="li">The <code class="keyword markupname xmlelement">&lt;glossAcronym&gt;</code> element defines the acronym associated with this
+          term.</li>
+<li class="li">The <code class="keyword markupname xmlelement">&lt;glossterm&gt;</code> element provides a fallback version of the term, which
+          will be displayed in situations where the preferred representation is unavailable. </li>
+</ul><p class="p">The <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code> topic will be added to a map in the following manner.
+        Again, the key (in this case "abs") does not need to match the term or acronym value.</p><pre class="pre codeblock"><code>&lt;glossref keys="abs" href="antilock.dita"/&gt;</code></pre><p class="p">An author <span class="ph">who wants</span> to reference this topic <span class="ph">can</span>
+        do so by using the <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code> element. The
+          <code class="keyword markupname xmlatt">@keyref</code> attribute <span class="ph">references</span> the value defined on
+        the <code class="keyword markupname xmlatt">@keys</code> attribute above.</p><pre class="pre codeblock"><code>&lt;section&gt;An &lt;abbreviated-form keyref="abs"/&gt; helps a
+driver to stop. For this reason many find an
+&lt;abbreviated-form keyref="abs"/&gt; useful.
+&lt;/section&gt;</code></pre><p class="p">When rendered, the introductory usage
+of "abs" will display the surface form of the referenced term, while
+the later uses will display the acronym, as demonstrated here.<blockquote class="lq">An
+Anti-lock Braking System (ABS) helps a driver to stop. For this reason
+many find an ABS useful.</blockquote></p></div>
+<section class="section" id="abbreviated-form__attributes"><h2 class="title sectiontitle">Attributes</h2>
+      <p class="p">The following attributes
+                                are available on this element: <a class="xref" href="../../common/../langRef/attributes/universalAttributes.html" title="The universal attribute group defines a set of common attributes available on most DITA elements. The universal attribute group includes all attributes from the metadata, ID, localization, and debug attribute groups, plus the class attribute.">Universal attribute group</a>,
+                                        <a class="xref" href="../../common/../langRef/attributes/commonAttributes.html#common-atts__outputclass">outputclass</a>, and <a class="xref" href="../../common/../langRef/attributes/thekeyrefattribute.html" title="The keyref attribute provides an indirect, late-bound reference to topics, to collections of topics (ditabase), to maps, to referenceable portions of maps, to non-DITA documents, to external URIs, or to XML content contained within a key definition topic reference. When the DITA content is processed, the key references are resolved using key definitions from DITA maps."><code class="keyword markupname xmlatt">@keyref</code></a>.</p></section>
+</div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/glossary-related-elements.html" title="Elements related to the glossary specialization are not defined as part of the glossary topic type, but are often used in conjunction with those elements.">Glossary related elements</a></div></div></nav></article></main>

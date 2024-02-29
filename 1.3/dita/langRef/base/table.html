@@ -1,0 +1,377 @@
+---
+# Generated from DITA source
+layout: base
+title: 'table'
+description: 'The table element organizes arbitrarily complex relationships of tabular information. This standard table markup allows column or row spanning and table captions or descriptions. An optional title allowed inside the table element provides a caption to describe the table.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '1ef1836fa5adc371402b2e9d6b31fef551ef88ff'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a><ul class="nav nav-list"><li><a href="../../langRef/containers/element-quick-reference.html">Element quick reference</a></li><li><a href="../../langRef/containers/topic-elements.html">Topic elements</a><ul class="nav nav-list"><li><a href="../../langRef/containers/basic-topic-elements.html">Basic topic elements</a></li><li><a href="../../langRef/containers/body-elements.html">Body elements</a></li><li><a href="../../langRef/containers/table-elements.html">Table elements</a><ul class="nav nav-list"><li class="active"><a href="../../langRef/base/table.html">table</a></li><li><a href="../../langRef/base/tgroup.html">tgroup</a></li><li><a href="../../langRef/base/colspec.html">colspec</a></li><li><a href="../../langRef/base/thead.html">thead</a></li><li><a href="../../langRef/base/tbody.html">tbody</a></li><li><a href="../../langRef/base/row.html">row</a></li><li><a href="../../langRef/base/entry.html">entry</a></li><li><a href="../../langRef/base/simpletable.html">simpletable</a></li><li><a href="../../langRef/base/sthead.html">sthead</a></li><li><a href="../../langRef/base/strow.html">strow</a></li><li><a href="../../langRef/base/stentry.html">stentry</a></li></ul></li><li><a href="../../langRef/containers/related-links-elements.html">Related links elements</a></li></ul></li><li><a href="../../langRef/containers/map-elements.html">Map elements</a></li><li><a href="../../langRef/containers/metadata-elements.html">Metadata elements</a></li><li><a href="../../langRef/containers/domain-elements.html">Domain elements</a></li><li><a href="../../langRef/containers/classification-elements.html">Classification elements</a></li><li><a href="../../langRef/containers/specialization-elements.html">Specialization elements</a></li><li><a href="../../langRef/containers/legacy-conversion-elements.html">Legacy conversion elements</a></li><li><a href="../../langRef/containers/ditaval-elements.html">DITAVAL elements</a></li><li><a href="../../langRef/containers/technical-content-elements.html">Technical content elements</a></li><li><a href="../../langRef/containers/learningTraining-elements.html">Learning and training elements</a></li><li><a href="../../langRef/attributes/attributes.html">Attributes</a></li></ul></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
+<h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;table&gt;</code></h1>
+
+
+<div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;table&gt;</code> element organizes arbitrarily complex relationships of
+    tabular information. This standard table markup allows column or row spanning and table captions
+    or descriptions. An optional title allowed inside the <code class="keyword markupname xmlelement">&lt;table&gt;</code> element
+    provides a caption to describe the table.</p>
+<section class="section" id="table__section-1"><p class="p">The DITA table is based on the OASIS Exchange Table Model, augmented with DITA attributes that
+        enable it for accessibility, specialization, conref, and other DITA processing. In addition,
+        the table includes a <code class="keyword markupname xmlelement">&lt;desc&gt;</code> element, which enables table description
+        that is parallel with figure description. See <a class="xref" href="simpletable.html" title="The simpletable element is used for tables that are regular in structure and do not need a caption. Choose the simpletable element when you want to show information in regular rows and columns. For example, multi-column tabular data such as phone directory listings or parts lists are good candidates for simpletable. Another good use of simpletable is for information that seems to beg for a three-part definition list; the keycol attribute can be used to indicate which column represents the &#34;key&#34; or term-like column of your structure.">simpletable</a> for a
+        simplified table model that can be specialized to represent more regular relationships of
+        data.</p>
+      <p class="p">In DITA tables, in place of the
+                                        <code class="keyword markupname xmlatt">@expanse</code> attribute used by other DITA
+                                elements, the <code class="keyword markupname xmlatt">@pgwide</code> attribute is used in order to
+                                conform to the OASIS Exchange Table Model. The
+                                        <code class="keyword markupname xmlatt">@pgwide</code> attribute has a similar semantic
+                                (1=page width; 0=resize to galley or column). </p><div class="note note note_note non-normative"><span class="note__title">Note:</span> The <code class="keyword markupname xmlatt">@scale</code> attribute represents a stylistic markup property that is currently
+        maintained in tables for legacy purposes. External stylesheets should enable less dependency
+        on this attribute. Use the <code class="keyword markupname xmlatt">@scale</code> attribute judiciously.</div></section>
+<section class="section" id="table__contains"><h2 class="title sectiontitle">Content models</h2><p class="p">See <span class="xref">appendix</span> for information about this element in OASIS document type shells.</p></section>
+<section class="section" id="table__inheritance"><h2 class="title sectiontitle">Inheritance</h2><p class="p">-
+topic/table </p></section>
+<div class="example non-normative" id="table__example"><h2 class="title sectiontitle">Example</h2>
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>DITA source</figcaption>
+        
+        <pre class="pre codeblock"><code>&lt;table&gt;
+&lt;tgroup cols="2"&gt;
+&lt;colspec colname="COLSPEC0" colwidth="121*"/&gt;
+&lt;colspec colname="COLSPEC1" colwidth="76*"/&gt;
+&lt;thead&gt;
+&lt;row&gt;
+&lt;entry colname="COLSPEC0" valign="top"&gt;Animal&lt;/entry&gt;
+&lt;entry colname="COLSPEC1" valign="top"&gt;Gestation&lt;/entry&gt;
+&lt;/row&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;row&gt;
+&lt;entry&gt;Elephant (African and Asian)&lt;/entry&gt;
+&lt;entry&gt;19-22 months&lt;/entry&gt;
+&lt;/row&gt;
+&lt;row&gt;
+&lt;entry&gt;Giraffe&lt;/entry&gt;
+&lt;entry&gt;15 months&lt;/entry&gt;
+&lt;/row&gt;
+&lt;row&gt;
+&lt;entry&gt;Rhinoceros&lt;/entry&gt;
+&lt;entry&gt;14-16 months&lt;/entry&gt;
+&lt;/row&gt;
+&lt;row&gt;
+&lt;entry&gt;Hippopotamus&lt;/entry&gt;
+&lt;entry&gt;7 1/2 months&lt;/entry&gt;
+&lt;/row&gt;
+&lt;/tbody&gt;
+&lt;/tgroup&gt;
+&lt;/table&gt;</code></pre>
+      </figure>
+      <p class="p">The formatted output might be displayed as follows:</p>
+      <table class="table"><caption></caption><colgroup><col style="width:61.42131979695431%"><col style="width:38.578680203045685%"></colgroup><thead class="thead">
+            <tr class="row">
+              <th class="entry valign-top" id="table__example__entry__1">Animal</th>
+              <th class="entry valign-top" id="table__example__entry__2">Gestation</th>
+            </tr>
+          </thead><tbody class="tbody">
+            <tr class="row">
+              <td class="entry" headers="table__example__entry__1">Elephant (African and Asian)</td>
+              <td class="entry" headers="table__example__entry__2">19-22 months</td>
+            </tr>
+            <tr class="row">
+              <td class="entry" headers="table__example__entry__1">Giraffe</td>
+              <td class="entry" headers="table__example__entry__2">15 months</td>
+            </tr>
+            <tr class="row">
+              <td class="entry" headers="table__example__entry__1">Rhinoceros</td>
+              <td class="entry" headers="table__example__entry__2">14-16 months</td>
+            </tr>
+            <tr class="row">
+              <td class="entry" headers="table__example__entry__1">Hippopotamus</td>
+              <td class="entry" headers="table__example__entry__2">7 1/2 months</td>
+            </tr>
+          </tbody></table>
+      <p class="p">In this example, the use of the <code class="keyword markupname xmlelement">&lt;thead&gt;</code> element for the header
+        allows processors or screen readers to identify a header relationship between any cell in
+        the table body and the matching header cell above that column.</p></div>
+    <div class="example non-normative" id="table__implied-accessibility"><h2 class="title sectiontitle">Example: Complex table with implied accessibility markup</h2>
+      
+      <p class="p">In the following example, the table uses <code class="keyword markupname xmlelement">&lt;thead&gt;</code> to identify header
+        rows and <code class="keyword markupname xmlatt">@rowheader</code> to identify a header column. This header relationship
+        can be used to automatically create renderings of the table in other formats, such as HTML,
+        that can be navigated using a screen reader or other assistive technology.</p>
+      <figure class="fig fignone" id="table__source-implied-accessibility"><figcaption><span class="fig--title-label">Figure 2. </span>DITA source</figcaption>
+        
+        <pre class="pre codeblock"><code>&lt;table frame="all" rowheader="firstcol"&gt;
+  &lt;title&gt;Sample of automated table accessibility&lt;/title&gt;
+&lt;desc&gt;Names are listed in the column c1. Points are listed in both data columns, with
+expected points in column c2 and actual points in column c3.&lt;/desc&gt;
+  &lt;tgroup cols="3"&gt;
+    &lt;colspec colname="c1"/&gt;
+    &lt;colspec colname="c2"/&gt;
+    &lt;colspec colname="c3"/&gt;
+    &lt;thead&gt;
+      &lt;row&gt;
+        &lt;entry morerows="1"&gt;Name&lt;/entry&gt;
+        &lt;entry namest="c2" nameend="c3"&gt;points&lt;/entry&gt;
+      &lt;/row&gt;
+      &lt;row&gt;
+        &lt;entry&gt;expected&lt;/entry&gt;
+        &lt;entry&gt;actual&lt;/entry&gt;
+      &lt;/row&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;row&gt;
+        &lt;entry&gt;Mark&lt;/entry&gt;
+        &lt;entry&gt;10,000&lt;/entry&gt;
+        &lt;entry&gt;11,123.45&lt;/entry&gt;
+      &lt;/row&gt;
+      &lt;row&gt;
+        &lt;entry&gt;Peter&lt;/entry&gt;
+        &lt;entry&gt;9,000&lt;/entry&gt;
+        &lt;entry&gt;11,012.34&lt;/entry&gt;
+      &lt;/row&gt;
+      &lt;row&gt;
+        &lt;entry&gt;Cindy&lt;/entry&gt;
+        &lt;entry&gt;10,000&lt;/entry&gt;
+        &lt;entry&gt;10,987.64&lt;/entry&gt;
+      &lt;/row&gt;
+     &lt;/tbody&gt;
+   &lt;/tgroup&gt;
+&lt;/table&gt;</code></pre>
+      </figure>
+      <div class="p">In this sample, navigation information for assistive technology is derived from two sources:<ul class="ul">
+          <li class="li">The <code class="keyword markupname xmlelement">&lt;thead&gt;</code> element contains two rows, and indicates that each
+              <code class="keyword markupname xmlelement">&lt;entry&gt;</code> in those rows is a header cell for that column. This
+            means that each body cell can be associated with the header cell or cells above the
+            column. For example, in the second body row, the entry "Peter" can be associated with
+            the header "Name"; similarly, the entry "9,000" can be associated with the headers
+            "expected" and "points".</li>
+          <li class="li">The <code class="keyword markupname xmlatt">@rowheader</code> attribute implies that the first column plays a similar
+            roll as a header. This means that each body cell in columns two and three can be
+            associated with the header cell in column one. For example, in the second body row, the
+            entry "9,000" can be associated with the header "Peter".</li>
+        </ul></div>
+      <p class="p">As a result of these two sets of headers, a rendering of the table can associate the entry
+        "9,000" with three headers: "Peter", "expected", and "points", making it fully navigable by
+        a screen reader or other assistive technology.</p>
+      <p class="p">The formatted output might be displayed as follows:</p>
+      <table class="table frame-all" id="table__table_eww_xxl_4n"><caption><span class="table--title-label">Table 1. </span><span class="title">Sample of automated table accessibility</span><span class="desc tabledesc">Names are listed in the column c1. Points are listed in both data columns, with
+          expected points in column c2 and actual points in column c3.</span></caption><colgroup><col><col><col></colgroup><thead class="thead">
+            <tr class="row">
+              <th class="entry" id="table__table_eww_xxl_4n__entry__1" rowspan="2">Name</th>
+              <th class="entry" id="table__table_eww_xxl_4n__entry__2" colspan="2">points</th>
+            </tr>
+            <tr class="row">
+              <th class="entry" id="table__table_eww_xxl_4n__entry__3">expected</th>
+              <th class="entry" id="table__table_eww_xxl_4n__entry__4">actual</th>
+            </tr>
+          </thead><tbody class="tbody">
+            <tr class="row">
+              <th scope="row" class="entry" id="table__table_eww_xxl_4n__entry__5" headers="table__table_eww_xxl_4n__entry__1">Mark</th>
+              <td class="entry" headers="table__table_eww_xxl_4n__entry__5 table__table_eww_xxl_4n__entry__2 table__table_eww_xxl_4n__entry__3">10,000</td>
+              <td class="entry" headers="table__table_eww_xxl_4n__entry__5 table__table_eww_xxl_4n__entry__2 table__table_eww_xxl_4n__entry__4">11,123.45</td>
+            </tr>
+            <tr class="row">
+              <th scope="row" class="entry" id="table__table_eww_xxl_4n__entry__8" headers="table__table_eww_xxl_4n__entry__1">Peter</th>
+              <td class="entry" headers="table__table_eww_xxl_4n__entry__8 table__table_eww_xxl_4n__entry__2 table__table_eww_xxl_4n__entry__3">9,000</td>
+              <td class="entry" headers="table__table_eww_xxl_4n__entry__8 table__table_eww_xxl_4n__entry__2 table__table_eww_xxl_4n__entry__4">11,012.34</td>
+            </tr>
+            <tr class="row">
+              <th scope="row" class="entry" id="table__table_eww_xxl_4n__entry__11" headers="table__table_eww_xxl_4n__entry__1">Cindy</th>
+              <td class="entry" headers="table__table_eww_xxl_4n__entry__11 table__table_eww_xxl_4n__entry__2 table__table_eww_xxl_4n__entry__3">10,000</td>
+              <td class="entry" headers="table__table_eww_xxl_4n__entry__11 table__table_eww_xxl_4n__entry__2 table__table_eww_xxl_4n__entry__4">10,987.64</td>
+            </tr>
+          </tbody></table>
+    </div>
+  <div class="example non-normative" id="table__accessibility-manual"><h2 class="title sectiontitle">Complex table with some manually specified accessibility markup</h2>
+      
+      <p class="p">In some complex tables, the <code class="keyword markupname xmlelement">&lt;thead&gt;</code> element and
+          <code class="keyword markupname xmlatt">@rowheader</code> attribute <span class="ph">might</span> not be enough to
+        support all accessibility needs. Assume that the table above is flipped so that the names
+        are listed across the top row, instead of in the first column, as follows:</p>
+      <table class="table frame-all" id="table__table_nzp_zzl_4n"><caption><span class="table--title-label">Table 2. </span><span class="title">Sample with two header columns</span></caption><colgroup><col style="width:20%"><col style="width:20%"><col style="width:20%"><col style="width:20%"><col style="width:20%"></colgroup><thead class="thead">
+            <tr class="row">
+              <th class="entry" id="table__table_nzp_zzl_4n__entry__1" colspan="2"> Name</th>
+              <th class="entry" id="table__table_nzp_zzl_4n__entry__2">Mark</th>
+              <th class="entry" id="table__table_nzp_zzl_4n__entry__3">Peter</th>
+              <th class="entry" id="table__table_nzp_zzl_4n__entry__4">Cindy</th>
+            </tr>
+          </thead><tbody class="tbody">
+            <tr class="row">
+              <td class="entry" headers="table__table_nzp_zzl_4n__entry__1" rowspan="2"><strong class="ph b">points</strong></td>
+              <td class="entry" headers="table__table_nzp_zzl_4n__entry__1"><strong class="ph b">expected</strong></td>
+              <td class="entry" headers="table__table_nzp_zzl_4n__entry__2">10,000</td>
+              <td class="entry" headers="table__table_nzp_zzl_4n__entry__3">9,000</td>
+              <td class="entry" headers="table__table_nzp_zzl_4n__entry__4">10,000</td>
+            </tr>
+            <tr class="row">
+              <td class="entry" headers="table__table_nzp_zzl_4n__entry__1"><strong class="ph b">actual</strong></td>
+              <td class="entry" headers="table__table_nzp_zzl_4n__entry__2">11,123.45</td>
+              <td class="entry" headers="table__table_nzp_zzl_4n__entry__3">11,012.34</td>
+              <td class="entry" headers="table__table_nzp_zzl_4n__entry__4">10,987.64</td>
+            </tr>
+          </tbody></table>
+      <p class="p">In this case the <code class="keyword markupname xmlatt">@rowheader</code> attribute cannot be used, because it is only
+        able to specify the first column as a header column. In this case, the
+          <code class="keyword markupname xmlatt">@scope</code> attribute can be used to indicate that entries in the first and
+        second columns function as headers for the entire row (or row group, in the case of a cell
+        that spans more than one row). The following code sample demonstrates the use of
+          <code class="keyword markupname xmlatt">@scope</code> to facilitate navigation of these rows by a screen reader or other
+        assistive technology; note that the <code class="keyword markupname xmlelement">&lt;thead&gt;</code> element is still used to
+        imply a header relationship with the names at the top of each column.</p>
+      <pre class="pre codeblock"><code>&lt;table frame="all"&gt;
+ &lt;title&gt;Sample with two header columns&lt;/title&gt;
+ &lt;tgroup cols="5"&gt;
+  &lt;colspec colname="c1"/&gt;
+  &lt;colspec colname="c2"/&gt;
+  &lt;colspec colname="c3"/&gt;
+  &lt;colspec colname="c4"/&gt;
+  &lt;colspec colname="c5"/&gt;
+  &lt;thead&gt;
+   &lt;row&gt;
+    &lt;entry namest="c1" nameend="c2"&gt;Name&lt;/entry&gt;
+    &lt;entry&gt;Mark&lt;/entry&gt;
+    &lt;entry&gt;Peter&lt;/entry&gt;
+    &lt;entry&gt;Cindy&lt;/entry&gt;
+   &lt;/row&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+   &lt;row&gt;
+    &lt;entry morerows="1" <strong class="ph b">scope="rowgroup"</strong>&gt;&lt;b&gt;points&lt;/b&gt;&lt;/entry&gt;
+    &lt;entry <strong class="ph b">scope="row"</strong>&gt;&lt;b&gt;expected&lt;/b&gt;&lt;/entry&gt;
+    &lt;entry&gt;10,000&lt;/entry&gt;
+    &lt;entry&gt;9,000&lt;/entry&gt;
+    &lt;entry&gt;10,000&lt;/entry&gt;
+   &lt;/row&gt;
+   &lt;row&gt;
+    &lt;entry <strong class="ph b">scope="row"</strong>&gt;&lt;b&gt;actual&lt;/b&gt;&lt;/entry&gt;
+    &lt;entry&gt;11,123.45&lt;/entry&gt;
+    &lt;entry&gt;11,012.34&lt;/entry&gt;
+    &lt;entry&gt;10,987.64&lt;/entry&gt;
+   &lt;/row&gt;
+  &lt;/tbody&gt;
+ &lt;/tgroup&gt;
+&lt;/table&gt;</code></pre>
+    </div>
+    <div class="example non-normative" id="table__complex-manual-accessibility"><h2 class="title sectiontitle">Example: complex table with manual accessibility markup</h2>
+      
+      <p class="p">In extremely complex tables, such as those with a single header cell in the middle of the
+        table, extremely fine grained accessibility controls are available to explicitly associate
+        any content cell with any header cell. This <span class="ph">might</span> also be
+        useful for cases where processors do not support the implied accessibility relationships
+        described above.</p>
+      <p class="p">In the following sample, header cells are identified using the <code class="keyword markupname xmlatt">@id</code>
+        attribute, which is referenced using the <code class="keyword markupname xmlatt">@headers</code> attribute on appropriate
+        content cells. This makes all header relationships in the table explicit. Note that this
+        sample ignores the <code class="keyword markupname xmlatt">@scope</code> attribute, which could be used to exercise manual
+        control without setting as many attribute values; it also ignores the fact that
+          <code class="keyword markupname xmlelement">&lt;thead&gt;</code> creates a header relationship even when the
+          <code class="keyword markupname xmlatt">@id</code> and <code class="keyword markupname xmlatt">@headers</code> attributes are not used.</p>
+      <figure class="fig fignone" id="table__fig_qt4_sbm_4n"><figcaption><span class="fig--title-label">Figure 3. </span>DITA source</figcaption>
+        
+        <pre class="pre codeblock"><code>&lt;table frame="all"&gt;
+  &lt;title&gt;Sample with fully manual accessibility control&lt;/title&gt;
+&lt;desc&gt;Names are listed in the column c1. Points are listed in both data columns, with
+expected points in column c2 and actual points in column c3.&lt;/desc&gt;
+  &lt;tgroup cols="3"&gt;
+    &lt;colspec colname="c1"/&gt;
+    &lt;colspec colname="c2"/&gt;
+    &lt;colspec colname="c3"/&gt;
+    &lt;thead&gt;
+      &lt;row&gt;
+        &lt;entry morerows="1"&gt; &lt;/entry&gt;
+        &lt;entry namest="c2" nameend="c3" <strong class="ph b">id="pts"</strong>&gt;points&lt;/entry&gt;
+      &lt;/row&gt;
+      &lt;row&gt;
+        &lt;entry <strong class="ph b">id="exp" headers="pts"</strong>&gt;expected&lt;/entry&gt;
+        &lt;entry <strong class="ph b">id="act" headers="pts"</strong>&gt;actual&lt;/entry&gt;
+      &lt;/row&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;row&gt;
+        &lt;entry <strong class="ph b">id="name1"</strong>&gt;Mark&lt;/entry&gt;
+        &lt;entry <strong class="ph b">headers="name1 exp pts"</strong>&gt;10,000&lt;/entry&gt;
+        &lt;entry <strong class="ph b">headers="name1 act pts"</strong>&gt;11,123.45&lt;/entry&gt;
+      &lt;/row&gt;
+      &lt;row&gt;
+        &lt;entry <strong class="ph b">id="name2"</strong>&gt;Peter&lt;/entry&gt;
+        &lt;entry <strong class="ph b">headers="name2 exp pts"</strong>&gt;9,000&lt;/entry&gt;
+        &lt;entry <strong class="ph b">headers="name2 act pts"</strong>&gt;11,012.34&lt;/entry&gt;
+      &lt;/row&gt;
+      &lt;row&gt;
+        &lt;entry <strong class="ph b">id="name3"</strong>&gt;Cindy&lt;/entry&gt;
+        &lt;entry <strong class="ph b">headers="name3 exp pts"</strong>&gt;10,000&lt;/entry&gt;
+        &lt;entry <strong class="ph b">headers="name3 act pts"</strong>&gt;10,987.64&lt;/entry&gt;
+      &lt;/row&gt;
+     &lt;/tbody&gt;
+   &lt;/tgroup&gt;
+&lt;/table&gt;</code></pre>
+      </figure>
+      <p class="p">The formatted output might be displayed as follows:</p>
+      <table class="table" id="table__table_yrp_sbm_4n"><caption><span class="table--title-label">Table 3. </span><span class="title">Sample with fully manual accessibility control</span><span class="desc tabledesc">Names are listed in the column c1. Points are listed in both data columns, with
+          expected points in column c2 and actual points in column c3.</span></caption><colgroup><col><col><col></colgroup><thead class="thead">
+            <tr class="row">
+              <th class="entry" id="table__table_yrp_sbm_4n__entry__1" rowspan="2"> </th>
+              <th class="entry" id="table__table_yrp_sbm_4n__entry__2" colspan="2">points</th>
+            </tr>
+            <tr class="row">
+              <th class="entry" id="table__table_yrp_sbm_4n__entry__3">expected</th>
+              <th class="entry" id="table__table_yrp_sbm_4n__entry__4">actual</th>
+            </tr>
+          </thead><tbody class="tbody">
+            <tr class="row">
+              <td class="entry" headers="table__table_yrp_sbm_4n__entry__1">Mark</td>
+              <td class="entry" headers="table__table_yrp_sbm_4n__entry__2 table__table_yrp_sbm_4n__entry__3">10,000</td>
+              <td class="entry" headers="table__table_yrp_sbm_4n__entry__2 table__table_yrp_sbm_4n__entry__4">11,123.45</td>
+            </tr>
+            <tr class="row">
+              <td class="entry" headers="table__table_yrp_sbm_4n__entry__1">Peter</td>
+              <td class="entry" headers="table__table_yrp_sbm_4n__entry__2 table__table_yrp_sbm_4n__entry__3">9,000</td>
+              <td class="entry" headers="table__table_yrp_sbm_4n__entry__2 table__table_yrp_sbm_4n__entry__4">11,012.34</td>
+            </tr>
+            <tr class="row">
+              <td class="entry" headers="table__table_yrp_sbm_4n__entry__1">Cindy</td>
+              <td class="entry" headers="table__table_yrp_sbm_4n__entry__2 table__table_yrp_sbm_4n__entry__3">10,000</td>
+              <td class="entry" headers="table__table_yrp_sbm_4n__entry__2 table__table_yrp_sbm_4n__entry__4">10,987.64</td>
+            </tr>
+          </tbody></table>
+    </div>
+<section class="section" id="table__attributes"><h2 class="title sectiontitle">Attributes</h2>
+      <p class="p">The following attributes are available on this element: <a class="xref" href="../attributes/universalAttributes.html" title="The universal attribute group defines a set of common attributes available on most DITA elements. The universal attribute group includes all attributes from the metadata, ID, localization, and debug attribute groups, plus the class attribute.">Universal attribute group</a>, <a class="xref" href="../attributes/commonAttributes.html#common-atts__outputclass">outputclass</a>, <code style="color:red;" class="keyword markupname xmlatt">@►frame◄</code> and <code class="keyword markupname xmlatt">@scale</code> from <a class="xref" href="../attributes/displayAttributes.html" title="The display attribute group includes attributes whose values can be used for affecting the display of many elements.">Display attribute group</a>, and the attributes defined below. This
+        element also uses <code class="keyword markupname xmlatt">@colsep</code>, <code class="keyword markupname xmlatt">@rowsep</code>, and
+          <code class="keyword markupname xmlatt">@rowheader</code> from <a class="xref" href="../attributes/calsTableAttributes.html" title="The Complex-table attribute group includes several attributes that are defined on complex table elements. Most of these attributes are part of the OASIS Exchange model; table elements generally use only a subset of the attributes defined in this group. These attributes are not available for the simpletable elements.">Complex-table attribute group</a>.</p>
+      <dl class="dl">
+        
+          <dt class="dt dlterm" id="table__orient"><code class="keyword markupname xmlatt">@orient</code></dt>
+          <dd class="dd">Specifies the orientation of the table in page-based outputs. <span class="ph">This attribute is
+              primarily useful for print-oriented display.</span> Allowable values are:<dl class="dl">
+              
+                <dt class="dt dlterm">port</dt>
+                <dd class="dd">The same orientation as the text flow.</dd>
+              
+              
+                <dt class="dt dlterm">land</dt>
+                <dd class="dd">90 degrees counterclockwise from the text flow.</dd>
+              
+              
+                                        <dt class="dt dlterm">-dita-use-conref-target </dt>
+                                        <dd class="dd">See <a class="xref" href="../../common/../langRef/attributes/ditauseconreftarget.html" title="The value -dita-use-conref-target is available on enumerated attributes and can also be specified on other attributes. When an element uses conref to pull in content, for any of its attributes assigned a value of &#34;-dita-use-conref-target&#34;, the resulting value for those attributes is also pulled in from the referenced element.">Using the -dita-use-conref-target value</a> for more information. </dd>
+                                
+            </dl><p class="p">In situations where a stylesheet or other formatting mechanism specifies table
+              orientation based on other criteria, or for non-paginated outputs, the
+                <code class="keyword markupname xmlatt">@orient</code> attribute can be ignored.</p></dd>
+        
+        
+          <dt class="dt dlterm"><code class="keyword markupname xmlatt">@pgwide</code></dt>
+          <dd class="dd">Determines the horizontal placement of the element. Supported values are 1 and 0,
+            although these are not mandated by the DTD, Schema, or RNG.<p class="p">For print-oriented
+              display, the value "1" places the element on the left page margin;
+              "0" aligns the element with the left margin of the current text line and
+              takes indention into account. </p></dd>
+        
+      </dl></section>
+</div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/table-elements.html" title="DITA topics support two types of tables. The table element uses the OASIS Exchange Table Model (formerly known as the CALS table model). The OASIS table supports the spanning of multiple rows or columns for special layout or organizational needs, and provides a wide variety of controls over the display properties of the data and even the table structure itself.">Table elements</a></div></div></nav></article></main>

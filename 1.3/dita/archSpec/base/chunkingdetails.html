@@ -1,0 +1,150 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Using the chunk attribute'
+description: 'The specification defines tokens for the chunk attribute that cover the most common chunking scenarios. These tokens can be used to override whatever default chunking behavior is set by a processor. Chunking is necessarily format specific, with chunked output required for some and not supported for other rendered formats. Chunking is also implementation specific with some implementations supporting some, but not all, chunking methods, or adding new methods to the standard ones described in this specification.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '1ef1836fa5adc371402b2e9d6b31fef551ef88ff'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a><ul class="nav nav-list"><li><a href="../../archSpec/base/introduction-to-dita.html">Introduction to DITA</a></li><li><a href="../../archSpec/base/ditamarkup.html">DITA markup </a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a><ul class="nav nav-list"><li><a href="../../archSpec/base/navigation.html">Navigation</a></li><li><a href="../../archSpec/base/conref.html">Content reference (conref)</a></li><li><a href="../../archSpec/base/condproc.html">Conditional processing (profiling)</a></li><li><a href="../../archSpec/base/branch-filtering.html">Branch filtering</a></li><li><a href="../../archSpec/base/chunking.html">Chunking</a><ul class="nav nav-list"><li class="active"><a href="../../archSpec/base/chunkingdetails.html">Using the chunk attribute</a></li><li><a href="../../archSpec/base/chunkingexamples.html">Chunking examples</a></li></ul></li><li><a href="../../archSpec/base/translation.html">Translation and localization</a></li><li><a href="../../archSpec/base/module-compatibility.html">Processing documents with different values of the domains attribute</a></li><li><a href="../../archSpec/base/sort-as-processing.html">Sorting</a></li></ul></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration, specialization, generalization, and constraints </a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../archSpec/technicalContent/technical-content-specializations.html">Technical content specializations</a></li><li><a href="../../archSpec/learningTraining/learning-and-training-specializations.html">Learning and training specializations</a></li></ul></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
+   <h1 class="title topictitle1" id="ariaid-title1">Using the <code class="keyword markupname xmlatt">@chunk</code> attribute</h1>
+   
+   <div class="body conbody"><p class="shortdesc">The specification defines tokens for the <code class="keyword markupname xmlatt">@chunk</code> attribute that cover
+      the most common chunking scenarios. These tokens <span class="ph">can</span> be used to
+      override whatever default chunking behavior is set by a processor. Chunking is necessarily
+      format specific, with chunked output required for some and not supported for other rendered
+      formats. Chunking is also implementation specific with some implementations supporting some,
+      but not all, chunking methods, or adding new methods to the standard ones described in this
+      specification. </p>
+      <section class="section" id="chunkingdetails__section1"><p class="p">The value of the <code class="keyword markupname xmlatt">@chunk</code> attribute consists of one or
+            more space delimited tokens. Tokens are defined in three categories: for selecting
+            topics, for setting chunking policies, and for defining how the chunk values impact
+            rendering. <span class="error-statement" id="chunkingdetails__d4464t24" data-id="DITAERR-0060"></span>It is an error to use two tokens from the same category on a single
+               <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element.</p><dl class="dl">
+            
+               <dt class="dt dlterm" id="chunkingdetails__chunking-select-topic">Selecting topics</dt>
+               <dd class="dd">When addressing a document that contains multiple topics, these values determine
+                  which topics are selected. These values are ignored when the element on which they
+                  are specified does not reference a topic. The defined values are:<ul class="ul" id="chunkingdetails__ul_a54387c0-37ce-4321-9214-89228cacbf2e">
+                     <li class="li"><strong class="ph b"><code class="ph codeph">select-topic</code></strong>: Selects an individual topic without
+                        any ancestors, descendents, or peers from within the same document.</li>
+                     <li class="li"><strong class="ph b"><code class="ph codeph">select-document</code></strong>: Selects all topics in the target
+                        document.</li>
+                     <li class="li"><strong class="ph b"><code class="ph codeph">select-branch</code></strong>: Selects the target topic together
+                        with its descendent topics.</li>
+                  </ul></dd>
+            
+            
+               <dt class="dt dlterm" id="chunkingdetails__chunking-policy">Policies for splitting or combining documents</dt>
+               <dd class="dd">The chunking policy tokens determine how source topics are chunked to produce
+                  different output chunks, for output formats where that makes sense. When specified
+                  on a <code class="keyword markupname xmlelement">&lt;map&gt;</code> element, the policy becomes the default policy
+                  for all topic references. When specified on a topic reference, the policy applies
+                  only to that <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> and not to any descendant
+                     <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements.<ul class="ul" id="chunkingdetails__ul_32c4e9a4-a3ed-4338-9ffb-d3a2d52fa563">
+                     <li class="li"><strong class="ph b"><code class="ph codeph">by-topic</code></strong>: A separate output chunk is produced for
+                        each of the selected topics. In particular, topics that are part of
+                        multi-topic documents are processed as though they are the root topics
+                        within a separate XML document.</li>
+                     <li class="li"><strong class="ph b"><code class="ph codeph">by-document</code></strong>: A single output chunk is produced for
+                        the referenced topic or topics, as though the selected topics were all
+                        children of the same document.</li>
+                  </ul></dd>
+            
+            
+               <dt class="dt dlterm" id="chunkingdetails__chunking-rendering">Rendering the selection</dt>
+               <dd class="dd">The following tokens affect how the chunk values impact rendering of the map or
+                     topics.<ul class="ul" id="chunkingdetails__ul_5fc069d4-ac12-4ab1-9d55-bedca81b8daf">
+                     <li class="li"><strong class="ph b"><code class="ph codeph">to-content</code></strong>: The selection should be rendered as a
+                        new chunk of content. <ul class="ul" id="chunkingdetails__ul_9308eb24-c3e3-4add-9f54-5f0aefd08b6e">
+                           <li class="li">When specified on a <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>, this means
+                              that the topics selected by this <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> and
+                              its children will be rendered as a single chunk of content.</li>
+                           <li class="li">When specified on the <code class="keyword markupname xmlelement">&lt;map&gt;</code> element, this
+                              indicates that the contents of all topics referenced by the map are to
+                              be rendered as a single document.</li>
+                           <li class="li">When specified on a <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> that contains a
+                              title but no target, this indicates that processors <dfn class="term RFC-2119">MUST</dfn> generate a title-only topic in
+                              the rendered result, along with any topics referenced by child
+                                 <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements of this
+                                 <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>. The rendition address of the
+                              generated topic is determined as defined for the
+                                 <code class="keyword markupname xmlatt">@copy-to</code> attribute. If the <code class="keyword markupname xmlatt">@copy-to</code>
+                              attribute is not specified and the <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>
+                              has no <code class="keyword markupname xmlatt">@id</code> attribute, the address of the generated
+                              topic is not required to be predictable or consistent across rendition
+                              instances.</li>
+                        </ul><p class="p">For cross references to <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements,
+                           if the value of the <code class="keyword markupname xmlatt">@chunk</code> attribute is "to-content" or
+                           is unspecified, the cross reference is treated as a reference to the
+                           target topic. If the reference is to a <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>
+                           with no target, it is treated as a reference to the generated title-only
+                           topic.</p></li>
+                     <li class="li"><strong class="ph b"><code class="ph codeph">to-navigation</code>
+                           <span class="ph">(DEPRECATED)</span></strong>: The "to-navigation" token is deprecated in DITA 1.3. In earlier
+                        releases, the "to-navigation" token indicates that a new chunk of navigation
+                        should be used to render the current selection (such as an individual Table
+                        of Contents or related links). When specified on the
+                           <code class="keyword markupname xmlelement">&lt;map&gt;</code> element, this token indicates that the map
+                        should be presented as a single navigation chunk. If a cross reference is
+                        made to a <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> that has a title but no target,
+                        and the <code class="keyword markupname xmlatt">@chunk</code> value of that
+                           <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> is set to "to-navigation", the
+                        resulting cross reference is treated as a reference to the rendered
+                        navigation document (such as an entry in the table of contents).</li>
+                  </ul></dd>
+            
+         </dl><p class="p">Some tokens or combinations of tokens might not be appropriate for all output
+            types. <span class="error-statement" id="chunkingdetails__d4464t186" data-id="DITAERR-0070"></span>When unsupported or conflicting tokens are encountered during output processing,
+            processors <dfn class="term RFC-2119">SHOULD</dfn> produce warning or error messages.
+            Recovery from such conflicts or other errors is implementation dependent. </p><p class="p">There
+            is no default value for the <code class="keyword markupname xmlatt">@chunk</code> attribute on most elements and the
+               <code class="keyword markupname xmlatt">@chunk</code> attribute does not cascade from container elements, meaning
+            that the <code class="keyword markupname xmlatt">@chunk</code> value on one <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> is not
+            passed to its children. A default by-xxx policy for an entire map <span class="ph">can</span> be established by setting the <code class="keyword markupname xmlatt">@chunk</code>
+            attribute on the <code class="keyword markupname xmlelement">&lt;map&gt;</code> element, which will apply to any
+               <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> that does not specify its own by-xxx
+            policy.</p><p class="p">When no <code class="keyword markupname xmlatt">@chunk</code> attribute values are specified or
+            defaulted, chunking behavior is implementation dependent. When variations of this sort
+            are not desired, a default for a specific map can be established by including a
+               <code class="keyword markupname xmlatt">@chunk</code> attribute value on the <code class="keyword markupname xmlelement">&lt;map&gt;</code> element.
+            </p><div class="sectiondiv" id="chunkingdetails__chunk-resource-naming">
+            <p class="p">When chunk processing results in new documents, the resource name or identifier for
+               the new document (if relevant) is determined as follows:</p>
+            <ol class="ol" id="chunkingdetails__chunk-resource-naming-steps">
+               <li class="li">If an entire map is used to generate a single chunk (by placing to-content on the
+                     <code class="keyword markupname xmlelement">&lt;map&gt;</code> element), the resource name <dfn class="term RFC-2119">SHOULD</dfn> be taken from the resource name of the
+                  map.</li>
+               <li class="li">If the <code class="keyword markupname xmlatt">@copy-to</code> attribute is specified, the resource name <dfn class="term RFC-2119">MUST</dfn> taken from the <code class="keyword markupname xmlatt">@copy-to</code>
+                  attribute.</li>
+               <li class="li">If the <code class="keyword markupname xmlatt">@copy-to</code> attribute is not specified and one or more keys
+                  are specified on the <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>, the resource name <dfn class="term RFC-2119">SHOULD</dfn> be constructed using one of the keys.</li>
+               <li class="li">If <code class="keyword markupname xmlatt">@copy-to</code> and <code class="keyword markupname xmlatt">@keys</code> are not specified and the
+                  by-topic policy is in effect, the resource name <dfn class="term RFC-2119">SHOULD</dfn> be taken from the <code class="keyword markupname xmlatt">@id</code> attribute of the
+                  topic.</li>
+               <li class="li">If <code class="keyword markupname xmlatt">@copy-to</code> and <code class="keyword markupname xmlatt">@keys</code> are not specified and the
+                  by-document policy is in effect, the resource name <dfn class="term RFC-2119">SHOULD</dfn> be taken from the resource name of the referenced document.</li>
+            </ol>
+            <p class="p">When following these steps results in resource name clashes, processors <dfn class="term RFC-2119">MAY</dfn> recover by generating alternate resource
+               identifiers. For example, when two chunked topics use the same <code class="keyword markupname xmlatt">@id</code>
+               attribute, a processor could recover by combining the original resource name with the
+                  <code class="keyword markupname xmlatt">@id</code> value instead of using only the <code class="keyword markupname xmlatt">@id</code> value.</p>
+         </div></section>
+      <section class="section" id="chunkingdetails__implementation-tokens"><h2 class="title sectiontitle">Implementation-specific tokens and future considerations </h2>
+         
+         <p class="p">Implementers <dfn class="term RFC-2119">MAY</dfn> define
+                                their own custom, implementation-specific tokens. To avoid name
+                                conflicts between implementations or with future additions to the
+                                standard, implementation-specific tokens <dfn class="term RFC-2119">SHOULD</dfn>
+                                consist of a prefix that gives the name or an abbreviation for the
+                                implementation followed by a colon followed by the token or method
+                                name.</p>
+         <p class="p">For example: <q class="q">acme:level2</q> could be a token for the Acme DITA Toolkit that requests the
+            <q class="q">level2</q> chunking method.</p>
+      </section>
+   </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/chunking.html" title="Content can be chunked (divided or merged into new output documents) in different ways for the purposes of delivering content and navigation. For example, content best authored as a set of separate topics might need to be delivered as a single Web page. A map author can use the chunk attribute to split up multi-topic documents into component topics or to combine multiple topics into a single document as part of output processing.">Chunking</a></div></div></nav></article></main>

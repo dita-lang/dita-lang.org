@@ -1,0 +1,77 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Example: Extending a subject scheme'
+description: 'You can extend a subject scheme by creating another subject scheme map and referencing the original map using a schemeref element. This enables information architects to add new relationships to existing subjects and extend enumerations of controlled values.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '1ef1836fa5adc371402b2e9d6b31fef551ef88ff'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a><ul class="nav nav-list"><li><a href="../../archSpec/base/introduction-to-dita.html">Introduction to DITA</a></li><li><a href="../../archSpec/base/ditamarkup.html">DITA markup </a><ul class="nav nav-list"><li><a href="../../archSpec/base/topicover.html">DITA topics</a></li><li><a href="../../archSpec/base/ditamaps.html">DITA maps</a></li><li><a href="../../archSpec/base/subject-scheme-maps-and-usage.html">Subject scheme maps and their usage</a><ul class="nav nav-list"><li><a href="../../archSpec/base/subjectSchema.html">Subject scheme maps</a></li><li><a href="../../archSpec/base/controlled-values-for-attributes.html">Defining controlled values for attributes</a></li><li><a href="../../archSpec/base/binding-controlled-values-to-attribute.html">Binding controlled values to an attribute</a></li><li><a href="../../archSpec/base/processing-controlled-attribute-values.html">Processing controlled attribute values</a></li><li><a href="../../archSpec/base/extending-a-subject-scheme.html">Extending subject schemes</a></li><li><a href="../../archSpec/base/scaling-controlled-values-to-define-a-taxonomy.html">Scaling a list of controlled values to define a taxonomy</a></li><li><a href="../../archSpec/base/classification-maps.html">Classification maps</a></li><li><a href="../../archSpec/base/examples-subjectScheme-maps.html">Examples of subject scheme maps</a><ul class="nav nav-list"><li><a href="../../archSpec/base/example-subjectScheme-filtering.html">Example: How hierarchies defined in a subject scheme map affect filtering</a></li><li class="active"><a href="../../archSpec/base/example-subjectScheme-extension.html">Example: Extending a subject scheme</a></li><li><a href="../../archSpec/base/example-subjectScheme-extension-upwards.dita.html">Example: Extending a subject scheme upwards</a></li><li><a href="../../archSpec/base/example-subjectScheme-values-for-deliveryTarget.html">Example: Defining values for deliveryTarget</a></li></ul></li></ul></li><li><a href="../../archSpec/base/dita-metadata.html">DITA metadata</a></li></ul></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration, specialization, generalization, and constraints </a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../archSpec/technicalContent/technical-content-specializations.html">Technical content specializations</a></li><li><a href="../../archSpec/learningTraining/learning-and-training-specializations.html">Learning and training specializations</a></li></ul></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9 non-normative"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Example: Extending a subject scheme</h1>
+  
+  
+  <div class="body conbody"><p class="shortdesc">You can extend a subject scheme by creating another subject scheme map and referencing
+    the original map using a <code class="keyword markupname xmlelement">&lt;schemeref&gt;</code> element. This enables information
+    architects to add new relationships to existing subjects and extend enumerations of controlled
+    values.</p>
+    <div class="example non-normative" id="concept_mgb_f5n_wp__example"><h2 class="title sectiontitle">Example</h2>
+      <p class="p">A company uses a common subject scheme map (<span class="ph filepath">baseOS.ditamap</span>) to set the
+        values for the <code class="keyword markupname xmlatt">@platform</code> attribute.</p>
+      <pre class="pre codeblock"><code>&lt;subjectScheme&gt;
+  &lt;subjectdef keys="os" navtitle="Operating system"&gt;
+    &lt;subjectdef keys="linux" navtitle="Linux"&gt;
+      &lt;subjectdef keys="redhat" navtitle="RedHat Linux"/&gt;
+      &lt;subjectdef keys="suse" navtitle="SuSE Linux"/&gt;
+    &lt;/subjectdef&gt;
+    &lt;subjectdef keys="windows" navtitle="Windows"/&gt;
+    &lt;subjectdef keys="zos" navtitle="z/OS"/&gt;
+  &lt;/subjectdef&gt;
+  &lt;enumerationdef&gt;
+    &lt;attributedef name="platform"/&gt;
+    &lt;subjectdef keyref="os"/&gt;
+  &lt;/enumerationdef&gt;
+&lt;/subjectScheme&gt;</code></pre>
+      <p class="p">The following subject scheme map extends the enumeration defined in
+          <span class="ph filepath">baseOS.ditamap</span>. It adds "macos" as a child of the existing "os"
+        subject; it also adds special versions of Windows as children of the existing "windows"
+        subject:</p>
+      <pre class="pre codeblock"><code>&lt;subjectScheme&gt;
+  &lt;schemeref href="baseOS.ditamap"/&gt;
+  &lt;subjectdef keyref="os"&gt;
+    &lt;subjectdef keys="macos" navtitle="Macintosh"/&gt;
+    &lt;subjectdef keyref="windows"&gt;
+      &lt;subjectdef keys="winxp" navtitle="Windows XP"/&gt;
+      &lt;subjectdef keys="winvis" navtitle="Windows Vista"/&gt;
+    &lt;/subjectdef&gt;
+  &lt;/subjectdef&gt;
+&lt;/subjectScheme&gt;</code></pre>
+      <p class="p">Note that the references to the subjects that are defined in
+          <span class="ph filepath">baseOS.ditamap</span> use the <code class="keyword markupname xmlatt">@keyref</code> attribute. This avoids
+        duplicate definitions of the keys and ensures that the new subjects are added to the base
+        enumeration. </p>
+      <p class="p">The effective result is the same as the following subject scheme map:</p>
+      <pre class="pre codeblock"><code>&lt;subjectScheme&gt;
+  &lt;subjectdef keys="os" navtitle="Operating system"&gt;
+    &lt;subjectdef keys="linux" navtitle="Linux"&gt;
+      &lt;subjectdef keys="redhat" navtitle="RedHat Linux"/&gt;
+      &lt;subjectdef keys="suse" navtitle="SuSE Linux"/&gt;
+    &lt;/subjectdef&gt;
+    &lt;subjectdef keys="macos" navtitle="Macintosh"/&gt;
+    &lt;subjectdef keys="windows" navtitle="Windows"&gt;
+      &lt;subjectdef keys="winxp" navtitle="Windows XP"/&gt;
+      &lt;subjectdef keys="<span style="color:red;" class="ph">►winvis◄</span>" navtitle="Windows Vista"/&gt;
+    &lt;/subjectdef&gt;
+    &lt;subjectdef keys="zos" navtitle="z/OS"/&gt;
+  &lt;/subjectdef&gt;
+  &lt;enumerationdef&gt;
+    &lt;attributedef name="platform"/&gt;
+    &lt;subjectdef keyref="os"/&gt;
+  &lt;/enumerationdef&gt;
+&lt;/subjectScheme&gt;</code></pre>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/examples-subjectScheme-maps.html" title="This section contains examples and scenarios that illustrate the use of subject scheme maps.">Examples of subject scheme maps</a></div></div></nav></article></main>

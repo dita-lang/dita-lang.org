@@ -1,0 +1,146 @@
+---
+# Generated from DITA source
+layout: base
+title: 'data'
+description: 'The data element represents a property within a DITA topic or map. While the data element can be used directly to capture properties, it is particularly useful as a basis for specialization. Default processing should treat the content as an unknown kind of metadata and ignore it for rendering, but custom processing might match the name attribute or specialized element and use the element for automated manipulation or to format data associated with the body flow. For example, a specialized data element might be used to format properties as sidebars or other adornments or to harvest properties for automated processing.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '1ef1836fa5adc371402b2e9d6b31fef551ef88ff'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a><ul class="nav nav-list"><li><a href="../../langRef/containers/element-quick-reference.html">Element quick reference</a></li><li><a href="../../langRef/containers/topic-elements.html">Topic elements</a></li><li><a href="../../langRef/containers/map-elements.html">Map elements</a></li><li><a href="../../langRef/containers/metadata-elements.html">Metadata elements</a></li><li><a href="../../langRef/containers/domain-elements.html">Domain elements</a></li><li><a href="../../langRef/containers/classification-elements.html">Classification elements</a></li><li><a href="../../langRef/containers/specialization-elements.html">Specialization elements</a><ul class="nav nav-list"><li><a href="../../langRef/base/boolean.html">boolean</a></li><li class="active"><a href="../../langRef/base/data.html">data</a></li><li><a href="../../langRef/base/data-about.html">data-about</a></li><li><a href="../../langRef/base/foreign.html">foreign</a></li><li><a href="../../langRef/base/index-base.html">index-base</a></li><li><a href="../../langRef/base/itemgroup.html">itemgroup</a></li><li><a href="../../langRef/base/no-topic-nesting.html">no-topic-nesting</a></li><li><a href="../../langRef/base/state.html">state</a></li><li><a href="../../langRef/base/unknown.html">unknown</a></li></ul></li><li><a href="../../langRef/containers/legacy-conversion-elements.html">Legacy conversion elements</a></li><li><a href="../../langRef/containers/ditaval-elements.html">DITAVAL elements</a></li><li><a href="../../langRef/containers/technical-content-elements.html">Technical content elements</a></li><li><a href="../../langRef/containers/learningTraining-elements.html">Learning and training elements</a></li><li><a href="../../langRef/attributes/attributes.html">Attributes</a></li></ul></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
+<h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;data&gt;</code></h1>
+
+
+<div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;data&gt;</code> element represents a property within a DITA topic or
+    map. While the <code class="keyword markupname xmlelement">&lt;data&gt;</code> element can be used directly to capture properties,
+    it is particularly useful as a basis for specialization. Default processing should treat the
+    content as an unknown kind of metadata and ignore it for rendering, but custom processing <span class="ph">might</span> match the <code class="keyword markupname xmlatt">@name</code> attribute or specialized
+    element and use the element for automated manipulation or to format data associated with the
+    body flow. For example, a specialized <code class="keyword markupname xmlelement">&lt;data&gt;</code> element <span class="ph">might</span> be used to format properties as sidebars or other adornments
+    or to harvest properties for automated processing.</p>
+<section class="section" id="data__section-1"> <p class="p">The subject of the property is ordinarily the container of the <code class="keyword markupname xmlelement">&lt;data&gt;</code>
+        element. In the content model for the <code class="keyword markupname xmlelement">&lt;prolog&gt;</code> and
+          <code class="keyword markupname xmlelement">&lt;metadata&gt;</code> elements, the property applies to the topic as a whole.
+        In the <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> element, the property applies to the referenced
+        topic. The <code class="keyword markupname xmlelement">&lt;data-about&gt;</code> element <span class="ph">can</span> be
+        used to identify the subject of the property with an explicit reference.</p><p class="p">The <code class="keyword markupname xmlatt">@name</code> attribute names the property for processes. A
+          <code class="keyword markupname xmlelement">&lt;title&gt;</code> subelement <span class="ph">can</span> provide a
+        label for the property. The <code class="keyword markupname xmlatt">@datatype</code> attribute <span class="ph">can</span> be used to identify the type for the value. The value of the property can be any
+        of the following:</p><ul class="ul">
+<li class="li">A simple text value expressed with the <code class="keyword markupname xmlatt">@value</code> attribute or textual content.</li>
+<li class="li">A reference to either DITA content or a non-DITA resource expressed with the
+            <code class="keyword markupname xmlatt">@href</code> attribute.</li>
+<li class="li">An image or other non-textual object. </li>
+<li class="li">A brief unit of descriptive text that is not part of the body
+text flow.</li>
+<li class="li">A complex structure composed of nested <code class="keyword markupname xmlelement">&lt;data&gt;</code> elements.</li>
+</ul><div class="note caution note_caution non-normative"><span class="note__title">CAUTION:</span> Processors should ignore the content of the <code class="keyword markupname xmlelement">&lt;data&gt;</code>
+        element by default, so the <code class="keyword markupname xmlelement">&lt;data&gt;</code> element should only be used for
+        properties and not to embed text for formatting as part of the flow of the topic body. It
+        might be tempting to specialize the <code class="keyword markupname xmlelement">&lt;data&gt;</code> element for text that is
+        part of the body flow, so as to escape the restrictions of the base content models. This
+        abuse of the DITA architecture will cause problems. For example, if a particular kind of
+        paragraph is specialized from <code class="keyword markupname xmlelement">&lt;data&gt;</code> rather than from
+          <code class="keyword markupname xmlelement">&lt;p&gt;</code>, then when the content is exchanged with others that do not
+        recognize the specialized element, their processors will skip the content.</div><p class="p">The <code class="keyword markupname xmlelement">&lt;data&gt;</code> element <span class="ph">can</span> be nested to create
+        structures for complex properties. The <code class="keyword markupname xmlatt">@name</code> attribute <span class="ph">might be used to</span> distinguish different semantics associated
+        with different instances of the <code class="keyword markupname xmlelement">&lt;data&gt;</code> element such as addresses,
+        times, amounts, and so on. In many cases, however, it is preferable to specialize the
+          <code class="keyword markupname xmlelement">&lt;data&gt;</code> element for more precise semantics, structures, and values.
+        For instance, a specialization can specify an enumeration for the <code class="keyword markupname xmlatt">@value</code>
+        attribute. </p><p class="p">A <code class="keyword markupname xmlelement">&lt;data&gt;</code> element containing properties of a topic as a whole should be
+        located in the topic's <code class="keyword markupname xmlelement">&lt;prolog&gt;</code> or
+          <code class="keyword markupname xmlelement">&lt;metadata&gt;</code> element, or in a <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code>
+        element related to a <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> that references the topic. The
+          <code class="keyword markupname xmlelement">&lt;data&gt;</code> element generally goes at the beginning of the element to
+        which the properties in it refer. Where this is unwieldy, the <code class="keyword markupname xmlelement">&lt;data&gt;</code>
+        element can go in the <code class="keyword markupname xmlelement">&lt;prolog&gt;</code>, with the
+          <code class="keyword markupname xmlelement">&lt;data-about&gt;</code> element identifying which specific element in the
+        topic is the reference.</p> </section>
+<section class="section" id="data__contains"><h2 class="title sectiontitle">Content models</h2><p class="p">See <span class="xref">appendix</span> for information about this element in OASIS document type shells.</p></section>
+<section class="section" id="data__inheritance"><h2 class="title sectiontitle">Inheritance</h2> <p class="p">-
+topic/data </p> </section>
+<div class="example non-normative" id="data__example"><h2 class="title sectiontitle">Example</h2><p class="p">Uses of the <code class="keyword markupname xmlelement">&lt;data&gt;</code> element <span class="ph">can</span> include the
+        following:</p><ul class="ul">
+<li class="li">Complex metadata properties such as bibliographic records corresponding
+to citations.</li>
+<li class="li">Hybrid documents with data values as part of the content, such
+as word processor formats using form fields.</li>
+<li class="li">Messages in which the payload includes human-readable content. Such applications can use the
+            <code class="keyword markupname xmlelement">&lt;data&gt;</code> element to define the addressing on the message envelope.
+          For instance, a topic could model an email message by representing the address with
+          specialized <code class="keyword markupname xmlelement">&lt;data&gt;</code> elements in the <code class="keyword markupname xmlelement">&lt;prolog&gt;</code>
+          element and the content with the <code class="keyword markupname xmlelement">&lt;body&gt;</code> element.</li>
+<li class="li">Transactional documents in which the values are processed but also displayed with human-readable
+          content. In particular, a library of building blocks for transaction documents can be
+          implemented through a DITA domain as specialized <code class="keyword markupname xmlelement">&lt;data&gt;</code> elements
+          including those from the UN/CEFACT Core Components Technical Specification (<a class="xref" href="http://www.unece.org/cefact/" target="_blank" rel="external noopener">http://www.unece.org/cefact/</a>). </li>
+</ul><figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Using the <code class="keyword markupname xmlatt">@name</code> attribute on unspecialized
+            <code class="keyword markupname xmlelement">&lt;data&gt;</code> elements</figcaption>
+        
+        <p class="p">This structure identifies the library and version demonstrated by a code sample. The
+            <code class="keyword markupname xmlatt">@name</code> attribute is used to identify both the grouping
+            <code class="keyword markupname xmlelement">&lt;data&gt;</code> element and the nested <code class="keyword markupname xmlelement">&lt;data&gt;</code>
+          elements that provide specific properties. These properties will not appear in the output
+          unless a processor is customized to recognize these <code class="keyword markupname xmlatt">@name</code> attribute
+          values.</p>
+        <pre class="pre codeblock"><code>&lt;codeblock&gt;
+  &lt;data name="exampleOf"&gt;
+    &lt;data name="library" href="ajaxLibrary.js"/&gt;
+    &lt;data name="version" value="2006-6-19"/&gt;
+  &lt;/data&gt;
+  &lt;!-- ... --&gt;
+&lt;/codeblock&gt;</code></pre>
+      </figure><figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>Specializing <code class="keyword markupname xmlelement">&lt;data&gt;</code> to annotate a code sample</figcaption>
+        
+        <p class="p">The following example specifies the delimited source code for a code fragment so an
+          automated process can refresh the code fragment. The
+            <code class="keyword markupname xmlelement">&lt;fragmentSource&gt;</code>, <code class="keyword markupname xmlelement">&lt;sourceFile&gt;</code>,
+            <code class="keyword markupname xmlelement">&lt;startDelimiter&gt;</code>, and <code class="keyword markupname xmlelement">&lt;endDelimiter&gt;</code>
+          elements are specialized from <code class="keyword markupname xmlelement">&lt;data&gt;</code> but the
+            <code class="keyword markupname xmlelement">&lt;codeFragment&gt;</code> is specialized from
+            <code class="keyword markupname xmlelement">&lt;codeblock&gt;</code>. The properties specialized from
+            <code class="keyword markupname xmlelement">&lt;data&gt;</code> would not appear in formatted output unless a processor is
+          explicitly instructed to display them: </p>
+        <pre class="pre codeblock"><code>&lt;example&gt;
+    &lt;title&gt;An important coding technique&lt;/title&gt;
+    &lt;codeFragment&gt;
+        &lt;fragmentSource&gt;
+            &lt;sourceFile     value="helloWorld.java"/&gt;
+            &lt;startDelimiter value="FRAGMENT_START_1"/&gt;
+            &lt;endDelimiter   value="FRAGMENT_END_1"/&gt;
+        &lt;/fragmentSource&gt;
+        &lt;!-- ... --&gt;
+    &lt;/codeFragment&gt;
+&lt;/example&gt;
+</code></pre>
+      </figure><figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 3. </span>Specializing <code class="keyword markupname xmlelement">&lt;data&gt;</code> to annotate housing information</figcaption>
+        
+        <p class="p">The following example identifies a real estate property as part of a house description.
+          The <code class="keyword markupname xmlelement">&lt;realEstateProperty&gt;</code> element and its child elements are
+          specialized from <code class="keyword markupname xmlelement">&lt;data&gt;</code>. The
+            <code class="keyword markupname xmlelement">&lt;houseDescription&gt;</code> element is specialized from
+            <code class="keyword markupname xmlelement">&lt;section&gt;</code>. A specialized process can format the values as part of
+          a brochure if they meet criteria for inclusion.</p>
+        <pre class="pre codeblock"><code>&lt;houseDescription&gt;
+  &lt;title&gt;A great home for sale&lt;/title&gt;
+  &lt;realEstateProperty&gt;
+    &lt;realEstateBlock value="B7"/&gt;
+    &lt;realEstateLot   value="4003"/&gt;
+    &lt;!-- ... --&gt;
+  &lt;/realEstateProperty&gt;
+  &lt;p&gt;This elegant....&lt;/p&gt;
+  &lt;object data="B7_4003_tour360Degrees.swf"/&gt;
+&lt;/houseDescription&gt;
+</code></pre>
+      </figure></div>
+<section class="section" id="data__attributes"><h2 class="title sectiontitle">Attributes</h2> 
+      <p class="p">The following attributes
+                                are available on this element: <a class="xref" href="../../common/../langRef/attributes/dataElementAttributes.html" title="The data element attributes group includes attributes that are defined for the data element, and are reused on most or all specializations of the data element.">Data element attributes group</a>,
+                                        <a class="xref" href="../../common/../langRef/attributes/linkRelationshipAttributes.html" title="The link relationship attribute group includes attributes whose values can be used for representing navigational relationships. These attributes occur only on elements that represent relationships among DITA elements or between DITA elements and non-DITA resources.">Link relationship attribute group</a>, <a class="xref" href="../../common/../langRef/attributes/universalAttributes.html" title="The universal attribute group defines a set of common attributes available on most DITA elements. The universal attribute group includes all attributes from the metadata, ID, localization, and debug attribute groups, plus the class attribute.">Universal attribute group</a>,
+                                        <a class="xref" href="../../common/../langRef/attributes/thekeyrefattribute.html" title="The keyref attribute provides an indirect, late-bound reference to topics, to collections of topics (ditabase), to maps, to referenceable portions of maps, to non-DITA documents, to external URIs, or to XML content contained within a key definition topic reference. When the DITA content is processed, the key references are resolved using key definitions from DITA maps."><code class="keyword markupname xmlatt">@keyref</code></a>, and <a class="xref" href="../../common/../langRef/attributes/commonAttributes.html#common-atts__outputclass">outputclass</a>.</p> </section>
+</div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/specialization-elements.html" title="Several DITA elements exist either for architectural reasons or for support of specialized markup yet to be designed. Although there is little need to use these elements unless you are directed to, some of them, such as state, can be used if your content makes use of these semantic distinctions. For example, a discussion of signals on a gate of an integrated logic circuit might use the state element to represent either on or off conditions of that gate.">Specialization elements</a></div></div></nav></article></main>

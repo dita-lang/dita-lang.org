@@ -1,0 +1,200 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Changes from DITA 1.2 to DITA 1.3'
+description: 'DITA 1.3 adds a number of new features and refinements to DITA.'
+index: '../toc.html'
+notices: '../resources/oasis-notices.html'
+commit: '1ef1836fa5adc371402b2e9d6b31fef551ef88ff'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="col-lg-3" role="toc"><ul><li><a href="../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a></li><li><a href="../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a></li><li><a href="../conformance/conformance.html">Conformance</a></li><li><a href="../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../non-normative/non-normative-information.html">Non-normative information</a><ul class="nav nav-list"><li><a href="../non-normative/about-specification-source.html">About the specification source</a></li><li><a href="../non-normative/changes-from-previous-versions.html">Changes from previous versions</a><ul class="nav nav-list"><li class="active"><a href="../non-normative/new-in-1.3.html">Changes from DITA 1.2 to DITA 1.3</a></li><li><a href="../non-normative/new-in-1.2.html">Changes from DITA 1.1 to DITA 1.2</a></li><li><a href="../non-normative/new-in-1.1.html">Changes from DITA 1.0 to DITA 1.1</a></li></ul></li><li><a href="../non-normative/file-naming-conventions.html">File naming conventions</a></li><li><a href="../non-normative/migration-to-new-version.html">Migrating to new versions of DITA</a></li><li><a href="../non-normative/foreigngeneralization.html">Considerations for generalizing foreign elements</a></li><li><a href="../non-normative/elementsMerged.html">Element-by-element recommendations for translators: All-inclusive edition</a></li><li><a href="../non-normative/dtd-public-identifiers.html">DTD public identifiers</a></li><li><a href="../non-normative/xml-schema-catalog-identifiers.html">XML Schema catalog identifiers</a></li><li><a href="../non-normative/domainscontainer.html">Domains and constraints in the OASIS specification</a></li><li><a href="../non-normative/interoperability-considerations.html">Processing interoperability considerations</a></li><li><a href="../non-normative/speclimits.html">Specialization design, customization, and the limits of specialization</a></li></ul></li><li><a href="../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
+ <h1 class="title topictitle1" id="ariaid-title1">Changes from DITA 1.2 to DITA 1.3</h1>
+ 
+ <div class="body conbody"><p class="shortdesc">DITA 1.3 adds a number of new features and refinements to DITA.</p>
+  <section class="section" id="new-in-1.3__enhancements">
+   <dl class="dl">
+    
+     <dt class="dt dlterm">Enhancements to keys</dt>
+     <dd class="dd">
+      <ul class="ul">
+       <li class="li">Added scoped keys</li>
+       <li class="li">Added facility for key-based, cross-deliverable <span class="ph">addressing</span></li>
+      </ul>
+     </dd>
+    
+    
+     <dt class="dt dlterm">New XML grammars</dt>
+     <dd class="dd">The DITA standard now supports RELAX NG.</dd>
+    
+    
+     <dt class="dt dlterm">Enhancements to conditional processing (filtering)</dt>
+     <dd class="dd">
+      <ul class="ul">
+       <li class="li">Enabled information architects to associate DITAVAL conditions with
+                specific topic collections in a map (branch filtering). Prior to DITA 1.3, a set of
+                DITAVAL conditions could only be associated with a root map.</li>
+       <li class="li">Expanded syntax for filtering attributes. The original property
+        attributes (<code class="keyword markupname xmlatt">@audience</code>, <code class="keyword markupname xmlatt">@platform</code>, <code class="keyword markupname xmlatt">@product</code>,
+        and <code class="keyword markupname xmlatt">@otherprops</code>) now accept grouped values, using the same syntax for
+        generalized attribute values within <code class="keyword markupname xmlatt">@props</code> and <code class="keyword markupname xmlatt">@base</code>.</li>
+      </ul>
+     </dd>
+    
+    
+     <dt class="dt dlterm">Enhancements to addressing</dt>
+     <dd class="dd">Added new (abbreviated) syntax for addressing an element within the same DITA topic</dd>
+    
+    
+     <dt class="dt dlterm">Enhancements to specialization</dt>
+     <dd class="dd">Enabled <span class="ph">individual element types</span> of structural
+            specializations to be reused by other structural specializations without requiring one
+            to be specialized from the other. For example, allowed the
+              <code class="keyword markupname xmlelement">&lt;steps&gt;</code> element from <code class="keyword markupname xmlelement">&lt;task&gt;</code> to be reused
+            in place of an <code class="keyword markupname xmlelement">&lt;ol&gt;</code> within a <code class="keyword markupname xmlelement">&lt;remedy&gt;</code>
+            section of the troubleshooting document type.</dd>
+    
+    
+     <dt class="dt dlterm">Increased support for producing troubleshooting information</dt>
+     <dd class="dd">
+      <ul class="ul">
+       <li class="li">Added a new value, "trouble", for the <code class="keyword markupname xmlatt">@type</code>
+                attribute of the <code class="keyword markupname xmlelement">&lt;note&gt;</code> element</li>
+       <li class="li">Added a new element,
+                  <code class="keyword markupname xmlelement">&lt;steptroubleshooting&gt;</code>, which is designed to contain
+                information that might assist users when a step does not produce the expected result
+                or complete successfully</li>
+       <li class="li">Added a new element,
+                  <code class="keyword markupname xmlelement">&lt;tasktroubleshooting&gt;</code>, which is designed to contain
+                information that might assist users when a task does not produce the expected result
+                or complete successfully</li>
+       <li class="li">Added a new troubleshooting topic</li>
+      </ul>
+     </dd>
+    
+    
+     <dt class="dt dlterm">Increased support for producing user assistance</dt>
+     <dd class="dd">
+      <ul class="ul">
+       <li class="li">Added the following new attributes to
+         <code class="keyword markupname xmlelement">&lt;resourceid&gt;</code>:<ul class="ul">
+         <li class="li"><code class="keyword markupname xmlatt">@appid</code></li>
+         <li class="li"><code class="keyword markupname xmlatt">@ux-context-string</code>
+         </li>
+         <li class="li"><code class="keyword markupname xmlatt">@ux-source-priority</code></li>
+         <li class="li"><code class="keyword markupname xmlatt">@ux-windowref</code>
+         </li>
+        </ul></li>
+       <li class="li">Added a new element, <code class="keyword markupname xmlelement">&lt;ux-window&gt;</code>, designed to
+                specify a window or viewport in which an online help topic or Web page is
+                displayed</li>
+      </ul>
+     </dd>
+    
+    
+          <dt class="dt dlterm">New domains</dt>
+          <dd class="dd">
+            <p class="p">Added the following new domains:</p>
+            <ul class="ul">
+              <li class="li">Markup and XML mention domains,
+                designed to support the description and documentation of XML document types and XML
+                applications</li>
+              <li class="li">Release management domain,
+                designed to enable content authors to log comments and metadata in DITA topics and
+                maps when changes are made</li>
+              <li class="li">Equation and MathML domains,
+                designed to enable use of MathML markup within DITA documents, as well as
+                use-by-reference of MathML markup that is held in separate, non-DITA documents </li>
+              <li class="li">SVG domain, designed to enable use
+                of SVG markup within DITA documents, as well as use-by-reference of SVG markup that
+                is held in separate, non-DITA documents</li>
+            </ul>
+          </dd>
+        
+    
+     <dt class="dt dlterm">Enhancements to the learning and training specialization</dt>
+     <dd class="dd">
+      <ul class="ul">
+       <li class="li">Added the learning object map:
+         <code class="keyword markupname xmlelement">&lt;learningObjectMap&gt;</code></li>
+       <li class="li">Added the learning object reference:
+         <code class="keyword markupname xmlelement">&lt;learningObjectMapRef&gt;</code></li>
+       <li class="li">Added the learning group map:
+         <code class="keyword markupname xmlelement">&lt;learningGroupMap&gt;</code></li>
+       <li class="li">Added the learning group reference:
+         <code class="keyword markupname xmlelement">&lt;learningGroupMapRef&gt;</code></li>
+       <li class="li">Added a new base domain and specialized domain for question and
+                answer interactions</li>
+      </ul>
+     </dd>
+    
+    
+     <dt class="dt dlterm">New base elements and attributes</dt>
+     <dd class="dd">
+      <ul class="ul">
+       <li class="li">Added the <code class="keyword markupname xmlelement">&lt;div&gt;</code> element. This element enables
+                arbitrary grouping of content within a topic. It is primarily intended as a way to
+                group content for content referencing or as a basis for specialization.</li>
+       <li class="li">Added new conditional processing attribute,
+                  <code class="keyword markupname xmlatt">@deliveryTarget</code>, to replace the now-deprecated
+                  <code class="keyword markupname xmlatt">@print</code> attribute. Users can set controlled values for the
+                  <code class="keyword markupname xmlatt">@deliveryTarget</code> attribute by using a subject scheme map.</li>
+       <li class="li">Added <code class="keyword markupname xmlatt">@orient</code> to <code class="keyword markupname xmlelement">&lt;table&gt;</code> and
+         <code class="keyword markupname xmlatt">@rotate</code> to <code class="keyword markupname xmlelement">&lt;entry&gt;</code>. These new attributes enable
+        authors to control formatting more precisely for print-based output formats.</li>
+       <li class="li">Added <code class="keyword markupname xmlatt">@scope</code> and <code class="keyword markupname xmlatt">@headers</code> attributes to
+        the <code class="keyword markupname xmlelement">&lt;entry&gt;</code> element in tables. These new attributes are intended for
+        extremely complex tables where accessibility cannot be handled based on existing header
+        markup.</li>
+       <li class="li">Added a new attribute, <code class="keyword markupname xmlatt">@cascade</code>, to better control
+        how metadata attributes cascade within a DITA map</li>
+      </ul>
+     </dd>
+    
+    
+     <dt class="dt dlterm">Modifications to the base content model</dt>
+     <dd class="dd">
+      <ul class="ul">
+       <li class="li">Enabled <code class="keyword markupname xmlelement">&lt;draft-comment&gt;</code> in more places</li>
+       <li class="li">Enabled <code class="keyword markupname xmlelement">&lt;text&gt;</code> in more places</li>
+       <li class="li">Extended content model of <code class="keyword markupname xmlelement">&lt;data&gt;</code> to allow
+        additional phrase level markup. </li>
+       <li class="li">Extended the list of values allowed for the <code class="keyword markupname xmlatt">@style</code>
+        attribute on <code class="keyword markupname xmlelement">&lt;prop&gt;</code> and <code class="keyword markupname xmlelement">&lt;revprop&gt;</code> elements in
+        DITAVAL files.</li>
+       <li class="li">Enabled <code class="keyword markupname xmlelement">&lt;ph&gt;</code> within
+         <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code>. This makes it possible to use specializations of the
+         <code class="keyword markupname xmlelement">&lt;ph&gt;</code> element, such as <code class="keyword markupname xmlelement">&lt;sup&gt;</code> and
+         <code class="keyword markupname xmlelement">&lt;sub&gt;</code>, within index entries.</li>
+       <li class="li">Enabled <code class="keyword markupname xmlatt">@keyref</code> for <code class="keyword markupname xmlelement">&lt;object&gt;</code>
+        and <code class="keyword markupname xmlelement">&lt;param&gt;</code></li>
+       <li class="li">Added <code class="keyword markupname xmlelement">&lt;data&gt;</code> to the content model for
+        lists</li>
+       <li class="li">Added new default values for the <code class="keyword markupname xmlatt">@format</code> and
+                  <code class="keyword markupname xmlatt">@scope</code> attributes</li>
+       <li class="li">Added <code class="keyword markupname xmlatt">@rev</code> attribute to
+         <code class="keyword markupname xmlelement">&lt;title&gt;</code></li>
+       <li class="li">Added <code class="keyword markupname xmlelement">&lt;cite&gt;</code> to the content model of
+         <code class="keyword markupname xmlelement">&lt;title&gt;</code> and similar elements</li>
+       <li class="li">Added <code class="keyword markupname xmlelement">&lt;xref&gt;</code> to the content model for
+         <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code></li>
+      </ul>
+     </dd>
+    
+    
+     <dt class="dt dlterm">Refinements to base domains</dt>
+     <dd class="dd">
+      <ul class="ul">
+       <li class="li">Added element for sorting, <code class="keyword markupname xmlelement">&lt;sort-as&gt;</code>, to the
+        utilities domain</li>
+       <li class="li">Added new elements <code class="keyword markupname xmlelement">&lt;line-through&gt;</code> and
+         <code class="keyword markupname xmlelement">&lt;overline&gt;</code> to the highlighting domain </li>
+      </ul>
+     </dd>
+    
+   </dl>
+  </section>
+ </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../non-normative/changes-from-previous-versions.html" title="The following topics outline the changes from earlier versions of DITA to the current version. Each version of the DITA specification is designed to be backwards-compatible with applications that conform to earlier versions of the DITA specification.">Changes from previous versions</a></div></div></nav></article></main>

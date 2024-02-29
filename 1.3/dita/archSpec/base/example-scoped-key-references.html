@@ -1,0 +1,102 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Example: References to scoped keys'
+description: 'You can address scoped keys from outside the key scope in which the keys are defined.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '1ef1836fa5adc371402b2e9d6b31fef551ef88ff'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a><ul class="nav nav-list"><li><a href="../../archSpec/base/introduction-to-dita.html">Introduction to DITA</a></li><li><a href="../../archSpec/base/ditamarkup.html">DITA markup </a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a><ul class="nav nav-list"><li><a href="../../archSpec/base/id.html">ID attribute</a></li><li><a href="../../archSpec/base/dita-linking.html">DITA linking</a></li><li><a href="../../archSpec/base/uri-based-addressing.html">URI-based (direct) addressing</a></li><li><a href="../../archSpec/base/key-based-addressing.html">Indirect key-based addressing</a><ul class="nav nav-list"><li><a href="../../archSpec/base/keys-core-concepts.html">Core concepts for working with keys</a></li><li><a href="../../archSpec/base/keyScopes.html">Key scopes</a></li><li><a href="../../archSpec/base/using-keys-for-addressing.html">Using keys for addressing</a></li><li><a href="../../archSpec/base/using-keys-to-address-keys-across-scopes.html">Addressing keys across scopes</a></li><li><a href="../../archSpec/base/links-between-maps.html">Cross-deliverable addressing and linking</a></li><li><a href="../../archSpec/base/processing-key-references-general.html">Processing key references</a></li><li><a href="../../archSpec/base/processing-keyref-for-links.html">Processing key references for navigation links and images</a></li><li><a href="../../archSpec/base/processing-keyref-on-topicref.html">Processing key references on topicref elements</a></li><li><a href="../../archSpec/base/processing-keyref-for-text.html">Processing key references to generate text or link text</a></li><li><a href="../../archSpec/base/examples-of-keys.html">Examples of keys</a><ul class="nav nav-list"><li><a href="../../archSpec/base/example-key-definition.html">Examples: Key definition</a></li><li><a href="../../archSpec/base/example-key-definition-for-variable-text.html">Examples: Key definitions for variable text</a></li><li><a href="../../archSpec/base/example-scoped-keys-for-variable-text.html">Example: Scoped key definitions for variable text</a></li><li><a href="../../archSpec/base/example-resolution-of-duplicate-key-definitions.html">Example: Duplicate key definitions within a single map</a></li><li><a href="../../archSpec/base/example-resolution-of-duplicate-key-definitions-multiple-maps.html">Example: Duplicate key definitions across multiple maps</a></li><li><a href="../../archSpec/base/example-keydef-with-keyref.html">Example: Key definition with key reference</a></li><li class="active"><a href="../../archSpec/base/example-scoped-key-references.html">Example: References to scoped keys</a></li><li><a href="../../archSpec/base/example-nested-key-scopes.html">Example: Key definitions in nested key scopes</a></li><li><a href="../../archSpec/base/example-key-use-for-link-redirection.html">Example: Link redirection</a></li><li><a href="../../archSpec/base/example-keys-removing-link.html">Example: Link modification or removal</a></li><li><a href="../../archSpec/base/example-keys-links-to-terms.html">Example: Links from term or keyword elements</a></li><li><a href="../../archSpec/base/example-keys-conref-redirection.html">Example: conref redirection</a></li><li><a href="../../archSpec/base/example-key-scopes-omnibus-publications.html">Example: Key scopes and omnibus publications</a></li><li><a href="../../archSpec/base/example-keys-scope-defining-precedence.html">Example: How key scopes affect key precedence</a></li><li><a href="../../archSpec/base/example-keys-splitting-combining-targets.html">Example: Keys and collaboration</a></li></ul></li></ul></li></ul></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration, specialization, generalization, and constraints </a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../archSpec/technicalContent/technical-content-specializations.html">Technical content specializations</a></li><li><a href="../../archSpec/learningTraining/learning-and-training-specializations.html">Learning and training specializations</a></li></ul></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9 non-normative"><article role="article" aria-labelledby="ariaid-title1">
+ <h1 class="title topictitle1" id="ariaid-title1">Example: <span class="ph">References to scoped keys</span></h1>
+ 
+ <div class="body conbody"><p class="shortdesc">You can address scoped keys from outside the key scope <span class="ph">in which the
+   keys are defined</span>.</p>
+  <pre class="pre codeblock"><code>&lt;map xml:lang="en"&gt;
+  &lt;title&gt;Examples of scoped key references&lt;/title&gt;
+
+  &lt;!-- Key scope #1 --&gt;
+  &lt;topicgroup keyscope="scope-1"&gt;
+    <strong class="ph b">&lt;keydef keys="key-1" href="topic-1.dita"/&gt;</strong>
+    &lt;topicref keyref="key-1"/&gt;
+    &lt;topicref keyref="scope-1.key-1"/&gt;
+    &lt;topicref keyref="scope-2.key-1"/&gt;
+  &lt;/topicgroup&gt;
+
+  &lt;!-- Key scope #2 --&gt;
+  &lt;topicgroup keyscope="scope-2"&gt;
+    <strong class="ph b">&lt;keydef keys="key-1" href="topic-2.dita"/&gt;</strong>
+    &lt;topicref keyref="key-1"/&gt;
+    &lt;topicref keyref="scope-1.key-1"/&gt;
+    &lt;topicref keyref="scope-2.key-1" /&gt;
+  &lt;/topicgroup&gt;
+
+  &lt;topicref keyref="key-1" /&gt;
+  &lt;topicref keyref="scope-1.key-1" /&gt;
+  &lt;topicref keyref="scope-2.key-1" /&gt;
+
+&lt;/map&gt;</code></pre>
+  <p class="p">For this example, the effective key definitions are listed in the following tables.</p>
+  <table class="table frame-all"><caption><span class="table--title-label">Table 1. </span><span class="title">Effective key definitions for <span class="ph">scope-1</span></span></caption><colgroup><col style="width:50%"><col style="width:50%"></colgroup><thead class="thead">
+     <tr class="row">
+      <th class="entry colsep-1 rowsep-1" id="concept_zms_tw1_mp__entry__1">Key reference</th>
+      <th class="entry rowsep-1" id="concept_zms_tw1_mp__entry__2">Resource</th>
+     </tr>
+    </thead><tbody class="tbody">
+     <tr class="row">
+      <td class="entry colsep-1 rowsep-1" headers="concept_zms_tw1_mp__entry__1">key-1</td>
+      <td class="entry rowsep-1" headers="concept_zms_tw1_mp__entry__2"><span class="ph filepath">topic-1.dita</span></td>
+     </tr>
+     <tr class="row">
+      <td class="entry colsep-1 rowsep-1" headers="concept_zms_tw1_mp__entry__1">scope-1.key-1</td>
+      <td class="entry rowsep-1" headers="concept_zms_tw1_mp__entry__2"><span class="ph filepath">topic-1.dita</span></td>
+     </tr>
+     <tr class="row">
+      <td class="entry colsep-1" headers="concept_zms_tw1_mp__entry__1">scope-2.key-1</td>
+      <td class="entry" headers="concept_zms_tw1_mp__entry__2"><span class="ph filepath">topic-2.dita</span></td>
+     </tr>
+    </tbody></table>
+  <table class="table frame-all"><caption><span class="table--title-label">Table 2. </span><span class="title">Effective key definitions for <span class="ph">scope-2</span></span></caption><colgroup><col style="width:50%"><col style="width:50%"></colgroup><thead class="thead">
+     <tr class="row">
+      <th class="entry colsep-1 rowsep-1" id="concept_zms_tw1_mp__entry__9">Key reference</th>
+      <th class="entry rowsep-1" id="concept_zms_tw1_mp__entry__10">Resource</th>
+     </tr>
+    </thead><tbody class="tbody">
+     <tr class="row">
+      <td class="entry colsep-1 rowsep-1" headers="concept_zms_tw1_mp__entry__9">key-1</td>
+      <td class="entry rowsep-1" headers="concept_zms_tw1_mp__entry__10"><span class="ph filepath">topic-2.dita</span></td>
+     </tr>
+     <tr class="row">
+      <td class="entry colsep-1 rowsep-1" headers="concept_zms_tw1_mp__entry__9">scope-1.key-1</td>
+      <td class="entry rowsep-1" headers="concept_zms_tw1_mp__entry__10"><span class="ph filepath">topic-1.dita</span></td>
+     </tr>
+     <tr class="row">
+      <td class="entry colsep-1" headers="concept_zms_tw1_mp__entry__9">scope-2.key-1</td>
+      <td class="entry" headers="concept_zms_tw1_mp__entry__10"><span class="ph filepath">topic-2.dita</span></td>
+     </tr>
+    </tbody></table>
+  <table class="table frame-all"><caption><span class="table--title-label">Table 3. </span><span class="title"><span class="ph">Effective key definitions for the key scope associated with the root
+     map</span></span></caption><colgroup><col style="width:50%"><col style="width:50%"></colgroup><thead class="thead">
+     <tr class="row">
+      <th class="entry colsep-1 rowsep-1" id="concept_zms_tw1_mp__entry__17">Key reference</th>
+      <th class="entry rowsep-1" id="concept_zms_tw1_mp__entry__18">Resource</th>
+     </tr>
+    </thead><tbody class="tbody">
+     <tr class="row">
+      <td class="entry colsep-1 rowsep-1" headers="concept_zms_tw1_mp__entry__17">key-1</td>
+      <td class="entry rowsep-1" headers="concept_zms_tw1_mp__entry__18">Undefined</td>
+     </tr>
+     <tr class="row">
+      <td class="entry colsep-1 rowsep-1" headers="concept_zms_tw1_mp__entry__17">scope-1.key-1</td>
+      <td class="entry rowsep-1" headers="concept_zms_tw1_mp__entry__18"><span class="ph filepath">topic-1.dita</span></td>
+     </tr>
+     <tr class="row">
+      <td class="entry colsep-1" headers="concept_zms_tw1_mp__entry__17">scope-2.key-1</td>
+      <td class="entry" headers="concept_zms_tw1_mp__entry__18"><span class="ph filepath">topic-2.dita</span></td>
+     </tr>
+    </tbody></table>
+ </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/examples-of-keys.html" title="This section of the specification contains examples and scenarios. They illustrate a wide variety of ways that keys can be used.">Examples of keys</a></div><div class="previouslink"><strong>Previous topic:</strong> <a class="link" href="../../archSpec/base/example-keydef-with-keyref.html" title="When a key definition also specifies a key reference, the key reference must also be resolved in order to determine the effective resources bound to that key definition.">Example: Key definition with key reference</a></div><div class="nextlink"><strong>Next topic:</strong> <a class="link" href="../../archSpec/base/example-nested-key-scopes.html" title="In this scenario, the root map contains nested key scopes, each of which contain duplicate key definitions. The effective key definition depends on key-scope precedence rules.">Example: Key definitions in nested key scopes</a></div></div></nav></article></main>

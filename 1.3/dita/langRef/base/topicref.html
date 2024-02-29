@@ -1,0 +1,68 @@
+---
+# Generated from DITA source
+layout: base
+title: 'topicref'
+description: 'The topicref element identifies a topic (such as a concept, task, or reference) or other resource. A topicref can contain other topicref elements, allowing you to express navigation or table-of-contents hierarchies, as well as implying relationships between a containing (parent) topicref and its children. You can set the collection type of a parent topicref to determine how its children are related to each other. You can also express relationships among topicref elements by using group and table structures (such as topicgroup and reltable). Relationships are expressed as links in the output; by default, each participant in a relationship has links to the other participants in that relationship.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '1ef1836fa5adc371402b2e9d6b31fef551ef88ff'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a><ul class="nav nav-list"><li><a href="../../langRef/containers/element-quick-reference.html">Element quick reference</a></li><li><a href="../../langRef/containers/topic-elements.html">Topic elements</a></li><li><a href="../../langRef/containers/map-elements.html">Map elements</a><ul class="nav nav-list"><li><a href="../../langRef/containers/basic-map-elements.html">Basic map elements</a><ul class="nav nav-list"><li><a href="../../langRef/base/map.html">map</a></li><li class="active"><a href="../../langRef/base/topicref.html">topicref</a></li><li><a href="../../langRef/base/topicmeta.html">topicmeta</a></li><li><a href="../../langRef/base/anchor.html">anchor</a></li><li><a href="../../langRef/base/navref.html">navref</a></li><li><a href="../../langRef/base/reltable.html">reltable</a></li><li><a href="../../langRef/base/relrow.html">relrow</a></li><li><a href="../../langRef/base/relcell.html">relcell</a></li><li><a href="../../langRef/base/relheader.html">relheader</a></li><li><a href="../../langRef/base/relcolspec.html">relcolspec</a></li><li><a href="../../langRef/base/ux-window.html">ux-window</a></li></ul></li><li><a href="../../langRef/containers/mapgroup-d.html">Map group elements</a></li></ul></li><li><a href="../../langRef/containers/metadata-elements.html">Metadata elements</a></li><li><a href="../../langRef/containers/domain-elements.html">Domain elements</a></li><li><a href="../../langRef/containers/classification-elements.html">Classification elements</a></li><li><a href="../../langRef/containers/specialization-elements.html">Specialization elements</a></li><li><a href="../../langRef/containers/legacy-conversion-elements.html">Legacy conversion elements</a></li><li><a href="../../langRef/containers/ditaval-elements.html">DITAVAL elements</a></li><li><a href="../../langRef/containers/technical-content-elements.html">Technical content elements</a></li><li><a href="../../langRef/containers/learningTraining-elements.html">Learning and training elements</a></li><li><a href="../../langRef/attributes/attributes.html">Attributes</a></li></ul></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
+<h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;topicref&gt;</code></h1>
+
+ 
+<div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element identifies a topic (such as a concept,
+task, or reference) or other resource. A <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> can contain other
+<code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements, allowing you to express navigation or table-of-contents
+hierarchies, as well as implying relationships between a containing (parent)
+<code class="keyword markupname xmlelement">&lt;topicref&gt;</code> and its children. You can set the collection type of a parent
+<code class="keyword markupname xmlelement">&lt;topicref&gt;</code> to determine how its children are related to each other. You can
+also express relationships among <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements by using group and table
+structures (such as <code class="keyword markupname xmlelement">&lt;topicgroup&gt;</code> and <code class="keyword markupname xmlelement">&lt;reltable&gt;</code>).
+Relationships are expressed as links in the output; by default, each participant in a relationship
+has links to the other participants in that relationship. </p>
+<section class="section" id="topicref__section-1"><p class="p">You can fine tune the output from your map by setting different attributes on the <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>
+element. For example, the <code class="keyword markupname xmlatt">@linking</code> attribute controls how a topic's
+relationships to other topics are expressed as links, and the <code class="keyword markupname xmlatt">@toc</code> attribute
+controls whether the topic shows up in TOC or navigation output.</p></section>
+<section class="section" id="topicref__contains"><h2 class="title sectiontitle">Content models</h2><p class="p">See <span class="xref">appendix</span> for information about this element in OASIS document type shells.</p></section>
+<section class="section" id="topicref__inheritance"><h2 class="title sectiontitle">Inheritance</h2><p class="p">-
+map/topicref </p></section>
+<div class="example non-normative" id="topicref__example"><h2 class="title sectiontitle">Example</h2>
+
+<p class="p">In this example, there are six <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements. They are nested and
+have a hierarchical relationship. <span class="ph filepath">bats.dita</span> is the parent topic and the other
+topics are its children.</p>
+<pre class="pre codeblock"><code>&lt;map title="Bats"&gt;
+ &lt;topicref href="bats.dita" type="topic"&gt;
+  &lt;topicref href="batcaring.dita" type="task"&gt;&lt;/topicref&gt;
+  &lt;topicref href="batfeeding.dita" type="task"&gt;&lt;/topicref&gt;
+  &lt;topicref href="batsonar.dita" type="concept"&gt;&lt;/topicref&gt;
+  &lt;topicref href="batguano.dita" type="reference"&gt;&lt;/topicref&gt;
+  &lt;topicref href="bathistory.dita" type="reference"&gt;&lt;/topicref&gt;
+ &lt;/topicref&gt;
+&lt;/map&gt;</code></pre>
+</div>
+<section class="section" id="topicref__attributes"><h2 class="title sectiontitle">Attributes</h2><div class="sectiondiv">
+                                <p class="p">The following attributes are available on this element: <a class="xref" href="../../common/../langRef/attributes/universalAttributes.html" title="The universal attribute group defines a set of common attributes available on most DITA elements. The universal attribute group includes all attributes from the metadata, ID, localization, and debug attribute groups, plus the class attribute.">Universal attribute group</a>, <a class="xref" href="../../common/../langRef/attributes/linkRelationshipAttributes.html" title="The link relationship attribute group includes attributes whose values can be used for representing navigational relationships. These attributes occur only on elements that represent relationships among DITA elements or between DITA elements and non-DITA resources.">Link relationship attribute group</a> (with a narrowed definition of <code class="keyword markupname xmlatt">@href</code>,
+                                        given below), <a class="xref" href="../../common/../langRef/attributes/commonMapAttributes.html" title="This attribute group collects several attributes that are used on a variety of map elements. For a few elements, the group is modified slightly to remove an attribute such as toc or format; in those cases the element definition will clarify that the element does not use this full set. That is generally done in order to specify a default for one attribute, such as defaulting format to &#34;ditamap&#34; on the mapref element.">Attributes common to many map elements</a>, <a class="xref" href="../../common/../langRef/attributes/topicrefElementAttributes.html" title="The topicref element attributes group includes attributes that are defined for the topicref element, and are reused on most or all specializations of the topicref element.">Topicref element attributes group</a>, <a class="xref" href="../../common/../langRef/attributes/commonAttributes.html#common-atts__outputclass">outputclass</a>, <a class="xref" href="../../common/../langRef/attributes/thekeysattribute.html" title="A keys attribute consists of one or more space-separated keys. Map authors define keys using a topicref or topicref specialization that contains the keys attribute. Each key definition introduces an identifier for a resource referenced from a map. Keys resolve to the resources given as the href value on the key definition topicref element, to content contained within the key definition topicref element, or both."><code class="keyword markupname xmlatt">@keys</code></a>, and <a class="xref" href="../../common/../langRef/attributes/thekeyrefattribute.html" title="The keyref attribute provides an indirect, late-bound reference to topics, to collections of topics (ditabase), to maps, to referenceable portions of maps, to non-DITA documents, to external URIs, or to XML content contained within a key definition topic reference. When the DITA content is processed, the key references are resolved using key definitions from DITA maps."><code class="keyword markupname xmlatt">@keyref</code></a>.</p>
+                                <dl class="dl">
+                                        
+                                                <dt class="dt dlterm" id="topicref__href-on-topicref"><code class="keyword markupname xmlatt">@href</code></dt>
+                                                <dd class="dd">A pointer to the resource represented by the
+                                                  <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>. See <a class="xref" href="../../common/../langRef/attributes/thehrefattribute.html" title="The href attribute is used to reference another DITA topic or map, a specific element inside a DITA topic or map, an external Web page, or another non-DITA resource.">The href attribute</a> for detailed information on supported values
+                                                  and processing implications. References to DITA
+                                                  content cannot be below the topic level: that is,
+                                                  you cannot reference individual elements inside a
+                                                  topic. References to content other than DITA
+                                                  topics should use the <code class="keyword markupname xmlatt">@format</code>
+                                                  attribute to identify the kind of resource being
+                                                  referenced.</dd>
+                                        
+                                </dl>
+                        </div></section>
+</div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/basic-map-elements.html" title="DITA maps are built from a few core elements that are used for referencing and organizing topics. The topicmeta element is also available to specify metadata for the map, for individual topics, or for groups of topics. Many elements inside topicmeta are also available inside the topic prolog.">Basic map elements</a></div></div></nav></article></main>
