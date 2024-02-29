@@ -43,6 +43,7 @@ runs:
     - name: Run multi-page DITA-OT
       shell: bash
       run: |
+        mkdir -p dita-lang/${{ inputs.DIR }}
         rm -rf dita-lang/${{ inputs.DIR }}/*
         $DITA_HOME/bin/dita \
           -i ${{ inputs.MAP }} \
