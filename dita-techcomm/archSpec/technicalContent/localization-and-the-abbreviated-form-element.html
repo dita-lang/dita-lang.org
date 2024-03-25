@@ -1,0 +1,62 @@
+---
+# Generated from DITA source
+layout: base
+title: 'Localization and theabbreviated-form element'
+description: 'Implementations that choose to use the abbreviated-form need to consider the effect on translation.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '99aa35ff30fa59058f01524222ae995b94d9875a'
+repository: 'oasis-tcs/dita-techcomm'
+classes: ''
+---
+
+<nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/specIntroTechnicalContent.html">Introduction</a></li><li><a href="../../archSpec/technicalContent/dita-technicalContent-InformationTypes.html">Topic and map document types</a></li><li><a href="../../archSpec/technicalContent/glossary-entry-topics-and-terminology-management.html">Usage of glossary entry topics</a><ul class="nav nav-list"><li><a href="../../archSpec/technicalContent/rendering-of-abbreviated-form-elements.html">Rendering of abbreviated-form elements</a></li><li class="active"><a href="../../archSpec/technicalContent/localization-and-the-abbreviated-form-element.html">Localization and theabbreviated-form element</a></li></ul></li><li><a href="../../langRef/langRef-technicalContent.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../baseSpec/specification/langRef/attributes/attributes.html">Attributes</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../revision-history/revision-history.html">Revision history</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Localization and the<code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code> element</h1>
+    
+    <div class="body conbody"><p class="shortdesc">Implementations that choose to use the <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code> need
+        to consider the effect on translation.</p>
+        <section class="section"><h2 class="title sectiontitle">Design of the specialization</h2>
+            
+            <p class="p">The <code class="keyword markupname xmlelement">&lt;glossAcronym&gt;</code> and
+                    <code class="keyword markupname xmlelement">&lt;glossSurfaceForm&gt;</code> elements were designed to accommodate
+                the following realities:</p>
+            <dl class="dl">
+                
+                    <dt class="dt dlterm">Acronyms do not exist in all languages</dt>
+                    <dd class="dd">
+                        <p class="p">An acronym in one language might not have an equivalent in another
+                            language. In addition, languages have varying conventions for how an
+                            expanded form of a term is displayed. When acronyms are first displayed,
+                            some languages will display the expanded form followed by the acronym in
+                            parenthesis, while other languages do the reverse. For some acronyms, a
+                            translation might need to render both the original and the translated
+                            version of the acronym. The <code class="keyword markupname xmlelement">&lt;glossSurfaceForm&gt;</code>
+                            enables authors and translators to present a locale-appropriate expanded
+                            form to the reader.</p>
+                        <p class="p">If a language does not have a acronym for a term, the translation of a
+                            glossary entry topic might result in an empty
+                                <code class="keyword markupname xmlelement">&lt;glossAcronym&gt;</code> element.</p>
+                    </dd>
+                
+                
+                    <dt class="dt dlterm">Synonyms</dt>
+                    <dd class="dd">Synonyms are specific to languages, so translation of a glossary entry topic
+                        might result in empty <code class="keyword markupname xmlelement">&lt;glossSynonym&gt;</code> elements.</dd>
+                
+            </dl>
+        </section>
+        <section class="section"><h2 class="title sectiontitle">Translation quality issues</h2>
+            
+            <p class="p">The use of <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code> elements might have a negative
+                effect on the quality and cost of the translation.</p>
+            <ul class="ul">
+                <li class="li">Most translation tools do not resolve key references. Accordingly, translators
+                    might need to reference supplementary materials in order to understand the
+                    content that they are working with.</li>
+                <li class="li">Because many non-English languages vary articles based on gender and case, a
+                    simple programmatic insertion of an expanded form or acronym might yield
+                    translations that are ungrammatical and awkward.</li>
+            </ul>
+        </section>
+    </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/technicalContent/glossary-entry-topics-and-terminology-management.html" title="Glossary entry topics are designed for several purposes. In addition to providing the basis for glossaries, they also can be used in conjunction with the abbreviated-form domain to provide different renderings of terms on first and later usage.">Usage of glossary entry topics</a></div></div></nav></article></main>

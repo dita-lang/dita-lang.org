@@ -5,12 +5,12 @@ title: 'abbreviated-form'
 description: 'The abbreviated-form element represents a reference to a term that might appear in an abbreviated form. The abbreviated form often is an acronym.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '47388835f12d54dcc6c417a4f70c96c5b2b73dc6'
+commit: '99aa35ff30fa59058f01524222ae995b94d9875a'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
 
-<nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/specIntroTechnicalContent.html">Introduction</a></li><li><a href="../../archSpec/technicalContent/dita-technicalContent-InformationTypes.html">Topic and map document types</a></li><li><a href="../../archSpec/technicalContent/glossary-entry-topics-and-terminology-management.html">Glossary entry topics and terminology management</a></li><li><a href="../../langRef/langRef-technicalContent.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../baseSpec/specification/langRef/attributes/attributes.html">Attributes</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../revision-history/revision-history.html">Revision history</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
+<nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/specIntroTechnicalContent.html">Introduction</a></li><li><a href="../../archSpec/technicalContent/dita-technicalContent-InformationTypes.html">Topic and map document types</a></li><li><a href="../../archSpec/technicalContent/glossary-entry-topics-and-terminology-management.html">Usage of glossary entry topics</a></li><li><a href="../../langRef/langRef-technicalContent.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../baseSpec/specification/langRef/attributes/attributes.html">Attributes</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../revision-history/revision-history.html">Revision history</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
 <h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code></h1>
 
   
@@ -19,16 +19,14 @@ classes: ''
     abbreviated form often is an acronym.</p>
     <section class="section" id="abbreviated-form__usage-information"><h2 class="title sectiontitle">Usage information</h2>
       
-      <p class="p">The <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code> element typically is
-        used in conjunction with a glossary entry topic that defines a term
-        and an abbreviated form of that term. The glossary entry topic
-        might also provide a surface form that specifies both the term and
-        the abbreviation. The surface form is intended to be rendered on
-        first use or in introductory contexts where the term might be
-        unfamiliar to a reader. In other contexts, processors typically
-        render the abbreviated form of the term. Note that the definition
-        of an introductory context will differ for every deliverable format
-        and is highly processor-specific.</p>
+      <p class="p">The <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code> element typically is used in conjunction with
+        a glossary entry topic that defines a term and an <span class="ph">acronym</span>. The
+        glossary entry topic might also provide a surface form that specifies both the term and the
+          <span class="ph">acronym</span>. The surface form is intended to be rendered on first
+        use or in introductory contexts where the term might be unfamiliar to a reader. In other
+        contexts, processors typically render the abbreviated form of the term. Note that the
+        definition of an introductory context will differ for every deliverable format and is highly
+        processor-specific.</p>
       <p class="p">For instance, a process composing a book deliverable might render
         the surface form of a term on the first reference to the
           <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code> topic within the book or for
@@ -38,10 +36,8 @@ classes: ''
     </section>
     <section class="section" id="abbreviated-form__rendering-expectations"><h2 class="title sectiontitle">Rendering expectations</h2>
       
-      <p class="p">See <a class="xref" href="../../archSpec/technicalContent/rendering-of-abbreviated-form-elements.html" title="There are specific rules that specify how processors should render abbreviated-form elements.">Rendering of abbreviated-form elements</a>.</p>
-      
+      <p class="p">See <a class="xref" href="../../archSpec/technicalContent/rendering-of-abbreviated-form-elements.html" title="The abbreviated-form element is designed to work with glossary entry topics in specific ways.">Rendering of abbreviated-form elements</a>.</p>
     </section>
-    
     <section class="section" id="abbreviated-form__specialization-hierarchy"><h2 class="title sectiontitle">Specialization hierarchy</h2>
       
       <p class="p">The <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code> element is specialized from
@@ -81,17 +77,15 @@ classes: ''
         <dl class="dl">
           
             <dt class="dt dlterm"><code class="keyword markupname xmlelement">&lt;glossSurfaceform&gt;</code></dt>
-            <dd class="dd">Defines the term as it should be rendered in an
-              introductory context. Typically this is the long form of a
-              term, followed by an abbreviation or acronym. Note that other
-              languages often do not follow the same conventions as
-              English.</dd>
+            <dd class="dd">Defines the term as it should be rendered <span class="ph">on first use</span>.
+              Typically this is the long form of a term, followed by an abbreviation or acronym.
+              Note that other languages often do not follow the same conventions as English.</dd>
           
           
             <dt class="dt dlterm"><code class="keyword markupname xmlelement">&lt;glossAcronym&gt;</code></dt>
-            <dd class="dd">Defines the terms as it should be rendered in a
-              non-introductory context. Typically this is the acronym or
-              abbreviation that is associated with the term.</dd>
+            <dd class="dd">Defines the terms as it should be rendered <span class="ph">on second or
+                later us</span>. Typically this is the acronym or abbreviation that is associated with
+              the term.</dd>
           
           
             <dt class="dt dlterm"><code class="keyword markupname xmlelement">&lt;glossterm&gt;</code></dt>

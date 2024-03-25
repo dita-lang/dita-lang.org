@@ -2,58 +2,52 @@
 # Generated from DITA source
 layout: base
 title: 'Rendering of abbreviated-form elements'
-description: 'There are specific rules that specify how processors should render abbreviated-form elements.'
+description: 'The abbreviated-form element is designed to work with glossary entry topics in specific ways.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '00a514d3a4b5772e32b72fd3fd4d016d7ec46dac'
+commit: '99aa35ff30fa59058f01524222ae995b94d9875a'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
 
-<nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/specIntroTechnicalContent.html">Introduction</a></li><li><a href="../../archSpec/technicalContent/dita-technicalContent-InformationTypes.html">Topic and map document types</a></li><li><a href="../../archSpec/technicalContent/glossary-entry-topics-and-terminology-management.html">Glossary entry topics and terminology management</a><ul class="nav nav-list"><li><a href="../../archSpec/technicalContent/abbreviated-form-elements-and-glossary-entry-topics.html">abbreviated-form elements and glossary entry topics</a></li><li class="active"><a href="../../archSpec/technicalContent/rendering-of-abbreviated-form-elements.html">Rendering of abbreviated-form elements</a></li></ul></li><li><a href="../../langRef/langRef-technicalContent.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../baseSpec/specification/langRef/attributes/attributes.html">Attributes</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../revision-history/revision-history.html">Revision history</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
+<nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/specIntroTechnicalContent.html">Introduction</a></li><li><a href="../../archSpec/technicalContent/dita-technicalContent-InformationTypes.html">Topic and map document types</a></li><li><a href="../../archSpec/technicalContent/glossary-entry-topics-and-terminology-management.html">Usage of glossary entry topics</a><ul class="nav nav-list"><li class="active"><a href="../../archSpec/technicalContent/rendering-of-abbreviated-form-elements.html">Rendering of abbreviated-form elements</a></li><li><a href="../../archSpec/technicalContent/localization-and-the-abbreviated-form-element.html">Localization and theabbreviated-form element</a></li></ul></li><li><a href="../../langRef/langRef-technicalContent.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../baseSpec/specification/langRef/attributes/attributes.html">Attributes</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../revision-history/revision-history.html">Revision history</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
     <h1 class="title topictitle1" id="ariaid-title1">Rendering of <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code>
     elements</h1>
     
   
-    <div class="body conbody"><p class="shortdesc">There are specific rules that specify how processors should
-    render <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code> elements.</p>
-    
-    <p class="p">Note that the definition of "introductory context" will vary based
-      on the processor and output format.</p>
+    <div class="body conbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code> element is designed
+    to work with glossary entry topics in specific ways.</p>
+    <div class="div">
+      <p class="p">Consider the following scenario:</p>
+      <p class="p">A DITA publication contains several instances of <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code>
+        elements. Each <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code> element references the same DITA
+        topic.</p>
+      <p class="p">The design intent is that processors use the following logic:</p>
+    </div>
     <ol class="ol">
       <li class="li">If the referenced topic is not a
           <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code> topic or a specialization of
           <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code>, the title of the topic <dfn class="term RFC-2119">SHOULD</dfn> be rendered.</li>
-      <li class="li">If the referenced topic is a <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code>
-        topic or a specialization of <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code>
-        and the <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code> element is
-        located in an introductory context:<ul class="ul">
-          <li class="li">(If the referenced topic contains a non-empty
-              <code class="keyword markupname xmlelement">&lt;glossSurfaceForm&gt;</code> element) Processors
-              <dfn class="term RFC-2119">SHOULD</dfn> render the
-            contents of the <code class="keyword markupname xmlelement">&lt;glossSurfaceForm&gt;</code>
-            element</li>
-          <li class="li">(If the referenced topic does not contain a
-              non-empty<code class="keyword markupname xmlelement">&lt;glossSurfaceForm&gt;</code> element)
-            Processors <dfn class="term RFC-2119">SHOULD</dfn> render
-            the contents of the <code class="keyword markupname xmlelement">&lt;glossterm&gt;</code> element
-          </li>
-        </ul></li>
-      <li class="li">If the referenced topic is a <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code>
-        topic or a specialization of <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code>
-        and the <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code> element is
-        located in a non-introductory context:<ul class="ul">
-          <li class="li">(If the referenced topic contains a non-empty
-              <code class="keyword markupname xmlelement">&lt;glossAcronym&gt;</code> element) Processors
-              <dfn class="term RFC-2119">SHOULD</dfn> render the
-            abbreviated form of the term by displaying the contents of the
-              <code class="keyword markupname xmlelement">&lt;glossAcronym&gt;</code> element.</li>
-          <li class="li">(If the reference topic does not contain a non-empty
-              <code class="keyword markupname xmlelement">&lt;glossAcronym&gt;</code> element) Processors
-              <dfn class="term RFC-2119">SHOULD</dfn> render the
-            contents of the <code class="keyword markupname xmlelement">&lt;glossterm&gt;</code> element</li>
-        </ul></li>
+      <li class="li">
+        <p class="p">If the referenced topic is a <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code> topic or a
+          specialization of <code class="keyword markupname xmlelement">&lt;glossentry&gt;</code>, processors <dfn class="term RFC-2119">SHOULD</dfn> render <span class="ph">the
+              <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code> element in the following ways:</span></p>
+        <table class="simpletable"><colgroup><col style="width:25%"><col style="width:75%"></colgroup><tbody><tr class="strow">
+            <th class="stentry" scope="row">First usage</th>
+            <td class="stentry">Render the contents of the <code class="keyword markupname xmlelement">&lt;glossSurfaceForm&gt;</code> elements,
+              if it is not empty. If the <code class="keyword markupname xmlelement">&lt;glossSurfaceForm&gt;</code> is empty or does
+              not exist, render the contents of the <code class="keyword markupname xmlelement">&lt;glossterm&gt;</code>
+              element.</td>
+          </tr><tr class="strow">
+            <th class="stentry" scope="row">Second and later usage</th>
+            <td class="stentry">Render the contents of the <code class="keyword markupname xmlelement">&lt;glossAcronym&gt;</code> elements, if
+              it is not empty. If the <code class="keyword markupname xmlelement">&lt;glossAcronym&gt;</code> is
+              empty or does not exist, render the contents of the <code class="keyword markupname xmlelement">&lt;glossterm&gt;</code>
+              element.</td>
+          </tr></tbody></table>
+      </li>
     </ol>
-    
+    <p class="p">For an example, see the <a class="xref" href="../../langRef/technicalContent/abbreviated-form.html#abbreviated-form__example">examples</a>in
+      the element-reference topic for the <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code> element.</p>
   </div>
-<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/technicalContent/glossary-entry-topics-and-terminology-management.html">Glossary entry topics and terminology management</a></div></div></nav></article></main>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/technicalContent/glossary-entry-topics-and-terminology-management.html" title="Glossary entry topics are designed for several purposes. In addition to providing the basis for glossaries, they also can be used in conjunction with the abbreviated-form domain to provide different renderings of terms on first and later usage.">Usage of glossary entry topics</a></div></div></nav></article></main>

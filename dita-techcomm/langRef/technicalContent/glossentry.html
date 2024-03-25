@@ -5,12 +5,12 @@ title: 'glossentry'
 description: 'The glossentry element is the top-level element for a topic that defines a glossary term.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '4894ed1227351727493770ac6d6022bd0f964082'
+commit: '99aa35ff30fa59058f01524222ae995b94d9875a'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
 
-<nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/specIntroTechnicalContent.html">Introduction</a></li><li><a href="../../archSpec/technicalContent/dita-technicalContent-InformationTypes.html">Topic and map document types</a></li><li><a href="../../archSpec/technicalContent/glossary-entry-topics-and-terminology-management.html">Glossary entry topics and terminology management</a></li><li><a href="../../langRef/langRef-technicalContent.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../baseSpec/specification/langRef/attributes/attributes.html">Attributes</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../revision-history/revision-history.html">Revision history</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
+<nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/specIntroTechnicalContent.html">Introduction</a></li><li><a href="../../archSpec/technicalContent/dita-technicalContent-InformationTypes.html">Topic and map document types</a></li><li><a href="../../archSpec/technicalContent/glossary-entry-topics-and-terminology-management.html">Usage of glossary entry topics</a></li><li><a href="../../langRef/langRef-technicalContent.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../baseSpec/specification/langRef/attributes/attributes.html">Attributes</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../revision-history/revision-history.html">Revision history</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
   <h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;glossentry&gt;</code></h1>
   
   
@@ -18,30 +18,24 @@ classes: ''
     that defines a glossary term.</p>
     <section class="section" id="glossentry__rendering-expectations"><h2 class="title sectiontitle">Rendering expectations</h2>
       
-      <p class="p">Because the glossary entry specialization is designed for the
-        larger task of terminology management, it contains many elements
-        that are not intended to be rendered when a glossary is generated.
-        In addition, when a collections of glossary entry topics are
-        rendered as a guidance for terminology management, generated text
-        might be required for ease of reading. Specialized style sheets and
+      <p class="p">Because the glossary entry specialization is designed for <span class="ph">multiple
+          purposes</span>, it contains elements that are not intended to be rendered when a glossary
+        is generated. In addition, when a collection of glossary entry topics <span class="ph">is</span> rendered as <span class="ph">authoring guidance</span>,
+        generated text might be required for ease of reading. Specialized style sheets and
         processing are needed to ensure useful output.</p>
     </section>
     <section class="section" id="glossentry__processing-expectations"><h2 class="title sectiontitle">Processing expectations</h2>
       
       <p class="p">Processing expectations for glossary entry topics are highly implementation-specific and
         will depend on the output format.</p>
-      <p class="p">The typical processing for books is to sort and group glossary entries based on the
-        localized term, so a back-of-the-book glossary can contain a collated list of terms with the
-        definitions of the individual senses of each term indented under the term. The glossary can
-        have a different organization in different languages depending on the translation of the
-          terms.</p>
-      <p class="p">One possible implementation of a glossary in online processing is to associate a hotspot
-        for mentions of terms in <code class="keyword markupname xmlelement">&lt;term&gt;</code> elements and display the definition
-        on hover or click. A possible implementation in PDF processing is to define a first-use
-        occurrence form of the term with its acronym and use it in conjunction with
-          <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code> to render a spell-out version of the term with
-        its acronym on first use within an output, while rendering the acronym in all subsequent
-        locations.</p>
+      <p class="p">For HTML-based output formats, one possible implementation of glossary
+        entry topics is to generate hyperlinks for <code class="keyword markupname xmlelement">&lt;term&gt;</code> element that are
+        associated by key reference with the glossary entry topic. The term definition is displayed
+        when someone hovers over or clicks on the hyperlink.</p>
+      <p class="p">For PDF output, one possible implementation of glossary entry topics is
+        to render acronyms or expanded acronyms for <code class="keyword markupname xmlelement">&lt;abbreviated-form&gt;</code>
+        elements that are associated by key reference with the glossary entry topics. The surface
+        form is rendered on first usage, and the acronym is rendered on 2nd or later usage.</p>
     </section>
     <section class="section" id="glossentry__specialization-hierarchy"><h2 class="title sectiontitle">Specialization hierarchy</h2>
       
