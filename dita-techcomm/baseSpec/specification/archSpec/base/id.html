@@ -5,7 +5,7 @@ title: 'id attribute'
 description: 'The id attribute assigns an identifier to DITA elements so that the elements can be referenced.'
 index: '../../../../toc.html'
 notices: '../../../../resources/oasis-notices.html'
-commit: 'f1139a79f6af240cb5ce57703b7d6171362067d2'
+commit: '3ceb7660d1f5e251b87a3aa19047f4665ada1fc4'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -29,13 +29,12 @@ classes: ''
       of those <code class="keyword markupname xmlatt">@id</code> attributes be unique. However, the DITA specification requires
       that all IDs be unique within the context of a topic. For this reason, tools might provide an
       additional layer of validation to flag violations of this rule.</p>
-    <p class="p">Within documents that contain multiple topics, the values of the <code class="keyword markupname xmlatt">@id</code>
-      attribute for all non-topic elements that have the same nearest-ancestor-topic element need to
-      be unique with respect to each other. The values of the <code class="keyword markupname xmlatt">@id</code> attribute for
-      non-topic elements can be the same as non-topic elements with different nearest-ancestor-topic
-      elements. Therefore, within a single DITA document that contains more than one topic, the
-      values of the <code class="keyword markupname xmlatt">@id</code> attribute of the non-topic elements need only to be unique
-      within each topic.</p>
+    <p class="p">Within documents that contain multiple topics, identifiers are scoped to the individual
+      topic, excluding child topics. The values of the <code class="keyword markupname xmlatt">@id</code> attribute for all
+      non-topic elements only need to be unique within that topic. For example, within one document
+      a section can have the same <code class="keyword markupname xmlatt">@id</code> as another section as long as the two are in
+      different topics. This is true even if one of those topics is nested within the other; the
+      scope is determined by the closest topic element within the document hierarchy.</p>
     <p class="p">Within a map document, the values of the <code class="keyword markupname xmlatt">@id</code> attributes for all elements
         <dfn class="term RFC-2119">SHOULD</dfn> be unique. When two elements
       within a map have the same value for the <code class="keyword markupname xmlatt">@id</code> attribute, processors <dfn class="term RFC-2119">MUST</dfn> resolve references to that ID to the
@@ -74,11 +73,10 @@ classes: ''
          
         </tr></tbody></table>
     </figure>
-    
-    <div class="note note note_note non-normative"><span class="note__title">Note:</span> For all elements other than footnote (<code class="keyword markupname xmlelement">&lt;fn&gt;</code>), the presence of a
-      value for the <code class="keyword markupname xmlatt">@id</code> attribute has no impact on processing. For
-        <code class="keyword markupname xmlelement">&lt;fn&gt;</code>, the presence or absence of a valid <code class="keyword markupname xmlatt">@id</code>
-      attribute affects how the element is processed. This is important for tools that automatically
-      assign <code class="keyword markupname xmlatt">@id</code> attributes to all elements.</div>
+    <div class="note note note_note non-normative"><span class="note__title">Note:</span> For tools that automatically assign <code class="keyword markupname xmlatt">@id</code> attributes to elements, it is
+      important to recognize that the presence or absence of an <code class="keyword markupname xmlatt">@id</code> attribute on the
+        <code class="keyword markupname xmlelement">&lt;fn&gt;</code> element will affect how the element is processed. For most other
+      elements, the presence of a value for the <code class="keyword markupname xmlatt">@id</code> attribute has no impact on
+      processing.</div>
   </div>
 </article></main>
