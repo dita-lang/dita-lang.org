@@ -1,5 +1,6 @@
 import EditController from './EditController'
 import $ from 'jquery'
+import 'whatwg-fetch'
 import URI from 'urijs'
 import Prism from 'prismjs'
 import { tabs } from '../dom'
@@ -37,7 +38,7 @@ function Common(index) {
       history.pushState({}, '', href)
     }
     fetch(abs)
-      .then((data) => data.text())
+      .then((response) => response.text())
       .then((data) => {
         updateToc(href, $tocLink)
         updateMain(data)
@@ -117,7 +118,7 @@ function Common(index) {
     function addAnchorLinks() {
       $main
         .find(
-          'article[id] > h2:first-child, section[id] > h2:first-child, section[id] > h3:first-child , dt[id]'
+          'article[id] > h2:first-child, section[id] > h2:first-child, section[id] > h3:first-child , dt[id]',
         )
         .each(function () {
           const $current = $(this)
@@ -229,7 +230,7 @@ export function addPlatformTabs($main = $('main[role=main]')) {
                 active: false,
               }
             })
-            .get()
+            .get(),
         )
         // console.log(items)
         $current.after(tabs(Math.floor(Math.random() * 26), items))
@@ -254,7 +255,7 @@ export function addPlatformTabs($main = $('main[role=main]')) {
               return getPlatforms($(this))
             })
             .get()
-            .flat()
+            .flat(),
         ),
       ].sort()
       if (platforms.length !== 0) {
@@ -263,8 +264,8 @@ export function addPlatformTabs($main = $('main[role=main]')) {
             const $content = simplify(
               filterByPlatform(
                 platform === 'windows' ? toWindows($current.clone()) : $current.clone(),
-                platform
-              )
+                platform,
+              ),
             )
             return {
               title: t(platform),
@@ -273,7 +274,7 @@ export function addPlatformTabs($main = $('main[role=main]')) {
               content: $content.wrapAll(`<div class="tab-pane-wrapper"></div>`).parent().get(),
               active: false,
             }
-          })
+          }),
         )
         $current.after(tabs(Math.floor(Math.random() * 26), items))
         $current.remove()
