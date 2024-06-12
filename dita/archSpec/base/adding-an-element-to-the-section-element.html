@@ -5,7 +5,7 @@ title: 'Example: Adding an element to the section element using DTDs'
 description: 'In this scenario, a DITA architect wants to modify the content model for the section element. The DITA architect wants to add an optional sectionDesc element that is specialized from p.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '7e7a11ff130cd273e9235b7da503a3782fa30582'
+commit: '5321974561d438db46106429de6f059b4572151c'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -67,9 +67,9 @@ classes: ''
             However, the new element is not added to the content model for
               <code class="keyword markupname xmlelement">&lt;section&gt;</code>.</p></li>
         <li class="li">Next, the DITA architect creates an expansion module:
-            <span class="ph filepath">acme-SectionExpansion.mod</span>. This module
-          adds the <code class="keyword markupname xmlelement">&lt;sectionDesc&gt;</code> element to the
-          content model of <code class="keyword markupname xmlelement">&lt;section&gt;</code>.<pre class="pre codeblock"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+            <span class="ph filepath">acme-SectionExpansion.mod</span>. This module adds the
+            <code class="keyword markupname xmlelement">&lt;sectionDesc&gt;</code> element to the content model of
+            <code class="keyword markupname xmlelement">&lt;section&gt;</code>.<pre class="pre codeblock"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 
 &lt;!-- Declares the entities referenced in the modified content  --&gt;
 &lt;!-- model.                                                    --&gt;
@@ -98,10 +98,8 @@ classes: ''
 &lt;!ENTITY % text "text"&gt;
 &lt;!ENTITY % tm "tm"&gt;
 &lt;!ENTITY % xref "xref"&gt;
-&lt;!ENTITY % state "state"&gt;
 &lt;!ENTITY % data "data"&gt;
 &lt;!ENTITY % foreign "foreign"&gt;
-&lt;!ENTITY % unknown "unknown"&gt;
 &lt;!ENTITY % title "title"&gt;
 &lt;!ENTITY % draft-comment "draft-comment"&gt;
 &lt;!ENTITY % fn "fn"&gt;
@@ -137,10 +135,8 @@ classes: ''
                %text; |
                %tm; |
                %xref; |
-               %state; |
                %data; |
                %foreign; |
-               %unknown; |
                %title; |
                %draft-comment; |
                %fn; |
@@ -148,15 +144,12 @@ classes: ''
                %required-cleanup; |
                <strong class="ph b">%sectionDesc;</strong>)*"
 &gt;</code></pre>
-          <p class="p">Note that the DITA architect needed to explicitly declare all
-            the elements, rather than using the
-              <code class="keyword markupname parameterentity">%section.cnt;</code> parameter
-            entity that is used in the definition of
-              <code class="keyword markupname xmlelement">&lt;section&gt;</code>. Because the
-            element-configuration modules are integrated into the
-            document-type shell before the base grammar modules, none of
-            the parameter entities that are used in the base DITA
-            vocabulary modules are available.</p></li>
+          <p class="p">Note that the DITA architect needed to explicitly declare all the elements, rather than
+            using the <code class="keyword markupname parameterentity">%section.cnt;</code> parameter entity that is used
+            in the definition of <code class="keyword markupname xmlelement">&lt;section&gt;</code>. Because the element-configuration
+            modules are integrated into the document-type shell before the base grammar modules,
+            none of the parameter entities that are used in the base DITA vocabulary modules are
+            available.</p></li>
         <li class="li">Finally, the DITA architect integrates the expansion module
           into the document-type
           shell:<pre class="pre codeblock"><code>&lt;!-- ============================================================= --&gt;
