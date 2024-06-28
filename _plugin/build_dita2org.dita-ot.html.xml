@@ -55,4 +55,13 @@
     </pipeline>
   </target>
 
+  <target name="inline-attribute-definitions" description="Inline attribute definitions">
+    <pipeline taskname="add-aggregated">
+      <xslt basedir="${dita.temp.dir}"
+            style="${dita.plugin.org.dita-ot.html.dir}/xsl/inline-attribute-definitions.xsl"
+            parallel="${parallel}">
+        <ditafileset format="dita" processingRole="normal"/>
+      </xslt>
+    </pipeline>
+  </target>
 </project>
