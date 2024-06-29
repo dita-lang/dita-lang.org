@@ -5,7 +5,7 @@ title: 'resourceid'
 description: 'A resource ID is an identifier that is designed for applications that need to use their own identifier scheme, such as context-sensitive help systems and databases.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: 'f68171cbbba8207431232566331eb7f25f9bb705'
+commit: '2cdf8d2f3a28ac3cfb41a95c6a762b8ae0ac979b'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -119,7 +119,7 @@ classes: ''
             plays for applications. The value is a single name token. The
             default value is <span class="keyword">context-sensitive-help</span>.
             While applications can define their own values, the following
-            values are defined by OASIS:<dl class="dl attributes-prose">
+            values are defined by OASIS:<dl class="dl">
               
                 <dt class="dt dlterm">context-sensitive-help</dt>
                 <dd class="dd">Specifies that the value of the <code class="keyword markupname xmlatt">@appid</code>
@@ -151,7 +151,7 @@ classes: ''
               in both a map and a topic. This attribute is only valid when
               used within a <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element in a
               map. The following values are valid:</p>
-            <dl class="dl attributes-prose">
+            <dl class="dl">
               
                 <dt class="dt dlterm">map-only</dt>
                 <dd class="dd">Use IDs from the map only.</dd>
@@ -190,10 +190,6 @@ classes: ''
         
       </dl>
     <dl class="dl inlined-attributes">
-          <dt class="dt dlterm"><span class="keyword">-dita-use-conref-target</span></dt>
-          <dd class="dd">See <a class="xref" href="../../common/../archSpec/base/ditauseconreftarget.html" title="The value -dita-use-conref-target is available on enumerated attributes and can also be specified on other attributes. When an element uses conref to pull in content, for any of its attributes assigned a value of -dita-use-conref-target, the resulting value for those attributes is also pulled in from the referenced element.">Using the -dita-use-conref-target value</a>
-            for more information. </dd>
-        
           <dt class="dt dlterm" id="resourceid__attr-appid"><a id="resourceid__appid"></a><code class="keyword markupname xmlatt">@appid</code></dt>
           <dd class="dd">Specifies an ID that can be used by an application to
             identify the topic.<p class="p">When <code class="keyword markupname xmlatt">@app-role</code> is set to
@@ -317,20 +313,6 @@ classes: ''
             first element of the sequence specified by <code class="keyword markupname xmlatt">@conref</code>. The referenced
             sequence of elements is used in place of the content of the current element. See <a class="xref" href="../../archSpec/base/theconrefendattribute.html" title="The conrefend attribute is used when referencing a range of elements with the conref mechanism. The conref or conkeyref attribute references the first element in the range, while conrefend references the last element in the range.">The conrefend attribute</a> for examples and details about the syntax. </dd>
         
-                <dt class="dt dlterm">context-sensitive-help</dt>
-                <dd class="dd">Specifies that the value of the <code class="keyword markupname xmlatt">@appid</code>
-                  attribute is used to connect the associated resource with
-                  applications that use the associated resource as context
-                  sensitive help.</dd>
-              
-                <dt class="dt dlterm">deliverable-anchor</dt>
-                <dd class="dd">Specifies that the value of the <code class="keyword markupname xmlatt">@appid</code>
-                  attribute is used to construct anchors for the associated
-                    resource.<p class="p">When <code class="keyword markupname xmlatt">@app-role</code> is set to
-                      <span class="keyword">deliverable-anchor</span>, certain
-                    restrictions apply to the value of the
-                      <code class="keyword markupname xmlatt">@appid</code> attribute. See <a class="xref" href="resourceid.html#resourceid__usage-information">Usage information</a>.</p></dd>
-              
           <dt class="dt dlterm" id="resourceid__attr-deliveryTarget"><a id="resourceid__deliveryTarget"></a><code class="keyword markupname xmlatt">@deliveryTarget</code>
             <span class="ph"><em class="ph i">(specialized attribute)</em></span></dt>
           <dd class="dd"><span class="ph">Specifies the
@@ -394,13 +376,6 @@ classes: ''
                 <code class="keyword markupname xmlatt">@importance</code> attribute indicates whether a step is optional or
               required.</span></dd>
         
-                <dt class="dt dlterm">map-only</dt>
-                <dd class="dd">Use IDs from the map only.</dd>
-              
-                <dt class="dt dlterm">map-takes-priority</dt>
-                <dd class="dd">Use the IDs from the map, if they exist. Otherwise, use
-                  IDs from the topic.</dd>
-              
           <dt class="dt dlterm" id="resourceid__attr-otherprops"><a id="resourceid__otherprops"></a><code class="keyword markupname xmlatt">@otherprops</code>
             <span class="ph"><em class="ph i">(specialized attribute)</em></span></dt>
           <dd class="dd">Specifies a property or properties that provide selection criteria for the element.
@@ -473,16 +448,6 @@ classes: ''
               <span class="keyword">new</span>, <span class="keyword">changed</span>, <span class="keyword">deleted</span>,
               <span class="keyword">unchanged</span>, and <span class="keyword">-dita-use-conref-target</span>.</dd>
         
-                <dt class="dt dlterm">topic-and-map</dt>
-                <dd class="dd">Use IDs from both the topic and map.</dd>
-              
-                <dt class="dt dlterm">topic-only</dt>
-                <dd class="dd">Use IDs from the topic only.</dd>
-              
-                <dt class="dt dlterm">topic-takes-priority</dt>
-                <dd class="dd">Use the IDs from the topic, if they exist. Otherwise,
-                  use IDs from the map.</dd>
-              
           <dt class="dt dlterm" id="resourceid__attr-translate"><a id="resourceid__translate"></a><code class="keyword markupname xmlatt">@translate</code></dt>
           <dd class="dd">Specifies whether the content of the element should be translated. <span class="ph">The following values are valid: <span class="keyword">yes</span>, <span class="keyword">no</span>, and
                 <span class="keyword">-dita-use-conref-target</span>.</span><p class="p">See <a class="xref" href="../../non-normative/elementsMerged.html" title="This topic contains a list of all elements in the base DITA edition. It includes recommendations on how to present the element type to translators, whether the element contents are likely to be suitable for translation, and whether the element has attributes with values that are likely to be suitable for translation. Examples of content that is not suitable for translation include code fragments and mailing addresses.">Element-by-element recommendations for translators</a> for
