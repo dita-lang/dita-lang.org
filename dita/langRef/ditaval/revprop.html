@@ -5,7 +5,7 @@ title: 'revprop'
 description: 'The revprop element in a DITAVAL document identifies a value of the rev attribute for flagging. Unlike the conditional processing attributes, which can be used for both filtering and flagging, the rev attribute can only be used for flagging.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '5321974561d438db46106429de6f059b4572151c'
+commit: '7b9f3ee6f5865a9d9ef1f6aa872fca2cab1c1586'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -109,7 +109,7 @@ classes: ''
       </section>
     <section class="section" id="ditaval-revprop__attributes"><h2 class="title sectiontitle">Attributes</h2>
       
-      <p class="p">The following attributes are available on this element:</p>
+      <p class="p attributes-prose">The following attributes are available on this element:</p>
       <dl class="dl">
         
           <dt class="dt dlterm" id="ditaval-revprop__attr-action"><code class="keyword markupname xmlatt">@action</code>
@@ -188,7 +188,85 @@ classes: ''
             attribute can contain multiple space-delimited tokens.</dd>
         
       </dl>
-    </section>
+    </section><section class="section" id="ditaval-revprop__inlined-attributes"><h2 class="title sectiontitle">Inlined Attributes</h2><dl class="dl inlined">
+          <dt class="dt dlterm" id="ditaval-revprop__attr-action"><code class="keyword markupname xmlatt">@action</code>
+            <span class="ph">(REQUIRED)</span></dt>
+          <dd class="dd">
+            <p class="p">Specifies the action to be taken. The following values are
+              supported:</p>
+            <dl class="dl">
+              
+                <dt class="dt dlterm">flag</dt>
+                <dd class="dd">Indicates that the content is included in the output
+                  and flagged, if the content has not been excluded.</dd>
+              
+              
+                <dt class="dt dlterm">include</dt>
+                <dd class="dd">Indicates that the content is included in the output
+                  and not flagged. This is the default behavior, unless
+                  otherwise set.</dd>
+              
+              
+                <dt class="dt dlterm">passthrough</dt>
+                <dd class="dd">Indicates that the content is included in the output
+                  and that the attribute value is preserved. This enables
+                  further processing by a runtime engine. The attribute
+                  value is preserved in the syntax that is required by the
+                  runtime
+                  engine.</dd>
+              
+            </dl>
+          </dd>
+        
+          <dt class="dt dlterm" id="ditaval-revprop__attr-backcolor"><code class="keyword markupname xmlatt">@backcolor</code></dt>
+          <dd class="dd">Specifies the background color for flagged text. Colors can
+            be entered by name or <span style="color:red;" class="ph">hex</span> code. When
+            images are flagged, the background color is rendered as a thick
+            border.</dd>
+        
+          <dt class="dt dlterm" id="ditaval-revprop__attr-changebar"><code class="keyword markupname xmlatt">@changebar</code></dt>
+          <dd class="dd">Specifies a color, style, or character to be used for
+            rendering a change bar.</dd>
+        
+          <dt class="dt dlterm" id="ditaval-revprop__attr-color"><code class="keyword markupname xmlatt">@color</code></dt>
+          <dd class="dd">Specifies the color for flagged text. Colors can be entered
+            by name or <span style="color:red;" class="ph">hex</span> code. When images are
+            flagged, the color is rendered as a thin border.</dd>
+        
+                <dt class="dt dlterm">flag</dt>
+                <dd class="dd">Indicates that the content is included in the output
+                  and flagged, if the content has not been excluded.</dd>
+              
+                <dt class="dt dlterm">include</dt>
+                <dd class="dd">Indicates that the content is included in the output
+                  and not flagged. This is the default behavior, unless
+                  otherwise set.</dd>
+              
+          <dt class="dt dlterm" id="ditaval-revprop__attr-outputclass"><code class="keyword markupname xmlatt">@outputclass</code></dt>
+          <dd class="dd">Specifies a value for the <code class="keyword markupname xmlatt">@outputclass</code>
+            attribute. The flagged element is treated as if the specified
+              <code class="keyword markupname xmlatt">@outputclass</code> value was specified on that
+            element.</dd>
+        
+                <dt class="dt dlterm">passthrough</dt>
+                <dd class="dd">Indicates that the content is included in the output
+                  and that the attribute value is preserved. This enables
+                  further processing by a runtime engine. The attribute
+                  value is preserved in the syntax that is required by the
+                  runtime
+                  engine.</dd>
+              
+          <dt class="dt dlterm" id="ditaval-revprop__attr-style"><code class="keyword markupname xmlatt">@style</code></dt>
+          <dd class="dd">Specifies the formatting to use for flagged text. This
+            attribute can contain multiple space-delimited tokens.</dd>
+        
+          <dt class="dt dlterm" id="ditaval-revprop__attr-val"><code class="keyword markupname xmlatt">@val</code></dt>
+          <dd class="dd">Specifies the value of the <code class="keyword markupname xmlatt">@rev</code> attribute. If
+            the <code class="keyword markupname xmlatt">@val</code> attribute is not specified, then the
+              <code class="keyword markupname xmlelement">&lt;revprop&gt;</code> element declares a default
+            behavior for any instance of the <code class="keyword markupname xmlatt">@rev</code>
+            attribute.</dd>
+        </dl></section>
     <div class="example non-normative" id="ditaval-revprop__example"><h2 class="title sectiontitle">Example</h2>
       
       

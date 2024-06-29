@@ -5,7 +5,7 @@ title: 'colspec'
 description: 'A column specification provides information about a single column in a table that is based on the OASIS Exchange Table Model. The information might include a column name and number, cell content alignment, or column width.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '255272a40678be39bbbd54787b75718aba980b69'
+commit: '7b9f3ee6f5865a9d9ef1f6aa872fca2cab1c1586'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -25,7 +25,7 @@ classes: ''
       </section>
     <section class="section" id="colspec__attributes"><h2 class="title sectiontitle">Attributes</h2>
       
-      <p class="p">The following attributes are available on this element: <span class="ph"><a class="xref" href="../../common/../langRef/attributes/universalAttributes.html#univ-atts__localizationatts" title="Localization attributes include: dir, translate, and xml:lang">localization
+      <p class="p attributes-prose">The following attributes are available on this element: <span class="ph"><a class="xref" href="../../common/../langRef/attributes/universalAttributes.html#univ-atts__localizationatts" title="Localization attributes include: dir, translate, and xml:lang">localization
                                                   attributes</a></span>, <span class="ph"><a class="xref" href="../../common/../langRef/attributes/universalAttributes.html#univ-atts__idatts" title="ID and conref attributes include: conaction, conkeyref, conref, conrefend, and id">ID
                                                 and conref attributes</a></span>, <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-align"><code class="keyword markupname xmlatt">@align</code></a>, <a class="xref" href="../attributes/universalAttributes.html#univ-atts__attr-base"><code class="keyword markupname xmlatt">@base</code></a>, <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-char"><code class="keyword markupname xmlatt">@char</code></a>, <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-charoff"><code class="keyword markupname xmlatt">@charoff</code></a>, <a class="xref" href="../attributes/universalAttributes.html#univ-atts__attr-class"><code class="keyword markupname xmlatt">@class</code></a>, <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-colsep"><code class="keyword markupname xmlatt">@colsep</code></a>, <a class="xref" href="../attributes/universalAttributes.html#univ-atts__attr-outputclass"><code class="keyword markupname xmlatt">@outputclass</code></a>, <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-rowheader"><code class="keyword markupname xmlatt">@rowheader</code></a>, <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-rowsep"><code class="keyword markupname xmlatt">@rowsep</code></a>, and the attributes defined
         below.</p>
@@ -68,7 +68,227 @@ classes: ''
               measure of <span class="keyword">1*</span> is assumed.</span></dd>
         
       </dl>
-    </section>
+    </section><section class="section" id="colspec__inlined-attributes"><h2 class="title sectiontitle">Inlined Attributes</h2><dl style="color:red;" class="dl inlined"><dt style="color:red;" class="dt dlterm" id="colspec__attr-align"><code class="keyword markupname xmlatt">@align</code>
+            <span class="ph">(complex table
+              attributes)</span></dt><dd style="color:red;" class="dd">Specifies the <span style="color:red;" class="ph">horizontal</span> alignment of
+            text in table <span style="color:red;" class="ph">entries</span>. The following
+            values are valid: <dl class="dl">
+              
+                <dt class="dt dlterm">left </dt>
+                <dd class="dd">Indicates left alignment of the text. </dd>
+              
+              
+                <dt class="dt dlterm">right </dt>
+                <dd class="dd">Indicates right alignment of the text. </dd>
+              
+              
+                <dt class="dt dlterm">center </dt>
+                <dd class="dd">Indicates center alignment of the text. </dd>
+              
+              
+                <dt class="dt dlterm">justify </dt>
+                <dd class="dd">Justifies the contents to both the left and the right.
+                </dd>
+              
+              
+                <dt class="dt dlterm">char </dt>
+                <dd class="dd">Indicates character alignment. The text is aligned with
+                  the first occurrence of the character specified by the
+                    <code class="keyword markupname xmlatt">@char</code> attribute.</dd>
+              
+              
+          <dt class="dt dlterm"><span class="keyword">-dita-use-conref-target</span></dt>
+          <dd class="dd">See <a class="xref" href="../../common/../archSpec/base/ditauseconreftarget.html" title="The value -dita-use-conref-target is available on enumerated attributes and can also be specified on other attributes. When an element uses conref to pull in content, for any of its attributes assigned a value of -dita-use-conref-target, the resulting value for those attributes is also pulled in from the referenced element.">Using the -dita-use-conref-target value</a>
+            for more information. </dd>
+        
+            </dl><p class="p">The <code class="keyword markupname xmlatt">@align</code> attribute is available on
+              the following table elements:
+                <code class="keyword markupname xmlelement">&lt;colspec&gt;</code>,
+                <code class="keyword markupname xmlelement">&lt;entry&gt;</code>, and
+                <code class="keyword markupname xmlelement">&lt;tgroup&gt;</code>.</p></dd><dt style="color:red;" class="dt dlterm" id="colspec__attr-char"><code class="keyword markupname xmlatt">@char</code>
+            <span class="ph">(complex table
+              attributes)</span></dt><dd style="color:red;" class="dd ddexpand">Specifies the alignment character, which is the character
+            that is used for aligning the text in table entries. This
+            attribute applies when <code class="ph codeph">align="char"</code>. A value
+            of "" (the null string) means there is no aligning
+              character.<p class="p">For
+              example, if <code class="ph codeph">align="char"</code> and
+                <code class="ph codeph">char="."</code> are specified, then text in the
+              table entry aligns with the first occurrence of the period
+              within the entry. This might be useful if decimal alignment
+              is required.</p><p class="p">The <code class="keyword markupname xmlatt">@char</code> attribute is
+              available on the following table elements:
+                <code class="keyword markupname xmlelement">&lt;colspec&gt;</code> and
+                <code class="keyword markupname xmlelement">&lt;entry&gt;</code>.</p></dd><dt style="color:red;" class="dt dlterm" id="colspec__attr-charoff"><code class="keyword markupname xmlatt">@charoff</code>
+            <span class="ph">(complex table
+              attributes)</span></dt><dd style="color:red;" class="dd ddexpand">Specifies the horizontal offset of the alignment character
+              <span style="color:red;" class="ph">that is specified by the
+                <code class="keyword markupname xmlatt">@char</code> attribute</span>. The value is a
+            greater-than-zero number that is less than or equal to 100. It
+            represents the percentage of the current column width by which
+            the text is offset to the left of the alignment
+              character.<p class="p">For
+              example, if <code class="ph codeph">align="char"</code>,
+                <code class="ph codeph">char="."</code>, and
+                <code class="ph codeph">charoff="50"</code> are all specified, then text
+              in the table entry is aligned 50% of the distance to the left
+              of the first occurrence of the period character within the
+              table entry.</p><p class="p">The <code class="keyword markupname xmlatt">@charoff</code> attribute is
+              available on the following table elements:
+                <code class="keyword markupname xmlelement">&lt;colspec&gt;</code> and
+                <code class="keyword markupname xmlelement">&lt;entry&gt;</code>.</p></dd><dt style="color:red;" class="dt dlterm" id="colspec__attr-colsep"><code class="keyword markupname xmlatt">@colsep</code>
+            <span class="ph">(complex table
+              attributes)</span></dt><dd style="color:red;" class="dd ddexpand">Specifies whether to render column separators between table
+            entries. The following values are valid: <span class="keyword">0</span>
+            <span style="color:red;" class="ph">(</span>no separators) and
+              <span class="keyword">1</span> (separators). <p class="p">The
+                <code class="keyword markupname xmlatt">@colsep</code> attribute is available on the
+              following table elements: <code class="keyword markupname xmlelement">&lt;colspec&gt;</code>,
+                <code class="keyword markupname xmlelement">&lt;entry&gt;</code>,
+                <code class="keyword markupname xmlelement">&lt;table&gt;</code>, and
+                <code class="keyword markupname xmlelement">&lt;tgroup&gt;</code>.</p></dd><dt style="color:red;" class="dt dlterm" id="colspec__attr-rowheader"><code class="keyword markupname xmlatt">@rowheader</code>
+            <span class="ph">(complex table
+              attributes)</span></dt><dd style="color:red;" class="dd ddexpand">Specifies whether the entries in the respective column are
+            row headers. The following values are valid: <dl class="dl">
+              
+                <dt class="dt dlterm"><span class="keyword">firstcol</span></dt>
+                <dd class="dd">Indicates that entries in the first column of the table
+                  are row headers. This applies when the
+                    <code class="keyword markupname xmlatt">@rowheader</code> attribute is specified on
+                  the <code class="keyword markupname xmlelement">&lt;table&gt;</code> element.</dd>
+              
+            </dl><dl class="dl">
+              
+                <dt class="dt dlterm"><span class="keyword">headers</span></dt>
+                <dd class="dd">Indicates that entries of the column that is described
+                  using the <code class="keyword markupname xmlelement">&lt;colspec&gt;</code> element are
+                  row headers. This applies when the
+                    <code class="keyword markupname xmlatt">@rowheader</code> attribute is specified on
+                  the <code class="keyword markupname xmlelement">&lt;colspec&gt;</code> element.</dd>
+              
+              
+                <dt class="dt dlterm"><span class="keyword">norowheader</span></dt>
+                <dd class="dd">Indicates that entries in the first column are not row
+                  headers. This applies when the <code class="keyword markupname xmlatt">@rowheader</code>
+                  attribute is specified on the
+                    <code class="keyword markupname xmlelement">&lt;table&gt;</code> element.</dd>
+              
+              
+          <dt class="dt dlterm"><span class="keyword">-dita-use-conref-target</span></dt>
+          <dd class="dd">See <a class="xref" href="../../common/../archSpec/base/ditauseconreftarget.html" title="The value -dita-use-conref-target is available on enumerated attributes and can also be specified on other attributes. When an element uses conref to pull in content, for any of its attributes assigned a value of -dita-use-conref-target, the resulting value for those attributes is also pulled in from the referenced element.">Using the -dita-use-conref-target value</a>
+            for more information. </dd>
+        
+            </dl><div class="note note note_note non-normative"><span class="note__title">Note:</span> This attribute is not part of the OASIS Exchange
+              Table Model upon which DITA tables are based. Some processors
+              or output formats might not support all values. </div><p class="p">The
+                <code class="keyword markupname xmlatt">@rowheader</code> attribute is available on the
+              following table elements: <code class="keyword markupname xmlelement">&lt;table&gt;</code> and
+                <code class="keyword markupname xmlelement">&lt;colspec&gt;</code>.</p></dd><dt style="color:red;" class="dt dlterm" id="colspec__attr-rowsep"><code class="keyword markupname xmlatt">@rowsep</code><span class="ph"> (complex table
+            attributes)</span></dt><dd style="color:red;" class="dd ddexpand">Specifies whether to render row separators between table
+            entries. The following values are valid: <span class="keyword">0</span>
+            (no separators) and <span class="keyword">1</span> (separators).<p class="p">The
+                <code class="keyword markupname xmlatt">@rowsep</code> attribute is available on the
+              following table elements: <code class="keyword markupname xmlelement">&lt;colspec&gt;</code>,
+                <code class="keyword markupname xmlelement">&lt;entry&gt;</code>,
+                <code class="keyword markupname xmlelement">&lt;row&gt;</code>,
+                <code class="keyword markupname xmlelement">&lt;table&gt;</code>, and
+                <code class="keyword markupname xmlelement">&lt;tgroup&gt;</code>.</p></dd>
+          <dt class="dt dlterm" id="colspec__attr-base"><a id="colspec__base"></a><code class="keyword markupname xmlatt">@base</code></dt>
+          <dd class="dd">Specifies metadata about the element. It is often used as a base for specialized
+            attributes that have a simple syntax for values, but which are not conditional
+            processing attributes.<p class="p">The <code class="keyword markupname xmlatt">@base</code> attribute takes a space-delimited set
+              of values. <span class="ph">However, when
+          serving as a container for generalized attributes, the attribute
+          values will be more complex. See <a class="xref" href="../../common/../archSpec/base/generalization-attributes.html" title="DITA provides a syntax to generalize attributes that have been specialized from the props or base attribute.">Attribute generalization</a> for
+          more details.</span></p></dd>
+        
+          <dt class="dt dlterm" id="colspec__attr-class"><a id="colspec__class"></a><code class="keyword markupname xmlatt">@class</code>
+            <em class="ph i">(not for use by authors)</em></dt>
+          <dd class="dd" id="colspec__reusable-class"><em class="ph i">This attribute is not for use by authors. If an editor displays
+                <code class="keyword markupname xmlatt">@class</code> attribute values, do not edit them.</em> Specifies a default
+            value that defines the specialization ancestry of the element. Its predefined values
+            allow DITA  tools to work correctly with specialized
+            elements. <span class="ph">In a generalized DITA document the <code class="keyword markupname xmlatt">@class</code>
+              attribute value in the generalized instance might differ from the default value for
+              the <code class="keyword markupname xmlatt">@class</code> attribute for the element as given in the DTD or schema.
+              See <a class="xref" href="../../archSpec/base/specialization-class-attribute.html" title="The specialization hierarchy of each DITA element is declared as the value of the class attribute. The class attribute provides a mapping from the current name of the element to its more general equivalents. The class attribute also can provide a mapping from the current name to more specialized equivalents. All specialization-aware processing can be defined in terms of class attribute values.">The class attribute rules and syntax</a> for more
+              information. This attribute is specified on every element except for the
+                <code class="keyword markupname xmlelement">&lt;dita&gt;</code> container element.</span> It is always specified with a
+            default value, which varies for each element.</dd>
+        
+          <dt class="dt dlterm" id="colspec__attr-colname"><code class="keyword markupname xmlatt">@colname</code></dt>
+          <dd class="dd">Specifies a name for the column. The
+              <code class="keyword markupname xmlelement">&lt;entry&gt;</code> element can use the
+              <code class="keyword markupname xmlatt">@colname</code><span style="color:red;" class="ph"> attribute to
+              refer to the column.</span></dd>
+        
+          <dt class="dt dlterm" id="colspec__attr-colnum"><code class="keyword markupname xmlatt">@colnum</code></dt>
+          <dd class="dd">Specifies the number of the column in the table<span style="color:red;" class="ph">, where 1 represents the first logical
+              column.</span></dd>
+        
+          <dt class="dt dlterm" id="colspec__attr-colwidth"><code class="keyword markupname xmlatt">@colwidth</code></dt>
+          <dd class="dd">Specifies the column width. <span style="color:red;" class="ph">Valid values
+              are either a proportional or fixed measure:</span><dl style="color:red;" class="dl">
+              
+                <dt class="dt dlterm">Proportional measure</dt>
+                <dd class="dd">Specifies the width of each column in relationship to
+                  the width of the other columns. The value is a
+                  space-separated list of relative column widths. Each
+                  column width is specified as a positive integer or
+                  decimal number followed by an asterisk character.</dd>
+              
+              
+                <dt class="dt dlterm">Fixed measure</dt>
+                <dd class="dd">A value of a coefficient followed by a unit of
+                  measurement. The coefficients are positive integers or
+                  fixed point numbers. The fixed unit values are
+                  case-insensitive. The allowed units of measure are cm
+                  (centimeters), in (inches), pi (picas), and pt (points).
+                  The default unit of measure is pt.</dd>
+              
+            </dl><span style="color:red;" class="ph">If the <code class="keyword markupname xmlatt">@colwidth</code>
+              attribute is not specified or is empty, a proportional
+              measure of <span class="keyword">1*</span> is assumed.</span></dd>
+        
+                <dt class="dt dlterm">Fixed measure</dt>
+                <dd class="dd">A value of a coefficient followed by a unit of
+                  measurement. The coefficients are positive integers or
+                  fixed point numbers. The fixed unit values are
+                  case-insensitive. The allowed units of measure are cm
+                  (centimeters), in (inches), pi (picas), and pt (points).
+                  The default unit of measure is pt.</dd>
+              
+          <dt class="dt dlterm" id="colspec__idatts">ID attributes</dt>
+          <dd class="dd">
+            <p class="p" id="colspec__id-attr">This group includes the attributes that enable
+              the naming and referencing of elements:
+                <code class="keyword markupname xmlatt">@conaction</code>, <code class="keyword markupname xmlatt">@conkeyref</code>,
+                <code class="keyword markupname xmlatt">@conref</code>, <code class="keyword markupname xmlatt">@conrefend</code>, and
+                <code class="keyword markupname xmlatt">@id</code>.</p>
+          </dd>
+        
+          <dt class="dt dlterm" id="colspec__localizationatts">Localization attributes</dt>
+          <dd class="dd">
+            <p class="p" id="colspec__localization-attr">This group includes attributes that
+              are related to translation and localization:
+                <code class="keyword markupname xmlatt">@dir</code>, <code class="keyword markupname xmlatt">@translate</code>, and
+                <code class="keyword markupname xmlatt">@xml:lang</code>.</p>
+          </dd>
+        
+          <dt class="dt dlterm" id="colspec__attr-outputclass"><a id="colspec__outputclass"></a><code class="keyword markupname xmlatt">@outputclass</code></dt>
+          <dd class="dd">Specifies a role that the element is playing. The role must be consistent with the
+            basic semantic and expectations for the element. In particular, the
+              <code class="keyword markupname xmlatt">@outputclass</code> attribute can be used for styling during output
+            processing; HTML output will typically preserve <code class="keyword markupname xmlatt">@outputclass</code> for CSS
+              processing.</dd>
+        
+                <dt class="dt dlterm">Proportional measure</dt>
+                <dd class="dd">Specifies the width of each column in relationship to
+                  the width of the other columns. The value is a
+                  space-separated list of relative column widths. Each
+                  column width is specified as a positive integer or
+                  decimal number followed by an asterisk character.</dd>
+              </dl></section>
     <div class="example non-normative" id="colspec__example"><h2 class="title sectiontitle">Example</h2><p class="p">See <a class="xref" href="table.html#table__example"><code class="keyword markupname xmlelement">&lt;table&gt;</code></a>.</p></div>
   </div>
 <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/table-elements.html" title="DITA topics support two types of tables: complex table and simple table.">Table elements</a></div></div></nav></article></main>
