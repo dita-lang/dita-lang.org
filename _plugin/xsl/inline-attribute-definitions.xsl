@@ -20,11 +20,13 @@
         <xsl:choose>
           <xsl:when test="starts-with(@keyref, 'attributes-common/')">
 <!--            <xsl:variable name="target-file" select="x:get-target-file(@href, /)" />-->
-            <xsl:apply-templates select="." mode="resolve-group">
-<!--              <xsl:with-param name="target-file" select="$target-file"/>-->
-              <xsl:with-param name="topic-id" select="'common-atts'"/>
-              <xsl:with-param name="element-id" select="substring-after(@keyref, '/')"/>
-            </xsl:apply-templates>
+            <dl class="- topic/dl ">
+              <xsl:apply-templates select="." mode="resolve-group">
+  <!--              <xsl:with-param name="target-file" select="$target-file"/>-->
+                <xsl:with-param name="topic-id" select="'common-atts'"/>
+                <xsl:with-param name="element-id" select="substring-after(@keyref, '/')"/>
+              </xsl:apply-templates>
+            </dl>
           </xsl:when>
           <xsl:when test="@keyref = 'attributes-universal'">
             <xsl:variable name="target-file" select="x:get-target-file(@href, /)" as="document-node()"/>
@@ -67,7 +69,7 @@
             </dl>
           </xsl:when>
           <xsl:otherwise>
-            <p class="- topic/p ">TODO:</p>
+            <p class="- topic/p ">FIXME:</p>
             <xsl:apply-templates select="."/>
             <!--
             <xsl:apply-templates select="." mode="resolve">
@@ -81,17 +83,18 @@
     </xsl:variable>
     <xsl:copy>
       <xsl:apply-templates select="@* | node()"/>
-    </xsl:copy>
-    <section class="- topic/section " id="inlined-attributes">
-      <title class="- topic/title ">Inlined Attributes</title>
-      <dl class="- topic/dl " outputclass="inlined">
+
+<!--    <section class="- topic/section " id="inlined-attributes">-->
+<!--      <title class="- topic/title ">Inlined Attributes</title>-->
+      <dl class="- topic/dl " id="inlined-attributes">
         <xsl:for-each select="$inlined/*">
-<!--          <xsl:sort select="lower-case(*[contains(@class, ' topic/dt ')])"/>-->
+          <xsl:sort select="lower-case(normalize-space(*[contains(@class, ' topic/dt ')]))"/>
 <!--          &lt;<xsl:value-of select="name()"/>&gt;-->
           <xsl:sequence select="."/>
         </xsl:for-each>
       </dl>
-    </section>
+<!--    </section>-->
+    </xsl:copy>
   </xsl:template>
 
   <xsl:template match="*[@id = 'attributes']//*[contains(@class, ' topic/p ')]
@@ -109,7 +112,7 @@
     <xsl:sequence select="document(if (contains($href, '#')) then substring-before($href, '#') else $href, $current-node)" />
   </xsl:function>
 
-  <xsl:template match="*" mode="resolve">
+  <xsl:template match="*" mode="resolve" as="element(dlentry)*">
     <xsl:param name="href" select="@href"/>
     <xsl:param name="topic-id" select="substring-before(substring-after($href, '#'), '/')"/>
     <xsl:param name="element-id" select="substring-after(substring-after($href, '#'), '/')"/>
@@ -130,7 +133,7 @@
     <xsl:sequence select="$dlentry"/>
   </xsl:template>
 
-  <xsl:template match="*" mode="resolve-group">
+  <xsl:template match="*" mode="resolve-group" as="element(dlentry)*">
     <xsl:param name="href" select="@href"/>
     <xsl:param name="topic-id" select="substring-before(substring-after($href, '#'), '/')"/>
     <xsl:param name="element-id" select="substring-after(substring-after($href, '#'), '/')"/>
