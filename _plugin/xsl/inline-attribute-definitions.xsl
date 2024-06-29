@@ -100,15 +100,6 @@
     </xsl:copy>
   </xsl:template>
 
-  <xsl:template match="*[@id = 'attributes']//*[contains(@class, ' topic/p ')]
-                                               [starts-with(normalize-space(.), 'The following attributes are available on this element')]">
-    <xsl:copy>
-      <xsl:apply-templates select="@*"/>
-      <xsl:attribute name="outputclass" select="'attributes-prose', @outputclass" separator=" "/>
-      <xsl:apply-templates select="node()"/>
-    </xsl:copy>
-  </xsl:template>
-
   <xsl:function name="x:get-target-file" as="document-node()">
     <xsl:param name="href"/>
     <xsl:param name="current-node"/>
