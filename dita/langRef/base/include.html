@@ -5,7 +5,7 @@ title: 'include'
 description: 'Included content is a reference to non-DITA content outside the current document that will be rendered at the location of the reference. The resource is specified using either a URI or a key reference. Processing expectations for the referenced data can also be specified.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '7b9f3ee6f5865a9d9ef1f6aa872fca2cab1c1586'
+commit: '6f0bb60b00f7b84d8be82e4233c434ff79714707'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -95,73 +95,7 @@ are presented instead.</p>
             
             <p class="p attributes-prose">The following attributes are available on this element: <span class="ph"><a class="xref" href="../../common/../langRef/attributes/commonAttributes.html#common-atts__inclusionatts" title="Inclusion attributes include: encoding and parse">inclusion attributes</a></span>, <span class="ph"><a class="xref" href="../../common/../langRef/attributes/commonAttributes.html#common-atts__linkatts" title="Link relationship attributes include: format, href, type, and scope">link-relationship attributes</a></span>,  <span class="ph"><a class="xref" href="../../common/../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
                                                   attributes</a></span>, and <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-keyref"><code class="keyword markupname xmlatt">@keyref</code></a>.</p>
-        </section><section class="section" id="include__inlined-attributes"><h2 class="title sectiontitle">Inlined Attributes</h2><dl class="dl inlined"><dt class="dt dlterm" id="include__attr-encoding"><code class="keyword markupname xmlatt">@encoding</code>
-            <span class="ph">(inclusion
-            attributes)</span></dt><dd class="dd">Specifies the character encoding to use when translating the character
-            data from the referenced content. The value should be a valid encoding name. If not
-            specified, processors may make attempts to automatically determine the correct encoding,
-            for example using HTTP headers, through analysis of the binary structure of the
-            referenced data, or the <code class="keyword markupname xmlpi">&lt;?xml?&gt;</code> processing instruction when including XML as
-            text. The resource should be treated as UTF-8 if no other encoding information can be
-              determined.<p class="p">When <code class="ph codeph">parse="xml"</code>, standard XML parsing rules apply for
-              the detection of character encoding. The necessity and uses of
-                <code class="keyword markupname xmlatt">@encoding</code> for non-standard values of <code class="keyword markupname xmlatt">@parse</code> are
-              implementation-dependent.</p></dd><dt class="dt dlterm" id="include__attr-format"><code class="keyword markupname xmlatt">@format</code>
-            <span class="ph">(link-relationship
-              attributes)</span></dt><dd class="dd ddexpand">Specifies the format of the resource that is referenced.<span class="ph"> See <a class="xref" href="../../archSpec/base/theformatattribute.html" title="The format attribute identifies the format of the referenced resource.">The format attribute</a> for
-              detailed information on supported values and processing
-              implications.</span></dd><dt class="dt dlterm" id="include__attr-href"><code class="keyword markupname xmlatt">@href</code>
-            <span class="ph">(link-relationship
-              attributes)</span></dt><dd class="dd ddexpand">Specifies a reference to a resource.<span class="ph"> See
-                <a class="xref" href="../../archSpec/base/thehrefattribute.html" title="The href attribute specifies the URI of the resource that is addressed. The referenced resource can be another DITA topic or map, an element inside a DITA topic or map, or a non-DITA resource.">The href attribute</a> for detailed information
-              on supported values and processing implications.</span></dd><dt class="dt dlterm" id="include__attr-keyref"><code class="keyword markupname xmlatt">@keyref</code></dt><dd class="dd ddexpand" id="include__def-keyref"><span class="ph" id="include__keyrefDescription">Specifies a key
-              name that acts as a redirectable reference based on a key
-              definition within a map.<span class="ph"> See <a class="xref" href="../../archSpec/base/thekeyrefattribute.html" title="The keyref attribute provides an indirect, late-bound reference to topics, to collections of topics (ditabase), to maps, to referenceable portions of maps, to non-DITA documents, to external URIs, or to XML content contained within a key definition topic reference. When the DITA content is processed, the key references are resolved using key definitions from DITA maps.">The keyref attribute</a> for information on using
-                this attribute.</span></span><p class="p">For HDITA, the equivalent of
-                <code class="keyword markupname xmlatt">@keyref</code> is
-              <code class="keyword markupname xmlatt">@data-keyref</code></p></dd><dt class="dt dlterm" id="include__attr-parse"><code class="keyword markupname xmlatt">@parse</code> (inclusion attributes)</dt><dd class="dd ddexpand">Specifies the processing expectations for the referenced resource. Processors must
-            support the following values:<dl class="dl">
-              
-                <dt class="dt dlterm"><span class="keyword">text</span></dt>
-                <dd class="dd">
-                  <p class="p">The contents should be treated as plain text. Reserved XML characters should be
-                    displayed, and not interpreted as XML markup.</p>
-                </dd>
-              
-              
-                <dt class="dt dlterm"><span class="keyword">xml</span></dt>
-                <dd class="dd">
-                  <p class="p">The contents of the referenced resource should be treated as an XML document,
-                    and the referenced element should be inserted at the location of the
-                      <code class="keyword markupname xmlelement">&lt;include&gt;</code> element. If a fragment identifier is included
-                    in the address of the content, processors must select the element with the
-                    specified ID. If no fragment identifier is included, the root element of the
-                    referenced XML document is selected. Any grammar processing should be performed
-                    during resolution, such that default attribute values are explicitly populated.
-                    Prolog content must be discarded.</p>
-                  <p class="p errorcondition"><span class="error-statement" id="include__d2461e1673" data-id="DITAERR-0320"></span>It is an error to use <code class="ph codeph">parse="xml"</code>
-                    anywhere other than within <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> or a specialization
-                    thereof.</p>
-                </dd>
-              
-            </dl><p class="p">Processors may support other values for the <code class="keyword markupname xmlatt">@parse</code> attribute
-              with proprietary processing semantics. Processors should issue warnings and use
-                <code class="keyword markupname xmlelement">&lt;fallback&gt;</code> when they encounter unsupported
-                <code class="keyword markupname xmlatt">@parse</code> values. Non-standard <code class="keyword markupname xmlatt">@parse</code> instructions
-              should be expressed as URIs.</p><div class="note note note_note non-normative"><span class="note__title">Note:</span> Proprietary <code class="keyword markupname xmlatt">@parse</code> values will
-              likely limit the portability and interoperability of DITA content, so should be used
-              with care.</div></dd><dt class="dt dlterm" id="include__attr-scope"><code class="keyword markupname xmlatt">@scope</code>
-            <span class="ph">(link-relationship
-              attributes)</span></dt><dd class="dd ddexpand">Specifies the closeness of the relationship between the
-            current document and the referenced resource.<span class="ph"> The following values are valid:
-                <span class="keyword">local</span>, <span class="keyword">peer</span>,
-                <span class="keyword">external</span>, and
-                <span class="keyword">-dita-use-conref-target</span>. </span><p class="p">See
-                <a class="xref" href="../../archSpec/base/thescopeattribute.html" title="The scope attribute identifies the closeness of the relationship between the current document and the target resource.">The scope attribute</a> for detailed information
-              on supported values and processing implications.</p></dd><dt class="dt dlterm" id="include__attr-type"><code class="keyword markupname xmlatt">@type</code>
-            <span class="ph">(link-relationship
-              attributes)</span></dt><dd class="dd ddexpand">Describes the target of a reference. See <a class="xref" href="../../archSpec/base/thetypeattribute.html" title="On linking elements, the type attribute describes the target of a reference. The type attribute is also used on several non-linking elements for other purposes.">The type attribute</a> for detailed
-            information on supported values and processing implications. </dd>
+        <dl class="dl" id="include__inlined-attributes">
           <dt class="dt dlterm" id="include__attr-audience"><a id="include__audience"></a><code class="keyword markupname xmlatt">@audience</code>
             <span class="ph"><em class="ph i">(specialized attribute)</em></span></dt>
           <dd class="dd">Indicates the intended audience for the element. <span class="ph">If no value is specified but the attribute is
@@ -294,6 +228,34 @@ are presented instead.</p>
               information.</p>
           </dd>
         
+          <dt class="dt dlterm" id="include__attr-encoding"><a id="include__encoding"></a><code class="keyword markupname xmlatt">@encoding</code>
+            <span class="ph">(inclusion
+            attributes)</span></dt>
+          <dd class="dd">Specifies the character encoding to use when translating the character
+            data from the referenced content. The value should be a valid encoding name. If not
+            specified, processors may make attempts to automatically determine the correct encoding,
+            for example using HTTP headers, through analysis of the binary structure of the
+            referenced data, or the <code class="keyword markupname xmlpi">&lt;?xml?&gt;</code> processing instruction when including XML as
+            text. The resource should be treated as UTF-8 if no other encoding information can be
+              determined.<p class="p">When <code class="ph codeph">parse="xml"</code>, standard XML parsing rules apply for
+              the detection of character encoding. The necessity and uses of
+                <code class="keyword markupname xmlatt">@encoding</code> for non-standard values of <code class="keyword markupname xmlatt">@parse</code> are
+              implementation-dependent.</p></dd>
+        
+          <dt class="dt dlterm" id="include__attr-format"><a id="include__format"></a><code class="keyword markupname xmlatt">@format</code>
+            <span class="ph">(link-relationship
+              attributes)</span></dt>
+          <dd class="dd">Specifies the format of the resource that is referenced.<span class="ph"> See <a class="xref" href="../../archSpec/base/theformatattribute.html" title="The format attribute identifies the format of the referenced resource.">The format attribute</a> for
+              detailed information on supported values and processing
+              implications.</span></dd>
+        
+          <dt class="dt dlterm" id="include__attr-href"><a id="include__href"></a><code class="keyword markupname xmlatt">@href</code>
+            <span class="ph">(link-relationship
+              attributes)</span></dt>
+          <dd class="dd">Specifies a reference to a resource.<span class="ph"> See
+                <a class="xref" href="../../archSpec/base/thehrefattribute.html" title="The href attribute specifies the URI of the resource that is addressed. The referenced resource can be another DITA topic or map, an element inside a DITA topic or map, or a non-DITA resource.">The href attribute</a> for detailed information
+              on supported values and processing implications.</span></dd>
+        
           <dt class="dt dlterm" id="include__attr-id"><a id="include__id"></a><code class="keyword markupname xmlatt">@id</code></dt>
           <dd class="dd" id="include__reusable-id">Specifies an identifier for the current element. This ID is the
             target for references by <code class="keyword markupname xmlatt">@href</code> and <code class="keyword markupname xmlatt">@conref</code> attributes
@@ -313,6 +275,22 @@ are presented instead.</p>
                 <code class="keyword markupname xmlatt">@importance</code> attribute indicates whether a step is optional or
               required.</span></dd>
         
+          <dt class="dt dlterm" id="include__attr-keyref"><a id="include__keyref"></a><code class="keyword markupname xmlatt">@keyref</code></dt>
+          <dd class="dd" id="include__def-keyref"><span class="ph" id="include__keyrefDescription">Specifies a key
+              name that acts as a redirectable reference based on a key
+              definition within a map.<span class="ph"> See <a class="xref" href="../../archSpec/base/thekeyrefattribute.html" title="The keyref attribute provides an indirect, late-bound reference to topics, to collections of topics (ditabase), to maps, to referenceable portions of maps, to non-DITA documents, to external URIs, or to XML content contained within a key definition topic reference. When the DITA content is processed, the key references are resolved using key definitions from DITA maps.">The keyref attribute</a> for information on using
+                this attribute.</span></span><p class="p">For HDITA, the equivalent of
+                <code class="keyword markupname xmlatt">@keyref</code> is
+              <code class="keyword markupname xmlatt">@data-keyref</code></p></dd>
+        
+          <dt class="dt dlterm" id="include__attr-keyref"><a id="include__keyref"></a><code class="keyword markupname xmlatt">@keyref</code></dt>
+          <dd class="dd" id="include__def-keyref"><span class="ph" id="include__keyrefDescription">Specifies a key
+              name that acts as a redirectable reference based on a key
+              definition within a map.<span class="ph"> See <a class="xref" href="../../archSpec/base/thekeyrefattribute.html" title="The keyref attribute provides an indirect, late-bound reference to topics, to collections of topics (ditabase), to maps, to referenceable portions of maps, to non-DITA documents, to external URIs, or to XML content contained within a key definition topic reference. When the DITA content is processed, the key references are resolved using key definitions from DITA maps.">The keyref attribute</a> for information on using
+                this attribute.</span></span><p class="p">For HDITA, the equivalent of
+                <code class="keyword markupname xmlatt">@keyref</code> is
+              <code class="keyword markupname xmlatt">@data-keyref</code></p></dd>
+        
           <dt class="dt dlterm" id="include__attr-otherprops"><a id="include__otherprops"></a><code class="keyword markupname xmlatt">@otherprops</code>
             <span class="ph"><em class="ph i">(specialized attribute)</em></span></dt>
           <dd class="dd">Specifies a property or properties that provide selection criteria for the element.
@@ -330,6 +308,40 @@ are presented instead.</p>
               <code class="keyword markupname xmlatt">@outputclass</code> attribute can be used for styling during output
             processing; HTML output will typically preserve <code class="keyword markupname xmlatt">@outputclass</code> for CSS
               processing.</dd>
+        
+          <dt class="dt dlterm" id="include__attr-parse"><a id="include__parse"></a><code class="keyword markupname xmlatt">@parse</code> (inclusion attributes)</dt>
+          <dd class="dd">Specifies the processing expectations for the referenced resource. Processors must
+            support the following values:<dl class="dl">
+              
+                <dt class="dt dlterm"><span class="keyword">text</span></dt>
+                <dd class="dd">
+                  <p class="p">The contents should be treated as plain text. Reserved XML characters should be
+                    displayed, and not interpreted as XML markup.</p>
+                </dd>
+              
+              
+                <dt class="dt dlterm"><span class="keyword">xml</span></dt>
+                <dd class="dd">
+                  <p class="p">The contents of the referenced resource should be treated as an XML document,
+                    and the referenced element should be inserted at the location of the
+                      <code class="keyword markupname xmlelement">&lt;include&gt;</code> element. If a fragment identifier is included
+                    in the address of the content, processors must select the element with the
+                    specified ID. If no fragment identifier is included, the root element of the
+                    referenced XML document is selected. Any grammar processing should be performed
+                    during resolution, such that default attribute values are explicitly populated.
+                    Prolog content must be discarded.</p>
+                  <p class="p errorcondition"><span class="error-statement" id="include__d2461e1673" data-id="DITAERR-0320"></span>It is an error to use <code class="ph codeph">parse="xml"</code>
+                    anywhere other than within <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> or a specialization
+                    thereof.</p>
+                </dd>
+              
+            </dl><p class="p">Processors may support other values for the <code class="keyword markupname xmlatt">@parse</code> attribute
+              with proprietary processing semantics. Processors should issue warnings and use
+                <code class="keyword markupname xmlelement">&lt;fallback&gt;</code> when they encounter unsupported
+                <code class="keyword markupname xmlatt">@parse</code> values. Non-standard <code class="keyword markupname xmlatt">@parse</code> instructions
+              should be expressed as URIs.</p><div class="note note note_note non-normative"><span class="note__title">Note:</span> Proprietary <code class="keyword markupname xmlatt">@parse</code> values will
+              likely limit the portability and interoperability of DITA content, so should be used
+              with care.</div></dd>
         
           <dt class="dt dlterm" id="include__attr-platform"><a id="include__platform"></a><code class="keyword markupname xmlatt">@platform</code>
             <em class="ph i">(specialized attribute)</em></dt>
@@ -380,6 +392,17 @@ are presented instead.</p>
           containing element.</span>
           </dd>
         
+          <dt class="dt dlterm" id="include__attr-scope"><a id="include__scope"></a><code class="keyword markupname xmlatt">@scope</code>
+            <span class="ph">(link-relationship
+              attributes)</span></dt>
+          <dd class="dd">Specifies the closeness of the relationship between the
+            current document and the referenced resource.<span class="ph"> The following values are valid:
+                <span class="keyword">local</span>, <span class="keyword">peer</span>,
+                <span class="keyword">external</span>, and
+                <span class="keyword">-dita-use-conref-target</span>. </span><p class="p">See
+                <a class="xref" href="../../archSpec/base/thescopeattribute.html" title="The scope attribute identifies the closeness of the relationship between the current document and the target resource.">The scope attribute</a> for detailed information
+              on supported values and processing implications.</p></dd>
+        
           <dt class="dt dlterm" id="include__attr-status"><a id="include__status"></a><code class="keyword markupname xmlatt">@status</code></dt>
           <dd class="dd">Specifies the modification status of the element. The following values are valid:
               <span class="keyword">new</span>, <span class="keyword">changed</span>, <span class="keyword">deleted</span>,
@@ -389,6 +412,12 @@ are presented instead.</p>
           <dd class="dd">Specifies whether the content of the element should be translated. <span class="ph">The following values are valid: <span class="keyword">yes</span>, <span class="keyword">no</span>, and
                 <span class="keyword">-dita-use-conref-target</span>.</span><p class="p">See <a class="xref" href="../../non-normative/elementsMerged.html" title="This topic contains a list of all elements in the base DITA edition. It includes recommendations on how to present the element type to translators, whether the element contents are likely to be suitable for translation, and whether the element has attributes with values that are likely to be suitable for translation. Examples of content that is not suitable for translation include code fragments and mailing addresses.">Element-by-element recommendations for translators</a> for
               suggested processing defaults for each element.</p></dd>
+        
+          <dt class="dt dlterm" id="include__attr-type"><a id="include__type"></a><code class="keyword markupname xmlatt">@type</code>
+            <span class="ph">(link-relationship
+              attributes)</span></dt>
+          <dd class="dd">Describes the target of a reference. See <a class="xref" href="../../archSpec/base/thetypeattribute.html" title="On linking elements, the type attribute describes the target of a reference. The type attribute is also used on several non-linking elements for other purposes.">The type attribute</a> for detailed
+            information on supported values and processing implications. </dd>
         
           <dt class="dt dlterm" id="include__attr-xml-lang"><a id="include__xml-lang"></a><code class="keyword markupname xmlatt">@xml:lang</code></dt>
           <dd class="dd" id="include__reusable-lang">Specifies the language and optional locale of the content that is
