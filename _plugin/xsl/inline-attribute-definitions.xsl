@@ -14,7 +14,9 @@
   </xsl:template>
 
   <xsl:variable name="attributes-dl" as="element(dl)*"
-                select="//*[@id = 'attributes']//*[contains(@class, ' topic/dl ')]"/>
+                select="//*[@id = 'attributes']
+                          //*[contains(@class, ' topic/dl ')]
+                             [empty(ancestor::*[contains(@class, ' topic/dl ')])]"/>
 
   <xsl:template match="*[contains(@class, ' topic/section ')][@id = 'attributes']">
     <xsl:variable name="inlined" as="element()*">
