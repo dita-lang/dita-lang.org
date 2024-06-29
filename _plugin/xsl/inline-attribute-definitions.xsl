@@ -13,9 +13,12 @@
     </xsl:copy>
   </xsl:template>
 
+  <xsl:variable name="attributes-dl" as="element(dl)*"
+                select="//*[@id = 'attributes']//*[contains(@class, ' topic/dl ')]"/>
+
   <xsl:template match="*[contains(@class, ' topic/section ')][@id = 'attributes']">
     <xsl:variable name="inlined" as="element()*">
-      <xsl:sequence select="descendant::*[contains(@class, ' topic/dl ')]"/>
+      <xsl:sequence select="$attributes-dl"/>
       <xsl:for-each select="descendant::*[contains(@class, ' topic/p ')]/descendant::*[contains(@class, ' topic/xref ')]">
         <xsl:choose>
           <xsl:when test="starts-with(@keyref, 'attributes-common/')">
@@ -82,7 +85,7 @@
       </xsl:for-each>
     </xsl:variable>
     <xsl:copy>
-      <xsl:apply-templates select="@* | node()"/>
+      <xsl:apply-templates select="@* | node()" mode="strip"/>
 
 <!--    <section class="- topic/section " id="inlined-attributes">-->
 <!--      <title class="- topic/title ">Inlined Attributes</title>-->
@@ -101,7 +104,7 @@
                                                [starts-with(normalize-space(.), 'The following attributes are available on this element')]">
     <xsl:copy>
       <xsl:apply-templates select="@*"/>
-      <xsl:attribute name="outputclass" select="'attributes-prose'"/>
+      <xsl:attribute name="outputclass" select="'attributes-prose', @outputclass" separator=" "/>
       <xsl:apply-templates select="node()"/>
     </xsl:copy>
   </xsl:template>
@@ -157,6 +160,17 @@
         <xsl:with-param name="element-id" select="translate(., ':', '-')"/>
       </xsl:apply-templates>
     </xsl:for-each>
+  </xsl:template>
+
+  <xsl:template match="@* | node()" mode="strip">
+    <xsl:copy>
+      <xsl:apply-templates select="@*" mode="#current"/>
+      <xsl:if test="some $dl in $attributes-dl satisfies . is $dl or
+                    (contains(@class, ' topic/p ') and starts-with(normalize-space(.), 'The following attributes are available on this element'))">
+        <xsl:attribute name="outputclass" select="'attributes-prose', @outputclass" separator=" "/>
+      </xsl:if>
+      <xsl:apply-templates select="node()" mode="#current"/>
+    </xsl:copy>
   </xsl:template>
 
 </xsl:stylesheet>
