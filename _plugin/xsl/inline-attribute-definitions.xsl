@@ -156,7 +156,7 @@
   <xsl:template match="@* | node()" mode="strip">
     <xsl:copy>
       <xsl:apply-templates select="@*" mode="#current"/>
-      <xsl:if test="some $dl in $attributes-dl satisfies . is $dl or
+      <xsl:if test="(some $dl in $attributes-dl satisfies . is $dl) or
                     (contains(@class, ' topic/p ') and starts-with(normalize-space(.), 'The following attributes are available on this element'))">
         <xsl:attribute name="outputclass" select="'attributes-prose', @outputclass" separator=" "/>
       </xsl:if>
