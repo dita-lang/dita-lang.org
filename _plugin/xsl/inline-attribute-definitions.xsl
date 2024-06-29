@@ -33,6 +33,16 @@
               </xsl:apply-templates>
             </dl>
           </xsl:when>
+          <xsl:when test="starts-with(@keyref, 'attributes-universal/')">
+<!--            <xsl:variable name="target-file" select="x:get-target-file(@href, /)" />-->
+            <dl class="- topic/dl ">
+              <xsl:apply-templates select="." mode="resolve-group">
+  <!--              <xsl:with-param name="target-file" select="$target-file"/>-->
+                <xsl:with-param name="topic-id" select="'univ-atts'"/>
+                <xsl:with-param name="element-id" select="substring-after(@keyref, '/')"/>
+              </xsl:apply-templates>
+            </dl>
+          </xsl:when>
           <xsl:when test="@keyref = 'attributes-universal'">
             <xsl:variable name="target-file" select="x:get-target-file(@href, /)" as="document-node()"/>
 <!--            <xsl:apply-templates select="." mode="resolve">-->
