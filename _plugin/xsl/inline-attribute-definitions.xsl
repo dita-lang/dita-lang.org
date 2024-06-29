@@ -86,7 +86,7 @@
 
 <!--    <section class="- topic/section " id="inlined-attributes">-->
 <!--      <title class="- topic/title ">Inlined Attributes</title>-->
-      <dl class="- topic/dl " id="inlined-attributes">
+      <dl class="- topic/dl " outputclass="inlined-attributes">
         <xsl:for-each select="$inlined/*">
           <xsl:sort select="lower-case(normalize-space(*[contains(@class, ' topic/dt ')]))"/>
 <!--          &lt;<xsl:value-of select="name()"/>&gt;-->
