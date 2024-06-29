@@ -86,8 +86,8 @@
       <title class="- topic/title ">Inlined Attributes</title>
       <dl class="- topic/dl " outputclass="inlined">
         <xsl:for-each select="$inlined/*">
-          <xsl:sort select="lower-case(*[contains(@class, ' topic/dt ')])"/>
-<!--          &lt;<xsl:value-of select="name()"/>&gt; 1-->
+<!--          <xsl:sort select="lower-case(*[contains(@class, ' topic/dt ')])"/>-->
+<!--          &lt;<xsl:value-of select="name()"/>&gt;-->
           <xsl:sequence select="."/>
         </xsl:for-each>
       </dl>
