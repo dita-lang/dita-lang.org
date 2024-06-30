@@ -5,7 +5,7 @@ title: 'elementdef'
 description: 'The elementdef element specifies an element to which an attribute and set of controlled values are bound.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: 'a7502151e194e5d5d7aff31eb441886c6b0eab6f'
+commit: 'a5b012b5d75bb9c02e68531196160acce28ec5dc'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -45,15 +45,6 @@ classes: ''
             of <span class="keyword">no</span>.</li>
         </ul></div>
     <dl class="dl inlined-attributes">
-          <dt class="dt dlterm" id="elementdef__attr-base"><a id="elementdef__base"></a><code class="keyword markupname xmlatt">@base</code></dt>
-          <dd class="dd">Specifies metadata about the element. It is often used as a base for specialized
-            attributes that have a simple syntax for values, but which are not conditional
-            processing attributes.<p class="p">The <code class="keyword markupname xmlatt">@base</code> attribute takes a space-delimited set
-              of values. <span class="ph">However, when
-          serving as a container for generalized attributes, the attribute
-          values will be more complex. See <a class="xref" href="../../common/../archSpec/base/generalization-attributes.html" title="DITA provides a syntax to generalize attributes that have been specialized from the props or base attribute.">Attribute generalization</a> for
-          more details.</span></p></dd>
-        
           <dt class="dt dlterm" id="elementdef__attr-base"><a id="elementdef__base"></a><code class="keyword markupname xmlatt">@base</code></dt>
           <dd class="dd">Specifies metadata about the element. It is often used as a base for specialized
             attributes that have a simple syntax for values, but which are not conditional
@@ -225,12 +216,10 @@ classes: ''
             defined with the XML data type NMTOKEN, except where noted for specific elements within
             the language reference.<p class="p"><span class="ph"> See <a class="xref" href="../../archSpec/base/id.html" title="The id attribute assigns an identifier to DITA elements so that the elements can be referenced.">id attribute</a> for more details.</span></p></dd>
         
-          <dt class="dt dlterm" id="elementdef__attr-outputclass"><a id="elementdef__outputclass"></a><code class="keyword markupname xmlatt">@outputclass</code></dt>
-          <dd class="dd">Specifies a role that the element is playing. The role must be consistent with the
-            basic semantic and expectations for the element. In particular, the
-              <code class="keyword markupname xmlatt">@outputclass</code> attribute can be used for styling during output
-            processing; HTML output will typically preserve <code class="keyword markupname xmlatt">@outputclass</code> for CSS
-              processing.</dd>
+          <dt class="dt dlterm" id="elementdef__attr-name"><a id="elementdef__name"></a><code class="keyword markupname xmlatt">@name</code>
+            <span class="ph">(data-element
+            attributes)</span></dt>
+          <dd class="dd">Defines a unique name for the object.</dd>
         
           <dt class="dt dlterm" id="elementdef__attr-outputclass"><a id="elementdef__outputclass"></a><code class="keyword markupname xmlatt">@outputclass</code></dt>
           <dd class="dd">Specifies a role that the element is playing. The role must be consistent with the
@@ -239,17 +228,22 @@ classes: ''
             processing; HTML output will typically preserve <code class="keyword markupname xmlatt">@outputclass</code> for CSS
               processing.</dd>
         
-          <dt class="dt dlterm" id="elementdef__attr-props"><a id="elementdef__props"></a><code class="keyword markupname xmlatt">@props</code></dt>
-          <dd class="dd" id="elementdef__def-props">Specifies metadata about the element. New attributes can be specialized
-            from the <code class="keyword markupname xmlatt">@props</code> attribute. <span class="ph">This attribute supports conditional processing.</span>
-            <span class="ph">If no value is specified but the attribute is
-          specified on a containing element within a map or within the
-          related-links section, the value cascades from the closest
-          containing element.</span>
-            <p class="p">The <code class="keyword markupname xmlatt">@props</code> attribute takes a space-delimited set of values. <span class="ph">However, when
-          serving as a container for generalized attributes, the attribute
-          values will be more complex. See <a class="xref" href="../../common/../archSpec/base/generalization-attributes.html" title="DITA provides a syntax to generalize attributes that have been specialized from the props or base attribute.">Attribute generalization</a> for
-          more details.</span></p></dd>
+          <dt class="dt dlterm" id="elementdef__attr-outputclass"><a id="elementdef__outputclass"></a><code class="keyword markupname xmlatt">@outputclass</code></dt>
+          <dd class="dd">Specifies a role that the element is playing. The role must be consistent with the
+            basic semantic and expectations for the element. In particular, the
+              <code class="keyword markupname xmlatt">@outputclass</code> attribute can be used for styling during output
+            processing; HTML output will typically preserve <code class="keyword markupname xmlatt">@outputclass</code> for CSS
+              processing.</dd>
+        
+          <dt class="dt dlterm" id="elementdef__attr-status"><a id="elementdef__status"></a><code class="keyword markupname xmlatt">@status</code></dt>
+          <dd class="dd">Specifies the modification status of the element. The following values are valid:
+              <span class="keyword">new</span>, <span class="keyword">changed</span>, <span class="keyword">deleted</span>,
+              <span class="keyword">unchanged</span>, and <span class="keyword">-dita-use-conref-target</span>.</dd>
+        
+          <dt class="dt dlterm" id="elementdef__attr-translate"><a id="elementdef__translate"></a><code class="keyword markupname xmlatt">@translate</code></dt>
+          <dd class="dd">Specifies whether the content of the element should be translated. <span class="ph">The following values are valid: <span class="keyword">yes</span>, <span class="keyword">no</span>, and
+                <span class="keyword">-dita-use-conref-target</span>.</span><p class="p">See <a class="xref" href="../../non-normative/elementsMerged.html" title="This topic contains a list of all elements in the base DITA edition. It includes recommendations on how to present the element type to translators, whether the element contents are likely to be suitable for translation, and whether the element has attributes with values that are likely to be suitable for translation. Examples of content that is not suitable for translation include code fragments and mailing addresses.">Element-by-element recommendations for translators</a> for
+              suggested processing defaults for each element.</p></dd>
         </dl></section>
 <div class="example non-normative" id="elementdef__example"><h2 class="title sectiontitle">Example</h2><p class="p">In this code sample, the <code class="keyword markupname xmlatt">@type</code> attribute for the
           <code class="keyword markupname xmlelement">&lt;note&gt;</code> element is bound to the specified

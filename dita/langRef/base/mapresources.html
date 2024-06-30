@@ -5,7 +5,7 @@ title: 'mapresources'
 description: 'Map resources are objects with a processing-role set to resource-only, for example, key definitions and subject scheme maps. Such resources do not contribute to the navigation structure, although they might be essential for authoring and processing.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '05b76bb68ac4b1ec79a7e4a659039411e151f692'
+commit: 'a5b012b5d75bb9c02e68531196160acce28ec5dc'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -348,20 +348,6 @@ classes: ''
                 <a class="xref" href="../../archSpec/base/thehrefattribute.html" title="The href attribute specifies the URI of the resource that is addressed. The referenced resource can be another DITA topic or map, an element inside a DITA topic or map, or a non-DITA resource.">The href attribute</a> for detailed information
               on supported values and processing implications.</span></dd>
         
-          <dt class="dt dlterm" id="mapresources__attr-href"><a id="mapresources__href"></a><code class="keyword markupname xmlatt">@href</code>
-            <span class="ph">(link-relationship
-              attributes)</span></dt>
-          <dd class="dd">Specifies a reference to a resource.<span class="ph"> See
-                <a class="xref" href="../../archSpec/base/thehrefattribute.html" title="The href attribute specifies the URI of the resource that is addressed. The referenced resource can be another DITA topic or map, an element inside a DITA topic or map, or a non-DITA resource.">The href attribute</a> for detailed information
-              on supported values and processing implications.</span></dd>
-        
-          <dt class="dt dlterm" id="mapresources__attr-href"><a id="mapresources__href"></a><code class="keyword markupname xmlatt">@href</code>
-            <span class="ph">(link-relationship
-              attributes)</span></dt>
-          <dd class="dd">Specifies a reference to a resource.<span class="ph"> See
-                <a class="xref" href="../../archSpec/base/thehrefattribute.html" title="The href attribute specifies the URI of the resource that is addressed. The referenced resource can be another DITA topic or map, an element inside a DITA topic or map, or a non-DITA resource.">The href attribute</a> for detailed information
-              on supported values and processing implications.</span></dd>
-        
           <dt class="dt dlterm" id="mapresources__attr-id"><a id="mapresources__id"></a><code class="keyword markupname xmlatt">@id</code></dt>
           <dd class="dd" id="mapresources__reusable-id">Specifies an identifier for the current element. This ID is the
             target for references by <code class="keyword markupname xmlatt">@href</code> and <code class="keyword markupname xmlatt">@conref</code> attributes
@@ -381,13 +367,31 @@ classes: ''
                 <code class="keyword markupname xmlatt">@importance</code> attribute indicates whether a step is optional or
               required.</span></dd>
         
-          <dt class="dt dlterm" id="mapresources__attr-keyref"><a id="mapresources__keyref"></a><code class="keyword markupname xmlatt">@keyref</code></dt>
-          <dd class="dd" id="mapresources__def-keyref"><span class="ph" id="mapresources__keyrefDescription">Specifies a key
-              name that acts as a redirectable reference based on a key
-              definition within a map.<span class="ph"> See <a class="xref" href="../../archSpec/base/thekeyrefattribute.html" title="The keyref attribute provides an indirect, late-bound reference to topics, to collections of topics (ditabase), to maps, to referenceable portions of maps, to non-DITA documents, to external URIs, or to XML content contained within a key definition topic reference. When the DITA content is processed, the key references are resolved using key definitions from DITA maps.">The keyref attribute</a> for information on using
-                this attribute.</span></span><p class="p">For HDITA, the equivalent of
-                <code class="keyword markupname xmlatt">@keyref</code> is
-              <code class="keyword markupname xmlatt">@data-keyref</code></p></dd>
+          <dt class="dt dlterm" id="mapresources__attr-impose-role"><a id="mapresources__impose-role"></a><code class="keyword markupname xmlatt">@impose-role</code></dt>
+          <dd class="dd">Specifies whether this element will impose its role on elements in a referenced map.
+            The attribute is ignored if the target of the reference is not a map or branch of a map.
+            The following values are valid: <dl class="dl">
+              
+                <dt class="dt dlterm">keeptarget</dt>
+                <dd class="dd">The role of the current reference is not imposed on the target of the reference.
+                  This is the default for the unspecialized <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>
+                  element and for many convenience elements such as
+                  <code class="keyword markupname xmlelement">&lt;keydef&gt;</code>.</dd>
+              
+              
+                <dt class="dt dlterm">impose</dt>
+                <dd class="dd">The role of the current reference is imposed on the target of the reference. <span class="ph">For example, if a specialized topic reference
+                      <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> uses this value and references a map, a topic
+                    reference that resolves in place of the <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> will be
+                    treated as if it were a chapter.</span></dd>
+              
+              
+          <dt class="dt dlterm"><span class="keyword">-dita-use-conref-target</span></dt>
+          <dd class="dd">See <a class="xref" href="../../common/../archSpec/base/ditauseconreftarget.html" title="The value -dita-use-conref-target is available on enumerated attributes and can also be specified on other attributes. When an element uses conref to pull in content, for any of its attributes assigned a value of -dita-use-conref-target, the resulting value for those attributes is also pulled in from the referenced element.">Using the -dita-use-conref-target value</a>
+            for more information. </dd>
+        
+            </dl><p class="p"><span class="ph"> See <a class="xref" href="../../archSpec/base/thehrefattribute.html" title="The href attribute specifies the URI of the resource that is addressed. The referenced resource can be another DITA topic or map, an element inside a DITA topic or map, or a non-DITA resource.">The href attribute</a> for detailed
+                information on supported values and processing implications.</span></p></dd>
         
           <dt class="dt dlterm" id="mapresources__attr-keyref"><a id="mapresources__keyref"></a><code class="keyword markupname xmlatt">@keyref</code></dt>
           <dd class="dd" id="mapresources__def-keyref"><span class="ph" id="mapresources__keyrefDescription">Specifies a key
@@ -396,18 +400,6 @@ classes: ''
                 this attribute.</span></span><p class="p">For HDITA, the equivalent of
                 <code class="keyword markupname xmlatt">@keyref</code> is
               <code class="keyword markupname xmlatt">@data-keyref</code></p></dd>
-        
-          <dt class="dt dlterm" id="mapresources__attr-keys"><a id="mapresources__keys"></a><code class="keyword markupname xmlatt">@keys</code></dt>
-          <dd class="dd">Specifies one or more names for a resource.<span class="ph"> See <a class="xref" href="../../archSpec/base/thekeysattribute.html" title="A keys attribute consists of one or more space-separated keys. Map authors define keys using a topicref or topicref specialization that contains the keys attribute. Each key definition introduces an identifier for a resource referenced from a map. Keys resolve to the resources given as the href value on the key definition topicref element, to content contained within the key definition topicref element, or both.">Setting key names with the keys attribute</a> for
-              information on using this attribute.</span><p class="p">For HDITA, the equivalent of <code class="keyword markupname xmlatt">@keys</code> is
-                <code class="keyword markupname xmlatt">@data-keys</code>
-            </p></dd>
-        
-          <dt class="dt dlterm" id="mapresources__attr-keys"><a id="mapresources__keys"></a><code class="keyword markupname xmlatt">@keys</code></dt>
-          <dd class="dd">Specifies one or more names for a resource.<span class="ph"> See <a class="xref" href="../../archSpec/base/thekeysattribute.html" title="A keys attribute consists of one or more space-separated keys. Map authors define keys using a topicref or topicref specialization that contains the keys attribute. Each key definition introduces an identifier for a resource referenced from a map. Keys resolve to the resources given as the href value on the key definition topicref element, to content contained within the key definition topicref element, or both.">Setting key names with the keys attribute</a> for
-              information on using this attribute.</span><p class="p">For HDITA, the equivalent of <code class="keyword markupname xmlatt">@keys</code> is
-                <code class="keyword markupname xmlatt">@data-keys</code>
-            </p></dd>
         
           <dt class="dt dlterm" id="mapresources__attr-keys"><a id="mapresources__keys"></a><code class="keyword markupname xmlatt">@keys</code></dt>
           <dd class="dd">Specifies one or more names for a resource.<span class="ph"> See <a class="xref" href="../../archSpec/base/thekeysattribute.html" title="A keys attribute consists of one or more space-separated keys. Map authors define keys using a topicref or topicref specialization that contains the keys attribute. Each key definition introduces an identifier for a resource referenced from a map. Keys resolve to the resources given as the href value on the key definition topicref element, to content contained within the key definition topicref element, or both.">Setting key names with the keys attribute</a> for
