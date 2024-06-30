@@ -151,7 +151,8 @@
       <xsl:apply-templates select="." mode="resolve">
         <xsl:with-param name="target-file" select="$target-file"/>
         <xsl:with-param name="topic-id" select="$topic-id"/>
-        <xsl:with-param name="element-id" select="translate(., ':', '-')"/>
+        <!-- FIXME: when spec uses consistent colon replacement, use only one element ID -->
+        <xsl:with-param name="element-id" select="translate(., ':', '-'), translate(., ':', '')"/>
       </xsl:apply-templates>
     </xsl:for-each>
   </xsl:template>
