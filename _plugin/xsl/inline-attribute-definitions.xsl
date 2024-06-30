@@ -23,7 +23,8 @@
       <xsl:sequence select="$attributes-dl"/>
       <xsl:for-each select="descendant::*[contains(@class, ' topic/p ')]/descendant::*[contains(@class, ' topic/xref ')]">
         <xsl:choose>
-          <xsl:when test="starts-with(@keyref, 'attributes-common/') and not(starts-with(@keyref, 'attributes-common/attr-'))">
+          <xsl:when test="starts-with(@keyref, 'attributes-common/') and
+                          not(starts-with(@keyref, 'attributes-common/attr-'))">
             <dl class="- topic/dl ">
               <xsl:apply-templates select="." mode="resolve-group">
                 <xsl:with-param name="topic-id" select="'common-atts'"/>
@@ -31,7 +32,8 @@
               </xsl:apply-templates>
             </dl>
           </xsl:when>
-          <xsl:when test="starts-with(@keyref, 'attributes-universal/') and not(starts-with(@keyref, 'attributes-universal/attr-'))">
+          <xsl:when test="starts-with(@keyref, 'attributes-universal/') and
+                          not(starts-with(@keyref, 'attributes-universal/attr-'))">
             <dl class="- topic/dl ">
               <xsl:apply-templates select="." mode="resolve-group">
                 <xsl:with-param name="topic-id" select="'univ-atts'"/>
@@ -147,14 +149,22 @@
     <xsl:variable name="dlentry" as="element(dlentry)?"
                   select="$target/ancestor-or-self::*[contains(@class, ' topic/dlentry ')][1]"/>
 
-    <xsl:for-each select="$dlentry/*[contains(@class, ' topic/dd ')]//*[contains(@class, ' xml-d/xmlatt ')]">
-      <xsl:apply-templates select="." mode="resolve">
-        <xsl:with-param name="target-file" select="$target-file"/>
-        <xsl:with-param name="topic-id" select="$topic-id"/>
-        <!-- FIXME: when spec uses consistent colon replacement, use only one element ID -->
-        <xsl:with-param name="element-id" select="translate(., ':', '-'), translate(., ':', '')"/>
-      </xsl:apply-templates>
-    </xsl:for-each>
+    <xsl:choose>
+      <!-- This should have been a link to `attr-` prefix, fallback to linking to element -->
+      <xsl:when test="$dlentry/*[contains(@class, ' topic/dt ')]//*[contains(@class, ' xml-d/xmlatt ')]">
+        <xsl:sequence select="$dlentry"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:for-each select="$dlentry/*[contains(@class, ' topic/dd ')]//*[contains(@class, ' xml-d/xmlatt ')]">
+          <xsl:apply-templates select="." mode="resolve">
+            <xsl:with-param name="target-file" select="$target-file"/>
+            <xsl:with-param name="topic-id" select="$topic-id"/>
+            <!-- FIXME: when spec uses consistent colon replacement, use only one element ID -->
+            <xsl:with-param name="element-id" select="translate(., ':', '-'), translate(., ':', '')"/>
+          </xsl:apply-templates>
+        </xsl:for-each>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
 
   <xsl:template match="@* | node()" mode="strip">
