@@ -23,21 +23,17 @@
       <xsl:sequence select="$attributes-dl"/>
       <xsl:for-each select="descendant::*[contains(@class, ' topic/p ')]/descendant::*[contains(@class, ' topic/xref ')]">
         <xsl:choose>
-          <xsl:when test="starts-with(@keyref, 'attributes-common/')">
-<!--            <xsl:variable name="target-file" select="x:get-target-file(@href, /)" />-->
+          <xsl:when test="starts-with(@keyref, 'attributes-common/') and not(starts-with(@keyref, 'attributes-common/attr-'))">
             <dl class="- topic/dl ">
               <xsl:apply-templates select="." mode="resolve-group">
-  <!--              <xsl:with-param name="target-file" select="$target-file"/>-->
                 <xsl:with-param name="topic-id" select="'common-atts'"/>
                 <xsl:with-param name="element-id" select="substring-after(@keyref, '/')"/>
               </xsl:apply-templates>
             </dl>
           </xsl:when>
-          <xsl:when test="starts-with(@keyref, 'attributes-universal/')">
-<!--            <xsl:variable name="target-file" select="x:get-target-file(@href, /)" />-->
+          <xsl:when test="starts-with(@keyref, 'attributes-universal/') and not(starts-with(@keyref, 'attributes-universal/attr-'))">
             <dl class="- topic/dl ">
               <xsl:apply-templates select="." mode="resolve-group">
-  <!--              <xsl:with-param name="target-file" select="$target-file"/>-->
                 <xsl:with-param name="topic-id" select="'univ-atts'"/>
                 <xsl:with-param name="element-id" select="substring-after(@keyref, '/')"/>
               </xsl:apply-templates>
@@ -60,7 +56,6 @@
                 <xsl:with-param name="topic-id" select="'univ-atts'"/>
                 <xsl:with-param name="element-id" select="'outputclass'"/>
               </xsl:apply-templates>
-
               <xsl:apply-templates select="." mode="resolve-group">
                 <xsl:with-param name="target-file" select="$target-file"/>
                 <xsl:with-param name="topic-id" select="'univ-atts'"/>
@@ -98,9 +93,6 @@
     </xsl:variable>
     <xsl:copy>
       <xsl:apply-templates select="@* | node()" mode="strip"/>
-
-<!--    <section class="- topic/section " id="inlined-attributes">-->
-<!--      <title class="- topic/title ">Inlined Attributes</title>-->
       <dl class="- topic/dl " outputclass="inlined-attributes">
         <xsl:for-each select="$inlined/*">
           <xsl:sort select="lower-case(normalize-space(*[contains(@class, ' topic/dt ')]))"/>
@@ -108,7 +100,6 @@
           <xsl:sequence select="."/>
         </xsl:for-each>
       </dl>
-<!--    </section>-->
     </xsl:copy>
   </xsl:template>
 
