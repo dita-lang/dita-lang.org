@@ -113,7 +113,7 @@
         <ul>
           <xsl:for-each select="$sections">
             <li>
-              <a href="{dita-ot:generate-id(dita-ot:get-topic-id(.), @id)}">
+              <a href="#{dita-ot:generate-id((/*/@id), (@id, generate-id(.))[1])}">
                 <xsl:apply-templates select="*[contains(@class, ' topic/title ')]" mode="text-only"/>
               </a>
             </li>
@@ -121,6 +121,12 @@
         </ul>
       </xsl:if>
     </aside>
+  </xsl:template>
+
+  <xsl:template name="gen-toc-id">
+    <xsl:if test="(contains(@class, ' topic/section ') or contains(@class, ' topic/example ')) and empty(@id)">
+      <xsl:attribute name="id" select="(/*/@id, generate-id(.))" separator="__"/>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="*[contains(@class, ' topic/topic ')]/*[contains(@class, ' topic/title ')]">
