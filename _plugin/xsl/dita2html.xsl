@@ -107,7 +107,7 @@
                   select="*[contains(@class, ' topic/body ')]/
                             *[contains(@class, ' topic/section ') or contains(@class, ' topic/example ')]
                              [exists(*[contains(@class, ' topic/title ')])]"/>
-    <aside class="section-toc">
+    <aside class="section-toc" role="aside">
       <h2>In this section</h2>
       <xsl:if test="$sections">
         <ul>
