@@ -5,7 +5,7 @@ title: 'DTD: Coding requirements for structural and element-domain modules'
 description: 'This topic covers general coding requirements for defining element types in both structural and element-domain vocabulary modules.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '8b09fe8094aa887c485e051ea78e0c3c78f500dd'
+commit: 'bd4f1d05840cb2aec908180ca51c1afaeb122482'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -58,7 +58,7 @@ classes: ''
             <p class="p">For each element type, there is a parameter entity with a
               name that matches the element-type name. The value is the
               element-type name. </p>
-            <div class="example non-normative"><h2 class="title sectiontitle">Example</h2>
+            <div class="example non-normative" id="general-coding-requirements__d23472e145"><h2 class="title sectiontitle">Example</h2>
               <p class="p">For example:</p>
               <pre class="pre codeblock"><code>&lt;!ENTITY % topichead "topichead"&gt;</code></pre>
             </div>
@@ -78,7 +78,7 @@ classes: ''
               The name of the parameter entity is
                 <code class="ph codeph"><var class="keyword varname">tagname</var>.content</code>, and the value is the content
               model definition.</p>
-            <div class="example non-normative"><h2 class="title sectiontitle">Example</h2>
+            <div class="example non-normative" id="general-coding-requirements__d23472e191"><h2 class="title sectiontitle">Example</h2>
               <p class="p">For example:</p>
               <pre class="pre codeblock"><code>&lt;!ENTITY % topichead.content
   "((%topicmeta;)?, 
@@ -97,7 +97,7 @@ classes: ''
                   <code class="ph codeph"><var class="keyword varname">tagname</var>.attributes</code>, and the value is a list of
               the attributes that are used by the element type (except for
               <code class="keyword markupname xmlatt">@class</code>).</p>
-            <div class="example non-normative"><h2 class="title sectiontitle">Example</h2>
+            <div class="example non-normative" id="general-coding-requirements__d23472e226"><h2 class="title sectiontitle">Example</h2>
               <p class="p">For example:</p>
               <pre class="pre codeblock"><code>&lt;!ENTITY % topichead.attributes
  "keys CDATA #IMPLIED
@@ -115,7 +115,7 @@ classes: ''
           <dd class="dd">
             <p class="p">For each element type, there is an element declaration that consists of a reference
               to the content-model parameter entity.</p>
-            <div class="example non-normative"><h2 class="title sectiontitle">Example</h2>
+            <div class="example non-normative" id="general-coding-requirements__d23472e262"><h2 class="title sectiontitle">Example</h2>
               <p class="p">For example:</p>
               <pre class="pre codeblock"><code>&lt;!ELEMENT topichead    %topichead.content;&gt;</code></pre>
             </div>
@@ -126,7 +126,7 @@ classes: ''
           <dd class="dd">
             <p class="p">For each element type, there is an attribute<span style="color:red;" class="ph">-</span>list declaration that consists of a
               reference to the attribute-list parameter entity.</p>
-            <div class="example non-normative"><h2 class="title sectiontitle">Example</h2>
+            <div class="example non-normative" id="general-coding-requirements__d23472e294"><h2 class="title sectiontitle">Example</h2>
               <p class="p">For example:</p>
               <pre class="pre codeblock"><code>&lt;!ATTLIST topichead    %topichead.attributes;&gt;</code></pre>
             </div>
@@ -138,7 +138,7 @@ classes: ''
             <p class="p">A vocabulary module defines a <code class="keyword markupname xmlatt">@class</code> attribute for every element that
               is declared in the module. The value of the attribute is constructed according to the
               rules in <a class="xref" href="specialization-class-attribute.html" title="The specialization hierarchy of each DITA element is declared as the value of the class attribute. The class attribute provides a mapping from the current name of the element to its more general equivalents. The class attribute also can provide a mapping from the current name to more specialized equivalents. All specialization-aware processing can be defined in terms of class attribute values.">The class attribute rules and syntax</a>.</p>
-            <div class="example non-normative"><h2 class="title sectiontitle">Example</h2>
+            <div class="example non-normative" id="general-coding-requirements__d23472e357"><h2 class="title sectiontitle">Example</h2>
               <p class="p">For example, the <code class="ph codeph">ATTLIST</code> definition for the
                   <code class="keyword markupname xmlelement">&lt;topichead&gt;</code> element (a specialization of the
                   <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element in the base map type) includes the
@@ -148,7 +148,7 @@ classes: ''
           </dd>
         
       </dl>
-      <div class="example non-normative"><h2 class="title sectiontitle">Definition of the <code class="keyword markupname xmlelement">&lt;topichead&gt;</code> element</h2>
+      <div class="example non-normative" id="general-coding-requirements__d23472e384"><h2 class="title sectiontitle">Definition of the <code class="keyword markupname xmlelement">&lt;topichead&gt;</code> element</h2>
         
         <p class="p">The following code sample shows how the <code class="keyword markupname xmlelement">&lt;topichead&gt;</code> element is
           defined in <span class="ph filepath">mapGroup.mod</span>. Ellipses indicate where the code sample has
@@ -196,4 +196,4 @@ classes: ''
       </div>
     </section>
   </div>
-<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/dtd-requirements.html" title="This section explains how to implement DTD-based document-type shells, specializations, and element-configuration modules (constraint and expansion).">DTD coding requirements</a></div></div></nav></article></main><aside class="section-toc"><h2>In this section</h2><ul><li><a href="files">Module files</a></li><li><a href="IMPLIED%0A  %topicref-atts;%0A  %univ-atts;&#34;%0A&gt;%0A            %0A            Consistent use and naming of the tagname.content%0A              parameter entity enables the use of element-configuration modules%0A                (constraint and expansion) to redefine the content model.%0A          %0A        %0A        %0A          Element declaration%0A          %0A            For each element type, there is an element declaration that consists of a reference%0A              to the content-model parameter entity.%0A            Example%0A              For example:%0A              <!ELEMENT topichead    %topichead.content;&gt;%0A            %0A          %0A        %0A        %0A          Attribute list declaration%0A          %0A            For each element type, there is an attribute-list declaration that consists of a%0A              reference to the attribute-list parameter entity.%0A            Example%0A              For example:%0A              <!ATTLIST topichead    %topichead.attributes;&gt;%0A            %0A          %0A        %0A        %0A          Specialization attribute declarations%0A          %0A            A vocabulary module defines a class attribute for every element that%0A              is declared in the module. The value of the attribute is constructed according to the%0A              rules in The class attribute rules and syntaxThe specialization hierarchy of each DITA element is declared     as the value of the class attribute. The       class attribute provides a mapping from the current     name of the element to its more general equivalents.       The class attribute also can provide a mapping     from the current name to more specialized equivalents. All     specialization-aware processing can be defined in terms of       class attribute values..%0A            Example%0A              For example, the ATTLIST definition for the%0A                  topichead element (a specialization of the%0A                  topicref element in the base map type) includes the%0A                definition of the class attribute, as follows:%0A              <!ATTLIST topichead  class CDATA &#34;+ map__element-definitions">Element definitions</a></li></ul></aside>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/dtd-requirements.html" title="This section explains how to implement DTD-based document-type shells, specializations, and element-configuration modules (constraint and expansion).">DTD coding requirements</a></div></div></nav></article></main><aside class="section-toc"><h2>In this section</h2><ul><li><a href="#general-coding-requirements__files">Module files</a></li><li><a href="#general-coding-requirements__element-definitions">Element definitions</a></li></ul></aside>
