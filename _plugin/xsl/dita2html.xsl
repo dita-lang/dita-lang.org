@@ -92,11 +92,35 @@
       <xsl:call-template name="gen-user-sidetoc"/>
 
       <xsl:apply-templates select="." mode="addContentToHtmlBodyElement"/>
+
+      <xsl:call-template name="gen-user-aside"/>
+
       <xsl:apply-templates select="." mode="addFooterToHtmlBodyElement"/>
     <!--
     </body>
     -->
     <xsl:text>&#xA;</xsl:text>
+  </xsl:template>
+
+  <xsl:template name="gen-user-aside">
+    <xsl:variable name="sections" as="element()*"
+                  select="*[contains(@class, ' topic/body ')]/
+                            *[contains(@class, ' topic/section ') or contains(@class, ' topic/example ')]
+                             [exists(*[contains(@class, ' topic/title ')])]"/>
+    <aside class="section-toc">
+      <h2>In this section</h2>
+      <xsl:if test="$sections">
+        <ul>
+          <xsl:for-each select="$sections">
+            <li>
+              <a href="{dita-ot:generate-id(dita-ot:get-topic-id(.), @id)}">
+                <xsl:apply-templates select="*[contains(@class, ' topic/title ')]" mode="text-only"/>
+              </a>
+            </li>
+          </xsl:for-each>
+        </ul>
+      </xsl:if>
+    </aside>
   </xsl:template>
 
   <xsl:template match="*[contains(@class, ' topic/topic ')]/*[contains(@class, ' topic/title ')]">
