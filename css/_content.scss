@@ -23,7 +23,41 @@ h1.container {
 }
 
 .row > main[role='main'] {
-  @extend .col-lg-6;
+  @extend .col-lg-9;
+
+  > article[role='article'] {
+    @extend .container-fluid;
+    padding-left: 0;
+    padding-right: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+main[role='main'] > article[role='article'] {
+  > h1 {
+    @extend .col-lg-8;
+    //padding-left: 0;
+    //padding-right: 0;
+    order: 1;
+  }
+
+  > .body,
+  > .shortdesc {
+    @extend .col-lg-8;
+    @include media-breakpoint-up(md) {
+      order: 3;
+    }
+    @include media-breakpoint-up(lg) {
+      order: 2;
+    }
+  }
+
+  > .related-links {
+    @extend .col-lg-4;
+    order: 4;
+  }
 }
 
 .anchor-link {

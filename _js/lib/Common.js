@@ -71,7 +71,6 @@ function Common(index) {
     function updateMain(data) {
       const $dummy = $('<body>').append($.parseHTML(data))
       $main.html($dummy.find('[role=main]:first').html())
-      $('aside.section-toc').html($dummy.find('aside.section-toc:first').html())
       $footer.html($dummy.find('footer:first').html())
       document.title = $dummy.find('title').text()
       scrollToStart()
