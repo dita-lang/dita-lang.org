@@ -93,13 +93,34 @@
 
       <xsl:apply-templates select="." mode="addContentToHtmlBodyElement"/>
 
-      <xsl:call-template name="gen-user-aside"/>
-
       <xsl:apply-templates select="." mode="addFooterToHtmlBodyElement"/>
     <!--
     </body>
     -->
     <xsl:text>&#xA;</xsl:text>
+  </xsl:template>
+
+  <xsl:template match="*" mode="addContentToHtmlBodyElement">
+    <main xsl:use-attribute-sets="main">
+      <article xsl:use-attribute-sets="article">
+        <xsl:attribute name="aria-labelledby">
+          <xsl:apply-templates select="*[contains(@class,' topic/title ')] |
+                                       self::dita/*[1]/*[contains(@class,' topic/title ')]" mode="return-aria-label-id"/>
+        </xsl:attribute>
+        <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]" mode="out-of-line"/>
+        <xsl:apply-templates/> <!-- this will include all things within topic; therefore, -->
+        <!-- title content will appear here by fall-through -->
+        <!-- followed by prolog (but no fall-through is permitted for it) -->
+        <!-- followed by body content, again by fall-through in document order -->
+        <!-- followed by related links -->
+        <!-- followed by child topics by fall-through -->
+        <xsl:call-template name="gen-user-aside"/>
+
+        <!-- TODO: Replace with mode="gen-endnotes" -->
+        <xsl:call-template name="gen-endnotes"/>    <!-- include footnote-endnotes -->
+        <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-endprop ')]" mode="out-of-line"/>
+      </article>
+    </main>
   </xsl:template>
 
   <xsl:template name="gen-user-aside">
