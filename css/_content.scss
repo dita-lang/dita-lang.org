@@ -23,7 +23,27 @@ h1.container {
 }
 
 .row > main[role='main'] {
+  @extend .col-lg-9;
+
+  > article[role='article'] {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+main[role='main'] > article[role='article'] > h1.title {
   @extend .col-lg-6;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+main[role='main'] > article[role='article'] > .body {
+  @extend .col-lg-6;
+}
+
+main[role='main'] > article[role='article'] > nav.related-links {
+  @extend .col-lg-3;
 }
 
 .anchor-link {
