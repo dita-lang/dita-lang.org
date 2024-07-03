@@ -5,7 +5,7 @@ title: 'include'
 description: 'Included content is a reference to non-DITA content outside the current document that will be rendered at the location of the reference. The resource is specified using either a URI or a key reference. Processing expectations for the referenced data can also be specified.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '03799ad238df6aad8800e98f7d3efa85d5f5b2d1'
+commit: '85e7250af1f23659ddb4ca6b7675da54c1c2c807'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -48,11 +48,10 @@ contents of the referenced resource at the location of the <code class="keyword 
 If the content is unavailable to the processor or cannot be processed using the specified
 <code class="keyword markupname xmlatt">@parse</code> value, the contents of the <code class="keyword markupname xmlelement">&lt;fallback&gt;</code> element, if any,
 are presented instead.</p>
-            <p class="p">Processors <dfn class="term RFC-2119">SHOULD</dfn>
-        support the <code class="keyword markupname xmlatt">@parse</code> values <span class="keyword">text</span>
-        and  <span class="keyword">xml</span>.</p>
+            <p class="p">Processors <dfn class="term RFC-2119">SHOULD</dfn> support the <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-parse"><code class="keyword markupname xmlatt">@parse</code></a> values
+                    <span class="keyword">text</span> and <span class="keyword">xml</span>.</p>
 <p class="p">Processors <dfn class="term RFC-2119">SHOULD</dfn> detect the encoding of the referenced
-                document based on the rules described for the <a class="xref" href="../attributes/commonAttributes.html#common-atts__encoding"><code class="keyword markupname xmlatt">@encoding</code></a>
+                document based on the rules described for the <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-encoding"><code class="keyword markupname xmlatt">@encoding</code></a>
                 attribute.</p>
         </section>
         <section class="section" id="include__content-model"><h2 class="title sectiontitle">Content model</h2>
@@ -322,7 +321,7 @@ are presented instead.</p>
                     referenced XML document is selected. Any grammar processing should be performed
                     during resolution, such that default attribute values are explicitly populated.
                     Prolog content must be discarded.</p>
-                  <p class="p errorcondition"><span class="error-statement" id="include__d2461e1673" data-id="DITAERR-0320"></span>It is an error to use <code class="ph codeph">parse="xml"</code>
+                  <p class="p errorcondition"><span class="error-statement" id="include__d2461e1673" data-id="DITAERR-0330"></span>It is an error to use <code class="ph codeph">parse="xml"</code>
                     anywhere other than within <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> or a specialization
                     thereof.</p>
                 </dd>
@@ -411,7 +410,7 @@ are presented instead.</p>
           <dd class="dd">Describes the target of a reference. See <a class="xref" href="../../archSpec/base/thetypeattribute.html" title="On linking elements, the type attribute describes the target of a reference. The type attribute is also used on several non-linking elements for other purposes.">The type attribute</a> for detailed
             information on supported values and processing implications. </dd>
         
-          <dt class="dt dlterm" id="include__attr-xml-lang"><a id="include__xml-lang"></a><code class="keyword markupname xmlatt">@xml:lang</code></dt>
+          <dt class="dt dlterm" id="include__attr-xmllang"><a id="include__xmllang"></a><code class="keyword markupname xmlatt">@xml:lang</code></dt>
           <dd class="dd" id="include__reusable-lang">Specifies the language and optional locale of the content that is
             contained in an element. Valid values are language tokens or the null string. The
               <code class="keyword markupname xmlatt">@xml:lang</code> attribute and its values are described in the <a class="xref" href="http://www.w3.org/TR/REC-xml/#sec-lang-tag" target="_blank" rel="external noopener">Extensible Markup Language 1.0 specification, fifth edition</a>.</dd>

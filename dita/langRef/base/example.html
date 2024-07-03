@@ -5,7 +5,7 @@ title: 'example'
 description: 'An example illustrates the subject of the topic or a portion of the topic.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '03799ad238df6aad8800e98f7d3efa85d5f5b2d1'
+commit: '85e7250af1f23659ddb4ca6b7675da54c1c2c807'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -16,6 +16,23 @@ classes: ''
 
 <div class="body refbody"><p class="shortdesc">An example illustrates
     the subject of the topic or a portion of the topic.</p>
+  <section class="section" id="example__usage-information"><h2 class="title sectiontitle">Usage information</h2>
+      
+      <p class="p">For maximum flexibility in creating specializations, examples allow
+        plain text as well as phrase and block level elements. Because of the way XML grammars are
+        defined within a DTD, any element that allows plain text cannot restrict the order or
+        frequency of other elements. As a result, the <code class="keyword markupname xmlelement">&lt;example&gt;</code> element
+        allows <code class="keyword markupname xmlelement">&lt;title&gt;</code> to appear anywhere as a child of
+          <code class="keyword markupname xmlelement">&lt;example&gt;</code>. However, the intent of the specification is that
+          <code class="keyword markupname xmlelement">&lt;title&gt;</code> only be used once in any <code class="keyword markupname xmlelement">&lt;example&gt;</code>,
+        and when used, that it precede any other text or element content.</p>
+    </section>
+  <section class="section" id="example__rendering-expectations"><h2 class="title sectiontitle">Rendering expectations</h2>
+      
+      <p class="p errorcondition"><span class="error-statement" id="example__d2776e54" data-id="DITAERR-0190"></span>Processors <dfn class="term RFC-2119">SHOULD</dfn> treat the presence of more than one <code class="keyword markupname xmlelement">&lt;title&gt;</code> element
+        in a <code class="keyword markupname xmlelement">&lt;example&gt;</code> element as an error.</p>
+      
+    </section>
     <section class="section" id="example__content-model"><h2 class="title sectiontitle">Content model</h2>
          
          <p class="p content-model">(Text | <a class="xref" href="../content-models/../base/audio.html" title="Audio is sound that the human ear is capable of hearing.">
@@ -581,7 +598,7 @@ classes: ''
                 <span class="keyword">-dita-use-conref-target</span>.</span><p class="p">See <a class="xref" href="../../non-normative/elementsMerged.html" title="This topic contains a list of all elements in the base DITA edition. It includes recommendations on how to present the element type to translators, whether the element contents are likely to be suitable for translation, and whether the element has attributes with values that are likely to be suitable for translation. Examples of content that is not suitable for translation include code fragments and mailing addresses.">Element-by-element recommendations for translators</a> for
               suggested processing defaults for each element.</p></dd>
         
-          <dt class="dt dlterm" id="example__attr-xml-lang"><a id="example__xml-lang"></a><code class="keyword markupname xmlatt">@xml:lang</code></dt>
+          <dt class="dt dlterm" id="example__attr-xmllang"><a id="example__xmllang"></a><code class="keyword markupname xmlatt">@xml:lang</code></dt>
           <dd class="dd" id="example__reusable-lang">Specifies the language and optional locale of the content that is
             contained in an element. Valid values are language tokens or the null string. The
               <code class="keyword markupname xmlatt">@xml:lang</code> attribute and its values are described in the <a class="xref" href="http://www.w3.org/TR/REC-xml/#sec-lang-tag" target="_blank" rel="external noopener">Extensible Markup Language 1.0 specification, fifth edition</a>.</dd>
@@ -598,4 +615,4 @@ classes: ''
   <strong class="ph b">&lt;/example&gt;</strong>
 &lt;/section&gt;</code></pre></div>
 </div>
-<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/body-elements.html" title="The body elements support the most common types of content for topics: paragraphs, lists, phrases, figures, and other common document components.">Body elements</a></div></div></nav><aside class="section-toc" role="aside"><h2>In this section</h2><ul><li><a href="#example__content-model">Content model</a></li><li><a href="#example__attributes">Attributes</a></li><li><a href="#example__example">Example</a></li></ul></aside></article></main>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/body-elements.html" title="The body elements support the most common types of content for topics: paragraphs, lists, phrases, figures, and other common document components.">Body elements</a></div></div></nav><aside class="section-toc" role="aside"><h2>In this section</h2><ul><li><a href="#example__usage-information">Usage information</a></li><li><a href="#example__rendering-expectations">Rendering expectations</a></li><li><a href="#example__content-model">Content model</a></li><li><a href="#example__attributes">Attributes</a></li><li><a href="#example__example">Example</a></li></ul></aside></article></main>
