@@ -129,8 +129,8 @@
                             *[contains(@class, ' topic/section ') or contains(@class, ' topic/example ')]
                              [exists(*[contains(@class, ' topic/title ')])]"/>
     <aside class="section-toc" role="aside">
-      <h2>In this section</h2>
       <xsl:if test="$sections">
+        <h2>In this section</h2>
         <ul>
           <xsl:for-each select="$sections">
             <li>
@@ -179,12 +179,13 @@
   </xsl:template>
 
   <xsl:attribute-set name="main">
-    <xsl:attribute name="class" separator=" " select="('col-lg-9', /*/@outputclass)"/>
+<!--    <xsl:attribute name="class" separator=" " select="('col-lg-9', /*/@outputclass)"/>-->
+    <xsl:attribute name="class" select="/*/@outputclass"/>
     <xsl:attribute name="role">main</xsl:attribute>
   </xsl:attribute-set>
 
   <xsl:attribute-set name="toc">
-    <xsl:attribute name="class">col-lg-3</xsl:attribute>
+<!--    <xsl:attribute name="class">col-lg-3</xsl:attribute>-->
     <xsl:attribute name="role">toc</xsl:attribute>
   </xsl:attribute-set>
 
