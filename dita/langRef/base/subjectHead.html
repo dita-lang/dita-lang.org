@@ -5,7 +5,7 @@ title: 'subjectHead'
 description: 'The subjectHead element provides a heading for a group of subjects, for use if the subject scheme is rendered and displayed.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: 'f9940889c0e08a7c729335555d13af2bf4529cf7'
+commit: '8967625d23d948cb72113b9b5f3db94ce0be6ce9'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -82,7 +82,7 @@ classes: ''
                                                   attributes</a></span>, <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-collection-type"><code class="keyword markupname xmlatt">@collection-type</code></a>,
           <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-linking"><code class="keyword markupname xmlatt">@linking</code></a>, <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-processing-role"><code class="keyword markupname xmlatt">@processing-role</code></a>,
         and <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-toc"><code class="keyword markupname xmlatt">@toc</code></a>,. </p>
-      <div class="p attr-exception" id="subjectHead__attr-exception">For this element,
+      <div class="p attributes-prose attr-exception" id="subjectHead__attr-exception">For this element,
         the following considerations apply:<ul class="ul" id="subjectHead__ul_pz3_w3r_ppb">
           <li class="li">The <code class="keyword markupname xmlatt">@collection-type</code> attribute has an
             expected processing default value of
@@ -96,11 +96,9 @@ classes: ''
             valid.</li>
         </ul></div>
     <p class="p inlined-attributes">The following attributes are available on this element: <a class="xref" href="../../common/../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
-                                                  attributes</a>.</p><dl class="dl inlined-attributes">
-          <dt class="dt dlterm" id="subjectHead__attr-collection-type"><a id="subjectHead__collection-type"></a><code class="keyword markupname xmlatt">@collection-type</code>
+                                                  attributes</a> and the attributes defined below.</p><dl class="dl inlined-attributes"><dt class="dt dlterm" id="subjectHead__attr-collection-type"><code class="keyword markupname xmlatt">@collection-type</code>
             <span class="ph">(common map
-            attributes)</span></dt>
-          <dd class="dd">Specifies how topics or links relate to each other. The
+            attributes)</span></dt><dd class="dd">Specifies how topics or links relate to each other. The
             processing default is <span class="keyword">unordered</span>, although no
             default is specified in the OASIS-provided grammar files. The
             following values are valid:<dl class="dl" id="subjectHead__colltypevalues">
@@ -126,12 +124,15 @@ classes: ''
                   referenced topics not only relates to the current topic
                   but also relate to each other. </dd>
               
-            </dl></dd>
-        
-          <dt class="dt dlterm" id="subjectHead__attr-linking"><a id="subjectHead__linking"></a><code class="keyword markupname xmlatt">@linking</code>
+            </dl></dd><dd class="dd ddexpand">The <code class="keyword markupname xmlatt">@collection-type</code> attribute has an
+            expected processing default value of
+              <span class="keyword">unordered</span>, although this value is not
+            defaulted in the grammar files. This element limits the
+            available values for <code class="keyword markupname xmlatt">@collection-type</code> to
+              <span class="keyword">unordered</span>, <span class="keyword">sequence</span>,
+            and <span class="keyword">-dita-use-conref-target</span>.</dd><dt class="dt dlterm" id="subjectHead__attr-linking"><code class="keyword markupname xmlatt">@linking</code>
             <span class="ph">(common map
-            attributes)</span></dt>
-          <dd class="dd">Specifies linking characteristics of a topic specific to the
+            attributes)</span></dt><dd class="dd">Specifies linking characteristics of a topic specific to the
             location of this reference in a map. <span class="ph">If the value is not specified
           locally, the value might cascade from another element in the map
           (for cascade rules, see <a class="xref" href="../../common/../archSpec/base/cascading-in-a-ditamap.html#cascading-in-a-ditamap" title="Certain attributes cascade throughout a map, which facilitates attribute and metadata management. When attributes cascade, they apply to the elements that are children of the element where the attributes were specified. Cascading applies to a containment hierarchy, as opposed to a specialization hierarchy.">Cascading of metadata attributes in a DITA map</a>).</span>
@@ -163,12 +164,11 @@ classes: ''
           <dd class="dd">See <a class="xref" href="../../common/../archSpec/base/ditauseconreftarget.html" title="The value -dita-use-conref-target is available on enumerated attributes and can also be specified on other attributes. When an element uses conref to pull in content, for any of its attributes assigned a value of -dita-use-conref-target, the resulting value for those attributes is also pulled in from the referenced element.">Using the -dita-use-conref-target value</a>
             for more information. </dd>
         
-            </dl></dd>
-        
-          <dt class="dt dlterm" id="subjectHead__attr-processing-role"><a id="subjectHead__processing-role"></a><code class="keyword markupname xmlatt">@processing-role</code>
+            </dl></dd><dd class="dd ddexpand">The <code class="keyword markupname xmlatt">@linking</code> attribute has a default value of
+              <span class="keyword">normal</span>, and no other values are
+            valid.</dd><dt class="dt dlterm" id="subjectHead__attr-processing-role"><code class="keyword markupname xmlatt">@processing-role</code>
             <span class="ph">(common map
-            attributes)</span></dt>
-          <dd class="dd" id="subjectHead__def-processing-role">Specifies whether the referenced
+            attributes)</span></dt><dd class="dd" id="subjectHead__def-processing-role">Specifies whether the referenced
             resource is processed normally or treated as a resource that is
             only included in order to resolve references, such as key or
             content references. The following values are valid:<dl class="dl">
@@ -196,12 +196,9 @@ classes: ''
             </dl><p class="p"><span class="ph">If no value is specified but the attribute is
           specified on a containing element within a map or within the
           related-links section, the value cascades from the closest
-          containing element.</span></p></dd>
-        
-          <dt class="dt dlterm" id="subjectHead__attr-toc"><a id="subjectHead__toc"></a><code class="keyword markupname xmlatt">@toc</code>
+          containing element.</span></p></dd><dt class="dt dlterm" id="subjectHead__attr-toc"><code class="keyword markupname xmlatt">@toc</code>
             <span class="ph">(common map
-            attributes)</span></dt>
-          <dd class="dd">Specifies whether a topic appears in the table of contents
+            attributes)</span></dt><dd class="dd">Specifies whether a topic appears in the table of contents
             (TOC) based on the current map context. <span class="ph">If the value is not specified
           locally, the value might cascade from another element in the map
           (for cascade rules, see <a class="xref" href="../../common/../archSpec/base/cascading-in-a-ditamap.html#cascading-in-a-ditamap" title="Certain attributes cascade throughout a map, which facilitates attribute and metadata management. When attributes cascade, they apply to the elements that are children of the element where the attributes were specified. Cascading applies to a containment hierarchy, as opposed to a specialization hierarchy.">Cascading of metadata attributes in a DITA map</a>).</span> The following
@@ -219,8 +216,7 @@ classes: ''
                 <dd class="dd">See <a class="xref" href="../../archSpec/base/ditauseconreftarget.html" title="The value -dita-use-conref-target is available on enumerated attributes and can also be specified on other attributes. When an element uses conref to pull in content, for any of its attributes assigned a value of -dita-use-conref-target, the resulting value for those attributes is also pulled in from the referenced element.">Using the -dita-use-conref-target value</a> for
                   more information. </dd>
               
-            </dl></dd>
-        </dl></section>
+            </dl></dd></dl></section>
     <div style="color:red;" class="example non-normative" id="subjectHead__example"><h2 class="title sectiontitle">Example</h2>
       
       <p class="p">In the following code sample, the <code class="keyword markupname xmlelement">&lt;subjectHead&gt;</code> elements define two

@@ -5,7 +5,7 @@ title: 'ditavalref'
 description: 'The ditavalref element references a DITAVAL document that specifies filter conditions to be used when processing a map or map branch.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: 'f9940889c0e08a7c729335555d13af2bf4529cf7'
+commit: '8967625d23d948cb72113b9b5f3db94ce0be6ce9'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -126,7 +126,7 @@ classes: ''
       <p class="p attributes-prose">The following attributes are available on this element: <span class="ph"><a class="xref" href="../../common/../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
                                                   attributes</a></span> (except for <code class="keyword markupname xmlatt">@conkeyref</code>,
         which is removed for all elements in this domain), <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-format"><code class="keyword markupname xmlatt">@format</code></a>, <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-href"><code class="keyword markupname xmlatt">@href</code></a>, <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-impose-role"><code class="keyword markupname xmlatt">@impose-role</code></a>, and <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-scope"><code class="keyword markupname xmlatt">@scope</code></a>.</p>
-      <div class="p attr-exception" id="ditavalref__attr-exception">For this element:<ul class="ul" id="ditavalref__ul_xlk_gc4_qpb">
+      <div class="p attributes-prose attr-exception" id="ditavalref__attr-exception">For this element:<ul class="ul" id="ditavalref__ul_xlk_gc4_qpb">
           <li class="li">The <code class="keyword markupname xmlatt">@format</code> attribute has a default value of
               <span class="keyword">ditaval</span>.</li>
           <li class="li">The <code class="keyword markupname xmlatt">@impose-role</code> attribute has a fixed value of
@@ -140,23 +140,19 @@ classes: ''
         </ul></div>
       
     <p class="p inlined-attributes">The following attributes are available on this element: <a class="xref" href="../../common/../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
-                                                  attributes</a>.</p><dl class="dl inlined-attributes">
-          <dt class="dt dlterm" id="ditavalref__attr-format"><a id="ditavalref__format"></a><code class="keyword markupname xmlatt">@format</code>
+                                                  attributes</a> and the attributes defined below.</p><dl class="dl inlined-attributes"><dt class="dt dlterm" id="ditavalref__attr-format"><code class="keyword markupname xmlatt">@format</code>
             <span class="ph">(link-relationship
-              attributes)</span></dt>
-          <dd class="dd">Specifies the format of the resource that is referenced.<span class="ph"> See <a class="xref" href="../../archSpec/base/theformatattribute.html" title="The format attribute identifies the format of the referenced resource.">The format attribute</a> for
+              attributes)</span></dt><dd class="dd">Specifies the format of the resource that is referenced.<span class="ph"> See <a class="xref" href="../../archSpec/base/theformatattribute.html" title="The format attribute identifies the format of the referenced resource.">The format attribute</a> for
               detailed information on supported values and processing
-              implications.</span></dd>
-        
-          <dt class="dt dlterm" id="ditavalref__attr-href"><a id="ditavalref__href"></a><code class="keyword markupname xmlatt">@href</code>
+              implications.</span></dd><dd class="dd ddexpand">The <code class="keyword markupname xmlatt">@format</code> attribute has a default value of
+              <span class="keyword">ditaval</span>.</dd><dt class="dt dlterm" id="ditavalref__attr-href"><code class="keyword markupname xmlatt">@href</code>
             <span class="ph">(link-relationship
-              attributes)</span></dt>
-          <dd class="dd">Specifies a reference to a resource.<span class="ph"> See
+              attributes)</span></dt><dd class="dd">Specifies a reference to a resource.<span class="ph"> See
                 <a class="xref" href="../../archSpec/base/thehrefattribute.html" title="The href attribute specifies the URI of the resource that is addressed. The referenced resource can be another DITA topic or map, an element inside a DITA topic or map, or a non-DITA resource.">The href attribute</a> for detailed information
-              on supported values and processing implications.</span></dd>
-        
-          <dt class="dt dlterm" id="ditavalref__attr-impose-role"><a id="ditavalref__impose-role"></a><code class="keyword markupname xmlatt">@impose-role</code></dt>
-          <dd class="dd">Specifies whether this element will impose its role on elements in a referenced map.
+              on supported values and processing implications.</span></dd><dd class="dd ddexpand">The <code class="keyword markupname xmlatt">@href</code> attribute specivies a reference to a DITAVAL document. If
+            the <code class="keyword markupname xmlatt">@href</code> attribute is unspecified, this
+              <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> will not result in any new filtering behavior, but
+            other aspects of the element are still evaluated.</dd><dt class="dt dlterm" id="ditavalref__attr-impose-role"><code class="keyword markupname xmlatt">@impose-role</code></dt><dd class="dd">Specifies whether this element will impose its role on elements in a referenced map.
             The attribute is ignored if the target of the reference is not a map or branch of a map.
             The following values are valid: <dl class="dl">
               
@@ -179,19 +175,17 @@ classes: ''
             for more information. </dd>
         
             </dl><p class="p"><span class="ph"> See <a class="xref" href="../../archSpec/base/thehrefattribute.html" title="The href attribute specifies the URI of the resource that is addressed. The referenced resource can be another DITA topic or map, an element inside a DITA topic or map, or a non-DITA resource.">The href attribute</a> for detailed
-                information on supported values and processing implications.</span></p></dd>
-        
-          <dt class="dt dlterm" id="ditavalref__attr-scope"><a id="ditavalref__scope"></a><code class="keyword markupname xmlatt">@scope</code>
+                information on supported values and processing implications.</span></p></dd><dd class="dd ddexpand">The <code class="keyword markupname xmlatt">@impose-role</code> attribute has a fixed value of
+              <span class="keyword">keeptarget</span>.</dd><dt class="dt dlterm"><code class="keyword markupname xmlatt">@processing-role</code></dt><dd class="dd">The <code class="keyword markupname xmlatt">@processing-role</code> attribute has a default value of
+              <span class="keyword">resource-only</span>.</dd><dt class="dt dlterm" id="ditavalref__attr-scope"><code class="keyword markupname xmlatt">@scope</code>
             <span class="ph">(link-relationship
-              attributes)</span></dt>
-          <dd class="dd">Specifies the closeness of the relationship between the
+              attributes)</span></dt><dd class="dd">Specifies the closeness of the relationship between the
             current document and the referenced resource.<span class="ph"> The following values are valid:
                 <span class="keyword">local</span>, <span class="keyword">peer</span>,
                 <span class="keyword">external</span>, and
                 <span class="keyword">-dita-use-conref-target</span>. </span><p class="p">See
                 <a class="xref" href="../../archSpec/base/thescopeattribute.html" title="The scope attribute identifies the closeness of the relationship between the current document and the target resource.">The scope attribute</a> for detailed information
-              on supported values and processing implications.</p></dd>
-        </dl></section>
+              on supported values and processing implications.</p></dd></dl></section>
 <div class="example non-normative" id="ditavalref__example"><h2 class="title sectiontitle">Example</h2>
     
     <p class="p">See <a class="xref" href="../../common/../archSpec/base/examples-of-branch-filter.html" title="The branch filtering examples illustrate the processing expectations for various scenarios that involve ditavalref elements. Processing examples use either before and after sample markup or expanded syntax that shows the equivalent markup without the ditavalref elements.">Examples of branch filtering</a> for several examples of
