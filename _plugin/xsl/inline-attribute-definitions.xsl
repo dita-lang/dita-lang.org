@@ -25,6 +25,7 @@
 <!--        <xsl:value-of select="base-uri()"/>-->
 <!--      </xsl:message>-->
 <!--    </xsl:if>-->
+    <xsl:variable name="attr-list" select="*[contains(@class, ' topic/p ')][starts-with(normalize-space(.), 'The following attributes are available on this element')]" as="element()?"/>
     <xsl:variable name="xrefs" select="descendant::*[contains(@class, ' topic/p ')]/descendant::*[contains(@class, ' topic/xref ')]" as="element()*"/>
     <xsl:variable name="inlined" as="element()*">
       <!-- Descriptions -->
@@ -123,6 +124,13 @@
         <p class="- topic/p " outputclass="inlined-attributes">
           <xsl:text>The following attributes are available on this element: </xsl:text>
           <xsl:sequence select="$xrefs[@keyref = 'attributes-universal']"/>
+          <xsl:variable name="exception-text" as="text()?"
+                        select="$attr-list/text()[contains(normalize-space(), 'which is removed for all elements in this domain')]"/>
+          <xsl:if test="exists($exception-text)">
+            <xsl:text> (except for </xsl:text>
+            <xsl:sequence select="$exception-text/preceding-sibling::*[contains(@class, ' xml-d/xmlatt ')][1]"/>
+            <xsl:text> which is removed for all elements in this domain)</xsl:text>
+          </xsl:if>
           <xsl:if test="$inlined/*">
             <xsl:text> and the attributes defined below</xsl:text>
           </xsl:if>
@@ -134,10 +142,10 @@
                             group-by="*[contains(@class, ' topic/dt ')]//*[contains(@class, ' xml-d/xmlatt ')]/string()">
           <xsl:sort select="lower-case(normalize-space(*[contains(@class, ' topic/dt ')]))"/>
 
-          <xsl:message>
-            <xsl:processing-instruction name="level" select="'ERROR'"/>
-            <xsl:value-of select="'group', current-grouping-key(), current-group()[1]/name()" separator=": "/>
-          </xsl:message>
+<!--          <xsl:message>-->
+<!--            <xsl:processing-instruction name="level" select="'ERROR'"/>-->
+<!--            <xsl:value-of select="'group', current-grouping-key(), current-group()[1]/name()" separator=": "/>-->
+<!--          </xsl:message>-->
 
 <!--          &lt;<xsl:value-of select="name()"/>&gt;-->
           <dlentry class="- topic/dlentry ">
