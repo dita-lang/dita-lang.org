@@ -19,9 +19,10 @@
                              [empty(ancestor::*[contains(@class, ' topic/dl ')])]"/>
 
   <xsl:template match="*[contains(@class, ' topic/section ')][@id = 'attributes']">
+    <xsl:variable name="xrefs" select="descendant::*[contains(@class, ' topic/p ')]/descendant::*[contains(@class, ' topic/xref ')]" as="element()*"/>
     <xsl:variable name="inlined" as="element()*">
       <xsl:sequence select="$attributes-dl"/>
-      <xsl:for-each select="descendant::*[contains(@class, ' topic/p ')]/descendant::*[contains(@class, ' topic/xref ')]">
+      <xsl:for-each select="$xrefs">
         <xsl:choose>
           <xsl:when test="starts-with(@keyref, 'attributes-common/') and
                           not(starts-with(@keyref, 'attributes-common/attr-'))">
@@ -42,38 +43,40 @@
             </dl>
           </xsl:when>
           <xsl:when test="@keyref = 'attributes-universal'">
-            <xsl:variable name="target-file" select="x:get-target-file(@href, /)" as="document-node()"/>
-<!--            <xsl:apply-templates select="." mode="resolve">-->
-<!--              <xsl:with-param name="topic-id" select="'univ-atts'"/>-->
-<!--              <xsl:with-param name="element-id" select="'universalatts'"/>-->
-<!--            </xsl:apply-templates>-->
-            <dl class="- topic/dl ">
-              <xsl:apply-templates select="." mode="resolve">
-                <xsl:with-param name="target-file" select="$target-file"/>
-                <xsl:with-param name="topic-id" select="'univ-atts'"/>
-                <xsl:with-param name="element-id" select="'class'"/>
-              </xsl:apply-templates>
-              <xsl:apply-templates select="." mode="resolve">
-                <xsl:with-param name="target-file" select="$target-file"/>
-                <xsl:with-param name="topic-id" select="'univ-atts'"/>
-                <xsl:with-param name="element-id" select="'outputclass'"/>
-              </xsl:apply-templates>
-              <xsl:apply-templates select="." mode="resolve-group">
-                <xsl:with-param name="target-file" select="$target-file"/>
-                <xsl:with-param name="topic-id" select="'univ-atts'"/>
-                <xsl:with-param name="element-id" select="'idatts'"/>
-              </xsl:apply-templates>
-              <xsl:apply-templates select="." mode="resolve-group">
-                <xsl:with-param name="target-file" select="$target-file"/>
-                <xsl:with-param name="topic-id" select="'univ-atts'"/>
-                <xsl:with-param name="element-id" select="'localizationatts'"/>
-              </xsl:apply-templates>
-              <xsl:apply-templates select="." mode="resolve-group">
-                <xsl:with-param name="target-file" select="$target-file"/>
-                <xsl:with-param name="topic-id" select="'univ-atts'"/>
-                <xsl:with-param name="element-id" select="'metadataatts'"/>
-              </xsl:apply-templates>
-            </dl>
+            <xsl:if test="false()">
+              <xsl:variable name="target-file" select="x:get-target-file(@href, /)" as="document-node()"/>
+  <!--            <xsl:apply-templates select="." mode="resolve">-->
+  <!--              <xsl:with-param name="topic-id" select="'univ-atts'"/>-->
+  <!--              <xsl:with-param name="element-id" select="'universalatts'"/>-->
+  <!--            </xsl:apply-templates>-->
+              <dl class="- topic/dl ">
+                <xsl:apply-templates select="." mode="resolve">
+                  <xsl:with-param name="target-file" select="$target-file"/>
+                  <xsl:with-param name="topic-id" select="'univ-atts'"/>
+                  <xsl:with-param name="element-id" select="'class'"/>
+                </xsl:apply-templates>
+                <xsl:apply-templates select="." mode="resolve">
+                  <xsl:with-param name="target-file" select="$target-file"/>
+                  <xsl:with-param name="topic-id" select="'univ-atts'"/>
+                  <xsl:with-param name="element-id" select="'outputclass'"/>
+                </xsl:apply-templates>
+                <xsl:apply-templates select="." mode="resolve-group">
+                  <xsl:with-param name="target-file" select="$target-file"/>
+                  <xsl:with-param name="topic-id" select="'univ-atts'"/>
+                  <xsl:with-param name="element-id" select="'idatts'"/>
+                </xsl:apply-templates>
+                <xsl:apply-templates select="." mode="resolve-group">
+                  <xsl:with-param name="target-file" select="$target-file"/>
+                  <xsl:with-param name="topic-id" select="'univ-atts'"/>
+                  <xsl:with-param name="element-id" select="'localizationatts'"/>
+                </xsl:apply-templates>
+                <xsl:apply-templates select="." mode="resolve-group">
+                  <xsl:with-param name="target-file" select="$target-file"/>
+                  <xsl:with-param name="topic-id" select="'univ-atts'"/>
+                  <xsl:with-param name="element-id" select="'metadataatts'"/>
+                </xsl:apply-templates>
+              </dl>
+            </xsl:if>
           </xsl:when>
           <xsl:when test="exists(descendant::*[contains(@class, ' xml-d/xmlatt ')])">
             <dl class="- topic/dl ">
@@ -95,6 +98,13 @@
     </xsl:variable>
     <xsl:copy>
       <xsl:apply-templates select="@* | node()" mode="strip"/>
+      <xsl:if test="$xrefs[@keyref = 'attributes-universal']">
+        <p class="- topic/p " outputclass="inlined-attributes">
+          <xsl:text>The following attributes are available on this element: </xsl:text>
+          <xsl:sequence select="$xrefs[@keyref = 'attributes-universal']"/>
+          <xsl:text>.</xsl:text>
+        </p>
+      </xsl:if>
       <dl class="- topic/dl " outputclass="inlined-attributes">
         <xsl:for-each select="$inlined/*">
           <xsl:sort select="lower-case(normalize-space(*[contains(@class, ' topic/dt ')]))"/>
