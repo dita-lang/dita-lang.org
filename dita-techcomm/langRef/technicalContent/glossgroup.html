@@ -5,7 +5,7 @@ title: 'glossgroup'
 description: 'A glossary group topic organizes related glossary entry topics within a single topic document.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '5833d833ebcab61993333ea5757106f4988b1c28'
+commit: '2d52413801d86c3734af25f542f68cb2d39efd9e'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -37,276 +37,20 @@ classes: ''
                                                   attributes</a></span>
           and <span class="ph"><a class="xref" href="../../baseSpec/specification/common/reuse-w-lwdita/../../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
                                                   attributes</a></span>.</p>
-        <p class="p attr-exception" id="glossgroup__attr-exception">For this element, the <code class="keyword markupname xmlatt">@id</code> attribute is
+        <p class="p attributes-prose attr-exception" id="glossgroup__attr-exception">For this element, the <code class="keyword markupname xmlatt">@id</code> attribute is
           required.</p>
       </div>
       
-  <dl class="dl inlined-attributes">
-          <dt class="dt dlterm" id="glossgroup__attr-audience"><a id="glossgroup__audience"></a><code class="keyword markupname xmlatt">@audience</code>
-            <span class="ph"><em class="ph i">(specialized
-              attribute)</em></span></dt>
-          <dd class="dd">Indicates the intended audience for the element. <span class="ph">If no value is specified but the attribute is
-          specified on a containing element within a map or within the
-          related-links section, the value cascades from the closest
-          containing element.</span>
-          </dd>
-        
-          <dt class="dt dlterm" id="glossgroup__attr-base"><a id="glossgroup__base"></a><code class="keyword markupname xmlatt">@base</code></dt>
-          <dd class="dd">Specifies metadata about the element. It is often used as a
-            base for specialized attributes that have a simple syntax for
-            values, but which are not conditional processing
-              attributes.<p class="p">The <code class="keyword markupname xmlatt">@base</code> attribute takes a
-              space-delimited set of values. <span class="ph">However, when
-          serving as a container for generalized attributes, the attribute
-          values will be more complex. See <a class="xref" href="../../common/../archSpec/base/generalization-attributes.html" title="DITA provides a syntax to generalize attributes that have been specialized from the props or base attribute.">Attribute generalization</a> for
-          more details.</span></p></dd>
-        
-          <dt class="dt dlterm" id="glossgroup__attr-class"><a id="glossgroup__class"></a><code class="keyword markupname xmlatt">@class</code>
-            <em class="ph i">(not for use by authors)</em></dt>
-          <dd class="dd" id="glossgroup__reusable-class"><em class="ph i">This attribute is not for use by authors. If an editor displays
-                <code class="keyword markupname xmlatt">@class</code> attribute values, do not edit them.</em> Specifies a default
-            value that defines the specialization ancestry of the element. Its predefined values
-            allow DITA  tools to work correctly with specialized
-            elements. <span class="ph">In a generalized DITA document the <code class="keyword markupname xmlatt">@class</code>
-              attribute value in the generalized instance might differ from the default value for
-              the <code class="keyword markupname xmlatt">@class</code> attribute for the element as given in the DTD or schema.
-              See <a class="xref" href="../../archSpec/base/specialization-class-attribute.html" title="The specialization hierarchy of each DITA element is declared as the value of the class attribute. The class attribute provides a mapping from the current name of the element to its more general equivalents. The class attribute also can provide a mapping from the current name to more specialized equivalents. All specialization-aware processing can be defined in terms of class attribute values.">The class attribute rules and syntax</a> for more
-              information. This attribute is specified on every element except for the
-                <code class="keyword markupname xmlelement">&lt;dita&gt;</code> container element.</span> It is always specified with a
-            default value, which varies for each element.</dd>
-        
-          <dt class="dt dlterm" id="glossgroup__attr-conaction"><a id="glossgroup__conaction"></a><code class="keyword markupname xmlatt">@conaction</code></dt>
-          <dd class="dd">Specifies how the element content will be pushed into a new
-            location. The following values are valid:<dl class="dl" id="glossgroup__conactionvalues">
-              
-                <dt class="dt dlterm">mark</dt>
-                <dd class="dd">The element acts as a marker when pushing content
-                  before or after the target, to help ensure that the push
-                  action is valid. The element with
-                    <code class="ph codeph">conaction="mark"</code> also specifies the
-                  target of the push action with <code class="keyword markupname xmlatt">@conref</code>.
-                  Content inside of the element with
-                    <code class="ph codeph">conaction="mark"</code> is not pushed to the
-                  new location.</dd>
-              
-              
-                <dt class="dt dlterm">pushafter</dt>
-                <dd class="dd">Content from this element is pushed after the location
-                  specified by <code class="keyword markupname xmlatt">@conref</code> on the element with
-                    <code class="ph codeph">conaction="mark"</code>. The element with
-                    <code class="ph codeph">conaction="pushafter"</code> is the first
-                  sibling element after the element with
-                    <code class="ph codeph">conaction="mark"</code>.</dd>
-              
-              
-                <dt class="dt dlterm">pushbefore</dt>
-                <dd class="dd">Content from this element is pushed before the location
-                  specified by <code class="keyword markupname xmlatt">@conref</code> on the element with
-                    <code class="ph codeph">conaction="mark"</code>. The element with
-                    <code class="ph codeph">conaction="pushbefore"</code> is the first
-                  sibling element before the element with
-                    <code class="ph codeph">conaction="mark"</code>.</dd>
-              
-              
-                <dt class="dt dlterm">pushreplace</dt>
-                <dd class="dd">Content from this element replaces any content from the
-                  element referenced by the <code class="keyword markupname xmlatt">@conref</code>
-                  attribute. A second element with
-                    <code class="ph codeph">conaction="mark"</code> is not used when
-                  using <code class="ph codeph">conaction="pushreplace"</code>.</dd>
-              
-              
-          <dt class="dt dlterm"><span class="keyword">-dita-use-conref-target</span></dt>
-          <dd class="dd">See <a class="xref" href="../../common/../archSpec/base/ditauseconreftarget.html" title="The value -dita-use-conref-target is available on enumerated attributes and can also be specified on other attributes. When an element uses conref to pull in content, for any of its attributes assigned a value of -dita-use-conref-target, the resulting value for those attributes is also pulled in from the referenced element.">Using the -dita-use-conref-target value</a>
-            for more information. </dd>
-        
-            </dl><p class="p">See <a class="xref" href="../../../../stubs/StubTopic.html">STUB CONTENT</a> for examples
-              and details about the syntax.</p></dd>
-        
-          <dt class="dt dlterm" id="glossgroup__attr-conkeyref"><a id="glossgroup__conkeyref"></a><code class="keyword markupname xmlatt">@conkeyref</code></dt>
-          <dd class="dd">Specifies a key name or a key name with an element ID that
-            acts as an indirect reference to reusable content. The
-            referenced content is used in place of the content of the
-            current element. See <a class="xref" href="../../../../stubs/StubTopic.html">STUB CONTENT</a> for
-            more details about the syntax and behaviors.</dd>
-        
-          <dt class="dt dlterm" id="glossgroup__attr-conref"><a id="glossgroup__conref"></a><code class="keyword markupname xmlatt">@conref</code></dt>
-          <dd class="dd" id="glossgroup__reusable-conref">Specifies a URI that references a DITA
-            element. The referenced content is used in place of the content
-            of the current element.<span class="ph"> See <a class="xref" href="../../../../stubs/StubTopic.html">STUB CONTENT</a> for examples and details about
-              the syntax. </span></dd>
-        
-          <dt class="dt dlterm" id="glossgroup__attr-conrefend"><a id="glossgroup__conrefend"></a><code class="keyword markupname xmlatt">@conrefend</code></dt>
-          <dd class="dd">Specifies a URI that references the last element in a
-            sequence of elements, with the first element of the sequence
-            specified by <code class="keyword markupname xmlatt">@conref</code>. The referenced sequence
-            of elements is used in place of the content of the current
-            element. See <a class="xref" href="../../../../stubs/StubTopic.html">STUB CONTENT</a> for examples
-            and details about the syntax. </dd>
-        
-          <dt class="dt dlterm" id="glossgroup__attr-deliveryTarget"><a id="glossgroup__deliveryTarget"></a><code class="keyword markupname xmlatt">@deliveryTarget</code>
-            <span class="ph"><em class="ph i">(specialized
-              attribute)</em></span></dt>
-          <dd class="dd"><span class="ph">Specifies the
-              intended delivery target of the content, for example, <span class="keyword">html</span>,
-                <span class="keyword">pdf</span>, or <span class="keyword">epub</span>.</span>
-            <span class="ph">If no value is specified but the attribute is
-          specified on a containing element within a map or within the
-          related-links section, the value cascades from the closest
-          containing element.</span></dd>
-        
-          <dt class="dt dlterm" id="glossgroup__attr-dir"><a id="glossgroup__dir"></a><code class="keyword markupname xmlatt">@dir</code></dt>
-          <dd class="dd" id="glossgroup__reusable-dir">
-            
-            <p class="p" id="glossgroup__reusable-dir-p">Identifies or overrides the text
-              directionality. The following values are valid:</p>
-            <dl class="dl" id="glossgroup__dirvalues">
-              
-                <dt class="dt dlterm">lro</dt>
-                <dd class="dd">Indicates an override of the Unicode Bidirectional
-                  Algorithm, forcing the element into left-to-right
-                  mode.</dd>
-              
-              
-                <dt class="dt dlterm">ltr</dt>
-                <dd class="dd">Indicates left-to-right.</dd>
-              
-              
-                <dt class="dt dlterm">rlo</dt>
-                <dd class="dd">Indicates an override of the Unicode Bidirectional
-                  Algorithm, forcing the element into right-to-left
-                  mode.</dd>
-              
-              
-                <dt class="dt dlterm">rtl</dt>
-                <dd class="dd">Indicates right-to-left.</dd>
-              
-              
-          <dt class="dt dlterm"><span class="keyword">-dita-use-conref-target</span></dt>
-          <dd class="dd">See <a class="xref" href="../../common/../archSpec/base/ditauseconreftarget.html" title="The value -dita-use-conref-target is available on enumerated attributes and can also be specified on other attributes. When an element uses conref to pull in content, for any of its attributes assigned a value of -dita-use-conref-target, the resulting value for those attributes is also pulled in from the referenced element.">Using the -dita-use-conref-target value</a>
-            for more information. </dd>
-        
-            </dl>
-            <p class="p">See <a class="xref" href="../../archSpec/base/diratt.html" title="The dir attribute provides instructions to processors about how bidirectional text is rendered.">The dir attribute</a> for more
-              information.</p>
-          </dd>
-        
-          <dt class="dt dlterm" id="glossgroup__attr-DITAArchVersion"><a id="glossgroup__DITAArchVersion"></a><code class="keyword markupname xmlatt">@DITAArchVersion</code><span class="ph"> (architectural
-            attributes)</span></dt>
-          <dd class="dd">Specifies the version of the DITA architecture that is in
+  <p class="p inlined-attributes">The following attributes are available on this element: <a class="xref" href="../../baseSpec/specification/common/reuse-w-lwdita/../../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
+                                                  attributes</a> and the attributes defined below.</p><dl class="dl inlined-attributes"><dt class="dt dlterm" id="glossgroup__attr-DITAArchVersion"><code class="keyword markupname xmlatt">@DITAArchVersion</code><span class="ph"> (architectural
+            attributes)</span></dt><dd class="dd">Specifies the version of the DITA architecture that is in
             use. This attribute is in the namespace
               <code class="keyword markupname xmlnsname">http://dita.​oasis-open.​org/​architecture/​2005/</code>.
             This attribute is specified in the topic and map modules, and
             it uses a default value of the current version of DITA. The
-            current default is <span class="keyword">2.0</span>.</dd>
-        
-          <dt class="dt dlterm" id="glossgroup__attr-id"><a id="glossgroup__id"></a><code class="keyword markupname xmlatt">@id</code></dt>
-          <dd class="dd" id="glossgroup__reusable-id">Specifies an identifier for the current
-            element. This ID is the target for references by
-              <code class="keyword markupname xmlatt">@href</code> and <code class="keyword markupname xmlatt">@conref</code> attributes
-            and for external applications that refer to DITA or LwDITA
-            content. This attribute is defined with the XML data type
-            NMTOKEN, except where noted for specific elements within the
-            language reference.<p class="p"><span class="ph"> See <a class="xref" href="../../archSpec/base/id.html" title="The id attribute assigns an identifier to DITA elements so that the elements can be referenced.">id attribute</a> for more
-                details.</span></p></dd>
-        
-          <dt class="dt dlterm" id="glossgroup__attr-importance"><a id="glossgroup__importance"></a><code class="keyword markupname xmlatt">@importance</code></dt>
-          <dd class="dd">Specifies the importance or priority that is assigned to an
-            element. The following values are valid:
-              <span class="keyword">default</span>, <span class="keyword">deprecated</span>,
-              <span class="keyword">high</span>, <span class="keyword">low</span>,
-              <span class="keyword">normal</span>, <span class="keyword">obsolete</span>,
-              <span class="keyword">optional</span>, <span class="keyword">recommended</span>,
-              <span class="keyword">required</span>, <span class="keyword">urgent</span>, and
-              <span class="keyword">-dita-use-conref-target</span>. This attribute is
-            not used for conditional processing, although applications
-            might use the value of the <code class="keyword markupname xmlatt">@importance</code>
-            attribute to highlight elements. <span class="ph">For
-              example, in steps of a task topic, the value of the
-                <code class="keyword markupname xmlatt">@importance</code> attribute indicates whether a
-              step is optional or required.</span></dd>
-        
-          <dt class="dt dlterm" id="glossgroup__attr-otherprops"><a id="glossgroup__otherprops"></a><code class="keyword markupname xmlatt">@otherprops</code>
-            <span class="ph"><em class="ph i">(specialized
-              attribute)</em></span></dt>
-          <dd class="dd">Specifies a property or properties that provide selection
-            criteria for the element. Alternatively, the
-              <code class="keyword markupname xmlatt">@props</code> attribute can be specialized to
-            provide a new metadata attribute instead of using the general
-              <code class="keyword markupname xmlatt">@otherprops</code> attribute. <span class="ph">If no value is specified but the attribute is
-          specified on a containing element within a map or within the
-          related-links section, the value cascades from the closest
-          containing element.</span>
-          </dd>
-        
-          <dt class="dt dlterm" id="glossgroup__attr-outputclass"><a id="glossgroup__outputclass"></a><code class="keyword markupname xmlatt">@outputclass</code></dt>
-          <dd class="dd">Specifies a role that the element is playing. The role must be consistent with the
-            basic semantic and expectations for the element. In particular, the
-              <code class="keyword markupname xmlatt">@outputclass</code> attribute can be used for styling during output
-            processing; HTML output will typically preserve <code class="keyword markupname xmlatt">@outputclass</code> for CSS
-              processing.</dd>
-        
-          <dt class="dt dlterm" id="glossgroup__attr-platform"><a id="glossgroup__platform"></a><code class="keyword markupname xmlatt">@platform</code>
-            <em class="ph i">(specialized attribute)</em></dt>
-          <dd class="dd">Indicates operating system and hardware. <span class="ph">If no value is specified but the attribute is
-          specified on a containing element within a map or within the
-          related-links section, the value cascades from the closest
-          containing element.</span>
-            </dd>
-        
-          <dt class="dt dlterm" id="glossgroup__attr-product"><a id="glossgroup__product"></a><code class="keyword markupname xmlatt">@product</code>
-            <span class="ph"><em class="ph i">(specialized
-              attribute)</em></span></dt>
-          <dd class="dd">Specifies the name of the product to which the element
-            applies. <span class="ph">If no value is specified but the attribute is
-          specified on a containing element within a map or within the
-          related-links section, the value cascades from the closest
-          containing element.</span>
-          </dd>
-        
-          <dt class="dt dlterm" id="glossgroup__attr-props"><a id="glossgroup__props"></a><code class="keyword markupname xmlatt">@props</code></dt>
-          <dd class="dd" id="glossgroup__def-props">Specifies metadata about the element. New
-            attributes can be specialized from the <code class="keyword markupname xmlatt">@props</code>
-            attribute. <span class="ph">This attribute supports conditional processing.</span>
-            <span class="ph">If no value is specified but the attribute is
-          specified on a containing element within a map or within the
-          related-links section, the value cascades from the closest
-          containing element.</span>
-            <p class="p">The <code class="keyword markupname xmlatt">@props</code> attribute takes a space-delimited
-              set of values. <span class="ph">However, when
-          serving as a container for generalized attributes, the attribute
-          values will be more complex. See <a class="xref" href="../../common/../archSpec/base/generalization-attributes.html" title="DITA provides a syntax to generalize attributes that have been specialized from the props or base attribute.">Attribute generalization</a> for
-          more details.</span></p></dd>
-        
-          <dt class="dt dlterm" id="glossgroup__attr-props"><a id="glossgroup__props"></a><code class="keyword markupname xmlatt">@props</code></dt>
-          <dd class="dd" id="glossgroup__def-props">Specifies metadata about the element. New
-            attributes can be specialized from the <code class="keyword markupname xmlatt">@props</code>
-            attribute. <span class="ph">This attribute supports conditional processing.</span>
-            <span class="ph">If no value is specified but the attribute is
-          specified on a containing element within a map or within the
-          related-links section, the value cascades from the closest
-          containing element.</span>
-            <p class="p">The <code class="keyword markupname xmlatt">@props</code> attribute takes a space-delimited
-              set of values. <span class="ph">However, when
-          serving as a container for generalized attributes, the attribute
-          values will be more complex. See <a class="xref" href="../../common/../archSpec/base/generalization-attributes.html" title="DITA provides a syntax to generalize attributes that have been specialized from the props or base attribute.">Attribute generalization</a> for
-          more details.</span></p></dd>
-        
-          <dt class="dt dlterm" id="glossgroup__attr-rev"><a id="glossgroup__rev"></a><code class="keyword markupname xmlatt">@rev</code></dt>
-          <dd class="dd">Specifies a revision level of an element that identifies when
-            the element was added or modified. It can be used to flag
-            outputs when it matches a run-time parameter. It cannot be used
-            for filtering nor is it sufficient to be used for version
-            control. <span class="ph">If no value is specified but the attribute is
-          specified on a containing element within a map or within the
-          related-links section, the value cascades from the closest
-          containing element.</span>
-          </dd>
-        
-          <dt class="dt dlterm" id="glossgroup__attr-specializations"><a id="glossgroup__specializations"></a><code class="keyword markupname xmlatt">@specializations</code>
+            current default is <span class="keyword">2.0</span>.</dd><dt class="dt dlterm" id="glossgroup__attr-specializations"><code class="keyword markupname xmlatt">@specializations</code>
             <span class="ph">(architectural
-              attributes)</span></dt>
-          <dd class="dd">Specifies the attribute-domain specializations that are
+              attributes)</span></dt><dd class="dd">Specifies the attribute-domain specializations that are
             included in the document-type shell. This attribute is set as a
             default within the document-type shell. The value varies
             depending on what domains are integrated into the document-type
@@ -315,42 +59,15 @@ classes: ''
                 <code class="keyword markupname xmlatt">@audience</code>, <code class="keyword markupname xmlatt">@deliveryTarget</code>,
               and <code class="keyword markupname xmlatt">@newBaseAtt</code> would set the value to
                 <code class="ph codeph">@props/audience @props/deliveryTarget
-                @base/newBaseAtt</code>.</span></dd>
-        
-          <dt class="dt dlterm" id="glossgroup__attr-status"><a id="glossgroup__status"></a><code class="keyword markupname xmlatt">@status</code></dt>
-          <dd class="dd">Specifies the modification status of the element. The
-            following values are valid: <span class="keyword">new</span>,
-              <span class="keyword">changed</span>, <span class="keyword">deleted</span>,
-              <span class="keyword">unchanged</span>, and
-              <span class="keyword">-dita-use-conref-target</span>.</dd>
-        
-          <dt class="dt dlterm" id="glossgroup__attr-translate"><a id="glossgroup__translate"></a><code class="keyword markupname xmlatt">@translate</code></dt>
-          <dd class="dd">Specifies whether the content of the element should be
-            translated. <span class="ph">The following values are valid:
-                <span class="keyword">yes</span>, <span class="keyword">no</span>, and
-                <span class="keyword">-dita-use-conref-target</span>.</span><p class="p">See <a class="xref" href="../../non-normative/elementsMerged.html" title="This topic contains a list of all elements in the base DITA edition. It includes recommendations on how to present the element type to translators, whether the element contents are likely to be suitable for translation, and whether the element has attributes with values that are likely to be suitable for translation. Examples of content that is not suitable for translation include code fragments and mailing addresses.">Element-by-element recommendations for translators</a> for
-              suggested processing defaults for each
-              element.</p></dd>
-        
-          <dt class="dt dlterm" id="glossgroup__attr-xml-lang"><a id="glossgroup__xml-lang"></a><code class="keyword markupname xmlatt">@xml:lang</code></dt>
-          <dd class="dd" id="glossgroup__reusable-lang">Specifies the language and optional locale
-            of the content that is contained in an element. Valid values
-            are language tokens or the null string. The
-              <code class="keyword markupname xmlatt">@xml:lang</code> attribute and its values are
-            described in the <a class="xref" href="http://www.w3.org/TR/REC-xml/#sec-lang-tag" target="_blank" rel="external noopener">Extensible
-              Markup Language 1.0 specification, fifth edition</a>.</dd>
-        
-          <dt class="dt dlterm" id="glossgroup__attr-xmlns-ditaarch"><a id="glossgroup__xmlnsditaarch"></a><code class="keyword markupname xmlatt">@xmlns:ditaarch</code>
+                @base/newBaseAtt</code>.</span></dd><dt class="dt dlterm" id="glossgroup__attr-xmlns-ditaarch"><code class="keyword markupname xmlatt">@xmlns:ditaarch</code>
             <span class="ph">(architectural
-              attributes)</span></dt>
-          <dd class="dd">Declares the default DITA namespace. This namespace is
+              attributes)</span></dt><dd class="dd">Declares the default DITA namespace. This namespace is
             declared as such in the RNG modules for
               <code class="keyword markupname xmlelement">&lt;topic&gt;</code> and
               <code class="keyword markupname xmlelement">&lt;map&gt;</code>, but it is specified as an
             attribute in the equivalent DTD-based modules. The value is
             fixed to
-              <span class="keyword">http://dita.​oasis-open.​org/​architecture/​2005/</span>.</dd>
-        </dl></section>
+              <span class="keyword">http://dita.​oasis-open.​org/​architecture/​2005/</span>.</dd></dl></section>
     <div class="example non-normative" id="glossgroup__example"><h2 class="title sectiontitle">Example</h2>
       
       <pre class="pre codeblock"><code>&lt;glossgroup id="things" xml:lang="en"&gt;
