@@ -104,7 +104,7 @@
         </xsl:choose>
       </xsl:for-each>
       <!-- Exceptions -->
-      <xsl:for-each select="*[contains(@class, ' topic/p ')][starts-with(normalize-space(.), 'For this element')]">
+      <xsl:for-each select="*[contains(@class, ' topic/p ')][@outputclass = 'attr-exception']">
         <dl class="- topic/dl ">
           <xsl:choose>
             <xsl:when test="*[contains(@class, ' topic/ul ')]">
@@ -233,7 +233,7 @@
       <xsl:apply-templates select="@*" mode="#current"/>
       <xsl:if test="(some $dl in $attributes-dl satisfies . is $dl) or
                     (contains(@class, ' topic/p ') and starts-with(normalize-space(.), 'The following attributes are available on this element')) or
-                    (contains(@class, ' topic/p ') and starts-with(normalize-space(.), 'For this element'))">
+                    @outputclass = 'attr-exception'">
         <xsl:attribute name="outputclass" select="'attributes-prose', @outputclass" separator=" "/>
       </xsl:if>
       <xsl:apply-templates select="node()" mode="#current"/>
