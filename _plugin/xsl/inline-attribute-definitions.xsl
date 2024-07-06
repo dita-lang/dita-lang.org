@@ -105,7 +105,7 @@
         </xsl:choose>
       </xsl:for-each>
       <!-- Exceptions -->
-      <xsl:for-each select="*[contains(@class, ' topic/p ')][@outputclass = 'attr-exception']">
+      <xsl:for-each select="descendant::*[contains(@class, ' topic/p ')][@outputclass = 'attr-exception']">
         <dl class="- topic/dl ">
           <xsl:choose>
             <xsl:when test="*[contains(@class, ' topic/ul ')]">
