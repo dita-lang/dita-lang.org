@@ -5,7 +5,7 @@ title: 'audio'
 description: 'Audio is sound that the human ear is capable of hearing.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '8967625d23d948cb72113b9b5f3db94ce0be6ce9'
+commit: 'e6ac178bdef8f370b4c84539fd3efbdd28fe4c6f'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -165,11 +165,24 @@ classes: ''
             <span class="ph">(link-relationship
               attributes)</span></dt><dd class="dd">Specifies the format of the resource that is referenced.<span class="ph"> See <a class="xref" href="../../archSpec/base/theformatattribute.html" title="The format attribute identifies the format of the referenced resource.">The format attribute</a> for
               detailed information on supported values and processing
-              implications.</span></dd><dt class="dt dlterm" id="audio__attr-href"><code class="keyword markupname xmlatt">@href</code>
+              implications.</span></dd><dd class="dd ddexpand">The <code class="keyword markupname xmlatt">@format</code> attribute specifies the MIME
+              type for the resource. This attribute enables processors to
+              avoid loading unsupported resources. If
+                <code class="keyword markupname xmlatt">@format</code> is not specified and
+                <code class="keyword markupname xmlatt">@keyref</code> is specified, the effective type
+              for the key named by the <code class="keyword markupname xmlatt">@keyref</code> attribute is
+              used as the value. If an explicit <code class="keyword markupname xmlatt">@format</code> is
+              not specified on either the <code class="keyword markupname xmlelement">&lt;audio&gt;</code>
+              element or key definition, processors can use other means,
+              such as the URI file extension, to determine the effective
+              MIME type of the resource.</dd><dt class="dt dlterm" id="audio__attr-href"><code class="keyword markupname xmlatt">@href</code>
             <span class="ph">(link-relationship
               attributes)</span></dt><dd class="dd">Specifies a reference to a resource.<span class="ph"> See
                 <a class="xref" href="../../archSpec/base/thehrefattribute.html" title="The href attribute specifies the URI of the resource that is addressed. The referenced resource can be another DITA topic or map, an element inside a DITA topic or map, or a non-DITA resource.">The href attribute</a> for detailed information
-              on supported values and processing implications.</span></dd><dt class="dt dlterm" id="audio__attr-keyref"><code class="keyword markupname xmlatt">@keyref</code></dt><dd class="dd" id="audio__def-keyref"><span class="ph" id="audio__keyrefDescription">Specifies a key
+              on supported values and processing implications.</span></dd><dd class="dd ddexpand">The <code class="keyword markupname xmlatt">@href</code> attribute specifies the absolute
+              or relative URI of the audio resource. If
+                <code class="keyword markupname xmlatt">@href</code> is specified, also specify
+                <code class="keyword markupname xmlatt">@format</code>.</dd><dt class="dt dlterm" id="audio__attr-keyref"><code class="keyword markupname xmlatt">@keyref</code></dt><dd class="dd" id="audio__def-keyref"><span class="ph" id="audio__keyrefDescription">Specifies a key
               name that acts as a redirectable reference based on a key
               definition within a map.<span class="ph"> See <a class="xref" href="../../archSpec/base/thekeyrefattribute.html" title="The keyref attribute provides an indirect, late-bound reference to topics, to collections of topics (ditabase), to maps, to referenceable portions of maps, to non-DITA documents, to external URIs, or to XML content contained within a key definition topic reference. When the DITA content is processed, the key references are resolved using key definitions from DITA maps.">The keyref attribute</a> for information on using
                 this attribute.</span></span><p class="p">For HDITA, the equivalent of
