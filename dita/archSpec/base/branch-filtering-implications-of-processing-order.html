@@ -5,7 +5,7 @@ title: 'Branch filtering: Implications of processing order'
 description: 'The branch filtering mechanism can result in changes to the global key space for a root map. As a result, processors are required to evaluate branch filtering in order to construct the key space.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: 'af3a4b4bdd750c34b1ebf95733420525d0ab9773'
+commit: '10e6004badc03bfd3ef9ae5ea11aaeb637bd4924'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -21,10 +21,10 @@ classes: ''
       requirement comes from the fact that the branch filtering process can result in new or renamed
       keys, key scopes, or URIs that make up the key space.</p>
     
-    <div class="note note note_note non-normative"><span class="note__title">Note:</span> The <code class="keyword markupname xmlatt">@keyref</code> attribute and related attributes are explicitly disallowed on
+    <div class="note note note_note non-normative"><span class="note__title">Note<span class="non-normative-label"> (non-normative)</span>:</span> <div class="note__body">The <code class="keyword markupname xmlatt">@keyref</code> attribute and related attributes are explicitly disallowed on
         <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code>. This prevents any confusion resulting from a
         <code class="keyword markupname xmlatt">@keyref</code> that resolves to additional key- or resource-renaming
-      metadata.</div>
+      metadata.</div></div>
   <p class="p">In general, the DITA specification refrains from mandating a processing order; thus publication
       results can vary slightly depending on the order in which processes are run. With branch
       filtering, processors are not required to apply filter conditions specified outside of the map
