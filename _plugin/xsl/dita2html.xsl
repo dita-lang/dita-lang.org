@@ -2,9 +2,10 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot"
+                xmlns:dita2html="http://dita-ot.sourceforge.net/ns/200801/dita2html"
                 xmlns:related-links="http://dita-ot.sourceforge.net/ns/200709/related-links"
                 version="2.0"
-                exclude-result-prefixes="xs dita-ot related-links">
+                exclude-result-prefixes="xs dita-ot dita2html related-links">
 
   <xsl:import href="plugin:org.dita.html5:xsl/dita2html5Impl.xsl"/>
 
@@ -172,6 +173,11 @@
         </xsl:otherwise>
       </xsl:choose>
     </xsl:element>
+    <xsl:if test="tokenize(../@outputclass, '\s+')['non-normative']">
+      <p class="non-normative-label">
+        <xsl:text>This section is non-normative.</xsl:text>
+      </p>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="node()" mode="jekyll-layout" as="xs:string">
@@ -298,6 +304,57 @@
         </xsl:for-each>
       </xsl:when>
     </xsl:choose>
+  </xsl:template>
+
+  <xsl:template match="*" mode="process.note.common-processing">
+    <xsl:param name="type" select="@type"/>
+    <xsl:param name="title">
+      <xsl:call-template name="getVariable">
+        <xsl:with-param name="id" select="concat(upper-case(substring($type, 1, 1)), substring($type, 2))"/>
+      </xsl:call-template>
+    </xsl:param>
+    <div>
+      <xsl:call-template name="commonattributes">
+        <xsl:with-param name="default-output-class" select="string-join(($type, concat('note_', $type)), ' ')"/>
+      </xsl:call-template>
+      <xsl:call-template name="setidaname"/>
+      <!-- Normal flags go around the entire note (including before the generated title) -->
+      <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]/prop" mode="ditaval-outputflag"/>
+      <span class="note__title">
+        <xsl:copy-of select="$title"/>
+        <span class="non-normative-label">
+          <xsl:text> (</xsl:text>
+          <xsl:text>non-normative</xsl:text>
+          <xsl:text>)</xsl:text>
+        </span>
+        <xsl:call-template name="getVariable">
+          <xsl:with-param name="id" select="'ColonSymbol'"/>
+        </xsl:call-template>
+      </span>
+      <xsl:text> </xsl:text>
+      <div class="note__body">
+        <!-- Revision flags go around only the content -->
+        <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]/revprop" mode="ditaval-outputflag"/>
+        <xsl:apply-templates/>
+        <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-endprop ')]/revprop" mode="ditaval-outputflag"/>
+      </div>
+      <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-endprop ')]/prop" mode="ditaval-outputflag"/>
+    </div>
+  </xsl:template>
+
+  <xsl:template match="*[contains(@class, ' topic/example ')]" name="topic.example">
+    <div>
+      <xsl:call-template name="commonattributes"/>
+      <xsl:call-template name="gen-toc-id"/>
+      <xsl:call-template name="setidaname"/>
+      <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]" mode="out-of-line"/>
+      <xsl:apply-templates select="." mode="dita2html:section-heading"/>
+      <p class="non-normative-label">
+        <xsl:text>This section is non-normative.</xsl:text>
+      </p>
+      <xsl:apply-templates select="*[not(contains(@class, ' topic/title '))] | text() | comment() | processing-instruction()"/>
+      <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-endprop ')]" mode="out-of-line"/>
+    </div>
   </xsl:template>
 
 </xsl:stylesheet>
