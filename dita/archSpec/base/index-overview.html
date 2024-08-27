@@ -5,32 +5,35 @@ title: 'Index overview'
 description: 'DITA provides several elements to enable indexing. Whether and how an index is rendered will vary based on implementation decisions and rendering formats.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '95a939a76573d7617c9256af5ca971f4ed28a24b'
+commit: '0286609e6cb633d463d78617bafc612a12d57c53'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
 
 <nav class="toc" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction</a></li><li><a href="../../archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="../../archSpec/base/accessibility-and-translation.html">Accessibility and translation</a></li><li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a><ul class="nav nav-list"><li><a href="../../archSpec/base/navigation.html">Navigation</a></li><li><a href="../../archSpec/base/indexes.html">Indexes</a><ul class="nav nav-list"><li class="active"><a href="../../archSpec/base/index-overview.html">Index overview</a></li><li><a href="../../archSpec/base/index-elements.html">Index elements</a></li><li><a href="../../archSpec/base/location-of-indexterm-elements.html">Location of indexterm elements</a></li><li><a href="../../archSpec/base/index-page-references.html">Index locators</a></li><li><a href="../../archSpec/base/index-redirection.html">Index redirection</a></li><li><a href="../../archSpec/base/index-ranges.html">Index ranges</a></li><li><a href="../../archSpec/base/index-sorting.html">Index sorting</a></li><li><a href="../../archSpec/base/examples-indexing.html">Examples of indexing</a></li></ul></li><li><a href="../../archSpec/base/conref.html">Content reference (conref)</a></li><li><a href="../../archSpec/base/condproc.html">Conditional processing</a></li><li><a href="../../archSpec/base/branch-filtering.html">Branch filtering</a></li><li><a href="../../archSpec/base/sort-as-processing.html">Sorting</a></li><li><a href="../../archSpec/base/determining-effective-attribute-values.html">Determining effective attribute values</a></li></ul></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a></li><li><a href="../../langRef/langRef-base.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../non-normative/developing-constraint-and-expansion-modules.html">Constraint modules</a></li><li><a href="../../non-normative/expansion-modules.html">Expansion modules</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../non-normative/formatting-expectations.html">Formatting expectations</a></li><li><a href="../../non-normative/migrating-to-dita-2.0.html">Migrating to DITA 2.0</a></li><li><a href="../../non-normative/basedoctypes.html">OASIS grammar files</a></li><li><a href="../../non-normative/interoperability-considerations.html">Processing interoperability considerations</a></li><li><a href="../../non-normative/revision-history.html">Revision history</a></li></ul></nav><main role="main" class=""><article role="article" aria-labelledby="ariaid-title1">
-    <h1 class="title topictitle1" id="ariaid-title1">Index overview</h1>
-    
-    <div class="body"><p class="shortdesc">DITA provides several elements to enable indexing. Whether and how an index is
-        rendered will vary based on implementation decisions and rendering formats.</p>
+  <h1 class="title topictitle1" id="ariaid-title1">Index overview</h1>
+  
+  <div class="body"><p class="shortdesc">DITA provides several elements to enable indexing. Whether and
+    how an index is rendered will vary based on implementation decisions
+    and rendering formats.</p>
     <p class="p">Here are some definitions:</p>
     <ul class="ul">
       <li class="li">An <dfn class="term">index</dfn> is a mapping from
           <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements to locations in the
         DITA content.</li>
-      <li class="li">A <dfn class="term">generated index</dfn> is a mapping of index terms to rendered locations.</li>
+      <li class="li">A <dfn class="term">generated index</dfn> is a mapping of index terms to
+        rendered locations.</li>
     </ul>
-        <p class="p">While DITA provides several elements that support indexing, how those elements are used
-            will vary by implementation.</p>
-        <ul class="ul">
+    <p class="p">While DITA provides several elements that support indexing, how
+      those elements are used will vary by implementation.</p>
+    <ul class="ul">
       <li class="li">A publishing format like PDF might use a back-of-the-book style
         index with page numbers, which typically involves merging index
-        elements and rendering with page numbers.</li>
-      <li class="li">Another publishing format might have no rendered index at all,
-        but instead use the index element content to help weight search
-        results.</li>
+        elements and <span style="color:red;" class="ph">generating</span> page
+        numbers.</li>
+      <li class="li">Another publishing format might have no rendered index, but it
+        would instead use the content of index elements to help weight
+        search results.</li>
       <li class="li">Some implementations might choose to supplement a generated index
         with additional content, such as treating a specialized
           <code class="keyword markupname xmlelement">&lt;keyword&gt;</code> element as both normal content
@@ -39,29 +42,31 @@ classes: ''
         cases, based on either implementation capabilities or style
         preferences.</li>
     </ul>
-        <p class="p">While DITA itself defines markup for indexing and specifies
-      exactly what point an <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> refers to,
-      it cannot force DITA documents to use consistent patterns that work
-      for all formats. Implementations should consider what edge cases are
-      relevant and how to treat them when rendering.</p>
-        <div class="p">The following list includes some of the conditions that
+    <p class="p">While DITA defines markup for indexing and specifies exactly the
+      point to which an <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> refers, it
+      cannot force DITA documents to use consistent patterns that work for
+      all formats. Implementations <span style="color:red;" class="ph">should
+        consider edge cases and how to treat them.</span></p>
+    <div class="p">The following list includes some of the conditions that
       implementations might want to be aware of when considering how to
       generate an index:<ul class="ul">
-        <li class="li">Index processors typically ignore leading or trailing
-          whitespace characters.</li>
+        <li class="li">Index processors typically ignore leading <span style="color:red;" class="ph">and</span> trailing whitespace
+          characters.</li>
         <li class="li">Processors might want to treat two entries separately if they
-          are defined with different cases.</li>
+          are defined with different <span style="color:red;" class="ph">capitalization</span>.</li>
         <li class="li">Processors need to determine how to handle nested markup, such
-          as <code class="keyword markupname xmlelement">&lt;keyword&gt;</code>, within an index entry.</li>
+          as an <code class="keyword markupname xmlelement">&lt;keyword&gt;</code>
+          <span style="color:red;" class="ph">element that is located within an
+              <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element.</span></li>
         <li class="li">Because <code class="keyword markupname xmlelement">&lt;index-see&gt;</code> is used to refer to
           a term that is used <em class="ph i">instead of</em> the current entry,
           processors should consider how to handle a case where an index
           term is used both as a page locator and with an
-            <code class="keyword markupname xmlelement">&lt;index-see&gt;</code> for redirection.</li>
-        <li class="li">Similarly, processors should consider how to handle a case
-          where an index term is defined with both an
-            <code class="keyword markupname xmlelement">&lt;index-see&gt;</code> and an
+            <code class="keyword markupname xmlelement">&lt;index-see&gt;</code>
+          <span style="color:red;" class="ph">element</span> for redirection.</li>
+        <li class="li">Similarly, processors should consider how to handle <span style="color:red;" class="ph">the</span> case where an index term is
+          defined with both an <code class="keyword markupname xmlelement">&lt;index-see&gt;</code> and an
             <code class="keyword markupname xmlelement">&lt;index-see-also&gt;</code> element.</li>
       </ul></div>
-    </div>
-<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/indexes.html" title="Processors can generate an index from the content of indexing elements.">Indexes</a></div></div></nav><aside class="section-toc" role="aside"></aside></article></main>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/indexes.html" title="Processors can generate indexes from the content of indexing elements.">Indexes</a></div></div></nav><aside class="section-toc" role="aside"></aside></article></main>
