@@ -90,7 +90,7 @@
       <xsl:apply-templates select="." mode="addHeaderToHtmlBodyElement"/>
 
       <!-- Include a user's XSL call here to generate a toc based on what's a child of topic -->
-      <xsl:call-template name="gen-user-sidetoc"/>
+      <xsl:apply-templates select="." mode="gen-user-sidetoc"/>
 
       <xsl:apply-templates select="." mode="addContentToHtmlBodyElement"/>
 
@@ -109,12 +109,14 @@
                                        self::dita/*[1]/*[contains(@class,' topic/title ')]" mode="return-aria-label-id"/>
         </xsl:attribute>
         <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]" mode="out-of-line"/>
-        <xsl:apply-templates/> <!-- this will include all things within topic; therefore, -->
-        <!-- title content will appear here by fall-through -->
-        <!-- followed by prolog (but no fall-through is permitted for it) -->
-        <!-- followed by body content, again by fall-through in document order -->
-        <!-- followed by related links -->
-        <!-- followed by child topics by fall-through -->
+
+        <xsl:apply-templates select="*[contains(@class, ' topic/title ')]"/>
+        <xsl:if test="$current-topicref/ancestor-or-self::*[contains(@class, ' bookmap/appendix ')]">
+          <p class="non-normative-label">
+            <xsl:text>This section is non-normative.</xsl:text>
+          </p>
+        </xsl:if>
+        <xsl:apply-templates select="* except *[contains(@class, ' topic/title ')]"/>
         <xsl:call-template name="gen-user-aside"/>
 
         <!-- TODO: Replace with mode="gen-endnotes" -->
