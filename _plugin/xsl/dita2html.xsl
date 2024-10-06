@@ -109,16 +109,8 @@
                                        self::dita/*[1]/*[contains(@class,' topic/title ')]" mode="return-aria-label-id"/>
         </xsl:attribute>
         <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]" mode="out-of-line"/>
-
-        <xsl:apply-templates select="*[contains(@class, ' topic/title ')]"/>
-        <xsl:if test="$current-topicref/ancestor-or-self::*[contains(@class, ' bookmap/appendix ')]">
-          <p class="non-normative-label">
-            <xsl:text>This section is non-normative.</xsl:text>
-          </p>
-        </xsl:if>
-        <xsl:apply-templates select="* except *[contains(@class, ' topic/title ')]"/>
+        <xsl:apply-templates/>
         <xsl:call-template name="gen-user-aside"/>
-
         <!-- TODO: Replace with mode="gen-endnotes" -->
         <xsl:call-template name="gen-endnotes"/>    <!-- include footnote-endnotes -->
         <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-endprop ')]" mode="out-of-line"/>
@@ -183,7 +175,8 @@
       <xsl:call-template name="setidaname"/>
       <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]" mode="out-of-line"/>
 
-      <xsl:if test="tokenize(/*/@outputclass, '\s+')['non-normative']">
+      <xsl:if test="tokenize(/*/@outputclass, '\s+')['non-normative'] or
+                    $current-topicref/ancestor-or-self::*[contains(@class, ' bookmap/appendix ')]">
         <p class="non-normative-label">
           <xsl:text>This section is non-normative.</xsl:text>
         </p>
