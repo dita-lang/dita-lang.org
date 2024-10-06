@@ -180,6 +180,9 @@
     <xsl:sequence select="document(if (contains($href, '#')) then substring-before($href, '#') else $href, $current-node)" />
   </xsl:function>
 
+  <!-- Ignore namespace declaration -->
+  <xsl:template match="*[contains(@class, ' xml-d/xmlatt ') and . = 'xmlns:ditaarch']" mode="resolve" priority="10"/>
+
   <xsl:template match="*" mode="resolve" as="element(dlentry)*">
     <xsl:param name="href" select="@href"/>
     <xsl:param name="topic-id" select="substring-before(substring-after($href, '#'), '/')"/>
