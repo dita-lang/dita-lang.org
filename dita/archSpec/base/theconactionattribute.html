@@ -5,7 +5,7 @@ title: 'The conaction attribute'
 description: 'The conaction attribute allows users to push content from one location into another. It causes the conref attribute to work in reverse, so that content is pushed from the referencing element into another location, rather than pulled from another location to replace the referencing element.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '77b34e4bb33e88afb17e5828ed2719e88622faf3'
+commit: 'c1d594278c76daffce1bc9ad702047c3f89aee1a'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -14,11 +14,11 @@ classes: ''
 <h1 class="title topictitle1" id="ariaid-title1">The <code class="keyword markupname xmlatt">@conaction</code> attribute</h1>
 
   
-<div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlatt">@conaction</code> attribute allows users to push content from one location
+<div class="body conbody"><p class="shortdesc">The <code class="keyword markupname xmlatt">@conaction</code> attribute allows users to push content from one location
     into another. It causes the <code class="keyword markupname xmlatt">@conref</code> attribute to work in reverse, so that
     content is pushed from the referencing element into another location, rather than pulled from
     another location to replace the referencing element.</p>
-<section class="section" id="theconactionattribute__section-1"><div class="note note note_note non-normative"><span class="note__title">Note<span class="non-normative-label"> (non-normative)</span>:</span> <div class="note__body">In the descriptions below, the word <em class="ph i">target</em> always refers to the element referenced by a
+<div class="note note note_note non-normative"><span class="note__title">Note<span class="non-normative-label"> (non-normative)</span>:</span> <div class="note__body">In the descriptions below, the word <em class="ph i">target</em> always refers to the element referenced by a
           <code class="keyword markupname xmlatt">@conref</code> attribute.</div></div><p class="p">There are three possible functions using the <code class="keyword markupname xmlatt">@conaction</code> attribute: replacing an
         element, pushing content before an element, and pushing content after an element. The
           <code class="keyword markupname xmlatt">@conaction</code> attribute always declares the desired function while the
@@ -39,7 +39,7 @@ classes: ''
           not legal to push a list item (<code class="keyword markupname xmlelement">&lt;li&gt;</code>) in order to replace a
             <code class="keyword markupname xmlelement">&lt;step&gt;</code>, because the list item allows many items that are not
           valid in the specialized context.</li>
-</ul></section>
+</ul>
 <section class="section" id="theconactionattribute__replacing-content"><h2 class="title sectiontitle">Replacing content in another topic</h2>
       
       <p class="p">When the <code class="keyword markupname xmlatt">@conaction</code> attribute is set to <span class="keyword">pushreplace</span>, the
@@ -52,7 +52,7 @@ classes: ''
         priority over those on the referenced element. The exception is that if the source element
         does not specify an ID, the ID on the referenced element remains; if the source element does
         specify an ID then that replaces the ID on the referenced element.</p>
-      <p class="p errorcondition"><span class="error-statement" id="theconactionattribute__d2491e130" data-id="DITAERR-0060"></span>It is an error for two source topics to replace the same
+      <p class="p errorcondition"><span class="error-statement" id="theconactionattribute__d2491e129" data-id="DITAERR-0060"></span>It is an error for two source topics to replace the same
         element. Applications <dfn class="term RFC-2119">MAY</dfn> warn users if more than one
         element attempts to replace a single target.</p>
     </section>
@@ -115,12 +115,12 @@ classes: ''
         on an element that also uses the <code class="keyword markupname xmlatt">@conaction</code> attribute, the
           <code class="keyword markupname xmlatt">@conkeyref</code> attribute is used to determine the target of the conref push
         (as it would normally be used to determine the target of <code class="keyword markupname xmlatt">@conref</code>).</p>
-      <p class="p errorcondition"><span class="error-statement" id="theconactionattribute__d2491e293" data-id="DITAERR-0070"></span>The conref push function does not provide the ability to push
+      <p class="p errorcondition"><span class="error-statement" id="theconactionattribute__d2491e292" data-id="DITAERR-0070"></span>The conref push function does not provide the ability to push
         a range of elements, so it is an error to specify the <code class="keyword markupname xmlatt">@conrefend</code> attribute
         together with the <code class="keyword markupname xmlatt">@conaction</code> attribute. If the two are specified together an
         application can recover by warning the user, ignoring the <code class="keyword markupname xmlatt">@conrefend</code>
         attribute, or with some other implementation strategy.</p>
     </section>
 </div>
-<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/conref.html" title="The DITA conref attributes provide mechanisms for reusing content. DITA content references support reuse scenarios that are difficult or impossible to implement using many XML-based inclusion mechanisms like XInclude and entities. Additionally, DITA content references have rules that help ensure that the results of content inclusion remain valid after resolution">Content reference (conref)</a></div></div></nav><aside class="section-toc" role="aside"><h2>In this section</h2><ul><li><a href="#theconactionattribute__replacing-content">Replacing content in another topic</a></li><li><a href="#theconactionattribute__pushing-content">Pushing content before or after another element</a></li><li><a href="#theconactionattribute__combining-conref-actions">Combining conaction with conkeyref or
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/conref.html" title="The DITA conref attributes are mechanisms that enable effective content reuse. DITA content references support complex reuse scenarios that are otherwise challenging or impossible to achieve. In addition, DITA content references have rules to ensure that the content is valid DITA after the content reference has been resolved.">Content reference (conref)</a></div></div></nav><aside class="section-toc" role="aside"><h2>In this section</h2><ul><li><a href="#theconactionattribute__replacing-content">Replacing content in another topic</a></li><li><a href="#theconactionattribute__pushing-content">Pushing content before or after another element</a></li><li><a href="#theconactionattribute__combining-conref-actions">Combining conaction with conkeyref or
           conrefend</a></li></ul></aside></article></main>
