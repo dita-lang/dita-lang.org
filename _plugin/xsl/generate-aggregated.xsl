@@ -56,6 +56,38 @@
           </dl>
         </section>
         <section class="- topic/section ">
+          <title class="- topic/title ">Implementation dependent statements</title>
+          <dl class="- topic/dl ">
+            <xsl:variable name="rows" as="element()*">
+              <xsl:for-each-group select="$topicrefs" group-by=".">
+                <xsl:for-each
+                  select="document(current-grouping-key(), $root)//processing-instruction('sentence')[tokenize(., '\s+') = 'implementation-statement']">
+                  <xsl:variable name="sentence-id" select="substring(tokenize(., '\s+')[1], 2)"/>
+                  <dlentry class="- topic/dlentry "
+                         href="{ current-grouping-key() }#{ /*/@id }/{ $sentence-id }">
+                    <dd class="- topic/dd ">
+                      <xsl:variable name="next" select="(following-sibling::processing-instruction('sentence'))[1]"/>
+                      <xsl:copy-of select="following-sibling::node()[empty($next) or . &lt;&lt; $next]"/>
+                    </dd>
+                  </dlentry>
+                </xsl:for-each>
+              </xsl:for-each-group>
+            </xsl:variable>
+            <xsl:for-each select="$rows">
+              <dlentry class="- topic/dlentry ">
+                <dt class="- topic/dt ">
+                  <xref class="- topic/xref " href="{@href}" outputclass="implementation-statement">
+                    <xsl:value-of select="$prefix"/>
+                    <xsl:text>IMP-</xsl:text>
+                    <xsl:number format="0001" value="position() * 10"/>
+                  </xref>
+                </dt>
+                <xsl:copy-of select="dd"/>
+              </dlentry>
+            </xsl:for-each>
+          </dl>
+        </section>
+        <section class="- topic/section ">
           <title class="- topic/title ">Aggregated RFC-2119 statements</title>
           <dl class="- topic/dl ">
             <xsl:variable name="rows" as="element()*">

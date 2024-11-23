@@ -105,6 +105,7 @@
     <xsl:processing-instruction name="sentence">
       <xsl:value-of select="."/>
       <xsl:if test="matches($contents, '\s?error[^s]', 'i')"> error-statement</xsl:if>
+      <xsl:if test="matches($contents, '\s?implementation(\s+|-)(dependent|specific)', 'i')"> implementation-statement</xsl:if>
       <xsl:if test="$content-nodes/ancestor-or-self::*[tokenize(@outputclass, '\s+') = 'RFC-2119']"> rfc-2119-statement</xsl:if>
     </xsl:processing-instruction>
   </xsl:template>
