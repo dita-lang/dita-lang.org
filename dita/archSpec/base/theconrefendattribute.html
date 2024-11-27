@@ -1,23 +1,22 @@
 ---
 # Generated from DITA source
 layout: base
-title: 'The conrefend attribute'
-description: 'The conrefend attribute is used when referencing a range of elements with the conref mechanism. The conref or conkeyref attribute references the first element in the range, while conrefend references the last element in the range.'
+title: 'Reusing a range of elements'
+description: 'The conrefend attribute is used in a conref range. A conref or conkeyref attribute references the first element in the range, while conrefend references the last element in the range.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: 'c1d594278c76daffce1bc9ad702047c3f89aee1a'
+commit: '75c657073d536fab691c6b25bf1d472ed5ab8d71'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
 
 <nav class="toc" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction</a></li><li><a href="../../archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="../../archSpec/base/accessibility-and-translation.html">Accessibility and translation</a></li><li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a></li><li><a href="../../langRef/langRef-base.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../non-normative/developing-constraint-and-expansion-modules.html">Constraint modules</a></li><li><a href="../../non-normative/expansion-modules.html">Expansion modules</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../non-normative/formatting-expectations.html">Formatting expectations</a></li><li><a href="../../non-normative/migrating-to-dita-2.0.html">Migrating to DITA 2.0</a></li><li><a href="../../non-normative/basedoctypes.html">OASIS grammar files</a></li><li><a href="../../non-normative/interoperability-considerations.html">Processing interoperability considerations</a></li><li><a href="../../non-normative/revision-history.html">Revision history</a></li></ul></nav><main role="main" class=""><article role="article" aria-labelledby="ariaid-title1">
-  <h1 class="title topictitle1" id="ariaid-title1">The <code class="keyword markupname xmlatt">@conrefend</code> attribute</h1>
+  <h1 class="title topictitle1" id="ariaid-title1">Reusing a range of elements</h1>
   
   
-  <div class="body conbody"><p class="shortdesc">The <code class="keyword markupname xmlatt">@conrefend</code> attribute is used when referencing a range of elements
-    with the conref mechanism. The <code class="keyword markupname xmlatt">@conref</code> or <code class="keyword markupname xmlatt">@conkeyref</code> attribute
-    references the first element in the range, while <code class="keyword markupname xmlatt">@conrefend</code> references the last
-    element in the range. </p>
+  <div class="body conbody"><p class="shortdesc">The <code class="keyword markupname xmlatt">@conrefend</code> attribute is used in a conref range. A
+      <code class="keyword markupname xmlatt">@conref</code> or <code class="keyword markupname xmlatt">@conkeyref</code> attribute references the first element
+    in the range, while <code class="keyword markupname xmlatt">@conrefend</code> references the last element in the range. </p>
     <section class="section" id="theconrefendattribute__section-1"><h2 class="title sectiontitle">Using <code class="keyword markupname xmlatt">@conref</code> together with
           <code class="keyword markupname xmlatt">@conrefend</code></h2>
       <div class="p">The following markup rules apply when using or implementing <code class="keyword markupname xmlatt">@conrefend</code>:<ul class="ul">
@@ -28,14 +27,16 @@ classes: ''
             the same parent, and the start element <dfn class="term RFC-2119">MUST</dfn> precede
             the end element in document order.</li>
           <li class="li">The parent of the referencing element <dfn class="term RFC-2119">MUST</dfn> be the
-            same as the parent of the referenced range or generalizable to the parent of the
-            referencing element.
+            same <span class="ph">type</span> as the parent of the referenced range or
+            generalizable to the parent of the referencing element.
             </li>
         </ul></div><p class="p">In addition, several other items must be taken into account:</p><ul class="ul">
         <li class="li">Processors will resolve the range by pulling in the starting referenced element and
-          following sibling XML nodes across to and including the ending referenced element.</li>
-        <li class="li">As with <code class="keyword markupname xmlatt">@conref</code>, if the <code class="keyword markupname xmlatt">@conrefend</code> references a more
-          specialized version of the referencing element, applications should generalize the target
+          following sibling XML nodes <span class="ph">up</span> to and including the ending
+          referenced element.</li>
+        <li class="li">As with <code class="keyword markupname xmlatt">@conref</code>, if the <code class="keyword markupname xmlatt">@conrefend</code>
+          <span class="ph">attribute</span> references a more specialized version of the
+          referencing element, applications <span class="ph">can</span> generalize the target
           when resolving.</li>
         <li class="li">As with <code class="keyword markupname xmlatt">@conref</code>, it is not valid to use <code class="keyword markupname xmlatt">@conrefend</code> to
           reference a more general version of an element (such as using
