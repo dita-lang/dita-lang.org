@@ -16,24 +16,27 @@
   <xsl:variable name="root" select="."/>
 
   <xsl:template match="/">
+    <xsl:variable name="simplified" select="x:simplify(.)" as="document-node()"/>
+    <xsl:variable name="base" select="tokenize(tokenize($schema, '/')[last()], '\.')[1]"/>
+    <xsl:result-document href="{$base}.ditamap" doctype-public="-//OASIS//DTD DITA Map//EN"
+                         doctype-system="map.dtd" indent="yes">
+      <map>
+        <xsl:for-each select="$simplified/grammar/define[ends-with(@name, $element-suffix)]">
+          <keydef keys="content-models-{tokenize(@name, '\.')[1]}"
+                  href="{tokenize($base, '/')[last()]}.dita#content-models"/>
+          <!--/{@name}-->
+          <keydef keys="inheritance-{tokenize(@name, '\.')[1]}"
+                  href="{tokenize($base, '/')[last()]}.dita#inheritance"/>
+        </xsl:for-each>
+      </map>
+    </xsl:result-document>
     <topic id="content-models">
       <title>Generated content models</title>
       <body>
         <!--xsl:variable name="sections" as="element()*"-->
         <!--xsl:for-each select="tokenize($schemas, ':')"-->
         <!--xsl:variable name="schema" select="."/-->
-        <xsl:variable name="simplified" select="x:simplify(.)" as="document-node()"/>
-        <xsl:variable name="base" select="tokenize(tokenize($schema, '/')[last()], '\.')[1]"/>
-        <xsl:result-document href="{$base}.ditamap" doctype-public="-//OASIS//DTD DITA Map//EN"
-          doctype-system="map.dtd" indent="yes">
-          <map>
-            <xsl:for-each select="$simplified/grammar/define[ends-with(@name, $element-suffix)]">
-              <keydef keys="content-models-{tokenize(@name, '\.')[1]}"
-                href="{tokenize($base, '/')[last()]}.dita#content-models"/>
-              <!--/{@name}-->
-            </xsl:for-each>
-          </map>
-        </xsl:result-document>
+
         <xsl:apply-templates select="$simplified/grammar"/>
         <!--/xsl:for-each-->
         <!--
@@ -43,6 +46,12 @@
         </xsl:for-each-group>
         -->
       </body>
+      <topic id="inheritance">
+        <title>Generated inheritance</title>
+        <body>
+          <xsl:apply-templates select="$simplified/grammar" mode="inheritance"/>
+        </body>
+      </topic>
     </topic>
   </xsl:template>
 
@@ -232,5 +241,53 @@
   </xsl:template>
 
   <xsl:template match="@* | node()" mode="prose" priority="-1"/>
+
+  <xsl:template match="grammar" mode="inheritance">
+    <xsl:for-each select="define[ends-with(@name, $element-suffix)]">
+      <!--
+      <xsl:comment>
+        <xsl:value-of select="element/@dita:longName"/>
+      </xsl:comment>
+      -->
+      <section id="{@name}">
+        <title>
+          <xsl:text>Inheritance</xsl:text>
+        </title>
+        <p outputclass="inheritance">
+<!--          <xsl:for-each select="element">-->
+<!--            <xsl:if test="empty(*)">-->
+<!--              <xsl:text>EMPTY</xsl:text>-->
+<!--            </xsl:if>-->
+<!--            <xsl:for-each select="*">-->
+<!--              <xsl:if test="position() ne 1">, </xsl:if>-->
+<!--              <xsl:apply-templates select="."/>-->
+<!--            </xsl:for-each>-->
+<!--          </xsl:for-each>-->
+        </p>
+<!--        <p outputclass="inheritance-prose">-->
+<!--          <xsl:for-each select="element">-->
+<!--            <xsl:choose>-->
+<!--              <xsl:when test="empty(*)">-->
+<!--                <xsl:text>Empty</xsl:text>-->
+<!--              </xsl:when>-->
+<!--              <xsl:when test="count(*) eq 1">-->
+<!--                <xsl:apply-templates mode="prose"/>-->
+<!--              </xsl:when>-->
+<!--              <xsl:otherwise>-->
+<!--                <xsl:text>In order</xsl:text>-->
+<!--                <ol>-->
+<!--                  <xsl:for-each select="*">-->
+<!--                    <li>-->
+<!--                      <xsl:apply-templates select="." mode="prose"/>-->
+<!--                    </li>-->
+<!--                  </xsl:for-each>-->
+<!--                </ol>-->
+<!--              </xsl:otherwise>-->
+<!--            </xsl:choose>-->
+<!--          </xsl:for-each>-->
+<!--        </p>-->
+      </section>
+    </xsl:for-each>
+  </xsl:template>
 
 </xsl:stylesheet>
