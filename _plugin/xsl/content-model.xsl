@@ -16,6 +16,7 @@
   <xsl:variable name="root" select="."/>
 
   <xsl:template match="/">
+    <xsl:variable name="merged" select="x:merge(.)" as="document-node()"/>
     <xsl:variable name="simplified" select="x:simplify(.)" as="document-node()"/>
     <xsl:variable name="base" select="tokenize(tokenize($schema, '/')[last()], '\.')[1]"/>
     <xsl:result-document href="{$base}.ditamap" doctype-public="-//OASIS//DTD DITA Map//EN"
@@ -49,7 +50,7 @@
       <topic id="inheritance">
         <title>Generated inheritance</title>
         <body>
-          <xsl:apply-templates select="$simplified/grammar" mode="inheritance"/>
+          <xsl:apply-templates select="$merged/grammar" mode="inheritance"/>
         </body>
       </topic>
     </topic>
@@ -243,50 +244,54 @@
   <xsl:template match="@* | node()" mode="prose" priority="-1"/>
 
   <xsl:template match="grammar" mode="inheritance">
-    <xsl:for-each select="define[ends-with(@name, $element-suffix)]">
+    <xsl:for-each select="descendant::define[ends-with(@name, '.attlist')]">
+      <xsl:variable name="class" select="descendant::attribute[@name = 'class']/@a:defaultValue"/>
       <!--
       <xsl:comment>
         <xsl:value-of select="element/@dita:longName"/>
       </xsl:comment>
       -->
-      <section id="{@name}">
-        <title>
-          <xsl:text>Inheritance</xsl:text>
-        </title>
-        <p outputclass="inheritance">
-<!--          <xsl:for-each select="element">-->
-<!--            <xsl:if test="empty(*)">-->
-<!--              <xsl:text>EMPTY</xsl:text>-->
-<!--            </xsl:if>-->
-<!--            <xsl:for-each select="*">-->
-<!--              <xsl:if test="position() ne 1">, </xsl:if>-->
-<!--              <xsl:apply-templates select="."/>-->
-<!--            </xsl:for-each>-->
-<!--          </xsl:for-each>-->
-        </p>
-<!--        <p outputclass="inheritance-prose">-->
-<!--          <xsl:for-each select="element">-->
-<!--            <xsl:choose>-->
-<!--              <xsl:when test="empty(*)">-->
-<!--                <xsl:text>Empty</xsl:text>-->
-<!--              </xsl:when>-->
-<!--              <xsl:when test="count(*) eq 1">-->
-<!--                <xsl:apply-templates mode="prose"/>-->
-<!--              </xsl:when>-->
-<!--              <xsl:otherwise>-->
-<!--                <xsl:text>In order</xsl:text>-->
-<!--                <ol>-->
-<!--                  <xsl:for-each select="*">-->
-<!--                    <li>-->
-<!--                      <xsl:apply-templates select="." mode="prose"/>-->
-<!--                    </li>-->
-<!--                  </xsl:for-each>-->
-<!--                </ol>-->
-<!--              </xsl:otherwise>-->
-<!--            </xsl:choose>-->
-<!--          </xsl:for-each>-->
-<!--        </p>-->
-      </section>
+      <xsl:if test="exists($class)">
+        <section id="{replace(@name, '\.attlist', '.inheritance')}">
+          <title>
+            <xsl:text>Inheritance</xsl:text>
+          </title>
+          <p outputclass="inheritance">
+  <!--          <xsl:for-each select="element">-->
+              <xsl:value-of select="$class"/>
+  <!--            <xsl:if test="empty(*)">-->
+  <!--              <xsl:text>EMPTY</xsl:text>-->
+  <!--            </xsl:if>-->
+  <!--            <xsl:for-each select="*">-->
+  <!--              <xsl:if test="position() ne 1">, </xsl:if>-->
+  <!--              <xsl:apply-templates select="."/>-->
+  <!--            </xsl:for-each>-->
+  <!--          </xsl:for-each>-->
+          </p>
+  <!--        <p outputclass="inheritance-prose">-->
+  <!--          <xsl:for-each select="element">-->
+  <!--            <xsl:choose>-->
+  <!--              <xsl:when test="empty(*)">-->
+  <!--                <xsl:text>Empty</xsl:text>-->
+  <!--              </xsl:when>-->
+  <!--              <xsl:when test="count(*) eq 1">-->
+  <!--                <xsl:apply-templates mode="prose"/>-->
+  <!--              </xsl:when>-->
+  <!--              <xsl:otherwise>-->
+  <!--                <xsl:text>In order</xsl:text>-->
+  <!--                <ol>-->
+  <!--                  <xsl:for-each select="*">-->
+  <!--                    <li>-->
+  <!--                      <xsl:apply-templates select="." mode="prose"/>-->
+  <!--                    </li>-->
+  <!--                  </xsl:for-each>-->
+  <!--                </ol>-->
+  <!--              </xsl:otherwise>-->
+  <!--            </xsl:choose>-->
+  <!--          </xsl:for-each>-->
+  <!--        </p>-->
+        </section>
+      </xsl:if>
     </xsl:for-each>
   </xsl:template>
 

@@ -14,13 +14,25 @@
     <xsl:sequence select="x:simplify(.)"/>
   </xsl:template>
 
-  <xsl:function name="x:simplify" as="document-node()">
+  <xsl:function name="x:merge" as="document-node()">
     <xsl:param name="schema" as="document-node()"/>
     <xsl:variable name="merged" as="document-node()">
       <xsl:document>
         <xsl:apply-templates select="$schema/*" mode="merge"/>
       </xsl:document>
     </xsl:variable>
+    <xsl:variable name="resolved" as="document-node()">
+      <xsl:document>
+        <xsl:apply-templates select="$merged/*" mode="resolve"/>
+      </xsl:document>
+    </xsl:variable>
+    <xsl:sequence select="$merged"/>
+  </xsl:function>
+
+  <xsl:function name="x:simplify" as="document-node()">
+    <xsl:param name="schema" as="document-node()"/>
+    <xsl:variable name="merged" as="document-node()"
+                  select="x:merge($schema)"/>
     <xsl:variable name="resolved" as="document-node()">
       <xsl:document>
         <xsl:apply-templates select="$merged/*" mode="resolve"/>
