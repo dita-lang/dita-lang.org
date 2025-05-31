@@ -257,39 +257,36 @@
             <xsl:text>Inheritance</xsl:text>
           </title>
           <p outputclass="inheritance">
-  <!--          <xsl:for-each select="element">-->
-              <xsl:value-of select="$class"/>
-  <!--            <xsl:if test="empty(*)">-->
-  <!--              <xsl:text>EMPTY</xsl:text>-->
-  <!--            </xsl:if>-->
-  <!--            <xsl:for-each select="*">-->
-  <!--              <xsl:if test="position() ne 1">, </xsl:if>-->
-  <!--              <xsl:apply-templates select="."/>-->
-  <!--            </xsl:for-each>-->
-  <!--          </xsl:for-each>-->
+            <xsl:value-of select="$class"/>
           </p>
-  <!--        <p outputclass="inheritance-prose">-->
-  <!--          <xsl:for-each select="element">-->
-  <!--            <xsl:choose>-->
-  <!--              <xsl:when test="empty(*)">-->
-  <!--                <xsl:text>Empty</xsl:text>-->
-  <!--              </xsl:when>-->
-  <!--              <xsl:when test="count(*) eq 1">-->
-  <!--                <xsl:apply-templates mode="prose"/>-->
-  <!--              </xsl:when>-->
-  <!--              <xsl:otherwise>-->
-  <!--                <xsl:text>In order</xsl:text>-->
-  <!--                <ol>-->
-  <!--                  <xsl:for-each select="*">-->
-  <!--                    <li>-->
-  <!--                      <xsl:apply-templates select="." mode="prose"/>-->
-  <!--                    </li>-->
-  <!--                  </xsl:for-each>-->
-  <!--                </ol>-->
-  <!--              </xsl:otherwise>-->
-  <!--            </xsl:choose>-->
-  <!--          </xsl:for-each>-->
-  <!--        </p>-->
+          <p outputclass="inheritance-prose">
+            <xsl:varible name="tokens" select="tokenize(normalize-space($class), '\s+')"/>
+            <xsl:variable name="last" select="$tokens[position() eq last()]"/>
+            <xsl:variable name="penultimate" select="$tokens[position() eq last() - 1]"/>
+            <xsl:choose>
+              <xsl:when test="count($tokens) gt 2">
+                <xsl:text>The </xsl:text>
+                <xmlelement>
+                  <xsl:value-of select="substring-after($last, '/')"/>
+                </xmlelement>
+                <xsl:text> element is specialized from </xsl:text>
+                <xmlelement>
+                  <xsl:value-of select="substring-after($penultimate, '/')"/>
+                </xmlelement>
+                <xsl:text>.</xsl:text>
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>The </xsl:text>
+                <xmlelement>
+                  <xsl:value-of select="substring-after($last, '/')"/>
+                </xmlelement>
+                <xsl:text> element is a base element type. </xsl:text>
+              </xsl:otherwise>
+            </xsl:choose>
+            <xsl:text>It is defined in the </xsl:text>
+            <xsl:value-of select="substring-before($last, '/')"/>
+            <xsl:text> module.</xsl:text>
+          </p>
         </section>
       </xsl:if>
     </xsl:for-each>
