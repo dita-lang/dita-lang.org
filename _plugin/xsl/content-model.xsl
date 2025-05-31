@@ -270,9 +270,11 @@
                   <xsl:value-of select="substring-after($last, '/')"/>
                 </xmlelement>
                 <xsl:text> element is specialized from </xsl:text>
-                <xmlelement>
-                  <xsl:value-of select="substring-after($penultimate, '/')"/>
-                </xmlelement>
+                <xref keyref="elements-{substring-after($penultimate, '/')}">
+                  <xmlelement>
+                    <xsl:value-of select="substring-after($penultimate, '/')"/>
+                  </xmlelement>
+                </xref>
                 <xsl:text>.</xsl:text>
               </xsl:when>
               <xsl:otherwise>
@@ -280,11 +282,11 @@
                 <xmlelement>
                   <xsl:value-of select="substring-after($last, '/')"/>
                 </xmlelement>
-                <xsl:text> element is a base element type. </xsl:text>
+                <xsl:text> element is a base element type.</xsl:text>
               </xsl:otherwise>
             </xsl:choose>
-            <xsl:text>It is defined in the </xsl:text>
-            <xsl:value-of select="substring-before($last, '/')"/>
+            <xsl:text> It is defined in the </xsl:text>
+            <xsl:value-of select="replace(substring-before($last, '/'), '-d$', '-domain')"/>
             <xsl:text> module.</xsl:text>
           </p>
         </section>
