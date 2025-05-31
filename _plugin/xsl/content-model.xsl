@@ -260,7 +260,7 @@
             <xsl:value-of select="$class"/>
           </p>
           <p outputclass="inheritance-prose">
-            <xsl:varible name="tokens" select="tokenize(normalize-space($class), '\s+')"/>
+            <xsl:variable name="tokens" select="tokenize(normalize-space($class), '\s+')"/>
             <xsl:variable name="last" select="$tokens[position() eq last()]"/>
             <xsl:variable name="penultimate" select="$tokens[position() eq last() - 1]"/>
             <xsl:choose>
