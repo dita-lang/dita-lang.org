@@ -28,13 +28,14 @@ runs:
         </val>
         EOF
     - name: Run single page DITA-OT
-      if: ${{ false }}
+      if: ${{ true }}
       shell: bash
       run: |
-        rm -rf dita-lang/${{ inputs.OUTPUT_DIR }}/*
+        rm -rf dita-lang/${{ inputs.OUTPUT_DIR }}/single/*
+        mkdir -p dita-lang/${{ inputs.OUTPUT_DIR }}/single/
         $DITA_HOME/bin/dita \
           -i ${{ inputs.MAP }} \
-          -o dita-lang/${{ inputs.OUTPUT_DIR }} \
+          -o dita-lang/${{ inputs.OUTPUT_DIR }}/single \
           -f org.dita-ot.html \
           --filter=${{ inputs.FILTER }}.external-publishing-engine.ditaval \
           --filter=${{ inputs.FILTER }} \
