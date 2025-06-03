@@ -27,6 +27,18 @@ runs:
           <prop att="platform" val="external-publishing-engine" action="include"/>
         </val>
         EOF
+    - name: Run multi-page DITA-OT
+      shell: bash
+      run: |
+        rm -rf dita-lang/${{ inputs.OUTPUT_DIR }}/*
+        $DITA_HOME/bin/dita \
+          -i ${{ inputs.MAP }} \
+          -o dita-lang/${{ inputs.OUTPUT_DIR }} \
+          -f org.dita-ot.html \
+          --filter=${{ inputs.FILTER }}.external-publishing-engine.ditaval \
+          --filter=${{ inputs.FILTER }} \
+          -Dcommit=$SHA \
+          -Drepository=${{ inputs.REPOSITORY }}
     - name: Run single page DITA-OT
       if: ${{ true }}
       shell: bash
@@ -43,18 +55,6 @@ runs:
           -Drepository=${{ inputs.REPOSITORY }} \
           --root-chunk-override=to-content \
           -Dnav-toc=full -v
-    - name: Run multi-page DITA-OT
-      shell: bash
-      run: |
-        rm -rf dita-lang/${{ inputs.OUTPUT_DIR }}/*
-        $DITA_HOME/bin/dita \
-          -i ${{ inputs.MAP }} \
-          -o dita-lang/${{ inputs.OUTPUT_DIR }} \
-          -f org.dita-ot.html \
-          --filter=${{ inputs.FILTER }}.external-publishing-engine.ditaval \
-          --filter=${{ inputs.FILTER }} \
-          -Dcommit=$SHA \
-          -Drepository=${{ inputs.REPOSITORY }}
     - name: Reset unchanged
       shell: bash
       run: |
