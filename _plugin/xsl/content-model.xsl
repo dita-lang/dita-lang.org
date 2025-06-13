@@ -60,6 +60,15 @@
 
   <xsl:template match="grammar">
     <xsl:for-each select="define[ends-with(@name, $element-suffix)]">
+      <xsl:variable name="contained-by" as="element()*">
+        <xsl:variable name="name" select="substring-before(@name, $element-suffix)"/>
+        <xsl:variable name="elems" select="key('element', $name)/ancestor::element"/>
+        <xsl:for-each-group select="$elems" group-by="@name">
+          <xsl:sort select="@name"/>
+          <xsl:sequence select="."/>
+        </xsl:for-each-group>
+      </xsl:variable>
+
       <!--
       <xsl:comment>
         <xsl:value-of select="element/@dita:longName"/>
@@ -84,18 +93,18 @@
         <p outputclass="content-model-prose">
           <xsl:text>Contained by</xsl:text>
         </p>
-        <xsl:variable name="name" select="substring-before(@name, $element-suffix)"/>
         <p outputclass="content-model-prose">
-          <xsl:variable name="elems" select="key('element', $name)/ancestor::element"/>
-          <xsl:for-each-group select="$elems" group-by="@name">
-            <xsl:sort select="@name"/>
+          <xsl:if test="empty($contained-by)">
+            <xsl:text>Not contained by any element.</xsl:text>
+          </xsl:if>
+          <xsl:for-each select="$contained-by">
             <xsl:if test="position() ne 1">, </xsl:if>
             <xref keyref="elements-{@name}">
               <xmlelement>
                 <xsl:value-of select="@name"/>
               </xmlelement>
             </xref>
-          </xsl:for-each-group>
+          </xsl:for-each>
         </p>
 
         <!-- Prose -->
@@ -124,21 +133,26 @@
         <p outputclass="content-model-prose">
           <xsl:text>Contained by</xsl:text>
         </p>
-        <xsl:variable name="name" select="substring-before(@name, $element-suffix)"/>
-        <ul outputclass="content-model-prose">
-          <xsl:variable name="elems" select="key('element', $name)/ancestor::element"/>
-          <xsl:for-each-group select="$elems" group-by="@name">
-            <xsl:sort select="@name"/>
-            <!--                <xsl:if test="position() ne 1">, </xsl:if>-->
-            <li>
-              <xref keyref="elements-{@name}">
-                <xmlelement>
-                  <xsl:value-of select="@name"/>
-                </xmlelement>
-              </xref>
-            </li>
-          </xsl:for-each-group>
-        </ul>
+        <xsl:choose>
+          <xsl:when test="empty($contained-by)">
+            <p>
+              <xsl:text>Not contained by any element.</xsl:text>
+            </p>
+          </xsl:when>
+          <xsl:otherwise>
+            <ul outputclass="content-model-prose">
+              <xsl:for-each select="$contained-by">
+                <li>
+                  <xref keyref="elements-{@name}">
+                    <xmlelement>
+                      <xsl:value-of select="@name"/>
+                    </xmlelement>
+                  </xref>
+                </li>
+              </xsl:for-each>
+            </ul>
+          </xsl:otherwise>
+        </xsl:choose>
       </section>
     </xsl:for-each>
   </xsl:template>
