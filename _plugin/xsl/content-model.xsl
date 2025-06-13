@@ -90,10 +90,10 @@
             </xsl:for-each>
           </xsl:for-each>
         </p>
-        <p outputclass="content-model-prose">
+        <p outputclass="content-model">
           <xsl:text>Contained by</xsl:text>
         </p>
-        <p outputclass="content-model-prose">
+        <p outputclass="content-model">
           <xsl:if test="empty($contained-by)">
             <xsl:text>Not contained by any element.</xsl:text>
           </xsl:if>
@@ -135,7 +135,7 @@
         </p>
         <xsl:choose>
           <xsl:when test="empty($contained-by)">
-            <p>
+            <p outputclass="content-model-prose">
               <xsl:text>Not contained by any element.</xsl:text>
             </p>
           </xsl:when>
