@@ -54,6 +54,7 @@ runs:
           echo "$i $name"
           perl -pi.bak -e 's/<!--(<section id="attributes"><title>Attributes<\/title><p conkeyref="reuse-attributes\/no-atts"\/><\/section>)-->/\1/g' "$i"
           perl -pi.bak -e "s/((\s*)<section(?:\s+[\w-]+=[\"'].+?[\"'])*(\s+id=\"attributes\")(?:\s+[\w-]+=[\"'].+?[\"'])*+\s*\/?>)/\2<section conkeyref=\"content-models-${name}\/${name}.element\" id=\"content-model\"\/>\n<section conkeyref=\"inheritance-${name}\/${name}.inheritance\" id=\"inheritance\"\/>\1/" "$i"
+          rm "$i.bak"
         done
         cd -
         #done
@@ -61,8 +62,8 @@ runs:
         for schema in $(echo "${{ inputs.SCHEMAS }}" | tr ':' '\n'); do
           file="$(basename ${schema})"
           name=${file%%.rng}
-          perl -p -e "s/(<\/map>)/  <mapref href='content-models\/${name}.ditamap'\/>\n\1/" "${{ inputs.MAP }}" > "${{ inputs.MAP }}.bak"
-          mv "${{ inputs.MAP }}.bak" "${{ inputs.MAP }}"
+          perl -pi.bak -e "s/(<\/map>)/  <mapref href='content-models\/${name}.ditamap'\/>\n\1/" "${{ inputs.MAP }}"
+          rm "${{ inputs.MAP }}.bak"
         done
         #git status
         #git diff -- "${{ inputs.MAP }}"
