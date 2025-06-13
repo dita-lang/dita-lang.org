@@ -69,6 +69,7 @@
         <title>
           <xsl:text>Content model</xsl:text>
         </title>
+        <!-- Implementor -->
         <p outputclass="content-model">
           <xsl:for-each select="element">
             <xsl:if test="empty(*)">
@@ -80,6 +81,24 @@
             </xsl:for-each>
           </xsl:for-each>
         </p>
+        <p outputclass="content-model-prose">
+          <xsl:text>Contained by</xsl:text>
+        </p>
+        <xsl:variable name="name" select="substring-before(@name, $element-suffix)"/>
+        <p outputclass="content-model-prose">
+          <xsl:variable name="elems" select="key('element', $name)/ancestor::element"/>
+          <xsl:for-each-group select="$elems" group-by="@name">
+            <xsl:sort select="@name"/>
+            <xsl:if test="position() ne 1">, </xsl:if>
+            <xref keyref="elements-{@name}">
+              <xmlelement>
+                <xsl:value-of select="@name"/>
+              </xmlelement>
+            </xref>
+          </xsl:for-each-group>
+        </p>
+
+        <!-- Prose -->
         <p outputclass="content-model-prose">
           <xsl:for-each select="element">
             <xsl:choose>
