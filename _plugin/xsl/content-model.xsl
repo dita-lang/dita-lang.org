@@ -56,6 +56,8 @@
     </topic>
   </xsl:template>
 
+  <xsl:key name="element" match="element//element" use="@name"/>
+
   <xsl:template match="grammar">
     <xsl:for-each select="define[ends-with(@name, $element-suffix)]">
       <!--
@@ -100,6 +102,24 @@
             </xsl:choose>
           </xsl:for-each>
         </p>
+        <p outputclass="content-model-prose">
+          <xsl:text>Contained by</xsl:text>
+        </p>
+        <xsl:variable name="name" select="substring-before(@name, $element-suffix)"/>
+        <ul outputclass="content-model-prose">
+          <xsl:variable name="elems" select="key('element', $name)/ancestor::element"/>
+          <xsl:for-each-group select="$elems" group-by="@name">
+            <xsl:sort select="@name"/>
+            <!--                <xsl:if test="position() ne 1">, </xsl:if>-->
+            <li>
+              <xref keyref="elements-{@name}">
+                <xmlelement>
+                  <xsl:value-of select="@name"/>
+                </xmlelement>
+              </xref>
+            </li>
+          </xsl:for-each-group>
+        </ul>
       </section>
     </xsl:for-each>
   </xsl:template>
