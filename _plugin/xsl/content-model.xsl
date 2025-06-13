@@ -119,7 +119,7 @@
               </xsl:when>
               <xsl:otherwise>
                 <xsl:text>In order</xsl:text>
-                <ol>
+                <ol outputclass="content-model-list">
                   <xsl:for-each select="*">
                     <li>
                       <xsl:apply-templates select="." mode="prose"/>
@@ -140,7 +140,7 @@
             </p>
           </xsl:when>
           <xsl:otherwise>
-            <ul outputclass="content-model-prose">
+            <ul outputclass="content-model-prose contained-by-list">
               <xsl:for-each select="$contained-by">
                 <li>
                   <xref keyref="elements-{@name}">
