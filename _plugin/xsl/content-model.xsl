@@ -91,21 +91,27 @@
           </xsl:for-each>
         </p>
         <p outputclass="content-model">
-          <xsl:text>Contained by</xsl:text>
+          <xsl:choose>
+            <xsl:when test="exists($contained-by)">
+              <xsl:text>Contained by</xsl:text>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:text>Not contained by any element.</xsl:text>
+            </xsl:otherwise>
+          </xsl:choose>
         </p>
-        <p outputclass="content-model">
-          <xsl:if test="empty($contained-by)">
-            <xsl:text>Not contained by any element.</xsl:text>
-          </xsl:if>
-          <xsl:for-each select="$contained-by">
-            <xsl:if test="position() ne 1">, </xsl:if>
-            <xref keyref="elements-{@name}">
-              <xmlelement>
-                <xsl:value-of select="@name"/>
-              </xmlelement>
-            </xref>
-          </xsl:for-each>
-        </p>
+        <xsl:if test="exists($contained-by)">
+          <p outputclass="content-model">
+            <xsl:for-each select="$contained-by">
+              <xsl:if test="position() ne 1">, </xsl:if>
+              <xref keyref="elements-{@name}">
+                <xmlelement>
+                  <xsl:value-of select="@name"/>
+                </xmlelement>
+              </xref>
+            </xsl:for-each>
+          </p>
+        </xsl:if>
 
         <!-- Prose -->
         <p outputclass="content-model-prose">
@@ -131,28 +137,28 @@
           </xsl:for-each>
         </p>
         <p outputclass="content-model-prose">
-          <xsl:text>Contained by</xsl:text>
-        </p>
-        <xsl:choose>
-          <xsl:when test="empty($contained-by)">
-            <p outputclass="content-model-prose">
+          <xsl:choose>
+            <xsl:when test="exists($contained-by)">
+              <xsl:text>Contained by</xsl:text>
+            </xsl:when>
+            <xsl:otherwise>
               <xsl:text>Not contained by any element.</xsl:text>
-            </p>
-          </xsl:when>
-          <xsl:otherwise>
-            <ul outputclass="content-model-prose contained-by-list">
-              <xsl:for-each select="$contained-by">
-                <li>
-                  <xref keyref="elements-{@name}">
-                    <xmlelement>
-                      <xsl:value-of select="@name"/>
-                    </xmlelement>
-                  </xref>
-                </li>
-              </xsl:for-each>
-            </ul>
-          </xsl:otherwise>
-        </xsl:choose>
+            </xsl:otherwise>
+          </xsl:choose>
+        </p>
+        <xsl:if test="exists($contained-by)">
+          <ul outputclass="content-model-prose contained-by-list">
+            <xsl:for-each select="$contained-by">
+              <li>
+                <xref keyref="elements-{@name}">
+                  <xmlelement>
+                    <xsl:value-of select="@name"/>
+                  </xmlelement>
+                </xref>
+              </li>
+            </xsl:for-each>
+          </ul>
+        </xsl:if>
       </section>
     </xsl:for-each>
   </xsl:template>
