@@ -267,9 +267,17 @@
   </xsl:template>
 
   <xsl:template match="choice" mode="prose">
-    <xsl:if test="empty(parent::optional | parent::zeroOrMore | parent::oneOrMore)">
-      <xsl:text>One of the following</xsl:text>
-    </xsl:if>
+    <xsl:choose>
+      <xsl:when test="empty(parent::optional | parent::zeroOrMore | parent::oneOrMore)">
+        <xsl:text>One of the following</xsl:text>
+      </xsl:when>
+      <xsl:when test="exists(parent::optional)">
+        <xsl:text>one of the following</xsl:text>
+      </xsl:when>
+      <xsl:when test="exists(parent::zeroOrMore | parent::oneOrMore)">
+        <xsl:text>of the following</xsl:text>
+      </xsl:when>
+    </xsl:choose>
     <ul>
       <xsl:for-each select="*">
         <xsl:sort select="exists(self::text)" order="descending"/>
