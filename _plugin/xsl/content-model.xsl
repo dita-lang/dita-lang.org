@@ -74,12 +74,12 @@
         <xsl:value-of select="element/@dita:longName"/>
       </xsl:comment>
       -->
-      <section id="{@name}">
+      <section id="{@name}" outputclass="generated">
         <title>
           <xsl:text>Content model</xsl:text>
         </title>
         <!-- Implementor -->
-        <p outputclass="content-model">
+        <p outputclass="content-model generated">
           <xsl:for-each select="element">
             <xsl:if test="empty(*)">
               <xsl:text>EMPTY</xsl:text>
@@ -90,7 +90,7 @@
             </xsl:for-each>
           </xsl:for-each>
         </p>
-        <p outputclass="content-model">
+        <p outputclass="content-model generated">
           <xsl:choose>
             <xsl:when test="exists($contained-by)">
               <xsl:text>Contained by</xsl:text>
@@ -101,7 +101,7 @@
           </xsl:choose>
         </p>
         <xsl:if test="exists($contained-by)">
-          <p outputclass="content-model">
+          <p outputclass="content-model generated">
             <xsl:for-each select="$contained-by">
               <xsl:if test="position() ne 1">, </xsl:if>
               <xref keyref="elements-{@name}">
@@ -114,7 +114,7 @@
         </xsl:if>
 
         <!-- Prose -->
-        <p outputclass="content-model-prose">
+        <p outputclass="content-model-prose generated">
           <xsl:for-each select="element">
             <xsl:choose>
               <xsl:when test="empty(*)">
@@ -125,7 +125,7 @@
               </xsl:when>
               <xsl:otherwise>
                 <xsl:text>In order</xsl:text>
-                <ol outputclass="content-model-list">
+                <ol outputclass="content-model-list generated">
                   <xsl:for-each select="*">
                     <li>
                       <xsl:apply-templates select="." mode="prose"/>
@@ -136,7 +136,7 @@
             </xsl:choose>
           </xsl:for-each>
         </p>
-        <p outputclass="content-model-prose">
+        <p outputclass="content-model-prose generated">
           <xsl:choose>
             <xsl:when test="exists($contained-by)">
               <xsl:text>Contained by</xsl:text>
@@ -147,7 +147,7 @@
           </xsl:choose>
         </p>
         <xsl:if test="exists($contained-by)">
-          <ul outputclass="content-model-prose contained-by-list">
+          <ul outputclass="content-model-prose contained-by-list generated">
             <xsl:for-each select="$contained-by">
               <li>
                 <xref keyref="elements-{@name}">
