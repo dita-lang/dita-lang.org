@@ -163,6 +163,8 @@
     </xsl:for-each>
   </xsl:template>
 
+  <!-- DTD content model -->
+
   <xsl:template match="define">
     <xsl:for-each select="*">
       <xsl:if test="position() ne 1">, </xsl:if>
@@ -238,8 +240,15 @@
 
   <!-- Prose -->
 
+  <xsl:mode name="prose" on-no-match="deep-skip"/>
+
   <xsl:template match="optional" mode="prose">
     <xsl:text>Optional </xsl:text>
+    <xsl:apply-templates mode="#current"/>
+  </xsl:template>
+
+  <xsl:template match="optional[choice]" mode="prose" priority="10">
+    <xsl:text>Optionally </xsl:text>
     <xsl:apply-templates mode="#current"/>
   </xsl:template>
 
@@ -308,7 +317,11 @@
     </xref>
   </xsl:template>
 
-  <xsl:template match="@* | node()" mode="prose" priority="-1"/>
+  <!--xsl:template match="@* | node()" mode="prose" priority="-1"/-->
+
+  <!-- Inheritance -->
+
+  <xsl:mode name="inheritance" on-no-match="deep-skip"/>
 
   <xsl:template match="grammar" mode="inheritance">
     <xsl:for-each select="descendant::define[ends-with(@name, '.attlist')]">
