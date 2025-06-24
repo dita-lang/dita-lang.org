@@ -19,34 +19,34 @@ jobs:
           ref: 'master'
           path: dita
           token: ${{ secrets.UPLOAD_GITHUB_TOKEN }}
-#      - name: Generate content models
-#        uses: ./dita-lang/.github/actions/content-model
-#        with:
-#          INPUT: dita/doctypes/rng
-#          OUTPUT: dita/specification/langRef/base
-#          DIR: dita/specification/langRef/content-models
-#          MAP: dita/specification/langRef/base-elements.ditamap
-#          SCHEMAS: 'base/basetopic.rng:base/basemap.rng:subjectScheme/subjectScheme.rng'
-#      - name: Generate content models
-#        uses: ./dita-lang/.github/actions/content-model
-#        with:
-#          INPUT: dita/doctypes/rng
-#          OUTPUT: dita/specification/langRef/ditaval
-#          DIR: dita/specification/langRef/content-models
-#          MAP: dita/specification/langRef/base-elements.ditamap
-#          SCHEMAS: 'ditaval/ditaval.rng'
+      #      - name: Generate content models
+      #        uses: ./dita-lang/.github/actions/content-model
+      #        with:
+      #          INPUT: dita/doctypes/rng
+      #          OUTPUT: dita/specification/langRef/base
+      #          DIR: dita/specification/langRef/content-models
+      #          MAP: dita/specification/langRef/base-elements.ditamap
+      #          SCHEMAS: 'base/basetopic.rng:base/basemap.rng:subjectScheme/subjectScheme.rng'
+      #      - name: Generate content models
+      #        uses: ./dita-lang/.github/actions/content-model
+      #        with:
+      #          INPUT: dita/doctypes/rng
+      #          OUTPUT: dita/specification/langRef/ditaval
+      #          DIR: dita/specification/langRef/content-models
+      #          MAP: dita/specification/langRef/base-elements.ditamap
+      #          SCHEMAS: 'ditaval/ditaval.rng'
 
-#      - name: Push source changes
-#        run: |
-#          git config user.name github-actions
-#          git config user.email github-actions@github.com
-#          git remote set-url origin https://github.com/dita-lang/dita.git
-#          git fetch
-#
-#          git add --all
-#          git commit -m "Generate content models"
-#          git push -v --force-with-lease origin DITA-2.0:DITA-2.0-generated
-#        working-directory: dita
+      #      - name: Push source changes
+      #        run: |
+      #          git config user.name github-actions
+      #          git config user.email github-actions@github.com
+      #          git remote set-url origin https://github.com/dita-lang/dita.git
+      #          git fetch
+      #
+      #          git add --all
+      #          git commit -m "Generate content models"
+      #          git push -v --force-with-lease origin DITA-2.0:DITA-2.0-generated
+      #        working-directory: dita
 
       - name: Publish DITA
         uses: ./dita-lang/.github/actions/publish

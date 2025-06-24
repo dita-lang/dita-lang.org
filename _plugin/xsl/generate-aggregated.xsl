@@ -23,7 +23,7 @@
     <topic class="- topic/topic " id="generate-aggregated">
       <title class="- topic/title "/>
       <body class="- topic/body ">
-        <section class="- topic/section ">
+        <section class="- topic/section " outputclass="generated">
           <title class="- topic/title ">Aggregated error statements</title>
           <dl class="- topic/dl ">
             <xsl:variable name="rows" as="element()*">
@@ -55,7 +55,7 @@
             </xsl:for-each>
           </dl>
         </section>
-        <section class="- topic/section ">
+        <section class="- topic/section " outputclass="generated">
           <title class="- topic/title ">Implementation dependent statements</title>
           <dl class="- topic/dl ">
             <xsl:variable name="rows" as="element()*">
@@ -87,7 +87,7 @@
             </xsl:for-each>
           </dl>
         </section>
-        <section class="- topic/section ">
+        <section class="- topic/section " outputclass="generated">
           <title class="- topic/title ">Aggregated RFC-2119 statements</title>
           <dl class="- topic/dl ">
             <xsl:variable name="rows" as="element()*">

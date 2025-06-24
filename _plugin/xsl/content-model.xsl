@@ -332,7 +332,7 @@
       </xsl:comment>
       -->
       <xsl:if test="exists($class)">
-        <section id="{replace(@name, '\.attlist', '.inheritance')}">
+        <section id="{replace(@name, '\.attlist', '.inheritance')}" outputclass="generated">
           <title>
             <xsl:text>Inheritance</xsl:text>
           </title>
