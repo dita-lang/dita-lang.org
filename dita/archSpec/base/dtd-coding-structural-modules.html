@@ -5,7 +5,7 @@ title: 'DTD: Coding requirements for structural modules'
 description: 'This topic covers general coding requirements for DTD-based structural modules.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '57cbe273a429a49cfea85331259c6f4c78882066'
+commit: '2fe4abaff808c9805d338a0c698a06c533a2eb47'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -26,7 +26,7 @@ classes: ''
       <p class="p">The <code class="keyword markupname xmlatt">@DITAArchVersion</code> and <code class="keyword markupname xmlatt">@specializations</code> attributes give
         processors a reliable way to check the architecture version and look up the list of
         attribute domains that are available in the document type.</p>
-      <div class="example non-normative" id="dtdStructuralCoding__d25986e91"><h2 class="title sectiontitle">Example</h2><p class="non-normative-label">This section is non-normative.</p>
+      <div class="example non-normative" id="dtdStructuralCoding__d26020e91"><h2 class="title sectiontitle">Example</h2><p class="non-normative-label">This section is non-normative.</p>
         <p class="p">The following example shows how the <code class="keyword markupname xmlatt">@DITAArchVersion</code> and
             <code class="keyword markupname xmlatt">@specializations</code> attributes are defined for the
             <code class="keyword markupname xmlelement">&lt;concept&gt;</code> element in DITA 2.0. Ellipses indicate where the code
@@ -63,7 +63,7 @@ classes: ''
           <dd class="dd">
             <p class="p">The name of the parameter entity is the topic element name plus the
                 <code class="ph codeph">-info-types</code> suffix.</p>
-            <div class="example non-normative" id="dtdStructuralCoding__d25986e153"><h2 class="title sectiontitle">Example</h2><p class="non-normative-label">This section is non-normative.</p>
+            <div class="example non-normative" id="dtdStructuralCoding__d26020e153"><h2 class="title sectiontitle">Example</h2><p class="non-normative-label">This section is non-normative.</p>
               <p class="p">For example, the name of the parameter entity for the concept topic is
                   <code class="ph codeph">concept-info-types</code>. </p>
             </div>
@@ -75,7 +75,7 @@ classes: ''
             <p class="p">To set up default topic nesting rules, set the entity to the desired topic elements.
               The default topic nesting is used when a document-type shell does not set up different
               rules. </p>
-            <div class="example non-normative" id="dtdStructuralCoding__d25986e181"><h2 class="title sectiontitle">Example</h2><p class="non-normative-label">This section is non-normative.</p>
+            <div class="example non-normative" id="dtdStructuralCoding__d26020e181"><h2 class="title sectiontitle">Example</h2><p class="non-normative-label">This section is non-normative.</p>
               <p class="p">For example, the following parameter entity sets up default nesting so that
                   <code class="keyword markupname xmlelement">&lt;concept&gt;</code> will nest only other
                   <code class="keyword markupname xmlelement">&lt;concept&gt;</code> topics:</p>
@@ -87,7 +87,7 @@ classes: ''
               "%info-types;"
 &gt;</code></pre>
             </div>
-            <div class="example non-normative" id="dtdStructuralCoding__d25986e198"><h2 class="title sectiontitle">Example</h2><p class="non-normative-label">This section is non-normative.</p>
+            <div class="example non-normative" id="dtdStructuralCoding__d26020e198"><h2 class="title sectiontitle">Example</h2><p class="non-normative-label">This section is non-normative.</p>
               <p class="p">As an additional example, the following parameter entity sets up a default that
                 will not allow any nesting:</p>
               <pre class="pre codeblock"><code>&lt;!ENTITY % glossentry-info-types "no-topic-nesting"&gt;</code></pre>
@@ -105,13 +105,13 @@ classes: ''
               allowed to nest for this specific topic type by redefining
               the <code class="ph codeph"><var class="keyword varname">topictype</var>-info-types</code>
               entity for each topic type.</p>
-            <div class="example non-normative" id="dtdStructuralCoding__d25986e237"><h2 class="title sectiontitle">Example</h2><p class="non-normative-label">This section is non-normative.</p>
+            <div class="example non-normative" id="dtdStructuralCoding__d26020e237"><h2 class="title sectiontitle">Example</h2><p class="non-normative-label">This section is non-normative.</p>
               <p class="p">For example, with the following content model defined for
                   <code class="keyword markupname xmlelement">&lt;concept&gt;</code>, a document-type shell that uses the concept
                 specialization can control which topics are nested in
                   <code class="keyword markupname xmlelement">&lt;concept&gt;</code> by redefining the
                   <code class="ph codeph">concept-info-types</code> parameter entity:</p>
-              <pre style="color:red;" class="pre codeblock"><code>&lt;!ENTITY % concept.content
+              <pre style="color:red;" class="pre codeblock example"><code>&lt;!ENTITY % concept.content
   "((%title;),
     (%abstract; | %shortdesc;)?, 
     (%prolog;)?, 

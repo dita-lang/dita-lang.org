@@ -5,7 +5,7 @@ title: 'RELAX NG: Coding requirements for document-type shells'
 description: 'A RNG-based document-type shell is organized into sections; each section follows a pattern. These patterns help ensure that the shell follows XML parsing rules for RELAX NG; they also establish a modular design that simplifies creation of new document-type shells.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '65ecb19fa22f6d23a356a7e83b8fa401658292e9'
+commit: '2fe4abaff808c9805d338a0c698a06c533a2eb47'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -33,7 +33,7 @@ classes: ''
           <p class="p">Document-type shells use the RELAX NG start declaration to specify the root element of
             the document type. The <code class="keyword markupname xmlelement">&lt;start&gt;</code> element defines the root element,
             using a reference to a <code class="ph codeph"><var class="keyword varname">tagname</var>.element</code> pattern.</p>
-          <div class="p">For example:<pre class="pre codeblock"><code>&lt;div&gt;
+          <div class="p example">For example:<pre class="pre codeblock"><code>&lt;div&gt;
   &lt;a:documentation&gt;ROOT ELEMENT DECLARATION&lt;/a:documentation&gt;
   &lt;start combine="choice"&gt;
     &lt;ref name="topic.element"/&gt;
@@ -48,7 +48,7 @@ classes: ''
           <p class="p">This section lists the tokens that attribute-domain <span class="ph">and
               element-configuration</span> modules contribute to the <code class="keyword markupname xmlatt">@specializations</code>
             attribute.</p>
-          <div class="p">For example:<pre class="pre codeblock"><code>&lt;div&gt;
+          <div class="p example">For example:<pre class="pre codeblock"><code>&lt;div&gt;
   &lt;a:documentation&gt;SPECIALIZATIONS ATTRIBUTE&lt;/a:documentation&gt;
   &lt;define name="specializations-att"&gt;
     &lt;optional&gt;
@@ -76,7 +76,7 @@ classes: ''
               configured</span> in this section (including the base topic or
             map modules) is left out of the following "Module inclusion"
             section.</p>
-          <div class="div">
+          <div class="div example">
             <p class="p">The following code sample shows the section of an RNG-based
               document-type shell that redefines the
                 <code class="keyword markupname xmlelement">&lt;taskbody&gt;</code> element to create the
@@ -93,7 +93,7 @@ classes: ''
         <dd class="dd">
           <p class="p">This section of the RNG-based document-type shell includes all unconstrained domain or
             structural modules.</p>
-          <div class="p">For example:<pre class="pre codeblock"><code>  &lt;div&gt;
+          <div class="p example">For example:<pre class="pre codeblock"><code>  &lt;div&gt;
     &lt;a:documentation&gt;MODULE INCLUSIONS&lt;/a:documentation&gt;
     &lt;include href="topicMod.rng"&gt;
       &lt;define name="topic-info-types"&gt;
@@ -122,7 +122,7 @@ classes: ''
           <p class="p">If the document-type shell includes domains for foreign vocabularies such as SVG or
             MathML, this section also includes exclusions for the namespaces used by those
             domains.</p>
-          <div class="div">
+          <div class="div example">
             <div class="p">For example, the following code sample is from an RNG-based
               document-type shell for a task topic. It declares that both
               the <code class="keyword markupname xmlelement">&lt;topic&gt;</code> and
