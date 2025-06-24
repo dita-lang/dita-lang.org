@@ -1,6 +1,6 @@
 ---
 # Generated from DITA source
-layout: base
+layout: base.njk
 title: 'Specialization design, customization, and the limits of specialization'
 description: 'DITA specialization imposes certain restrictions. An inherent challenge in designing DITA vocabulary modules and document types is understanding how to satisfy markup requirements within those restrictions and, when the requirements cannot be met by a design that fully conforms to the DITA architecture, how to create customized document types that diverge from the DITA standard as little as possible.'
 index: '../toc.html'
@@ -12,7 +12,7 @@ classes: ''
 
 <nav class="col-lg-3" role="toc"><ul><li><a href="../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a></li><li><a href="../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a></li><li><a href="../conformance/conformance.html">Conformance</a></li><li><a href="../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../non-normative/non-normative-information.html">Non-normative information</a><ul class="nav nav-list"><li><a href="../non-normative/about-specification-source.html">About the specification source</a></li><li><a href="../non-normative/changes-from-previous-versions.html">Changes from previous versions</a></li><li><a href="../non-normative/file-naming-conventions.html">File naming conventions</a></li><li><a href="../non-normative/migration-to-new-version.html">Migrating to new versions of DITA</a></li><li><a href="../non-normative/foreigngeneralization.html">Considerations for generalizing foreign elements</a></li><li><a href="../non-normative/elementsMerged.html">Element-by-element recommendations for translators: All-inclusive edition</a></li><li><a href="../non-normative/dtd-public-identifiers.html">DTD public identifiers</a></li><li><a href="../non-normative/xml-schema-catalog-identifiers.html">XML Schema catalog identifiers</a></li><li><a href="../non-normative/domainscontainer.html">Domains and constraints in the OASIS specification</a></li><li><a href="../non-normative/interoperability-considerations.html">Processing interoperability considerations</a></li><li class="active"><a href="../non-normative/speclimits.html">Specialization design, customization, and the limits of specialization</a></li></ul></li><li><a href="../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
   <h1 class="title topictitle1" id="ariaid-title1">Specialization design, customization, and the limits of specialization</h1>
-  
+
   <div class="body conbody"><p class="shortdesc">DITA specialization imposes certain restrictions. An inherent challenge in designing
     DITA vocabulary modules and document types is understanding how to satisfy markup requirements
     within those restrictions and, when the requirements cannot be met by a design that fully
@@ -49,7 +49,7 @@ classes: ''
       conform to the DITA standard. Explore this fully before developing customized document
       types.</p>
     <section class="section" id="speclimits__section-1"><h2 class="title sectiontitle">Optimizing document types</h2>
-      
+
       <p class="p">Conforming DITA grammar files are modular, which facilitates exchange of vocabulary modules
         and constraints and simplifies the process of assembling document type shells. In some cases
         there might be a reason to avoid the modular approach and use an optimized document type
@@ -66,7 +66,7 @@ classes: ''
         types.</p>
     </section>
     <section class="section" id="speclimits__creating-custom-doctypes"><h2 class="title sectiontitle">Creating custom document types for non-standard markup</h2>
-      
+
       <p class="p">When the relaxed content models for DITA elements are inappropriately open for authoring
         purposes, document type shells can remove undesireable domains or use constraint modules to
         restrict content models. If content models are not relaxed enough, and markup requirements
@@ -91,7 +91,7 @@ classes: ''
         possible of the original DITA grammar.</p>
     </section>
     <section class="section" id="speclimits__specialization-considerations"><h2 class="title sectiontitle">Specialization design considerations</h2>
-      
+
       <p class="p">Requirements for new markup often appear to be incompatible with DITA architectural rules
         or existing markup, especially when mapping existing non-DITA markup practice to DITA, where
         the existing markup <span class="ph">might</span> have used structures that cannot be
@@ -126,7 +126,7 @@ classes: ''
         vocabularies.</p>
     </section>
     <section class="section" id="speclimits__specialization-from-generic"><h2 class="title sectiontitle">Specialize from generic elements or attributes</h2>
-      
+
       <p class="p">Most DITA element types have relaxed content models that are specifically designed to allow
         a wide set of options when specializing from them. However, some DITA element types do
         impose limits that might not be acceptable or appropriate for a specific markup application.
@@ -144,83 +144,83 @@ classes: ''
         referencing, conditional processing, and more.</p>
       <div class="p">The following base elements in <code class="keyword markupname xmlelement">&lt;topic&gt;</code> are generic enough to support
         almost any structurally-valid DITA specialization:<dl class="dl">
-          
+
             <dt class="dt dlterm"><code class="keyword markupname xmlelement">&lt;topic&gt;</code></dt>
             <dd class="dd">Any content unit that has a title and associated content</dd>
-          
-          
+
+
             <dt class="dt dlterm"><code class="keyword markupname xmlelement">&lt;section&gt;</code></dt>
             <dd class="dd">Any non-nesting division of content within a topic, titled or not</dd>
-          
-          
+
+
             <dt class="dt dlterm"><code class="keyword markupname xmlelement">&lt;p&gt;</code></dt>
             <dd class="dd">Any non-nesting non-titled block of content below the section level</dd>
-          
-          
+
+
             <dt class="dt dlterm"><code class="keyword markupname xmlelement">&lt;fig&gt;</code></dt>
             <dd class="dd">Any titled block of content below the section level</dd>
-          
-          
+
+
             <dt class="dt dlterm"><code class="keyword markupname xmlelement">&lt;ul&gt;</code>, <code class="keyword markupname xmlelement">&lt;ol&gt;</code>,
                 <code class="keyword markupname xmlelement">&lt;dl&gt;</code>, <code class="keyword markupname xmlelement">&lt;sl&gt;</code>,
                 <code class="keyword markupname xmlelement">&lt;simpletable&gt;</code></dt>
             <dd class="dd">Any structured block of content that consists of listed items in one or more
               columns</dd>
-          
-          
+
+
             <dt class="dt dlterm"><code class="keyword markupname xmlelement">&lt;ph&gt;</code></dt>
             <dd class="dd">Any division of content below the paragraph level</dd>
-          
-          
+
+
             <dt class="dt dlterm"><code class="keyword markupname xmlelement">&lt;text&gt;</code></dt>
             <dd class="dd">Text within a phrase</dd>
-          
-          
+
+
             <dt class="dt dlterm"><code class="keyword markupname xmlelement">&lt;keyword&gt;</code></dt>
             <dd class="dd">Any non-nesting division of content below the paragraph level</dd>
-          
-          
+
+
             <dt class="dt dlterm"><code class="keyword markupname xmlelement">&lt;data&gt;</code></dt>
             <dd class="dd"><span class="ph">Any content that acts as metadata rather than core topic or map
               content</span></dd>
-          
-          
+
+
             <dt class="dt dlterm"><code class="keyword markupname xmlelement">&lt;foreign&gt;</code></dt>
             <dd class="dd">Any content that already has a non-DITA markup standard, but still needs to be
               authored as part of the DITA document. Processors should attempt to render this
               element, if at all possible. </dd>
-          
-          
+
+
             <dt class="dt dlterm"><code class="keyword markupname xmlelement">&lt;unknown&gt;</code></dt>
             <dd class="dd">Any non-standard markup that does not fit the DITA model, but needs to be managed as
               part of a DITA document. Processors should not attempt to render this element.</dd>
-          
-          
+
+
             <dt class="dt dlterm"><code class="keyword markupname xmlelement">&lt;bodydiv&gt;</code></dt>
             <dd class="dd">A generic, untitled, nestable container for content within topic bodies</dd>
-          
-          
+
+
             <dt class="dt dlterm"><code class="keyword markupname xmlelement">&lt;sectiondiv&gt;</code></dt>
             <dd class="dd">A generic, untitled, nestable container for content within sections</dd>
-          
-          
+
+
             <dt class="dt dlterm"><code class="keyword markupname xmlelement">&lt;div&gt;</code></dt>
             <dd class="dd">A generic, untitled, nestable container for content within topic bodies or sections
             </dd>
-          
+
         </dl></div>
       <div class="p">The following attributes in topic are suitable for domain specialization to provide new
         attributes that are required throughout a document type:<dl class="dl">
-          
+
             <dt class="dt dlterm"><code class="keyword markupname xmlatt">@props</code></dt>
             <dd class="dd">Any new conditional processing attribute</dd>
-          
-          
+
+
             <dt class="dt dlterm"><code class="keyword markupname xmlatt">@base</code></dt>
             <dd class="dd">Any new attribute that is universally available, has a simple syntax
               (space-delimited alphanumeric values), and does not already have a semantic
               equivalent</dd>
-          
+
         </dl></div>
       <p class="p">Whenever possible, specialize from the element or attribute that is the closest semantic
         match.</p>

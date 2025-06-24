@@ -1,6 +1,6 @@
 ---
 # Generated from DITA source
-layout: base
+layout: base.njk
 title: 'The conaction attribute'
 description: 'The conaction attribute allows users to push content from one topic into another. It causes the conref attribute to work in reverse, so that the content is pushed from the current topic into another, rather than pulled from another topic into the current one. Allowable values for conaction are: pushafter, pushbefore, pushreplace, mark, and -dita-use-conref-target.'
 index: '../../toc.html'
@@ -40,7 +40,7 @@ classes: ''
           valid in the specialized context.</li>
 </ul></section>
 <section class="section" id="theconactionattribute__replacing-content"><h2 class="title sectiontitle">Replacing content in another topic</h2>
-      
+
       <p class="p">When the <code class="keyword markupname xmlatt">@conaction</code> attribute is set to "pushreplace", the source element
         will replace the target specified on the <code class="keyword markupname xmlatt">@conref</code> attribute. The pushed
         content remains in the source topic where it was originally authored.</p>
@@ -61,7 +61,7 @@ classes: ''
         that references this
         <code class="keyword markupname xmlelement">&lt;step&gt;</code>:<pre class="pre codeblock"><code>&lt;task id="other" xml:lang="en"&gt;
   ...
-   &lt;step conaction="pushreplace" 
+   &lt;step conaction="pushreplace"
          conref="example.dita#example/b"&gt;
      &lt;cmd&gt;Updated B&lt;/cmd&gt;
    &lt;/step&gt;
@@ -89,7 +89,7 @@ classes: ''
         attempts to replace a single target.</p>
     </section>
 <section class="section" id="theconactionattribute__pushing-content"><h2 class="title sectiontitle">Pushing content before or after another element</h2>
-      
+
       <p class="p">Setting the <code class="keyword markupname xmlatt">@conaction</code> attribute to "pushbefore" allows an element to be
         pushed before the element referenced by the <code class="keyword markupname xmlatt">@conref</code> attribute. Likewise,
         setting the <code class="keyword markupname xmlatt">@conaction</code> attribute to "pushafter" allows an element to be
@@ -137,7 +137,7 @@ classes: ''
         the <code class="keyword markupname xmlatt">@processing-role</code> attribute set to "resource-only".</p>
     </section>
 <div class="example non-normative" id="theconactionattribute__example-pushbefore"><h2 class="title sectiontitle">Example: pushing an element before the target</h2>
-      
+
       <div class="p">The following example pushes a <code class="keyword markupname xmlelement">&lt;step&gt;</code> before "b" in the
           <span class="ph filepath">example.dita</span> file shown above.
         <pre class="pre codeblock"><code>&lt;step conaction="pushbefore"&gt;&lt;cmd&gt;Do this before B&lt;/cmd&gt;&lt;/step&gt;
@@ -158,7 +158,7 @@ classes: ''
 &lt;/task&gt;</code></pre></div>
     </div>
 <div class="example non-normative" id="theconactionattribute__example-pushafter"><h2 class="title sectiontitle">Example: pushing an element after the target</h2>
-      
+
       <div class="p">Pushing an element after a target is exactly the same as pushing before, except that the
         order of the "mark" element and the pushed element are
         reversed.<pre class="pre codeblock"><code><span class="ph">&lt;step conaction="mark" conref="example.dita#example/b"&gt;
@@ -182,8 +182,8 @@ classes: ''
     </div>
 <section class="section" id="theconactionattribute__combining-conref-actions"><h2 class="title sectiontitle">Combining <code class="keyword markupname xmlatt">@conaction</code> with <code class="keyword markupname xmlatt">@conkeyref</code> or
           <code class="keyword markupname xmlatt">@conrefend</code></h2>
-      
-      
+
+
       <p class="p">The <code class="keyword markupname xmlatt">@conkeyref</code> attribute <span class="ph">can</span> be used as an
         indirect way to specify a <code class="keyword markupname xmlatt">@conref</code> target. If the <code class="keyword markupname xmlatt">@conkeyref</code>
         attribute is specified on an element that also uses the <code class="keyword markupname xmlatt">@conaction</code>

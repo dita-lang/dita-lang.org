@@ -1,6 +1,6 @@
 ---
 # Generated from DITA source
-layout: base
+layout: base.njk
 title: 'Processing interoperability considerations'
 description: 'The DITA specification does not require processors to perform filtering, content reference resolution, key space construction, and other processing related to base DITA semantics in any particular order. This means that different conforming DITA processors might produce different results for the same initial data set and filtering conditions. DITA users and DITA implementers need to be aware of these potential differences in behavior when DITA content will be processed by different processors.'
 index: '../toc.html'
@@ -12,7 +12,7 @@ classes: ''
 
 <nav class="col-lg-3" role="toc"><ul><li><a href="../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a></li><li><a href="../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a></li><li><a href="../conformance/conformance.html">Conformance</a></li><li><a href="../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../non-normative/non-normative-information.html">Non-normative information</a><ul class="nav nav-list"><li><a href="../non-normative/about-specification-source.html">About the specification source</a></li><li><a href="../non-normative/changes-from-previous-versions.html">Changes from previous versions</a></li><li><a href="../non-normative/file-naming-conventions.html">File naming conventions</a></li><li><a href="../non-normative/migration-to-new-version.html">Migrating to new versions of DITA</a></li><li><a href="../non-normative/foreigngeneralization.html">Considerations for generalizing foreign elements</a></li><li><a href="../non-normative/elementsMerged.html">Element-by-element recommendations for translators: All-inclusive edition</a></li><li><a href="../non-normative/dtd-public-identifiers.html">DTD public identifiers</a></li><li><a href="../non-normative/xml-schema-catalog-identifiers.html">XML Schema catalog identifiers</a></li><li><a href="../non-normative/domainscontainer.html">Domains and constraints in the OASIS specification</a></li><li class="active"><a href="../non-normative/interoperability-considerations.html">Processing interoperability considerations</a></li><li><a href="../non-normative/speclimits.html">Specialization design, customization, and the limits of specialization</a></li></ul></li><li><a href="../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
   <h1 class="title topictitle1" id="ariaid-title1">Processing interoperability considerations</h1>
-  
+
   <div class="body conbody"><p class="shortdesc">The DITA specification does not require processors to perform filtering, content
     reference resolution, key space construction, and other processing related to base DITA
     semantics in any particular order. This means that different conforming DITA processors <span class="ph">might</span> produce different results for the same initial data set and
@@ -24,7 +24,7 @@ classes: ''
     <p class="p">For conditional elements, an element is "applicable" if it is filtered in and "inapplicable"
       if it is filtered out.</p>
     <section class="section" id="nteroperability-considerations__filtering-and-conref-resolution"><h2 class="title sectiontitle">Filtering and content reference resolution</h2>
-      
+
       <p class="p">When two elements are merged as result of a content reference, the attributes of the two
         elements are combined. By default, the attributes of the referencing element take precedence
         over the referenced element. However, any attribute can specify the value
@@ -69,7 +69,7 @@ classes: ''
         filtered from the original source location.</p>
     </section>
     <section class="section" id="nteroperability-considerations__filtering-and-key-space-resolution"><h2 class="title sectiontitle">Filtering and key space resolution</h2>
-      
+
       <p class="p">See <a class="xref" href="../archSpec/base/processing-key-references-general.html#processing_key_references__keys-and-condproc">Keys and conditional processing</a> for a discussion of effective key definitions and conditional processing.</p>
       <p class="p">As an implementation detail for key-space-constructing processors, if filtering is applied
         before constructing the key space, then the set of effective key definitions is simply the
@@ -95,7 +95,7 @@ classes: ''
         the effective value of the key).</p>
     </section>
     <section class="section" id="nteroperability-considerations__link-resolution"><h2 class="title sectiontitle">Link resolution</h2>
-      
+
       <p class="p">If a cross reference, link, or other linking element is resolved to its target before
         filtering and the target is subsequently filtered out, the link would be to a non-existent
         target but might reflect properties of the target (for example, a cross reference link text
@@ -104,16 +104,16 @@ classes: ''
         different link text. The rendition effect for the navigation link is the same: the link
         cannot be navigated because the target does not exist in the rendered result.</p>
     </section>
-    
+
     <section class="section" id="nteroperability-considerations__topicref-resolution"><h2 class="title sectiontitle">Topicref resolution</h2>
-      
+
       <p class="p">Resolution of topicrefs before filtering can result in use of topic-provided navigation
         titles or metadata that would not be used if the target topic was filtered out before
         resolution. In both cases, the topicref as rendered would be to a missing topic. </p>
     </section>
-    
+
     <section class="section" id="nteroperability-considerations__copy-to-processing"><h2 class="title sectiontitle">Copy-to processing</h2>
-      
+
       <p class="p">If copy-to processing is done before filtering, two <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>
         elements, only one of which is applicable, could specify the same <code class="keyword markupname xmlatt">@copy-to</code>
         target, leading to a conflict and a potential ambiguity about which governs. If the

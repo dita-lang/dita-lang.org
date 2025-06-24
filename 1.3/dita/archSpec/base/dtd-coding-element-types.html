@@ -1,6 +1,6 @@
 ---
 # Generated from DITA source
-layout: base
+layout: base.njk
 title: 'DTD: Coding requirements for element type declarations'
 description: 'This topic covers general coding requirements for defining element types in both structural and element-domain vocabulary modules. In addition, it covers how to create the domains attribute contribution for these modules.'
 index: '../../toc.html'
@@ -12,7 +12,7 @@ classes: ''
 
 <nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a><ul class="nav nav-list"><li><a href="../../archSpec/base/introduction-to-dita.html">Introduction to DITA</a></li><li><a href="../../archSpec/base/ditamarkup.html">DITA markup </a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration, specialization, generalization, and constraints </a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a><ul class="nav nav-list"><li><a href="../../archSpec/base/recognizedconstraintmechanisms.html">Recognized XML-document grammar mechanisms</a></li><li><a href="../../archSpec/base/using-relax-ng.html">Normative versions of DITA grammar files</a></li><li><a href="../../archSpec/base/dtd-requirements.html">DTD coding requirements</a><ul class="nav nav-list"><li><a href="../../archSpec/base/dtd-coding-overview.html">DTD: Overview of coding requirements</a></li><li><a href="../../archSpec/base/dtd-coding-doctype-shell.html">DTD: Coding requirements for document-type shells</a></li><li class="active"><a href="../../archSpec/base/dtd-coding-element-types.html">DTD: Coding requirements for element type declarations</a></li><li><a href="../../archSpec/base/dtd-coding-structural-modules.html">DTD: Coding requirements for structural modules</a></li><li><a href="../../archSpec/base/dtd-coding-element-domains.html">DTD: Coding requirements for element domain modules</a></li><li><a href="../../archSpec/base/dtd-coding-attribute-domains.html">DTD: Coding requirements for attribute domain modules</a></li><li><a href="../../archSpec/base/dtd-coding-constraint-modules.html">DTD: Coding requirements for constraint modules</a></li></ul></li><li><a href="../../archSpec/base/relax-ng-requirements.html">RELAX NG coding requirements</a></li><li><a href="../../archSpec/base/xsd-requirements.html">XML Schema coding requirements</a></li></ul></li><li><a href="../../archSpec/technicalContent/technical-content-specializations.html">Technical content specializations</a></li><li><a href="../../archSpec/learningTraining/learning-and-training-specializations.html">Learning and training specializations</a></li></ul></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
   <h1 class="title topictitle1" id="ariaid-title1">DTD: Coding requirements for element type declarations</h1>
-  
+
   <div class="body conbody"><p class="shortdesc">This topic covers general coding requirements for defining element types in both
     structural and element-domain vocabulary modules. In addition, it covers how to create the
       <code class="keyword markupname xmlatt">@domains</code> attribute contribution for these modules.</p>
@@ -25,25 +25,25 @@ classes: ''
         element types that are defined in the vocabulary module</li>
     </ul>
     <section class="section" id="general-coding-requirements__domains-contribution"><h2 class="title sectiontitle"><code class="keyword markupname xmlatt">@domains</code> attribute contribution</h2>
-      
+
       <p class="p">A domain declaration entity is used to construct the effective value of the
           <code class="keyword markupname xmlatt">@domains</code> attribute for a map or topic type.</p>
       <dl class="dl">
-        
+
           <dt class="dt dlterm">Text entity name</dt>
           <dd class="dd">
             <p class="p">The name of the text entity is the structural type name or the domain abbreviation,
               followed by a hyphen ("-") and the literal <code class="ph codeph">att</code>.</p>
           </dd>
-        
-        
+
+
           <dt class="dt dlterm">Text entity values</dt>
           <dd class="dd">
             <p class="p">The value of the text entity is the <code class="keyword markupname xmlatt">@domains</code> attribute contribution
               for the current module. See <a class="xref" href="specialization-domains-attribute.html#domainsatt" title="The domains attribute enables processors to determine whether two elements or two documents use compatible domains. The attribute is declared on the root element for each topic or map type. Each structural, domain, and constraint module defines its ancestry as a parenthesized sequence of space-separated module names; the effective value of the domains attribute is composed of these parenthesized sequences.">domains attribute rules and syntax</a> for details on how to
               construct this value.</p>
           </dd>
-        
+
       </dl>
       <p class="p">For example, the <code class="keyword markupname xmlatt">@domains</code> attribute contributions for
         the concept structural module and the highlighting domain module are are constructed as
@@ -55,7 +55,7 @@ classes: ''
       </ul>
     </section>
     <section class="section" id="general-coding-requirements__element-definitions"><h2 class="title sectiontitle">Element definitions</h2>
-      
+
       <p class="p">A structural or domain vocabulary module must contain a declaration for each element type
         that is named by the module. While the XML standard allows content models to refer to
         undeclared element types, the DITA standard does not permit this. All element types or
@@ -69,7 +69,7 @@ classes: ''
       <p class="p">The following components make up a single element definition in a DITA DTD-based vocabulary
         module.</p>
       <dl class="dl">
-        
+
           <dt class="dt dlterm">Element name entities</dt>
           <dd class="dd">
             <p class="p">For each element type, there must be a parameter entity with a name that matches the
@@ -81,8 +81,8 @@ classes: ''
             <p class="p">For example:
                 <code class="ph codeph">&lt;!ENTITY % topichead "topichead"&gt;</code></p>
           </dd>
-        
-        
+
+
           <dt class="dt dlterm">Content-model parameter entity</dt>
           <dd class="dd">
             <p class="p">For each element type, there must be a parameter entity that defines the content
@@ -93,15 +93,15 @@ classes: ''
               of constraint modules to restrict the content model.</p>
             <div class="p">For
               example:<pre class="pre codeblock"><code>&lt;!ENTITY % topichead.content
-  "((%topicmeta;)?, 
-    (%anchor; | 
-     %data.elements.incl; | 
-     %navref; | 
+  "((%topicmeta;)?,
+    (%anchor; |
+     %data.elements.incl; |
+     %navref; |
      %topicref;)*)
 "&gt;</code></pre></div>
           </dd>
-        
-        
+
+
           <dt class="dt dlterm">Attribute-list parameter entity</dt>
           <dd class="dd">
             <p class="p">For each element type, there must be a parameter entity that declares the attributes
@@ -122,8 +122,8 @@ classes: ''
   %univ-atts;"
 &gt;</code></pre></div>
           </dd>
-        
-        
+
+
           <dt class="dt dlterm">Element declaration</dt>
           <dd class="dd">
             <p class="p">For each element type, there must be an element declaration that consists of a
@@ -131,8 +131,8 @@ classes: ''
             <div class="p">For
               example:<pre class="pre codeblock"><code>&lt;!ELEMENT topichead    %topichead.content;&gt;</code></pre></div>
           </dd>
-        
-        
+
+
           <dt class="dt dlterm">Attribute list declaration</dt>
           <dd class="dd">
             <p class="p">For each element type, there must be an attribute list declaration that consists of a
@@ -140,8 +140,8 @@ classes: ''
             <div class="p">For
               example:<pre class="pre codeblock"><code>&lt;!ATTLIST topichead    %topichead.attributes;&gt;</code></pre></div>
           </dd>
-        
-        
+
+
           <dt class="dt dlterm">Specialization attribute declarations</dt>
           <dd class="dd">
             <p class="p">A vocabulary module must define a <code class="keyword markupname xmlatt">@class</code> attribute for every <span class="ph">element that is </span>declared in the module. The value of the
@@ -155,7 +155,7 @@ classes: ''
               attribute, as
               follows:<pre class="pre codeblock"><code>&lt;!ATTLIST topichead  %global-atts;  class CDATA "+ map/topicref  mapgroup-d/topichead "&gt;</code></pre></div>
           </dd>
-        
+
       </dl>
     </section>
   </div>

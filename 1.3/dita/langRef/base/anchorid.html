@@ -1,6 +1,6 @@
 ---
 # Generated from DITA source
-layout: base
+layout: base.njk
 title: 'anchorid'
 description: 'The anchorid element allows an author to define a conref target that will be resolved dynamically when rendered for an end user of the content. This element is useful when doing an initial process of the DITA content prior to final rendering of the content; it causes specified IDs to be preserved after that process, and conref relationships that reuse the element will not be resolved during the initial process.'
 index: '../../toc.html'
@@ -60,7 +60,7 @@ classes: ''
 topic/keyword delay-d/anchorid </p></section>
 <div class="example non-normative" id="anchorid__example"><h2 class="title sectiontitle">Example</h2><figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Use case 1: Runtime resolution of <code class="keyword markupname xmlatt">@conref</code> to an id, determined by
           original author</figcaption>
-        
+
         <ol class="ol">
           <li class="li">Author 1 creates topics for information component A, which is a common component used
             by many products. The configuration task for component A is often reused in whole or in
@@ -170,7 +170,7 @@ that id, because processors will match on the topic's id first.</li>
         A use keys rather than a direct reference, so that <code class="keyword markupname xmlatt">@conref</code> can be redirected
         to a different component when component A is not installed. The keys <span class="ph">might</span> be exported, in addition to the IDs, so that some
         references become bound to the actual component while other references <span class="ph">might</span> be redirected.</p><pre class="pre codeblock"><code>&lt;map&gt;
-  &lt;topicref keys="componentAconfig commonconfig" 
+  &lt;topicref keys="componentAconfig commonconfig"
             href="componentA/configA.dita#configA"&gt;
     &lt;topicmeta&gt;
       &lt;exportanchors&gt;
@@ -227,7 +227,7 @@ fulfilled by alternative component content.</p><div class="note note note_note n
       <p class="p">The following attributes are available on this element: <a class="xref" href="../attributes/universalAttributes.html" title="The universal attribute group defines a set of common attributes available on most DITA elements. The universal attribute group includes all attributes from the metadata, ID, localization, and debug attribute groups, plus the class attribute.">Universal attribute group</a> (with a narrowed definition of
           <code class="keyword markupname xmlatt">@id</code>, given below), <a class="xref" href="../attributes/thekeyrefattribute.html" title="The keyref attribute provides an indirect, late-bound reference to topics, to collections of topics (ditabase), to maps, to referenceable portions of maps, to non-DITA documents, to external URIs, or to XML content contained within a key definition topic reference. When the DITA content is processed, the key references are resolved using key definitions from DITA maps."><code class="keyword markupname xmlatt">@keyref</code></a>, and <a class="xref" href="../attributes/commonAttributes.html#common-atts__outputclass">outputclass</a>.</p>
       <dl class="dl">
-        
+
           <dt class="dt dlterm"><code class="keyword markupname xmlatt">@id</code>
             <span class="ph">(REQUIRED)</span></dt>
           <dd class="dd">Indicates an ID within the specific topic that will be preserved during processing.
@@ -238,7 +238,7 @@ fulfilled by alternative component content.</p><div class="note note note_note n
             within a map; this is because the ID is actually a pointer to another target, rather
             than being a target itself. <span class="ph">This attribute is defined with the XML Data Type
                                         CDATA.</span></dd>
-        
+
       </dl></section>
 </div>
 <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/delayconref-d.html" title="The delayed conref resolution domain provides several elements for use when using DITA in situations that enable delayed or delivery time resolution of conref. The elements allow users to resolve some conref values statically, while delaying others for later resolution.">Delayed conref resolution elements</a></div></div></nav></article></main>

@@ -1,6 +1,6 @@
 ---
 # Generated from DITA source
-layout: base
+layout: base.njk
 title: 'Branch filtering: Implications of processing order'
 description: 'The branch filtering mechanism can result in changes to the global key space for a root map. As a result, processors are required to evaluate branch filtering in order to construct the key space.'
 index: '../../toc.html'
@@ -12,7 +12,7 @@ classes: ''
 
 <nav class="toc" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction</a></li><li><a href="../../archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="../../archSpec/base/accessibility-and-translation.html">Accessibility and translation</a></li><li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a><ul class="nav nav-list"><li><a href="../../archSpec/base/navigation.html">Navigation</a></li><li><a href="../../archSpec/base/indexes.html">Indexes</a></li><li><a href="../../archSpec/base/conref.html">Content reference (conref)</a></li><li><a href="../../archSpec/base/condproc.html">Conditional processing</a></li><li><a href="../../archSpec/base/branch-filtering.html">Branch filtering</a><ul class="nav nav-list"><li><a href="../../archSpec/base/branch-filtering-overview.html">Overview of branch filtering</a></li><li><a href="../../archSpec/base/branch-filtering-interactions.html">How filtering rules interact</a></li><li><a href="../../archSpec/base/branch-filtering-single-set.html">Branch filtering: Single referenced DITAVAL document for a branch</a></li><li><a href="../../archSpec/base/branch-filtering-multiple-sets.html">Branch filtering: Multiple referenced DITAVAL documents for a branch</a></li><li><a href="../../archSpec/base/branch-filtering-resource-names.html">Branch filtering: Impact on resource and key names</a></li><li class="active"><a href="../../archSpec/base/branch-filtering-implications-of-processing-order.html">Branch filtering: Implications of processing order</a></li><li><a href="../../archSpec/base/examples-of-branch-filter.html">Examples of branch filtering</a></li></ul></li><li><a href="../../archSpec/base/sort-as-processing.html">Sorting</a></li><li><a href="../../archSpec/base/determining-effective-attribute-values.html">Determining effective attribute values</a></li></ul></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a></li><li><a href="../../langRef/langRef-base.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../non-normative/developing-constraint-and-expansion-modules.html">Constraint modules</a></li><li><a href="../../non-normative/expansion-modules.html">Expansion modules</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../non-normative/formatting-expectations.html">Formatting expectations</a></li><li><a href="../../non-normative/migrating-to-dita-2.0.html">Migrating to DITA 2.0</a></li><li><a href="../../non-normative/basedoctypes.html">OASIS grammar files</a></li><li><a href="../../non-normative/interoperability-considerations.html">Processing interoperability considerations</a></li><li><a href="../../non-normative/revision-history.html">Revision history</a></li></ul></nav><main role="main" class=""><article role="article" aria-labelledby="ariaid-title1">
  <h1 class="title topictitle1" id="ariaid-title1">Branch filtering: Implications of processing order</h1>
- 
+
  <div class="body conbody"><p class="shortdesc">The branch filtering mechanism can result in changes to the global key space for a root
     map. As a result, processors are required to evaluate branch filtering in order to construct the
     key space.</p>
@@ -20,7 +20,7 @@ classes: ''
       calculated by processors before they construct the effective map and key scope structure. This
       requirement comes from the fact that the branch filtering process can result in new or renamed
       keys, key scopes, or URIs that make up the key space.</p>
-    
+
     <div class="note note note_note non-normative"><span class="note__title">Note<span class="non-normative-label"> (non-normative)</span>:</span> <div class="note__body">The <code class="keyword markupname xmlatt">@keyref</code> attribute and related attributes are explicitly disallowed on
         <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code>. This prevents any confusion resulting from a
         <code class="keyword markupname xmlatt">@keyref</code> that resolves to additional key- or resource-renaming
@@ -38,10 +38,10 @@ classes: ''
     <p class="p">Because externally-specified "exclude" conditions always take precedence over
       branch-specific conditions, content excluded based on external conditions will always be
       removed, regardless of the order in which processors evaluate conditions.</p>
-    
+
   <p class="p">Processors should consider the following points when determining a processing order:</p>
     <ul class="ul">
-      
+
       <li class="li">If links are generated based on the map hierarchy, those links should be created using the
         renamed keys and URIs that result from evaluating the <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code>
         filter conditions, to ensure that the links are consistent within the modified branches. For

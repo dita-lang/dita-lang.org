@@ -1,6 +1,6 @@
 ---
 # Generated from DITA source
-layout: base
+layout: base.njk
 title: 'object'
 description: 'The DITA object element corresponds to the HTML object element, and attribute semantics derive from their HTML definitions. For example, the type attribute differs from the type attribute on many other DITA elements.'
 index: '../../toc.html'
@@ -25,7 +25,7 @@ classes: ''
 <section class="section" id="object__inheritance"><h2 class="title sectiontitle">Inheritance</h2><p class="p">-
 topic/object </p></section>
 <div class="example non-normative" id="object__example"><h2 class="title sectiontitle">Example</h2>
-            
+
             <p class="p">Output processors might need to modify data in order to enable compatible function
                 across various browsers, so these examples are only representative:</p>
             <pre class="pre codeblock"><code>&lt;p&gt;Cutting the keys from the system unit:&lt;/p&gt;
@@ -60,7 +60,7 @@ flash/swflash.cab#version=6,0,0,0"
 &lt;/object&gt;</code></pre>
             <figure class="fig fignone" id="object__fig_o2l_bfb_4k"><figcaption><span class="fig--title-label">Figure 1. </span>Object with reference to video using key reference on the
                         <code class="keyword markupname xmlelement">&lt;param&gt;</code> elements</figcaption>
-                
+
                 <pre class="pre codeblock"><code>&lt;object
   id="E5123_026.mp4"
   width="300"
@@ -88,8 +88,8 @@ flash/swflash.cab#version=6,0,0,0"
             </figure>
             <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>Object with indirect reference to a flash file and fallback
                         <code class="keyword markupname xmlatt">@data</code> value</figcaption>
-                
-                <pre class="pre codeblock"><code>&lt;object 
+
+                <pre class="pre codeblock"><code>&lt;object
  <strong class="ph b">classidkeyref="video_classid"</strong>
  <strong class="ph b">codebasekeyref="video_codebase"</strong>
  <strong class="ph b">datakeyref="cutkey370"</strong>
@@ -138,7 +138,7 @@ flash/swflash.cab#version=6,0,0,0"
             <p class="p">The following attributes are available on this element: <a class="xref" href="../attributes/universalAttributes.html" title="The universal attribute group defines a set of common attributes available on most DITA elements. The universal attribute group includes all attributes from the metadata, ID, localization, and debug attribute groups, plus the class attribute.">Universal attribute group</a>, <a class="xref" href="../attributes/commonAttributes.html#common-atts__outputclass">outputclass</a>, and the
                 attributes defined below.</p>
    <dl class="dl">
-                
+
                     <dt class="dt dlterm"><code class="keyword markupname xmlatt">@archive</code></dt>
                     <dd class="dd">Specifies a space-separated list of URIs indicating resources needed by the
                         object. These resources <span class="ph">might</span> include those
@@ -147,8 +147,8 @@ flash/swflash.cab#version=6,0,0,0"
                         for objects. The URIs in the list should be relative to the URI specified in
                         the <code class="keyword markupname xmlatt">@codebase</code> attribute.
                         </dd>
-                
-    
+
+
      <dt class="dt dlterm"><code class="keyword markupname xmlatt">@archivekeyrefs</code></dt>
      <dd class="dd">Key references to one or more archives, as for <code class="keyword markupname xmlatt">@archive</code>. The value is a
                         space-separated list of key names. Each resolvable key reference is treated
@@ -157,32 +157,32 @@ flash/swflash.cab#version=6,0,0,0"
                         key-provided archive list is used. If <code class="keyword markupname xmlatt">@archive</code> is specified,
                         it is used as a fallback when no key names can be resolved to a URI.
                         </dd>
-    
-                
+
+
                     <dt class="dt dlterm"><code class="keyword markupname xmlatt">@classid</code></dt>
                     <dd class="dd">Contains a URI that specifies the location of an object's
                         implementation. It can be used together with the <code class="keyword markupname xmlatt">@data</code>
                         attribute which is specified relative to the value of the
                             <code class="keyword markupname xmlatt">@codebase</code> attribute.
                         </dd>
-                
-    
+
+
      <dt class="dt dlterm"><code class="keyword markupname xmlatt">@classidkeyref</code></dt>
      <dd class="dd">Key reference to the URI that specifies the location of an object's implementation, as for
                             <code class="keyword markupname xmlatt">@classid</code>. When specified, and the key is resolvable, the
                         key-provided class ID URI is used. If <code class="keyword markupname xmlatt">@classid</code> is specified,
                         it is used as a fallback when the key cannot be resolved to a URI.
                         </dd>
-    
-                
+
+
                     <dt class="dt dlterm"><code class="keyword markupname xmlatt">@codebase</code></dt>
                     <dd class="dd">Specifies the base URI used for resolving the relative URI values given for
                             <code class="keyword markupname xmlatt">@classid</code>, <code class="keyword markupname xmlatt">@data</code>, and
                             <code class="keyword markupname xmlatt">@archive</code> attributes. If <code class="keyword markupname xmlatt">@codebase</code> is not
                         set, the default is the base URI of the current element.
                         </dd>
-                
-    
+
+
      <dt class="dt dlterm"><code class="keyword markupname xmlatt">@codebasekeyref</code></dt>
      <dd class="dd">Key reference to the base URI used for resolving other attributes, as for
                             <code class="keyword markupname xmlatt">@codebase</code>. When specified, and the key is resolvable,
@@ -192,16 +192,16 @@ flash/swflash.cab#version=6,0,0,0"
                             <code class="keyword markupname xmlatt">@codebase</code> is not specified, the default is the base URL
                         of the current element.
                         </dd>
-    
-                
+
+
                     <dt class="dt dlterm"><code class="keyword markupname xmlatt">@data</code></dt>
                     <dd class="dd">Contains a reference to the location of an object's data. If this
                         attribute is a relative URL, it is specified relative to the value of the
                             <code class="keyword markupname xmlatt">@codebase</code> attribute. If this attribute is set, the
                             <code class="keyword markupname xmlatt">@type</code> attribute should also be set.
                         </dd>
-                
-    
+
+
      <dt class="dt dlterm"><code class="keyword markupname xmlatt">@datakeyref</code></dt>
      <dd class="dd">Key reference to the location of an object's data, as for <code class="keyword markupname xmlatt">@data</code>. When
                         specified and the key is resolvable, the key-provided URI is used. A key
@@ -210,15 +210,15 @@ flash/swflash.cab#version=6,0,0,0"
                             <code class="keyword markupname xmlatt">@data</code> is specified, it is used as a fallback when the
                         key cannot be resolved to a resource.
                         </dd>
-    
-                
+
+
                     <dt class="dt dlterm"><code class="keyword markupname xmlatt">@declare</code></dt>
                     <dd class="dd">When this attribute is set to "declare", the current object definition is a
                         declaration only. The object must be instantiated by a later nested object
                         definition referring to this declaration. The only allowable value is
                         "declare".</dd>
-                
-                
+
+
                     <dt class="dt dlterm"><code class="keyword markupname xmlatt">@type</code></dt>
                     <dd class="dd">Indicates the content type (MIME type) for the data specified by the
                             <code class="keyword markupname xmlatt">@data</code>
@@ -230,13 +230,13 @@ flash/swflash.cab#version=6,0,0,0"
                             the effective type value for the key named by the
                                 <code class="keyword markupname xmlatt">@datakeyref</code> attribute is used as the this
                             attribute's value.</span></dd>
-                
-                
+
+
                     <dt class="dt dlterm"><code class="keyword markupname xmlatt">@standby</code></dt>
                     <dd class="dd">Contains a message to be displayed while an object is loading.
                         </dd>
-                
-                
+
+
                     <dt class="dt dlterm"><code class="keyword markupname xmlatt">@height</code></dt>
                     <dd class="dd">Indicates the vertical dimension for the resulting object display. If
                         necessary, the object is scaled to the specified size. <span class="ph">The
@@ -251,8 +251,8 @@ flash/swflash.cab#version=6,0,0,0"
                                         two values when they are unable to scale to each direction
                                         using different factors.</span>
                         </dd>
-                
-                
+
+
                     <dt class="dt dlterm"><code class="keyword markupname xmlatt">@width</code></dt>
                     <dd class="dd">Indicates the horizontal dimension for the resulting object display. If
                         necessary, the object is scaled to the specified size. <span class="ph">The
@@ -267,27 +267,27 @@ flash/swflash.cab#version=6,0,0,0"
                                         two values when they are unable to scale to each direction
                                         using different factors.</span>
                         </dd>
-                
-                
+
+
                     <dt class="dt dlterm"><code class="keyword markupname xmlatt">@usemap</code></dt>
                     <dd class="dd">Indicates that a client-side image map is to be used. An image map specifies
                         active geometric regions of an included object and assigns a link to each
                         region. When a link is selected, a document <span class="ph">might</span> be retrieved or a program <span class="ph">might</span> run on the server.
                         </dd>
-                
-                
+
+
                     <dt class="dt dlterm"><code class="keyword markupname xmlatt">@name</code></dt>
                     <dd class="dd">Defines a unique name for the object.
                         </dd>
-                
+
    </dl>
             <dl class="dl">
-                
+
                     <dt class="dt dlterm"><code class="keyword markupname xmlatt">@tabindex</code></dt>
                     <dd class="dd">Position the object in tabbing order.
                         </dd>
-                
-                
+
+
                     <dt class="dt dlterm"><code class="keyword markupname xmlatt">@longdescref</code>
                         <span class="ph">(DEPRECATED)</span>
                     </dt>
@@ -298,7 +298,7 @@ flash/swflash.cab#version=6,0,0,0"
                         is deprecated in favor of the <a class="xref" href="longdescref.html" title="The longdescref element supports a reference to a text description of the graphic or object. This element replaces the deprecated longdescref attribute on image and object elements.">longdescref</a> subelement to
                         this element.
                         </dd>
-                
+
             </dl></section>
 </div>
 <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/body-elements.html" title="The body elements support the most common types of content authoring for topics: paragraphs, lists, phrases, figures, and other common types of exhibits in a document.">Body elements</a></div></div></nav></article></main>

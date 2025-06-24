@@ -1,6 +1,6 @@
 ---
 # Generated from DITA source
-layout: base
+layout: base.njk
 title: 'toc'
 description: 'The toc element either references a topic that contains a table of contents for the book, or it indicates to a processor that a table of contents should be generated at this location in the book.'
 index: '../../toc.html'
@@ -12,14 +12,14 @@ classes: ''
 
 <nav class="toc" role="toc"><ul><li><a href="../../introduction/specIntroTechnicalContent.html">Introduction</a></li><li><a href="../../archSpec/technicalContent/dita-technicalContent-InformationTypes.html">Topic and map document types</a></li><li><a href="../../archSpec/technicalContent/glossary-entry-topics-and-terminology-management.html">Usage of glossary entry topics</a></li><li><a href="../../langRef/langRef-technicalContent.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../baseSpec/specification/langRef/attributes/attributes.html">Attributes</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../revision-history/revision-history.html">Revision history</a></li></ul></nav><main role="main" class=""><article role="article" aria-labelledby="ariaid-title1">
   <h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;toc&gt;</code></h1>
-  
-  
+
+
   <div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;toc&gt;</code> element either references a
     topic that contains a table of contents for the book, or it indicates
     to a processor that a table of contents should be generated at this
     location in the book.</p>
     <section class="section" id="toc__processing-expectations"><h2 class="title sectiontitle">Processing expectations</h2>
-      
+
       <p style="color:red;" class="p"><span style="color:red;" class="ph">When a list element in the bookmap module uses
             <code class="keyword markupname xmlatt">@href</code> or <code class="keyword markupname xmlatt">@keyref</code> to reference a topic or map, the
           referenced content provides the list content. When the list element does not reference a
@@ -29,12 +29,12 @@ classes: ''
         based on topics used in the book.</p>
     </section>
     <section class="section" id="toc__specialization-hierarchy"><h2 class="title sectiontitle">Specialization hierarchy</h2>
-      
+
       <p class="p">The <code class="keyword markupname xmlelement">&lt;toc&gt;</code> element is specialized from
           <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>. It is defined in the bookmap module.</p>
     </section>
     <section class="section generated" id="toc__content-model"><h2 class="title sectiontitle">Content model</h2>
-         
+
          <p class="p content-model generated">
             <span class="xref">
                <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code>
@@ -58,14 +58,14 @@ classes: ''
             </li>
          </ul>
       </section>
-<section class="section generated" id="toc__inheritance"><h2 class="title sectiontitle">Inheritance</h2>
-            
+<section class="section" id="toc__inheritance"><h2 class="title sectiontitle">Inheritance</h2>
+
             <p class="p inheritance">- map/topicref bookmap/toc </p>
             <p class="p inheritance-prose">The <code class="keyword markupname xmlelement">&lt;toc&gt;</code> element is specialized from <span class="xref">
                   <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>
                </span>. It is defined in the bookmap module.</p>
          </section>    <section class="section" id="toc__attributes"><h2 class="title sectiontitle">Attributes</h2>
-      
+
       <div class="div">
                                         <p class="p attributes-prose">The following attributes are available on this element:
                                                 <span class="ph"><a class="xref" href="../../common/../baseSpec/specification/common/../langRef/attributes/commonAttributes.html#common-atts__commonmapatts" title="Common map attributes include: cascade, chunk, collection-type, keyscope, linking, processing-role, search, and toc">common map attributes</a></span>, <span class="ph"><a class="xref" href="../../common/../baseSpec/specification/common/../langRef/attributes/commonAttributes.html#common-atts__linkatts" title="Link relationship attributes include: format, href, type, and scope">link-relationship attributes</a></span>, <span class="ph"><a class="xref" href="../../common/../baseSpec/specification/common/../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
@@ -82,15 +82,15 @@ classes: ''
             <p class="p">Specifies how metadata attributes cascade within a map. The
               specification defines the following values:</p>
             <dl class="dl">
-                                
+
                                         <dt class="dt dlterm">merge</dt>
                                         <dd class="dd"><span style="color:red;" class="ph">Indicates
               that the metadata attributes cascade, and that </span>the
             values of the metadata attributes are additive. This is the
             processing default for the <code class="keyword markupname xmlatt">@cascade</code>
             attribute.</dd>
-                                
-                                
+
+
                                         <dt class="dt dlterm">nomerge</dt>
                                         <dd class="dd"><span style="color:red;" class="ph">Indicates
               that the metadata attributes cascade, but that </span>they are
@@ -101,7 +101,7 @@ classes: ''
             continues to cascade until a new value is encountered<span style="color:red;" class="ph">. That is,</span> setting
               <code class="ph codeph">cascade="nomerge"</code> does not undo merging that
             took place on ancestor elements.</dd>
-                                
+
                         </dl>
             <p class="p"><span class="implementation-statement" id="toc__d2062e497" data-id="DTTCIMP-0060"></span>Processors can also define custom,
         implementation-specific tokens for this attribute.</p>
@@ -116,14 +116,14 @@ classes: ''
               a single document, or that a single document with multiple
               topics should be rendered as multiple documents.</span><div class="p">The
               following values are valid:<dl class="dl">
-                
+
                   <dt class="dt dlterm">combine</dt>
                   <dd class="dd"><span class="ph">Instructs a processor to combine the
             referenced source documents for rendering purposes. <span style="color:red;" class="ph">This</span> is intended for cases where a
             publishing process normally results in a single output artifact
             for each source XML document.</span></dd>
-                
-                
+
+
                   <dt class="dt dlterm">split</dt>
                   <dd class="dd"><span class="ph">Instructs a processor to split each topic
             from the referenced source document into its own document for
@@ -132,8 +132,8 @@ classes: ''
             single output artifact for each source XML document, regardless
             of how many DITA topics exist within each source document.
           </span></dd>
-                
-              </dl></div><p class="p"><span class="implementation-statement" id="toc__d2062e642" data-id="DTTCIMP-0070"></span>Processors can also define custom,
+
+              </dl></div><p class="p"><span class="implementation-statement" id="toc__d2062e638" data-id="DTTCIMP-0070"></span>Processors can also define custom,
         implementation-specific tokens for this attribute.</p><p class="p">For a detailed description of the <code class="keyword markupname xmlatt">@chunk</code>
               attribute and its usage, see <a class="xref" href="../../archSpec/base/chunking.html" title="Content often needs to be delivered in a different granularity than it is authored. The chunk attribute enables map authors to specify that multiple source documents should be combined into a single document for delivery or that a single source document should be split into multiple documents for delivery.">Chunking</a>.</p></dd><dt class="dt dlterm" id="toc__attr-collection-type"><code class="keyword markupname xmlatt">@collection-type</code>
             <span class="ph">(common map
@@ -141,28 +141,28 @@ classes: ''
             processing default is <span class="keyword">unordered</span>, although no
             default is specified in the OASIS-provided grammar files. The
             following values are valid:<dl class="dl" id="toc__colltypevalues">
-              
+
                 <dt class="dt dlterm">unordered </dt>
                 <dd class="dd">Indicates that the order of the child topics is not
                   significant. </dd>
-              
-              
+
+
                 <dt class="dt dlterm">sequence </dt>
                 <dd class="dd">Indicates that the order of the child topics is
                   significant. Output processors will typically link
                   between them in order. </dd>
-              
-              
+
+
                 <dt class="dt dlterm">choice </dt>
                 <dd class="dd">Indicates that one of the children should be
                   selected.</dd>
-              
-              
+
+
                 <dt class="dt dlterm">family </dt>
                 <dd class="dd">Indicates a tight grouping in which each of the
                   referenced topics not only relates to the current topic
                   but also relate to each other. </dd>
-              
+
             </dl></dd><dt class="dt dlterm" id="toc__attr-format"><code class="keyword markupname xmlatt">@format</code>
             <span class="ph">(link-relationship
               attributes)</span></dt><dd class="dd">Specifies the format of the resource that is referenced.<span class="ph"> See <a class="xref" href="../../../../stubs/StubTopic.html">STUB CONTENT</a> for
@@ -192,59 +192,59 @@ classes: ''
           (for cascade rules, see <a class="xref" href="../../common/../archSpec/base/cascading-in-a-ditamap.html#cascading-in-a-ditamap" title="Certain attributes cascade throughout a map, which facilitates attribute and metadata management. When attributes cascade, they apply to the elements that are children of the element where the attributes were specified. Cascading applies to a containment hierarchy, as opposed to a specialization hierarchy.">Cascading of metadata attributes in a DITA map</a>).</span>
             The
             following values are valid:<dl class="dl">
-              
+
                 <dt class="dt dlterm"><span class="keyword">targetonly</span></dt>
                 <dd class="dd">A topic can only be linked to and cannot link to other
                   topics.</dd>
-              
-              
+
+
                 <dt class="dt dlterm"><span class="keyword">sourceonly</span></dt>
                 <dd class="dd">A topic cannot be linked to but can link to other
                   topics.</dd>
-              
-              
+
+
                 <dt class="dt dlterm">normal </dt>
                 <dd class="dd">A topic can be linked to and can link to other topics.
                   Use this to override the linking value of a parent topic.
                 </dd>
-              
-              
+
+
                 <dt class="dt dlterm">none </dt>
                 <dd class="dd">A topic cannot be linked to or link to other
                   topics.</dd>
-              
-              
+
+
           <dt class="dt dlterm"><span class="keyword">-dita-use-conref-target</span></dt>
           <dd class="dd">See <a class="xref" href="../../common/../archSpec/base/ditauseconreftarget.html" title="The value -dita-use-conref-target is available on enumerated attributes and can also be specified on other attributes. When an element uses conref to pull in content, for any of its attributes assigned a value of -dita-use-conref-target, the resulting value for those attributes is also pulled in from the referenced element.">Using the -dita-use-conref-target value</a>
             for more information. </dd>
-        
+
             </dl></dd><dt class="dt dlterm" id="toc__attr-processing-role"><code class="keyword markupname xmlatt">@processing-role</code>
             <span class="ph">(common map
             attributes)</span></dt><dd class="dd" id="toc__def-processing-role">Specifies whether the referenced
             resource is processed normally or treated as a resource that is
             only included in order to resolve references, such as key or
             content references. The following values are valid:<dl class="dl">
-              
+
                 <dt class="dt dlterm">normal </dt>
                 <dd class="dd">Indicates that the resource is a readable part of the
                   information set. It is included in navigation and search
                   results. This is the default value for the
                     <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element.</dd>
-              
-              
+
+
                 <dt class="dt dlterm">resource-only </dt>
                 <dd class="dd">Indicates that the resource should be used only for
                   processing purposes. It is not included in navigation or
                   search results, nor is it rendered as a topic. This is
                   the default value for the <code class="keyword markupname xmlelement">&lt;keydef&gt;</code>
                   element.</dd>
-              
+
             </dl><dl class="dl">
-              
+
           <dt class="dt dlterm"><span class="keyword">-dita-use-conref-target</span></dt>
           <dd class="dd">See <a class="xref" href="../../common/../archSpec/base/ditauseconreftarget.html" title="The value -dita-use-conref-target is available on enumerated attributes and can also be specified on other attributes. When an element uses conref to pull in content, for any of its attributes assigned a value of -dita-use-conref-target, the resulting value for those attributes is also pulled in from the referenced element.">Using the -dita-use-conref-target value</a>
             for more information. </dd>
-        
+
             </dl><p class="p"><span class="ph">If no value is specified but the attribute is
           specified on a containing element within a map or within the
           related-links section, the value cascades from the closest
@@ -274,25 +274,25 @@ classes: ''
           locally, the value might cascade from another element in the map
           (for cascade rules, see <a class="xref" href="../../common/../archSpec/base/cascading-in-a-ditamap.html#cascading-in-a-ditamap" title="Certain attributes cascade throughout a map, which facilitates attribute and metadata management. When attributes cascade, they apply to the elements that are children of the element where the attributes were specified. Cascading applies to a containment hierarchy, as opposed to a specialization hierarchy.">Cascading of metadata attributes in a DITA map</a>).</span> The following
             values are valid:<dl class="dl">
-              
+
                 <dt class="dt dlterm">yes </dt>
                 <dd class="dd">The topic appears in a generated TOC.</dd>
-              
-              
+
+
                 <dt class="dt dlterm">no </dt>
                 <dd class="dd">The topic does not appear in a generated TOC.</dd>
-              
-              
+
+
                 <dt class="dt dlterm">-dita-use-conref-target </dt>
                 <dd class="dd">See <a class="xref" href="../../../../stubs/StubTopic.html">STUB CONTENT</a> for
                   more information. </dd>
-              
+
             </dl></dd><dt class="dt dlterm" id="toc__attr-type"><code class="keyword markupname xmlatt">@type</code>
             <span class="ph">(link-relationship
               attributes)</span></dt><dd class="dd">Describes the target of a reference. See <a class="xref" href="../../../../stubs/StubTopic.html">STUB CONTENT</a> for detailed
             information on supported values and processing implications. </dd></dl></section>
     <div class="example non-normative" id="toc__example"><h2 class="title sectiontitle">Example</h2><p class="non-normative-label">This section is non-normative.</p>
-      
+
       <p class="p">See the example in <a class="xref" href="bookmap.html" title="The bookmap element is a map specialization that is used to assemble DITA topics as a traditional book.">bookmap</a>.</p>
     </div>
   </div>

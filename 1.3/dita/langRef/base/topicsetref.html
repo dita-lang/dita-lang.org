@@ -1,6 +1,6 @@
 ---
 # Generated from DITA source
-layout: base
+layout: base.njk
 title: 'topicsetref'
 description: 'The topicsetref element references a topicset element. The referenced topicset element can be defined in the current map or in another map.'
 index: '../../toc.html'
@@ -13,7 +13,7 @@ classes: ''
 <nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a><ul class="nav nav-list"><li><a href="../../langRef/containers/element-quick-reference.html">Element quick reference</a></li><li><a href="../../langRef/containers/topic-elements.html">Topic elements</a></li><li><a href="../../langRef/containers/map-elements.html">Map elements</a><ul class="nav nav-list"><li><a href="../../langRef/containers/basic-map-elements.html">Basic map elements</a></li><li><a href="../../langRef/containers/mapgroup-d.html">Map group elements</a><ul class="nav nav-list"><li><a href="../../langRef/base/anchorref.html">anchorref</a></li><li><a href="../../langRef/base/keydef.html">keydef</a></li><li><a href="../../langRef/base/mapref.html">mapref</a></li><li><a href="../../langRef/base/topicgroup.html">topicgroup</a></li><li><a href="../../langRef/base/topichead.html">topichead</a></li><li><a href="../../langRef/base/topicset.html">topicset</a></li><li class="active"><a href="../../langRef/base/topicsetref.html">topicsetref</a></li></ul></li></ul></li><li><a href="../../langRef/containers/metadata-elements.html">Metadata elements</a></li><li><a href="../../langRef/containers/domain-elements.html">Domain elements</a></li><li><a href="../../langRef/containers/classification-elements.html">Classification elements</a></li><li><a href="../../langRef/containers/specialization-elements.html">Specialization elements</a></li><li><a href="../../langRef/containers/legacy-conversion-elements.html">Legacy conversion elements</a></li><li><a href="../../langRef/containers/ditaval-elements.html">DITAVAL elements</a></li><li><a href="../../langRef/containers/technical-content-elements.html">Technical content elements</a></li><li><a href="../../langRef/containers/learningTraining-elements.html">Learning and training elements</a></li><li><a href="../../langRef/attributes/attributes.html">Attributes</a></li></ul></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
 <h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;topicsetref&gt;</code></h1>
 
-  
+
 <div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;topicsetref&gt;</code> element references a
       <code class="keyword markupname xmlelement">&lt;topicset&gt;</code> element. The referenced <code class="keyword markupname xmlelement">&lt;topicset&gt;</code>
     element can be defined in the current map or in another map.</p>
@@ -38,7 +38,7 @@ map/topicref mapgroup-d/topicsetref </p></section>
 <div class="p">The <span class="ph filepath">sql-tutorial.ditamap</span> file contains a
           <code class="keyword markupname xmlelement">&lt;topicset&gt;</code> element that groups together several topics that
         collectively comprise an overview of SQL.<figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>DITA map that contains a <code class="keyword markupname xmlelement">&lt;topicset&gt;</code> element</figcaption>
-          
+
           <pre class="pre codeblock"><code>&lt;!-- Excerpt from sql-tutorial.ditamap --&gt;
 &lt;topicset id="sqlbasics" href="sqlOverview.dita"&gt;
   &lt;topicref href="sqlSelection.dita"/&gt;
@@ -49,7 +49,7 @@ map/topicref mapgroup-d/topicsetref </p></section>
         </figure></div>
 <div class="p">Another map can include that topic set, in addition to content related to
         programming with JDBC.<figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>DITA map that contains a <code class="keyword markupname xmlelement">&lt;topicsetref&gt;</code> element</figcaption>
-          
+
           <pre class="pre codeblock"><code>&lt;topichead navtitle="Mastering JDBC"&gt;
   <strong class="ph b">&lt;topicsetref href="sql-tutorial.ditamap#sqlbasics"/&gt;</strong>
   &lt;topicref href="jdbcPrepare.dita"/&gt;
@@ -70,31 +70,31 @@ map/topicref mapgroup-d/topicsetref </p></section>
 &lt;/topichead&gt;</code></pre>
 </figure></div></div>
 <section class="section" id="topicsetref__attributes"><h2 class="title sectiontitle">Attributes</h2>
-      
+
       <p class="p">The following attributes are available on this element: <a class="xref" href="../attributes/universalAttributes.html" title="The universal attribute group defines a set of common attributes available on most DITA elements. The universal attribute group includes all attributes from the metadata, ID, localization, and debug attribute groups, plus the class attribute.">Universal attribute group</a>, <a class="xref" href="../attributes/linkRelationshipAttributes.html" title="The link relationship attribute group includes attributes whose values can be used for representing navigational relationships. These attributes occur only on elements that represent relationships among DITA elements or between DITA elements and non-DITA resources.">Link relationship attribute group</a> (with narrowed definitions
         of <code class="keyword markupname xmlatt">@href</code>, <code class="keyword markupname xmlatt">@format</code>, and <code class="keyword markupname xmlatt">@type</code>, given below),
           <a class="xref" href="../attributes/commonMapAttributes.html" title="This attribute group collects several attributes that are used on a variety of map elements. For a few elements, the group is modified slightly to remove an attribute such as toc or format; in those cases the element definition will clarify that the element does not use this full set. That is generally done in order to specify a default for one attribute, such as defaulting format to &#34;ditamap&#34; on the mapref element.">Attributes common to many map elements</a>, <a class="xref" href="../attributes/topicrefElementAttributes.html" title="The topicref element attributes group includes attributes that are defined for the topicref element, and are reused on most or all specializations of the topicref element.">Topicref element attributes group</a>, <a class="xref" href="../attributes/commonAttributes.html#common-atts__outputclass">outputclass</a>, <a class="xref" href="../attributes/thekeysattribute.html" title="A keys attribute consists of one or more space-separated keys. Map authors define keys using a topicref or topicref specialization that contains the keys attribute. Each key definition introduces an identifier for a resource referenced from a map. Keys resolve to the resources given as the href value on the key definition topicref element, to content contained within the key definition topicref element, or both."><code class="keyword markupname xmlatt">@keys</code></a>, and <a class="xref" href="../attributes/thekeyrefattribute.html" title="The keyref attribute provides an indirect, late-bound reference to topics, to collections of topics (ditabase), to maps, to referenceable portions of maps, to non-DITA documents, to external URIs, or to XML content contained within a key definition topic reference. When the DITA content is processed, the key references are resolved using key definitions from DITA maps."><code class="keyword markupname xmlatt">@keyref</code></a>.</p>
       <dl class="dl">
-        
+
           <dt class="dt dlterm" id="topicsetref__href-on-topicsetref"><code class="keyword markupname xmlatt">@href</code></dt>
           <dd class="dd">A pointer to the <code class="keyword markupname xmlelement">&lt;topicset&gt;</code> represented by
               <code class="keyword markupname xmlelement">&lt;topicsetref&gt;</code>. See <a class="xref" href="../attributes/thehrefattribute.html" title="The href attribute is used to reference another DITA topic or map, a specific element inside a DITA topic or map, an external Web page, or another non-DITA resource.">The href attribute</a> for detailed information on
             syntax.</dd>
-        
-        
+
+
           <dt class="dt dlterm" id="topicsetref__format-on-topicsetref"><code class="keyword markupname xmlatt">@format</code></dt>
           <dd class="dd">The <code class="keyword markupname xmlatt">@format</code> attribute identifies the format of the resource being
             referenced. For the <code class="keyword markupname xmlelement">&lt;topicsetref&gt;</code> element, this attribute
             defaults to "ditamap", because the element typically references a branch of a map. See
               <a class="xref" href="../attributes/theformatattribute.html" title="The format attribute identifies the format of the resource that is referenced. If no value is specified, but the attribute is specified on an ancestor within a map or within the related-links section, the value will cascade from the closest ancestor.">The format attribute</a> for details on other supported
             values.</dd>
-        
-        
+
+
           <dt class="dt dlterm" id="topicsetref__type-on-topicsetref"><code class="keyword markupname xmlatt">@type</code></dt>
           <dd class="dd">Describes the target of a reference. For the <code class="keyword markupname xmlelement">&lt;topicsetref&gt;</code>
             element, this attribute defaults to "topicset". See <a class="xref" href="../attributes/thetypeattribute.html" title="The type attribute is used on linking elements to describe the target of a cross-reference. It also is used on the note element to describe the note type, as well as on several other elements for varying purposes.">The type attribute</a> for detailed information on other
             supported values and processing implications.</dd>
-        
+
       </dl>
     </section>
 </div>

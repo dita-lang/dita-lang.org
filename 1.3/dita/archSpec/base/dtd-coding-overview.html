@@ -1,6 +1,6 @@
 ---
 # Generated from DITA source
-layout: base
+layout: base.njk
 title: 'DTD: Overview of coding requirements'
 description: 'DITA coding practices for DTDs rely heavily on entities to implement specialization and constraints. As such, an understanding of entities is critical when working with DTD document-type shells, vocabulary modules, or constraint modules.'
 index: '../../toc.html'
@@ -12,7 +12,7 @@ classes: ''
 
 <nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a><ul class="nav nav-list"><li><a href="../../archSpec/base/introduction-to-dita.html">Introduction to DITA</a></li><li><a href="../../archSpec/base/ditamarkup.html">DITA markup </a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration, specialization, generalization, and constraints </a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a><ul class="nav nav-list"><li><a href="../../archSpec/base/recognizedconstraintmechanisms.html">Recognized XML-document grammar mechanisms</a></li><li><a href="../../archSpec/base/using-relax-ng.html">Normative versions of DITA grammar files</a></li><li><a href="../../archSpec/base/dtd-requirements.html">DTD coding requirements</a><ul class="nav nav-list"><li class="active"><a href="../../archSpec/base/dtd-coding-overview.html">DTD: Overview of coding requirements</a></li><li><a href="../../archSpec/base/dtd-coding-doctype-shell.html">DTD: Coding requirements for document-type shells</a></li><li><a href="../../archSpec/base/dtd-coding-element-types.html">DTD: Coding requirements for element type declarations</a></li><li><a href="../../archSpec/base/dtd-coding-structural-modules.html">DTD: Coding requirements for structural modules</a></li><li><a href="../../archSpec/base/dtd-coding-element-domains.html">DTD: Coding requirements for element domain modules</a></li><li><a href="../../archSpec/base/dtd-coding-attribute-domains.html">DTD: Coding requirements for attribute domain modules</a></li><li><a href="../../archSpec/base/dtd-coding-constraint-modules.html">DTD: Coding requirements for constraint modules</a></li></ul></li><li><a href="../../archSpec/base/relax-ng-requirements.html">RELAX NG coding requirements</a></li><li><a href="../../archSpec/base/xsd-requirements.html">XML Schema coding requirements</a></li></ul></li><li><a href="../../archSpec/technicalContent/technical-content-specializations.html">Technical content specializations</a></li><li><a href="../../archSpec/learningTraining/learning-and-training-specializations.html">Learning and training specializations</a></li></ul></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
  <h1 class="title topictitle1" id="ariaid-title1">DTD: Overview of coding requirements</h1>
- 
+
  <div class="body conbody"><p class="shortdesc">DITA coding practices for DTDs rely heavily on entities to implement specialization and
    <span style="color:red;" class="ph">►constraints◄</span>. As such, an understanding of entities is critical when
   working with DTD document-type shells, vocabulary modules, or constraint modules.</p>
@@ -20,7 +20,7 @@ classes: ''
    definition is effective. How entities work shapes DTD coding practices. The following list
    describes a few of the more important entities that are used in DITA DTDs:</p>
   <dl class="dl">
-   
+
     <dt class="dt dlterm">Elements defined as entities</dt>
     <dd class="dd">In DITA DTDs, every element is defined as an entity. When elements are added to a content
      model, they are added using the entity. This enables extension with domain specializations. For
@@ -29,23 +29,23 @@ classes: ''
      domain". Because the document-type shell places that entity definition before the usual
      definition, every element that included <code class="ph codeph">%ph;</code> in its content model now includes
       <code class="keyword markupname xmlelement">&lt;ph&gt;</code> plus every phrase specialization in the highlighting domain.</dd>
-   
-   
+
+
     <dt class="dt dlterm">Content models defined as entities</dt>
     <dd class="dd">Every element in a DITA DTD defines its content model using an entity. For example, rather
      than directly setting what is allowed in <code class="keyword markupname xmlelement">&lt;ph&gt;</code>, that element sets its
      content model to <code class="ph codeph">%ph.content;</code>; that entity defines the actual content model.
      This is done to enable constraints; a constraint module can (pre)define the
       <code class="ph codeph">%ph.content;</code> model to remove selected elements.</dd>
-   
-   
+
+
     <dt class="dt dlterm">Attribute sets defined as entities</dt>
     <dd class="dd">Every element in a DITA DTD defines its attribute using an entity. For example, rather than
      directly defining attributes for <code class="keyword markupname xmlelement">&lt;ph&gt;</code>, that element sets its attributes
      using the <code class="ph codeph">%ph.attributes;</code> entity; that entity defines the actual attributes.
      As above, this is done to enable constraints; a constraint module can (pre)define the
       <code class="ph codeph">%ph.attributes;</code> model to remove selected attributes.</dd>
-   
+
   </dl>
   <div class="note note note_note non-normative"><span class="note__title">Note:</span> When constructing a constraint module or document-type shell, new entities are usually
    viewed as "redefinitions" because they redefine entities that already exist. However, these new

@@ -1,6 +1,6 @@
 ---
 # Generated from DITA source
-layout: base
+layout: base.njk
 title: 'RELAX NG: Coding requirements for element type declarations'
 description: 'Structural and domain vocabulary modules have the same coding requirements for element type declarations. Each RELAX NG vocabulary module consists of a single module file.'
 index: '../../toc.html'
@@ -12,11 +12,11 @@ classes: ''
 
 <nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a><ul class="nav nav-list"><li><a href="../../archSpec/base/introduction-to-dita.html">Introduction to DITA</a></li><li><a href="../../archSpec/base/ditamarkup.html">DITA markup </a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration, specialization, generalization, and constraints </a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a><ul class="nav nav-list"><li><a href="../../archSpec/base/recognizedconstraintmechanisms.html">Recognized XML-document grammar mechanisms</a></li><li><a href="../../archSpec/base/using-relax-ng.html">Normative versions of DITA grammar files</a></li><li><a href="../../archSpec/base/dtd-requirements.html">DTD coding requirements</a></li><li><a href="../../archSpec/base/relax-ng-requirements.html">RELAX NG coding requirements</a><ul class="nav nav-list"><li><a href="../../archSpec/base/relax-ng-coding-overview.html">RELAX NG: Overview of coding requirements</a></li><li><a href="../../archSpec/base/relax-ng-coding-doctype-shell.html">RELAX NG: Coding requirements for document-type shells</a></li><li class="active"><a href="../../archSpec/base/relax-ng-coding-element-types.html">RELAX NG: Coding requirements for element type declarations</a></li><li><a href="../../archSpec/base/relax-ng-coding-structural-modules.html">RELAX NG: Coding requirements for structural modules</a></li><li><a href="../../archSpec/base/relax-ng-coding-element-domains.html">RELAX NG: Coding requirements for element domain modules</a></li><li><a href="../../archSpec/base/relax-ng-coding-attribute-domains.html">RELAX NG: Coding requirements for attribute domain modules</a></li><li><a href="../../archSpec/base/relax-ng-coding-constraint-modules.html">RELAX NG: Coding requirements for constraint modules</a></li></ul></li><li><a href="../../archSpec/base/xsd-requirements.html">XML Schema coding requirements</a></li></ul></li><li><a href="../../archSpec/technicalContent/technical-content-specializations.html">Technical content specializations</a></li><li><a href="../../archSpec/learningTraining/learning-and-training-specializations.html">Learning and training specializations</a></li></ul></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
  <h1 class="title topictitle1" id="ariaid-title1">RELAX NG: Coding requirements for element type declarations</h1>
- 
+
  <div class="body conbody"><p class="shortdesc">Structural and domain vocabulary modules have the same coding requirements for element
     type declarations. Each RELAX NG vocabulary module consists of a single module file.</p>
   <section class="section" id="concept_yvl_ncv_dn__section_AF5B8ABA77DA4474A0AF0DF0AFD8E018"><h2 class="title sectiontitle">Element definitions</h2>
-   
+
    <p class="p">A structural or element-domain vocabulary module must contain a declaration for each
         specialized element type that is named in the module. While the XML standard allows content
         models to refer to undeclared element types, all element types that are named in content
@@ -30,7 +30,7 @@ classes: ''
       </ul>
    <p class="p">The element type patterns are organized into the following sections:</p>
       <dl class="dl">
-        
+
           <dt class="dt dlterm">Element type name patterns</dt>
           <dd class="dd">
             <div class="p">For each element type that is declared in the vocabulary module, there must be a
@@ -50,20 +50,20 @@ classes: ''
               where the base type is allowed.</p>
             <p class="p">The declarations can occur in any order.</p>
           </dd>
-        
-        
+
+
           <dt class="dt dlterm">Common content-model patterns</dt>
           <dd class="dd">Structural and element-domain modules can include a section that defines the patterns
             that contribute to the content models of the element types that are defined in the
             module.</dd>
-        
-        
+
+
           <dt class="dt dlterm">Common attribute sets</dt>
           <dd class="dd">Structural and element-domain modules can include a section that defines patterns for
             attribute sets that are common to one or more of the element types that are defined in
             the module.</dd>
-        
-        
+
+
           <dt class="dt dlterm">Element type declarations</dt>
           <dd class="dd">For each element type that is declared in the vocabulary module, the following set of
             patterns must be used to define the content model and attributes for the element type.
@@ -125,7 +125,7 @@ classes: ''
   &lt;define name="topichead.element"&gt;
     &lt;element name="topichead" ditaarch:longName="Topic head"&gt;
       &lt;a:documentation&gt;The &amp;lt;topichead&gt; element provides a title-only entry in a navigation map,
-        as an alternative to the fully-linked title provided by the &amp;lt;topicref&gt; element. 
+        as an alternative to the fully-linked title provided by the &amp;lt;topicref&gt; element.
         Category: Mapgroup elements&lt;/a:documentation&gt;
       &lt;ref name="topichead.attlist"/&gt;
       &lt;ref name="topichead.content"/&gt;
@@ -135,8 +135,8 @@ classes: ''
     &lt;ref name="topichead.attributes"/&gt;
   &lt;/define&gt;
 &lt;/div&gt;</code></pre></dd>
-        
-        
+
+
           <dt class="dt dlterm">idElements pattern contribution</dt>
           <dd class="dd">Element types that declare the <code class="keyword markupname xmlatt">@id</code> attribute as type "ID", including
             all topic and map element types, must provide a declaration for the
@@ -151,8 +151,8 @@ classes: ''
     &lt;ref name="map.element"/&gt;
   &lt;/define&gt;
 &lt;/div&gt;</code></pre></dd>
-        
-        
+
+
           <dt class="dt dlterm">Specialization attribute declarations</dt>
           <dd class="dd">
             <p class="p">A vocabulary module must define a <code class="keyword markupname xmlatt">@class</code> attribute for every
@@ -169,13 +169,13 @@ classes: ''
               example:<pre class="pre codeblock"><code>&lt;define name="anchorref.attlist" combine="interleave"&gt;
   &lt;ref name="global-atts"/&gt;
   &lt;optional&gt;
-    &lt;attribute name="class" 
+    &lt;attribute name="class"
         a:defaultValue="+ map/topicref mapgroup-d/anchorref "
     /&gt;
   &lt;/optional&gt;
 &lt;/define&gt;</code></pre></div>
           </dd>
-        
+
       </dl>
   </section>
  </div>

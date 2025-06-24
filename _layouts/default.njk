@@ -1,0 +1,12 @@
+---
+layout: base.njk.njk
+---
+{% if page.toc != false %}
+<nav role="toc">
+  {% include "toc.njk" %}
+</nav>
+{% endif %}
+<main class="{% if page.toc != false %} col-lg-9 {% else %}  col-lg-12 {% endif %} {{ page.classes or '' }}">
+  <h1>{{ title or page.title }}</h1>
+  {{ content | safe }}
+</main>

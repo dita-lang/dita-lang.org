@@ -1,6 +1,6 @@
 ---
 # Generated from DITA source
-layout: base
+layout: base.njk
 title: 'Processing xrefs and conrefs within a conref'
 description: 'When referenced content contains a content reference or cross reference, the effective target of the reference depends on the form of address that is used in the referenced content. It also might depend on the map context, especially when key scopes are present.'
 index: '../../../../toc.html'
@@ -12,28 +12,28 @@ classes: ''
 
 <nav class="toc" role="toc"><ul></ul></nav><main role="main" class=""><article role="article" aria-labelledby="ariaid-title1">
  <h1 class="title topictitle1" id="ariaid-title1"><span class="ph">Processing</span> xrefs and conrefs within a conref</h1>
- 
-  
+
+
  <div class="body conbody"><p class="shortdesc">When referenced content contains a content reference or cross reference, the effective
     target of the reference depends on the form of address that is used in the referenced content.
     It also might depend on the map context, especially when key scopes are present.</p>
     <dl class="dl">
-      
+
         <dt class="dt dlterm">Direct URI reference (but not a same-topic fragment identifier )</dt>
         <dd class="dd">When the address is a direct URI reference of any form other than a same-topic fragment
           identifier, processors <dfn class="term RFC-2119">MUST</dfn> resolve it relative to the
           source document that contains the original URI reference.</dd>
-      
-      
+
+
         <dt class="dt dlterm">Same-topic fragment identifier</dt>
         <dd class="dd">When the address is a same-topic fragment identifier, processors <dfn class="term RFC-2119">MUST</dfn> resolve it relative to the location
           of the content reference (referencing context). </dd>
-      
-      
+
+
         <dt class="dt dlterm">Key reference</dt>
         <dd class="dd">When the address is a key reference, processors <dfn class="term RFC-2119">MUST</dfn> resolve it relative to the location of the content
           reference (referencing context). </dd>
-      
+
     </dl>
     <p class="p">When resolving key references or same-topic fragment identifiers, the phrase
         <dfn class="term">location of the content reference</dfn> means the final resolved context. For
@@ -53,7 +53,7 @@ classes: ''
       identifiers in the referenced content will also be available in the referencing topic at
       resolution time.</div></div>
   <div class="example non-normative" id="handling-xref-and-conref-within-topics__example"><h2 class="title sectiontitle">Example: Resolving conrefs to elements that contain cross references</h2><p class="non-normative-label">This section is non-normative.</p>
-      
+
       <p class="p">Consider the following paragraphs in <span class="ph filepath">paras-01.dita</span> that are intended
         to be used by reference from other topics:</p>
       <pre class="pre codeblock"><code>&lt;topic id="paras-01"&gt;&lt;title&gt;Reusable paragraphs&lt;/title&gt;
@@ -69,11 +69,11 @@ classes: ''
           <span class="ph filepath">using-topic-01.dita</span> topic:</p>
       <pre class="pre codeblock"><code>&lt;topic id="using-topic-01"&gt;&lt;title&gt;Using topic one&lt;/title&gt;
     &lt;body&gt;
-        &lt;p id="A" conref="paras-01.dita#paras-01/p1"/&gt; 
-        &lt;p id="B" conref="paras-01.dita#paras-01/p2"/&gt; 
+        &lt;p id="A" conref="paras-01.dita#paras-01/p1"/&gt;
+        &lt;p id="B" conref="paras-01.dita#paras-01/p2"/&gt;
         &lt;p id="C" conref="paras-01.dita#paras-01/p3"/&gt;
         &lt;p id="D" conref="paras-01.dita#paras-01/p4"/&gt;
-        &lt;p id="p5"&gt;Paragraph 5 in using-topic-01&lt;/p&gt;  
+        &lt;p id="p5"&gt;Paragraph 5 in using-topic-01&lt;/p&gt;
     &lt;/body&gt;
 &lt;/topic&gt;</code></pre>
       <p class="p">Following resolution of the content references and processing of the
@@ -123,7 +123,7 @@ classes: ''
         </tr></tbody></table>
     </div>
     <div class="example non-normative" id="handling-xref-and-conref-within-topics__example-w-scoped-keys"><h2 class="title sectiontitle">Example: Resolving conrefs to elements that contain key-based cross references </h2><p class="non-normative-label">This section is non-normative.</p>
-      
+
       <p class="p">Consider the following map, which uses the topics from the previous
         example:</p>
       <pre class="pre codeblock"><code>&lt;map&gt;

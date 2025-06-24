@@ -1,6 +1,6 @@
 ---
 # Generated from DITA source
-layout: base
+layout: base.njk
 title: 'DTD: Coding requirements for document-type shells'
 description: 'A DTD-based document-type shell is organized into sections. Each section contains entity declarations that follow specific coding rules.'
 index: '../../toc.html'
@@ -12,8 +12,8 @@ classes: ''
 
 <nav class="toc" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction</a></li><li><a href="../../archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="../../archSpec/base/accessibility-and-translation.html">Accessibility and translation</a></li><li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a></li><li><a href="../../langRef/langRef-base.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a><ul class="nav nav-list"><li><a href="../../non-normative/file-naming-conventions.html">File naming conventions</a></li><li><a href="../../archSpec/base/dtd-requirements.html">DTD coding requirements</a><ul class="nav nav-list"><li><a href="../../archSpec/base/dtd-coding-overview.html">DTD: Use of entities</a></li><li class="active"><a href="../../archSpec/base/dtd-coding-doctype-shell.html">DTD: Coding requirements for document-type shells</a></li><li><a href="../../archSpec/base/dtd-coding-element-types.html">DTD: Coding requirements for structural and element-domain modules</a></li><li><a href="../../archSpec/base/dtd-coding-structural-modules.html">DTD: Coding requirements for structural modules</a></li><li><a href="../../archSpec/base/dtd-coding-element-domains.html">DTD: Coding requirements for element-domain modules</a></li><li><a href="../../archSpec/base/dtd-coding-attribute-domains.html">DTD: Coding requirements for attribute-domain modules</a></li><li><a href="../../archSpec/base/dtd-coding-requirements-for-element-configuration-modules.html">DTD: Coding requirements for element-configuration modules</a></li></ul></li><li><a href="../../archSpec/base/relax-ng-requirements.html">RELAX NG coding requirements</a></li></ul></li><li><a href="../../non-normative/developing-constraint-and-expansion-modules.html">Constraint modules</a></li><li><a href="../../non-normative/expansion-modules.html">Expansion modules</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../non-normative/formatting-expectations.html">Formatting expectations</a></li><li><a href="../../non-normative/migrating-to-dita-2.0.html">Migrating to DITA 2.0</a></li><li><a href="../../non-normative/basedoctypes.html">OASIS grammar files</a></li><li><a href="../../non-normative/interoperability-considerations.html">Processing interoperability considerations</a></li><li><a href="../../non-normative/revision-history.html">Revision history</a></li></ul></nav><main role="main" class=""><article role="article" aria-labelledby="ariaid-title1">
     <h1 class="title topictitle1" id="ariaid-title1">DTD: Coding requirements for document-type shells</h1>
-    
-    
+
+
     <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">A DTD-based document-type shell is organized into sections.
     Each section contains entity declarations that follow specific coding
     rules.</p>
@@ -61,9 +61,9 @@ classes: ''
       a pattern. These patterns help ensure that the shell follows XML
       parsing rules for DTDs. They also establish a modular design that
       simplifies creation of new document-type shells.</p>
-        
+
         <dl class="dl">
-            
+
                 <dt class="dt dlterm" id="shell-dtd-coding-reqs__topic-map-entity-declarations"> Topic [or map] entity declarations </dt>
                 <dd class="dd">
                     <p class="p">This section declares and references an external parameter entity for each of
@@ -88,14 +88,14 @@ classes: ''
 &lt;!--              TOPIC ENTITY DECLARATIONS                        --&gt;
 &lt;!-- ============================================================= --&gt;
 
-&lt;!ENTITY % concept-dec     
-  PUBLIC "-//OASIS//ENTITIES DITA 2.0 Concept//EN" 
+&lt;!ENTITY % concept-dec
+  PUBLIC "-//OASIS//ENTITIES DITA 2.0 Concept//EN"
          "concept.ent"
 &gt;%concept-dec;</code></pre>
                     </div>
                 </dd>
-            
-            
+
+
                 <dt class="dt dlterm" id="shell-dtd-coding-reqs__domain-constraint-integration">Domain constraint integration</dt>
                 <dd class="dd">
                     <p class="p">This section declares and references an external parameter entity for each
@@ -111,14 +111,14 @@ classes: ''
 &lt;!--                    DOMAIN CONSTRAINT INTEGRATION              --&gt;
 &lt;!-- ============================================================= --&gt;
 
-&lt;!ENTITY % HighlightingDomain-c-dec  
-  PUBLIC "-//ACME//ENTITIES DITA Highlighting Domain Constraint//EN" 
+&lt;!ENTITY % HighlightingDomain-c-dec
+  PUBLIC "-//ACME//ENTITIES DITA Highlighting Domain Constraint//EN"
   "acme-HighlightingDomainConstraint.mod"
 &gt;%basic-HighlightingDomain-c-dec;</code></pre>
                     </div>
                 </dd>
-            
-            
+
+
                 <dt class="dt dlterm" id="shell-dtd-coding-reqs__domain-entity-declarations"> Domain entity declarations </dt>
                 <dd class="dd">
                     <p class="p">This section declares and references an external parameter entity for each
@@ -133,13 +133,13 @@ classes: ''
 &lt;!-- ============================================================= --&gt;
 
 &lt;!ENTITY % hi-d-dec PUBLIC
-    "-//OASIS//ENTITIES DITA 2.0 Highlight Domain//EN" 
+    "-//OASIS//ENTITIES DITA 2.0 Highlight Domain//EN"
     "highlightDomain.ent"
 &gt;%hi-d-dec;</code></pre>
                     </div>
                 </dd>
-            
-            
+
+
                 <dt class="dt dlterm" id="shell-dtd-coding-reqs__domain-attributes-declarations"> Domain attributes declarations </dt>
                 <dd class="dd">
                     <p class="p">This section declares and references an external parameter entity for each
@@ -160,8 +160,8 @@ classes: ''
 &gt;%deliveryTargetAtt-d-dec;</code></pre>
                     </div>
                 </dd>
-            
-            
+
+
                 <dt class="dt dlterm" id="shell-dtd-coding-reqs__domain-extensions"> Domain extensions </dt>
                 <dd class="dd">
                     <p class="p">This section declares and references a parameter
@@ -180,14 +180,14 @@ classes: ''
 &lt;!-- ============================================================= --&gt;
 
 &lt;!ENTITY % pre
-    "pre        | 
-     %pr-d-pre; | 
-     %sw-d-pre; | 
+    "pre        |
+     %pr-d-pre; |
+     %sw-d-pre; |
      %ui-d-pre;"&gt;</code></pre>
                     </div>
                 </dd>
-            
-            
+
+
                 <dt class="dt dlterm" id="shell-dtd-coding-reqs__domain-attribute-extensions"> Domain attribute extensions </dt>
                 <dd class="dd">
                     <p class="p">This section redefines the parameter entity for each attribute domain that is
@@ -205,16 +205,16 @@ classes: ''
 &lt;!-- ============================================================= --&gt;
 
 &lt;!ENTITY % base-attribute-extensions
-        "%newfrombaseAtt-d-attribute; 
+        "%newfrombaseAtt-d-attribute;
          %othernewfrombaseAtt-d-attribute;"&gt;
 
 &lt;!ENTITY % props-attribute-extensions
-        "%newAtt-d-attribute; 
+        "%newAtt-d-attribute;
          %othernewAtt-d-attribute;"&gt;</code></pre>
                     </div>
                 </dd>
-            
-            
+
+
                 <dt class="dt dlterm" id="shell-dtd-coding-reqs__topic-nesting-overrides"> Topic nesting override </dt>
                 <dd class="dd">
                     <p class="p">This section redefines the entity that controls topic nesting for each topic
@@ -237,8 +237,8 @@ classes: ''
 &lt;!ENTITY % concept-info-types "concept | myTopicType"&gt;</code></pre>
                     </div>
                 </dd>
-            
-            
+
+
                 <dt class="dt dlterm" id="shell-dtd-coding-reqs__domains-attribute-override"> Specializations attribute override </dt>
                 <dd class="dd">
                     <p class="p">This section redefines the <code class="ph codeph">included-domains</code> entity to
@@ -262,8 +262,8 @@ classes: ''
 &gt;</code></pre>
                     </div>
                 </dd>
-            
-            
+
+
                 <dt class="dt dlterm" id="shell-dtd-coding-reqs__content-constraint-integration"><span class="ph">Element-type configuration integration</span></dt>
                 <dd class="dd">
                     <p class="p">This section declares and references the parameter
@@ -276,14 +276,14 @@ classes: ''
                         <p class="p">In the following example, the module that constrains the content model
                             for the <code class="keyword markupname xmlelement">&lt;taskbody&gt;</code> element is integrated into the
                             document-type shell for strict task:</p>
-                        <pre class="pre codeblock"><code>&lt;!ENTITY % strictTaskbody-c-def  
-  PUBLIC "-//OASIS//ELEMENTS DITA 2.0 Strict Taskbody Constraint//EN" 
+                        <pre class="pre codeblock"><code>&lt;!ENTITY % strictTaskbody-c-def
+  PUBLIC "-//OASIS//ELEMENTS DITA 2.0 Strict Taskbody Constraint//EN"
   "strictTaskbodyConstraint.mod"
 &gt;%strictTaskbody-c-def;</code></pre>
                     </div>
                 </dd>
-            
-            
+
+
                 <dt class="dt dlterm" id="shell-dtd-coding-reqs__topic-map-element-integration"> Topic [or map] element integration </dt>
                 <dd class="dd">
                     <p class="p">This section declares and references <span class="ph">an external
@@ -323,14 +323,14 @@ classes: ''
 &gt;%troubleshooting-type;</code></pre>
                     </div>
                 </dd>
-            
-            
+
+
                 <dt class="dt dlterm" id="shell-dtd-coding-reqs__domain-element-integration"> Domain element integration </dt>
                 <dd class="dd">
                     <p class="p">This section declares and references <span style="color:red;" class="ph">an external</span> parameter entity for each
             element domain that is integrated into the document-type
             shell.</p>
-                    
+
                     <p class="p">The parameter entity is named
                             <code class="ph codeph"><var class="keyword varname">domainName</var>-def</code>.</p>
                     <div class="example non-normative" id="shell-dtd-coding-reqs__d190433e681"><h2 class="title sectiontitle">Example</h2><p class="non-normative-label">This section is non-normative.</p>
@@ -341,7 +341,7 @@ classes: ''
 &lt;!-- ============================================================= --&gt;
 
 &lt;!ENTITY % hi-d-def PUBLIC
-    "-//OASIS//ELEMENTS DITA 2.0 Highlight Domain//EN" 
+    "-//OASIS//ELEMENTS DITA 2.0 Highlight Domain//EN"
     "highlightDomain.mod"
 &gt;%hi-d-def;</code></pre>
                     </div>
@@ -352,7 +352,7 @@ classes: ''
                         the only solid requirement is that both domain and structural modules be
                         declared after all other modules that they specialize from or depend on.</p>
                 </dd>
-            
+
         </dl>
     </div>
 <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/dtd-requirements.html" title="This section explains how to implement DTD-based document-type shells, specializations, and element-configuration modules (constraint and expansion).">DTD coding requirements</a></div></div></nav><aside class="section-toc" role="aside"></aside></article></main>

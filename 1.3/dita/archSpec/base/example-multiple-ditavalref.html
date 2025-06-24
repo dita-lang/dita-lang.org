@@ -1,6 +1,6 @@
 ---
 # Generated from DITA source
-layout: base
+layout: base.njk
 title: 'Example: Multiple ditavalref elements on a branch'
 description: 'Multiple ditavalref elements can be used on a single map branch to create multiple distinct copies of the branch.'
 index: '../../toc.html'
@@ -12,7 +12,7 @@ classes: ''
 
 <nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a><ul class="nav nav-list"><li><a href="../../archSpec/base/introduction-to-dita.html">Introduction to DITA</a></li><li><a href="../../archSpec/base/ditamarkup.html">DITA markup </a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a><ul class="nav nav-list"><li><a href="../../archSpec/base/navigation.html">Navigation</a></li><li><a href="../../archSpec/base/conref.html">Content reference (conref)</a></li><li><a href="../../archSpec/base/condproc.html">Conditional processing (profiling)</a></li><li><a href="../../archSpec/base/branch-filtering.html">Branch filtering</a><ul class="nav nav-list"><li><a href="../../archSpec/base/branch-filtering-overview.html">Overview of branch filtering</a></li><li><a href="../../archSpec/base/branch-filtering-single-set.html">Branch filtering: Single condition set for a branch</a></li><li><a href="../../archSpec/base/branch-filtering-multiple-sets.html">Branch filtering: Multiple condition sets for a branch</a></li><li><a href="../../archSpec/base/branch-filtering-resource-names.html">Branch filtering: Impact on resource and key names</a></li><li><a href="../../archSpec/base/branch-filtering-implications-of-processing-order.html">Branch filtering: Implications of processing order</a></li><li><a href="../../archSpec/base/examples-of-branch-filter.html">Examples of branch filtering</a><ul class="nav nav-list"><li><a href="../../archSpec/base/example-single-ditavalref-on-branch.html">Example: Single ditavalref on a branch</a></li><li class="active"><a href="../../archSpec/base/example-multiple-ditavalref.html">Example: Multiple ditavalref elements on a branch</a></li><li><a href="../../archSpec/base/example-ditavalref-as-child-of-map.html">Example: Single ditavalref as a child of map</a></li><li><a href="../../archSpec/base/example-ditavalref-with-mapref.html">Example: Single ditavalref in a reference to a map</a></li><li><a href="../../archSpec/base/example-multiple-ditavalref-as-child-of-map.html">Example: Multiple ditavalref elements as children of map in a root map</a></li><li><a href="../../archSpec/base/example-multiple-ditavalref-with-mapref.html">Example: Multiple ditavalref elements in a reference to a map</a></li><li><a href="../../archSpec/base/example-ditavalref-in-filtered-branch.html">Example: ditavalref within a branch that already uses ditavalref</a></li><li><a href="../../archSpec/base/example-ditavalref-error-conditions.html">Example: ditavalref error conditions</a></li></ul></li></ul></li><li><a href="../../archSpec/base/chunking.html">Chunking</a></li><li><a href="../../archSpec/base/translation.html">Translation and localization</a></li><li><a href="../../archSpec/base/module-compatibility.html">Processing documents with different values of the domains attribute</a></li><li><a href="../../archSpec/base/sort-as-processing.html">Sorting</a></li></ul></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration, specialization, generalization, and constraints </a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../archSpec/technicalContent/technical-content-specializations.html">Technical content specializations</a></li><li><a href="../../archSpec/learningTraining/learning-and-training-specializations.html">Learning and training specializations</a></li></ul></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9 non-normative"><article role="article" aria-labelledby="ariaid-title1">
   <h1 class="title topictitle1" id="ariaid-title1">Example: Multiple <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> elements on a branch</h1>
-  
+
   <div class="body conbody"><p class="shortdesc">Multiple <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> elements can be used on a single map
     branch to create multiple distinct copies of the branch.</p>
     <div class="example non-normative" id="example-multiple-ditavalref__mutltiple-ditavalref-create-multiple-branches"><h2 class="title sectiontitle">Example</h2>
@@ -24,7 +24,7 @@ classes: ''
           are constructed for two copies of the branch; one copy (based on the conditions in
             <span class="ph filepath">win.ditaval</span>) is left with the original file names.</span></p>
       <figure class="fig fignone" id="example-multiple-ditavalref__fig_gmm_phj_ln"><figcaption><span class="fig--title-label">Figure 1. </span><span class="ph filepath">input.ditamap</span></figcaption>
-        
+
         <pre class="pre codeblock"><code>&lt;map&gt;
   &lt;topicref href="intro.dita"/&gt;
   <strong class="ph b">&lt;!-- Begining of installing branch --&gt;</strong>
@@ -50,21 +50,21 @@ classes: ''
 &lt;/map&gt;</code></pre>
       </figure>
       <figure class="fig fignone" id="example-multiple-ditavalref__fig_fsm_phj_ln"><figcaption><span class="fig--title-label">Figure 2. </span>Contents of <span class="ph filepath">win.ditaval</span></figcaption>
-        
+
         <pre class="pre codeblock"><code>&lt;val&gt;
   &lt;prop att="platform" val="win" action="include"/&gt;
   &lt;prop att="platform" action="exclude"/&gt;
 &lt;/val&gt;</code></pre>
       </figure>
       <figure class="fig fignone" id="example-multiple-ditavalref__fig_dym_phj_ln"><figcaption><span class="fig--title-label">Figure 3. </span>Contents of <span class="ph filepath">mac.ditaval</span></figcaption>
-        
+
         <pre class="pre codeblock"><code>&lt;val&gt;
   &lt;prop att="platform" val="mac" action="include"/&gt;
   &lt;prop att="platform" action="exclude"/&gt;
 &lt;/val&gt;</code></pre>
       </figure>
       <figure class="fig fignone" id="example-multiple-ditavalref__fig_d2n_phj_ln"><figcaption><span class="fig--title-label">Figure 4. </span>Contents of <span class="ph filepath">linux.ditaval</span></figcaption>
-        
+
         <pre class="pre codeblock"><code>&lt;val&gt;
   &lt;prop att="platform" val="linux" action="include"/&gt;
   &lt;prop att="platform" action="exclude"/&gt;
@@ -113,7 +113,7 @@ classes: ''
         branch in a map; the following map is functionally equivalent, but it requires parallel
         maintenance of each branch.</p>
       <figure class="fig fignone" id="example-multiple-ditavalref__fig_akn_phj_ln"><figcaption><span class="fig--title-label">Figure 5. </span><span class="ph filepath">input.ditamap</span></figcaption>
-        
+
         <pre class="pre codeblock"><code>&lt;map&gt;
   &lt;topicref href="intro.dita"/&gt;
   <strong class="ph b">&lt;!-- Windows installing branch --&gt;</strong>

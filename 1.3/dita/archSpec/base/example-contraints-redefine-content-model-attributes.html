@@ -1,6 +1,6 @@
 ---
 # Generated from DITA source
-layout: base
+layout: base.njk
 title: 'Example: Constrain attributes for the section element'
 description: 'In this scenario, an information architect wants to redefine the attributes for the section element. He wants to make the id attribute required and omit the spectitle attribute.'
 index: '../../toc.html'
@@ -12,8 +12,8 @@ classes: ''
 
 <nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a><ul class="nav nav-list"><li><a href="../../archSpec/base/introduction-to-dita.html">Introduction to DITA</a></li><li><a href="../../archSpec/base/ditamarkup.html">DITA markup </a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration, specialization, generalization, and constraints </a><ul class="nav nav-list"><li><a href="../../archSpec/base/ditaspecialization.html">Overview of DITA extension facilities</a></li><li><a href="../../archSpec/base/configuration.html">Configuration</a></li><li><a href="../../archSpec/base/specialization.html">Specialization</a></li><li><a href="../../archSpec/base/generalization.html">Generalization</a></li><li><a href="../../archSpec/base/constraints.html">Constraints</a><ul class="nav nav-list"><li><a href="../../archSpec/base/constraints-overview.html">Overview of constraints</a></li><li><a href="../../archSpec/base/constraint-rules.html">Constraint rules</a></li><li><a href="../../archSpec/base/constraints-processing-interoperability.html">Constraints, processing, and interoperability</a></li><li><a href="../../archSpec/base/constraints-strong-and-weak.html">Weak and strong constraints</a></li><li><a href="../../archSpec/base/constraints-conref-compatibility.html">Conref compatibility with constraints</a></li><li><a href="../../archSpec/base/examples-constraints.html">Examples: Constraints</a><ul class="nav nav-list"><li><a href="../../archSpec/base/example-contraints-redefine-content-model.html">Example: Redefine the content model for the topic element</a></li><li class="active"><a href="../../archSpec/base/example-contraints-redefine-content-model-attributes.html">Example: Constrain attributes for the section element</a></li><li><a href="../../archSpec/base/example-contraints-subset-domain.html">Example: Constrain a domain module</a></li><li><a href="../../archSpec/base/example-contraints-replace-base-element-w-domain-extensions.html">Example: Replace a base element with the domain extensions</a></li><li><a href="../../archSpec/base/example-contraints-apply-multiple-constraints.html">Example: Apply multiple constraints to a single document-type shell</a></li><li><a href="../../archSpec/base/example-contraints-correct-machinery-task-constraint.html">Example: Correct the constraint for the machinery task</a></li></ul></li></ul></li></ul></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../archSpec/technicalContent/technical-content-specializations.html">Technical content specializations</a></li><li><a href="../../archSpec/learningTraining/learning-and-training-specializations.html">Learning and training specializations</a></li></ul></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9 non-normative"><article role="article" aria-labelledby="ariaid-title1">
   <h1 class="title topictitle1" id="ariaid-title1">Example: Constrain attributes for the <code class="keyword markupname xmlelement">&lt;section&gt;</code> element</h1>
-  
-  
+
+
   <div class="body conbody"><p class="shortdesc">In this scenario, an information architect wants to <span class="ph">redefine
       the attributes</span> for the <code class="keyword markupname xmlelement">&lt;section&gt;</code> element. He wants to make the
       <code class="keyword markupname xmlatt">@id</code> attribute required and omit the <code class="keyword markupname xmlatt">@spectitle</code>
@@ -27,13 +27,13 @@ classes: ''
 &lt;!--                    CONSTRAINED TOPIC ENTITIES                 --&gt;
 &lt;!-- ============================================================= --&gt;
 
-&lt;!ENTITY section-constraints     
+&lt;!ENTITY section-constraints
   "(topic idRequired-section-c)"
 &gt;
 
 &lt;!-- Declares the entities referenced in the constrained content  --&gt;
 &lt;!-- model.                                                       --&gt;
-&lt;!ENTITY % conref-atts 
+&lt;!ENTITY % conref-atts
              'conref    CDATA #IMPLIED
               conrefend CDATA #IMPLIED
               conaction (mark|pushafter|pushbefore|pushreplace|-dita-use-conref-target) #IMPLIED
@@ -45,15 +45,15 @@ classes: ''
               audience   CDATA #IMPLIED
               otherprops CDATA #IMPLIED
               %props-attribute-extensions;' &gt;
-&lt;!ENTITY % select-atts 
+&lt;!ENTITY % select-atts
              '%filter-atts;
               base      CDATA #IMPLIED
               %base-attribute-extensions;
-              importance (default|deprecated|high|low|normal|obsolete|optional| 
+              importance (default|deprecated|high|low|normal|obsolete|optional|
                           recommended|required|urgent|-dita-use-conref-target) #IMPLIED
               rev       CDATA #IMPLIED
               status     (changed|deleted|unchanged|-dita-use-conref-target) #IMPLIED' &gt;
-&lt;!ENTITY % localization-atts 
+&lt;!ENTITY % localization-atts
              'translate (no|yes|-dita-use-conref-target) #IMPLIED
               xml:lang CDATA #IMPLIED
               dir      (lro|ltr|rlo|rtl|-dita-use-conref-target) #IMPLIED' &gt;
@@ -62,7 +62,7 @@ classes: ''
 &lt;!-- included %univ-atts;, spectitle, and outputclass; now includes--&gt;
 &lt;!-- individual pieces of univ-atts, to make ID required.          --&gt;
 
-&lt;!ENTITY % section.attributes 
+&lt;!ENTITY % section.attributes
           "id          CDATA   #REQUIRED
            %conref-atts;
            %select-atts;
@@ -89,5 +89,5 @@ classes: ''
       </ol>
     </div>
   </div>
-  
+
 <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/examples-constraints.html" title="This section of the specification contains examples and scenarios. They illustrate a variety of ways that constraints can be used; they also provide examples of the DTD coding requirements for constraints and how constraints are integrated into document-type shells.">Examples: Constraints</a></div></div></nav></article></main>

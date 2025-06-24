@@ -1,6 +1,6 @@
 ---
 # Generated from DITA source
-layout: base
+layout: base.njk
 title: 'DTD: Coding requirements for constraint modules'
 description: 'A structural constraint module defines the constraints for a map or topic element type. A domain constraint module defines the constraints for an element or attribute domain.'
 index: '../../toc.html'
@@ -12,16 +12,16 @@ classes: ''
 
 <nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a><ul class="nav nav-list"><li><a href="../../archSpec/base/introduction-to-dita.html">Introduction to DITA</a></li><li><a href="../../archSpec/base/ditamarkup.html">DITA markup </a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration, specialization, generalization, and constraints </a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a><ul class="nav nav-list"><li><a href="../../archSpec/base/recognizedconstraintmechanisms.html">Recognized XML-document grammar mechanisms</a></li><li><a href="../../archSpec/base/using-relax-ng.html">Normative versions of DITA grammar files</a></li><li><a href="../../archSpec/base/dtd-requirements.html">DTD coding requirements</a><ul class="nav nav-list"><li><a href="../../archSpec/base/dtd-coding-overview.html">DTD: Overview of coding requirements</a></li><li><a href="../../archSpec/base/dtd-coding-doctype-shell.html">DTD: Coding requirements for document-type shells</a></li><li><a href="../../archSpec/base/dtd-coding-element-types.html">DTD: Coding requirements for element type declarations</a></li><li><a href="../../archSpec/base/dtd-coding-structural-modules.html">DTD: Coding requirements for structural modules</a></li><li><a href="../../archSpec/base/dtd-coding-element-domains.html">DTD: Coding requirements for element domain modules</a></li><li><a href="../../archSpec/base/dtd-coding-attribute-domains.html">DTD: Coding requirements for attribute domain modules</a></li><li class="active"><a href="../../archSpec/base/dtd-coding-constraint-modules.html">DTD: Coding requirements for constraint modules</a></li></ul></li><li><a href="../../archSpec/base/relax-ng-requirements.html">RELAX NG coding requirements</a></li><li><a href="../../archSpec/base/xsd-requirements.html">XML Schema coding requirements</a></li></ul></li><li><a href="../../archSpec/technicalContent/technical-content-specializations.html">Technical content specializations</a></li><li><a href="../../archSpec/learningTraining/learning-and-training-specializations.html">Learning and training specializations</a></li></ul></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
   <h1 class="title topictitle1" id="ariaid-title1">DTD: Coding requirements for constraint modules</h1>
-  
-  
+
+
   <div class="body conbody"><p class="shortdesc">A structural constraint module defines the constraints for a map or topic element type.
     A domain constraint module defines the constraints for an element or attribute
     domain.</p>
     <section class="section" id="constraintsDomainDesignPattern-dtd__structural"><h2 class="title sectiontitle">Structural constraint modules</h2>
-      
+
       <p class="p">Structural constraint modules have the following requirements:</p>
       <dl class="dl">
-        
+
           <dt class="dt dlterm"><code class="keyword markupname xmlatt">@domains</code> contribution entity name and value</dt>
           <dd class="dd">The constraint module should contain a declaration for a text entity with the name
                 <code class="ph codeph"><var class="keyword varname">tagname</var>-constraints</code>, where
@@ -31,11 +31,11 @@ classes: ''
             for details on how to construct this value. <div class="p">For example, the
               following text entity provides the declaration for the strict task constraint that is
               shipped with the DITA
-              standard.<pre class="pre codeblock"><code>&lt;!ENTITY taskbody-constraints     
+              standard.<pre class="pre codeblock"><code>&lt;!ENTITY taskbody-constraints
   "(topic task strictTaskbody-c)"
 &gt;</code></pre></div></dd>
-        
-        
+
+
           <dt class="dt dlterm">The <code class="ph codeph"><var class="keyword varname">tagname</var>.attributes</code> parameter entity</dt>
           <dd class="dd">
             <p class="p">When the attribute set for an element is constrained, there <span class="ph">must</span> be a declaration of the
@@ -45,13 +45,13 @@ classes: ''
               entity defines a constrained set of attributes for the <code class="keyword markupname xmlelement">&lt;note&gt;</code>
               element that removes most of the values defined for <code class="keyword markupname xmlatt">@type</code>, and also
               removes <code class="keyword markupname xmlatt">@spectitle</code> and <code class="keyword markupname xmlatt">@othertype</code>:</p>
-            <pre class="pre codeblock"><code>&lt;!ENTITY % note.attributes  
+            <pre class="pre codeblock"><code>&lt;!ENTITY % note.attributes
        "type  (attention | caution | note ) #IMPLIED
         %univ-atts;
         outputclass  CDATA  #IMPLIED"&gt;</code></pre>
           </dd>
-        
-        
+
+
           <dt class="dt dlterm">The <code class="ph codeph"><var class="keyword varname">tagname</var>.content</code> parameter entity</dt>
           <dd class="dd">
             <p class="p"><span class="ph">When the content model for an element is constrained,</span>
@@ -61,24 +61,24 @@ classes: ''
             <div class="p">For example, the following parameter entity defines a more
               restricted content model for <code class="keyword markupname xmlelement">&lt;topic&gt;</code>, in which the
                 <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code> element is
-              required.<pre class="pre codeblock"><code>&lt;!ENTITY % topic.content 
+              required.<pre class="pre codeblock"><code>&lt;!ENTITY % topic.content
 
-  "((%title;), 
-    (%titlealts;)?, 
-    (%shortdesc;), 
-    (%prolog;)?, 
-    (%body;)?, 
+  "((%title;),
+    (%titlealts;)?,
+    (%shortdesc;),
+    (%prolog;)?,
+    (%body;)?,
     (%topic-info-types;)*)"
 &gt;</code></pre></div>
           </dd>
-        
+
       </dl>
     </section>
     <section class="section" id="constraintsDomainDesignPattern-dtd__domain"><h2 class="title sectiontitle">Domain constraint modules</h2>
-      
+
       <p class="p">Domain constraint modules have the following requirements:</p>
       <dl class="dl">
-        
+
           <dt class="dt dlterm"><code class="keyword markupname xmlatt">@domains</code> contribution entity name and value</dt>
           <dd class="dd">
             <p class="p">The constraint module should contain a declaration for a text entity with the name
@@ -90,12 +90,12 @@ classes: ''
               construct this value. </p>
             <p class="p">For example, the following text entity provides
               the declaration for a constraint module that restricts the highlighting domain:</p>
-            <pre class="pre codeblock"><code>&lt;!ENTITY HighlightingDomain-constraints     
+            <pre class="pre codeblock"><code>&lt;!ENTITY HighlightingDomain-constraints
   "(topic hi-d basic-HighlightingDomain-c)"
 &gt;</code></pre>
           </dd>
-        
-        
+
+
           <dt class="dt dlterm">Parameter entity</dt>
           <dd class="dd">
             <p class="p"><span class="ph">When the set of extension elements are restricted, there
@@ -106,11 +106,11 @@ classes: ''
             <pre class="pre codeblock"><code>
 &lt;!ENTITY % HighlightingDomain-c-ph     "b | i"  &gt;</code></pre>
           </dd>
-        
+
       </dl>
     </section>
     <section class="section" id="constraintsDomainDesignPattern-dtd__remove-base-element"><h2 class="title sectiontitle">Constraining to replace a base element with domain extensions</h2>
-      
+
       <p class="p">When element domains are used to extend a base element, those extensions can be used to
         replace the base element. This form of constraint is done inside the document-type
         shell.</p>
@@ -127,8 +127,8 @@ classes: ''
           <code class="keyword markupname xmlelement">&lt;pre&gt;</code> but not <code class="keyword markupname xmlelement">&lt;pre&gt;</code> itself. This omission
         would require the use of a <code class="keyword markupname xmlatt">@domains</code> contribution token within the
           <code class="ph codeph">included-domains</code> entity.<pre class="pre codeblock"><code>&lt;!ENTITY % pre
-    "%pr-d-pre; | 
-     %sw-d-pre; | 
+    "%pr-d-pre; |
+     %sw-d-pre; |
      %ui-d-pre;"&gt;</code></pre></div>
     </section>
   </div>

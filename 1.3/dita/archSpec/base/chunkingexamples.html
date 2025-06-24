@@ -1,6 +1,6 @@
 ---
 # Generated from DITA source
-layout: base
+layout: base.njk
 title: 'Chunking examples'
 description: 'The following examples cover many common chunking scenarios, such as splitting one document into many rendered objects or merging many documents into one rendered object.'
 index: '../../toc.html'
@@ -12,7 +12,7 @@ classes: ''
 
 <nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a><ul class="nav nav-list"><li><a href="../../archSpec/base/introduction-to-dita.html">Introduction to DITA</a></li><li><a href="../../archSpec/base/ditamarkup.html">DITA markup </a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a><ul class="nav nav-list"><li><a href="../../archSpec/base/navigation.html">Navigation</a></li><li><a href="../../archSpec/base/conref.html">Content reference (conref)</a></li><li><a href="../../archSpec/base/condproc.html">Conditional processing (profiling)</a></li><li><a href="../../archSpec/base/branch-filtering.html">Branch filtering</a></li><li><a href="../../archSpec/base/chunking.html">Chunking</a><ul class="nav nav-list"><li><a href="../../archSpec/base/chunkingdetails.html">Using the chunk attribute</a></li><li class="active"><a href="../../archSpec/base/chunkingexamples.html">Chunking examples</a></li></ul></li><li><a href="../../archSpec/base/translation.html">Translation and localization</a></li><li><a href="../../archSpec/base/module-compatibility.html">Processing documents with different values of the domains attribute</a></li><li><a href="../../archSpec/base/sort-as-processing.html">Sorting</a></li></ul></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration, specialization, generalization, and constraints </a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../archSpec/technicalContent/technical-content-specializations.html">Technical content specializations</a></li><li><a href="../../archSpec/learningTraining/learning-and-training-specializations.html">Learning and training specializations</a></li></ul></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
    <h1 class="title topictitle1" id="ariaid-title1">Chunking examples</h1>
-   
+
    <div class="body conbody"><p class="shortdesc">The following examples cover many common chunking scenarios, such as splitting one
       document into many rendered objects or merging many documents into one rendered
       object.</p>
@@ -58,31 +58,31 @@ classes: ''
             </ul></div>
          <ol class="ol" id="chunkingexamples__ol_ecc1e554-0573-4210-be1d-610940157305">
             <li class="li" id="chunkingexamples__singlechunk">The following map causes the entire map to generate a single output
-               chunk.<pre class="pre codeblock"><code>&lt;map chunk="to-content"&gt; 
-   &lt;topicref href="parent1.dita"&gt; 
-      &lt;topicref href="child1.dita"/&gt; 
-      &lt;topicref href="child2.dita"/&gt; 
-   &lt;/topicref&gt; 
+               chunk.<pre class="pre codeblock"><code>&lt;map chunk="to-content"&gt;
+   &lt;topicref href="parent1.dita"&gt;
+      &lt;topicref href="child1.dita"/&gt;
+      &lt;topicref href="child2.dita"/&gt;
+   &lt;/topicref&gt;
 &lt;/map&gt; </code></pre></li>
             <li class="li" id="chunkingexamples__multiplechunks">The following map will generate a separate chunk for every topic
                in every document referenced by the map. In this case, it will result in the topics
                   <span class="ph filepath">P1.xxxx</span>, <span class="ph filepath">N1.xxxx</span>, and
-                  <span class="ph filepath">N1a.xxxx</span>.<pre class="pre codeblock"><code>&lt;map chunk="by-topic"&gt; 
-   &lt;topicref href="parent1.dita"&gt; 
-      &lt;topicref href="nested1.dita"/&gt; 
-   &lt;/topicref&gt; 
+                  <span class="ph filepath">N1a.xxxx</span>.<pre class="pre codeblock"><code>&lt;map chunk="by-topic"&gt;
+   &lt;topicref href="parent1.dita"&gt;
+      &lt;topicref href="nested1.dita"/&gt;
+   &lt;/topicref&gt;
 &lt;/map&gt; </code></pre></li>
             <li class="li" id="chunkingexamples__twochunks">The following map will generate two chunks:
                   <span class="ph filepath">parent1.xxxx</span> will contain only topic P1, while
                   <span class="ph filepath">child1.xxxx</span> will contain topic C1, with topics GC1 and GC2
                nested within
-               C1.<pre class="pre codeblock"><code>&lt;map&gt; 
-   &lt;topicref href="parent1.dita"&gt; 
-      &lt;topicref href="child1.dita" chunk="to-content"&gt; 
+               C1.<pre class="pre codeblock"><code>&lt;map&gt;
+   &lt;topicref href="parent1.dita"&gt;
+      &lt;topicref href="child1.dita" chunk="to-content"&gt;
         &lt;topicref href="grandchild1.dita"/&gt;
         &lt;topicref href="grandchild2.dita"/&gt;
       &lt;/topicref&gt;
-   &lt;/topicref&gt; 
+   &lt;/topicref&gt;
 &lt;/map&gt; </code></pre></li>
             <li class="li" id="chunkingexamples__selectingtopics">The following map breaks down portions of
                   <span class="ph filepath">ditabase.dita</span> into three chunks. The first chunk
@@ -102,87 +102,87 @@ classes: ''
             <li class="li" id="chunkingexamples__singleparent">The following map will produce a single output chunk named
                   <span class="ph filepath">parent1.xxxx</span>, containing topic P1, with topic Y1 nested
                within P1, but without topic
-               Y1a.<pre class="pre codeblock"><code>&lt;map chunk="by-document"&gt; 
-   &lt;topicref href="parent1.dita" chunk="to-content"&gt; 
-      &lt;topicref href="ditabase.dita#Y1" 
-         chunk="select-topic"/&gt; 
-   &lt;/topicref&gt; 
+               Y1a.<pre class="pre codeblock"><code>&lt;map chunk="by-document"&gt;
+   &lt;topicref href="parent1.dita" chunk="to-content"&gt;
+      &lt;topicref href="ditabase.dita#Y1"
+         chunk="select-topic"/&gt;
+   &lt;/topicref&gt;
 &lt;/map&gt; </code></pre></li>
             <li class="li" id="chunkingexamples__li_ip4_wry_qn">The following map will produce a single output chunk,
                   <span class="ph filepath">parent1.xxxx</span>, containing topic P1, topic Y1 nested within P1,
                and topic Y1a nested within
-               Y1.<pre class="pre codeblock"><code>&lt;map chunk="by-document"&gt; 
-   &lt;topicref href="parent1.dita" chunk="to-content"&gt; 
-      &lt;topicref href="ditabase.dita#Y1" 
-         chunk="select-branch"/&gt; 
-   &lt;/topicref&gt; 
+               Y1.<pre class="pre codeblock"><code>&lt;map chunk="by-document"&gt;
+   &lt;topicref href="parent1.dita" chunk="to-content"&gt;
+      &lt;topicref href="ditabase.dita#Y1"
+         chunk="select-branch"/&gt;
+   &lt;/topicref&gt;
 &lt;/map&gt; </code></pre></li>
             <li class="li" id="chunkingexamples__li_erk_xry_qn">The following map will produce a single output chunk,
                   <span class="ph filepath">P1.xxxx</span>. The topic P1 will be the root topic, and topics X,
                Y, and Z (together with their descendents) will be nested within topic
-               P1.<pre class="pre codeblock"><code>&lt;map chunk="by-topic"&gt; 
-   &lt;topicref href="parent1.dita" chunk="to-content"&gt; 
-      &lt;topicref href="ditabase.dita#Y1" 
-         chunk="select-document"/&gt; 
-   &lt;/topicref&gt; 
+               P1.<pre class="pre codeblock"><code>&lt;map chunk="by-topic"&gt;
+   &lt;topicref href="parent1.dita" chunk="to-content"&gt;
+      &lt;topicref href="ditabase.dita#Y1"
+         chunk="select-document"/&gt;
+   &lt;/topicref&gt;
 &lt;/map&gt; </code></pre></li>
             <li class="li" id="chunkingexamples__li_rkq_xry_qn">The following map will produce a single output chunk named
                   <span class="ph filepath">parentchunk.xxxx</span> containing topic P1 at the root. Topic N1
                will be nested within P1, and N1a will be nested within
-               N1.<pre class="pre codeblock"><code>&lt;map chunk="by-document"&gt; 
-   &lt;topicref href="parent1.dita" chunk="to-content" copy-to="parentchunk.dita"&gt; 
-      &lt;topicref href="nested1.dita" chunk="select-branch"/&gt; 
-   &lt;/topicref&gt; 
+               N1.<pre class="pre codeblock"><code>&lt;map chunk="by-document"&gt;
+   &lt;topicref href="parent1.dita" chunk="to-content" copy-to="parentchunk.dita"&gt;
+      &lt;topicref href="nested1.dita" chunk="select-branch"/&gt;
+   &lt;/topicref&gt;
 &lt;/map&gt; </code></pre></li>
             <li class="li" id="chunkingexamples__li_ihx_xry_qn">The following map will produce two output chunks. The first chunk
                named <span class="ph filepath">parentchunk.xxxx</span> will contain the topics P1, C1, C3, and
                GC3. The "to-content" token on the reference to <span class="ph filepath">child2.dita</span>
                causes that branch to begin a new chunk named <span class="ph filepath">child2chunk.xxxx</span>,
                which will contain topics C2 and
-               GC2.<pre class="pre codeblock"><code>&lt;map chunk="by-document"&gt; 
-   &lt;topicref href="parent1.dita" 
-      chunk="to-content" copy-to="parentchunk.dita"&gt; 
-      &lt;topicref href="child1.dita" chunk="select-branch"/&gt; 
-      &lt;topicref href="child2.dita" 
-         chunk="to-content select-branch" 
-         copy-to="child2chunk.dita"&gt; 
-         &lt;topicref href="grandchild2.dita"/&gt; 
-      &lt;/topicref&gt; 
-      &lt;topicref href="child3.dita"&gt; 
-         &lt;topicref href="grandchild3.dita" 
-            chunk="select-branch"/&gt; 
-      &lt;/topicref&gt; 
-   &lt;/topicref&gt; 
+               GC2.<pre class="pre codeblock"><code>&lt;map chunk="by-document"&gt;
+   &lt;topicref href="parent1.dita"
+      chunk="to-content" copy-to="parentchunk.dita"&gt;
+      &lt;topicref href="child1.dita" chunk="select-branch"/&gt;
+      &lt;topicref href="child2.dita"
+         chunk="to-content select-branch"
+         copy-to="child2chunk.dita"&gt;
+         &lt;topicref href="grandchild2.dita"/&gt;
+      &lt;/topicref&gt;
+      &lt;topicref href="child3.dita"&gt;
+         &lt;topicref href="grandchild3.dita"
+            chunk="select-branch"/&gt;
+      &lt;/topicref&gt;
+   &lt;/topicref&gt;
  &lt;/map&gt; </code></pre></li>
             <li class="li" id="chunkingexamples__li_mhf_yry_qn">The following map produces a single chunk named
                   <span class="ph filepath">nestedchunk.xxxx</span>, which contains topic N1 with no topics
                nested
-               within.<pre class="pre codeblock"><code>&lt;map&gt; 
-   &lt;topicref href="nested1.dita#N1" 
-             copy-to="nestedchunk.dita" 
-             chunk="to-content select-topic"/&gt; 
+               within.<pre class="pre codeblock"><code>&lt;map&gt;
+   &lt;topicref href="nested1.dita#N1"
+             copy-to="nestedchunk.dita"
+             chunk="to-content select-topic"/&gt;
 &lt;/map&gt; </code></pre></li>
             <li class="li" id="chunkingexamples__li_fzm_yry_qn">In DITA 1.3, the "to-navigation" chunk is deprecated. In earlier
                releases, the following map produced two navigation chunks, one for P1, C1, and the
                other topic references nested under <span class="ph filepath">parent1.dita</span>, and a second
                for P2, C2, and the other topic references nested under
-                  <span class="ph filepath">parent2.dita</span>.<pre class="pre codeblock"><code>&lt;map&gt; 
-    &lt;topicref href="parent1.dita" 
+                  <span class="ph filepath">parent2.dita</span>.<pre class="pre codeblock"><code>&lt;map&gt;
+    &lt;topicref href="parent1.dita"
           navtitle="How to set up a web server"
-          chunk="to-navigation"&gt; 
-       &lt;topicref href="child1.dita" 
-          chunk="select-branch"/&gt; 
+          chunk="to-navigation"&gt;
+       &lt;topicref href="child1.dita"
+          chunk="select-branch"/&gt;
        &lt;!-- ... --&gt;
-    &lt;/topicref&gt; 
-    &lt;topicref href="parent2.dita" 
+    &lt;/topicref&gt;
+    &lt;topicref href="parent2.dita"
           navtitle="How to ensure database security"
-          chunk="to-navigation"&gt; 
-       &lt;topicref href="child2.dita" 
-          chunk="select-branch"/&gt; 
+          chunk="to-navigation"&gt;
+       &lt;topicref href="child2.dita"
+          chunk="select-branch"/&gt;
        &lt;!-- ... --&gt;
-    &lt;/topicref&gt; 
+    &lt;/topicref&gt;
     &lt;!-- ... --&gt;
-&lt;/map&gt; 
+&lt;/map&gt;
   </code></pre></li>
          </ol>
       </div>
