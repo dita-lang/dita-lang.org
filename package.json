@@ -10,6 +10,9 @@
   "license": "Apache-2.0",
   "scripts": {
     "install": "PARCEL_WORKERS=0 parcel build _js/main.js --dist-dir js --public-url /js",
+    "build": "eleventy",
+    "serve": "eleventy --serve",
+    "dev": "npm run install && eleventy --serve",
     "check": "prettier --ignore-path .prettierignore --check \"**/*.{html,js,json,md,scss,ts,yaml,yml}\"",
     "fix:config": "prettier --ignore-path .prettierignore --write \"**/*.{json,yaml,yml}\"",
     "fix:docs": "prettier --ignore-path .prettierignore --write \"**/*.md\"",
@@ -20,6 +23,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@11ty/eleventy": "^2.0.1",
     "jquery": "^3.4.1",
     "lodash": "^4.17.15",
     "prismjs": "^1.29.0",
