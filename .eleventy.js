@@ -1,7 +1,6 @@
 module.exports = function(eleventyConfig) {
   // Copy static assets
-  eleventyConfig.addPassthroughCopy("css");
-  eleventyConfig.addPassthroughCopy("js");
+  eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("fonts");
   eleventyConfig.addPassthroughCopy("images");
   eleventyConfig.addPassthroughCopy("_redirects");
@@ -12,6 +11,7 @@ module.exports = function(eleventyConfig) {
   // Watch for changes in these directories
   eleventyConfig.addWatchTarget("css/");
   eleventyConfig.addWatchTarget("_js/");
+  eleventyConfig.addWatchTarget("assets/");
   
   // Global data
   eleventyConfig.addGlobalData("title", "DITA");
