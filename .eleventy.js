@@ -5,9 +5,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('images')
   eleventyConfig.addPassthroughCopy('_redirects')
 
-  // Copy plugin files
-  eleventyConfig.addPassthroughCopy('_plugin')
-
   // Watch for changes in these directories
   eleventyConfig.addWatchTarget('css/')
   eleventyConfig.addWatchTarget('_js/')
