@@ -16,7 +16,7 @@
 
   <xsl:param name="repository"/>
   <xsl:param name="commit"/>
-  <xsl:param name="layout" select="'base'" as="xs:string"/>
+  <xsl:param name="layout" select="'base.njk'" as="xs:string"/>
   <xsl:param name="root-chunk-override"/>
 
   <xsl:template match="/">
