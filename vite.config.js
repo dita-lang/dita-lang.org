@@ -14,6 +14,9 @@ export default defineConfig({
       },
       output: {
         assetFileNames: (assetInfo) => {
+          if (/CSS\.(css|scss)$/.test(assetInfo.name)) {
+            return `css/main.[ext]`
+          }
           if (/\.(css|scss)$/.test(assetInfo.name)) {
             return `css/[name].[ext]`
           }
@@ -23,7 +26,7 @@ export default defineConfig({
           return `[name].[ext]`
         },
         chunkFileNames: 'js/[name].[hash].js',
-        entryFileNames: 'js/[name].[hash].js',
+        entryFileNames: 'js/[name].js',
       },
     },
   },
