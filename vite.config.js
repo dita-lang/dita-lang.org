@@ -10,7 +10,7 @@ export default defineConfig({
         mainCSS: resolve(__dirname, 'css/main.scss'),
         implementer: resolve(__dirname, 'css/implementer.scss'),
         source: resolve(__dirname, 'css/source.scss'),
-        debug: resolve(__dirname, 'css/debug.scss')
+        debug: resolve(__dirname, 'css/debug.scss'),
       },
       output: {
         assetFileNames: (assetInfo) => {
@@ -23,15 +23,15 @@ export default defineConfig({
           return `[name].[ext]`
         },
         chunkFileNames: 'js/[name].[hash].js',
-        entryFileNames: 'js/[name].[hash].js'
-      }
-    }
+        entryFileNames: 'js/[name].[hash].js',
+      },
+    },
   },
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@import "css/_default.scss";`
-      }
-    }
-  }
-}) 
+        additionalData: `@import "css/_default.scss";`,
+      },
+    },
+  },
+})
