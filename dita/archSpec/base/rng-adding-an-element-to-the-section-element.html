@@ -1,10 +1,10 @@
 ---
-layout: base.njk
+layout: base
 title: 'Example: Adding an element to the section element using RNG'
 description: 'In this scenario, a DITA architect wants to modify the content model for the section element. He wants to add an optional sectionDesc element that is specialized from p; the sectionDesc can occur once and must be directly after the section title.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '2fe4abaff808c9805d338a0c698a06c533a2eb47'
+commit: 'cda7be1ff1dff8dba3e056c9b2c6c82841906d6a'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -12,8 +12,8 @@ classes: ''
 <nav class="toc" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction</a></li><li><a href="../../archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="../../archSpec/base/accessibility-and-translation.html">Accessibility and translation</a></li><li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a></li><li><a href="../../langRef/langRef-base.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../non-normative/developing-constraint-and-expansion-modules.html">Constraint modules</a></li><li><a href="../../non-normative/expansion-modules.html">Expansion modules</a><ul class="nav nav-list"><li><a href="../../archSpec/base/examples-expansion-implemented-using-dtds.html">Examples: Expansion implemented using DTDs</a></li><li><a href="../../archSpec/base/examples-expansion-implemented-using-rng.html">Examples: Expansion implemented using RNG</a><ul class="nav nav-list"><li class="active"><a href="../../archSpec/base/rng-adding-an-element-to-the-section-element.html">Example: Adding an element to the section element using RNG</a></li><li><a href="../../archSpec/base/rng-adding-an-attribute-to-certain-table-elements.html">Example: Adding an attribute to certain table elements using RNG</a></li><li><a href="../../archSpec/base/adding-an-existing-domain-attribute-to-certain-elements-rng.html">Example: Adding an existing domain attribute to certain elements using RNG</a></li><li><a href="../../archSpec/base/rng-aggregating-constraint-and-expansion-modules.html">Example: Aggregating constraint and expansion modules using RNG</a></li></ul></li></ul></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../non-normative/formatting-expectations.html">Formatting expectations</a></li><li><a href="../../non-normative/migrating-to-dita-2.0.html">Migrating to DITA 2.0</a></li><li><a href="../../non-normative/basedoctypes.html">OASIS grammar files</a></li><li><a href="../../non-normative/interoperability-considerations.html">Processing interoperability considerations</a></li><li><a href="../../non-normative/revision-history.html">Revision history</a></li></ul></nav><main role="main" class="non-normative"><article role="article" aria-labelledby="ariaid-title1">
   <h1 class="title topictitle1" id="ariaid-title1">Example: Adding an element to the <code class="keyword markupname xmlelement">&lt;section&gt;</code>
     element using RNG</h1>
-
-
+  
+  
   <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">In this scenario, a DITA architect wants to modify the content
     model for the <code class="keyword markupname xmlelement">&lt;section&gt;</code> element. He wants to add
     an optional <code class="keyword markupname xmlelement">&lt;sectionDesc&gt;</code> element that is
@@ -39,7 +39,7 @@ classes: ''
 &lt;?xml-model href="urn:pubid:oasis:names:tc:dita:rng:vocabularyModuleDesc.rng"
                          schematypens="http://relaxng.org/ns/structure/1.0"?&gt;
 &lt;grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
-  xmlns:dita="http://dita.oasis-open.org/architecture/2005/"
+  xmlns:dita="http://dita.oasis-open.org/architecture/2005/" 
   xmlns="http://relaxng.org/ns/structure/1.0"&gt;
   &lt;div&gt;
     &lt;a:documentation&gt;DOMAIN EXTENSION PATTERNS&lt;/a:documentation&gt;
@@ -48,7 +48,7 @@ classes: ''
     &lt;a:documentation&gt;ELEMENT TYPE NAME PATTERNS&lt;/a:documentation&gt;
     &lt;define name="sectionDesc"&gt;
       &lt;ref name="sectionDesc.element"/&gt;
-    &lt;/define&gt;
+    &lt;/define&gt;   
   &lt;/div&gt;
   &lt;div&gt;
     &lt;a:documentation&gt;ELEMENT TYPE DECLARATIONS&lt;/a:documentation&gt;
@@ -112,10 +112,10 @@ classes: ''
   datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"&gt;
   &lt;div&gt;
     &lt;a:documentation&gt;CONTENT MODEL AND ATTRIBUTE LIST OVERRIDES&lt;/a:documentation&gt;
-    &lt;include href="urn:pubid:oasis:names:tc:dita:rng:topicMod.rng:2.0"&gt;
+    &lt;include href="urn:pubid:oasis:names:tc:dita:rng:topicMod.rng:2.0"&gt;  
       &lt;define name="topic-info-types"&gt;
         &lt;ref name="topic.element"/&gt;
-      &lt;/define&gt;
+      &lt;/define&gt;    
       &lt;define name="section.content"&gt;
         &lt;optional&gt;
           &lt;ref name="title"/&gt;
@@ -149,7 +149,7 @@ classes: ''
         &lt;ref name="topic.element"/&gt;
       &lt;/define&gt;
     &lt;/include&gt;</span>
-    ...
+    ... 
     &lt;include href="urn:pubid:example:names:tc:dita:rng:sectionDescDomain.rng:2.0"/&gt;
   &lt;/div&gt;</code></pre>
         </li>

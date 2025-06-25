@@ -1,10 +1,10 @@
 ---
-layout: base.njk
+layout: base
 title: 'DTD: Coding requirements for structural and element-domain modules'
 description: 'This topic covers general coding requirements for defining element types in both structural and element-domain vocabulary modules.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '2fe4abaff808c9805d338a0c698a06c533a2eb47'
+commit: 'cda7be1ff1dff8dba3e056c9b2c6c82841906d6a'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -12,31 +12,31 @@ classes: ''
 <nav class="toc" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction</a></li><li><a href="../../archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="../../archSpec/base/accessibility-and-translation.html">Accessibility and translation</a></li><li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a></li><li><a href="../../langRef/langRef-base.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a><ul class="nav nav-list"><li><a href="../../non-normative/file-naming-conventions.html">File naming conventions</a></li><li><a href="../../archSpec/base/dtd-requirements.html">DTD coding requirements</a><ul class="nav nav-list"><li><a href="../../archSpec/base/dtd-coding-overview.html">DTD: Use of entities</a></li><li><a href="../../archSpec/base/dtd-coding-doctype-shell.html">DTD: Coding requirements for document-type shells</a></li><li class="active"><a href="../../archSpec/base/dtd-coding-element-types.html">DTD: Coding requirements for structural and element-domain modules</a></li><li><a href="../../archSpec/base/dtd-coding-structural-modules.html">DTD: Coding requirements for structural modules</a></li><li><a href="../../archSpec/base/dtd-coding-element-domains.html">DTD: Coding requirements for element-domain modules</a></li><li><a href="../../archSpec/base/dtd-coding-attribute-domains.html">DTD: Coding requirements for attribute-domain modules</a></li><li><a href="../../archSpec/base/dtd-coding-requirements-for-element-configuration-modules.html">DTD: Coding requirements for element-configuration modules</a></li></ul></li><li><a href="../../archSpec/base/relax-ng-requirements.html">RELAX NG coding requirements</a></li></ul></li><li><a href="../../non-normative/developing-constraint-and-expansion-modules.html">Constraint modules</a></li><li><a href="../../non-normative/expansion-modules.html">Expansion modules</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../non-normative/formatting-expectations.html">Formatting expectations</a></li><li><a href="../../non-normative/migrating-to-dita-2.0.html">Migrating to DITA 2.0</a></li><li><a href="../../non-normative/basedoctypes.html">OASIS grammar files</a></li><li><a href="../../non-normative/interoperability-considerations.html">Processing interoperability considerations</a></li><li><a href="../../non-normative/revision-history.html">Revision history</a></li></ul></nav><main role="main" class=""><article role="article" aria-labelledby="ariaid-title1">
   <h1 class="title topictitle1" id="ariaid-title1">DTD: Coding requirements for structural and element-domain
     modules</h1>
-
-
+  
+  
   <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">This topic covers general coding requirements for defining element types in both
     structural and element-domain vocabulary modules.</p>
     <section class="section" id="general-coding-requirements__files"><h2 class="title sectiontitle">Module files</h2>
-
+      
       <p class="p">A vocabulary module that defines a structural or element-domain specialization is composed
         of two files:</p>
       <dl class="dl">
-
+        
           <dt class="dt dlterm">Definition module file</dt>
           <dd class="dd">This (<span class="ph filepath">.mod</span>) file declares the element
             names, content models, and attribute lists for the element
             types that are defined in the vocabulary module.</dd>
-
-
+        
+        
           <dt class="dt dlterm">Entity declaration file</dt>
           <dd class="dd">This (<span class="ph filepath">.ent</span>) file declares the <span style="color:red;" class="ph">general</span> and parameter entities that are
             used to integrate the vocabulary module into a document-type
             shell.</dd>
-
+        
       </dl>
     </section>
     <section class="section" id="general-coding-requirements__element-definitions"><h2 class="title sectiontitle">Element definitions</h2>
-
+      
       <p class="p">A structural or element-domain vocabulary module contains a declaration for each element
         type that is named by the module. While the XML standard allows content models to refer to
         undeclared element types, the DITA standard does not permit this. All element types or
@@ -51,7 +51,7 @@ classes: ''
       <p class="p">The following components make up a single element definition in a DITA DTD-based vocabulary
         module.</p>
       <dl class="dl">
-
+        
           <dt class="dt dlterm">Element name entities</dt>
           <dd class="dd">
             <p class="p">For each element type, there is a parameter entity with a
@@ -69,8 +69,8 @@ classes: ''
               grouped together at the top of the vocabulary module. They
               can occur in any order.</p>
           </dd>
-
-
+        
+        
           <dt class="dt dlterm">Content-model parameter entity</dt>
           <dd class="dd">
             <p class="p">For each element type, there is a parameter entity that defines the content model.
@@ -80,15 +80,15 @@ classes: ''
             <div class="example non-normative" id="general-coding-requirements__d23973e191"><h2 class="title sectiontitle">Example</h2><p class="non-normative-label">This section is non-normative.</p>
               <p class="p">For example:</p>
               <pre class="pre codeblock"><code>&lt;!ENTITY % topichead.content
-  "((%topicmeta;)?,
-    (%data.elements.incl; |
-     %navref; |
+  "((%topicmeta;)?, 
+    (%data.elements.incl; | 
+     %navref; | 
      %topicref;)*)
 "&gt;</code></pre>
             </div>
           </dd>
-
-
+        
+        
           <dt class="dt dlterm">Attribute-list parameter entity</dt>
           <dd class="dd">
             <p class="p">For each element type, there is a parameter entity that declares the attributes that
@@ -108,8 +108,8 @@ classes: ''
               parameter entity enables the use of <span class="ph">element-configuration modules
                 (constraint and expansion) to redefine the content model.</span></p>
           </dd>
-
-
+        
+        
           <dt class="dt dlterm">Element declaration</dt>
           <dd class="dd">
             <p class="p">For each element type, there is an element declaration that consists of a reference
@@ -119,8 +119,8 @@ classes: ''
               <pre class="pre codeblock"><code>&lt;!ELEMENT topichead    %topichead.content;&gt;</code></pre>
             </div>
           </dd>
-
-
+        
+        
           <dt class="dt dlterm">Attribute list declaration</dt>
           <dd class="dd">
             <p class="p">For each element type, there is an attribute<span style="color:red;" class="ph">-</span>list declaration that consists of a
@@ -130,8 +130,8 @@ classes: ''
               <pre class="pre codeblock"><code>&lt;!ATTLIST topichead    %topichead.attributes;&gt;</code></pre>
             </div>
           </dd>
-
-
+        
+        
           <dt class="dt dlterm">Specialization attribute declarations</dt>
           <dd class="dd">
             <p class="p">A vocabulary module defines a <code class="keyword markupname xmlatt">@class</code> attribute for every element that
@@ -145,10 +145,10 @@ classes: ''
               <pre class="pre codeblock"><code>&lt;!ATTLIST topichead  class CDATA "+ map/topicref  mapgroup-d/topichead "&gt;</code></pre>
             </div>
           </dd>
-
+        
       </dl>
       <div class="example non-normative" id="general-coding-requirements__d23973e388"><h2 class="title sectiontitle">Definition of the <code class="keyword markupname xmlelement">&lt;topichead&gt;</code> element</h2><p class="non-normative-label">This section is non-normative.</p>
-
+        
         <p class="p">The following code sample shows how the <code class="keyword markupname xmlelement">&lt;topichead&gt;</code> element is
           defined in <span class="ph filepath">mapGroup.mod</span>. Ellipses indicate where the code sample has
           been snipped for brevity.</p>
@@ -186,7 +186,7 @@ classes: ''
 &lt;!-- ============================================================= --&gt;
 &lt;!--             SPECIALIZATION ATTRIBUTE DECLARATIONS             --&gt;
 &lt;!-- ============================================================= --&gt;
-
+  
 ...
 
 &lt;!ATTLIST  topichead      class CDATA "+ map/topicref mapgroup-d/topichead "&gt;

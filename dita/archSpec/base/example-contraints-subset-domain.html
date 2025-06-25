@@ -1,18 +1,18 @@
 ---
-layout: base.njk
+layout: base
 title: 'Example: Constrain a domain module using DTD'
 description: 'In this scenario, a DITA architect wants to use only a subset of the elements defined in the highlighting domain. They want to use b and i but not any other of the elements in the domain. They want to integrate this constraint into the document-type shell for task.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '65ecb19fa22f6d23a356a7e83b8fa401658292e9'
+commit: 'cda7be1ff1dff8dba3e056c9b2c6c82841906d6a'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
 
 <nav class="toc" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction</a></li><li><a href="../../archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="../../archSpec/base/accessibility-and-translation.html">Accessibility and translation</a></li><li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a></li><li><a href="../../langRef/langRef-base.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../non-normative/developing-constraint-and-expansion-modules.html">Constraint modules</a><ul class="nav nav-list"><li><a href="../../archSpec/base/examples-constraints.html">Examples: Constraints implemented using DTDs</a><ul class="nav nav-list"><li><a href="../../archSpec/base/example-contraints-redefine-content-model.html">Example: Restrict the content model for the topic element using DTD</a></li><li><a href="../../archSpec/base/example-contraints-redefine-content-model-attributes.html">Example: Constrain attributes for the section element using DTD</a></li><li class="active"><a href="../../archSpec/base/example-contraints-subset-domain.html">Example: Constrain a domain module using DTD</a></li><li><a href="../../archSpec/base/example-contraints-replace-base-element-w-domain-extensions.html">Example: Replace a base element with the domain extensions using DTD</a></li><li><a href="../../archSpec/base/example-contraints-apply-multiple-constraints.html">Example: Apply multiple constraints to a single document-type shell using DTD</a></li></ul></li><li><a href="../../archSpec/base/examples-constraints-implemented-using-rng.html">Examples: Constraints implemented using RNG</a></li></ul></li><li><a href="../../non-normative/expansion-modules.html">Expansion modules</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../non-normative/formatting-expectations.html">Formatting expectations</a></li><li><a href="../../non-normative/migrating-to-dita-2.0.html">Migrating to DITA 2.0</a></li><li><a href="../../non-normative/basedoctypes.html">OASIS grammar files</a></li><li><a href="../../non-normative/interoperability-considerations.html">Processing interoperability considerations</a></li><li><a href="../../non-normative/revision-history.html">Revision history</a></li></ul></nav><main role="main" class="non-normative"><article role="article" aria-labelledby="ariaid-title1">
   <h1 class="title topictitle1" id="ariaid-title1">Example: Constrain a domain module using DTD</h1>
-
-
+  
+  
   <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">In this scenario, <span class="ph">a DITA architect</span> wants to
     use only a subset of the elements defined in the highlighting domain.
       <span class="ph">They want</span> to use <code class="keyword markupname xmlelement">&lt;b&gt;</code> and
@@ -48,8 +48,8 @@ classes: ''
 &lt;!--                    DOMAIN CONSTRAINT INTEGRATION              --&gt;
 &lt;!-- ============================================================= --&gt;
 
-&lt;!ENTITY % HighlightDomain-c-dec
-  PUBLIC "-//ACME//ENTITIES DITA Highlighting Domain Constraint//EN"
+&lt;!ENTITY % HighlightDomain-c-dec  
+  PUBLIC "-//ACME//ENTITIES DITA Highlighting Domain Constraint//EN" 
   "acme-HighlightDomainConstraint.mod"
 &gt;%HighlightDomain-c-dec;</code></pre></li>
       <li class="li">In the "DOMAIN EXTENSIONS" section, <span class="ph">they
@@ -57,12 +57,12 @@ classes: ''
         with the parameter entity for the constrained highlighting
         domain:<pre class="pre codeblock"><code>&lt;!ENTITY % ph           "ph |
                          <strong class="ph b">%HighlightDomain-c-ph;</strong> |
-                         %sw-d-ph; |
+                         %sw-d-ph; | 
                          %ui-d-ph;
                         "&gt;</code></pre></li>
       <li class="li"><span style="color:red;" class="ph">They check their</span> test topic to ensure
         that the content model is modified as expected.</li>
     </ol>
   </div>
-
+  
 <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/examples-constraints.html" title="This section of the specification contains examples of constraints implemented using DTD.">Examples: Constraints implemented using DTDs</a></div></div></nav><aside class="section-toc" role="aside"></aside></article></main>

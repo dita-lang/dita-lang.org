@@ -1,17 +1,17 @@
 ---
-layout: base.njk
+layout: base
 title: 'Processing interoperability considerations'
 description: 'The DITA specification does not require processors to perform filtering, content reference resolution, key space construction, and other processing related to base DITA semantics in any particular order. This means that different conforming DITA processors might produce different results for the same initial data set and filtering conditions. DITA users and DITA implementers need to be aware of these potential differences in behavior when DITA content will be processed by different processors.'
 index: '../toc.html'
 notices: '../resources/oasis-notices.html'
-commit: 'ca668efc46cf5c722d60850bd051c7fd857d2afe'
+commit: 'cda7be1ff1dff8dba3e056c9b2c6c82841906d6a'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
 
 <nav class="toc" role="toc"><ul><li><a href="../introduction/dita-release-overview.html">Introduction</a></li><li><a href="../archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="../archSpec/base/accessibility-and-translation.html">Accessibility and translation</a></li><li><a href="../archSpec/base/dita-map-processing.html">DITA map processing</a></li><li><a href="../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a></li><li><a href="../langRef/langRef-base.html">Element reference</a></li><li><a href="../conformance/conformance.html">Conformance</a></li><li><a href="../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../non-normative/developing-constraint-and-expansion-modules.html">Constraint modules</a></li><li><a href="../non-normative/expansion-modules.html">Expansion modules</a></li><li><a href="../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../non-normative/formatting-expectations.html">Formatting expectations</a></li><li><a href="../non-normative/migrating-to-dita-2.0.html">Migrating to DITA 2.0</a></li><li><a href="../non-normative/basedoctypes.html">OASIS grammar files</a></li><li class="active"><a href="../non-normative/interoperability-considerations.html">Processing interoperability considerations</a></li><li><a href="../non-normative/revision-history.html">Revision history</a></li></ul></nav><main role="main" class=""><article role="article" aria-labelledby="ariaid-title1">
   <h1 class="title topictitle1" id="ariaid-title1">Processing interoperability considerations</h1>
-
+  
   <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">The DITA specification does not require processors to perform filtering, content
     reference resolution, key space construction, and other processing related to base DITA
     semantics in any particular order. This means that different conforming DITA processors <span class="ph">might</span> produce different results for the same initial data set and
@@ -23,7 +23,7 @@ classes: ''
     <p class="p">For conditional elements, an element is "applicable" if it is filtered in and "inapplicable"
       if it is filtered out.</p>
     <section class="section" id="nteroperability-considerations__filtering-and-conref-resolution"><h2 class="title sectiontitle">Filtering and content reference resolution</h2>
-
+      
       <p class="p">When two elements are merged as result of a content reference, the attributes of the two
         elements are combined. By default, the attributes of the referencing element take precedence
         over the referenced element. However, any attribute can specify the value
@@ -71,7 +71,7 @@ classes: ''
         location.</p>
     </section>
     <section class="section" id="nteroperability-considerations__filtering-and-key-space-resolution"><h2 class="title sectiontitle">Filtering and key space resolution</h2>
-
+      
       <p class="p">See <a class="xref" href="../archSpec/base/processing-key-references-general.html#processing-key-references__keys-and-condproc">Keys and conditional processing</a> for a discussion of effective key definitions and conditional processing.</p>
       <p class="p">As an implementation detail for key-space-constructing processors, if filtering is applied
         before constructing the key space, then the set of effective key definitions is simply the
@@ -97,7 +97,7 @@ classes: ''
         the effective value of the key).</p>
     </section>
     <section class="section" id="nteroperability-considerations__link-resolution"><h2 class="title sectiontitle">Link resolution</h2>
-
+      
       <p class="p">If a cross reference, link, or other linking element is resolved to its target before
         filtering and the target is subsequently filtered out, the link would be to a non-existent
         target but might reflect properties of the target (for example, a cross reference link text
@@ -106,14 +106,14 @@ classes: ''
         different link text. The rendition effect for the navigation link is the same: the link
         cannot be navigated because the target does not exist in the rendered result.</p>
     </section>
-
+    
     <section class="section" id="nteroperability-considerations__topicref-resolution"><h2 class="title sectiontitle">Topicref resolution</h2>
-
+      
       <p class="p">Resolution of <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements before filtering can result in use
         of topic-provided navigation titles or metadata that would not be used if the target topic
         was filtered out before resolution. In both cases, the topicref as rendered would be to a
         missing topic. </p>
     </section>
-
+    
   </div>
 <aside class="section-toc" role="aside"><h2>In this section</h2><ul><li><a href="#nteroperability-considerations__filtering-and-conref-resolution">Filtering and content reference resolution</a></li><li><a href="#nteroperability-considerations__filtering-and-key-space-resolution">Filtering and key space resolution</a></li><li><a href="#nteroperability-considerations__link-resolution">Link resolution</a></li><li><a href="#nteroperability-considerations__topicref-resolution">Topicref resolution</a></li></ul></aside></article></main>

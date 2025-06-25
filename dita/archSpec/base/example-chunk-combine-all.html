@@ -1,10 +1,10 @@
 ---
-layout: base.njk
+layout: base
 title: 'Example: Using chunk to combine all documents into one'
 description: 'When a processor would typically render each topic document as an independent result document, the chunk attribute can be used to render all content as a single result document.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '65ecb19fa22f6d23a356a7e83b8fa401658292e9'
+commit: 'cda7be1ff1dff8dba3e056c9b2c6c82841906d6a'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -12,13 +12,13 @@ classes: ''
 <nav class="toc" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction</a></li><li><a href="../../archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="../../archSpec/base/accessibility-and-translation.html">Accessibility and translation</a></li><li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a><ul class="nav nav-list"><li><a href="../../archSpec/base/dita-maps-and-their-usage.html">DITA maps and their usage</a></li><li><a href="../../archSpec/base/subject-scheme-maps-and-usage.html">Subject scheme maps and their usage</a></li><li><a href="../../archSpec/base/map-cascading.html">Metadata cascading</a></li><li><a href="../../archSpec/base/chunking.html">Chunking</a><ul class="nav nav-list"><li><a href="../../archSpec/base/chunk-attribute-overview.html">About the chunk attribute</a></li><li><a href="../../archSpec/base/chunk-attribute-combine.html">Processing chunk="combine"</a></li><li><a href="../../archSpec/base/chunk-attribute-split.html">Processing chunk="split"</a></li><li><a href="../../archSpec/base/chunk-attribute-other-tokens.html">Using the chunk attribute for other purposes</a></li><li><a href="../../archSpec/base/examples-of-chunking.html">Examples of the chunk attribute</a><ul class="nav nav-list"><li class="active"><a href="../../archSpec/base/example-chunk-combine-all.html">Example: Using chunk to combine all documents into one</a></li><li><a href="../../archSpec/base/example-chunk-combine-branch.html">Example: Using chunk to render a single document from one or more branches</a></li><li><a href="../../archSpec/base/example-chunk-combine-group.html">Example: Using chunk to combine groups of topics</a></li><li><a href="../../archSpec/base/example-chunk-combine-nested-topics.html">Example: How chunk="combine" effects the map hierarchy</a></li><li><a href="../../archSpec/base/example-chunk-split.html">Example: Using chunk to split documents</a></li><li><a href="../../archSpec/base/example-chunk-split-nested.html">Example: How chunk="split" affects the map hierarchy</a></li><li><a href="../../archSpec/base/example-chunk-ignored.html">Example: When chunk is ignored</a></li><li><a href="../../archSpec/base/example-chunk-combine-within-split.html">Example: Using chunk="combine" when the root map specifies chunk="split"</a></li><li><a href="../../archSpec/base/example-chunk-managing-links.html">Example: Managing links when chunking</a></li></ul></li></ul></li></ul></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a></li><li><a href="../../langRef/langRef-base.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../non-normative/developing-constraint-and-expansion-modules.html">Constraint modules</a></li><li><a href="../../non-normative/expansion-modules.html">Expansion modules</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../non-normative/formatting-expectations.html">Formatting expectations</a></li><li><a href="../../non-normative/migrating-to-dita-2.0.html">Migrating to DITA 2.0</a></li><li><a href="../../non-normative/basedoctypes.html">OASIS grammar files</a></li><li><a href="../../non-normative/interoperability-considerations.html">Processing interoperability considerations</a></li><li><a href="../../non-normative/revision-history.html">Revision history</a></li></ul></nav><main role="main" class="non-normative"><article role="article" aria-labelledby="ariaid-title1">
 <h1 class="title topictitle1" id="ariaid-title1">Example: Using <code class="keyword markupname xmlatt">@chunk</code> to combine all documents into one</h1>
 
-
+  
 <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">When a processor would typically render each topic document as
     an independent result document, the <code class="keyword markupname xmlatt">@chunk</code> attribute
     can be used to render all content as a single result
     document.</p>
 <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Root map and the topics that it references</figcaption>
-
+      
       <p class="p">Consider the following DITA map:</p>
       <pre class="pre codeblock"><code>&lt;map&gt;
   &lt;title&gt;Lesson plan&lt;/title&gt;
@@ -54,7 +54,7 @@ classes: ''
         files.</p>
     </figure>
 <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>Root map with chunking specified</figcaption>
-
+      
       <p class="p">If the output requirements demand only a single result document,
         specifying <code class="ph codeph">chunk="combine"</code> on the root map element
         instructs a processor to render a single document that combines all
