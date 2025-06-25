@@ -20,15 +20,15 @@
   <xsl:param name="root-chunk-override"/>
 
   <xsl:template match="/">
-    <xsl:apply-templates select="*" mode="jekyll-front-matter"/>
+    <xsl:apply-templates select="*" mode="eleventy-front-matter"/>
     <xsl:apply-templates select="*" mode="chapterBody"/>
   </xsl:template>
 
-  <xsl:template match="node()" mode="jekyll-front-matter">
+  <xsl:template match="node()" mode="eleventy-front-matter">
     <xsl:text>---&#xA;</xsl:text>
 <!--    <xsl:text># Generated from DITA source&#xA;</xsl:text>-->
     <xsl:text>layout: </xsl:text>
-    <xsl:apply-templates select="." mode="jekyll-layout"/>
+    <xsl:apply-templates select="." mode="eleventy-layout"/>
     <xsl:text>&#xA;</xsl:text>
     <xsl:text>title: '</xsl:text>
     <xsl:variable name="title-text-only">
@@ -80,7 +80,7 @@
     <xsl:text>---&#xA;&#xA;</xsl:text>
   </xsl:template>
 
-  <!-- Jekyll’s base layout adds the <body> element, so skip that (and related ID/attributes/outputclass/aname) here -->
+  <!-- 11ty's base layout adds the <body> element, so skip that (and related ID/attributes/outputclass/aname) here -->
   <xsl:template match="*" mode="chapterBody">
     <!--
     <body>
@@ -206,7 +206,7 @@
     </div>
   </xsl:template>
 
-  <xsl:template match="node()" mode="jekyll-layout" as="xs:string">
+  <xsl:template match="node()" mode="eleventy-layout" as="xs:string">
     <xsl:value-of select="$layout"/>
   </xsl:template>
 
