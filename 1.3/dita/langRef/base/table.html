@@ -1,6 +1,5 @@
 ---
-# Generated from DITA source
-layout: base
+layout: base.njk
 title: 'table'
 description: 'The table element organizes arbitrarily complex relationships of tabular information. This standard table markup allows column or row spanning and table captions or descriptions. An optional title allowed inside the table element provides a caption to describe the table.'
 index: '../../toc.html'
@@ -37,7 +36,7 @@ classes: ''
 topic/table </p></section>
 <div class="example non-normative" id="table__example"><h2 class="title sectiontitle">Example</h2>
       <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>DITA source</figcaption>
-        
+
         <pre class="pre codeblock"><code>&lt;table&gt;
 &lt;tgroup cols="2"&gt;
 &lt;colspec colname="COLSPEC0" colwidth="121*"/&gt;
@@ -97,13 +96,13 @@ topic/table </p></section>
         allows processors or screen readers to identify a header relationship between any cell in
         the table body and the matching header cell above that column.</p></div>
     <div class="example non-normative" id="table__implied-accessibility"><h2 class="title sectiontitle">Example: Complex table with implied accessibility markup</h2>
-      
+
       <p class="p">In the following example, the table uses <code class="keyword markupname xmlelement">&lt;thead&gt;</code> to identify header
         rows and <code class="keyword markupname xmlatt">@rowheader</code> to identify a header column. This header relationship
         can be used to automatically create renderings of the table in other formats, such as HTML,
         that can be navigated using a screen reader or other assistive technology.</p>
       <figure class="fig fignone" id="table__source-implied-accessibility"><figcaption><span class="fig--title-label">Figure 2. </span>DITA source</figcaption>
-        
+
         <pre class="pre codeblock"><code>&lt;table frame="all" rowheader="firstcol"&gt;
   &lt;title&gt;Sample of automated table accessibility&lt;/title&gt;
 &lt;desc&gt;Names are listed in the column c1. Points are listed in both data columns, with
@@ -187,7 +186,7 @@ expected points in column c2 and actual points in column c3.&lt;/desc&gt;
           </tbody></table>
     </div>
   <div class="example non-normative" id="table__accessibility-manual"><h2 class="title sectiontitle">Complex table with some manually specified accessibility markup</h2>
-      
+
       <p class="p">In some complex tables, the <code class="keyword markupname xmlelement">&lt;thead&gt;</code> element and
           <code class="keyword markupname xmlatt">@rowheader</code> attribute <span class="ph">might</span> not be enough to
         support all accessibility needs. Assume that the table above is flipped so that the names
@@ -257,7 +256,7 @@ expected points in column c2 and actual points in column c3.&lt;/desc&gt;
 &lt;/table&gt;</code></pre>
     </div>
     <div class="example non-normative" id="table__complex-manual-accessibility"><h2 class="title sectiontitle">Example: complex table with manual accessibility markup</h2>
-      
+
       <p class="p">In extremely complex tables, such as those with a single header cell in the middle of the
         table, extremely fine grained accessibility controls are available to explicitly associate
         any content cell with any header cell. This <span class="ph">might</span> also be
@@ -271,7 +270,7 @@ expected points in column c2 and actual points in column c3.&lt;/desc&gt;
           <code class="keyword markupname xmlelement">&lt;thead&gt;</code> creates a header relationship even when the
           <code class="keyword markupname xmlatt">@id</code> and <code class="keyword markupname xmlatt">@headers</code> attributes are not used.</p>
       <figure class="fig fignone" id="table__fig_qt4_sbm_4n"><figcaption><span class="fig--title-label">Figure 3. </span>DITA source</figcaption>
-        
+
         <pre class="pre codeblock"><code>&lt;table frame="all"&gt;
   &lt;title&gt;Sample with fully manual accessibility control&lt;/title&gt;
 &lt;desc&gt;Names are listed in the column c1. Points are listed in both data columns, with
@@ -344,34 +343,34 @@ expected points in column c2 and actual points in column c3.&lt;/desc&gt;
         element also uses <code class="keyword markupname xmlatt">@colsep</code>, <code class="keyword markupname xmlatt">@rowsep</code>, and
           <code class="keyword markupname xmlatt">@rowheader</code> from <a class="xref" href="../attributes/calsTableAttributes.html" title="The Complex-table attribute group includes several attributes that are defined on complex table elements. Most of these attributes are part of the OASIS Exchange model; table elements generally use only a subset of the attributes defined in this group. These attributes are not available for the simpletable elements.">Complex-table attribute group</a>.</p>
       <dl class="dl">
-        
+
           <dt class="dt dlterm" id="table__orient"><code class="keyword markupname xmlatt">@orient</code></dt>
           <dd class="dd">Specifies the orientation of the table in page-based outputs. <span class="ph">This attribute is
               primarily useful for print-oriented display.</span> Allowable values are:<dl class="dl">
-              
+
                 <dt class="dt dlterm">port</dt>
                 <dd class="dd">The same orientation as the text flow.</dd>
-              
-              
+
+
                 <dt class="dt dlterm">land</dt>
                 <dd class="dd">90 degrees counterclockwise from the text flow.</dd>
-              
-              
+
+
                                         <dt class="dt dlterm">-dita-use-conref-target </dt>
                                         <dd class="dd">See <a class="xref" href="../../common/../langRef/attributes/ditauseconreftarget.html" title="The value -dita-use-conref-target is available on enumerated attributes and can also be specified on other attributes. When an element uses conref to pull in content, for any of its attributes assigned a value of &#34;-dita-use-conref-target&#34;, the resulting value for those attributes is also pulled in from the referenced element.">Using the -dita-use-conref-target value</a> for more information. </dd>
-                                
+
             </dl><p class="p">In situations where a stylesheet or other formatting mechanism specifies table
               orientation based on other criteria, or for non-paginated outputs, the
                 <code class="keyword markupname xmlatt">@orient</code> attribute can be ignored.</p></dd>
-        
-        
+
+
           <dt class="dt dlterm"><code class="keyword markupname xmlatt">@pgwide</code></dt>
           <dd class="dd">Determines the horizontal placement of the element. Supported values are 1 and 0,
             although these are not mandated by the DTD, Schema, or RNG.<p class="p">For print-oriented
               display, the value "1" places the element on the left page margin;
               "0" aligns the element with the left margin of the current text line and
               takes indention into account. </p></dd>
-        
+
       </dl></section>
 </div>
 <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/table-elements.html" title="DITA topics support two types of tables. The table element uses the OASIS Exchange Table Model (formerly known as the CALS table model). The OASIS table supports the spanning of multiple rows or columns for special layout or organizational needs, and provides a wide variety of controls over the display properties of the data and even the table structure itself.">Table elements</a></div></div></nav></article></main>

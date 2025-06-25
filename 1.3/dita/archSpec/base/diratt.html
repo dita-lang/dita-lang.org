@@ -1,6 +1,5 @@
 ---
-# Generated from DITA source
-layout: base
+layout: base.njk
 title: 'The dir attribute'
 description: 'The dir attribute provides instructions to processors about how bi-directional text should be rendered.'
 index: '../../toc.html'
@@ -12,8 +11,8 @@ classes: ''
 
 <nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a><ul class="nav nav-list"><li><a href="../../archSpec/base/introduction-to-dita.html">Introduction to DITA</a></li><li><a href="../../archSpec/base/ditamarkup.html">DITA markup </a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a><ul class="nav nav-list"><li><a href="../../archSpec/base/navigation.html">Navigation</a></li><li><a href="../../archSpec/base/conref.html">Content reference (conref)</a></li><li><a href="../../archSpec/base/condproc.html">Conditional processing (profiling)</a></li><li><a href="../../archSpec/base/branch-filtering.html">Branch filtering</a></li><li><a href="../../archSpec/base/chunking.html">Chunking</a></li><li><a href="../../archSpec/base/translation.html">Translation and localization</a><ul class="nav nav-list"><li><a href="../../archSpec/base/xmllang.html">The xml:lang attribute</a></li><li class="active"><a href="../../archSpec/base/diratt.html">The dir attribute</a></li></ul></li><li><a href="../../archSpec/base/module-compatibility.html">Processing documents with different values of the domains attribute</a></li><li><a href="../../archSpec/base/sort-as-processing.html">Sorting</a></li></ul></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration, specialization, generalization, and constraints </a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../archSpec/technicalContent/technical-content-specializations.html">Technical content specializations</a></li><li><a href="../../archSpec/learningTraining/learning-and-training-specializations.html">Learning and training specializations</a></li></ul></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
   <h1 class="title topictitle1" id="ariaid-title1">The <code class="keyword markupname xmlatt">@dir</code> attribute</h1>
-  
-  
+
+
   <div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlatt">@dir</code> attribute provides <span class="ph">instructions</span> to
     processors about how <dfn class="term">bi-directional text</dfn> should be rendered.</p>
     <section class="section" id="diratt__biditext">
@@ -23,16 +22,16 @@ classes: ''
         Western language text are written from left to right. Some multilingual documents also
         contain a mixture of text segments in two directions.</p>
       <div class="p">DITA contains the following attributes that have an effect on bi-directional text processing:<dl class="dl">
-          
+
             <dt class="dt dlterm"><code class="keyword markupname xmlatt">@xml:lang</code></dt>
             <dd class="dd">Identifies the language and locale, and so can be used to identify text that
               requires bi-directional rendering.</dd>
-          
-          
+
+
             <dt class="dt dlterm"><code class="keyword markupname xmlatt">@dir</code></dt>
             <dd class="dd">Identifies or overrides the text directionality. It can be set to "ltr", "rtl",
               "lro", or "rlo"</dd>
-          
+
         </dl></div>
       <p class="p">In general, properly-written mixed text does not need any special markers; the Unicode
         bidirectional algorithm positions the punctuation correctly for a given language. The
@@ -50,7 +49,7 @@ classes: ''
         entire Unicode bidirectional algorithm.</p>
     </section>
     <section class="section" id="diratt__recommended-usage"><h2 class="title sectiontitle">Recommended usage</h2>
-      
+
       <p class="p">The <code class="keyword markupname xmlatt">@dir</code> attribute, together with the <code class="keyword markupname xmlatt">@xml:lang</code> attribute,
         is essential for rendering table columns and definition lists in the proper order.</p>
       <div class="p">In general text, the Unicode Bidirectional algorithm, as specified by the
@@ -90,11 +89,11 @@ classes: ''
         Use
         the override values only when you cannot achieve the desired effect using the the "ltr" and
         "rtl" values.</p>
-      
+
     </section>
     <section class="section" id="diratt__processing-expectations"><h2 class="title sectiontitle">Processing expectations</h2>
-      
-      
+
+
       <p class="p">Applications that process DITA documents, whether at the authoring, translation,
         publishing, or any other stage, <dfn class="term RFC-2119">SHOULD</dfn> fully support the
         Unicode bidirectional algorithm to correctly implement the script and directionality for
@@ -103,7 +102,7 @@ classes: ''
         root element in every topic document and the root element in the root map has values for the
           <code class="keyword markupname xmlatt">@dir</code> and <code class="keyword markupname xmlatt">@xml:lang</code> attributes.</p>
     </section>
-    
+
   </div>
 <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/translation.html" title="DITA has features that facilitate preparing content for translation and working with multilingual content, including the xml:lang attribute, the dir attribute, and the translate attribute. In addition, the sort-as and index-sort-as elements provide support for sorting in languages in which the correct sorting of an element requires text that is different from the base content of the element.">Translation and localization</a></div></div><div class="linklist relinfo"><strong>Related information</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="http://www.w3.org/International/articles/inline-bidi-markup/" target="_blank" rel="external noopener">What you need to know about the BIDI algorithm and inline markup
        (http://www.w3.org/International/articles/inline-bidi-markup/)</a></li><li class="linklist"><a class="link" href="http://www.w3.org/TR/2004/WD-xhtml2-20040722/mod-bidi.html" target="_blank" rel="external noopener">XHTML Bi-directional Text Attribute Module

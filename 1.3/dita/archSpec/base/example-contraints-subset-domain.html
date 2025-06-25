@@ -1,6 +1,5 @@
 ---
-# Generated from DITA source
-layout: base
+layout: base.njk
 title: 'Example: Constrain a domain module'
 description: 'In this scenario, an information architect wants to use only a subset of the elements defined in the highlighting domain. She wants to use b and i, but not line-through, overline, sup, sup, tt, or u. She wants to integrate this constraint into the document-type shell for task.'
 index: '../../toc.html'
@@ -12,8 +11,8 @@ classes: ''
 
 <nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a><ul class="nav nav-list"><li><a href="../../archSpec/base/introduction-to-dita.html">Introduction to DITA</a></li><li><a href="../../archSpec/base/ditamarkup.html">DITA markup </a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration, specialization, generalization, and constraints </a><ul class="nav nav-list"><li><a href="../../archSpec/base/ditaspecialization.html">Overview of DITA extension facilities</a></li><li><a href="../../archSpec/base/configuration.html">Configuration</a></li><li><a href="../../archSpec/base/specialization.html">Specialization</a></li><li><a href="../../archSpec/base/generalization.html">Generalization</a></li><li><a href="../../archSpec/base/constraints.html">Constraints</a><ul class="nav nav-list"><li><a href="../../archSpec/base/constraints-overview.html">Overview of constraints</a></li><li><a href="../../archSpec/base/constraint-rules.html">Constraint rules</a></li><li><a href="../../archSpec/base/constraints-processing-interoperability.html">Constraints, processing, and interoperability</a></li><li><a href="../../archSpec/base/constraints-strong-and-weak.html">Weak and strong constraints</a></li><li><a href="../../archSpec/base/constraints-conref-compatibility.html">Conref compatibility with constraints</a></li><li><a href="../../archSpec/base/examples-constraints.html">Examples: Constraints</a><ul class="nav nav-list"><li><a href="../../archSpec/base/example-contraints-redefine-content-model.html">Example: Redefine the content model for the topic element</a></li><li><a href="../../archSpec/base/example-contraints-redefine-content-model-attributes.html">Example: Constrain attributes for the section element</a></li><li class="active"><a href="../../archSpec/base/example-contraints-subset-domain.html">Example: Constrain a domain module</a></li><li><a href="../../archSpec/base/example-contraints-replace-base-element-w-domain-extensions.html">Example: Replace a base element with the domain extensions</a></li><li><a href="../../archSpec/base/example-contraints-apply-multiple-constraints.html">Example: Apply multiple constraints to a single document-type shell</a></li><li><a href="../../archSpec/base/example-contraints-correct-machinery-task-constraint.html">Example: Correct the constraint for the machinery task</a></li></ul></li></ul></li></ul></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../archSpec/technicalContent/technical-content-specializations.html">Technical content specializations</a></li><li><a href="../../archSpec/learningTraining/learning-and-training-specializations.html">Learning and training specializations</a></li></ul></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9 non-normative"><article role="article" aria-labelledby="ariaid-title1">
   <h1 class="title topictitle1" id="ariaid-title1">Example: Constrain a domain module</h1>
-  
-  
+
+
   <div class="body conbody"><p class="shortdesc">In this scenario, an information architect wants to use only a subset of the elements
     defined in the highlighting domain. She wants to use <code class="keyword markupname xmlelement">&lt;b&gt;</code> and
       <code class="keyword markupname xmlelement">&lt;i,&gt;</code> but not <code class="keyword markupname xmlelement">&lt;line-through&gt;</code>,
@@ -29,7 +28,7 @@ classes: ''
 &lt;!--      CONSTRAINED HIGHLIGHTING DOMAIN ENTITIES                 --&gt;
 &lt;!-- ============================================================= --&gt;
 
-&lt;!ENTITY HighlightingDomain-constraints     
+&lt;!ENTITY HighlightingDomain-constraints
   "(topic hi-d basic-HighlightingDomain-c)"
 &gt;
 
@@ -41,15 +40,15 @@ classes: ''
 &lt;!--                    DOMAIN CONSTRAINT INTEGRATION              --&gt;
 &lt;!-- ============================================================= --&gt;
 
-&lt;!ENTITY % HighlightingDomain-c-dec  
-  PUBLIC "-//ACME//ENTITIES DITA Highlighting Domain Constraint//EN" 
+&lt;!ENTITY % HighlightingDomain-c-dec
+  PUBLIC "-//ACME//ENTITIES DITA Highlighting Domain Constraint//EN"
   "acme-HighlightingDomainConstraint.mod"
 &gt;%basic-HighlightingDomain-c-dec;</code></pre></li>
         <li class="li">In the "DOMAIN EXTENSIONS" section, she replaces the parameter entity for the
           highlighting domain with the parameter entity for the constrained highlighting
           domain:<pre class="pre codeblock"><code>&lt;!ENTITY % ph           "ph |
                          <strong class="ph b">%HighlightingDomain-c-ph;</strong> |
-                         %sw-d-ph; | 
+                         %sw-d-ph; |
                          %ui-d-ph;
                         "&gt;</code></pre></li>
         <li class="li">She then adds the constraint to the list of domains and constraints that need to be
@@ -58,11 +57,11 @@ classes: ''
 &lt;!--                    DOMAINS ATTRIBUTE OVERRIDE                 --&gt;
 &lt;!-- ============================================================= --&gt;
 
-&lt;!ENTITY included-domains 
+&lt;!ENTITY included-domains
                           "&amp;task-att;
-                           &amp;hi-d-att; 
+                           &amp;hi-d-att;
                            &amp;indexing-d-att;
-                           &amp;pr-d-att; 
+                           &amp;pr-d-att;
                            &amp;sw-d-att;
                            &amp;ui-d-att;
                            &amp;taskbody-constraints;
@@ -74,5 +73,5 @@ classes: ''
       </ol>
     </div>
   </div>
-  
+
 <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/examples-constraints.html" title="This section of the specification contains examples and scenarios. They illustrate a variety of ways that constraints can be used; they also provide examples of the DTD coding requirements for constraints and how constraints are integrated into document-type shells.">Examples: Constraints</a></div></div></nav></article></main>

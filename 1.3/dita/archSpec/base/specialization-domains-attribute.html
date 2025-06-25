@@ -1,6 +1,5 @@
 ---
-# Generated from DITA source
-layout: base
+layout: base.njk
 title: 'domains attribute rules and syntax'
 description: 'The domains attribute enables processors to determine whether two elements or two documents use compatible domains. The attribute is declared on the root element for each topic or map type. Each structural, domain, and constraint module defines its ancestry as a parenthesized sequence of space-separated module names; the effective value of the domains attribute is composed of these parenthesized sequences.'
 index: '../../toc.html'
@@ -35,8 +34,8 @@ classes: ''
         <code class="keyword markupname xmlelement">&lt;hazardstatement&gt;</code> element is generalized to a
         <code class="keyword markupname xmlelement">&lt;note&gt;</code> element when the content reference is resolved.</p>
     <section class="section" id="domainsatt__syntax"><h2 class="title sectiontitle">Syntax and rules</h2>
-      
-      
+
+
       <p class="p">Each domain and constraint module <dfn class="term RFC-2119">MUST</dfn> provide a value for use by the <code class="keyword markupname xmlatt">@domains</code> attribute. Each
         structural vocabulary module <dfn class="term RFC-2119">SHOULD</dfn>
         provide a value for use by the <code class="keyword markupname xmlatt">@domains</code> attribute, and it <dfn class="term RFC-2119">MUST</dfn> do so when it has a dependency on
@@ -44,7 +43,7 @@ classes: ''
       <p class="p">Values provided for the <code class="keyword markupname xmlatt">@domains</code> attribute values are
         specified from root module (map or topic) to the provided module.</p>
       <dl class="dl">
-        
+
           <dt class="dt dlterm" id="domainsatt__structural-modules">structural modules</dt>
           <dd class="dd">
             <p class="p">The value of the <code class="keyword markupname xmlatt">@domains</code> attribute includes each module in the
@@ -56,8 +55,8 @@ classes: ''
               value of the <code class="keyword markupname xmlatt">@domains</code> attribute for the glossentry structural module
               is <code class="ph codeph">(topic concept glossentry)</code>.</p>
           </dd>
-        
-        
+
+
           <dt class="dt dlterm" id="domainsatt__structural-modules-with-dependencies">structural modules with dependencies</dt>
           <dd class="dd">
             <p class="p">Structural modules can directly reference or specialize elements from modules that
@@ -77,7 +76,7 @@ classes: ''
               dependencies:<pre class="pre codeblock"><code> '(', <var class="keyword varname">topic-or-map</var>, (' ', <var class="keyword varname">module-plus-optional-dependency-list</var>)+, ')'</code></pre></div>
             <p class="p">When the structural module is included in a document-type shell, all dependency
               modules also are included along with their own <code class="keyword markupname xmlatt">@domains</code> values.</p>
-            
+
             <div class="p"> For example, the cppAPIRef structural module is specialized
               from reference, which is specialized from topic. The cppAPIRef module has a dependency
               on the cpp-d element domain and on the compilerTypeAtt-d attribute domain. The
@@ -91,8 +90,8 @@ classes: ''
               modules contribute the following values:
               <pre class="pre codeblock"><code>(topic reference codeChecklist+pr-d++task) (topic pr-d) (topic task)</code></pre></div>
           </dd>
-        
-        
+
+
           <dt class="dt dlterm" id="domainsatt__element-domains">element domains</dt>
           <dd class="dd">
             <p class="p">The value includes the structural type ancestry and, if applicable, the domain module
@@ -103,8 +102,8 @@ classes: ''
             supplies the following value: <code class="ph codeph">(topic hi-d)</code>. A CPP domain that is
             specialized from the programming domain, which in turn is specialized from topic,
             supplies the following value: <code class="ph codeph">(topic pr-d cpp-d)</code>.</dd>
-        
-        
+
+
           <dt class="dt dlterm" id="domainsatt__structural-constraint-modules">structural constraint modules</dt>
           <dd class="dd">
             <p class="p">The value includes the structural type ancestry followed by the name of the
@@ -131,8 +130,8 @@ classes: ''
               with the letter "s". For example, <code class="ph codeph">s(topic task strictTaskbody-c)</code>
               indicates a strong constraint.</p>
           </dd>
-        
-        
+
+
           <dt class="dt dlterm" id="domainsatt__domain-constraint-modules">domain constraint modules</dt>
           <dd class="dd">
             <p class="p">The value includes the specialization ancestry followed by the name of the constraint
@@ -152,8 +151,8 @@ classes: ''
               restricts the highlighting domain includes a value like the following: <code class="ph codeph">(topic
                 hi-d basic-HighlightingDomain-c)</code></p>
           </dd>
-        
-        
+
+
           <dt class="dt dlterm" id="domainsatt__attribute-domains">attribute domains</dt>
           <dd class="dd">
             <p class="p">The value uses an "a" before the initial parenthesis to indicate an attribute domain.
@@ -164,11 +163,11 @@ classes: ''
               from <code class="keyword markupname xmlatt">@props</code> results in the following value: <code class="ph codeph">a(props
                 mySelectAttribute)</code></p>
           </dd>
-        
+
       </dl>
     </section>
 <div class="example non-normative" id="domainsatt__example"><h2 class="title sectiontitle">Example: Task with multiple domains</h2>
-      
+
       <p class="p">In this example, a document-type shell integrates the task structural module and the
         following domain modules:</p>
       <table class="simpletable frame-all"><colgroup><col style="width:50%"><col style="width:50%"></colgroup><thead><tr class="sthead">
@@ -195,7 +194,7 @@ classes: ''
         the value is defaulted based on the modules that are included in the document type
         shell.</p>
     </div>
-    
-    
+
+
 </div>
 <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/specialization.html" title="The specialization feature of DITA allows for the creation of new element types and attributes that are explicitly and formally derived from existing types. This facilitates interchange of conforming DITA content and ensures a minimum level of common processing for all DITA content. It also allows specialization-aware processors to add specialization-specific processing to existing base processing.">Specialization</a></div></div><div class="linklist relconcepts"><strong>Related concepts</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="../../archSpec/base/module-compatibility.html" title="When DITA elements are copied from one document to another, processors need to determine the validity of the copied elements. This copying might occur as the result of a content reference (conref) or key reference (keyref), or it might occur in the context of an author editing a DITA document.">Processing documents with different values of the domains attribute</a></li></ul></div></nav></article></main>

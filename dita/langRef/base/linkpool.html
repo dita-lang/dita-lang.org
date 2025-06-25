@@ -1,6 +1,5 @@
 ---
-# Generated from DITA source
-layout: base
+layout: base.njk
 title: 'linkpool'
 description: 'A link pool is a group of links. The order that the links are rendered in the output is determined by the processor.'
 index: '../../toc.html'
@@ -17,7 +16,7 @@ classes: ''
 <div class="body refbody"><p class="shortdesc">A link pool is a group of links. The order that the links are
     rendered in the output is determined by the processor.</p>
     <section class="section" id="linkpool__rendering-expectations"><h2 class="title sectiontitle">Rendering expectations</h2>
-      
+
       <p class="p">The order in which links in a <code class="keyword markupname xmlelement">&lt;linkpool&gt;</code>
         element are rendered is processor-specific. A processor might sort
         links based on role or type. A processor might move or remove links
@@ -27,13 +26,13 @@ classes: ''
         a PDF.</p>
     </section>
     <section style="color:red;" class="section" id="linkpool__d81009e63"><h2 class="title sectiontitle">Processing expectations</h2>
-      
+
       <p class="p">Attributes that cascade between topic references in a map<span style="color:red;" class="ph">, such as the
             <code class="keyword markupname xmlatt">@scope</code> and <code class="keyword markupname xmlatt">@format</code> attributes,</span> also cascade from
         this element to contained links.</p>
     </section>
 <section class="section generated" id="linkpool__content-model"><h2 class="title sectiontitle">Content model</h2>
-         
+
          <p class="p content-model generated">(<a class="xref" href="../content-models/../base/linkpool.html" title="A link pool is a group of links. The order that the links are rendered in the output is determined by the processor.">
                <code class="keyword markupname xmlelement">&lt;linkpool&gt;</code>
             </a> | <a class="xref" href="../content-models/../base/link.html" title="A link is a reference to another DITA topic or a non-DITA resource.">
@@ -75,7 +74,7 @@ classes: ''
          </ul>
       </section>
 <section class="section generated" id="linkpool__inheritance"><h2 class="title sectiontitle">Inheritance</h2>
-            
+
             <p class="p inheritance">- topic/linkpool </p>
             <p class="p inheritance-prose">The <code class="keyword markupname xmlelement">&lt;linkpool&gt;</code> element is a base element type. It is defined in the topic module.</p>
          </section><section class="section" id="linkpool__attributes"><h2 class="title sectiontitle">Attributes</h2>
@@ -88,46 +87,46 @@ classes: ''
             processing default is <span class="keyword">unordered</span>, although no
             default is specified in the OASIS-provided grammar files. The
             following values are valid:<dl class="dl" id="linkpool__colltypevalues">
-              
+
                 <dt class="dt dlterm">unordered </dt>
                 <dd class="dd">Indicates that the order of the child topics is not
                   significant. </dd>
-              
-              
+
+
                 <dt class="dt dlterm">sequence </dt>
                 <dd class="dd">Indicates that the order of the child topics is
                   significant. Output processors will typically link
                   between them in order. </dd>
-              
-              
+
+
                 <dt class="dt dlterm">choice </dt>
                 <dd class="dd">Indicates that one of the children should be
                   selected.</dd>
-              
-              
+
+
                 <dt class="dt dlterm">family </dt>
                 <dd class="dd">Indicates a tight grouping in which each of the
                   referenced topics not only relates to the current topic
                   but also relate to each other. </dd>
-              
+
             </dl></dd><dt class="dt dlterm" id="linkpool__attr-duplicates"><code class="keyword markupname xmlatt">@duplicates</code></dt><dd class="dd">Specifies whether duplicate links are removed from a group of
             links. Duplicate links are links that address the same resource
             using the same properties, such as link text and link role. How
             duplicate links are determined is processor-specific. The
             following values are valid:<dl class="dl">
-              
+
                 <dt class="dt dlterm">yes</dt>
                 <dd class="dd">Specifies that duplicate links are retained.</dd>
-              
-              
+
+
                 <dt class="dt dlterm">no</dt>
                 <dd class="dd">Specifies that duplicate links are removed.</dd>
-              
-              
+
+
           <dt class="dt dlterm"><span class="keyword">-dita-use-conref-target</span></dt>
           <dd class="dd">See <a class="xref" href="../../common/../archSpec/base/ditauseconreftarget.html" title="When an element uses conref to pull in content, for any of its attributes assigned a value of -dita-use-conref-target, the resulting value for those attributes is also pulled in from the referenced element.">Using the -dita-use-conref-target value</a>
             for more information. </dd>
-        
+
             </dl><p class="p">The suggested processing default is
                 <span class="keyword">yes</span> within
                 <code class="keyword markupname xmlelement">&lt;linklist&gt;</code> elements and
@@ -145,61 +144,61 @@ classes: ''
               target is the child of the current topic. This can be used to
               sort and classify links when rendering.</p><p class="p">The following
               values are valid:</p><dl class="dl" id="linkpool__linkrolevalues">
-              
+
                 <dt class="dt dlterm">ancestor</dt>
                 <dd class="dd">Indicates a link to a topic above the parent
                   topic.</dd>
-              
-              
+
+
                 <dt class="dt dlterm">child</dt>
                 <dd class="dd">Indicates a link to a direct child such as a directly
                   nested or dependent topic.</dd>
-              
-              
+
+
                 <dt class="dt dlterm">cousin</dt>
                 <dd class="dd">Indicates a link to another topic in the same hierarchy
                   that is not a parent, child, sibling, next, or
                   previous.</dd>
-              
-              
+
+
                 <dt class="dt dlterm">descendant</dt>
                 <dd class="dd">Indicates a link to a topic below a child topic.</dd>
-              
-              
+
+
                 <dt class="dt dlterm">friend</dt>
                 <dd class="dd">Indicates a link to a similar topic that is not
                   necessarily part of the same hierarchy.</dd>
-              
-              
+
+
                 <dt class="dt dlterm">next</dt>
                 <dd class="dd">Indicates a link to the next topic in a sequence.</dd>
-              
-              
+
+
                 <dt class="dt dlterm">other</dt>
                 <dd class="dd">Indicates any other kind of relationship or role. The
                   type of role is specified as the value for the
                     <code class="keyword markupname xmlatt">@otherrole</code> attribute.</dd>
-              
-              
+
+
                 <dt class="dt dlterm">parent</dt>
                 <dd class="dd">Indicates a link to a topic that is a parent of the
                   current topic.</dd>
-              
-              
+
+
                 <dt class="dt dlterm">previous</dt>
                 <dd class="dd">Indicates a link to the previous topic in a
                   sequence.</dd>
-              
-              
+
+
                 <dt class="dt dlterm">sibling</dt>
                 <dd class="dd">Indicates a link between two children of the same
                   parent topic.</dd>
-              
-              
+
+
           <dt class="dt dlterm"><span class="keyword">-dita-use-conref-target</span></dt>
           <dd class="dd">See <a class="xref" href="../../common/../archSpec/base/ditauseconreftarget.html" title="When an element uses conref to pull in content, for any of its attributes assigned a value of -dita-use-conref-target, the resulting value for those attributes is also pulled in from the referenced element.">Using the -dita-use-conref-target value</a>
             for more information. </dd>
-        
+
             </dl></dd><dt class="dt dlterm" id="linkpool__attr-scope"><code class="keyword markupname xmlatt">@scope</code>
             <span class="ph">(link-relationship
               attributes)</span></dt><dd class="dd">Specifies the closeness of the relationship between the
@@ -213,7 +212,7 @@ classes: ''
               attributes)</span></dt><dd class="dd">Describes the target of a reference. See <a class="xref" href="../../archSpec/base/thetypeattribute.html" title="On linking elements, the type attribute describes the target of a reference. The type attribute is also used on several non-linking elements for other purposes.">The type attribute</a> for detailed
             information on supported values and processing implications. </dd></dl></section>
     <div class="example non-normative" id="linkpool__example"><h2 class="title sectiontitle">Example</h2><p class="non-normative-label">This section is non-normative.</p>
-      
+
       <p class="p">The following code sample shows how a <code class="keyword markupname xmlelement">&lt;linkpool&gt;</code> element is used to
         group a set of conceptual information. The order in which the links are rendered in the
         output is processor-dependent. <span style="color:red;" class="ph">In this example, the <code class="keyword markupname xmlatt">@type</code>

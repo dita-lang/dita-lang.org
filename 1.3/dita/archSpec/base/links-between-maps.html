@@ -1,6 +1,5 @@
 ---
-# Generated from DITA source
-layout: base
+layout: base.njk
 title: 'Cross-deliverable addressing and linking'
 description: 'A map can use scoped keys to reference keys that are defined in a different root map. This cross-deliverable addressing can support the production of deliverables that contain working links to other deliverables.'
 index: '../../toc.html'
@@ -12,7 +11,7 @@ classes: ''
 
 <nav class="col-lg-3" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction to DITA 1.3</a></li><li><a href="../../archSpec/archSpec-learningTraining.html">Architectural specification: All-inclusive edition </a><ul class="nav nav-list"><li><a href="../../archSpec/base/introduction-to-dita.html">Introduction to DITA</a></li><li><a href="../../archSpec/base/ditamarkup.html">DITA markup </a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a><ul class="nav nav-list"><li><a href="../../archSpec/base/id.html">ID attribute</a></li><li><a href="../../archSpec/base/dita-linking.html">DITA linking</a></li><li><a href="../../archSpec/base/uri-based-addressing.html">URI-based (direct) addressing</a></li><li><a href="../../archSpec/base/key-based-addressing.html">Indirect key-based addressing</a><ul class="nav nav-list"><li><a href="../../archSpec/base/keys-core-concepts.html">Core concepts for working with keys</a></li><li><a href="../../archSpec/base/keyScopes.html">Key scopes</a></li><li><a href="../../archSpec/base/using-keys-for-addressing.html">Using keys for addressing</a></li><li><a href="../../archSpec/base/using-keys-to-address-keys-across-scopes.html">Addressing keys across scopes</a></li><li class="active"><a href="../../archSpec/base/links-between-maps.html">Cross-deliverable addressing and linking</a></li><li><a href="../../archSpec/base/processing-key-references-general.html">Processing key references</a></li><li><a href="../../archSpec/base/processing-keyref-for-links.html">Processing key references for navigation links and images</a></li><li><a href="../../archSpec/base/processing-keyref-on-topicref.html">Processing key references on topicref elements</a></li><li><a href="../../archSpec/base/processing-keyref-for-text.html">Processing key references to generate text or link text</a></li><li><a href="../../archSpec/base/examples-of-keys.html">Examples of keys</a></li></ul></li></ul></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration, specialization, generalization, and constraints </a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../archSpec/technicalContent/technical-content-specializations.html">Technical content specializations</a></li><li><a href="../../archSpec/learningTraining/learning-and-training-specializations.html">Learning and training specializations</a></li></ul></li><li><a href="../../langRef/langRef-learningTraining.html">Language reference: All-inclusive edition</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/non-normative-information.html">Non-normative information</a></li><li><a href="../../contentmodels/cmlt.html">Content models for learning and training package</a></li></ul></nav><main role="main" class="col-lg-9"><article role="article" aria-labelledby="ariaid-title1">
  <h1 class="title topictitle1" id="ariaid-title1"><span class="ph">Cross-deliverable addressing and linking</span></h1>
- 
+
  <div class="body conbody"><p class="shortdesc">A map can use scoped keys to reference keys that are defined in a different root map.
         This cross-deliverable addressing can support the production of deliverables that contain
         working links to other deliverables.</p>
@@ -43,13 +42,13 @@ classes: ''
             have access to the peer map in order to determine whether a given key definition comes
             from the peer map.</p>
         <div class="example non-normative" id="links-between-maps__example-root-declares-peer"><h2 class="title sectiontitle">Example: A root map that declares a peer map</h2>
-            
+
             <p class="p">Consider the DITA maps <span class="ph filepath">map-a.ditamap</span> and
                     <span class="ph filepath">map-b.ditamap</span>. Map A designates Map B as a peer map by
                 using the following markup:</p>
             <pre class="pre codeblock"><code>&lt;map&gt;
   &lt;title&gt;Map A&lt;/title&gt;
-  &lt;topicref 
+  &lt;topicref
     scope="peer"
     format="ditamap"
     keyscope="map-b"
@@ -63,11 +62,11 @@ classes: ''
         </div>
         <div class="example non-normative" id="links-between-maps__example-peer-keyscope"><h2 class="title sectiontitle">Example: Key resolution in a peer map that contains a <code class="keyword markupname xmlatt">@keyscope</code>
                 attribute on the root element</h2>
-            
+
             <p class="p">Consider the map reference in map Map A:</p>
-            <pre class="pre codeblock"><code>&lt;mapref 
+            <pre class="pre codeblock"><code>&lt;mapref
   keyscope="scope-b"
-  scope="peer"  
+  scope="peer"
   href="map-b.ditamap"
 /&gt; </code></pre>
             <p class="p">where <span class="ph filepath">map-b.ditamap</span> contains the following markup:</p>

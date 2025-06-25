@@ -1,6 +1,5 @@
 ---
-# Generated from DITA source
-layout: base
+layout: base.njk
 title: 'Imposing roles when referencing a map'
 description: 'When specialized topicref elements reference a map, they might imply a semantic role for the referenced content. The impose-role attribute provides a mechanism to declare that such references impose their original role on referenced content.'
 index: '../../toc.html'
@@ -12,8 +11,8 @@ classes: ''
 
 <nav class="toc" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction</a></li><li><a href="../../archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="../../archSpec/base/accessibility-and-translation.html">Accessibility and translation</a></li><li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a><ul class="nav nav-list"><li><a href="../../archSpec/base/dita-maps-and-their-usage.html">DITA maps and their usage</a><ul class="nav nav-list"><li class="active"><a href="../../archSpec/base/impose-topicref-role.html">Imposing roles when referencing a map</a><ul class="nav nav-list"><li><a href="../../archSpec/base/example-impose-topicref-roles.html">Example: How topicref roles are imposed on referenced maps</a></li></ul></li><li><a href="../../archSpec/base/example-ditamaps.html">Examples of DITA maps</a></li></ul></li><li><a href="../../archSpec/base/subject-scheme-maps-and-usage.html">Subject scheme maps and their usage</a></li><li><a href="../../archSpec/base/map-cascading.html">Metadata cascading</a></li><li><a href="../../archSpec/base/chunking.html">Chunking</a></li></ul></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a></li><li><a href="../../langRef/langRef-base.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../non-normative/developing-constraint-and-expansion-modules.html">Constraint modules</a></li><li><a href="../../non-normative/expansion-modules.html">Expansion modules</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../non-normative/formatting-expectations.html">Formatting expectations</a></li><li><a href="../../non-normative/migrating-to-dita-2.0.html">Migrating to DITA 2.0</a></li><li><a href="../../non-normative/basedoctypes.html">OASIS grammar files</a></li><li><a href="../../non-normative/interoperability-considerations.html">Processing interoperability considerations</a></li><li><a href="../../non-normative/revision-history.html">Revision history</a></li></ul></nav><main role="main" class=""><article role="article" aria-labelledby="ariaid-title1">
  <h1 class="title topictitle1" id="ariaid-title1">Imposing roles when referencing a map</h1>
- 
- 
+
+
  <div class="body conbody"><p class="shortdesc">When specialized <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements reference a map, they might
     imply a semantic role for the referenced content. The <code class="keyword markupname xmlatt">@impose-role</code> attribute
     provides a mechanism to declare that such references impose their original role on referenced
@@ -81,7 +80,7 @@ classes: ''
       to treat this as an error, issue a warning, or simply assign new roles to the problematic
       elements.</p>
     <div class="example non-normative" id="cascading-of-roles-in-specialized-maps__d199408e262"><h2 class="title sectiontitle">Defining a fixed role for a specialized element</h2><p class="non-normative-label">This section is non-normative.</p>
-      
+
       <p class="p">In the Bookmap specialization from the OASIS DITA Technical Communications specializations,
         the <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> element creates a role for the referenced topic. In
         many contexts (such as a PDF version of the map), this will result in special formatting
@@ -105,7 +104,7 @@ classes: ''
         will impose the role of "chapter" as expected.</p>
     </div>
     <div class="example non-normative" id="cascading-of-roles-in-specialized-maps__d199408e300"><h2 class="title sectiontitle">Imposing a role on a branch of a map</h2><p class="non-normative-label">This section is non-normative.</p>
-      
+
       <div class="p">In this scenario, a specialized <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> element refers to a branch
         of another map. The chapter element does not need to set the <code class="keyword markupname xmlatt">@impose-role</code>
         attribute directly, because it is defined with a default value in the XML grammar files. The
@@ -143,7 +142,7 @@ classes: ''
 &lt;/bookmap&gt;</code></pre></div>
     </div>
     <div class="example non-normative" id="cascading-of-roles-in-specialized-maps__d199408e343"><h2 class="title sectiontitle">Imposing a role on a referenced map</h2><p class="non-normative-label">This section is non-normative.</p>
-      
+
       <div class="p">In this scenario, a specialized <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> element refers to an
         entire submap. The chapter element does not need to set the <code class="keyword markupname xmlatt">@impose-role</code>
         attribute directly, because it is defined with a default value in the XML grammar files. The
