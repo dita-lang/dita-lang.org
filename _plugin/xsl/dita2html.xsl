@@ -26,7 +26,7 @@
 
   <xsl:template match="node()" mode="jekyll-front-matter">
     <xsl:text>---&#xA;</xsl:text>
-    <xsl:text># Generated from DITA source&#xA;</xsl:text>
+<!--    <xsl:text># Generated from DITA source&#xA;</xsl:text>-->
     <xsl:text>layout: </xsl:text>
     <xsl:apply-templates select="." mode="jekyll-layout"/>
     <xsl:text>&#xA;</xsl:text>
