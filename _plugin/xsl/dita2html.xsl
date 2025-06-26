@@ -146,7 +146,7 @@
   </xsl:template>
 
   <xsl:template match="*[contains(@class, ' topic/topic ')]">
-   <xsl:param name="is-non-normative" tunnel="yes" as="xs:boolean"/>
+   <xsl:param name="is-non-normative" tunnel="yes" as="xs:boolean" select="false()"/>
     <xsl:next-match>
       <xsl:with-param name="is-non-normative" tunnel="yes" as="xs:boolean"
                       select="$is-non-normative or
@@ -156,7 +156,7 @@
   </xsl:template>
 
   <xsl:template match="*[contains(@class, ' topic/topic ')]/*[contains(@class, ' topic/title ')]">
-    <xsl:param name="is-non-normative" tunnel="yes" as="xs:boolean"/>
+    <xsl:param name="is-non-normative" tunnel="yes" as="xs:boolean" select="false()"/>
     <xsl:param name="headinglevel" as="xs:integer">
       <xsl:choose>
         <xsl:when test="count(ancestor::*[contains(@class, ' topic/topic ')]) > 6">6</xsl:when>
@@ -409,12 +409,12 @@
     </div>
   </xsl:template>
 
-  <xsl:templates match="*" mode="dita2html:section-heading">
-    <xsl:param name="is-non-normative" tunnel="yes" as="xs:boolean"/>
+  <xsl:template match="*" mode="dita2html:section-heading">
+    <xsl:param name="is-non-normative" tunnel="yes" as="xs:boolean" select="false()"/>
     <xsl:next-match/>
     <xsl:if test="$is-non-normative">
       <xsl:call-template name="non-normative-label"/>
     </xsl:if>
-  </xsl:templates>
+  </xsl:template>
 
 </xsl:stylesheet>
