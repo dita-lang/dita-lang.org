@@ -145,7 +145,18 @@
     </xsl:if>
   </xsl:template>
 
+  <xsl:template match="*[contains(@class, ' topic/topic ')]">
+   <xsl:param name="is-non-normative" tunnel="yes" as="xs:boolean"/>
+    <xsl:next-match>
+      <xsl:with-param name="is-non-normative" tunnel="yes" as="xs:boolean"
+                      select="$is-non-normative or
+                              tokenize(@outputclass, '\s+')['non-normative'] or
+                              $current-topicref/ancestor-or-self::*[contains(@class, ' bookmap/appendix ')]"/>
+    </xsl:next-match>
+  </xsl:template>
+
   <xsl:template match="*[contains(@class, ' topic/topic ')]/*[contains(@class, ' topic/title ')]">
+    <xsl:param name="is-non-normative" tunnel="yes" as="xs:boolean"/>
     <xsl:param name="headinglevel" as="xs:integer">
       <xsl:choose>
         <xsl:when test="count(ancestor::*[contains(@class, ' topic/topic ')]) > 6">6</xsl:when>
@@ -167,6 +178,9 @@
         </xsl:otherwise>
       </xsl:choose>
     </xsl:element>
+    <xsl:if test="$is-non-normative">
+      <xsl:call-template name="non-normative-label"/>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template name="non-normative-label">
@@ -181,10 +195,10 @@
       <xsl:call-template name="setidaname"/>
       <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]" mode="out-of-line"/>
 
-      <xsl:if test="tokenize(/*/@outputclass, '\s+')['non-normative'] or
-                    $current-topicref/ancestor-or-self::*[contains(@class, ' bookmap/appendix ')]">
-        <xsl:call-template name="non-normative-label"/>
-      </xsl:if>
+<!--      <xsl:if test="tokenize(/*/@outputclass, '\s+')['non-normative'] or-->
+<!--                    $current-topicref/ancestor-or-self::*[contains(@class, ' bookmap/appendix ')]">-->
+<!--        <xsl:call-template name="non-normative-label"/>-->
+<!--      </xsl:if>-->
 
       <!-- here, you can generate a toc based on what's a child of body -->
       <!--xsl:call-template name="gen-sect-ptoc"/--><!-- Works; not always wanted, though; could add a param to enable it.-->
@@ -389,10 +403,18 @@
       <xsl:call-template name="setidaname"/>
       <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]" mode="out-of-line"/>
       <xsl:apply-templates select="." mode="dita2html:section-heading"/>
-      <xsl:call-template name="non-normative-label"/>
+<!--      <xsl:call-template name="non-normative-label"/>-->
       <xsl:apply-templates select="*[not(contains(@class, ' topic/title '))] | text() | comment() | processing-instruction()"/>
       <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-endprop ')]" mode="out-of-line"/>
     </div>
   </xsl:template>
+
+  <xsl:templates match="*" mode="dita2html:section-heading">
+    <xsl:param name="is-non-normative" tunnel="yes" as="xs:boolean"/>
+    <xsl:next-match/>
+    <xsl:if test="$is-non-normative">
+      <xsl:call-template name="non-normative-label"/>
+    </xsl:if>
+  </xsl:templates>
 
 </xsl:stylesheet>
