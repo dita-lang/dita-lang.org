@@ -169,6 +169,12 @@
     </xsl:element>
   </xsl:template>
 
+  <xsl:template name="non-normative-label">
+    <p class="non-normative-label">
+      <xsl:text>This section is non-normative.</xsl:text>
+    </p>
+  </xsl:template>
+
   <xsl:template match="*[contains(@class, ' topic/body ')]" name="topic.body">
     <div>
       <xsl:call-template name="commonattributes"/>
@@ -177,9 +183,7 @@
 
       <xsl:if test="tokenize(/*/@outputclass, '\s+')['non-normative'] or
                     $current-topicref/ancestor-or-self::*[contains(@class, ' bookmap/appendix ')]">
-        <p class="non-normative-label">
-          <xsl:text>This section is non-normative.</xsl:text>
-        </p>
+        <xsl:call-template name="non-normative-label"/>
       </xsl:if>
 
       <!-- here, you can generate a toc based on what's a child of body -->
@@ -385,9 +389,7 @@
       <xsl:call-template name="setidaname"/>
       <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]" mode="out-of-line"/>
       <xsl:apply-templates select="." mode="dita2html:section-heading"/>
-      <p class="non-normative-label">
-        <xsl:text>This section is non-normative.</xsl:text>
-      </p>
+      <xsl:call-template name="non-normative-label"/>
       <xsl:apply-templates select="*[not(contains(@class, ' topic/title '))] | text() | comment() | processing-instruction()"/>
       <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-endprop ')]" mode="out-of-line"/>
     </div>
