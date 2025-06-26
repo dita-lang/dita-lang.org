@@ -176,16 +176,18 @@
   </xsl:template>
 
   <xsl:template match="*[contains(@class, ' topic/shortdesc ')]" mode="outofline">
-    <xsl:if test="tokenize(../@outputclass, '\s+')['non-normative'] or
-                  $current-topicref/ancestor-or-self::*[contains(@class, ' bookmap/appendix ')]">
+    <xsl:if test="following-sibling::*[contains(@class, ' topic/body ')] and
+                  (tokenize(../@outputclass, '\s+')['non-normative'] or
+                   $current-topicref/ancestor-or-self::*[contains(@class, ' bookmap/appendix ')])">
       <xsl:call-template name="non-normative-label"/>
     </xsl:if>
     <xsl:next-match/>
   </xsl:template>
 
   <xsl:template match="*[contains(@class, ' topic/abstract ')]" mode="outofline">
-    <xsl:if test="tokenize(../@outputclass, '\s+')['non-normative'] or
-                  $current-topicref/ancestor-or-self::*[contains(@class, ' bookmap/appendix ')]">
+    <xsl:if test="following-sibling::*[contains(@class, ' topic/body ')] and
+                  (tokenize(../@outputclass, '\s+')['non-normative'] or
+                   $current-topicref/ancestor-or-self::*[contains(@class, ' bookmap/appendix ')])">
       <xsl:call-template name="non-normative-label"/>
     </xsl:if>
     <xsl:next-match/>
