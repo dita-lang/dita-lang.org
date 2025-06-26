@@ -21,7 +21,11 @@
 
   <xsl:template match="/">
     <xsl:apply-templates select="*" mode="eleventy-front-matter"/>
-    <xsl:apply-templates select="*" mode="chapterBody"/>
+    <xsl:apply-templates select="*" mode="chapterBody">
+      <xsl:with-param name="is-non-normative" tunnel="yes" as="xs:boolean"
+                      select="tokenize(*/@outputclass, '\s+')['non-normative'] or
+                              $current-topicref/ancestor-or-self::*[contains(@class, ' bookmap/appendix ')]"/>
+    </xsl:apply-templates>
   </xsl:template>
 
   <xsl:template match="node()" mode="eleventy-front-matter">
@@ -146,7 +150,9 @@
   </xsl:template>
 
   <xsl:template match="*[contains(@class, ' topic/topic ')]">
-   <xsl:param name="is-non-normative" tunnel="yes" as="xs:boolean" select="false()"/>
+    <xsl:param name="is-non-normative" tunnel="yes" as="xs:boolean"
+               select="tokenize(@outputclass, '\s+')['non-normative'] or
+                       $current-topicref/ancestor-or-self::*[contains(@class, ' bookmap/appendix ')]"/>
     <xsl:next-match>
       <xsl:with-param name="is-non-normative" tunnel="yes" as="xs:boolean"
                       select="$is-non-normative or
@@ -402,7 +408,9 @@
       <xsl:call-template name="gen-toc-id"/>
       <xsl:call-template name="setidaname"/>
       <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]" mode="out-of-line"/>
-      <xsl:apply-templates select="." mode="dita2html:section-heading"/>
+      <xsl:apply-templates select="." mode="dita2html:section-heading">
+        <xsl:with-param name="is-non-normative" tunnel="yes" as="xs:boolean" select="true()"/>
+      </xsl:apply-templates>
 <!--      <xsl:call-template name="non-normative-label"/>-->
       <xsl:apply-templates select="*[not(contains(@class, ' topic/title '))] | text() | comment() | processing-instruction()"/>
       <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-endprop ')]" mode="out-of-line"/>
