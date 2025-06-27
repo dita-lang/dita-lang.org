@@ -174,7 +174,7 @@
       <xsl:text>This section is non-normative.</xsl:text>
     </p>
   </xsl:template>
-  
+
   <xsl:template match="*[contains(@class, ' topic/abstract ')]">
     <xsl:if test="not(following-sibling::*[contains(@class, ' topic/body ')])">
       <div class="body">
