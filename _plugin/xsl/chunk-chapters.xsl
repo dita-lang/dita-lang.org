@@ -10,7 +10,7 @@
     </xsl:copy>
   </xsl:template>
 
-  <xsl:template match="*[contains(@class, ' bookmap/chapter ')] |
+  <xsl:template match="*[contains(@class, ' bookmap/chapter ')]/*[contains(@class, ' map/topicref ')] |
                        *[contains(@class, ' bookmap/appendix ')]">
     <xsl:copy>
       <xsl:apply-templates select="@*"/>
