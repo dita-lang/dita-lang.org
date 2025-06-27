@@ -34,7 +34,7 @@
   <xsl:template match="*[contains(@class, ' topic/note ') or
                          contains(@class, ' topic/example ')] |
                        *[*[contains(@class, ' topic/title ')]
-                          [matches(normalize-space(.), '^Examples?:', 'i')]]" mode="non-normative" priority="100">
+                          [matches(normalize-space(.), '^\s*Examples?:?\s', 'i')]]" mode="non-normative" priority="100">
     <xsl:copy>
       <xsl:apply-templates select="@* except @outputclass" mode="#current"/>
       <xsl:attribute name="outputclass" select="normalize-space(string-join(('non-normative', @outputclass), ' '))"/>
