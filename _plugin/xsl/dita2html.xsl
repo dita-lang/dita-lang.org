@@ -174,23 +174,37 @@
       <xsl:text>This section is non-normative.</xsl:text>
     </p>
   </xsl:template>
-
-  <xsl:template match="*[contains(@class, ' topic/shortdesc ')]" mode="outofline">
-    <xsl:if test="empty(following-sibling::*[contains(@class, ' topic/body ')]) and
-                  (tokenize(../@outputclass, '\s+')['non-normative'] or
-                   $current-topicref/ancestor-or-self::*[contains(@class, ' bookmap/appendix ')])">
-      <xsl:call-template name="non-normative-label"/>
+  
+  <xsl:template match="*[contains(@class, ' topic/abstract ')]">
+    <xsl:if test="not(following-sibling::*[contains(@class, ' topic/body ')])">
+      <div class="body">
+        <xsl:if test="tokenize(../@outputclass, '\s+')['non-normative'] or
+                      $current-topicref/ancestor-or-self::*[contains(@class, ' bookmap/appendix ')]">
+          <xsl:call-template name="non-normative-label"/>
+        </xsl:if>
+        <xsl:apply-templates select="." mode="outofline"/>
+        <xsl:apply-templates select="following-sibling::*[contains(@class, ' topic/related-links ')]" mode="prereqs"/>
+      </div>
     </xsl:if>
-    <xsl:next-match/>
   </xsl:template>
 
-  <xsl:template match="*[contains(@class, ' topic/abstract ')]" mode="outofline">
-    <xsl:if test="empty(following-sibling::*[contains(@class, ' topic/body ')]) and
-                  (tokenize(../@outputclass, '\s+')['non-normative'] or
-                   $current-topicref/ancestor-or-self::*[contains(@class, ' bookmap/appendix ')])">
-      <xsl:call-template name="non-normative-label"/>
-    </xsl:if>
-    <xsl:next-match/>
+  <xsl:template match="*[contains(@class, ' topic/shortdesc ')]">
+    <xsl:choose>
+      <xsl:when test="parent::*[contains(@class, ' topic/abstract ')]">
+        <xsl:apply-templates select="." mode="outofline.abstract"/>
+      </xsl:when>
+      <xsl:when test="not(following-sibling::*[contains(@class, ' topic/body ')])">
+        <div class="body">
+          <xsl:if test="tokenize(../@outputclass, '\s+')['non-normative'] or
+                        $current-topicref/ancestor-or-self::*[contains(@class, ' bookmap/appendix ')]">
+            <xsl:call-template name="non-normative-label"/>
+          </xsl:if>
+          <xsl:apply-templates select="." mode="outofline"/>
+          <xsl:apply-templates select="following-sibling::*[contains(@class, ' topic/related-links ')]" mode="prereqs"/>
+        </div>
+      </xsl:when>
+      <xsl:otherwise/>
+    </xsl:choose>
   </xsl:template>
 
   <xsl:template match="*[contains(@class, ' topic/body ')]" name="topic.body">
