@@ -1,18 +1,1858 @@
 ---
 layout: base.njk
-title: 'Coding practices for DITA grammar files'
-description: 'This section contains information about creating modular DTD- or RELAX NG-based grammar files. It explains how document-type shells, specialization modules, and element-configuration modules (constraint and expansion) are organized.'
+title: ''
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '8450cb6bbc52db0125b149bf55911020e763fda3'
+commit: '14d9fdf479be75217304823f724f9717d19bbab3'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
 
-<nav class="toc" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction</a></li><li><a href="../../archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="../../archSpec/base/accessibility-and-translation.html">Accessibility and translation</a></li><li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a></li><li><a href="../../langRef/langRef-base.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li class="active"><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a><ul class="nav nav-list"><li><a href="../../non-normative/file-naming-conventions.html">File naming conventions</a></li><li><a href="../../archSpec/base/dtd-requirements.html">DTD coding requirements</a></li><li><a href="../../archSpec/base/relax-ng-requirements.html">RELAX NG coding requirements</a></li></ul></li><li><a href="../../non-normative/developing-constraint-and-expansion-modules.html">Constraint modules</a></li><li><a href="../../non-normative/expansion-modules.html">Expansion modules</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../non-normative/formatting-expectations.html">Formatting expectations</a></li><li><a href="../../non-normative/migrating-to-dita-2.0.html">Migrating to DITA 2.0</a></li><li><a href="../../non-normative/basedoctypes.html">OASIS grammar files</a></li><li><a href="../../non-normative/interoperability-considerations.html">Processing interoperability considerations</a></li><li><a href="../../non-normative/revision-history.html">Revision history</a></li></ul></nav><main role="main" class=""><article role="article" aria-labelledby="ariaid-title1">
+<nav class="toc" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction</a></li><li><a href="../../archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="../../archSpec/base/accessibility-and-translation.html">Accessibility and translation</a></li><li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a></li><li><a href="../../langRef/langRef-base.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html#r-acknowledgments">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html#aggregated-RFC-2119-statements">Aggregated RFC-2119 statements</a></li><li class="active"><a href="../../archSpec/base/coding-requirements.html#coding-practices">Coding practices for DITA grammar files</a><ul class="nav nav-list"><li><a href="../../archSpec/base/coding-requirements.html#file-naming-conventions">File naming conventions</a></li><li><a href="../../archSpec/base/coding-requirements.html#dtd-requirements">DTD coding requirements</a></li><li><a href="../../archSpec/base/coding-requirements.html#rng-requirements">RELAX NG coding requirements</a></li></ul></li><li><a href="../../non-normative/developing-constraint-and-expansion-modules.html#developing-constraint-and-expansion-modules">Constraint modules</a></li><li><a href="../../non-normative/expansion-modules.html#expansion-modules">Expansion modules</a></li><li><a href="../../non-normative/elementsMerged.html#elements">Element-by-element recommendations for translators</a></li><li><a href="../../non-normative/formatting-expectations.html#formatting-expectations">Formatting expectations</a></li><li><a href="../../non-normative/migrating-to-dita-2.0.html#migrating-to-dita-2.0">Migrating to DITA 2.0</a></li><li><a href="../../non-normative/basedoctypes.html#oasisdomains">OASIS grammar files</a></li><li><a href="../../non-normative/interoperability-considerations.html#nteroperability-considerations">Processing interoperability considerations</a></li><li><a href="../../non-normative/revision-history.html#revision-history">Revision history</a></li></ul></nav><main role="main" class=""><article role="article" aria-labelledby="ariaid-title1"><article class="nested0" aria-labelledby="ariaid-title1" id="coding-practices">
  <h1 class="title topictitle1" id="ariaid-title1">Coding practices for DITA grammar files</h1>
   <div class="body"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">This section <span style="color:red;" class="ph">contains information
       about</span> creating modular DTD- or RELAX NG-based grammar files. <span style="color:red;" class="ph">It explains how document-type shells, specialization
       modules, and element-configuration modules (constraint and expansion)
       are organized.</span></p></div>
-<nav role="navigation" class="related-links"><ul class="ullinks"><li class="link ulchildlink"><strong><a href="../../non-normative/file-naming-conventions.html">File naming conventions</a></strong><div class="desc">The OASIS DITA Technical Committee uses certain conventions for     the names of XML grammar files. We suggest using these conventions as a     way to facilitate the interchange of grammar files.</div></li><li class="link ulchildlink"><strong><a href="../../archSpec/base/dtd-requirements.html">DTD coding requirements</a></strong><div class="desc">This section explains how to implement DTD<span style="color:red;" class="ph">-</span>based document-type shells, specializations, and <span class="ph">element-configuration modules (constraint and     expansion).</span></div></li><li class="link ulchildlink"><strong><a href="../../archSpec/base/relax-ng-requirements.html">RELAX NG coding requirements</a></strong><div class="desc">This section explains how to implement RNG-based document-type     shells, specializations, and <span class="ph">element-configuration       modules (constraints and expansions).</span></div></li></ul></nav><aside class="section-toc" role="aside"></aside></article></main>
+<article class="topic concept nested1" aria-labelledby="ariaid-title2" lang="en-us" id="file-naming-conventions">
+ <h2 class="title topictitle2" id="ariaid-title2">File naming conventions</h2>
+ 
+ <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">The OASIS DITA Technical Committee uses certain conventions for
+    the names of XML grammar files. We suggest using these conventions as a
+    way to facilitate the interchange of grammar files.</p>
+    <dl class="dl">
+      
+        <dt class="dt dlterm">Globally unique identifiers</dt>
+        <dd class="dd">
+          <p class="p">Vocabulary modules that are intended for use outside of a
+            narrowly-restricted context should have one or more associated,
+            globally-unique names by which the modules can be referenced
+            without regard to their local storage location. The
+            globally-unique names can be public identifiers, URNs, or
+            absolute URLs.</p>
+        </dd>
+      
+      
+        <dt class="dt dlterm"><span style="color:red;" class="ph">Document-type</span> shells</dt>
+        <dd class="dd">
+          <p class="p"><span style="color:red;" class="ph">Document-type</span> shells should be given a
+            name that distinguishes their name, owner, or purpose, for
+            example, <span class="ph filepath">acme-concept.dtd</span>. The <span style="color:red;" class="ph">document-type</span> shells that are provided by
+            the DITA Technical Committee typically use the root element of
+            the primary specialization as the basis for the file name. If
+            necessary, a qualifier such as <span class="keyword">base</span> is
+            prepended to the name of the root element.</p>
+        </dd>
+      
+      
+        <dt class="dt dlterm">Module names</dt>
+        <dd class="dd">
+          <p class="p">For structural modules, the module name should be the element
+            type name of the top-level topic or map type that is defined by
+            the module, such as "topic" or "map".</p>
+          <p class="p">For element- or attribute-domain modules, the module name
+            should be a name that reflects the subject domain to which the
+            domain applies, such as "highlight" or "software". Domain
+            module names should be sufficiently unique that they are
+            unlikely to conflict with any other domains.</p>
+          <p class="p">In addition, each element- or attribute-domain module has a
+            short name that is used to construct entity names that are used
+            in associated declarations. Modules can also have abbreviated
+            names that further shorten the short name, for example "hi-d"
+            for the "highlight" domain, where "highlight" is the short name
+            and "hi-d" is the abbreviated name. </p>
+        </dd>
+      
+    </dl>
+ </div>
+</article><article class="topic concept nested1" aria-labelledby="ariaid-title3" lang="en-us" id="dtd-requirements">
+ <h2 class="title topictitle2" id="ariaid-title3">DTD coding requirements</h2>
+ <div class="body"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">This section explains how to implement DTD<span style="color:red;" class="ph">-</span>based document-type shells, specializations, and <span class="ph">element-configuration modules (constraint and
+    expansion).</span></p></div>
+<article class="topic concept nested2" aria-labelledby="ariaid-title4" lang="en-us" id="dtd-requirements-overview">
+ <h3 class="title topictitle3" id="ariaid-title4">DTD: Use of entities</h3>
+ 
+ 
+ <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">DITA-based DTDs use entities to implement specialization and <span class="ph">element
+   configuration.</span> Therefore, an understanding of entities is critical when working with
+  DTD-based  document-type shells, vocabulary modules, or <span class="ph">element-configuration
+   modules (constraint and expansion).</span></p>
+  <p class="p">Entities can be defined multiple times within a single document type,
+      but only the first definition is effective. How entities work shapes
+      DTD coding practices. The following list describes a few of the more
+      important entities that are used in DITA DTDs:</p>
+  <dl class="dl">
+   
+    <dt class="dt dlterm">Elements defined as entities</dt>
+    <dd class="dd">
+     <p class="p">Every element in a DITA DTD is defined as an entity. When elements are added to a content
+      model, they are added using the entity. This enables extension with domain
+      specializations.</p>
+     <div class="example non-normative" id="d50694e267"><h4 class="title sectiontitle">Example</h4><p class="non-normative-label">This section is non-normative.</p>
+      <p class="p">For example, the entity <code class="ph codeph">%ph;</code> usually just means the
+        <code class="keyword markupname xmlelement">&lt;ph&gt;</code> element, but it can be defined in a document-type shell to mean
+        "<code class="keyword markupname xmlelement">&lt;ph&gt;</code> plus the elements from the highlighting domain". Because the
+       document-type shell places that entity definition before the usual definition, every element
+       that includes <code class="ph codeph">%ph;</code> in its content model now includes
+        <code class="keyword markupname xmlelement">&lt;ph&gt;</code> plus every element in the highlighting domain that is
+       specialized from <code class="keyword markupname xmlelement">&lt;ph&gt;</code>.</p>
+     </div>
+    </dd>
+   
+   
+    <dt class="dt dlterm">Content models defined as entities</dt>
+    <dd class="dd">
+     <p class="p">Every element in a DITA DTD defines its content model using an entity. <span class="ph">This
+       enables element configuration.</span></p>
+          <div style="color:red;" class="example non-normative" id="d50694e311"><h4 class="title sectiontitle">Example</h4><p class="non-normative-label">This section is non-normative.</p>For example, the content model for the
+              <code class="keyword markupname xmlelement">&lt;p&gt;</code> element is set to
+              <code class="ph codeph">%ph.content;</code>, and the
+              <code class="ph codeph">%ph.content;</code> entity defines the actual
+            content model. A constraint module then can redefine the
+              <code class="ph codeph">%ph.content;</code> entity to remove selected
+            elements from the content model, or an expansion module can
+            redefine the <code class="ph codeph">%ph.content;</code> entity to add
+            elements to the content model.</div>
+    </dd>
+   
+   
+    <dt class="dt dlterm">Attribute sets defined as entities</dt>
+    <dd class="dd">
+     <p class="p">Every element <span style="color:red;" class="ph">name</span> in a DITA DTD defines
+            its attributes using <span style="color:red;" class="ph">a parameter
+            entity</span>. <span class="ph">This enables element
+              configuration.</span></p>
+          <div style="color:red;" class="example non-normative" id="d50694e367"><h4 class="title sectiontitle">Example</h4><p class="non-normative-label">This section is non-normative.</p> For example, the attribute list for the
+              <code class="keyword markupname xmlelement">&lt;ph&gt;</code> element is set to
+              <code class="ph codeph">%ph.attributes;</code>, and the
+              <code class="ph codeph">%ph.attributes;</code> entity defines the actual
+            attribute list. A constraint module then can redefine the
+            entity to remove attributes from the attribute list, or an
+            expansion module can redefine the entity to add attributes to
+            the attribute list.</div>
+    </dd>
+   
+  </dl>
+  <div class="note note note_note non-normative"><span class="note__title">Note<span class="non-normative-label"> (non-normative)</span>:</span> <div class="note__body"><span class="ph">When constructing an element-configuration module or document-type
+    shell, new entities are usually viewed as "redefinitions" because they redefine entities that
+    already exist. </span>However, these new definitions only work because they are added to a
+   document-type shell before the existing definitions. Most topics about DITA DTDs, including
+   others in this specification, describe these overrides as redefinitions to ease
+   understanding.</div></div>
+ </div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title5" lang="en-us" id="shell-dtd-coding-reqs">
+    <h3 class="title topictitle3" id="ariaid-title5">DTD: Coding requirements for document-type shells</h3>
+    
+    
+    <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">A DTD-based document-type shell is organized into sections.
+    Each section contains entity declarations that follow specific coding
+    rules.</p>
+        <p class="p">The DTD-based approach to configuration, specialization, and <span class="ph">element
+                configuration (constraint and expansion)</span> relies heavily upon parameter
+            entities. Several of the parameter entities that are declared in document-type shells
+            contain references to other parameter entities. Because parameter entities must be
+            declared before they are used, the order of the sections in a DTD-based document-type
+            shell is significant.</p>
+        <p class="p">A DTD-based document-type shell contains the following sections:</p>
+        <ol class="ol">
+            <li class="li">
+                <a class="xref" href="coding-requirements.html#shell-dtd-coding-reqs__topic-map-entity-declarations">Topic [or map] entity declarations</a>
+            </li>
+            <li class="li">
+                <a class="xref" href="coding-requirements.html#shell-dtd-coding-reqs__domain-constraint-integration">Domain constraint integration</a></li>
+            <li class="li"><a class="xref" href="coding-requirements.html#shell-dtd-coding-reqs__domain-entity-declarations">Domain entity declarations</a>
+            </li>
+            <li class="li">
+                <a class="xref" href="coding-requirements.html#shell-dtd-coding-reqs__domain-attributes-declarations">Domain attributes declarations</a>
+            </li>
+            <li class="li">
+                <a class="xref" href="coding-requirements.html#shell-dtd-coding-reqs__domain-extensions">Domain extensions</a>
+            </li>
+            <li class="li">
+                <a class="xref" href="coding-requirements.html#shell-dtd-coding-reqs__domain-attribute-extensions">Domain attribute extensions</a>
+            </li>
+            <li class="li">
+                <a class="xref" href="coding-requirements.html#shell-dtd-coding-reqs__topic-nesting-overrides">Topic nesting override</a>
+            </li>
+            <li class="li">
+                <a class="xref" href="coding-requirements.html#shell-dtd-coding-reqs__domains-attribute-override">Specializations attribute override</a>
+            </li>
+            <li class="li">
+                <a class="xref" href="coding-requirements.html#shell-dtd-coding-reqs__content-constraint-integration">Element-type configuration integration</a>
+            </li>
+            <li class="li">
+                <a class="xref" href="coding-requirements.html#shell-dtd-coding-reqs__topic-map-element-integration">Topic [or map] element integration</a>
+            </li>
+            <li class="li">
+                <a class="xref" href="coding-requirements.html#shell-dtd-coding-reqs__domain-element-integration">Domain element integration</a>
+            </li>
+        </ol>
+        <p class="p">Each of the sections in a DTD-based document-type shell follows
+      a pattern. These patterns help ensure that the shell follows XML
+      parsing rules for DTDs. They also establish a modular design that
+      simplifies creation of new document-type shells.</p>
+        
+        <dl class="dl">
+            
+                <dt class="dt dlterm" id="shell-dtd-coding-reqs__topic-map-entity-declarations"> Topic [or map] entity declarations </dt>
+                <dd class="dd">
+                    <p class="p">This section declares and references an external parameter entity for each of
+                        the following items: </p>
+                    <ul class="ul">
+                        <li class="li"><span style="color:red;" class="ph">The entity declaration
+                module (<span class="ph filepath">.ent</span> file) for the</span>
+              top-level topic or map type that the document-type shell
+              configures</li>
+                        <li class="li"><span style="color:red;" class="ph">The entity declaration
+                modules for any </span>additional structural modules that are
+              used by the <span style="color:red;" class="ph">document-type</span> shell</li>
+                    </ul>
+                    <p class="p">The parameter entity is named <code class="ph codeph"><var style="color:red;" class="keyword varname">typeName</var>-dec</code>.</p>
+                    <div class="example non-normative" id="d50694e637"><h4 class="title sectiontitle">Example</h4><p class="non-normative-label">This section is non-normative.</p>
+                        <p class="p">In the following example, <span style="color:red;" class="ph">the
+                entity declaration module</span> for the
+                <code class="keyword markupname xmlelement">&lt;concept&gt;</code> specialization is
+              integrated into a document-type shell:</p>
+                        <pre class="pre codeblock"><code>
+&lt;!-- ============================================================= --&gt;
+&lt;!--              TOPIC ENTITY DECLARATIONS                        --&gt;
+&lt;!-- ============================================================= --&gt;
+
+&lt;!ENTITY % concept-dec     
+  PUBLIC "-//OASIS//ENTITIES DITA 2.0 Concept//EN" 
+         "concept.ent"
+&gt;%concept-dec;</code></pre>
+                    </div>
+                </dd>
+            
+            
+                <dt class="dt dlterm" id="shell-dtd-coding-reqs__domain-constraint-integration">Domain constraint integration</dt>
+                <dd class="dd">
+                    <p class="p">This section declares and references an external parameter entity for each
+                        domain-constraint module that is integrated into the document-type
+                        shell.</p>
+                    <p class="p">The parameter entity is named
+                            <code class="ph codeph"><var class="keyword varname">descriptorDomainName</var>-c-dec</code>.</p>
+                    <div class="example non-normative" id="d50694e681"><h4 class="title sectiontitle">Example</h4><p class="non-normative-label">This section is non-normative.</p>
+                        <p class="p">In the following example, the entity file for a constraint module that
+                            reduces the highlighting domain to a subset is integrated in a
+                            document-type shell:</p>
+                        <pre class="pre codeblock"><code>&lt;!-- ============================================================= --&gt;
+&lt;!--                    DOMAIN CONSTRAINT INTEGRATION              --&gt;
+&lt;!-- ============================================================= --&gt;
+
+&lt;!ENTITY % HighlightingDomain-c-dec  
+  PUBLIC "-//ACME//ENTITIES DITA Highlighting Domain Constraint//EN" 
+  "acme-HighlightingDomainConstraint.mod"
+&gt;%basic-HighlightingDomain-c-dec;</code></pre>
+                    </div>
+                </dd>
+            
+            
+                <dt class="dt dlterm" id="shell-dtd-coding-reqs__domain-entity-declarations"> Domain entity declarations </dt>
+                <dd class="dd">
+                    <p class="p">This section declares and references an external parameter entity for each
+                        element-domain module that is integrated into the document-type shell.</p>
+                    <p class="p">The parameter entity is named
+                            <code class="ph codeph"><var class="keyword varname">shortDomainName</var>-dec</code>.</p>
+                    <div class="example non-normative" id="d50694e715"><h4 class="title sectiontitle">Example</h4><p class="non-normative-label">This section is non-normative.</p>
+                        <p class="p">In the following example, the entity file for the highlighting domain is
+                            included in a document-type shell:</p>
+                        <pre class="pre codeblock"><code>&lt;!-- ============================================================= --&gt;
+&lt;!--             DOMAIN ENTITY DECLARATIONS                        --&gt;
+&lt;!-- ============================================================= --&gt;
+
+&lt;!ENTITY % hi-d-dec PUBLIC
+    "-//OASIS//ENTITIES DITA 2.0 Highlight Domain//EN" 
+    "highlightDomain.ent"
+&gt;%hi-d-dec;</code></pre>
+                    </div>
+                </dd>
+            
+            
+                <dt class="dt dlterm" id="shell-dtd-coding-reqs__domain-attributes-declarations"> Domain attributes declarations </dt>
+                <dd class="dd">
+                    <p class="p">This section declares and references an external parameter entity for each
+                        attribute domain that is integrated into the document-type shell.</p>
+                    <p class="p">The parameter entity is named
+                <code class="ph codeph"><var class="keyword varname">domainName</var><span style="color:red;" class="ph">Att</span>-dec</code>.</p>
+                    <div class="example non-normative" id="d50694e755"><h4 class="title sectiontitle">Example</h4><p class="non-normative-label">This section is non-normative.</p>
+                        <p class="p">In the following example, the entity file for the
+                                <code class="keyword markupname xmlatt">@deliveryTarget</code> attribute domain is included in a
+                            document-type shell:</p>
+                        <pre class="pre codeblock"><code>&lt;!-- ============================================================= --&gt;
+&lt;!--             DOMAIN ATTRIBUTES DECLARATIONS                    --&gt;
+&lt;!-- ============================================================= --&gt;
+
+&lt;!ENTITY % deliveryTargetAtt-d-dec
+  PUBLIC "-//OASIS//ENTITIES DITA 2.0 Delivery Target Attribute Domain//EN"
+         "deliveryTargetAttDomain.ent"
+&gt;%deliveryTargetAtt-d-dec;</code></pre>
+                    </div>
+                </dd>
+            
+            
+                <dt class="dt dlterm" id="shell-dtd-coding-reqs__domain-extensions"> Domain extensions </dt>
+                <dd class="dd">
+                    <p class="p">This section declares and references a parameter
+            entity for each element that is extended by one or more domain
+              modules.<span style="color:red;" class="ph"> These entities are used by the
+              element-domain modules that are declared later in the
+              document-type shell to redefine the content models.
+              Redefining the content models adds domain specializations
+              wherever the base element is allowed.</span></p>
+                    <div class="example non-normative" id="d50694e791"><h4 class="title sectiontitle">Example</h4><p class="non-normative-label">This section is non-normative.</p>
+                        <p class="p">In the following example, the entity for the <code class="keyword markupname xmlelement">&lt;pre&gt;</code>
+                            element is redefined to add specializations from the programming,
+                            software, and user interface domains:</p>
+                        <pre class="pre codeblock"><code>&lt;!-- ============================================================= --&gt;
+&lt;!--                    DOMAIN EXTENSIONS                          --&gt;
+&lt;!-- ============================================================= --&gt;
+
+&lt;!ENTITY % pre
+    "pre        | 
+     %pr-d-pre; | 
+     %sw-d-pre; | 
+     %ui-d-pre;"&gt;</code></pre>
+                    </div>
+                </dd>
+            
+            
+                <dt class="dt dlterm" id="shell-dtd-coding-reqs__domain-attribute-extensions"> Domain attribute extensions </dt>
+                <dd class="dd">
+                    <p class="p">This section redefines the parameter entity for each attribute domain that is
+                        integrated <span class="ph">globally</span> into the document-type shell. The
+                        redefinition adds an extension to the parameter entity for the relevant
+                        attribute.</p>
+                    <div class="example non-normative" id="d50694e825"><h4 class="title sectiontitle">Example</h4><p class="non-normative-label">This section is non-normative.</p>
+                        <p class="p">In the following example, the parameter entities for the
+                                <code class="keyword markupname xmlatt">@base</code> and <code class="keyword markupname xmlatt">@props</code> attributes are
+                            redefined to include the <code class="keyword markupname xmlatt">@newfrombase</code>,
+                                <code class="keyword markupname xmlatt">@othernewfrombase</code>, <code class="keyword markupname xmlatt">@new</code>, and
+                                <code class="keyword markupname xmlatt">@othernew</code> attributes:</p>
+                        <pre class="pre codeblock"><code>&lt;!-- ============================================================= --&gt;
+&lt;!--                    DOMAIN ATTRIBUTE EXTENSIONS                --&gt;
+&lt;!-- ============================================================= --&gt;
+
+&lt;!ENTITY % base-attribute-extensions
+        "%newfrombaseAtt-d-attribute; 
+         %othernewfrombaseAtt-d-attribute;"&gt;
+
+&lt;!ENTITY % props-attribute-extensions
+        "%newAtt-d-attribute; 
+         %othernewAtt-d-attribute;"&gt;</code></pre>
+                    </div>
+                </dd>
+            
+            
+                <dt class="dt dlterm" id="shell-dtd-coding-reqs__topic-nesting-overrides"> Topic nesting override </dt>
+                <dd class="dd">
+                    <p class="p">This section redefines the entity that controls topic nesting for each topic
+                        type that is integrated into the document-type shell.</p>
+                    <p class="p">The parameter entity is named
+                            <code class="ph codeph"><var class="keyword varname">topictype</var>-info-types</code>.</p>
+                    <p class="p">The definition usually is an "OR" list of the topic types that can be nested
+                        in the parent topic type. Use the literal root-element name, not the
+                        corresponding parameter entity. Topic nesting can be disallowed completely
+                        by specifying the <code class="keyword markupname xmlelement">&lt;no-topic-nesting&gt;</code> element.</p>
+                    <div class="example non-normative" id="d50694e889"><h4 class="title sectiontitle">Example</h4><p class="non-normative-label">This section is non-normative.</p>
+                        <p class="p">In the following example, the parameter entity specifies that
+                                <code class="keyword markupname xmlelement">&lt;concept&gt;</code> can nest any number of
+                                <code class="keyword markupname xmlelement">&lt;concept&gt;</code> or
+                                <code class="keyword markupname xmlelement">&lt;myTopicType&gt;</code> topics, in any order:</p>
+                        <pre class="pre codeblock"><code>&lt;!-- ============================================================= --&gt;
+&lt;!--                    TOPIC NESTING OVERRIDE                     --&gt;
+&lt;!-- ============================================================= --&gt;
+
+&lt;!ENTITY % concept-info-types "concept | myTopicType"&gt;</code></pre>
+                    </div>
+                </dd>
+            
+            
+                <dt class="dt dlterm" id="shell-dtd-coding-reqs__domains-attribute-override"> Specializations attribute override </dt>
+                <dd class="dd">
+                    <p class="p">This section redefines the <code class="ph codeph">included-domains</code> entity to
+                        include the text entity for each attribute domain that is included in the
+                        document-type shell. The redefinition sets the effective value of the
+                            <code class="keyword markupname xmlatt">@specializations</code> attribute for the top-level document
+                        type that is configured by the document-type shell.</p>
+                    <div class="example non-normative" id="d50694e931"><h4 class="title sectiontitle">Example</h4><p class="non-normative-label">This section is non-normative.</p>
+                        <p class="p">In the following example, parameter entities are included for the DITA
+                            conditional-processing attributes:</p>
+                        <pre class="pre codeblock"><code>&lt;!-- ============================================================= --&gt;
+&lt;!--                 SPECIALIZATIONS ATTRIBUTE OVERRIDE            --&gt;
+&lt;!-- ============================================================= --&gt;
+
+&lt;!ENTITY included-domains
+                          "&amp;audienceAtt-d-att;
+                           &amp;deliveryTargetAtt-d-att;
+                           &amp;otherpropsAtt-d-att;
+                           &amp;platformAtt-d-att;
+                           &amp;productAtt-d-att;"
+&gt;</code></pre>
+                    </div>
+                </dd>
+            
+            
+                <dt class="dt dlterm" id="shell-dtd-coding-reqs__content-constraint-integration"><span class="ph">Element-type configuration integration</span></dt>
+                <dd class="dd">
+                    <p class="p">This section declares and references the parameter
+            entity for each <span class="ph">element-configuration module
+              (constraint and expansion)</span> that is integrated into the
+            document-type shell<span style="color:red;" class="ph">.</span></p>
+                    <p class="p">The parameter entity is named
+                            <code class="ph codeph"><var class="keyword varname">descriptionElement</var>-c-def</code>.</p>
+                    <div class="example non-normative" id="d50694e975"><h4 class="title sectiontitle">Example</h4><p class="non-normative-label">This section is non-normative.</p>
+                        <p class="p">In the following example, the module that constrains the content model
+                            for the <code class="keyword markupname xmlelement">&lt;taskbody&gt;</code> element is integrated into the
+                            document-type shell for strict task:</p>
+                        <pre class="pre codeblock"><code>&lt;!ENTITY % strictTaskbody-c-def  
+  PUBLIC "-//OASIS//ELEMENTS DITA 2.0 Strict Taskbody Constraint//EN" 
+  "strictTaskbodyConstraint.mod"
+&gt;%strictTaskbody-c-def;</code></pre>
+                    </div>
+                </dd>
+            
+            
+                <dt class="dt dlterm" id="shell-dtd-coding-reqs__topic-map-element-integration"> Topic [or map] element integration </dt>
+                <dd class="dd">
+                    <p class="p">This section declares and references <span class="ph">an external
+              parameter</span> entity <span style="color:red;" class="ph">for the element
+              declaration module (<span class="ph filepath">.mod</span> file) </span> for
+            each structural module that is integrated into the
+            document-type shell.</p>
+                    <p class="p">The parameter entity is named
+                            <code class="ph codeph"><var class="keyword varname">structuralType</var>-type</code>.</p>
+                    <p class="p">The structural modules are included in ancestry order, so that the parameter
+                        entities that are used in an ancestor module are available for use in
+                        specializations. When a structural module depends on elements from a
+                        vocabulary module that is not part of its ancestry, the module upon which
+                        the structural module has a dependency (and any ancestor modules not already
+                        included) need to be included before the module with a dependency.</p>
+                    <div class="example non-normative" id="d50694e1031"><h4 class="title sectiontitle">Example</h4><p class="non-normative-label">This section is non-normative.</p>
+                        <p class="p">In the following example, the structural modules
+              that are required by the troubleshooting topic are integrated
+              into the document-type shell:</p>
+                        <pre class="pre codeblock"><code>&lt;!-- ============================================================= --&gt;
+&lt;!--                    TOPIC ELEMENT INTEGRATION                  --&gt;
+&lt;!-- ============================================================= --&gt;
+
+&lt;!ENTITY % topic-type
+  PUBLIC "-//OASIS//ELEMENTS DITA 2.0 Topic//EN"
+         "../../base/dtd/topic.mod"
+&gt;%topic-type;
+
+&lt;!ENTITY % task-type
+  PUBLIC "-//OASIS//ELEMENTS DITA 2.0 Task//EN"
+         "task.mod"
+&gt;%task-type;
+
+&lt;!ENTITY % troubleshooting-type
+  PUBLIC "-//OASIS//ELEMENTS DITA 2.0 Troubleshooting//EN"
+         "troubleshooting.mod"
+&gt;%troubleshooting-type;</code></pre>
+                    </div>
+                </dd>
+            
+            
+                <dt class="dt dlterm" id="shell-dtd-coding-reqs__domain-element-integration"> Domain element integration </dt>
+                <dd class="dd">
+                    <p class="p">This section declares and references <span style="color:red;" class="ph">an external</span> parameter entity for each
+            element domain that is integrated into the document-type
+            shell.</p>
+                    
+                    <p class="p">The parameter entity is named
+                            <code class="ph codeph"><var class="keyword varname">domainName</var>-def</code>.</p>
+                    <div class="example non-normative" id="d50694e1072"><h4 class="title sectiontitle">Example</h4><p class="non-normative-label">This section is non-normative.</p>
+                        <p class="p">In the following example, the element-definition file for the
+                            highlighting domain is integrated into the document-type shell:</p>
+                        <pre class="pre codeblock"><code>&lt;!-- ============================================================= --&gt;
+&lt;!--                    DOMAIN ELEMENT INTEGRATION                 --&gt;
+&lt;!-- ============================================================= --&gt;
+
+&lt;!ENTITY % hi-d-def PUBLIC
+    "-//OASIS//ELEMENTS DITA 2.0 Highlight Domain//EN" 
+    "highlightDomain.mod"
+&gt;%hi-d-def;</code></pre>
+                    </div>
+                    <p class="p">If a structural module depends on a domain, the domain module needs to be
+                        included before the structural module. This erases the boundary between the
+                        final two sections of the DTD-based document-type shell, but it is necessary
+                        to ensure that modules are embedded after their dependencies. Technically,
+                        the only solid requirement is that both domain and structural modules be
+                        declared after all other modules that they specialize from or depend on.</p>
+                </dd>
+            
+        </dl>
+    </div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title6" lang="en-us" id="general-coding-requirements">
+  <h3 class="title topictitle3" id="ariaid-title6">DTD: Coding requirements for structural and element-domain
+    modules</h3>
+  
+  
+  <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">This topic covers general coding requirements for defining element types in both
+    structural and element-domain vocabulary modules.</p>
+    <section class="section" id="general-coding-requirements__files"><h4 class="title sectiontitle">Module files</h4>
+      
+      <p class="p">A vocabulary module that defines a structural or element-domain specialization is composed
+        of two files:</p>
+      <dl class="dl">
+        
+          <dt class="dt dlterm">Definition module file</dt>
+          <dd class="dd">This (<span class="ph filepath">.mod</span>) file declares the element
+            names, content models, and attribute lists for the element
+            types that are defined in the vocabulary module.</dd>
+        
+        
+          <dt class="dt dlterm">Entity declaration file</dt>
+          <dd class="dd">This (<span class="ph filepath">.ent</span>) file declares the <span style="color:red;" class="ph">general</span> and parameter entities that are
+            used to integrate the vocabulary module into a document-type
+            shell.</dd>
+        
+      </dl>
+    </section>
+    <section class="section" id="general-coding-requirements__element-definitions"><h4 class="title sectiontitle">Element definitions</h4>
+      
+      <p class="p">A structural or element-domain vocabulary module contains a declaration for each element
+        type that is named by the module. While the XML standard allows content models to refer to
+        undeclared element types, the DITA standard does not permit this. All element types or
+        attribute lists that are named within a vocabulary module are declared in one of the
+        following objects:</p>
+      <ul class="ul">
+        <li class="li">The vocabulary module</li>
+        <li class="li">A base module of which the vocabulary module is a direct or indirect specialization</li>
+        <li class="li"><span style="color:red;" class="ph">(For structural modules) </span>A required
+          domain module</li>
+      </ul>
+      <p class="p">The following components make up a single element definition in a DITA DTD-based vocabulary
+        module.</p>
+      <dl class="dl">
+        
+          <dt class="dt dlterm">Element name entities</dt>
+          <dd class="dd">
+            <p class="p">For each element type, there is a parameter entity with a
+              name that matches the element-type name. The value is the
+              element-type name. </p>
+            <div class="example non-normative" id="d50694e1238"><h5 class="title sectiontitle">Example</h5><p class="non-normative-label">This section is non-normative.</p>
+              <p class="p">For example:</p>
+              <pre class="pre codeblock"><code>&lt;!ENTITY % topichead "topichead"&gt;</code></pre>
+            </div>
+            <p class="p">The parameter entity provides a layer of abstraction when
+              setting up content models. It can be redefined in a
+              document-type shell in order to create domain extensions <span class="ph">or implement element configuration (constraint
+                and expansion).</span></p>
+            <p class="p">Element name entities for a vocabulary module typically are
+              grouped together at the top of the vocabulary module. They
+              can occur in any order.</p>
+          </dd>
+        
+        
+          <dt class="dt dlterm">Content-model parameter entity</dt>
+          <dd class="dd">
+            <p class="p">For each element type, there is a parameter entity that defines the content model.
+              The name of the parameter entity is
+                <code class="ph codeph"><var class="keyword varname">tagname</var>.content</code>, and the value is the content
+              model definition.</p>
+            <div class="example non-normative" id="d50694e1284"><h5 class="title sectiontitle">Example</h5><p class="non-normative-label">This section is non-normative.</p>
+              <p class="p">For example:</p>
+              <pre class="pre codeblock"><code>&lt;!ENTITY % topichead.content
+  "((%topicmeta;)?, 
+    (%data.elements.incl; | 
+     %navref; | 
+     %topicref;)*)
+"&gt;</code></pre>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm">Attribute-list parameter entity</dt>
+          <dd class="dd">
+            <p class="p">For each element type, there is a parameter entity that declares the attributes that
+              are available on the element. The name of the parameter entity is
+                  <code class="ph codeph"><var class="keyword varname">tagname</var>.attributes</code>, and the value is a list of
+              the attributes that are used by the element type (except for
+              <code class="keyword markupname xmlatt">@class</code>).</p>
+            <div class="example non-normative" id="d50694e1319"><h5 class="title sectiontitle">Example</h5><p class="non-normative-label">This section is non-normative.</p>
+              <p class="p">For example:</p>
+              <pre class="pre codeblock"><code>&lt;!ENTITY % topichead.attributes
+ "keys CDATA #IMPLIED
+  %topicref-atts;
+  %univ-atts;"
+&gt;</code></pre>
+            </div>
+            <p class="p">Consistent use and naming of the <code class="ph codeph"><var class="keyword varname">tagname</var>.content</code>
+              parameter entity enables the use of <span class="ph">element-configuration modules
+                (constraint and expansion) to redefine the content model.</span></p>
+          </dd>
+        
+        
+          <dt class="dt dlterm">Element declaration</dt>
+          <dd class="dd">
+            <p class="p">For each element type, there is an element declaration that consists of a reference
+              to the content-model parameter entity.</p>
+            <div class="example non-normative" id="d50694e1355"><h5 class="title sectiontitle">Example</h5><p class="non-normative-label">This section is non-normative.</p>
+              <p class="p">For example:</p>
+              <pre class="pre codeblock"><code>&lt;!ELEMENT topichead    %topichead.content;&gt;</code></pre>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm">Attribute list declaration</dt>
+          <dd class="dd">
+            <p class="p">For each element type, there is an attribute<span style="color:red;" class="ph">-</span>list declaration that consists of a
+              reference to the attribute-list parameter entity.</p>
+            <div class="example non-normative" id="d50694e1387"><h5 class="title sectiontitle">Example</h5><p class="non-normative-label">This section is non-normative.</p>
+              <p class="p">For example:</p>
+              <pre class="pre codeblock"><code>&lt;!ATTLIST topichead    %topichead.attributes;&gt;</code></pre>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm">Specialization attribute declarations</dt>
+          <dd class="dd">
+            <p class="p">A vocabulary module defines a <code class="keyword markupname xmlatt">@class</code> attribute for every element that
+              is declared in the module. The value of the attribute is constructed according to the
+              rules in <a class="xref" href="../../Chunk209774173.html#classatt" title="The specialization hierarchy of each DITA element is declared as the value of the class attribute. The class attribute provides a mapping from the current name of the element to its more general equivalents. The class attribute also can provide a mapping from the current name to more specialized equivalents. All specialization-aware processing can be defined in terms of class attribute values.">The class attribute rules and syntax</a>.</p>
+            <div class="example non-normative" id="d50694e1454"><h5 class="title sectiontitle">Example</h5><p class="non-normative-label">This section is non-normative.</p>
+              <p class="p">For example, the <code class="ph codeph">ATTLIST</code> definition for the
+                  <code class="keyword markupname xmlelement">&lt;topichead&gt;</code> element (a specialization of the
+                  <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element in the base map type) includes the
+                definition of the <code class="keyword markupname xmlatt">@class</code> attribute, as follows:</p>
+              <pre class="pre codeblock"><code>&lt;!ATTLIST topichead  class CDATA "+ map/topicref  mapgroup-d/topichead "&gt;</code></pre>
+            </div>
+          </dd>
+        
+      </dl>
+      <div class="example non-normative" id="d50694e1481"><h5 class="title sectiontitle">Definition of the <code class="keyword markupname xmlelement">&lt;topichead&gt;</code> element</h5><p class="non-normative-label">This section is non-normative.</p>
+        
+        <p class="p">The following code sample shows how the <code class="keyword markupname xmlelement">&lt;topichead&gt;</code> element is
+          defined in <span class="ph filepath">mapGroup.mod</span>. Ellipses indicate where the code sample has
+          been snipped for brevity.</p>
+        <pre class="pre codeblock"><code>&lt;!-- ============================================================= --&gt;
+&lt;!--                   ELEMENT NAME ENTITIES                       --&gt;
+&lt;!-- ============================================================= --&gt;
+
+&lt;!ENTITY % topichead      "topichead"                                   &gt;
+
+...
+
+&lt;!-- ============================================================= --&gt;
+&lt;!--                    ELEMENT DECLARATIONS                       --&gt;
+&lt;!-- ============================================================= --&gt;
+
+&lt;!--                    LONG NAME: Topichead                       --&gt;
+&lt;!ENTITY % topichead.content
+                       "((%topicmeta;)?,
+                         (%data.elements.incl; |
+                          %navref; |
+                          %topicref;)*)"
+&gt;
+&lt;!ENTITY % topichead.attributes
+              "keys
+                          CDATA
+                                    #IMPLIED
+               %topicref-atts;
+               %univ-atts;"
+&gt;
+&lt;!ELEMENT  topichead %topichead.content;&gt;
+&lt;!ATTLIST  topichead %topichead.attributes;&gt;
+
+...
+
+&lt;!-- ============================================================= --&gt;
+&lt;!--             SPECIALIZATION ATTRIBUTE DECLARATIONS             --&gt;
+&lt;!-- ============================================================= --&gt;
+  
+...
+
+&lt;!ATTLIST  topichead      class CDATA "+ map/topicref mapgroup-d/topichead "&gt;
+
+&lt;!-- ================== End of DITA Map Group Domain ==================== --&gt;</code></pre>
+      </div>
+    </section>
+  </div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title7" lang="en-us" id="dtdStructuralCoding">
+  <h3 class="title topictitle3" id="ariaid-title7">DTD: Coding requirements for structural modules</h3>
+  
+  
+  <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">This topic covers general coding requirements for DTD-based
+    structural modules.</p>
+    <section class="section" id="dtdStructuralCoding__architectural-attributes"><h4 class="title sectiontitle">Required topic and map element attributes</h4>
+      
+      <p class="p">The topic or map element type sets the <code style="color:red;" class="keyword markupname xmlatt">@ditaarch:DITAArchVersion</code> attribute to the version of
+        DITA in use, typically by referencing the
+          <code class="ph codeph">arch-atts</code> parameter entity. It also sets the
+          <code class="keyword markupname xmlatt">@specializations</code> attribute to the
+          <code class="ph codeph">included-domains</code> entity.</p>
+      <p class="p">The <code class="keyword markupname xmlatt">@DITAArchVersion</code> and <code class="keyword markupname xmlatt">@specializations</code> attributes give
+        processors a reliable way to check the architecture version and look up the list of
+        attribute domains that are available in the document type.</p>
+      <div class="example non-normative" id="d50694e1592"><h5 class="title sectiontitle">Example</h5><p class="non-normative-label">This section is non-normative.</p>
+        <p class="p">The following example shows how the <code class="keyword markupname xmlatt">@DITAArchVersion</code> and
+            <code class="keyword markupname xmlatt">@specializations</code> attributes are defined for the
+            <code class="keyword markupname xmlelement">&lt;concept&gt;</code> element in DITA 2.0. Ellipses indicate where the code
+          is snipped for brevity:</p>
+        <pre class="pre codeblock"><code>&lt;!-- ============================================================= --&gt;
+&lt;!--                    ELEMENT DECLARATIONS                       --&gt;
+&lt;!-- ============================================================= --&gt;
+
+...
+
+&lt;!--                    LONG NAME: Concept                         --&gt;
+
+...
+
+&lt;!ATTLIST concept    
+  %concept.attributes;
+  <strong class="ph b">%arch-atts;
+  specializations  CDATA  "&amp;included-domains;</strong>"&gt;</code></pre>
+      </div>
+    </section>
+    <section class="section" id="dtdStructuralCoding__topic-nesting"><h4 class="title sectiontitle">Controlling nesting in topic types</h4>
+      
+      <p class="p"><span class="ph">A structural module that defines a new topic
+          type</span> typically uses a parameter entity to define a default
+        for what topic types are permitted to nest. When this is done
+        consistently, a shell that includes multiple structural modules can
+        set common nesting rules for all topic types by setting
+          <code class="ph codeph">%info-types;</code> entity. </p>
+      <p class="p">The following rules apply when using parameter entities to control
+        nesting.</p>
+      <dl class="dl">
+        
+          <dt class="dt dlterm">Parameter entity name</dt>
+          <dd class="dd">
+            <p class="p">The name of the parameter entity is the topic element name plus the
+                <code class="ph codeph">-info-types</code> suffix.</p>
+            <div class="example non-normative" id="d50694e1654"><h5 class="title sectiontitle">Example</h5><p class="non-normative-label">This section is non-normative.</p>
+              <p class="p">For example, the name of the parameter entity for the concept topic is
+                  <code class="ph codeph">concept-info-types</code>. </p>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm">Parameter entity value</dt>
+          <dd class="dd">
+            <p class="p">To set up default topic nesting rules, set the entity to the desired topic elements.
+              The default topic nesting is used when a document-type shell does not set up different
+              rules. </p>
+            <div class="example non-normative" id="d50694e1682"><h5 class="title sectiontitle">Example</h5><p class="non-normative-label">This section is non-normative.</p>
+              <p class="p">For example, the following parameter entity sets up default nesting so that
+                  <code class="keyword markupname xmlelement">&lt;concept&gt;</code> will nest only other
+                  <code class="keyword markupname xmlelement">&lt;concept&gt;</code> topics:</p>
+              <pre class="pre codeblock"><code>&lt;!-- ============================================================= --&gt;
+&lt;!--                    ELEMENT DECLARATIONS                       --&gt;
+&lt;!-- ============================================================= --&gt;
+
+&lt;!ENTITY % concept-info-types
+              "%info-types;"
+&gt;</code></pre>
+            </div>
+            <div class="example non-normative" id="d50694e1699"><h5 class="title sectiontitle">Example</h5><p class="non-normative-label">This section is non-normative.</p>
+              <p class="p">As an additional example, the following parameter entity sets up a default that
+                will not allow any nesting:</p>
+              <pre class="pre codeblock"><code>&lt;!ENTITY % glossentry-info-types "no-topic-nesting"&gt;</code></pre>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm">Content model of the root element</dt>
+          <dd class="dd">
+            <p class="p">The last position in the content model defined for the root
+              element of a topic type should be the
+                  <code class="ph codeph"><var class="keyword varname">topictype</var>-info-types</code>
+              parameter entity.</p>
+            <p class="p">A document-type shell then can control how topics are
+              allowed to nest for this specific topic type by redefining
+              the <code class="ph codeph"><var class="keyword varname">topictype</var>-info-types</code>
+              entity for each topic type.</p>
+            <div class="example non-normative" id="d50694e1738"><h5 class="title sectiontitle">Example</h5><p class="non-normative-label">This section is non-normative.</p>
+              <p class="p">For example, with the following content model defined for
+                  <code class="keyword markupname xmlelement">&lt;concept&gt;</code>, a document-type shell that uses the concept
+                specialization can control which topics are nested in
+                  <code class="keyword markupname xmlelement">&lt;concept&gt;</code> by redefining the
+                  <code class="ph codeph">concept-info-types</code> parameter entity:</p>
+              <pre style="color:red;" class="pre codeblock example"><code>&lt;!ENTITY % concept.content
+  "((%title;),
+    (%abstract; | %shortdesc;)?, 
+    (%prolog;)?, 
+    (%conbody;)?, 
+    (%related-links;)?,
+    <strong class="ph b">(%concept-info-types;)*</strong>)"
+&gt;</code></pre>
+            </div>
+          </dd>
+        
+      </dl>
+      <p class="p">In certain cases, you do not need to use an <code class="ph codeph">info-types</code> parameter entity to
+        control topic nesting:</p>
+      <ul class="ul">
+        <li class="li">If you want a specialized topic type to <span style="color:red;" class="ph">disallow</span> nested topics, regardless of context, it can be
+          defined without any entity or any nested topics.</li>
+        <li class="li">If you want a specialized topic type to only allow specific nesting patterns, such as
+          allowing only other topic types that are defined in the same module, it can nest those
+          topics directly in the same way that other nested elements are defined.</li>
+      </ul>
+    </section>
+  </div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title8" lang="en-us" id="domainpattern">
+  <h3 class="title topictitle3" id="ariaid-title8">DTD: Coding requirements for element-domain modules</h3>
+  
+  
+  <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">The vocabulary modules that define element domains have an additional coding
+    requirement. The entity declaration file must include a parameter entity for each element that
+    the domain extends.</p>
+    <dl class="dl">
+      
+        <dt class="dt dlterm">Parameter entity name</dt>
+        <dd class="dd">
+          <p class="p">The name of the parameter entity is the abbreviation for the
+            domain, followed by a hyphen ("-") and the name of the element
+            that is extended.</p>
+          <div class="example non-normative" id="d50694e1872"><h4 class="title sectiontitle">Example</h4><p class="non-normative-label">This section is non-normative.</p>
+            <p class="p">For example, the name of the parameter entity for the
+              highlighting domain that extends the
+                <code class="keyword markupname xmlelement">&lt;ph&gt;</code> element is
+                <code class="ph codeph">hi-d-ph</code>.</p>
+          </div>
+        </dd>
+      
+      
+        <dt class="dt dlterm">Parameter entity value</dt>
+        <dd class="dd">
+          <p class="p">The value of the parameter entity is a list of the specialized elements that can occur
+            in the same locations as the extended element. Each element is separated by the vertical
+            line ( | ) symbol.</p>
+          <div class="example non-normative" id="d50694e1902"><h4 class="title sectiontitle">Example</h4><p class="non-normative-label">This section is non-normative.</p>
+            <p class="p">For example, the value of the <code class="keyword markupname parameterentity">%hi-d-ph;</code> parameter
+              entity is <code class="ph codeph">"b | u | i | <span class="ph">line-through | overline |</span> tt | sup |
+                sub"</code>.</p>
+          </div>
+        </dd>
+      
+    </dl>
+    <div class="example non-normative" id="domainpattern__example"><h4 class="title sectiontitle">Example</h4><p class="non-normative-label">This section is non-normative.</p>
+      
+      
+      <p class="p">The following code sample shows the parameter entity for the highlight domain, as declared
+        in <span class="ph filepath">highlightDomain.ent</span>:</p>
+      <pre class="pre codeblock"><code>&lt;!-- ============================================================= --&gt;
+&lt;!--                    ELEMENT EXTENSION ENTITY DECLARATIONS      --&gt;
+&lt;!-- ============================================================= --&gt;
+
+&lt;!ENTITY % hi-d-ph "b | i | line-through | overline | sup | sub | tt | u"&gt;
+
+&lt;!-- ================ End DITA Highlight Domain ================== --&gt;</code></pre>
+    </div>
+  </div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title9" lang="en-us" id="attdomain">
+  <h3 class="title topictitle3" id="ariaid-title9">DTD: Coding requirements for attribute-domain modules</h3>
+  
+  
+  <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">The vocabulary modules that define attribute domains have
+    additional coding requirements. The module must include a parameter
+    entity for the new attribute, which can be referenced in document-type
+    shells, as well as a <span style="color:red;" class="ph">general</span> entity that
+    specifies the contribution to the <code class="keyword markupname xmlatt">@specializations</code>
+    attribute for the attribute domain.</p>
+    <p class="p">The name of an attribute domain is the name of the attribute
+        plus <span class="keyword">Att</span>. For example, for the attribute named
+          <code class="keyword markupname xmlatt">@deliveryTarget</code>, the attribute-domain name is "deliveryTargetAtt". The
+        attribute-domain name is used to construct entity names for the domain. </p>
+    <dl class="dl">
+      
+        <dt class="dt dlterm">Parameter entity name and value</dt>
+        <dd class="dd">The name of the parameter entity is the attribute-domain name,
+          followed by the literal <code class="ph codeph">-d-attribute</code>. The value
+          of the parameter entity is a DTD declaration for the
+          attribute.</dd>
+      
+      
+        <dt class="dt dlterm"><span style="color:red;" class="ph">General</span> entity name and value</dt>
+        <dd class="dd">The <span style="color:red;" class="ph">general</span> entity name is the
+          attribute-domain name, followed by the literal
+            <code class="ph codeph">-d-Att</code>. The value of the text entity is the
+            <code class="keyword markupname xmlatt">@specializations</code> attribute contribution for the
+          module. See <a class="xref" href="../../Chunk209774173.html#domainsatt" title="The specializations attribute enables processors to determine what attribute specializations are available in a document. The attribute is declared on the root element for each topic or map type. Each attribute domain defines a token to declare the extension. The effective value of the specializations attribute is composed of these tokens.">The specializations attribute rules and syntax</a> for
+          details on how to construct this value. </dd>
+      
+    </dl>
+    <div class="example non-normative" id="attdomain__example"><h4 class="title sectiontitle">Example</h4><p class="non-normative-label">This section is non-normative.</p>
+      
+      <p class="p">The <code class="keyword markupname xmlatt">@deliveryTarget</code> attribute can be defined in a vocabulary module using
+        the following two entities.</p>
+      <pre class="pre codeblock"><code>&lt;!ENTITY % deliveryTargetAtt-d-attribute
+  "deliveryTarget  CDATA  #IMPLIED"
+&gt;
+
+&lt;!ENTITY deliveryTargetAtt-d-att "@props/deliveryTarget" &gt;</code></pre>
+    </div>
+  </div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title10" id="dtd_coding_requirements_for_element_configuration_modules">
+    <h3 class="title topictitle3" id="ariaid-title10">DTD: Coding requirements for element-configuration modules</h3>
+    
+    <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">Element-configuration modules (constraint and expansion) have specific coding
+        requirements.</p>
+        <section class="section" id="d50694e2137"><h4 class="title sectiontitle">The <code class="ph codeph"><var class="keyword varname">tagname</var>.attributes</code> parameter
+                entity</h4>
+            
+            <p class="p">When the attribute <span style="color:red;" class="ph">list</span> for an
+        element is constrained or expanded, there is a declaration of the
+            <code class="ph codeph"><var class="keyword varname">tagname</var>.attributes</code>
+        parameter entity that defines the modified attributes.</p>
+            <div class="example non-normative" id="d50694e2163"><h5 class="title sectiontitle">Example</h5><p class="non-normative-label">This section is non-normative.</p>
+                <p class="p">The following list provides examples for both constraint and expansion
+                    modules:</p>
+                <dl class="dl">
+                    
+                        <dt class="dt dlterm">Constraint module</dt>
+                        <dd class="dd">
+                            <p class="p">The following parameter entity defines a
+                constrained attributes <span style="color:red;" class="ph">list</span> for the
+                  <code class="keyword markupname xmlelement">&lt;note&gt;</code> element that removes most
+                of the values defined for <code class="keyword markupname xmlatt">@type</code>. It also
+                removes <code class="keyword markupname xmlatt">@othertype</code>:</p>
+                            <pre class="pre codeblock"><code>&lt;!ENTITY % note.attributes  
+       "type  (attention | caution | note ) #IMPLIED
+        %univ-atts;"&gt;</code></pre>
+                            <p class="p">The following parameter entity restricts the highlighting domain to
+                                    <code class="keyword markupname xmlelement">&lt;b&gt;</code> and <code class="keyword markupname xmlelement">&lt;i&gt;</code>:</p>
+                            <pre class="pre codeblock"><code>
+&lt;!ENTITY % HighlightingDomain-c-ph     "b | i"  &gt;</code></pre>
+                        </dd>
+                    
+                    
+                        <dt class="dt dlterm">Expansion module</dt>
+                        <dd class="dd">
+                            <p class="p">The following parameter entity defines a new attribute intended for
+                                use with various table elements:</p>
+                            <pre class="pre codeblock"><code>&lt;!ENTITY % cellPurposeAtt-d-attribute<strong class="ph b">-expansion</strong>
+  "cell-purpose  (sale | out-of-stock | new | last-chance | inherit | none)  #IMPLIED"
+&gt;</code></pre>
+                        </dd>
+                    
+                </dl>
+            </div>
+            <p class="p">For expansion modules, note the following considerations.
+        The <code class="ph codeph"><var class="keyword varname">tagname</var>.attributes</code>
+        parameter entity can be defined in an attribute-specialization
+        module, or it can be defined directly in the expansion module.</p>
+        </section>
+        <section class="section" id="d50694e2247"><h4 class="title sectiontitle">The <code class="ph codeph"><var class="keyword varname">tagname</var>.content</code> parameter entity</h4>
+            
+            <p class="p">When the content model for an element is constrained or expanded, there is a
+                declaration of the <code class="ph codeph"><var class="keyword varname">tagname</var>.content</code> parameter
+                entity that defines the modified content model.</p>
+            <div class="example non-normative" id="d50694e2266"><h5 class="title sectiontitle">Example</h5><p class="non-normative-label">This section is non-normative.</p>
+                <p class="p">The following list provides examples for both constraint and expansion
+                    modules:</p>
+                <dl class="dl">
+                    
+                        <dt class="dt dlterm">Constraint module</dt>
+                        <dd class="dd">
+                            <p class="p">The following parameter entity defines a more restricted content
+                                model for <code class="keyword markupname xmlelement">&lt;topic&gt;</code>, in which the
+                                    <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code> element is required.</p>
+                            <pre style="color:red;" class="pre codeblock"><code>&lt;!ENTITY % topic.content 
+  "((%title;),
+    (%shortdesc;), 
+    (%prolog;)?, 
+    (%body;)?, 
+    (%topic-info-types;)*)"
+&gt;</code></pre>
+              <p class="p">Note that replacing a base element with domain extensions
+                is a form of constraint that can be accomplished directly
+                in the document-type shell. No constraint module is
+                required.</p>
+              <div class="p example">In the following example, the
+                  <code class="keyword markupname xmlelement">&lt;pre&gt;</code> base type is removed from
+                the entity declaration, effectively allowing
+                specializations of <code class="keyword markupname xmlelement">&lt;pre&gt;</code> but not
+                  <code class="keyword markupname xmlelement">&lt;pre&gt;</code> itself.<pre class="pre codeblock example"><code>&lt;!ENTITY % pre
+    "%pr-d-pre; | 
+     %sw-d-pre; | 
+     %ui-d-pre;"&gt;</code></pre></div>
+                        </dd>
+                    
+                    
+                        <dt class="dt dlterm">Expansion module</dt>
+                        <dd class="dd">
+                            <p class="p">The redefinition of the content model
+                references the parameter entity that was defined in the
+                element-specialization module.</p>
+                            <p class="p">The following code sample shows the entity
+                declaration file for an element-specialization module that
+                defines a <code class="keyword markupname xmlelement">&lt;section-shortdesc&gt;</code>
+                element, which is intended to be added to the content model
+                of <code class="keyword markupname xmlelement">&lt;section&gt;</code>:</p>
+                            <pre class="pre codeblock"><code>&lt;!ENTITY % section-shortdesc "section-shortdesc"&gt;</code></pre>
+                            <p class="p">When the content model for <code class="keyword markupname xmlelement">&lt;section&gt;</code> is
+                                redefined in the expansion module, it references the parameter
+                                entity defined in the entities file for the element
+                                specialization:</p>
+                            <pre class="pre codeblock"><code>
+&lt;!ENTITY % section.content
+              "(#PCDATA |
+               %dl; |
+               %div; |
+               %fig; |
+               %image; |
+               %note; |
+               %ol; |
+               %p; |
+               %simpletable; |
+               %ul; |
+               %title; |
+               %draft-comment;<strong class="ph b">|
+               %sectionShortdesc;</strong>)*"
+&gt;
+</code></pre>
+                            <p class="p">Note that this expansion module also constrains the content model of
+                                    <code class="keyword markupname xmlelement">&lt;section&gt;</code> to only include certain block
+                                elements.</p>
+                        </dd>
+                    
+                </dl>
+            </div>
+      
+        </section>
+    
+    </div>
+<nav role="navigation" class="related-links"><div class="linklist relconcepts" lang="en-us"><strong>Related concepts</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="../../non-normative/developing-constraint-and-expansion-modules.html#concept_ghv_45r_5p" title="This section of the specification contains examples of constraints implemented using DTD.">Examples: Constraints implemented using DTDs</a></li><li class="linklist"><a class="link" href="../../non-normative/expansion-modules.html#examples_expansion_implemented_using_dtds" title="This section of the specification contains examples of extension modules that are implemented using DTDs.">Examples: Expansion implemented using DTDs</a></li></ul></div></nav></article></article><article class="topic concept nested1" aria-labelledby="ariaid-title11" lang="en-us" id="rng-requirements">
+ <h2 class="title topictitle2" id="ariaid-title11">RELAX NG coding requirements</h2>
+ 
+  <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">This section explains how to implement RNG-based document-type
+    shells, specializations, and <span class="ph">element-configuration
+      modules (constraints and expansions).</span></p>
+    <p class="p">If you plan to generate DTD- or XSD-based modules from RELAX NG
+      modules, avoid RELAX NG features that cannot be translated into DTD
+      or XSD constructs. <span style="color:red;" class="ph">Such features include lexical
+        patterns for attributes and elements, interleave patterns, and
+        context-specific patterns for content models or attribute
+        lists.</span></p>
+    <p class="p">When RELAX NG is used directly for DITA document validation, the
+      document-type shells for those documents can integrate constraint
+      modules that use the full power of RELAX NG to enforce constraints
+      that cannot be enforced by DTDs or XSDs.</p>
+  </div>
+<article class="topic concept nested2" aria-labelledby="ariaid-title12" lang="en-us" id="rng-requirements-overview">
+ <h3 class="title topictitle3" id="ariaid-title12">RELAX NG: Overview of coding requirements</h3>
+  
+ 
+ <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p style="color:red;" class="shortdesc">This topic contains general information about
+    the self-integrating aspect of domain specialization modules, RELAX NG
+    grammar files, and the two RNG syntaxes</p>
+    <section class="section" id="d50694e2474"><h4 class="title sectiontitle">Self-integration of RELAX NG <span style="color:red;" class="ph">domain
+          modules</span></h4>
+      
+      <p class="p"><span style="color:red;" class="ph">Domain modules coded in RELAX NG</span> are
+        self-integrating; they automatically add to the content models and
+        attribute lists that they extend. This aspect of RELAX NG results
+        in the following coding practices:</p>
+      <ul class="ul">
+        <li class="li">Each <span style="color:red;" class="ph">domain</span> module consists of a single
+          file, unlike the two required for DTDs.</li>
+        <li class="li">The domain modules directly extend elements, unlike DTDs, which
+          rely on an extra file and extensions within the document-type
+          shell.</li>
+        <li class="li">Element-configuration modules (constraint and
+          expansion) directly include the modules that they extend, which
+          means that just by referencing an element-configuration module,
+          the document-type shell gets everything it needs to redefine a
+          vocabulary module.</li>
+      </ul>
+    </section>
+    <section class="section" id="d50694e2520"><h4 class="title sectiontitle" style="color:red;">General RELAX NG information</h4>
+      
+      <div class="p">RELAX NG grammars for DITA document-type shells, vocabulary
+        modules, and <span class="ph">element-configuration modules
+          (constraint and expansion) </span>
+        <span style="color:red;" class="ph">can</span> do the following:<ul class="ul">
+          <li class="li">Use the <code class="keyword markupname xmlelement">&lt;a:documentation&gt;</code> element
+            anywhere that foreign elements are allowed by RELAX NG. The
+              <code class="keyword markupname xmlelement">&lt;a:documentation&gt;</code> element refers to
+            the <code class="keyword markupname xmlelement">&lt;documentation&gt;</code> element type from
+            the
+              <code class="keyword markupname xmlnsname">http://relaxng.org/ns/compatibility/annotations/1.0</code>
+            as defined by the DTD compatibility specification. The prefix
+            "a" is used by convention.</li>
+          <li class="li">Use <code class="keyword markupname xmlelement">&lt;div&gt;</code> to group pattern
+            declarations.</li>
+          <li class="li">Include embedded Schematron rules or any other foreign
+            vocabulary. Processors can ignore any foreign vocabularies
+            within DITA grammars that are not in the
+              <code class="keyword markupname xmlnsname">http://relaxng.org/ns/compatibility/annotations/1.0</code>
+            or
+              <code class="keyword markupname xmlnsname">http://dita.oasis-open.org/architecture/2005/</code>
+            namespaces.</li>
+        </ul></div>
+    </section>
+  <section class="section" id="rng-requirements-overview__complex-vs-xml-syntax"><h4 class="title sectiontitle"><span style="color:red;" class="ph">Syntaxes</span> for RELAX NG grammars</h4>
+   
+   <p class="p">The RELAX NG specification defines two syntaxes for RELAX NG grammars: the XML syntax and the
+    compact syntax. The two syntaxes are functionally equivalent, and either syntax can be reliably
+    converted into the other by using, for example, the open-source Trang tool. </p>
+      <p class="p">The DITA coding requirements are defined for the RELAX NG XML
+        syntax. <span style="color:red;" class="ph">Document-type</span> shells, vocabulary
+        modules, and <span class="ph">element-configuration modules
+          (constraints and expansion)</span> that use the RELAX NG compact
+        syntax can use the same <span style="color:red;" class="ph">organizational
+          structures</span> as those defined for the RELAX NG XML syntax. </p>
+   <p class="p">DITA practitioners can author DITA modules using one RELAX NG syntax,
+        and then use tools to generate modules in the other syntax. The
+        resulting RELAX NG modules are <span style="color:red;" class="ph">equivalent</span>
+        if there is a one-to-one file correspondence. </p>
+      
+  </section>
+ </div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title13" lang="en-us" id="concept_rrq_p45_dn">
+  <h3 class="title topictitle3" id="ariaid-title13">RELAX NG: Coding requirements for document-type shells</h3>
+  
+  
+  <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">A RNG-based document-type shell is organized into sections; each section follows a
+    pattern. These patterns help ensure that the shell follows XML parsing rules for RELAX NG; they
+    also establish a modular design that simplifies creation of new document-type
+    shells.</p>
+    <p class="p">An RNG-based document-type shell contains the following sections:</p>
+    <ol class="ol">
+      <li class="li"><a class="xref" href="coding-requirements.html#concept_rrq_p45_dn__root-element-declarations">Root element declaration</a></li>
+      <li class="li"><a class="xref" href="coding-requirements.html#concept_rrq_p45_dn__specializations-attribute">specializations attribute</a></li>
+      <li class="li"><a class="xref" href="coding-requirements.html#concept_rrq_p45_dn__content-constraint">Element-type configuration integration</a></li>
+      <li class="li"><a class="xref" href="coding-requirements.html#concept_rrq_p45_dn__module-inclusion">Module inclusions</a></li>
+      <li class="li"><a class="xref" href="coding-requirements.html#concept_rrq_p45_dn__id-defining-element-overrides">ID-defining element overrides</a></li>
+    </ol>
+    <dl class="dl">
+      
+        <dt class="dt dlterm" id="concept_rrq_p45_dn__root-element-declarations">Root element declaration</dt>
+        <dd class="dd">
+          <p class="p">Document-type shells use the RELAX NG start declaration to specify the root element of
+            the document type. The <code class="keyword markupname xmlelement">&lt;start&gt;</code> element defines the root element,
+            using a reference to a <code class="ph codeph"><var class="keyword varname">tagname</var>.element</code> pattern.</p>
+          <div class="p example">For example:<pre class="pre codeblock"><code>&lt;div&gt;
+  &lt;a:documentation&gt;ROOT ELEMENT DECLARATION&lt;/a:documentation&gt;
+  &lt;start combine="choice"&gt;
+    &lt;ref name="topic.element"/&gt;
+  &lt;/start&gt;
+&lt;/div&gt;</code></pre></div>
+        </dd>
+      
+      
+        <dt class="dt dlterm" id="concept_rrq_p45_dn__specializations-attribute"><code class="keyword markupname xmlatt">@specializations</code> attribute</dt>
+        <dd class="dd">
+          
+          <p class="p">This section lists the tokens that attribute-domain <span class="ph">and
+              element-configuration</span> modules contribute to the <code class="keyword markupname xmlatt">@specializations</code>
+            attribute.</p>
+          <div class="p example">For example:<pre class="pre codeblock"><code>&lt;div&gt;
+  &lt;a:documentation&gt;SPECIALIZATIONS ATTRIBUTE&lt;/a:documentation&gt;
+  &lt;define name="specializations-att"&gt;
+    &lt;optional&gt;
+      &lt;attribute name="specializations"
+                 a:defaultValue="@props/audience
+                                 @props/deliveryTarget                                 
+                                 @props/otherprops
+                                 @props/platform
+                                 @props/product"
+      /&gt;
+    &lt;/optional&gt;
+  &lt;/define&gt;
+&lt;/div&gt;</code></pre></div>
+        </dd>
+      
+      
+        <dt class="dt dlterm" id="concept_rrq_p45_dn__content-constraint">Element-type configuration integration</dt>
+        <dd class="dd">
+          <p class="p">This section of the document-type shell contains includes for
+              <span class="ph">element-type configuration modules (constraint
+              and expansion)</span>.
+            
+              Because<span style="color:red;" class="ph"> an</span> element-configuration
+            module imports the module that it <span style="color:red;" class="ph">overrides,</span> any module that is<span class="ph">
+              configured</span> in this section (including the base topic or
+            map modules) is left out of the following "Module inclusion"
+            section.</p>
+          <div class="div example">
+            <p class="p">The following code sample shows the section of an RNG-based
+              document-type shell that redefines the
+                <code class="keyword markupname xmlelement">&lt;taskbody&gt;</code> element to create the
+              strict task topic.</p>
+            <pre style="color:red;" class="pre codeblock"><code>&lt;div&gt;
+&lt;a:documentation&gt;ELEMENT-TYPE CONFIGURATION INTEGRATION&lt;/a:documentation&gt;
+  &lt;include href="strictTaskbodyConstraintMod.rng"/&gt;            
+&lt;/div&gt;</code></pre>
+          </div>
+        </dd>
+      
+      
+        <dt class="dt dlterm" id="concept_rrq_p45_dn__module-inclusion">Module inclusions</dt>
+        <dd class="dd">
+          <p class="p">This section of the RNG-based document-type shell includes all unconstrained domain or
+            structural modules.</p>
+          <div class="p example">For example:<pre class="pre codeblock"><code>  &lt;div&gt;
+    &lt;a:documentation&gt;MODULE INCLUSIONS&lt;/a:documentation&gt;
+    &lt;include href="topicMod.rng"&gt;
+      &lt;define name="topic-info-types"&gt;
+        &lt;ref name="topic.element"/&gt;
+      &lt;/define&gt;
+    &lt;/include&gt;
+    &lt;include href="audienceAttDomain.rng" dita:since="2.0"/&gt;
+    &lt;include href="deliveryTargetAttDomain.rng"/&gt;
+    &lt;include href="otherpropsAttDomain.rng" dita:since="2.0"/&gt;
+    &lt;include href="platformAttDomain.rng" dita:since="2.0"/&gt;
+    &lt;include href="productAttDomain.rng" dita:since="2.0"/&gt;
+    &lt;include href="alternativeTitlesDomain.rng" dita:since="2.0"/&gt;
+    &lt;include href="emphasisDomain.rng" dita:since="2.0"/&gt;
+    &lt;include href="hazardstatementDomain.rng"/&gt;
+    &lt;include href="highlightDomain.rng"/&gt;
+    &lt;include href="utilitiesDomain.rng"/&gt;
+  &lt;/div&gt;</code></pre></div>
+        </dd>
+      
+      
+        <dt class="dt dlterm" id="concept_rrq_p45_dn__id-defining-element-overrides">ID-defining element overrides</dt>
+        <dd class="dd">
+          <p class="p">This section declares any element in the document type that uses an <code class="keyword markupname xmlatt">@id</code>
+            attribute with an XML data type of <span class="keyword">ID</span>. This declaration is required
+            in order to prevent RELAX NG parsers from issuing errors.</p>
+          <p class="p">If the document-type shell includes domains for foreign vocabularies such as SVG or
+            MathML, this section also includes exclusions for the namespaces used by those
+            domains.</p>
+          <div class="div example">
+            <div class="p">For example, the following code sample is from an RNG-based
+              document-type shell for a task topic. It declares that both
+              the <code class="keyword markupname xmlelement">&lt;topic&gt;</code> and
+                <code class="keyword markupname xmlelement">&lt;task&gt;</code> elements have an
+                <code class="keyword markupname xmlatt">@id</code> attribute with <span style="color:red;" class="ph">an</span> XML data type of ID. These elements and any
+              elements in the SVG or MathML namespaces are excluded from
+              the "any" pattern by being placed within the
+                <code class="keyword markupname xmlelement">&lt;except&gt;</code>
+              element:<pre class="pre codeblock"><code>  &lt;div&gt;
+      &lt;a:documentation&gt; ID-DEFINING-ELEMENT OVERRIDES &lt;/a:documentation&gt;
+      &lt;define name="any"&gt;
+         &lt;zeroOrMore&gt;
+            &lt;choice&gt;
+               &lt;ref name="idElements"/&gt;
+               &lt;element&gt;
+                  &lt;anyName&gt;
+                     &lt;except&gt;
+                        &lt;name&gt;topic&lt;/name&gt;
+                        &lt;name&gt;task&lt;/name&gt;
+                        &lt;nsName ns="http://www.w3.org/2000/svg"/&gt;
+                        &lt;nsName ns="http://www.w3.org/1998/Math/MathML"/&gt;
+                     &lt;/except&gt;
+                  &lt;/anyName&gt;
+                  &lt;zeroOrMore&gt;
+                     &lt;attribute&gt;
+                        &lt;anyName/&gt;
+                     &lt;/attribute&gt;
+                  &lt;/zeroOrMore&gt;
+                  &lt;ref name="any"/&gt;
+               &lt;/element&gt;
+               &lt;text/&gt;
+            &lt;/choice&gt;
+         &lt;/zeroOrMore&gt;
+      &lt;/define&gt;
+  &lt;/div&gt;
+</code></pre></div>
+          </div>
+        </dd>
+      
+      
+    </dl>
+  </div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title14" lang="en-us" id="concept_yvl_ncv_dn">
+ <h3 class="title topictitle3" id="ariaid-title14">RELAX NG: Coding requirements for structural and element-domain
+    modules</h3>
+  
+ <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">This topic covers general coding requirements for defining
+    element types in both structural and element-domain vocabulary
+    modules.</p>
+    <section class="section" id="concept_yvl_ncv_dn__files"><h4 class="title sectiontitle">Module files</h4>
+      
+      <p class="p">Each RELAX NG vocabulary module consists of a single module file.</p>
+    </section>
+  <section class="section" id="concept_yvl_ncv_dn__element-definitions"><h4 class="title sectiontitle">Element definitions</h4>
+      
+      <p class="p">A structural or element-domain vocabulary module contains a declaration for each element
+        type that is named in the module. While the XML standard allows content models to refer to
+        undeclared element types, the DITA standard does not permit it. All element types or
+        attribute lists that are named in a vocabulary module are declared in one of the following
+        objects:</p>
+      <ul class="ul">
+        <li class="li">The vocabulary module</li>
+        <li class="li">A base module of which the vocabulary module is a direct or indirect specialization</li>
+        <li class="li">(If the vocabulary module is a structural module) A required domain or structural
+          module</li>
+      </ul>
+      <p class="p">The element type patterns are organized into the following sections:</p>
+      <dl class="dl">
+        
+          <dt class="dt dlterm">Element type name patterns</dt>
+          <dd class="dd">
+            <p class="p">For each element type that is declared in the vocabulary
+              module, there is a pattern whose name is the element type
+              name and whose content is a reference to the
+                  <code class="ph codeph"><var class="keyword varname">tagname</var>.element</code>
+              pattern <span style="color:red;" class="ph">for the element type</span>.</p>
+            <div class="example non-normative" id="d50694e3031"><h5 class="title sectiontitle">Example</h5><p class="non-normative-label">This section is non-normative.</p>
+              <p class="p">The following example shows the pattern for the
+                  <code class="keyword markupname xmlelement">&lt;b&gt;</code> element:</p>
+              <pre class="pre codeblock"><code>&lt;div&gt;
+  &lt;a:documentation&gt;ELEMENT TYPE NAME PATTERNS&lt;/a:documentation&gt;
+    &lt;!-- ... --&gt;
+    <strong class="ph b">&lt;define name="b"&gt;
+      &lt;ref name="b.element"/&gt;
+    &lt;/define&gt;</strong>
+    &lt;!-- ... --&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            <p class="p">The element-type name pattern provides a layer of abstraction that facilitates
+              redefinition. The element-type name patterns are referenced from content model and
+              domain extension patterns. Specialization modules can re-declare the patterns to
+              include specializations of the type, allowing the specialized types in all contexts
+              where the base type is allowed.</p>
+            <p class="p">The declarations can occur in any order.</p>
+          </dd>
+        
+        
+          <dt class="dt dlterm">Common content-model patterns</dt>
+          <dd class="dd">Structural and element-domain modules can include a section that defines the patterns
+            that contribute to the content models of the element types that are defined in the
+            module.</dd>
+        
+        
+          <dt class="dt dlterm">Common attribute sets</dt>
+          <dd class="dd">Structural and element-domain modules can include a section that defines patterns for
+            attribute sets that are common to one or more of the element types that are defined in
+            the module.</dd>
+        
+        
+          <dt class="dt dlterm">Element type declarations</dt>
+          <dd class="dd">
+            <p class="p">For each element type that is declared in the vocabulary module, the following set of
+              patterns are used to define the content model and attributes for the element type.
+              Each set of patterns typically is grouped within a <code class="keyword markupname xmlelement">&lt;div&gt;</code>
+              element.</p>
+            <dl class="dl">
+              
+                <dt class="dt dlterm"><code class="ph codeph"><var class="keyword varname">tagname</var>.content</code></dt>
+                <dd class="dd">Defines the complete content model for the element <var class="keyword varname">tagname</var>.
+                  The content model pattern can be overridden in <span class="ph">element-configuration
+                    modules (constraint and expansion)</span>.</dd>
+              
+              
+                <dt class="dt dlterm"><code class="ph codeph"><var class="keyword varname">tagname</var>.attributes</code></dt>
+                <dd class="dd">Defines the complete attribute list for the element <var class="keyword varname">tagname</var>,
+                  except for <code class="keyword markupname xmlatt">@class</code>. The attribute list declaration can be
+                  overridden in <span class="ph">element-configuration modules (constraint and
+                    expansion)</span>.</dd>
+              
+              
+                <dt class="dt dlterm"><code class="ph codeph"><var class="keyword varname">tagname</var>.element</code></dt>
+                <dd class="dd">Provides the actual element-type definition. It contains an
+                    <code class="keyword markupname xmlelement">&lt;element&gt;</code> element whose <code class="keyword markupname xmlatt">@name</code> value is
+                  the element type name and whose content is a reference to the
+                      <code class="ph codeph"><var class="keyword varname">tagname</var>.content</code> and
+                      <code class="ph codeph"><var class="keyword varname">tagname</var>.attlist</code>
+                  patterns.</dd>
+              
+              
+                <dt class="dt dlterm"><code class="ph codeph"><var class="keyword varname">tagname</var>.attlist</code></dt>
+                <dd class="dd"><span style="color:red;" class="ph">Contains</span> an additional
+                  attribute-list pattern with a <code class="keyword markupname xmlatt">@combine</code>
+                  attribute set to the value <span class="keyword">interleave</span>.
+                  This pattern contains only a reference to the
+                      <code class="ph codeph"><var class="keyword varname">tagname</var>.attributes</code>
+                  pattern. <span style="color:red;" class="ph">This pattern enables the
+                    integration of attribute specializations.</span></dd>
+              
+            </dl>
+            <div class="example non-normative" id="d50694e3218"><h5 class="title sectiontitle">Example</h5><p class="non-normative-label">This section is non-normative.</p>
+              <p class="p">The following example shows the declaration for the
+                  <code class="keyword markupname xmlelement">&lt;topichead&gt;</code> element, including the definition for each
+                pattern described above.</p>
+              <pre class="pre codeblock"><code>    &lt;div&gt;
+      &lt;a:documentation&gt;Topic Head&lt;/a:documentation&gt;
+      <strong class="ph b">&lt;define name="topichead.content"&gt;</strong>
+        &lt;optional&gt;
+          &lt;ref name="topicmeta"/&gt;
+        &lt;/optional&gt;
+        &lt;zeroOrMore&gt;
+          &lt;choice&gt;
+            &lt;ref name="data.elements.incl"/&gt;
+            &lt;ref name="navref"/&gt;
+            &lt;ref name="topicref"/&gt;
+          &lt;/choice&gt;
+        &lt;/zeroOrMore&gt;
+      &lt;/define&gt;
+      <strong class="ph b">&lt;define name="topichead.attributes"&gt;
+</strong>        &lt;optional&gt;
+          &lt;attribute name="keys"/&gt;
+        &lt;/optional&gt;
+        &lt;ref name="topicref-atts"/&gt;
+        &lt;ref name="univ-atts"/&gt;
+      &lt;/define&gt;
+      <strong class="ph b">&lt;define name="topichead.element"&gt;</strong>
+        &lt;element name="topichead"&gt;
+          &lt;a:documentation/&gt;
+          &lt;ref name="topichead.attlist"/&gt;
+          &lt;ref name="topichead.content"/&gt;
+        &lt;/element&gt;
+      &lt;/define&gt;
+      <strong class="ph b">&lt;define name="topichead.attlist" combine="interleave"&gt;
+</strong>        &lt;ref name="topichead.attributes"/&gt;
+      &lt;/define&gt;
+
+    &lt;/div&gt;</code></pre>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm">idElements pattern contribution</dt>
+          <dd class="dd">
+            <p class="p">Element types that declare the <code class="keyword markupname xmlatt">@id</code> attribute as type "ID", including
+              all topic and map element types, provide a declaration for the
+                <code class="ph codeph">idElements</code> pattern. This is required to correctly configure the
+                <span class="keyword">any</span> pattern override in document-type shells and avoid errors
+              from RELAX NG parsers. The declaration is specified with a <code class="keyword markupname xmlatt">@combine</code>
+              attribute set to the value <span class="keyword">choice</span>.</p>
+            <div class="div">
+              <p class="p"> For example:</p>
+              <pre class="pre codeblock"><code>&lt;div&gt;
+  &lt;a:documentation&gt;LONG NAME: Map&lt;/a:documentation&gt;
+  &lt;!-- ... --&gt;
+  &lt;define name="idElements" combine="choice"&gt;
+    &lt;ref name="map.element"/&gt;
+  &lt;/define&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm">Specialization attribute declarations</dt>
+          <dd class="dd">
+            <p class="p">A vocabulary module must define a <code class="keyword markupname xmlatt">@class</code> attribute for every
+              specialized element. This is done in a section at the end of each module that includes
+              a <code class="ph codeph"><var class="keyword varname">tagname</var>.attlist</code> pattern for each element type
+              that is defined in the module. The declarations can occur in any order.</p>
+            <p class="p">The <code class="ph codeph"><var class="keyword varname">tagname</var>.attlist</code>
+              pattern for each element defines the value for the
+                <code class="keyword markupname xmlatt">@class</code> attribute for the element.
+                <code class="keyword markupname xmlatt">@class</code> is declared as an optional
+              attribute. The default value is declared using the
+                <code class="keyword markupname xmlatt">@a:defaultValue</code> attribute, and the value of
+              the attribute is constructed according to the rules in <a class="xref" href="../../Chunk209774173.html#classatt" title="The specialization hierarchy of each DITA element is declared as the value of the class attribute. The class attribute provides a mapping from the current name of the element to its more general equivalents. The class attribute also can provide a mapping from the current name to more specialized equivalents. All specialization-aware processing can be defined in terms of class attribute values.">The class attribute rules and syntax</a>.</p>
+            <div class="p example">For
+              example:<pre class="pre codeblock"><code>&lt;define name="topichead.attlist" combine="interleave"&gt;
+  &lt;optional&gt;
+    &lt;attribute name="class" 
+        a:defaultValue="+ map/topicref mapgroup-d/topichead "
+    /&gt;
+  &lt;/optional&gt;
+&lt;/define&gt;</code></pre></div>
+          </dd>
+        
+      </dl>
+    </section>
+ </div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title15" lang="en-us" id="relax-ng-structural-module-coding-requirements">
+  <h3 class="title topictitle3" id="ariaid-title15">RELAX NG: Coding requirements for structural modules</h3>
+  
+  
+  <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">A structural vocabulary module defines a new topic or map type as a specialization of a
+    topic or map type.</p>
+    <section class="section" id="relax-ng-structural-module-coding-requirements__architectural-attributes"><h4 class="title sectiontitle">Required topic and map element attributes</h4>
+      
+      <p class="p">The topic or map element type references the <code class="ph codeph">arch-atts</code> pattern, which
+        defines the <code class="keyword markupname xmlatt">@DITAArchVersion</code> attribute in the DITA architecture namespace
+        and sets the attribute to the version of DITA. In addition, the topic or map element type
+        references the <code class="ph codeph">specializations-att</code> pattern, which pulls in a definition for
+        the <code class="keyword markupname xmlatt">@specializations</code> attribute.</p>
+      <div class="div example">
+        <p class="p">For example, the following definition references the <code class="ph codeph">arch-atts</code> and
+            <code class="ph codeph">specializations-att</code> patterns as part of the definition for the
+            <code class="keyword markupname xmlelement">&lt;concept&gt;</code> element.</p>
+        <pre class="pre codeblock"><code>&lt;div&gt;
+  &lt;a:documentation&gt; LONG NAME: Concept &lt;/a:documentation&gt;
+  &lt;!-- ... --&gt;
+  &lt;define name="concept.attlist" combine="interleave"&gt;
+    &lt;ref name="concept.attributes"/&gt;
+    <strong class="ph b">&lt;ref name="arch-atts"/&gt;
+    &lt;ref name="specializations-att"/&gt;</strong>
+  &lt;/define&gt;
+  &lt;!-- ... --&gt;
+&lt;/div&gt;
+</code></pre>
+      </div>
+      <p class="p">The <code class="keyword markupname xmlatt">@DITAArchVersion</code> and <code class="keyword markupname xmlatt">@specializations</code> attributes give
+        processors a reliable way to check the DITA version and the attribute domains that are
+        used.</p>
+    </section>
+    <section class="section" id="relax-ng-structural-module-coding-requirements__topic-nesting"><h4 class="title sectiontitle">Controlling nesting in topic types</h4>
+      
+      <p class="p"><span class="ph">A structural module that defines a new topic
+          type</span> typically defines an <code class="ph codeph">info-types</code> style
+        pattern to specify a default for what topic types are permitted to
+        nest. Document-type shells then can control how topics are allowed
+        to nest by redefining the pattern. </p>
+      <p class="p">The following rules apply when using a pattern to control topic
+        nesting.</p>
+      <dl class="dl">
+        
+          <dt class="dt dlterm">Pattern name</dt>
+          <dd class="dd">
+            <p class="p">The pattern name is the topic element name plus the suffix
+                <code class="ph codeph">-info-types</code>.</p>
+            <p class="p example">For example, the info-types pattern for the concept topic type
+              is <code class="ph codeph">concept-info-types</code>.</p>
+          </dd>
+        
+        
+          <dt class="dt dlterm">Pattern value</dt>
+          <dd class="dd">
+            <p class="p">To set up default topic-nesting rules, set the pattern to the desired topic elements.
+              The default topic nesting is used when a document-type shell does not set up different
+              rules.</p>
+            <div class="div example">
+              <p class="p">For example:</p>
+              <pre class="pre codeblock"><code>&lt;div&gt;
+  &lt;a:documentation&gt;INFO TYPES PATTERNS&lt;/a:documentation&gt;
+  &lt;define name="mytopic-info-types"&gt;
+    &lt;ref name="subtopictype-01.element"/&gt;
+    &lt;ref name="subtopictype-02.element"/&gt;
+  &lt;/define&gt;
+  &lt;!-- ... --&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            <p class="p">To disable topic nesting, specify the <code class="keyword markupname xmlelement">&lt;empty&gt;</code> element.</p>
+            <div class="div example">
+              <p class="p">For example:</p>
+              <pre class="pre codeblock"><code>&lt;define name="learningAssessment-info-types"&gt;
+  &lt;empty/&gt;
+&lt;/define&gt;</code></pre>
+            </div>
+            <p class="p">The <code class="ph codeph">info-types</code> pattern also can be used to refer to common nesting
+              rules across the document-type shell.</p>
+            <div class="div example">
+              <p class="p">For example:</p>
+              <pre class="pre codeblock"><code>&lt;div&gt;
+  &lt;a:documentation&gt;INFO TYPES PATTERNS&lt;/a:documentation&gt;
+  &lt;define name="mytopic-info-types"&gt;
+    &lt;ref name="info-types"/&gt;
+  &lt;/define&gt;
+  &lt;!-- ... --&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt dlterm">Content model of the root element</dt>
+          <dd class="dd">
+            <p class="p">In the declaration of the root element of a topic type, the last position in the
+              content model is the <code class="ph codeph"><var class="keyword varname">topictype</var>-info-types</code>
+              pattern.</p>
+            <div class="div example">
+              <p class="p">For example, the <code class="keyword markupname xmlelement">&lt;concept&gt;</code> element places the pattern after
+                  <code class="keyword markupname xmlelement">&lt;related-links&gt;</code>:</p>
+              <pre class="pre codeblock"><code>&lt;div&gt;
+  &lt;a:documentation&gt;LONG NAME: Concept&lt;/a:documentation&gt;
+  &lt;define name="concept.content"&gt;
+    &lt;!-- ... --&gt;
+    &lt;optional&gt;
+      &lt;ref name="related-links"/&gt;
+    &lt;/optional&gt;
+    &lt;zeroOrMore&gt;
+      &lt;ref name="concept-info-types"/&gt;
+    &lt;/zeroOrMore&gt;
+  &lt;/define&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </dd>
+        
+      </dl>
+      <p class="p">In certain cases, you do not need to use the <code class="ph codeph">info-types</code> pattern to control
+        topic nesting:</p>
+      <ul class="ul">
+        <li class="li">If a topic type will never permit topic nesting, regardless of context, it can be
+          defined without any pattern or any nested topics.</li>
+        <li class="li">If a topic type will allow only specific nesting patterns, such
+          as allowing only other topic types that are defined in the same
+          module, it can nest those topics directly in the same way that
+          other nested elements are defined.</li>
+      </ul>
+    </section>
+  </div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title16" lang="en-us" id="relax-ng-element-domain-module-coding-requirements">
+ <h3 class="title topictitle3" id="ariaid-title16">RELAX NG: Coding requirements for element-domain modules</h3>
+ 
+  
+ <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">Element-domain modules declare an extension pattern for each element that is extended by
+    the domain. These patterns are used when including the domain module in document-type
+    shells.</p>
+    <dl class="dl">
+      
+        <dt class="dt dlterm">Pattern name</dt>
+        <dd class="dd">
+          <p class="p">The name of the pattern is the abbreviation for the domain, followed by a hyphen ("-"),
+            and the name of the element that is extended.</p>
+          <div class="example non-normative" id="d50694e3765"><h4 class="title sectiontitle">Example</h4><p class="non-normative-label">This section is non-normative.</p>
+            <p class="p">For example, the name of the pattern for the highlighting
+              domain that extends the <code class="keyword markupname xmlelement">&lt;ph&gt;</code> element
+              is <code class="ph codeph">hi-d-ph</code>.</p>
+          </div>
+        </dd>
+      
+      
+        <dt class="dt dlterm">Pattern definition</dt>
+        <dd class="dd">
+          <p class="p">The pattern consists of a choice group that contains references to element-type name
+            patterns. Each extension of the base element type is referenced.</p>
+          <div class="example non-normative" id="d50694e3795"><h4 class="title sectiontitle">Example</h4><p class="non-normative-label">This section is non-normative.</p>
+            <p class="p">The following code sample shows the pattern for the elements
+              defined in the highlighting domain:</p>
+            <pre class="pre codeblock"><code>&lt;a:documentation&gt;DOMAIN EXTENSION PATTERNS&lt;/a:documentation&gt;
+
+&lt;define name="hi-d-ph"&gt;
+  &lt;choice&gt;
+    &lt;ref name="b.element"/&gt;
+    &lt;ref name="i.element"/&gt;
+    &lt;ref name="line-through.element"/&gt;
+    &lt;ref name="overline.element"/&gt;
+    &lt;ref name="sup.element"/&gt;
+    &lt;ref name="sub.element"/&gt;
+    &lt;ref name="tt.element"/&gt;
+    &lt;ref name="u.element"/&gt;
+  &lt;/choice&gt;
+&lt;/define&gt;
+</code></pre>
+          </div>
+        </dd>
+      
+      
+        <dt class="dt dlterm">Extension pattern</dt>
+        <dd class="dd">
+          <p class="p">For each element type that is extended by the element-domain module, the module extends
+            the element-type pattern with a <code class="keyword markupname xmlatt">@combine</code> value of
+              <span class="keyword">choice</span> that contains a reference to the domain pattern.</p>
+          <div class="example non-normative" id="d50694e3826"><h4 class="title sectiontitle">Example</h4><p class="non-normative-label">This section is non-normative.</p>
+            <p class="p">For example, the following pattern adds the highlight domain specializations of the
+                <code class="keyword markupname xmlelement">&lt;ph&gt;</code> element to the content model of the
+                <code class="keyword markupname xmlelement">&lt;ph&gt;</code> element:</p>
+            <pre class="pre codeblock"><code>&lt;define name="ph" combine="choice"&gt;
+  &lt;ref name="hi-d-ph"/&gt;
+&lt;/define&gt;</code></pre>
+          </div>
+          <p class="p">Because the pattern uses a <code class="keyword markupname xmlatt">@combine</code> value of <span class="keyword">choice</span>,
+            the effect is that the domain-provided elements automatically are added to the effective
+            content model of the extended element in any grammar that includes the domain
+            module.</p>
+        </dd>
+      
+    </dl>
+    
+ </div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title17" lang="en-us" id="relax-ng-attribute-domain-module-coding-requirements">
+ <h3 class="title topictitle3" id="ariaid-title17">RELAX NG: Coding requirements for attribute-domain modules</h3>
+  
+  
+ <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">An attribute-domain vocabulary module declares a new attribute specialized from either
+    the <code class="keyword markupname xmlatt">@props</code> or <code class="keyword markupname xmlatt">@base</code> attribute.</p>
+    <p class="p">The name of an attribute domain is the name of the attribute
+        plus <span class="keyword">Att</span>. For example, for the attribute named
+          <code class="keyword markupname xmlatt">@deliveryTarget</code>, the attribute-domain name is "deliveryTargetAtt". The
+        attribute-domain name is used to construct pattern names for the domain. </p>
+   <p class="p">An attribute-domain module consists of a single file, which has three sections:</p>
+    <dl class="dl">
+      
+        <dt class="dt dlterm">Specializations attribute contribution</dt>
+        <dd class="dd">
+          <p class="p">The contribution to the <code class="keyword markupname xmlatt">@specializations</code> attribute is documented in the
+            module. The value is constructed according to the rules found in <a class="xref" href="../../Chunk209774173.html#domainsatt" title="The specializations attribute enables processors to determine what attribute specializations are available in a document. The attribute is declared on the root element for each topic or map type. Each attribute domain defines a token to declare the extension. The effective value of the specializations attribute is composed of these tokens.">The specializations attribute rules and syntax</a>.</p>
+          <p class="p">The OASIS grammar files use a <code class="keyword markupname xmlelement">&lt;domainsContribution&gt;</code> element to
+            document the contribution; this element is used to help enable generation of DTD and XSD
+            grammar files. An XML comment or <code class="keyword markupname xmlelement">&lt;a:documentation&gt;</code> element also
+            can be used.</p>
+        </dd>
+      
+      
+        <dt class="dt dlterm">Attribute declaration pattern</dt>
+        <dd class="dd">
+          <p class="p">The specialized attribute is declared in a pattern named
+                <code class="ph codeph"><var class="keyword varname">domainName</var>-d-attribute</code>. The attribute is defined
+            as optional.</p>
+          <div class="div example">
+            <p class="p">For example, the following code samples shows the the <code class="keyword markupname xmlatt">@audience</code>
+              specialization of <code class="keyword markupname xmlatt">@props</code>:</p>
+            <pre class="pre codeblock"><code>&lt;define name="audienceAtt-d-attribute"&gt;
+  &lt;optional&gt;
+    &lt;attribute name="audience" dita:since="2.0"&gt;
+      &lt;a:documentation&gt;Specifies the audience to which an element applies.&lt;/a:documentation&gt;
+    &lt;/attribute&gt;
+  &lt;/optional&gt;    
+&lt;/define&gt;</code></pre>
+          </div>
+        </dd>
+      
+      
+        <dt class="dt dlterm">Attribute extension pattern</dt>
+        <dd class="dd">
+          <p class="p">The attribute extension pattern extends either the
+              <code class="keyword markupname xmlatt">@props</code> or <code class="keyword markupname xmlatt">@base</code>
+            <span style="color:red;" class="ph">attribute-list</span> pattern to include the
+            attribute specialization.</p>
+          <dl class="dl">
+            
+              <dt class="dt dlterm">Specializations of <code class="keyword markupname xmlatt">@props</code></dt>
+              <dd class="dd">
+                <p class="p">The pattern is named <code class="ph codeph">props-attribute-extensions</code>. The pattern
+                  specifies a <code class="keyword markupname xmlatt">@combine</code> value of <span class="keyword">interleave</span>, and
+                  the content of the pattern is a reference to the specialized-attribute declaration
+                  pattern.</p>
+                <div class="div example">
+                  <p class="p">For example:</p>
+                  <pre class="pre codeblock"><code>&lt;define name="props-attribute-extensions" combine="interleave"&gt;
+  &lt;ref name="audienceAtt-d-attribute"/&gt;
+&lt;/define&gt;</code></pre>
+                </div>
+              </dd>
+            
+            
+              <dt class="dt dlterm">Specializations of <code class="keyword markupname xmlatt">@base</code></dt>
+              <dd class="dd">
+                <p class="p">The pattern is named <code class="ph codeph">base-attribute-extensions</code>. The pattern
+                  specifies a <code class="keyword markupname xmlatt">@combine</code> value of <span class="keyword">interleave</span>, and
+                  the content of the pattern is a reference to the specialized-attribute declaration
+                  pattern.</p>
+                <div class="div example">
+                  <p class="p">For example:</p>
+                  <pre class="pre codeblock"><code>&lt;define name="base-attribute-extensions" combine="interleave"&gt;
+    &lt;ref name="myBaseSpecializationAtt-d-attribute"/&gt;
+&lt;/define&gt;</code></pre>
+                </div>
+              </dd>
+            
+          </dl>
+        </dd>
+      
+    </dl>
+ </div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title18" id="relax_ng_coding_requirements_for_element_configuration_modules">
+    <h3 class="title topictitle3" id="ariaid-title18">RELAX NG: Coding requirements for element-configuration modules</h3>
+    
+    
+    <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">An element-configuration module (constraint and expansion) redefines the content
+        model or attribute list for one or more elements.</p>
+        <section class="section" id="d50694e4172"><h4 class="title sectiontitle">Implementation of element-configuration modules</h4>
+            
+            <p class="p">Element-configuration modules are implemented by importing the element-configuration
+                modules into a document-type shell in place of the vocabulary module that is
+                redefined. The element-configuration module itself imports the base vocabulary
+                module; within the import, the module redefines the patterns as needed to implement
+                the constraint, expansion, or both.</p>
+            <dl class="dl example">
+                
+                    <dt class="dt dlterm">Constraint modules</dt>
+                    <dd class="dd">
+                        <p class="p">For example, a constraint module that modifies the
+                                <code class="keyword markupname xmlelement">&lt;topic&gt;</code> element imports the base module
+                                <span class="ph filepath">topicMod.rng</span>. Within that import, it constrains
+                            the <code class="ph codeph">topic.content</code> pattern:</p>
+                        <pre class="pre codeblock"><code>  &lt;div&gt;
+    &lt;a:documentation&gt;ATTRIBUTES AND CONTENT MODEL OVERRIDES&lt;/a:documentation&gt;
+    &lt;include href="urn:pubid:oasis:names:tc:dita:rng:topicMod.rng:2.0"&gt;
+      &lt;define name="topic.content"&gt;
+        &lt;ref name="title"/&gt;
+        &lt;ref name="shortdesc"/&gt;
+        &lt;optional&gt;
+          &lt;ref name="prolog"/&gt;
+        &lt;/optional&gt;
+        &lt;optional&gt;
+          &lt;ref name="body"/&gt;
+        &lt;/optional&gt;
+      &lt;/define&gt;
+    &lt;/include&gt;
+  &lt;/div&gt;</code></pre>
+                    </dd>
+                
+                
+                    <dt class="dt dlterm">Expansion modules</dt>
+                    <dd class="dd">
+                        <p class="p">For example, an expansion module that modifies the content model of
+                                <code class="keyword markupname xmlelement">&lt;section&gt;</code> imports the base module
+                                <span class="ph filepath">topicMod.rng</span>. Within that import, it expands
+                            the <code class="ph codeph">section.content</code> pattern:</p>
+                        <pre class="pre codeblock"><code>    &lt;a:documentation&gt;CONTENT MODEL AND ATTRIBUTE LIST OVERRIDES&lt;/a:documentation&gt;
+    &lt;include href="urn:pubid:oasis:names:tc:dita:rng:topicMod.rng:2.0"&gt;
+      <strong class="ph b">&lt;define name="section.content"&gt;
+        &lt;optional&gt;
+          &lt;ref name="title"/&gt;
+        &lt;/optional&gt;
+        &lt;optional&gt;
+          &lt;ref name="sectionDesc"/&gt;
+        &lt;/optional&gt;
+        &lt;zeroOrMore&gt;
+          &lt;ref name="section.cnt"/&gt;
+        &lt;/zeroOrMore&gt;
+      &lt;/define&gt;</strong>
+    &lt;/include&gt;
+  &lt;/div&gt;</code></pre>
+                        <p class="p">Note that the specialized element
+                <code class="keyword markupname xmlelement">&lt;sectionDesc&gt;</code> must be declared in an
+              element-domain module that also is integrated into the
+              document-type shell.</p>
+                    </dd>
+                
+            </dl>
+        </section>
+        <section class="section" id="d50694e4257"><h4 class="title sectiontitle">Combining multiple element-configuration modules</h4>
+            
+            <p class="p">Because the element-configuration module imports the module that it modifies, only
+                one element-configuration module can be used per vocabulary module; otherwise the
+                vocabulary module would be imported multiple times. If multiple element
+                configurations are combined for a single vocabulary module, they need to be
+                implemented in one of the following ways:</p>
+            <dl class="dl">
+                
+                    <dt class="dt dlterm">Combined into a single element-configuration module</dt>
+                    <dd class="dd">
+                        <p class="p">The element configurations can be combined into a single module.</p>
+                        <div class="div example">
+                            <p class="p">For example, when combining separate constraints for
+                                    <code class="keyword markupname xmlelement">&lt;section&gt;</code> and
+                                    <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code>, a single module can be
+                                defined as follows:</p>
+                            <pre class="pre codeblock"><code>&lt;include href="topicMod.rng"&gt;
+  &lt;define name="section.content"&gt;
+    &lt;!-- Constrained model for section --&gt;
+  &lt;/define&gt;
+  &lt;define name="shortdesc.content"&gt;
+    &lt;!-- Constrained model for shortdesc --&gt;
+  &lt;/define&gt;
+&lt;/include&gt;
+</code></pre>
+                        </div>
+                    </dd>
+                
+                
+                    <dt class="dt dlterm">Chaining element-configuration modules</dt>
+                    <dd class="dd">
+                        <p class="p">Element-configuration modules can be chained so that each
+                            element-configuration module imports another, until the final
+                            element-configuration module imports the base vocabulary module.</p>
+                        <div class="div example">
+                            <p class="p">For example, when combining separate constraints for
+                                    <code class="keyword markupname xmlelement">&lt;section&gt;</code>,
+                                    <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code>, and
+                                    <code class="keyword markupname xmlelement">&lt;li&gt;</code> from the base vocabulary, the
+                                    <code class="keyword markupname xmlelement">&lt;section&gt;</code> constraint can import the
+                                    <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code> constraint, which in turn
+                                imports the <code class="keyword markupname xmlelement">&lt;li&gt;</code> constraint, which finally
+                                imports <span class="ph filepath">topicMod.rng</span>.</p>
+              
+                        </div>
+                    </dd>
+                
+            </dl>
+        </section>
+    </div>
+<nav role="navigation" class="related-links"><div class="linklist relconcepts" lang="en-us"><strong>Related concepts</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="../../non-normative/developing-constraint-and-expansion-modules.html#examples-constraints-implemented-using-rng" title="This section of the specification contains examples of constraints implemented using RNG">Examples: Constraints implemented using RNG</a></li><li class="linklist"><a class="link" href="../../non-normative/expansion-modules.html#examples_expansion_implemented_using_rng" title="This section of the specification contains examples of extension modules implemented using RNG.">Examples: Expansion implemented using RNG</a></li></ul></div></nav></article></article></article><aside class="section-toc" role="aside"></aside></article></main>
