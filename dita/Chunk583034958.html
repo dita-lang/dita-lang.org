@@ -1,0 +1,1089 @@
+---
+layout: base.njk
+title: ''
+index: 'toc.html'
+notices: 'resources/oasis-notices.html'
+commit: '12307550f7ac3b1081060100e611b48b81caf88c'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="toc" role="toc"><ul><li><a href="introduction/dita-release-overview.html">Introduction</a></li><li><a href="archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="archSpec/base/accessibility-and-translation.html">Accessibility and translation</a></li><li><a href="archSpec/base/dita-map-processing.html">DITA map processing</a></li><li><a href="archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="archSpec/base/behaviors.html">DITA processing</a><ul class="nav nav-list"><li><a href="archSpec/base/navigation.html#navigation">Navigation</a></li><li><a href="Chunk379354743.html#Chunk379354743">Indexes</a></li><li class="active"><a href="Chunk583034958.html#Chunk583034958">Content reference (conref)</a><ul class="nav nav-list"><li><a href="Chunk583034958.html#conref">Content reference (conref)</a></li></ul></li><li><a href="Chunk2073407298.html#Chunk2073407298">Conditional processing</a></li><li><a href="Chunk1197419900.html#Chunk1197419900">Branch filtering</a></li><li><a href="archSpec/base/sort-as-processing.html#sort-as-processing">Sorting</a></li><li><a href="archSpec/base/determining-effective-attribute-values.html#concept_afm_sz2_t3b">Determining effective attribute values</a></li></ul></li><li><a href="archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a></li><li><a href="langRef/langRef-base.html">Element reference</a></li><li><a href="conformance/conformance.html">Conformance</a></li><li><a href="acknowledgments/acknowledgments.html#r-acknowledgments">Acknowledgments</a></li><li><a href="non-normative/aggregated-RFC-2119-statements.html#aggregated-RFC-2119-statements">Aggregated RFC-2119 statements</a></li><li><a href="archSpec/base/coding-requirements.html#coding-practices">Coding practices for DITA grammar files</a></li><li><a href="non-normative/developing-constraint-and-expansion-modules.html#developing-constraint-and-expansion-modules">Constraint modules</a></li><li><a href="non-normative/expansion-modules.html#expansion-modules">Expansion modules</a></li><li><a href="non-normative/elementsMerged.html#elements">Element-by-element recommendations for translators</a></li><li><a href="non-normative/formatting-expectations.html#formatting-expectations">Formatting expectations</a></li><li><a href="non-normative/migrating-to-dita-2.0.html#migrating-to-dita-2.0">Migrating to DITA 2.0</a></li><li><a href="non-normative/basedoctypes.html#oasisdomains">OASIS grammar files</a></li><li><a href="non-normative/interoperability-considerations.html#nteroperability-considerations">Processing interoperability considerations</a></li><li><a href="non-normative/revision-history.html#revision-history">Revision history</a></li></ul></nav><main role="main" class=""><article role="article" aria-labelledby="ariaid-title1"><article class="nested0" aria-labelledby="ariaid-title1" id="Chunk583034958"><h1 class="title topictitle1" id="ariaid-title1">Content reference (conref)</h1><nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="archSpec/base/behaviors.html" title="DITA processing is affected by a number of factors, including attributes that indicate the set of vocabulary and constraint modules on which a DITA document depends; navigation; linking; content reuse (using direct or indirect addressing); conditional processing; branch filtering; chunking; and more. In addition, translation of DITA content is expedited through the use of the dir, translate, and xml:lang attributes.">DITA processing</a></div></div></nav><article class="topic concept nested1" aria-labelledby="ariaid-title2" lang="en-us" id="conref">
+ <h2 class="title topictitle2" id="ariaid-title2">Content <span class="ph">reference</span> (conref)</h2>
+ 
+ 
+ <div class="body conbody"><p class="shortdesc">The DITA conref attributes are mechanisms that enable effective
+  content reuse. DITA content references support complex reuse scenarios that are otherwise
+  challenging or impossible to achieve. In addition, DITA content references have rules to ensure
+  that the content is valid DITA after the content reference has been resolved.</p></div>
+<article class="topic concept nested2" aria-labelledby="ariaid-title3" lang="en-us" id="unique_345614413">
+ <h3 class="title topictitle3" id="ariaid-title3"><span class="ph">Content referencing</span> overview</h3>
+ 
+  
+ <div class="body conbody"><p class="shortdesc"><span class="ph">The DITA <code class="keyword markupname xmlatt">@conref</code>,
+            <code class="keyword markupname xmlatt">@conkeyref</code>, <code class="keyword markupname xmlatt">@conrefend</code>, and <code class="keyword markupname xmlatt">@conaction</code>
+          attributes provide mechanisms for reusing content within DITA topics or maps. These
+          mechanisms can be used both to pull and push content.</span></p>
+    <p class="p">This topic uses the definitions of <a class="xref" href="archSpec/base/linking-and-addressing-terms.html#linking-and-addressing-terms__referenced-element">referenced element</a>
+      and <a class="xref" href="archSpec/base/linking-and-addressing-terms.html#linking-and-addressing-terms__referencing-element">referencing element</a>
+      as defined in <a class="xref" href="archSpec/base/linking-and-addressing-terms.html#linking-and-addressing-terms" title="Certain terminology is used for discussing linking and addressing.">Linking and addressing terminology</a>.</p>
+    <dl class="dl">
+      
+        <dt class="dt dlterm">Pulling content <span class="ph">into</span> the referencing element</dt>
+        <dd class="dd">
+          <p class="p">When the <code class="keyword markupname xmlatt">@conref</code> or <code class="keyword markupname xmlatt">@conkeyref</code> attribute is used alone,
+            the referencing element acts as a placeholder for the referenced <span class="ph">element. The</span> content of the referenced element is rendered in place of the
+            referencing element.</p>
+          <p class="p">The combination of the <code class="keyword markupname xmlatt">@conrefend</code> attribute with either
+              <code class="keyword markupname xmlatt">@conref</code> or <code class="keyword markupname xmlatt">@conkeyref</code> specifies a range of elements
+            that is rendered in place of the referencing element. <span class="ph">The start
+              and end elements in a range must be siblings.</span> Although the start and end elements
+            must be of the same type as the referencing element (or specialized from that element
+            type), the elements inside the range can be any type.</p>
+        </dd>
+      
+      
+        <dt class="dt dlterm">Pushing content from the referencing element</dt>
+        <dd class="dd">
+          <p class="p">The <code class="keyword markupname xmlatt">@conaction</code> attribute reverses the direction of reuse from pull to
+            push. With a push, the referencing element is rendered before, after, or in place of the
+            referenced element. The location (before, after, or in place of) is determined by the
+            value of the <code class="keyword markupname xmlatt">@conaction</code> attribute. The <code class="keyword markupname xmlatt">@conaction</code> and
+              <code class="keyword markupname xmlatt">@conrefend</code> attributes cannot both be used within the same referencing
+            element, so it is not possible to push a range of elements.</p>
+        </dd>
+      
+    </dl>
+    <p class="p">A fragment of DITA content, such as an XML document that contains only a single paragraph
+      without a topic ancestor, does not contain enough information for a conref processor to be
+      able to determine the validity of a reference to it. Consequently, the value of a
+        <code class="keyword markupname xmlatt">@conref</code> attribute must be one of the following items:</p>
+    <ul class="ul">
+      <li class="li">A referenced element within a DITA map</li>
+      <li class="li">A referenced element within a DITA topic</li>
+      <li class="li">An entire DITA map</li>
+      <li class="li">An entire DITA topic</li>
+    </ul>
+ </div>
+<nav role="navigation" class="related-links"><div class="linklist relconcepts" lang="en-us"><strong>Related concepts</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="Chunk583034958.html#theconactionattribute" title="The conaction attribute allows users to push content from one location into another. It causes the conref attribute to work in reverse, so that content is pushed from the referencing element into another location, rather than pulled from another location to replace the referencing element.">Pushing reusable content to a new location</a></li><li class="linklist"><a class="link" href="Chunk583034958.html#theconkeyrefattribute" title="The conkeyref attribute provides an indirect content reference to topic elements, map elements, or elements within maps or topics. It allows the referencing element to use a key in place of a URI reference when referencing another topic or map.">Indirect key-based content reuse</a></li><li class="linklist"><a class="link" href="Chunk583034958.html#theconrefattribute" title="The conref attribute is used to reference reusable content by URI. It allows reuse of DITA elements, including topic- or map-based elements.">Direct URI-based content reuse</a></li><li class="linklist"><a class="link" href="Chunk583034958.html#theconrefendattribute" title="The conrefend attribute is used in a conref range. A conref or conkeyref attribute references the first element in the range, while conrefend references the last element in the range.">Reusing a range of elements</a></li></ul></div></nav></article><article class="topic concept nested2" aria-labelledby="ariaid-title4" lang="en-us" id="theconrefattribute">
+<h3 class="title topictitle3" id="ariaid-title4">Direct URI-based content reuse</h3>
+
+  
+<div class="body conbody"><p class="shortdesc">The <code class="keyword markupname xmlatt">@conref</code> attribute is used to reference <span class="ph">reusable
+      content by URI</span>. It allows reuse of DITA elements, including <span class="ph">topic-
+      or map-based elements</span>.</p>
+<p class="p">The value of the <code class="keyword markupname xmlatt">@conref</code> attribute is a URI reference to a DITA element. See
+          <a class="xref" href="archSpec/base/uri-based-addressing.html#uri-based-addressing" title="Content reference and link relationships can be established from DITA elements by using URI references. DITA uses URI references in href, conref, and other attributes for all direct addressing of resources.">URI-based (direct) addressing</a> for details on specifying URI
+        references to DITA elements. As with other DITA references, a <code class="keyword markupname xmlatt">@conref</code>
+        attribute that references a resource without an ID is treated as a reference to the first
+        topic or map in the document.</p><div class="note note note_note non-normative"><span class="note__title">Note<span class="non-normative-label"> (non-normative)</span>:</span> <div class="note__body">When using the <code class="keyword markupname xmlatt">@conref</code> attribute on an element, the content of that element is
+        ignored <span class="ph">by processors</span>. For example, if a phrase is marked up like
+        this:<pre class="pre codeblock"><code>&lt;ph conref="#topic/ph"&gt;Something&lt;/ph&gt;</code></pre> the word "Something"
+        will be replaced by the content of the referenced <code class="keyword markupname xmlelement">&lt;ph&gt;</code>
+        element.</div></div>
+</div>
+<nav role="navigation" class="related-links"><div class="linklist relconcepts" lang="en-us"><strong>Related concepts</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="Chunk583034958.html#conref" title="The DITA conref attributes are mechanisms that enable effective content reuse. DITA content references support complex reuse scenarios that are otherwise challenging or impossible to achieve. In addition, DITA content references have rules to ensure that the content is valid DITA after the content reference has been resolved.">Content reference (conref)</a></li></ul></div></nav></article><article class="topic concept nested2" aria-labelledby="ariaid-title5" lang="en-us" id="theconkeyrefattribute">
+<h3 class="title topictitle3" id="ariaid-title5">Indirect key-based content reuse</h3>
+  
+  
+<div class="body conbody"><p class="shortdesc">The <code class="keyword markupname xmlatt">@conkeyref</code> attribute provides an indirect content reference to
+    topic elements, map elements, or elements within maps or topics. It allows the referencing
+    element to use a key in place of a <span class="ph">URI reference</span> when referencing
+    another topic or map.</p>
+    <p class="p">When the target of a content reference is a topic or map, the value of the
+        <code class="keyword markupname xmlatt">@conkeyref</code> attribute is a key name that directly resolves to that topic or
+      map.</p>
+      <p class="p">When the target of a content reference is an element within a topic or map, the value of
+        the <code class="keyword markupname xmlatt">@conkeyref</code> attribute is a key name, followed by a slash ("/"), followed
+        by the ID of the referenced element. The key name must be bound to the topic or map that
+        contains the referenced element.</p>
+      <p class="p">When the key name specified by the <code class="keyword markupname xmlatt">@conkeyref</code> attribute is not defined and
+        the element also specifies a <code class="keyword markupname xmlatt">@conref</code> attribute, the <code class="keyword markupname xmlatt">@conref</code>
+        attribute is used to determine the referenced element. If no <code class="keyword markupname xmlatt">@conref</code>
+        attribute is specified there is no content reference relationship. </p>
+      <p class="p">The <code class="keyword markupname xmlatt">@conrefend</code> attribute, which defines the end of a conref range, cannot
+        include a key. Instead the map or topic element addressed by the key name component of the
+          <code class="keyword markupname xmlatt">@conkeyref</code> is used in place of whatever map or topic element is addressed
+        by the <code class="keyword markupname xmlatt">@conrefend</code> attribute. See <a class="xref" href="Chunk583034958.html#theconrefendattribute__conkeyref">Using conrefend together with conkeyref</a> for more information and for examples of this
+        behavior.</p>
+    
+</div>
+<nav role="navigation" class="related-links"><div class="linklist relconcepts" lang="en-us"><strong>Related concepts</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="Chunk1972792489.html#concept_cw3_cl1_mp" title="The conkeyref attribute enables authors to share DITA topics that reuse content. It also enables map authors to specify different key definitions for common keys.">Example: conref redirection</a></li></ul></div></nav></article><article class="topic concept nested2" aria-labelledby="ariaid-title6" lang="en-us" id="theconrefendattribute">
+  <h3 class="title topictitle3" id="ariaid-title6">Reusing a range of elements</h3>
+  
+  
+  <div class="body conbody"><p class="shortdesc">The <code class="keyword markupname xmlatt">@conrefend</code> attribute is used in a conref range. A
+      <code class="keyword markupname xmlatt">@conref</code> or <code class="keyword markupname xmlatt">@conkeyref</code> attribute references the first element
+    in the range, while <code class="keyword markupname xmlatt">@conrefend</code> references the last element in the range. </p>
+    <section class="section" id="theconrefendattribute__section-1"><h4 class="title sectiontitle">Using <code class="keyword markupname xmlatt">@conref</code> together with
+          <code class="keyword markupname xmlatt">@conrefend</code></h4>
+      <div class="p">The following markup rules apply when using or implementing <code class="keyword markupname xmlatt">@conrefend</code>:<ul class="ul">
+          <li class="li">The start and end elements of a range <dfn class="term RFC-2119">MUST</dfn> be of
+            the same type as the referencing element or generalizable to the referencing
+            element.</li>
+          <li class="li">The start and end elements in a range <dfn class="term RFC-2119">MUST</dfn> share
+            the same parent, and the start element <dfn class="term RFC-2119">MUST</dfn> precede
+            the end element in document order.</li>
+          <li class="li">The parent of the referencing element <dfn class="term RFC-2119">MUST</dfn> be the
+            same <span class="ph">type</span> as the parent of the referenced range or
+            generalizable to the parent of the referencing element.
+            </li>
+        </ul></div><p class="p">In addition, several other items must be taken into account:</p><ul class="ul">
+        <li class="li">Processors will resolve the range by pulling in the starting referenced element and
+          following sibling XML nodes <span class="ph">up</span> to and including the ending
+          referenced element.</li>
+        <li class="li">As with <code class="keyword markupname xmlatt">@conref</code>, if the <code class="keyword markupname xmlatt">@conrefend</code>
+          <span class="ph">attribute</span> references a more specialized version of the
+          referencing element, applications <span class="ph">can</span> generalize the target
+          when resolving.</li>
+        <li class="li">As with <code class="keyword markupname xmlatt">@conref</code>, it is not valid to use <code class="keyword markupname xmlatt">@conrefend</code> to
+          reference a more general version of an element (such as using
+            <code class="keyword markupname xmlelement">&lt;step&gt;</code> to reference an <code class="keyword markupname xmlelement">&lt;li&gt;</code> element).</li>
+        <li class="li">Other nodes (such as elements or text) between the start and end of a range do not have
+          to match the referencing element.</li>
+        <li class="li">With single conref, an <code class="keyword markupname xmlatt">@id</code> attribute from the referenced element will
+          not be preserved on the resolved content. With a range, an <code class="keyword markupname xmlatt">@id</code> on both the
+          start and the end elements will not be preserved. <code class="keyword markupname xmlatt">@id</code> attributes on
+          intermediate or child nodes should be preserved; if this results in duplicate
+            <code class="keyword markupname xmlatt">@id</code> values, an application can recover by changing the
+            <code class="keyword markupname xmlatt">@id</code>, warning the user, or implementing another strategy.</li>
+        <li class="li">With a single conref, attributes specified on the referencing element can be used to
+          override attributes on the referenced element. With a conref range, the same is true, with
+          the following clarifications: <ul class="ul">
+            <li class="li">When an <code class="keyword markupname xmlatt">@id</code> attribute is specified on the referencing element, it
+              will only be preserved on the first element of the resolved range.</li>
+            <li class="li">When other attributes are specified, they will only apply to referenced elements of
+              the same type. For example, if <code class="keyword markupname xmlelement">&lt;step&gt;</code> is used to pull in a
+              range of sequential <code class="keyword markupname xmlelement">&lt;step&gt;</code> elements, locally specified
+              attributes apply to all steps in the range. If <code class="keyword markupname xmlelement">&lt;ol&gt;</code> is used to
+              pull in a series of (<code class="keyword markupname xmlelement">&lt;ol&gt;</code>, <code class="keyword markupname xmlelement">&lt;p&gt;</code>,
+                <code class="keyword markupname xmlelement">&lt;ol&gt;</code>), locally specified attributes apply only to the
+                <code class="keyword markupname xmlelement">&lt;ol&gt;</code> elements in that range.</li>
+          </ul></li>
+      </ul></section>
+    <section class="section" id="theconrefendattribute__conkeyref"><h4 class="title sectiontitle">Using <code class="keyword markupname xmlatt">@conrefend</code> together with <code class="keyword markupname xmlatt">@conkeyref</code></h4>
+      
+      <p class="p">When the <code class="keyword markupname xmlatt">@conkeyref</code> attribute is used in place of <code class="keyword markupname xmlatt">@conref</code>,
+        a key is used to address the target of the reference. The <code class="keyword markupname xmlatt">@conrefend</code>
+        attribute, which indicates the end of a <code class="keyword markupname xmlatt">@conref</code> range, cannot use a key.
+        Instead the map or topic element addressed by the key name component of the
+          <code class="keyword markupname xmlatt">@conkeyref</code> is used in place of whatever map or topic element is addressed
+        by the <code class="keyword markupname xmlatt">@conrefend</code> attribute.</p>
+      <p class="p">For example, if the value of the <code class="keyword markupname xmlatt">@conkeyref</code> attribute is
+          <span class="keyword">config/step1</span> and the value of the <code class="keyword markupname xmlatt">@conrefend</code> is
+          <span class="keyword">defaultconfig.dita#config/laststep</span>, the conref range will end with the
+        step that has <code class="ph codeph">id="laststep"</code> in whatever topic is addressed by the key name
+          <span class="keyword">config</span>. If the key name <span class="keyword">config</span> is not defined, and
+        the <code class="keyword markupname xmlatt">@conref</code> attribute itself is not present for fallback, the
+          <code class="keyword markupname xmlatt">@conrefend</code> attribute is ignored.</p>
+    </section>
+  </div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title7" lang="en-us" id="theconactionattribute">
+<h3 class="title topictitle3" id="ariaid-title7">Pushing reusable content to a new location</h3>
+
+  
+<div class="body conbody"><p class="shortdesc">The <code class="keyword markupname xmlatt">@conaction</code> attribute allows users to push content from one location
+    into another. It causes the <code class="keyword markupname xmlatt">@conref</code> attribute to work in reverse, so that
+    content is pushed from the referencing element into another location, rather than pulled from
+    another location to replace the referencing element.</p>
+<div class="note note note_note non-normative"><span class="note__title">Note<span class="non-normative-label"> (non-normative)</span>:</span> <div class="note__body">In the descriptions below, the word <em class="ph i">target</em> always refers to the element referenced by a
+        <code class="keyword markupname xmlatt">@conref</code>
+      <span class="ph">or <code class="keyword markupname xmlatt">@conkeyref</code></span> attribute.</div></div><p class="p">There are three possible functions using the <code class="keyword markupname xmlatt">@conaction</code> attribute: replacing an
+      element, pushing content before an element, <span class="ph">or</span> pushing content
+      after an element. The <code class="keyword markupname xmlatt">@conaction</code> attribute always declares the desired
+      function while the <code class="keyword markupname xmlatt">@conref</code>
+      <span class="ph">or <code class="keyword markupname xmlatt">@conkeyref</code></span> attribute provides the target of the
+      reference <span class="ph">using standard syntax for that attribute</span>.</p><p class="p">In each case, an element pushed using <code class="keyword markupname xmlatt">@conref</code>
+      <span class="ph">or <code class="keyword markupname xmlatt">@conkeyref</code></span>must be of the same type as, or more
+      specialized than, its target. If the pushed element is more specialized than the target, then
+      it should be generalized when the <code class="keyword markupname xmlatt">@conref</code>
+      <span class="ph">or <code class="keyword markupname xmlatt">@conkeyref</code></span> is resolved. This ensures that the
+      content will be valid in the target topic.</p><ul class="ul">
+<li class="li">It is valid to push using <code class="keyword markupname xmlatt">@conref</code>
+        <span class="ph">or <code class="keyword markupname xmlatt">@conkeyref</code></span> when the two elements involved are
+        of the same type. For example, a <code class="keyword markupname xmlelement">&lt;step&gt;</code> element can use the conref
+        push feature with another <code class="keyword markupname xmlelement">&lt;step&gt;</code> as the target of the
+          <code class="keyword markupname xmlatt">@conref</code>
+        <span class="ph">or <code class="keyword markupname xmlatt">@conkeyref</code></span>.</li>
+<li class="li">The target element can be more general than the source. For example, it is legal to push a
+            <code class="keyword markupname xmlelement">&lt;step&gt;</code> element to replace a general list item
+            (<code class="keyword markupname xmlelement">&lt;li&gt;</code>); the <code class="keyword markupname xmlelement">&lt;step&gt;</code> element should be
+          generalized back to a list item during the process.</li>
+<li class="li">It is not possible to push a more general element into a specialized context. For example, it is
+          not legal to push a list item (<code class="keyword markupname xmlelement">&lt;li&gt;</code>) in order to replace a
+            <code class="keyword markupname xmlelement">&lt;step&gt;</code>, because the list item allows many items that are not
+          valid in the specialized context.</li>
+</ul>
+<section class="section" id="theconactionattribute__replacing-content"><h4 class="title sectiontitle">Replacing content in another topic</h4>
+      
+      <p class="p">When the <code class="keyword markupname xmlatt">@conaction</code> attribute is set to <span class="keyword">pushreplace</span>, the
+        referencing element will replace the referenced element specified by the
+          <code class="keyword markupname xmlatt">@conref</code>
+        <span class="ph">or <code class="keyword markupname xmlatt">@conkeyref</code></span> attribute. The pushed content
+        remains in the source topic where it was originally authored.</p>
+      <p class="p">When resolving a conref push action, attributes are resolved using the same precedence as
+        for normal <code class="keyword markupname xmlatt">@conref</code>, with one exception. Attributes on the element with the
+          <code class="keyword markupname xmlatt">@conref</code>
+        <span class="ph">or <code class="keyword markupname xmlatt">@conkeyref</code></span> attribute (in this case, the source
+        doing the push) will take priority over those on the referenced element. The exception is
+        that if the source element does not specify an ID, the ID on the referenced element remains;
+        if the source element does specify an ID then that replaces the ID on the referenced
+        element.</p>
+      <p class="p errorcondition"><span class="error-statement" id="theconactionattribute__d2332e761" data-id=""></span>It is an error for two source topics to replace the same
+        element. Applications <dfn class="term RFC-2119">MAY</dfn> warn users if more than one
+        element attempts to replace a single target.</p>
+    </section>
+<section class="section" id="theconactionattribute__pushing-content"><h4 class="title sectiontitle">Pushing content before or after another element</h4>
+      
+      <p class="p">Setting the <code class="keyword markupname xmlatt">@conaction</code> attribute to <span class="keyword">pushbefore</span> allows an
+        element to be pushed before the element referenced by the <code class="keyword markupname xmlatt">@conref</code>
+        <span class="ph">or <code class="keyword markupname xmlatt">@conkeyref</code></span> attribute. Likewise, setting the
+          <code class="keyword markupname xmlatt">@conaction</code> attribute to <span class="keyword">pushafter</span> allows an element to
+        be pushed after the element referenced by the <code class="keyword markupname xmlatt">@conref</code>
+        <span class="ph">or <code class="keyword markupname xmlatt">@conkeyref</code></span> attribute. Multiple sources can
+        push content before or after the same referenced element; the order in which that content is
+        pushed is undefined.</p>
+      <p class="p">When an element is pushed before or after a referenced element, the resulting document will
+        have at least two of that element. Because this is not always valid, a document attempting
+        to push content before or after a target must take an extra step to ensure that the result
+        will be valid. The extra step makes use of the <code class="ph codeph">conaction="mark"</code> value. For
+        example, this restriction prevents a topic from trying to push a
+          <code class="keyword markupname xmlelement">&lt;body&gt;</code> element before or after another
+          <code class="keyword markupname xmlelement">&lt;body&gt;</code> element, because it is not valid to have two body elements
+        in sequence.</p>
+      <p class="p">When pushing before, the <code class="keyword markupname xmlatt">@conref</code>
+        <span class="ph">or <code class="keyword markupname xmlatt">@conkeyref</code></span> attribute itself looks just as it
+        did when replacing, but the <code class="keyword markupname xmlatt">@conaction</code> attribute is set to
+          <span class="keyword">mark</span> because it is marking the referenced element. This element remains
+        empty; its purpose is to ensure that it is legal to have more than one of the current
+        element. The element immediately before the marking element is the content that will
+        actually be pushed. This element will set the <code class="keyword markupname xmlatt">@conaction</code> attribute to
+          <span class="keyword">pushbefore</span>.</p>
+      <p class="p">When pushing after, the procedure is the same, except that the order of the elements is
+        reversed. The element with <code class="ph codeph">conaction="pushafter"</code> comes immediately after
+        the element which marks the target.</p>
+      <p class="p">Attributes on the element which is pushed (the one with
+          <code class="ph codeph">conaction="pushbefore"</code> or <code class="ph codeph">conaction="pushafter"</code>) must be
+        retained on the target, apart from the <code class="keyword markupname xmlatt">@conaction</code> attribute itself. If this
+        causes the result document to end up with duplicate IDs, an application can recover by
+        changing the <code class="keyword markupname xmlatt">@id</code>, warning the user, or implementing another strategy.</p>
+      <div class="p">The following restrictions apply when pushing content before or after an element: <ul class="ul">
+          <li class="li">The elements that use <code class="ph codeph">conaction="mark"</code> and
+              <code class="ph codeph">conaction="pushbefore"</code> are the same type as each other and appear in
+            sequence.</li>
+          <li class="li">Either the container elements of the source and target match, or the container of the
+            source element is a specialization of the target's container. This is also to ensure
+            validity of the target; for example, while it is possible to include multiple titles in
+            a <code class="keyword markupname xmlelement">&lt;section&gt;</code>, it is not possible to do so in a figure. Comparing
+            the parents prevents a second <code class="keyword markupname xmlelement">&lt;section&gt;</code> title from being pushed
+            before a figure title. This restriction only applies to the
+              <span class="keyword">pushbefore</span> or<span class="keyword"> pushafter</span> actions, not to the
+              <span class="keyword">pushreplace</span> action.</li>
+        </ul></div>
+      <p class="p">When content is pushed from one topic to another, it is still rendered in the original
+        context. Processors might choose not to render the empty element that has the
+          <code class="ph codeph">conaction="mark"</code> attribute. In order to push content from a topic without
+        actually rendering that topic on its own, the topic should be referenced from the map with
+        the <code class="keyword markupname xmlatt">@processing-role</code> attribute set to "resource-only".</p>
+    </section>
+<section class="section" id="theconactionattribute__combining-conref-actions"><h4 class="title sectiontitle">Combining <code class="keyword markupname xmlatt">@conaction</code> with <code class="keyword markupname xmlatt">@conkeyref</code> or
+          <code class="keyword markupname xmlatt">@conrefend</code></h4>
+      
+      
+      <p class="p">The <code class="keyword markupname xmlatt">@conkeyref</code> attribute can be used as an indirect way to specify a
+          <code class="keyword markupname xmlatt">@conref</code> target. If the <code class="keyword markupname xmlatt">@conkeyref</code> attribute is specified
+        on an element that also uses the <code class="keyword markupname xmlatt">@conaction</code> attribute, the
+          <code class="keyword markupname xmlatt">@conkeyref</code> attribute is used to determine the target of the conref push
+        (as it would normally be used to determine the target of <code class="keyword markupname xmlatt">@conref</code>).</p>
+      <p class="p errorcondition"><span class="error-statement" id="theconactionattribute__d2332e940" data-id=""></span>The conref push function does not provide the ability to push
+        a range of elements, so it is an error to specify the <code class="keyword markupname xmlatt">@conrefend</code> attribute
+        together with the <code class="keyword markupname xmlatt">@conaction</code> attribute. If the two are specified together an
+        application can recover by warning the user, ignoring the <code class="keyword markupname xmlatt">@conrefend</code>
+        attribute, or with some other implementation strategy.</p>
+    </section>
+</div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title8" lang="en-us" id="concept_wf2_3sb_lq">
+ <h3 class="title topictitle3" id="ariaid-title8"><span class="ph">Processing conrefs</span></h3>
+ 
+ 
+ <div class="body conbody"><p class="shortdesc">When processing content references, DITA processors compare the
+  restrictions of each context to ensure that the conrefed content is valid in its new
+  context.</p>
+  <div class="note note note_note non-normative"><span class="note__title">Note<span class="non-normative-label"> (non-normative)</span>:</span> <div class="note__body">The DITA <code class="keyword markupname xmlatt">@conref</code> attribute is a transclusion mechanism similar to <span class="ph">XML XInclude</span>. DITA differs from these mechanisms, however, in that
+      conref validity does not apply simply to the current content at the time of replacement, but
+      to the possible resolved content given the restrictions of both the referencing document type
+      and the referenced document type.</div></div>
+   <p class="p">When content is reused between two documents with different domains or constraints, it is
+      possible for the reused content to include domain extensions that are not defined for the new
+      context, or to include elements that would be constrained out of the new context. <span class="ph">When pulling or pushing content with the conref mechanism, processors
+        resolving conrefs can can optionally generalize specializations as needed for the resolving
+        context.</span></p>
+  <p class="p">A conref processor <dfn class="term RFC-2119">SHOULD NOT</dfn> permit resolution of a reuse
+      relationship that could be rendered invalid under the rules of either the reused or reusing
+      content.</p>
+    <p class="p">When resolving <code class="keyword markupname xmlatt">@conkeyref</code> attributes, processors <dfn class="term RFC-2119">SHOULD</dfn> issue a warning when a <code class="keyword markupname xmlatt">@conkeyref</code> reference cannot be
+      resolved and there is no <code class="keyword markupname xmlatt">@conref</code> attribute to use as a fallback. Processors
+        <dfn class="term RFC-2119">MAY</dfn> issue a warning when a <code class="keyword markupname xmlatt">@conkeyref</code>
+      cannot be resolved to an element and a specified <code class="keyword markupname xmlatt">@conref</code> is used as a
+      fallback.</p>
+    <section class="section errorcondition" id="concept_wf2_3sb_lq__error-conditions"><h4 class="title sectiontitle">Common error conditions related to conref ranges</h4>
+      
+      <p class="p"><span class="error-statement" id="concept_wf2_3sb_lq__d2332e1053" data-id=""></span>When encountering the following error conditions, an implementation can optionally issue an
+        error message.</p>
+      <table class="table" id="concept_wf2_3sb_lq__table_pbn_czf_scc"><caption></caption><colgroup><col style="width:50%"><col style="width:50%"></colgroup><thead class="thead">
+            <tr class="row">
+              <th class="entry" id="concept_wf2_3sb_lq__table_pbn_czf_scc__entry__1">Condition or Issue</th>
+              <th class="entry" id="concept_wf2_3sb_lq__table_pbn_czf_scc__entry__2">Result</th>
+            </tr>
+          </thead><tbody class="tbody">
+            <tr class="row">
+              <td class="entry" headers="concept_wf2_3sb_lq__table_pbn_czf_scc__entry__1">The <code class="keyword markupname xmlatt">@conref</code> attribute cannot be resolved in the
+                target document (the target element might have been removed or its id has changed). </td>
+              <td class="entry" headers="concept_wf2_3sb_lq__table_pbn_czf_scc__entry__2">The <code class="keyword markupname xmlatt">@conref</code> is ignored.</td>
+            </tr>
+            <tr class="row">
+              <td class="entry" headers="concept_wf2_3sb_lq__table_pbn_czf_scc__entry__1">The <code class="keyword markupname xmlatt">@conrefend</code> attribute cannot be resolved in
+                the target document (the target element might have been removed or its id has
+                changed).</td>
+              <td class="entry" headers="concept_wf2_3sb_lq__table_pbn_czf_scc__entry__2">Range cannot be resolved, optional recovery processes the result
+                as a simple conref.</td>
+            </tr>
+            <tr class="row">
+              <td class="entry" headers="concept_wf2_3sb_lq__table_pbn_czf_scc__entry__1">Start and end elements are not siblings in the target
+                document.</td>
+              <td class="entry" headers="concept_wf2_3sb_lq__table_pbn_czf_scc__entry__2">If the start element exists, optional recovery processes the
+                result as a simple conref. </td>
+            </tr>
+            <tr class="row">
+              <td class="entry" headers="concept_wf2_3sb_lq__table_pbn_czf_scc__entry__1">End element occurs before the start element in the target
+                document.</td>
+              <td class="entry" headers="concept_wf2_3sb_lq__table_pbn_czf_scc__entry__2">If the start element exists, optional recovery processes the
+                result as a simple conref.</td>
+            </tr>
+            <tr class="row">
+              <td class="entry" headers="concept_wf2_3sb_lq__table_pbn_czf_scc__entry__1">An element has a <code class="keyword markupname xmlatt">@conrefend</code> attribute but is
+                missing the <code class="keyword markupname xmlatt">@conref</code> attribute.</td>
+              <td class="entry" headers="concept_wf2_3sb_lq__table_pbn_czf_scc__entry__2"><span class="ph">The <code class="keyword markupname xmlatt">@conrefend</code> attribute
+                  is ignored.</span></td>
+            </tr>
+          </tbody></table>
+    </section>
+ </div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title9" lang="en-us" id="concept_m3j_jvb_lq">
+ <h3 class="title topictitle3" id="ariaid-title9"><span class="ph">Processing attributes when resolving conrefs</span></h3>
+ 
+  
+ <div class="body conbody"><p class="shortdesc">When resolving conrefs, processors need to combine the attributes that are specified on
+    the referencing and referenced element.</p>
+  <p class="p">The attribute specifications on the resolved element are drawn from both the referencing
+      element and the referenced element, according to the following priority:</p>
+  <ol class="ol">
+   <li class="li">All attributes as specified on the referencing element, except for attributes set to
+        "-dita-use-conref-target".</li>
+   <li class="li">All attributes as specified on the referenced element except the <code class="keyword markupname xmlatt">@id</code>
+        attribute.</li>
+   <li class="li">The <code class="keyword markupname xmlatt">@xml:lang</code> attribute has special treatment as described in <a class="xref" href="Chunk1982468495.html#xmllang" title="The xml:lang attribute specifies the language and optional locale of the content that is contained in an element. The xml:lang attribute is described in the XML Recommendation.">The xml:lang attribute</a>.</li>
+  </ol>
+  <p class="p">The token <span class="keyword">-dita-use-conref-target</span> is defined by the specification to enable
+      easier use of <code class="keyword markupname xmlatt">@conref</code> on elements with required attributes. The only time the
+      resolved element would include an attribute whose specified value is "-dita-use-conref-target"
+      is when the referenced element had that attribute specified with the "-dita-use-conref-target"
+      value and the referencing element either had no specification for that attribute or had it
+      also specified with the "-dita-use-conref-target" value. </p>
+    <p class="p">If the final resolved element (after the complete resolution of any conref chain) has an
+      attribute with the "-dita-use-conref-target" value, that element <dfn class="term RFC-2119">MUST</dfn> be treated as equivalent to having that attribute unspecified.</p>
+  <p class="p">A given attribute value on the resolved element comes in its entirety from either the
+      referencing element or the referenced <span class="ph">element. The</span> attribute values
+      of the referencing and referenced elements for a given attribute are never additive, even if
+      the property (such as <code class="keyword markupname xmlatt">@audience</code>) takes a list of values.</p>
+    
+  <p class="p">If the referenced element has a <span class="ph">content referencing</span> attribute
+      specified, the above rules <dfn class="term RFC-2119">MUST</dfn> be
+      applied recursively with the resolved element from one referencing/referenced combination
+      becoming one of the two elements participating in the next referencing/referenced combination.
+      The result should preserve without generalization all elements that are valid in the
+      originating context, even if they are not valid in an intermediate context. </p>
+  <p class="p example">For example, if topic A and topic C allow highlighting, and topic B does
+      not, then a content reference chain of topic A-to-topic B-to-topic C should preserve any
+      highlighting elements in the referenced content. The result, however it is achieved, is
+      equivalent to the result of resolving the conref pairs recursively starting from the original
+      referencing element in topic A.</p>
+ </div>
+<nav role="navigation" class="related-links"><div class="linklist relconcepts" lang="en-us"><strong>Related concepts</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="Chunk583034958.html#usingthe-dita-use-conref-targetvalue" title="When an element uses conref to pull in content, for any of its attributes assigned a value of -dita-use-conref-target, the resulting value for those attributes is also pulled in from the referenced element.">Using the -dita-use-conref-target value</a></li><li class="linklist"><a class="link" href="Chunk583034958.html#unique_215573315" title="In this scenario, an element in a map is reused, with some of the attributes resolved using the -dita-use-conref-target token.">Example: Using the -dita-use-conref-target value</a></li></ul></div></nav><article class="topic concept nested3" aria-labelledby="ariaid-title10" lang="en-us" id="usingthe-dita-use-conref-targetvalue">
+  <h4 class="title topictitle4" id="ariaid-title10">Using the <span class="keyword">-dita-use-conref-target</span> value</h4>
+  
+  
+  <div class="body conbody"><p class="shortdesc">When an element uses <code class="keyword markupname xmlatt">@conref</code> to pull in content, for any of its
+    attributes assigned a value of <span class="keyword">-dita-use-conref-target</span>, the resulting value
+    for those attributes is also pulled in from the referenced element.</p>
+    
+      <p class="p">Ordinarily, when an element uses <code class="keyword markupname xmlatt">@conref</code>, any other
+        attributes specified locally will be preserved when the reference is resolved. This causes
+        problems when attributes are required, because required attributes must be specified
+        regardless of whether the <code class="keyword markupname xmlatt">@conref</code> attribute is present. The purpose of the
+        <span class="keyword">-dita-use-conref-target</span> value is to allow the author to specify a value for a required
+        attribute while still allowing the conref resolution process to use the matching attribute
+        from the referenced element. The value has the same result when the attribute is not
+        required.</p>
+      <p class="p">The<span class="keyword"> -dita-use-conref-target</span> token is allowed on any attribute where it is not prohibited by
+        the XML grammar files or by the specification. For example, while <code class="keyword markupname xmlatt">@cols</code> on
+        the <code class="keyword markupname xmlelement">&lt;tgroup&gt;</code> element is defined as being a number, this token is
+        implicitly allowed in order to support conref processing for
+        <code class="keyword markupname xmlelement">&lt;tgroup&gt;</code>. However, the token is not allowed for the
+          <code class="keyword markupname xmlatt">@id</code> attribute on the <code class="keyword markupname xmlelement">&lt;topic&gt;</code> element, because
+        "-dita-use-conref-target" does not fit the syntax required by the XML grammar
+      files.</p>
+  </div>
+<nav role="navigation" class="related-links"><div class="linklist relconcepts" lang="en-us"><strong>Related concepts</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="Chunk583034958.html#conref" title="The DITA conref attributes are mechanisms that enable effective content reuse. DITA content references support complex reuse scenarios that are otherwise challenging or impossible to achieve. In addition, DITA content references have rules to ensure that the content is valid DITA after the content reference has been resolved.">Content reference (conref)</a></li><li class="linklist"><a class="link" href="Chunk583034958.html#unique_215573315" title="In this scenario, an element in a map is reused, with some of the attributes resolved using the -dita-use-conref-target token.">Example: Using the -dita-use-conref-target value</a></li></ul></div></nav></article></article><article class="topic concept nested2" aria-labelledby="ariaid-title11" lang="en-us" id="handling-xref-and-conref-within-topics">
+ <h3 class="title topictitle3" id="ariaid-title11"><span class="ph">Processing</span> xrefs and conrefs within a conref</h3>
+ 
+  
+ <div class="body conbody"><p class="shortdesc">When referenced content contains a content reference or cross reference, the effective
+    target of the reference depends on the form of address that is used in the referenced content.
+    It also might depend on the map context, especially when key scopes are present.</p>
+    <dl class="dl">
+      
+        <dt class="dt dlterm">Direct URI reference (but not a same-topic fragment identifier )</dt>
+        <dd class="dd">When the address is a direct URI reference of any form other than a same-topic fragment
+          identifier, processors <dfn class="term RFC-2119">MUST</dfn> resolve it relative to the
+          source document that contains the original URI reference.</dd>
+      
+      
+        <dt class="dt dlterm">Same-topic fragment identifier</dt>
+        <dd class="dd">When the address is a same-topic fragment identifier, processors <dfn class="term RFC-2119">MUST</dfn> resolve it relative to the location
+          of the content reference (referencing context). </dd>
+      
+      
+        <dt class="dt dlterm">Key reference</dt>
+        <dd class="dd">When the address is a key reference, processors <dfn class="term RFC-2119">MUST</dfn> resolve it relative to the location of the content
+          reference (referencing context). </dd>
+      
+    </dl>
+    <p class="p">When resolving key references or same-topic fragment identifiers, the phrase
+        <dfn class="term">location of the content reference</dfn> means the final resolved context. For
+      example, in a case where content references are chained (topic A pulls from topic B, which in
+      turn pulls a reference from topic C), the reference is resolved relative to the topic that is
+      rendered. When topic B is rendered, the reference is resolved relative to the content
+      reference in topic B; when topic A is rendered, the reference is resolved relative to topic A.
+        <span class="ph">If content is pushed from topic A to topic B to topic C, then the
+        same-topic fragment identifier is resolved in the context of topic C.</span></p>
+    <p class="p">The implication is that a content reference or cross reference can resolve to
+      different targets in different use contexts. This is because a URI reference that contains a
+      same-topic fragment identifier is resolved in the context of the topic that contains the
+      content reference, and a key reference is resolved in the context of the key scope that is in
+      effect for each use of the topic that contains the content reference. </p>
+    <div class="note note note_note non-normative"><span class="note__title">Note<span class="non-normative-label"> (non-normative)</span>:</span> <div class="note__body">In the case of same-topic fragment identifiers, the author of the content reference needs
+      to ensure that any element IDs that are specified in same-topic fragment identifiers in the
+      referenced content will also be available in the referencing topic at resolution time.</div></div>
+ </div>
+</article><article class="topic concept nested2 non-normative" aria-labelledby="ariaid-title12" id="examples-conref">
+    <h3 class="title topictitle3" id="ariaid-title12">Examples of content referencing</h3>
+    <div class="body"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">This section contains examples and scenarios that illustrate the use and processing
+        of <code class="keyword markupname xmlatt">@conref</code>, <code class="keyword markupname xmlatt">@conkeyref</code>, and related content-referencing
+        attributes.</p></div>
+<article class="topic concept nested3 non-normative" aria-labelledby="ariaid-title13" id="example_simple_conref">
+    <h4 class="title topictitle4" id="ariaid-title13">Example: Simple <code class="keyword markupname xmlatt">@conref</code> usage</h4>
+    
+    <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">In this scenario, a <code class="keyword markupname xmlatt">@conref</code> attribute is used to pull content from
+        the referenced element in another topic.</p>
+        <p class="p">Consider the following topic:</p>
+        <pre class="pre codeblock"><code>&lt;task id="setup-widget" xml:lang="en"&gt;
+  &lt;title&gt;Setting up the widget&lt;/title&gt;
+  &lt;taskbody&gt;
+    &lt;steps&gt;
+      &lt;step&gt;&lt;cmd&gt;Turn the widget on for the first time.&lt;/cmd&gt;&lt;/step&gt;
+      &lt;step&gt;&lt;cmd&gt;Follow the prompts to select your language and region.&lt;/cmd&gt;&lt;/step&gt;
+      <strong class="ph b">&lt;step conref="reuse-library.dita#reuse/setup-profile"&gt;&lt;cmd&gt;&lt;/cmd&gt;&lt;/step&gt;</strong>
+      &lt;step&gt;&lt;cmd&gt;Step outside and activate the widget.&lt;/cmd&gt;&lt;/step&gt;
+    &lt;/steps&gt;
+  &lt;/taskbody&gt;
+&lt;/task&gt;</code></pre>
+        <p class="p">That topic requires the existence of another topic,
+                <span class="ph filepath">reuse-library.dita</span>:</p>
+        <pre class="pre codeblock"><code>&lt;task id="reuse-library" xml:lang="en"&gt;
+  &lt;title&gt;Reuse library topic&lt;/title&gt;
+  &lt;taskbody&gt;
+    &lt;steps&gt;
+      &lt;!-- ... other steps used across tasks ... --&gt;
+      &lt;step id="setup-profile"&gt;
+        &lt;cmd&gt;Follow the prompts to set up your name and contact information.&lt;/cmd&gt;
+        &lt;info&gt;Contact information is optional, but recommended.&lt;/info&gt;
+      &lt;/step&gt;
+    &lt;/steps&gt;
+  &lt;/taskbody&gt;
+&lt;/task&gt;</code></pre>
+        <div class="p">These topics highlight some important things to remember when using
+                <code class="keyword markupname xmlatt">@conref</code> attributes:<ul class="ul" id="example_simple_conref__ul_z1g_lrf_scc">
+                <li class="li">The attribute includes both the ID of the referenced topic and the ID of the
+                    referenced element.</li>
+                <li class="li">When an element with a <code class="keyword markupname xmlatt">@conref</code> attribute has required child
+                    elements, those child elements must still be specified. The use of DITA's
+                        <code class="keyword markupname xmlatt">@conref</code> attribute does not override the XML rules that
+                    require such child elements.</li>
+            </ul></div>
+        <p class="p">When the <code class="keyword markupname xmlatt">@conref</code> attribute is resolved, the processed version of the
+            original topic will include content from the referenced element:</p>
+        <pre class="pre codeblock"><code>&lt;task id="setup-widget" xml:lang="en"&gt;
+  &lt;title&gt;Setting up the widget&lt;/title&gt;
+  &lt;taskbody&gt;
+    &lt;steps&gt;
+      &lt;step&gt;&lt;cmd&gt;Turn the widget on for the first time.&lt;/cmd&gt;&lt;/step&gt;
+      &lt;step&gt;&lt;cmd&gt;Follow the prompts to select your language and region.&lt;/cmd&gt;&lt;/step&gt;
+      <strong class="ph b">&lt;step&gt;
+        &lt;cmd&gt;Follow the prompts to set up your name and contact information.&lt;/cmd&gt;
+        &lt;info&gt;Contact information is optional, but recommended.&lt;/info&gt;
+      &lt;/step&gt;</strong>
+      &lt;step&gt;&lt;cmd&gt;Step outside and activate the widget.&lt;/cmd&gt;&lt;/step&gt;
+    &lt;/steps&gt;
+  &lt;/taskbody&gt;
+&lt;/task&gt;</code></pre>
+    </div>
+</article><article class="topic concept nested3 non-normative" aria-labelledby="ariaid-title14" id="example_simple_conkeyref">
+    <h4 class="title topictitle4" id="ariaid-title14">Example: Simple <code class="keyword markupname xmlatt">@conkeyref</code> usage</h4>
+    
+    <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">In this scenario, a <code class="keyword markupname xmlatt">@conkeyref</code> attribute is used as an indirect
+    reference to pull content from the referenced element in another topic.</p>
+        <p class="p">Consider the following topic:</p>
+        <pre class="pre codeblock"><code>&lt;task id="setup-widget" xml:lang="en"&gt;
+  &lt;title&gt;Setting up the widget&lt;/title&gt;
+  &lt;taskbody&gt;
+    &lt;steps&gt;
+      &lt;step&gt;&lt;cmd&gt;Turn the widget on for the first time.&lt;/cmd&gt;&lt;/step&gt;
+      &lt;step&gt;&lt;cmd&gt;Follow the prompts to select your language and region.&lt;/cmd&gt;&lt;/step&gt;
+      <strong class="ph b">&lt;step conkeyref="reuselibrary/setup-profile"&gt;&lt;cmd&gt;&lt;/cmd&gt;&lt;/step&gt;</strong>
+      &lt;step&gt;&lt;cmd&gt;Step outside and activate the widget.&lt;/cmd&gt;&lt;/step&gt;
+    &lt;/steps&gt;
+  &lt;/taskbody&gt;
+&lt;/task&gt;</code></pre>
+    <p class="p">The key is defined as a reference to a resue library:</p>
+    <pre class="pre codeblock"><code>&lt;map&gt;
+  &lt;title&gt;Key definitions&lt;/title&gt;
+  &lt;keydef keys="reuselibrary" href="reuse-library.dita"/&gt;
+  &lt;!-- ... --&gt;
+&lt;/map&gt;</code></pre>
+        <p class="p">The library topic <span class="ph filepath">reuse-library.dita</span> is set up as follows:</p>
+        <pre class="pre codeblock"><code>&lt;task id="reuse-library" xml:lang="en"&gt;
+  &lt;title&gt;Reuse library topic&lt;/title&gt;
+  &lt;taskbody&gt;
+    &lt;steps&gt;
+      &lt;!-- ... other steps used across tasks ... --&gt;
+      &lt;step id="setup-profile"&gt;
+        &lt;cmd&gt;Follow the prompts to set up your name and contact information.&lt;/cmd&gt;
+        &lt;info&gt;Contact information is optional, but recommended.&lt;/info&gt;
+      &lt;/step&gt;
+    &lt;/steps&gt;
+  &lt;/taskbody&gt;
+&lt;/task&gt;</code></pre>
+        <p class="p">When the <code class="keyword markupname xmlatt">@conkeyref</code> attribute is resolved, the key resolves to the topic
+      that contains the referenced ID <code class="ph codeph">setup-profile</code>. The result is the same as if
+      the original topic contained
+        <code class="ph codeph">conref="reuse-library.dita#reuse-library/setup-profile"</code> instead of
+        <code class="ph codeph">conkeyref="reuselibrary/setup-profile"</code>. However, the indirection created by
+      using a key allows this reference to resolve differently in other contexts.</p>
+    <p class="p">The processed version of the original topic will include content from the referenced
+      element:</p>
+        <pre class="pre codeblock"><code>&lt;task id="setup-widget" xml:lang="en"&gt;
+  &lt;title&gt;Setting up the widget&lt;/title&gt;
+  &lt;taskbody&gt;
+    &lt;steps&gt;
+      &lt;step&gt;&lt;cmd&gt;Turn the widget on for the first time.&lt;/cmd&gt;&lt;/step&gt;
+      &lt;step&gt;&lt;cmd&gt;Follow the prompts to select your language and region.&lt;/cmd&gt;&lt;/step&gt;
+      <strong class="ph b">&lt;step&gt;
+        &lt;cmd&gt;Follow the prompts to set up your name and contact information.&lt;/cmd&gt;
+        &lt;info&gt;Contact information is optional, but recommended.&lt;/info&gt;
+      &lt;/step&gt;</strong>
+      &lt;step&gt;&lt;cmd&gt;Step outside and activate the widget.&lt;/cmd&gt;&lt;/step&gt;
+    &lt;/steps&gt;
+  &lt;/taskbody&gt;
+&lt;/task&gt;</code></pre>
+    </div>
+</article><article class="topic concept nested3 non-normative" aria-labelledby="ariaid-title15" id="example_list_range">
+    <h4 class="title topictitle4" id="ariaid-title15">Example: Reusing a sequence of list items</h4>
+    
+    <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">In this scenario, a <code class="keyword markupname xmlatt">@conref</code> and <code class="keyword markupname xmlatt">@conrefend</code> are used
+    to reference a range of list items.</p>
+    <p class="p">In the following code sample, we have a library topic that defines a series of list items.
+      Each list item has an <code class="keyword markupname xmlatt">@id</code> attribute, making it possible to reuse them
+      individually or as ranges.</p>
+    <figure class="fig fignone" id="example_list_range__fig_vw4_lxf_scc"><figcaption><span class="fig--title-label">Figure 1. </span>Source document <span class="ph filepath">topic.dita</span></figcaption>
+      
+      <pre class="pre codeblock"><code>&lt;topic id="x"&gt;
+  &lt;title&gt;Sample file topic.dita&lt;/title&gt;
+  &lt;body&gt;
+    &lt;ol id="list"&gt;
+      &lt;li id="apple"&gt;A&lt;/li&gt;
+      &lt;li id="bear"&gt;B&lt;/li&gt;
+      &lt;li id="cat"&gt;C&lt;/li&gt;
+      &lt;li id="dog"&gt;D&lt;/li&gt;
+      &lt;li id="eel"&gt;E&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/body&gt;
+&lt;/topic&gt;</code></pre>
+    </figure>
+    <p class="p">The following topic reuses a range of items from that list, without reusing the entire
+      list.</p>
+    <figure class="fig fignone" id="example_list_range__fig_C0AF6F23F1E74AF98540F736113DFFAB"><figcaption><span class="fig--title-label">Figure 2. </span>Reusing a range of items</figcaption>
+      
+      <pre class="pre codeblock"><code>&lt;topic id="y"&gt;
+  &lt;title&gt;Sample file reusing content&lt;/title&gt;
+  &lt;body&gt;
+    &lt;ol&gt;
+      &lt;li&gt;My own first item&lt;/li&gt;
+      &lt;li conref="topic.dita#x/bear" conrefend="topic.dita#x/dog"/&gt;
+      &lt;li&gt;And a different final item&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/body&gt;
+&lt;/topic&gt;</code></pre>
+    </figure>
+    <p class="p">In the resolved topic, all list items from the starting "bear" to the ending "dog" are pulled
+      in to replace the referencing element. The <code class="keyword markupname xmlatt">@id</code> attributes on the referenced
+      elements are not preserved, but any <code class="keyword markupname xmlatt">@id</code> attributes on intermediate elements
+      are preserved.</p>
+    <figure class="fig fignone" id="example_list_range__fig_A79BE8A6869B4DFDAAFA2F55BC113AA1"><figcaption><span class="fig--title-label">Figure 3. </span>Processed result of reusing topic</figcaption>
+      
+      <pre class="pre codeblock"><code>&lt;topic id="y"&gt;
+  &lt;title&gt;Sample file reusing content&lt;/title&gt;
+  &lt;body&gt;
+    &lt;ol&gt;
+      &lt;li&gt;My own first item&lt;/li&gt;
+      &lt;li&gt;B&lt;/li&gt;
+      &lt;li id="cat"&gt;C&lt;/li&gt;
+      &lt;li&gt;D&lt;/li&gt;
+      &lt;li&gt;And a different final item&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/body&gt;
+&lt;/topic&gt;</code></pre>
+    </figure>
+    </div>
+</article><article class="topic concept nested3 non-normative" aria-labelledby="ariaid-title16" id="example_list_blocks">
+    <h4 class="title topictitle4" id="ariaid-title16">Example: Reusing a sequence of elements of different types</h4>
+    
+    <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">In this scenario, a <code class="keyword markupname xmlatt">@conref</code> and <code class="keyword markupname xmlatt">@conrefend</code> are used
+    to reference a range of block elements that do not have the same element type.</p>
+    <p class="p">In the following code sample, we have a library topic that defines several elements,
+      including paragraphs and lists. Each block element has an <code class="keyword markupname xmlatt">@id</code> attribute,
+      making it possible to reuse them individually or as ranges.</p>
+    <figure class="fig fignone" id="example_list_blocks__fig_7BB281DFE28F474BB9197BAE691B927C"><figcaption><span class="fig--title-label">Figure 4. </span>Source <span class="ph filepath">topic.dita</span> with ids</figcaption>
+      
+      <pre class="pre codeblock"><code>&lt;topic id="x"&gt;
+  &lt;title&gt;Library file topic.dita&lt;/title&gt;
+  &lt;body&gt;
+    &lt;p id="p1"&gt;First para&lt;/p&gt;
+    &lt;ol id="mylist"&gt;
+      &lt;li id="apple"&gt;A&lt;/li&gt;
+      &lt;li id="bear"&gt;B&lt;/li&gt;
+      &lt;li id="cat"&gt;C&lt;/li&gt;
+      &lt;li id="dog"&gt;D&lt;/li&gt;
+      &lt;li id="eel"&gt;E&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;p id="p2"&gt;Second para&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/topic&gt;</code></pre>
+    </figure>
+    <p class="p">In the following sample, the referencing element is a paragraph. It references a starting
+      paragraph and an ending paragraph, which defines a range that includes those paragraphs along
+      with everything that falls between them.</p>
+    <figure class="fig fignone" id="example_list_blocks__fig_BF890E35527C41FBA93878660EFC1636"><figcaption><span class="fig--title-label">Figure 5. </span>Referencing the starting and ending paragraphs</figcaption>
+      
+      <pre class="pre codeblock"><code>&lt;topic id="y"&gt;
+  &lt;title&gt;Sample file reusing content&lt;/title&gt;
+  &lt;body&gt;
+    &lt;p conref="topic.dita#x/p1" conrefend="topic.dita#x/p2"/&gt;
+  &lt;/body&gt;
+&lt;/topic&gt;</code></pre>
+    </figure>
+    <p class="p">In the resolved topic, all list items from the starting paragraph to the ending paragraph are
+      pulled in to replace the referencing element. The <code class="keyword markupname xmlatt">@id</code> attributes on the
+      referenced elements are not preserved, but any <code class="keyword markupname xmlatt">@id</code> attributes on intermediate
+      elements are preserved.</p>
+    <figure class="fig fignone" id="example_list_blocks__fig_D257C3B1EE2B49DA85457B1753A8C79D"><figcaption><span class="fig--title-label">Figure 6. </span>Block level example: Processed result of reusing topic</figcaption>
+      
+      <pre class="pre codeblock"><code>&lt;topic id="y"&gt;
+  &lt;title&gt;Sample file reusing content&lt;/title&gt;
+  &lt;body&gt;
+    &lt;p&gt;First para&lt;/p&gt;
+    &lt;ol id="mylist"&gt;
+      &lt;li id="apple"&gt;A&lt;/li&gt;
+      &lt;li id="bear"&gt;B&lt;/li&gt;
+      &lt;li id="cat"&gt;C&lt;/li&gt;
+      &lt;li id="dog"&gt;D&lt;/li&gt;
+      &lt;li id="eel"&gt;E&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;p&gt;Second para&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/topic&gt;</code></pre>
+    </figure>
+    </div>
+</article><article class="topic concept nested3 non-normative" aria-labelledby="ariaid-title17" id="example_range_conkeyref">
+  <h4 class="title topictitle4" id="ariaid-title17">Example: Reusing a range with <code class="keyword markupname xmlatt">@conkeyref</code></h4>
+  
+  <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">In this scenario, a <code class="keyword markupname xmlatt">@conkeyref</code> is used to define the start of a range
+    and <code class="keyword markupname xmlatt">@conrefend</code> is used to define the end of a range.</p>
+    <p class="p">In the following sample, the key <span class="keyword">xmp</span> is defined as the first topic in the
+      file <span class="ph filepath">examples.dita.</span></p>
+    <figure class="fig fignone" id="example_range_conkeyref__fig_htb_lzf_scc"><figcaption><span class="fig--title-label">Figure 7. </span>Defining and referencing a key with <code class="keyword markupname xmlatt">@conkeyref</code></figcaption>
+      
+      <pre class="pre codeblock" id="example_range_conkeyref__codeblock_hwy_krh_psb"><code>&lt;map&gt;
+  &lt;!-- ... --&gt;
+  &lt;keydef keys="xmp" href="examples.dita"/&gt;
+  &lt;!-- ... --&gt;
+&lt;/map&gt;</code></pre>
+      <pre class="pre codeblock" id="example_range_conkeyref__codeblock_iwy_krh_psb"><code>&lt;!-- examples.dita: --&gt;
+&lt;topic id="examples"&gt;
+  &lt;title&gt;These are examples&lt;/title&gt;
+  &lt;body&gt;
+    &lt;ul&gt;
+      &lt;li id="first"&gt;A first example&lt;/li&gt;
+      &lt;li&gt;Another trivial example&lt;/li&gt;
+      &lt;li id="last"&gt;Final example&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/body&gt;
+&lt;/topic&gt;</code></pre>
+    </figure>
+    <div class="p">To reuse these list items by using the key, the <code class="keyword markupname xmlatt">@conkeyref</code> attribute combines
+      the key itself with the sub-topic id <span class="keyword">first</span> to define the start of the
+      range. The <code class="keyword markupname xmlatt">@conrefend</code> attribute defines a default high-level object along with
+      the sub-topic id <span class="keyword">last</span> that ends the
+      range:<pre class="pre codeblock"><code>  &lt;li conkeyref="xmp/first" 
+      conrefend="default.dita#default/last"/&gt;</code></pre></div>
+    <p class="p">The <code class="keyword markupname xmlatt">@conkeyref</code> attribute uses a key to reference the first topic in
+        <span class="ph filepath">examples.dita</span>, so the range begins with the object
+        <code class="ph codeph">examples.dita#examples/first</code>. The high-level object in the
+        <code class="keyword markupname xmlatt">@conrefend</code> attribute (<code class="ph codeph">default.dita#default</code>) is replaced
+      with the object represented by the key (the first topic in
+      <span class="ph filepath">examples.dita</span>), resulting in a range that ends with the object
+        <code class="ph codeph">examples.dita#examples/last</code>.</p>
+    <figure class="fig fignone" id="example_range_conkeyref__fig_itb_lzf_scc"><figcaption><span class="fig--title-label">Figure 8. </span>Combining <code class="keyword markupname xmlatt">@conref</code>, <code class="keyword markupname xmlatt">@conkeyref</code>, and
+          <code class="keyword markupname xmlatt">@conrefend</code></figcaption>
+      
+      <p class="p">When <code class="keyword markupname xmlatt">@conref</code>, <code class="keyword markupname xmlatt">@conkeyref</code>, and <code class="keyword markupname xmlatt">@conrefend</code>
+        are all specified, the key value takes priority.</p>
+      <pre class="pre codeblock"><code>  &lt;li conkeyref="thisconfig/start"
+      conref="standardconfig.dita#config/start"
+      conrefend="standardconfig.dita#config/end"/&gt;</code></pre>
+      <ul class="ul" id="example_range_conkeyref__ul_jtb_lzf_scc">
+        <li class="li">If the key <span class="keyword">thisconfig</span> is defined as
+            <code class="ph codeph">mySpecialConfig.dita#myconfig</code>, then the range will go from the list
+          item with <code class="ph codeph">id="start"</code> to the list item with<code class="ph codeph">id="end"</code> in
+          the topic <code class="ph codeph">mySpecialConfig.dita#myconfig</code>.</li>
+        <li class="li">If the key <span class="keyword">thisconfig</span> is defined as <code class="ph codeph">myConfig.dita</code>,
+          then the range will go from the list item with <code class="ph codeph">id="start"</code> to the list
+          item with <code class="ph codeph">id="end"</code> within the first topic in
+            <code class="ph codeph">myConfig.dita</code>.</li>
+        <li class="li">If the key <span class="keyword">thisconfig</span> is not defined, then the unchanged
+            <code class="keyword markupname xmlatt">@conref</code> and <code class="keyword markupname xmlatt">@conrefend</code> attributes are used as fallback.
+          In that case, the range will go from the list item with <code class="ph codeph">id="start"</code> to the
+          list item with <code class="ph codeph">id="end"</code> within the topic
+            <code class="ph codeph">standardconfig.dita#config</code>.</li>
+      </ul>
+    </figure>
+  </div>
+</article><article class="topic concept nested3 non-normative" aria-labelledby="ariaid-title18" id="example_conaction_pushreplace">
+  <h4 class="title topictitle4" id="ariaid-title18">Example: Using <code class="keyword markupname xmlatt">@conaction</code> to replace content</h4>
+  
+  <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">In this scenario, a <code class="keyword markupname xmlatt">@conref</code> and <code class="keyword markupname xmlatt">@conaction</code> are used to
+    replace content in another topic.</p>
+    <p class="p">Consider the following task in <span class="ph filepath">example.dita</span> that has the
+        <code class="keyword markupname xmlatt">@id</code> attribute set to <span class="keyword">example</span>. The task contains a
+        <code class="keyword markupname xmlelement">&lt;step&gt;</code> element with the <code class="keyword markupname xmlatt">@id</code> set to
+        <span class="keyword">b</span>:</p>
+    <pre class="pre codeblock" id="example_conaction_pushreplace__codeblock_scr_wqh_psb"><code>&lt;task id="example" xml:lang="en"&gt;
+  &lt;title&gt;Example topic&lt;/title&gt;
+  &lt;taskbody&gt;
+    &lt;steps&gt;
+      &lt;step id="a"&gt;&lt;cmd&gt;A&lt;/cmd&gt;&lt;/step&gt;
+      &lt;step id="b"&gt;&lt;cmd&gt;B&lt;/cmd&gt;&lt;/step&gt;
+      &lt;step id="c"&gt;&lt;cmd&gt;C&lt;/cmd&gt;&lt;/step&gt;
+    &lt;/steps&gt;
+  &lt;/taskbody&gt;
+&lt;/task&gt;</code></pre>
+    <div class="p">In order to replace the step with <code class="ph codeph">id="b"</code>, another topic must combine a
+        <code class="keyword markupname xmlatt">@conaction</code> value of <span class="keyword">pushreplace</span> with a
+        <code class="keyword markupname xmlatt">@conref</code> attribute that references this
+      <code class="keyword markupname xmlelement">&lt;step&gt;</code>:<pre class="pre codeblock"><code>&lt;!-- Steps element within another task --&gt;
+&lt;steps&gt;
+  &lt;step conaction="pushreplace" 
+        conref="example.dita#example/b"&gt;
+    &lt;cmd&gt;Updated B&lt;/cmd&gt;
+  &lt;/step&gt;
+&lt;/steps&gt;
+&lt;/task&gt;</code></pre></div>
+    <div class="p">The result will be an updated version of <span class="ph filepath">example.dita</span> which contains the
+      pushed <code class="keyword markupname xmlelement">&lt;step&gt;</code>:<pre class="pre codeblock"><code>&lt;task id="example" xml:lang="en"&gt;
+  &lt;title&gt;Example topic&lt;/title&gt;
+  &lt;taskbody&gt;
+    &lt;steps&gt;
+      &lt;step id="a"&gt;&lt;cmd&gt;A&lt;/cmd&gt;&lt;/step&gt;
+      &lt;step id="b"&gt;&lt;cmd&gt;Updated B&lt;/cmd&gt;&lt;/step&gt;
+      &lt;step id="c"&gt;&lt;cmd&gt;C&lt;/cmd&gt;&lt;/step&gt;
+    &lt;/steps&gt;
+  &lt;/taskbody&gt;
+&lt;/task&gt;</code></pre></div>
+  </div>
+</article><article class="topic concept nested3 non-normative" aria-labelledby="ariaid-title19" id="example_conaction_pushbefore">
+  <h4 class="title topictitle4" id="ariaid-title19">Example: Using <code class="keyword markupname xmlatt">@conaction</code> to push content before another element</h4>
+  
+  <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">In this scenario, a <code class="keyword markupname xmlatt">@conref</code> and <code class="keyword markupname xmlatt">@conaction</code> are used to
+    push content before an element in another topic.</p>
+    <div class="p">Consider the following topic, which is set up to push a step before a step in another topic.
+      It needs to use two step elements to set up the reuse. The referencing element itself uses
+        <code class="ph codeph">conaction="mark"</code> to mark the referenced element. The element to be pushed
+      immediately preceeds the marking element and uses <code class="ph codeph">conaction="pushbefore"</code>:
+      <pre class="pre codeblock"><code>&lt;steps&gt;
+  &lt;step conaction="pushbefore"&gt;
+    &lt;cmd&gt;Do this before B&lt;/cmd&gt;
+  &lt;/step&gt;
+  &lt;step conaction="mark" conref="example.dita#example/b"&gt;
+    &lt;cmd/&gt;
+  &lt;/step&gt;
+&lt;/steps&gt;</code></pre></div>
+    <div class="p">The referenced element is in the file <span class="ph filepath">example.dita</span>, which looks like
+      this before a processor resolves the
+      reference:<pre class="pre codeblock"><code>&lt;task id="example" xml:lang="en"&gt;
+  &lt;title&gt;Example topic&lt;/title&gt;
+  &lt;taskbody&gt;
+    &lt;steps&gt;
+      &lt;step id="a"&gt;&lt;cmd&gt;A&lt;/cmd&gt;&lt;/step&gt;
+      &lt;step id="b"&gt;&lt;cmd&gt;B&lt;/cmd&gt;&lt;/step&gt;
+      &lt;step id="c"&gt;&lt;cmd&gt;C&lt;/cmd&gt;&lt;/step&gt;
+    &lt;/steps&gt;
+  &lt;/taskbody&gt;
+&lt;/task&gt;</code></pre></div>
+    <div class="p">After the content reference is resolved, the document <span class="ph filepath">example.dita</span>
+      includes the pushed <code class="keyword markupname xmlelement">&lt;step&gt;</code> element before the step with
+        <code class="keyword markupname xmlatt">@id</code> set to
+      <span class="keyword">b</span>:<pre class="pre codeblock"><code>&lt;task id="example" xml:lang="en"&gt;
+  &lt;title&gt;Example topic&lt;/title&gt;
+  &lt;taskbody&gt;
+    &lt;steps&gt;
+      &lt;step id="a"&gt;&lt;cmd&gt;A&lt;/cmd&gt;&lt;/step&gt;
+      &lt;step&gt;&lt;cmd&gt;Do this before B&lt;/cmd&gt;&lt;/step&gt;
+      &lt;step id="b"&gt;&lt;cmd&gt;B&lt;/cmd&gt;&lt;/step&gt;
+      &lt;step id="c"&gt;&lt;cmd&gt;C&lt;/cmd&gt;&lt;/step&gt;
+    &lt;/steps&gt;
+  &lt;/taskbody&gt;
+&lt;/task&gt;</code></pre></div>
+  </div>
+</article><article class="topic concept nested3 non-normative" aria-labelledby="ariaid-title20" id="example_conaction_pushafter">
+  <h4 class="title topictitle4" id="ariaid-title20">Example: Using <code class="keyword markupname xmlatt">@conaction</code> to push content after another element</h4>
+  
+  <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">In this scenario, a <code class="keyword markupname xmlatt">@conref</code> and <code class="keyword markupname xmlatt">@conaction</code> are used to
+    push content after an element in another topic.</p>
+    <div class="p">Consider the following topic, which is set up to push a step after a step in another topic.
+      It needs to use two step elements to set up the reuse. The referencing element itself uses
+        <code class="ph codeph">conaction="mark"</code> to mark the referenced element. The element to be pushed
+      immediately follows the marking element and uses <code class="ph codeph">conaction="pushafter"</code>:
+      <pre class="pre codeblock"><code>&lt;steps&gt;
+  &lt;step conaction="mark" conref="example.dita#example/b"&gt;
+    &lt;cmd/&gt;
+  &lt;/step&gt;
+  &lt;step conaction="pushafter"&gt;
+    &lt;cmd&gt;Do this after B&lt;/cmd&gt;
+  &lt;/step&gt;
+&lt;/steps&gt;</code></pre></div>
+    <div class="p">The referenced element is in the file <span class="ph filepath">example.dita</span>, which looks like
+      this before a processor resolves the
+      reference:<pre class="pre codeblock"><code>&lt;task id="example" xml:lang="en"&gt;
+  &lt;title&gt;Example topic&lt;/title&gt;
+  &lt;taskbody&gt;
+    &lt;steps&gt;
+      &lt;step id="a"&gt;&lt;cmd&gt;A&lt;/cmd&gt;&lt;/step&gt;
+      &lt;step id="b"&gt;&lt;cmd&gt;B&lt;/cmd&gt;&lt;/step&gt;
+      &lt;step id="c"&gt;&lt;cmd&gt;C&lt;/cmd&gt;&lt;/step&gt;
+    &lt;/steps&gt;
+  &lt;/taskbody&gt;
+&lt;/task&gt;</code></pre></div>
+    <div class="p">After the content reference is resolved, the document <span class="ph filepath">example.dita</span>
+      includes the pushed <code class="keyword markupname xmlelement">&lt;step&gt;</code> element after the step with
+        <code class="keyword markupname xmlatt">@id</code> set to
+      <span class="keyword">b</span>:<pre class="pre codeblock"><code>&lt;task id="example" xml:lang="en"&gt;
+  &lt;title&gt;Example topic&lt;/title&gt;
+  &lt;taskbody&gt;
+    &lt;steps&gt;
+      &lt;step id="a"&gt;&lt;cmd&gt;A&lt;/cmd&gt;&lt;/step&gt;
+      &lt;step id="b"&gt;&lt;cmd&gt;B&lt;/cmd&gt;&lt;/step&gt;
+      &lt;step&gt;&lt;cmd&gt;Do this after B&lt;/cmd&gt;&lt;/step&gt;
+      &lt;step id="c"&gt;&lt;cmd&gt;C&lt;/cmd&gt;&lt;/step&gt;
+    &lt;/steps&gt;
+  &lt;/taskbody&gt;
+&lt;/task&gt;</code></pre></div>
+  </div>
+</article><article class="topic concept nested3 non-normative" aria-labelledby="ariaid-title21" id="example_conref_target_contains_xref">
+  <h4 class="title topictitle4" id="ariaid-title21">Example: Resolving conrefs to elements that contain cross references</h4>
+  
+  <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">In this scenario, elements referenced by conref include cross references using a
+    variety of referencing styles.</p>
+    <p class="p">Consider the following paragraphs in <span class="ph filepath">paras-01.dita</span> that are intended to
+      be used by reference from other topics:</p>
+    <pre class="pre codeblock"><code>&lt;topic id="paras-01"&gt;
+    &lt;title&gt;Reusable paragraphs&lt;/title&gt;
+    &lt;body&gt;
+        &lt;p id="p1"&gt;See &lt;xref href="#paras-01/p5"/&gt;.&lt;/p&gt;
+        &lt;p id="p2"&gt;See &lt;xref href="topic-02.dita#topic02/fig-01"/&gt;.&lt;/p&gt;
+        &lt;p id="p3"&gt;See &lt;xref href="#./p5"/&gt;.&lt;/p&gt;
+        &lt;p id="p4"&gt;See &lt;xref keyref="task-remove-cover"/&gt;.&lt;/p&gt;
+        &lt;p id="p5"&gt;Paragraph 5 in paras-01.&lt;/p&gt;
+    &lt;/body&gt;
+&lt;/topic&gt;</code></pre>
+    <p class="p">The paragraphs are used by content reference from other topics, including the
+        <span class="ph filepath">using-topic-01.dita</span> topic:</p>
+    <pre class="pre codeblock"><code>&lt;topic id="using-topic-01"&gt;&lt;title&gt;Using topic one&lt;/title&gt;
+    &lt;body&gt;
+        &lt;p id="A" conref="paras-01.dita#paras-01/p1"/&gt; 
+        &lt;p id="B" conref="paras-01.dita#paras-01/p2"/&gt; 
+        &lt;p id="C" conref="paras-01.dita#paras-01/p3"/&gt;
+        &lt;p id="D" conref="paras-01.dita#paras-01/p4"/&gt;
+        &lt;p id="p5"&gt;Paragraph 5 in using-topic-01&lt;/p&gt;  
+    &lt;/body&gt;
+&lt;/topic&gt;</code></pre>
+    <p class="p">Processors must consider different contexts when resolving <code class="keyword markupname xmlelement">&lt;xref&gt;</code>
+      references within the referenced paragraphs. The rendered cross references in
+        <span class="ph filepath">using-topic-01.dita</span> are shown in the following table.</p>
+    <table class="simpletable frame-all" id="example_conref_target_contains_xref__simpletable_pbc_f3g_scc"><colgroup><col style="width:14.285714285714285%"><col style="width:14.285714285714285%"><col style="width:28.57142857142857%"><col style="width:42.857142857142854%"></colgroup><thead><tr class="sthead">
+        <th class="stentry" scope="col" id="example_conref_target_contains_xref__simpletable_pbc_f3g_scc__stentry__1">Paragraph</th>
+        <th class="stentry" scope="col" id="example_conref_target_contains_xref__simpletable_pbc_f3g_scc__stentry__2">Value of <code class="keyword markupname xmlatt">@id</code> attribute on conrefed paragraph</th>
+        <th class="stentry" scope="col" id="example_conref_target_contains_xref__simpletable_pbc_f3g_scc__stentry__3"><code class="keyword markupname xmlelement">&lt;xref&gt;</code> within conrefed paragraph</th>
+        <th class="stentry" scope="col" id="example_conref_target_contains_xref__simpletable_pbc_f3g_scc__stentry__4">Resolution</th>
+      </tr></thead><tbody><tr class="strow">
+        <td class="stentry" headers="example_conref_target_contains_xref__simpletable_pbc_f3g_scc__stentry__1">A</td>
+        <td class="stentry" headers="example_conref_target_contains_xref__simpletable_pbc_f3g_scc__stentry__2">p1</td>
+        <td class="stentry" headers="example_conref_target_contains_xref__simpletable_pbc_f3g_scc__stentry__3"><code class="ph codeph">&lt;xref href="#paras-01/p5"/&gt;</code></td>
+        <td class="stentry" headers="example_conref_target_contains_xref__simpletable_pbc_f3g_scc__stentry__4">The cross reference in paragraph p1 is a direct URI reference that does not contain
+          a same-topic fragment identifier. It can be resolved only to paragraph p5 in
+            <span class="ph filepath">paras-01.dita</span>, which contains the content "Paragraph 5 in
+          paras-01".</td>
+      </tr><tr class="strow">
+        <td class="stentry" headers="example_conref_target_contains_xref__simpletable_pbc_f3g_scc__stentry__1">B</td>
+        <td class="stentry" headers="example_conref_target_contains_xref__simpletable_pbc_f3g_scc__stentry__2">p2</td>
+        <td class="stentry" headers="example_conref_target_contains_xref__simpletable_pbc_f3g_scc__stentry__3"><code class="ph codeph">&lt;xref href="topic-02.dita#topic02/fig-01"/&gt;</code></td>
+        <td class="stentry" headers="example_conref_target_contains_xref__simpletable_pbc_f3g_scc__stentry__4">The cross reference in paragraph p2 is a direct URI reference. It can be resolved
+          only to the element with <code class="ph codeph">id="fig-01"</code> in
+            <span class="ph filepath">topic-02.dita</span>.</td>
+      </tr><tr class="strow">
+        <td class="stentry" headers="example_conref_target_contains_xref__simpletable_pbc_f3g_scc__stentry__1">C</td>
+        <td class="stentry" headers="example_conref_target_contains_xref__simpletable_pbc_f3g_scc__stentry__2">p3</td>
+        <td class="stentry" headers="example_conref_target_contains_xref__simpletable_pbc_f3g_scc__stentry__3"><code class="ph codeph">&lt;xref href="#./p5"/&gt;</code></td>
+        <td class="stentry" headers="example_conref_target_contains_xref__simpletable_pbc_f3g_scc__stentry__4">
+          <p class="p">The cross reference in paragraph p3 is a direct URI reference that contains a
+            same-topic fragment identifier. Because the URI reference contains a same-topic fragment
+            identifier, the reference is resolved in the context of the referencing topic
+              (<span class="ph filepath">using-topic-01.dita</span>). </p>
+          <p class="p">If <span class="ph filepath">using-topic-01.dita</span> did not contain an element with
+              <code class="ph codeph">id="p5"</code>, then the conref to paragraph p3 would result in a link
+            resolution failure.</p>
+        </td>
+      </tr><tr class="strow">
+        <td class="stentry" headers="example_conref_target_contains_xref__simpletable_pbc_f3g_scc__stentry__1">D</td>
+        <td class="stentry" headers="example_conref_target_contains_xref__simpletable_pbc_f3g_scc__stentry__2">p4</td>
+        <td class="stentry" headers="example_conref_target_contains_xref__simpletable_pbc_f3g_scc__stentry__3"><code class="ph codeph">&lt;xref keyref="task-remove-cover"/&gt;</code></td>
+        <td class="stentry" headers="example_conref_target_contains_xref__simpletable_pbc_f3g_scc__stentry__4">The cross reference in paragraph p4 is a key reference. It is resolved to whatever
+          resource is bound to the key name "task-remove-cover" in the applicable map
+          context.</td>
+      </tr></tbody></table>
+  </div>
+</article><article class="topic concept nested3 non-normative" aria-labelledby="ariaid-title22" id="unique_1212874906">
+  <h4 class="title topictitle4" id="ariaid-title22">Example: Resolving conrefs to elements that contain cross references, with key
+    scopes</h4>
+  
+  <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">In this scenario, elements referenced by conref include cross references using a
+    variety of referencing styles. The topics themselves are used in a map that makes use of key
+    scopes.</p>
+    <p class="p">Consider the following paragraphs in <span class="ph filepath">paras-01.dita</span> that are intended to
+      be used by reference from other topics:</p>
+    <pre class="pre codeblock"><code>&lt;topic id="paras-01"&gt;
+    &lt;title&gt;Reusable paragraphs&lt;/title&gt;
+    &lt;body&gt;
+        &lt;p id="p1"&gt;See &lt;xref href="#paras-01/p5"/&gt;.&lt;/p&gt;
+        &lt;p id="p2"&gt;See &lt;xref href="topic-02.dita#topic02/fig-01"/&gt;.&lt;/p&gt;
+        &lt;p id="p3"&gt;See &lt;xref href="#./p5"/&gt;.&lt;/p&gt;
+        &lt;p id="p4"&gt;See &lt;xref keyref="task-remove-cover"/&gt;.&lt;/p&gt;
+        &lt;p id="p5"&gt;Paragraph 5 in paras-01.&lt;/p&gt;
+    &lt;/body&gt;
+&lt;/topic&gt;</code></pre>
+    <p class="p">The paragraphs are used by content reference from other topics, including the
+        <span class="ph filepath">using-topic-01.dita</span> topic:</p>
+    <pre class="pre codeblock"><code>&lt;topic id="using-topic-01"&gt;&lt;title&gt;Using topic one&lt;/title&gt;
+    &lt;body&gt;
+        &lt;p id="A" conref="paras-01.dita#paras-01/p1"/&gt; 
+        &lt;p id="B" conref="paras-01.dita#paras-01/p2"/&gt; 
+        &lt;p id="C" conref="paras-01.dita#paras-01/p3"/&gt;
+        &lt;p id="D" conref="paras-01.dita#paras-01/p4"/&gt;
+        &lt;p id="p5"&gt;Paragraph 5 in using-topic-01&lt;/p&gt;  
+    &lt;/body&gt;
+&lt;/topic&gt;</code></pre>
+    <div class="p">Now consider the following map, which uses each of the topics above:<pre class="pre codeblock"><code>&lt;map&gt;
+  &lt;topicgroup keyscope="product-1"&gt;
+    &lt;topicref keys="task-remove-cover" href="prod-1-task-remove-cover.dita"/&gt;
+    &lt;topicref href="using-topic-01.dita"/&gt;
+  &lt;/topicgroup&gt;
+  &lt;topicgroup keyscope="product-2"&gt;
+    &lt;topicref keys="task-remove-cover" href="prod-2-task-remove-cover.dita"/&gt;
+    &lt;topicref href="using-topic-01.dita"/&gt;
+  &lt;/topicgroup&gt;
+&lt;/map&gt;</code></pre></div>
+    <p class="p">The map establishes two key scopes: "product-1" and "product-2". Within the map branches, the
+      key name "task-remove-cover" is bound to a different topic. The topic
+        <span class="ph filepath">using-topic-01.dita</span>, which includes a conref to a paragraph that
+      includes a cross reference to the key name "task-remove-cover", is also referenced in each
+      branch. When each branch is rendered, the target of the cross reference is different.</p>
+    <p class="p">In the first branch with the key scope set to "product-1", the cross reference from paragraph
+      p4 is resolved to <span class="ph filepath">prod-1-task-remove-cover.dita</span>. In the second branch
+      with the key scope set to "product-2", the cross reference from paragraph p4 is resolved to
+        <span class="ph filepath">prod-2-task-remove-cover.dita</span>.</p>
+  </div>
+</article><article class="topic concept nested3 non-normative" aria-labelledby="ariaid-title23" lang="en-us" id="unique_215573315">
+  <h4 class="title topictitle4" id="ariaid-title23">Example: Using the <span class="keyword">-dita-use-conref-target</span> value</h4>
+  
+  
+  <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">In this scenario, an element in a map is reused, with some of the attributes resolved
+    using the <span class="keyword">-dita-use-conref-target</span> token.</p>
+    <p class="p">Consider the following scenario, where a <code class="keyword markupname xmlelement">&lt;topichead&gt;</code> element in a DITA
+      map uses <code class="keyword markupname xmlatt">@conref</code>. It specifies the <code class="keyword markupname xmlatt">@deliveryTarget</code> attribute
+      as well as the <code class="keyword markupname xmlatt">@toc</code> attribute.</p>
+    <pre class="pre codeblock" id="unique_215573315__codeblock_slf_tdn_g2c"><code>&lt;map&gt;&lt;title&gt;Conref demonstration&lt;/title&gt;
+  &lt;topichead id="heading"
+             deliveryTarget="pdf"
+             toc="yes"
+             linking="normal"&gt;
+    &lt;topicmeta&gt;
+       &lt;navtitle&gt;This is a heading&lt;/navtitle&gt;
+    &lt;/topicmeta&gt;
+    &lt;topicref href="topic.dita"/&gt;
+  &lt;/topichead&gt;
+
+  &lt;topichead conref="#heading"
+             deliveryTarget="-dita-use-conref-target"
+             toc="no"&gt;
+  &lt;/topichead&gt;
+&lt;/map&gt;</code></pre>
+    <p class="p">When the content reference is resolved, the <code class="keyword markupname xmlatt">@deliveryTarget</code> attribute from
+      the referencing element is not preserved because it uses
+        <span class="keyword">-dita-use-conref-target</span>. Instead, it uses the value
+        <span class="keyword">pdf</span> from the referenced element. The <code class="keyword markupname xmlatt">@linking</code> attribute,
+      which is not specified on the referencing element, is also resolved based on the referenced
+      element. The <code class="keyword markupname xmlatt">@toc</code> attribute from the referencing element overrides the
+        <code class="keyword markupname xmlatt">@toc</code> attribute on the referenced element using normal conref resolution
+      rules:</p>
+    <pre class="pre codeblock" id="unique_215573315__codeblock_zvs_ydn_g2c"><code>&lt;map&gt;&lt;title&gt;Conref demonstration&lt;/title&gt;
+  &lt;topichead id="heading"
+             deliveryTarget="pdf"
+             toc="yes"
+             linking="normal"&gt;
+    &lt;topicmeta&gt;
+       &lt;navtitle&gt;This is a heading&lt;/navtitle&gt;
+    &lt;/topicmeta&gt;
+    &lt;topicref href="topic.dita"/&gt;
+  &lt;/topichead&gt;
+
+  &lt;topichead deliveryTarget="pdf"
+             toc="no"
+             linking="normal"&gt;
+    &lt;topicmeta&gt;
+       &lt;navtitle&gt;This is a heading&lt;/navtitle&gt;
+    &lt;/topicmeta&gt;
+    &lt;topicref href="topic.dita"/&gt;
+  &lt;/topichead&gt;
+&lt;/map&gt;
+</code></pre>
+  </div>
+</article></article></article></article><aside class="section-toc" role="aside"></aside></article></main>

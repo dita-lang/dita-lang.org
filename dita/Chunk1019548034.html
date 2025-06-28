@@ -1,0 +1,709 @@
+---
+layout: base.njk
+title: ''
+index: 'toc.html'
+notices: 'resources/oasis-notices.html'
+commit: '12307550f7ac3b1081060100e611b48b81caf88c'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="toc" role="toc"><ul><li><a href="introduction/dita-release-overview.html">Introduction</a></li><li><a href="archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="archSpec/base/accessibility-and-translation.html">Accessibility and translation</a><ul class="nav nav-list"><li class="active"><a href="Chunk1019548034.html#Chunk1019548034">Accessibility</a><ul class="nav nav-list"><li><a href="Chunk1019548034.html#accessibility">Accessibility</a></li></ul></li><li><a href="Chunk1982468495.html#Chunk1982468495">Translation and localization</a></li></ul></li><li><a href="archSpec/base/dita-map-processing.html">DITA map processing</a></li><li><a href="archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="archSpec/base/behaviors.html">DITA processing</a></li><li><a href="archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a></li><li><a href="langRef/langRef-base.html">Element reference</a></li><li><a href="conformance/conformance.html">Conformance</a></li><li><a href="acknowledgments/acknowledgments.html#r-acknowledgments">Acknowledgments</a></li><li><a href="non-normative/aggregated-RFC-2119-statements.html#aggregated-RFC-2119-statements">Aggregated RFC-2119 statements</a></li><li><a href="archSpec/base/coding-requirements.html#coding-practices">Coding practices for DITA grammar files</a></li><li><a href="non-normative/developing-constraint-and-expansion-modules.html#developing-constraint-and-expansion-modules">Constraint modules</a></li><li><a href="non-normative/expansion-modules.html#expansion-modules">Expansion modules</a></li><li><a href="non-normative/elementsMerged.html#elements">Element-by-element recommendations for translators</a></li><li><a href="non-normative/formatting-expectations.html#formatting-expectations">Formatting expectations</a></li><li><a href="non-normative/migrating-to-dita-2.0.html#migrating-to-dita-2.0">Migrating to DITA 2.0</a></li><li><a href="non-normative/basedoctypes.html#oasisdomains">OASIS grammar files</a></li><li><a href="non-normative/interoperability-considerations.html#nteroperability-considerations">Processing interoperability considerations</a></li><li><a href="non-normative/revision-history.html#revision-history">Revision history</a></li></ul></nav><main role="main" class=""><article role="article" aria-labelledby="ariaid-title1"><article class="nested0" aria-labelledby="ariaid-title1" id="Chunk1019548034"><h1 class="title topictitle1" id="ariaid-title1">Accessibility</h1><nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="archSpec/base/accessibility-and-translation.html" title="Content needed">Accessibility and translation</a></div></div></nav><article class="topic concept nested1" aria-labelledby="ariaid-title2" lang="en-us" id="accessibility">
+ <h2 class="title topictitle2" id="ariaid-title2">Accessibility</h2>
+ <div class="body"><p class="shortdesc">DITA has markup and features that enable producing output that
+    is accessible by all audiences.</p></div>
+<article class="topic concept nested2" aria-labelledby="ariaid-title3" id="accessibility_contentvsprocessor">
+    <h3 class="title topictitle3" id="ariaid-title3">Handling accessibility in content and in processors</h3>
+    
+    <div class="body conbody"><p class="shortdesc">Accessibility requirements vary depending on how content is
+    rendered. Making content accessible is work that involves both content
+    authors and the processors that render DITA content.</p>
+        <p class="p"><span style="color:red;" class="ph">The foundation for accessible content is
+        the</span> Web Content Accessibility Guidelines (WCAG) from W3C.
+      While content formats and content authors might have unique or
+      additional accessibility needs, the rules outlined in the WCAG
+      provide a reference point for considering how to create accessible
+      content in DITA.</p>
+        <p class="p">The guidelines fall into several categories:</p>
+    <dl class="dl">
+      
+        <dt class="dt dlterm">General content guidelines</dt>
+        <dd class="dd">
+          <p class="p">Many accessibility guidelines and best practices apply to all
+            content. Such guidelines are generally outside the scope of
+            this specification. </p>
+          <p class="p">For example, a guideline might recommend against multiple
+            levels of nested unordered lists, because such lists are
+            difficult to navigate with a screen reader. As a general
+            content standard, DITA cannot prohibit such nesting. However,
+            implementations can prevent such nesting through business
+            processes or rule-based processing such as Schematron.</p>
+          <p class="p">Another common accessibility recommendation is to avoid
+            flashing or flickering video content. The DITA
+              <code class="keyword markupname xmlelement">&lt;video&gt;</code> element is a general mechanism
+            for including video, and the content of that video is outside
+            the scope of this specification.</p>
+        </dd>
+      
+      
+        <dt class="dt dlterm">Markup guidelines</dt>
+        <dd class="dd">
+          <p class="p">Other accessibility guidelines require <span style="color:red;" class="ph">the</span> use of specific DITA markup. Such guidelines are
+            addressed in this specification.</p>
+          <p class="p">For example, a requirement that images specify alternate text
+            requires <span style="color:red;" class="ph">the</span> use of the
+              <code class="keyword markupname xmlelement">&lt;alt&gt;</code> element within <span style="color:red;" class="ph">the <code class="keyword markupname xmlelement">&lt;image&gt;</code>
+              element</span>. However, a guideline that the alternate text be
+              <em class="ph i">meaningful</em> is not something that can be enforced by
+            DITA markup.</p>
+        </dd>
+      
+      
+        <dt class="dt dlterm">Guidelines that require enablement by DITA processors</dt>
+        <dd class="dd">
+          <p class="p">Some accessibility guidelines require processors to take
+            advantage of specific DITA markup.</p>
+          <p class="p">Authors can use specific markup to enable accessible output. For example, by specifying
+            a header row in a table, an author can define a header for every cell in the table body.
+            However, to make the relationship between the table cell and header cell specific in a
+            rendered format like HTML, the processor must make those relationships explicit in the
+            output.</p>
+        </dd>
+      
+      
+        <dt class="dt dlterm">Processor requirements outside the scope of DITA markup</dt>
+        <dd class="dd">Processors have many other accessibility concerns that are
+          outside the scope of this specification.<p class="p">For example, WCAG has
+            a requirement for contrast ratios when rendering <span style="color:red;" class="ph">substantive</span> content. That requirement is
+            unrelated to the source content. Such requirements apply to
+            rendering mechanisms such as the CSS that is used to style DITA
+            content in a browser.</p><p class="p">As another example, a DITA
+            processor might generate automated headings or include
+            characters in output, such as:</p><ul class="ul">
+            <li class="li">A section heading for an element specialized from
+                <code class="keyword markupname xmlelement">&lt;section&gt;</code>, such as
+                <span class="keyword">Requirements</span> for the
+                <code class="keyword markupname xmlelement">&lt;prereq&gt;</code> element in a task
+              topic</li>
+            <li class="li">The greater-than character (&gt;) that is typically used
+              between phrases that are part of a menu navigation</li>
+          </ul><p class="p">It is up to the processor to use correct rendering for
+            these cases, such as heading markup and accessible text
+            alternatives for character displays such as the menu
+            separator.</p></dd>
+      
+    </dl>
+    </div>
+<nav role="navigation" class="related-links"><div class="linklist relinfo" lang="en-us"><strong>Related information</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="https://www.w3.org/TR/WCAG21/" target="_blank" rel="external noopener" title="The currently effective versions of WCAG are 2.0 and 2.1. WCAG 2.1 extends the 2.0 standard.">Web Content Accessibility Guidelines 2.0</a></li></ul></div></nav></article><article class="topic concept nested2" aria-labelledby="ariaid-title4" lang="en-US" id="accessibilitymarkup">
+	<h3 class="title topictitle3" id="ariaid-title4">Accessible content</h3>
+	
+	
+	<div class="body conbody"><p class="shortdesc"> DITA provides elements and attributes that are designed to
+    make content accessible.</p>
+		<section class="section" id="accessibilitymarkup__about">
+			<p class="p">Many common types of content are not accessible to all readers. For
+        example, an image cannot be rendered by a screen reader, and a
+        video cannot be rendered in many formats. DITA includes markup
+        features that are designed to convey alternate versions of such
+        content.</p>
+			<dl class="dl">
+				
+					<dt class="dt dlterm" id="accessibilitymarkup__images">Alternate text for images</dt>
+					<dd class="dd">
+            <p class="p"><span class="ph">Alternate text is a textual description of an
+      image. Systems often render the alternate text when the reader is
+      using assistive technology or the image cannot be
+    rendered.</span></p>
+            <p class="p">The <code class="keyword markupname xmlelement">&lt;alt&gt;</code> element is available inside
+              of images as a way to specify alternate text.</p>
+          </dd>
+				
+        
+          <dt class="dt dlterm">Alternate text for areas of image maps</dt>
+          <dd class="dd">
+            <p class="p">Within an image map, each defined area of the image can
+              specify a cross reference. Whether <span style="color:red;" class="ph">or
+                not</span> the cross reference actually specifies a URI
+              reference, the text within that cross reference <span style="color:red;" class="ph">functions</span> as alternate or hover
+              text.</p>
+          </dd>
+        
+				
+					<dt class="dt dlterm">Long descriptions for media</dt>
+					<dd class="dd">
+            <p class="p"><span style="color:red;" class="ph">A long
+      description reference is a reference to a textual description of a
+      graphic or object. This is typically used to provide an extended
+      description when the graphic or object is too complicated to describe
+      with alternate text.</span></p>
+            <p class="p">Processors can handle the reference in the following
+              ways:</p>
+            <ul class="ul">
+              <li class="li">Render the graphic or object as a link</li>
+              <li class="li">Make the extended description available to accessibility
+                tools such as screen readers</li>
+            </ul>
+          </dd>
+				
+			</dl>
+			<p class="p">While DITA provides the markup to enable these accessibility
+        features, it is up to DITA processors to render output that uses
+        the markup properly. For example, when a processor generates HTML5,
+        alternate text must be specified using the <code class="keyword markupname xmlatt">@alt</code>
+        attribute on the <code class="keyword markupname xmlelement">&lt;img&gt;</code> element.</p>
+		</section>
+	</div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title5" lang="en-US" id="unique_1562097687">
+	<h3 class="title topictitle3" id="ariaid-title5">Accessible tables</h3>
+	
+	
+	<div class="body conbody"><p class="shortdesc">The complexity of table rendering requires authors and
+    processors to be aware of several table-specific elements and
+    attributes if they want to ensure that tables are
+    accessible.</p>
+    <p class="p"><span class="ph">DITA topics support two types of tables:
+        <span style="color:red;" class="ph">complex table</span> and simple
+    table.</span></p>
+    <div class="div">
+        <p class="p">The <code class="keyword markupname xmlelement">&lt;table&gt;</code> element uses the OASIS
+          Exchange Table Model, <span style="color:red;" class="ph">a simplification of the
+            CALS table model</span>. The complex table provides a wide
+          variety of controls over the display properties of the data and
+          even the table structure itself.</p>
+        <p class="p">The <code class="keyword markupname xmlelement">&lt;simpletable&gt;</code> element is structurally
+          less complex than the <span style="color:red;" class="ph"><code class="keyword markupname xmlelement">&lt;table&gt;</code> element</span> and so is an
+          easier base for specialization. It reflects a content model that
+            <span style="color:red;" class="ph">is</span> close to the HTML table. The
+            <code class="keyword markupname xmlelement">&lt;simpletable&gt;</code> element does not provide
+          much control over formatting<span style="color:red;" class="ph">, although it
+            permits titles and row and column
+          spanning.</span></p>
+      </div>
+    <p class="p">The following list provides information about table features that
+      have an effect on table accessibility. Note that some features are
+      applicable only to the complex tables that are produced by the
+        <code class="keyword markupname xmlelement">&lt;table&gt;</code> element.</p>
+    <dl class="dl">
+      
+        <dt class="dt dlterm">Captions</dt>
+        <dd class="dd">Both table models allow for a caption to be provided by using
+          the <code class="keyword markupname xmlelement">&lt;title&gt;</code> element.</dd>
+      
+      
+        <dt class="dt dlterm">Cell headers</dt>
+        <dd class="dd">When entries within a table function as headers, but do not
+          fall into the categories of column or row headers, the
+            <code class="keyword markupname xmlatt">@id</code> and <code class="keyword markupname xmlatt">@headers</code> attributes on
+          table cells can be used <span style="color:red;" class="ph">to associate table
+            cells with headers</span>. Specifying the <code class="keyword markupname xmlatt">@id</code>
+          attribute on the cell that functions as a header, and setting the
+            <code class="keyword markupname xmlatt">@headers</code> attribute to that ID value on <span style="color:red;" class="ph">the</span> table cell for which it acts as a
+          header serves to relate table cells to headers.</dd>
+      
+      
+      
+      
+        <dt class="dt dlterm" style="color:red;">Column headers</dt>
+        <dd class="dd">
+          <p class="p"><span style="color:red;" class="ph">Column headers are created using a header row, where each cell in
+              the header row provides a header for other cells in its column.</span> Both table models
+            provide support for <span style="color:red;" class="ph">column headers</span>:</p>
+          <dl class="dl">
+            
+              <dt class="dt dlterm">Complex table</dt>
+              <dd class="dd">The <code class="keyword markupname xmlelement">&lt;thead&gt;</code> element can provide
+                one or more header rows.</dd>
+            
+            
+              <dt class="dt dlterm">Simple table</dt>
+              <dd class="dd">The <code class="keyword markupname xmlelement">&lt;sthead&gt;</code> element can provide a single row header.</dd>
+            
+          </dl>
+        </dd>
+      
+      
+        <dt class="dt dlterm" style="color:red;">Row headers</dt>
+        <dd class="dd">
+          <p class="p"><span style="color:red;" class="ph">Row headers are created using a header column, where each cell in
+              the header column provides a header for other cells in its row.</span> Both table models
+            provide support for <span style="color:red;" class="ph">row headers</span>:</p>
+          <dl class="dl">
+            
+              <dt class="dt dlterm">Complex table</dt>
+              <dd class="dd">(First column) The <code class="keyword markupname xmlatt">@rowheader</code> attribute can be set to
+                  <span class="keyword">firstcol</span>
+                <span style="color:red;" class="ph">on the <code class="keyword markupname xmlelement">&lt;table&gt;</code> element</span> to indicate
+                that the first column is a header. Alternatively, the <code class="keyword markupname xmlatt">@scope</code>
+                attribute for each entry in the first column can be set to <span style="color:red;" class="keyword">row</span> to indicate that those cells are headers for their respective
+                rows.</dd>
+              <dd class="dd ddexpand">(Other columns) The <code class="keyword markupname xmlelement">&lt;colspec&gt;</code> element can define which
+                columns function as headers. For that case, set the <code class="keyword markupname xmlatt">@rowheader</code>
+                attribute to <span class="keyword">headers</span> on the column or columns that function as
+                headers. Alternatively, set the <code class="keyword markupname xmlatt">@scope</code> attribute on each relevant
+                entry in the <span style="color:red;" class="ph">column to <span class="keyword">row</span>, indicating that
+                  the entry is a header for the entire row.</span></dd>
+            
+            
+              <dt class="dt dlterm">Simple table</dt>
+              <dd class="dd">The <code class="keyword markupname xmlatt">@keycol</code> attribute can be set to the number of the column that
+                functions as a header.</dd>
+            
+          </dl>
+        </dd>
+      
+      
+        <dt class="dt dlterm">Summaries</dt>
+        <dd class="dd">(Complex table only) While the <code class="keyword markupname xmlatt">@summary</code>
+          attribute on tables is deprecated in HTML5, the
+            <code class="keyword markupname xmlelement">&lt;desc&gt;</code> element within a
+            <code class="keyword markupname xmlelement">&lt;table&gt;</code> can be used to store a summary.
+          Since the content of the <code class="keyword markupname xmlelement">&lt;desc&gt;</code> element is
+          typically rendered as part of the content flow when used within
+            <code class="keyword markupname xmlelement">&lt;table&gt;</code>, processors might need special
+          configuration to support this usage.</dd>
+      
+    </dl>
+	</div>
+</article><article class="topic concept nested2 non-normative" aria-labelledby="ariaid-title6" id="examples-of-dita-markup-for-accessibility">
+    <h3 class="title topictitle3" id="ariaid-title6">Examples of DITA markup for accessibility</h3>
+    <div class="body"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">This section contains examples of how DITA markup
+    facilitates accessibility.</p></div>
+<article class="topic concept nested3 non-normative" aria-labelledby="ariaid-title7" id="example-alternate-text-for-an-image">
+    <h4 class="title topictitle4" id="ariaid-title7">Example: Alternate text for an image</h4>
+    
+    <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">In this scenario, an image of a ticketing workflow also provides alternate text that
+        describes the image.</p>
+        <p class="p">The following code sample references an image <span style="color:red;" class="ph">and provides alternate text:</span></p>
+    <pre class="pre codeblock"><code>&lt;image href="workflow.png"&gt;
+  &lt;alt&gt;<span style="color:red;" class="ph">A workflow diagram that shows a ticketing workflow.
+       The workflow states are described in the text.</span>&lt;/alt&gt;
+&lt;/image&gt;</code></pre>
+    </div>
+</article><article class="topic concept nested3 non-normative" aria-labelledby="ariaid-title8" style="color:red;" id="example-alternate-text-for-an-image-map">
+  <h4 class="title topictitle4" id="ariaid-title8">Example: Alternate text for an image map</h4>
+  
+  <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">In this scenario, alternate text is provided for an image
+    map.</p>
+    <p class="p">The following image shows "The Brontë Sisters". This portrait is in
+      the collection of the National Portrait Gallery, London. The images
+      of the three Brontë sisters (Charlotte, Emily, and Ann) are linked to
+      their Wikipedia pages.</p>
+    <div class="fig imagemap" id="example-alternate-text-for-an-image-map__bronte-sisters"><img usemap="#d558675e848" class="image" id="example-alternate-text-for-an-image-map__bronte" src="images/Bronte_Sisters.jpg" alt="Portrait of &#34;The Brontë Sisters&#34;"><map name="d558675e848" id="d558675e848"><area href="https://en.wikipedia.org/wiki/Charlotte_Bront%C3%AB" target="_blank" rel="external noopener" alt="Charlotte Brontë" title="Charlotte Brontë" shape="poly" coords="408, 345, 410, 223, 360, 158, 369, 98, 363, 65, 355, 46,&#xA;          337, 34, 318, 36, 313, 46, 295, 58, 290, 69, 279, 79, 278, 95,&#xA;          281, 103, 273, 116, 282, 141, 292, 148, 298, 165, 266, 196, 252,&#xA;          211, 245, 249, 227, 272, 224, 315, 234, 350, 408, 349"><area href="https://en.wikipedia.org/wiki/Emily_Bront%C3%AB" target="_blank" rel="external noopener" alt="Emily Brontë" title="Emily Brontë" shape="poly" coords="228, 343, 211, 289, 203, 278, 194, 249, 204, 221, 177, 178,&#xA;          161, 157, 180, 138, 202, 112, 201, 69, 175, 52, 144, 45, 114, 52,&#xA;          102, 75, 98, 90, 103, 114, 118, 131, 135, 149, 141, 154, 118,&#xA;          197, 100, 226, 86, 234, 85, 254, 121, 318, 109, 328, 123, 350,&#xA;          230, 349"><area href="https://en.wikipedia.org/wiki/Anne_Bront%C3%AB" target="_blank" rel="external noopener" alt="Anne Brontë" title="Anne Brontë" shape="poly" coords="0, 347, 1, 252, 29, 225, 24, 195, 30, 161, 41, 123, 76,&#xA;          110, 103, 119, 119, 137, 135, 154, 129, 172, 116, 195, 98, 224,&#xA;          85, 231, 81, 252, 116, 317, 106, 329, 119, 350"></map></div>
+    <p class="p">The following code sample shows how the
+        <code class="keyword markupname xmlelement">&lt;imagemap&gt;</code> element is used to generate the
+      above image map, as well as how alternate text can be provided to
+      ensure accessibility:</p>
+    <pre class="pre codeblock"><code>&lt;imagemap id="bronte-sisters"&gt;
+  &lt;image href="Bronte_Sisters.jpg" id="bronte-sisters"&gt;
+    <strong class="ph b">&lt;alt&gt;Portrait of "The Brontë Sisters"&lt;/alt&gt;</strong>
+  &lt;/image&gt;
+  &lt;!-- Area #1: Charlotte Brontë --&gt;
+  &lt;area&gt;
+    &lt;shape&gt;poly&lt;/shape&gt;
+    &lt;coords&gt;408, 345, 410, 223, 360, 158, 369, 98, 363, 65, 355, 46,
+          337, 34, 318, 36, 313, 46, 295, 58, 290, 69, 279, 79, 278, 95,
+          281, 103, 273, 116, 282, 141, 292, 148, 298, 165, 266, 196, 252,
+          211, 245, 249, 227, 272, 224, 315, 234, 350, 408, 349&lt;/coords&gt;
+    &lt;xref format="html" scope="external"
+          href="https://en.wikipedia.org/wiki/Charlotte_Bront%C3%AB"&gt;
+          <strong class="ph b">Charlotte Brontë</strong>&lt;/xref&gt;
+  &lt;/area&gt;
+  &lt;!-- Area #2: Emily Brontë --&gt;
+  &lt;area&gt;
+    &lt;shape&gt;poly&lt;/shape&gt;
+    &lt;coords&gt;228, 343, 211, 289, 203, 278, 194, 249, 204, 221, 177, 178,
+          161, 157, 180, 138, 202, 112, 201, 69, 175, 52, 144, 45, 114, 52,
+          102, 75, 98, 90, 103, 114, 118, 131, 135, 149, 141, 154, 118,
+          197, 100, 226, 86, 234, 85, 254, 121, 318, 109, 328, 123, 350,
+          230, 349&lt;/coords&gt;
+    &lt;xref format="html" scope="external"
+          href="https://en.wikipedia.org/wiki/Emily_Bront%C3%AB"&gt;
+          <strong class="ph b">Emily Brontë</strong>&lt;/xref&gt;
+  &lt;/area&gt;
+  &lt;!-- Area #3: Anne Brontë --&gt;
+  &lt;area&gt;
+    &lt;shape&gt;poly&lt;/shape&gt;
+    &lt;coords&gt;0, 347, 1, 252, 29, 225, 24, 195, 30, 161, 41, 123, 76,
+          110, 103, 119, 119, 137, 135, 154, 129, 172, 116, 195, 98, 224,
+          85, 231, 81, 252, 116, 317, 106, 329, 119, 350&lt;/coords&gt;
+    &lt;xref format="html" scope="external"
+          href="https://en.wikipedia.org/wiki/Anne_Bront%C3%AB"&gt;
+          <strong class="ph b">Anne Brontë</strong>&lt;/xref&gt;
+  &lt;/area&gt;
+&lt;/imagemap&gt;</code></pre>
+    <p class="p">The <code class="keyword markupname xmlelement">&lt;alt&gt;</code> element provides alternate text for
+      the image as a whole, and the content of the
+        <code class="keyword markupname xmlelement">&lt;xref&gt;</code> elements provide alternate text for
+      each of the linked regions.</p>
+    <p class="p">The following image shows the areas that are defined by the image
+      map:</p>
+    <br><img class="image" src="images/bronte-sisters-w-areas.jpg" height="365" width="432" alt="A screen capture of the image map as rendered in Oxygen Editor, showing the three defined areas"><br>
+    <p class="p">The following table lists the link targets and alternate text for
+      each of the defined areas:</p>
+    <table class="simpletable frame-topbot"><colgroup><col style="width:33.33333333333333%"><col style="width:33.33333333333333%"><col style="width:33.33333333333333%"></colgroup><thead><tr class="sthead">
+        <th class="stentry" scope="col" id="example-alternate-text-for-an-image-map__stentry__1">Area</th>
+        <th class="stentry" scope="col" id="example-alternate-text-for-an-image-map__stentry__2">Alternate text</th>
+        <th class="stentry" scope="col" id="example-alternate-text-for-an-image-map__stentry__3">Link target</th>
+      </tr></thead><tbody><tr class="strow">
+        <th class="stentry" scope="row" headers="example-alternate-text-for-an-image-map__stentry__1">1</th>
+        <td class="stentry" headers="example-alternate-text-for-an-image-map__stentry__2">Charlotte Brontë</td>
+        <td class="stentry" headers="example-alternate-text-for-an-image-map__stentry__3"><a class="xref" href="https://en.wikipedia.org/wiki/Charlotte_Bront%C3%AB" target="_blank" rel="external noopener">Wikipedia entry for Charlotte
+            Brontë</a></td>
+      </tr><tr class="strow">
+        <th class="stentry" scope="row" headers="example-alternate-text-for-an-image-map__stentry__1">2</th>
+        <td class="stentry" headers="example-alternate-text-for-an-image-map__stentry__2">Emily Brontë</td>
+        <td class="stentry" headers="example-alternate-text-for-an-image-map__stentry__3"><a class="xref" href="https://en.wikipedia.org/wiki/Emily_Bront%C3%AB" target="_blank" rel="external noopener">Wikipedia entry for Emily
+            Brontë</a></td>
+      </tr><tr class="strow">
+        <th class="stentry" scope="row" headers="example-alternate-text-for-an-image-map__stentry__1">3</th>
+        <td class="stentry" headers="example-alternate-text-for-an-image-map__stentry__2">Anne Brontë</td>
+        <td class="stentry" headers="example-alternate-text-for-an-image-map__stentry__3"><a class="xref" href="https://en.wikipedia.org/wiki/Anne_Bront%C3%AB" target="_blank" rel="external noopener">Wikipeda entry for Anne
+            Brontë</a></td>
+      </tr></tbody></table>
+  </div>
+</article><article class="topic concept nested3 non-normative" aria-labelledby="ariaid-title9" id="example-fallback-information-for-multimedia">
+    <h4 class="title topictitle4" id="ariaid-title9">Example: Fallback information for multimedia content</h4>
+    
+    <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">In this scenario, fallback content is provided for systems that cannot display
+        multimedia content.</p>
+        <p class="p">The referenced video provides an image as fallback. If a system
+      does not support video, it will display the image
+        <span class="ph filepath">video-not-available.png</span>, which specifies its
+      own alternate text.</p>
+    <pre class="pre codeblock"><code>&lt;video height="300px"
+                loop="false"
+                muted="false"
+                width="400px"&gt;
+  &lt;desc&gt;A video that illustrates how to conduct a system health scan.&lt;/desc&gt;
+  <strong class="ph b">&lt;fallback&gt;
+    &lt;image href="video-not-available.png"&gt;
+      &lt;alt&gt;This video cannot be displayed.&lt;/alt&gt;
+    &lt;/image&gt;
+  &lt;/fallback&gt;</strong>
+  &lt;video-poster keyref="demo1-video-poster"
+  &lt;media-source href="video.mp4" format="video/mp4"/&gt;
+&lt;/video&gt;</code></pre>
+    </div>
+</article><article class="topic concept nested3 non-normative" aria-labelledby="ariaid-title10" style="color:red;" id="example-simple-table-and-accessibility">
+  <h4 class="title topictitle4" id="ariaid-title10">Example: Simple table with  accessibility markup</h4>
+  
+  <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">In this scenario, the topic author uses a header row and the
+      <code class="keyword markupname xmlatt">@keycol</code> attribute to ensure that the table is
+    accessible</p>
+    <p class="p">In the following code sample, the <code class="keyword markupname xmlelement">&lt;sthead&gt;</code>
+      element identifies the header row, and <code class="keyword markupname xmlatt">@keycol</code>
+      attribute identifies the header column:</p>
+    
+    <pre class="pre codeblock"><code>&lt;simpletable frame="all" relcolwidth="1* 1*" <strong class="ph b">keycol="1"</strong>&gt;
+  <strong class="ph b">&lt;sthead&gt;
+    &lt;stentry&gt;Type of room&lt;/stentry&gt;
+    &lt;stentry&gt;Price per day&lt;/stentry&gt;
+  &lt;/sthead&gt;</strong>
+  &lt;strow&gt;
+    &lt;stentry&gt;Single bed&lt;/stentry&gt;
+    &lt;stentry&gt;$125.00&lt;/stentry&gt;
+  &lt;/strow&gt;
+  &lt;strow&gt;
+    &lt;stentry&gt;Two double beds&lt;/stentry&gt;
+    &lt;stentry&gt;$150.00&lt;/stentry&gt;
+  &lt;/strow&gt;
+  &lt;strow&gt;
+    &lt;stentry&gt;Queen or king bed&lt;/stentry&gt;
+    &lt;stentry&gt;$165.00&lt;/stentry&gt;
+  &lt;/strow&gt;
+&lt;/simpletable&gt;</code></pre>
+    <p class="p">This table might be rendered in the following way:</p>
+    <br><img class="image" src="images/simple-table-accessibility.jpg" height="136" width="544"><br>
+  </div>
+</article><article class="topic concept nested3 non-normative" aria-labelledby="ariaid-title11" id="example-complex-table-with-accessibility-markup">
+    <h4 class="title topictitle4" id="ariaid-title11">Example: Complex table with accessibility markup</h4>
+    
+    <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc"></p>
+    <p class="p">In the following code sample, the table uses the
+        <code class="keyword markupname xmlelement">&lt;thead&gt;</code> element to identify header rows and
+      the <code class="keyword markupname xmlatt">@rowheader</code> attribute to identify a header column.
+        <span style="color:red;" class="ph">These header relationships</span> can be used to
+      automatically create renderings of the table in other formats, such
+      as HTML, that can be navigated using a screen reader or other
+      assistive technology.</p>
+    <pre class="pre codeblock"><code>&lt;table frame="all" rowheader="firstcol"&gt;
+  &lt;title&gt;Sample of automated table accessibility&lt;/title&gt;
+  &lt;desc&gt;Names are listed in the column c1. Points are listed in both data columns, with
+        expected points in column c2 and actual points in column c3.&lt;/desc&gt;
+  &lt;tgroup cols="3"&gt;
+    &lt;colspec colname="c1"/&gt;
+    &lt;colspec colname="c2"/&gt;
+    &lt;colspec colname="c3"/&gt;
+    &lt;thead&gt;
+      &lt;row&gt;
+        &lt;entry morerows="1"&gt;Name&lt;/entry&gt;
+        &lt;entry namest="c2" nameend="c3"&gt;Points&lt;/entry&gt;
+      &lt;/row&gt;
+      &lt;row&gt;
+        &lt;entry&gt;Expected&lt;/entry&gt;
+        &lt;entry&gt;Actual&lt;/entry&gt;
+      &lt;/row&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;row&gt;
+        &lt;entry&gt;Mark&lt;/entry&gt;
+        &lt;entry&gt;10,000&lt;/entry&gt;
+        &lt;entry&gt;11,123.45&lt;/entry&gt;
+      &lt;/row&gt;
+      &lt;row&gt;
+        &lt;entry&gt;Peter&lt;/entry&gt;
+        &lt;entry&gt;9,000&lt;/entry&gt;
+        &lt;entry&gt;11,012.34&lt;/entry&gt;
+      &lt;/row&gt;
+      &lt;row&gt;
+        &lt;entry&gt;Cindy&lt;/entry&gt;
+        &lt;entry&gt;10,000&lt;/entry&gt;
+        &lt;entry&gt;10,987.64&lt;/entry&gt;
+      &lt;/row&gt;
+     &lt;/tbody&gt;
+   &lt;/tgroup&gt;
+&lt;/table&gt;</code></pre>
+    <p class="p">In this code sample, navigation information for assistive technology
+      is derived from two sources:</p>
+    <ul class="ul">
+      <li class="li">The <code class="keyword markupname xmlelement">&lt;thead&gt;</code> element contains two rows, and indicates that each <span style="color:red;" class="ph">entry</span> in those <span style="color:red;" class="ph">header</span> rows is a header cell
+        for that column. This means that each body cell can be associated with the header cell or
+        cells above the column. For example, in the second body row, the entry "Peter" <span style="color:red;" class="ph">is</span> associated with the header "Name"; similarly, the entry "9,000" <span style="color:red;" class="ph">is</span> associated with the headers "Expected" and "Points".</li>
+      <li class="li">The <code class="keyword markupname xmlatt">@rowheader</code> attribute <span style="color:red;" class="ph">that is specified on
+            <code class="keyword markupname xmlelement">&lt;table&gt;</code> indicates</span> that the first column plays a role as a
+          <span style="color:red;" class="ph">row</span> header. <span style="color:red;" class="ph">This means that the header cell in
+          column one is associated with the other body cells in the same row</span>. For example, in
+        the second body row, the entry "9,000" <span style="color:red;" class="ph">is</span> associated with the header
+        "Peter".</li>
+    </ul>
+    <p class="p">As a result of these two sets of headers, a rendering of the table <span style="color:red;" class="ph">associates</span> the entry "9,000" with three headers: "Peter", "Expected", and "Points",
+        <span style="color:red;" class="ph">thus</span> making it fully navigable by a screen reader or other assistive
+      technology. <span style="color:red;" class="ph">When the user navigates to the cell containing "9,000", it can
+        report the headers "Peter", "Expected", and "Points" as the headers for that cell.</span></p>
+    <p class="p">The output might be <span style="color:red;" class="ph">rendered in the following
+        way:</span></p>
+    <br><img class="image" src="langRef/images/table-with-spans.jpg" alt="The image shows a three-column table. The first column lists names, the second column lists expected points, and the third column lists actual points. There are two header rows that contains spans. The header row is shaded with green, and the text in the header column and rows is bold. The edges of the screen capture are tattered, to indicate that the image is part of a larger document."><br>
+    <p style="color:red;" class="p">The rendered HTML used by a screen reader might look as follows.</p>
+    <pre style="color:red;" class="pre codeblock"><code>&lt;table&gt;
+  &lt;caption&gt;
+    &lt;span&gt;Sample of automated table accessibility&lt;/span&gt;
+    &lt;span class="desc"&gt;Names are listed in the column c1. Points are listed in both data columns, 
+      with expected points in column c2 and actual points in column c3.&lt;/span&gt;
+  &lt;/caption&gt;
+  &lt;colgroup&gt;&lt;col&gt;&lt;col&gt;&lt;col&gt;&lt;/colgroup&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th id="source__entry__1" rowspan="2"&gt;Name&lt;/th&gt;
+      &lt;th id="source__entry__2" colspan="2"&gt;Points&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th id="source__entry__3"&gt;Expected&lt;/th&gt;
+      &lt;th id="source__entry__4"&gt;Actual&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th scope="row" id="source__entry__5" headers="source__entry__1"&gt;Mark&lt;/th&gt;
+      &lt;td headers="source__entry__5 source__entry__2 source__entry__3"&gt;10,000&lt;/td&gt;
+      &lt;td headers="source__entry__5 source__entry__2 source__entry__4"&gt;11,123.45&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th scope="row" id="source__entry__8" headers="source__entry__1"&gt;Peter&lt;/th&gt;
+      &lt;td headers="source__entry__8 source__entry__2 source__entry__3"&gt;9,000&lt;/td&gt;
+      &lt;td headers="source__entry__8 source__entry__2 source__entry__4"&gt;11,012.34&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th scope="row" id="source__entry__11" headers="source__entry__1"&gt;Cindy&lt;/th&gt;
+      &lt;td headers="source__entry__11 source__entry__2 source__entry__3"&gt;10,000&lt;/td&gt;
+      &lt;td headers="source__entry__11 source__entry__2 source__entry__4"&gt;10,987.64&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+    
+  </div>
+</article><article class="topic concept nested3 non-normative" aria-labelledby="ariaid-title12" id="example-complex-table-with-some-manually-specified-accessibility-markup">
+    <h4 class="title topictitle4" id="ariaid-title12">Example: Complex table with some manually-specified accessibility markup</h4>
+    
+    <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc"></p>
+    <p class="p">In some complex tables, the <code class="keyword markupname xmlelement">&lt;thead&gt;</code> element and
+        <code class="keyword markupname xmlatt">@rowheader</code> attribute might not be enough to support all accessibility needs.
+        <span style="color:red;" class="ph">Assume that a table is designed so that names are listed across the top
+        row, instead of in the first column, with both the first and second columns also functioning
+        as headers</span>:</p>
+    <br><img class="image" src="langRef/images/table-with-header-columns.jpg" alt="The image shows a five-column table, in which the header information for the cells is contained in the first two columns: expected and actual points. The header row is shaded with green, and the text in the header column and rows is bold. The edges of the screen capture are tattered, to indicate that the image is part of a larger document."><br>
+    <div style="color:red;" class="note note note_note non-normative"><span class="note__title">Note<span class="non-normative-label"> (non-normative)</span>:</span> <div class="note__body">The table in this example is not meant to illustrate a best practice; this
+      specific example would likely prove difficult to navigate using a screen reader even with
+      proper header markup. This example is only intended to illustrate the full range of manual
+      accessibility markup that is available should the need arise.</div></div>
+    
+    <p class="p"><span style="color:red;" class="ph">Here,</span> the <code class="keyword markupname xmlatt">@rowheader</code>
+      attribute cannot be used, because it is only able to specify the
+      first column as a header column. In this case, the
+        <code class="keyword markupname xmlatt">@scope</code> attribute can be used to indicate that
+      entries in the first and second columns function as headers for the
+      entire row (or row group, in the case of a cell that spans more than
+      one row).</p>
+    <p class="p">The following code sample demonstrates the use of the
+        <code class="keyword markupname xmlatt">@scope</code> attribute to facilitate navigation of these
+      rows by a screen reader or other assistive technology<span style="color:red;" class="ph">. Note</span> that the <code class="keyword markupname xmlelement">&lt;thead&gt;</code>
+      element is still used to imply a header relationship with the names
+      at the top of each column.</p>
+    <pre class="pre codeblock"><code>&lt;table frame="all"&gt;
+ &lt;title&gt;Sample with two header columns&lt;/title&gt;
+ &lt;tgroup cols="5"&gt;
+  &lt;colspec colname="c1"/&gt;
+  &lt;colspec colname="c2"/&gt;
+  &lt;colspec colname="c3"/&gt;
+  &lt;colspec colname="c4"/&gt;
+  &lt;colspec colname="c5"/&gt;
+  &lt;thead&gt;
+   &lt;row&gt;
+    &lt;entry namest="c1" nameend="c2"&gt;Name&lt;/entry&gt;
+    &lt;entry&gt;Mark&lt;/entry&gt;
+    &lt;entry&gt;Peter&lt;/entry&gt;
+    &lt;entry&gt;Cindy&lt;/entry&gt;
+   &lt;/row&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+   &lt;row&gt;
+    &lt;entry morerows="1" <strong class="ph b">scope="rowgroup"</strong>&gt;&lt;b&gt;Points&lt;/b&gt;&lt;/entry&gt;
+    &lt;entry <strong class="ph b">scope="row"</strong>&gt;&lt;b&gt;Expected&lt;/b&gt;&lt;/entry&gt;
+    &lt;entry&gt;10,000&lt;/entry&gt;
+    &lt;entry&gt;9,000&lt;/entry&gt;
+    &lt;entry&gt;10,000&lt;/entry&gt;
+   &lt;/row&gt;
+   &lt;row&gt;
+    &lt;entry <strong class="ph b">scope="row"</strong>&gt;&lt;b&gt;Actual&lt;/b&gt;&lt;/entry&gt;
+    &lt;entry&gt;11,123.45&lt;/entry&gt;
+    &lt;entry&gt;11,012.34&lt;/entry&gt;
+    &lt;entry&gt;10,987.64&lt;/entry&gt;
+   &lt;/row&gt;
+  &lt;/tbody&gt;
+ &lt;/tgroup&gt;
+&lt;/table&gt;</code></pre>
+    
+    <p style="color:red;" class="p">The rendered HTML used by a screen reader might look as follows.</p>
+    <pre style="color:red;" class="pre codeblock"><code>&lt;table&gt;
+  &lt;caption&gt;Sample with two header columns&lt;/caption&gt;
+  &lt;colgroup&gt;&lt;col&gt;&lt;col&gt;&lt;col&gt;&lt;col&gt;&lt;col&gt;&lt;/colgroup&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th id="source__entry__1" colspan="2"&gt;Name&lt;/th&gt;
+      &lt;th id="source__entry__2"&gt;Mark&lt;/th&gt;
+      &lt;th id="source__entry__3"&gt;Peter&lt;/th&gt;
+      &lt;th id="source__entry__4"&gt;Cindy&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th headers="source__entry__1" rowspan="2" scope="rowgroup"&gt;&lt;strong class="ph b"&gt;Points&lt;/strong&gt;&lt;/th&gt;
+      &lt;th headers="source__entry__1" scope="row"&gt;&lt;strong class="ph b"&gt;Expected&lt;/strong&gt;&lt;/th&gt;
+      &lt;td headers="source__entry__2"&gt;10,000&lt;/td&gt;
+      &lt;td headers="source__entry__3"&gt;9,000&lt;/td&gt;
+      &lt;td headers="source__entry__4"&gt;10,000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th headers="source__entry__1" scope="row"&gt;&lt;strong class="ph b"&gt;Actual&lt;/strong&gt;&lt;/th&gt;
+      &lt;td headers="source__entry__2"&gt;11,123.45&lt;/td&gt;
+      &lt;td headers="source__entry__3"&gt;11,012.34&lt;/td&gt;
+      &lt;td headers="source__entry__4"&gt;10,987.64&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+  </div>
+</article><article class="topic concept nested3 non-normative" aria-labelledby="ariaid-title13" id="example-complex-table-with-accessibility-markup_0">
+    <h4 class="title topictitle4" id="ariaid-title13">Example: Complex table with manual accessibility markup</h4>
+    
+    <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc"></p>
+    <p class="p">In extremely complex tables, such as those with a single header cell in the middle of the
+      table, fine-grained accessibility controls are available to explicitly associate any content
+      cell with any header cell. This might also be useful for cases where processors do not support
+      implied accessibility relationships <span style="color:red;" class="ph">that exist based on header markup such
+        as <code class="keyword markupname xmlelement">&lt;thead&gt;</code></span>.</p>
+    <p class="p">In the following sample, header cells are identified using the
+        <code class="keyword markupname xmlatt">@id</code> attribute, which is referenced using the
+        <code class="keyword markupname xmlatt">@headers</code> attribute on appropriate content cells.
+      This makes all header relationships in the table explicit. Note that
+      this sample ignores the <code class="keyword markupname xmlatt">@scope</code> attribute, which could
+      be used to exercise manual control without setting as many attribute
+      values; it also ignores the fact that <code class="keyword markupname xmlelement">&lt;thead&gt;</code>
+      creates a header relationship even when the <code class="keyword markupname xmlatt">@id</code> and
+        <code class="keyword markupname xmlatt">@headers</code> attributes are not used.</p>
+    <p class="p"></p>
+    <pre class="pre codeblock"><code>&lt;table frame="all"&gt;
+  &lt;title&gt;Sample with fully manual accessibility control&lt;/title&gt;
+&lt;desc&gt;Names are listed in the column c1. Points are listed in both data columns, with
+expected points in column c2 and actual points in column c3.&lt;/desc&gt;
+  &lt;tgroup cols="3"&gt;
+    &lt;colspec colname="c1"/&gt;
+    &lt;colspec colname="c2"/&gt;
+    &lt;colspec colname="c3"/&gt;
+    &lt;thead&gt;
+      &lt;row&gt;
+        &lt;entry morerows="1"&gt; &lt;/entry&gt;
+        &lt;entry namest="c2" nameend="c3" <strong class="ph b">id="pts"</strong>&gt;Points&lt;/entry&gt;
+      &lt;/row&gt;
+      &lt;row&gt;
+        &lt;entry <strong class="ph b">id="exp" headers="pts"</strong>&gt;Expected&lt;/entry&gt;
+        &lt;entry <strong class="ph b">id="act" headers="pts"</strong>&gt;Actual&lt;/entry&gt;
+      &lt;/row&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;row&gt;
+        &lt;entry <strong class="ph b">id="name1"</strong>&gt;Mark&lt;/entry&gt;
+        &lt;entry <strong class="ph b">headers="name1 exp pts"</strong>&gt;10,000&lt;/entry&gt;
+        &lt;entry <strong class="ph b">headers="name1 act pts"</strong>&gt;11,123.45&lt;/entry&gt;
+      &lt;/row&gt;
+      &lt;row&gt;
+        &lt;entry <strong class="ph b">id="name2"</strong>&gt;Peter&lt;/entry&gt;
+        &lt;entry <strong class="ph b">headers="name2 exp pts"</strong>&gt;9,000&lt;/entry&gt;
+        &lt;entry <strong class="ph b">headers="name2 act pts"</strong>&gt;11,012.34&lt;/entry&gt;
+      &lt;/row&gt;
+      &lt;row&gt;
+        &lt;entry <strong class="ph b">id="name3"</strong>&gt;Cindy&lt;/entry&gt;
+        &lt;entry <strong class="ph b">headers="name3 exp pts"</strong>&gt;10,000&lt;/entry&gt;
+        &lt;entry <strong class="ph b">headers="name3 act pts"</strong>&gt;10,987.64&lt;/entry&gt;
+      &lt;/row&gt;
+     &lt;/tbody&gt;
+   &lt;/tgroup&gt;
+&lt;/table&gt;</code></pre>
+    <p class="p">The output might be <span style="color:red;" class="ph">rendered in the following
+        way:</span></p>
+    <br><img class="image" src="langRef/images/table-manual-accessibility.jpg" alt="The image shows a three-column table. The first column lists names, the second column lists expected points, and the third column lists actual points. There are two header rows that contains spans. The header row is shaded with green, and the text in the header column and rows is bold. The edges of the screen capture are tattered, to indicate that the image is part of a larger document."><br>
+    <p style="color:red;" class="p">The rendered HTML used by a screen reader might look as follows.</p>
+    <pre style="color:red;" class="pre codeblock"><code>&lt;table&gt;
+  &lt;caption&gt;Sample with fully manual accessibility control
+           &lt;span class="desc"&gt;Names are listed in the column c1. Points are listed in both data columns, with
+                expected points in column c2 and actual points in column c3.&lt;/span&gt;&lt;/caption&gt;
+  &lt;colgroup&gt;&lt;col&gt;&lt;col&gt;&lt;col&gt;&lt;/colgroup&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th id="entry__1" rowspan="2"&gt; &lt;/th&gt;
+      &lt;th id="pts" colspan="2"&gt;Points&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th id="exp" headers="pts"&gt;Expected&lt;/th&gt;
+      &lt;th id="act" headers="pts"&gt;Actual&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td id="name1" headers="entry__1"&gt;Mark&lt;/td&gt;
+      &lt;td headers="name1 pts exp"&gt;10,000&lt;/td&gt;
+      &lt;td headers="name1 pts act"&gt;11,123.45&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td id="name2" headers="entry__1"&gt;Peter&lt;/td&gt;
+      &lt;td headers="name2 pts exp"&gt;9,000&lt;/td&gt;
+      &lt;td headers="name2 pts act"&gt;11,012.34&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td id="name3" headers="entry__1"&gt;Cindy&lt;/td&gt;
+      &lt;td headers="name3 pts exp"&gt;10,000&lt;/td&gt;
+      &lt;td headers="name3 pts act"&gt;10,987.64&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+    
+  </div>
+</article></article></article></article><aside class="section-toc" role="aside"></aside></article></main>
