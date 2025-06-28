@@ -4,7 +4,7 @@ title: 'Cascading of metadata attributes in a DITA map'
 description: 'Certain attributes cascade throughout a map, which facilitates attribute and metadata management. When attributes cascade, they apply to the elements that are children of the element where the attributes were specified. Cascading applies to a containment hierarchy, as opposed to a specialization hierarchy.'
 index: '../../../../toc.html'
 notices: '../../../../resources/oasis-notices.html'
-commit: 'c20272b4a691e54e61a1920904fa3dc848649a52'
+commit: '00d4d34bb94d7a2404c3b13bebc992ab93d080ae'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -22,8 +22,24 @@ classes: ''
     <p class="p">The following attributes cascade when set on the <code class="keyword markupname xmlelement">&lt;map&gt;</code> element or when
       set within a map:</p>
     <ul class="ul" id="cascading-in-a-ditamap__ul_f2j_pwn_yl">
-      <li class="li"></li>
-    </ul>
+<li class="li"><code class="keyword markupname xmlatt">@rev</code></li>
+<li class="li"><span class="ph" id="cascading-in-a-ditamap__propsAndSpecializations"><code class="keyword markupname xmlatt">@props</code> and any
+            attribute specialized from <code class="keyword markupname xmlatt">@props</code>, including
+            those integrated by default in the OASIS-provided document-type
+            shells: <code class="keyword markupname xmlatt">@audience</code>,
+              <code class="keyword markupname xmlatt">@deliveryTarget</code>, <code class="keyword markupname xmlatt">@platform</code>,
+              <code class="keyword markupname xmlatt">@product</code>,
+          <code class="keyword markupname xmlatt">@otherprops</code></span></li>
+                                <li class="li"><code class="keyword markupname xmlatt">@linking</code>, <code class="keyword markupname xmlatt">@toc</code>,
+            <code class="keyword markupname xmlatt">@search</code></li>
+                                <li class="li"><code class="keyword markupname xmlatt">@format</code>, <code class="keyword markupname xmlatt">@scope</code>,
+                                                <code class="keyword markupname xmlatt">@type</code></li>
+                                <li class="li"><code class="keyword markupname xmlatt">@xml:lang</code>, <code class="keyword markupname xmlatt">@dir</code>,
+                                                <code class="keyword markupname xmlatt">@translate</code></li>
+                                <li class="li"><code class="keyword markupname xmlatt">@processing-role</code></li>
+                                <li class="li"><code class="keyword markupname xmlatt">@cascade</code></li>
+        <li class="li"><code class="keyword markupname xmlatt">@subjectrefs</code></li>
+                        </ul>
     <p class="p">Cascading is additive for attributes that accept multiple values,
       except when <span style="color:red;" class="ph"><code class="ph codeph">cascade="nomerge"</code> is
         specified.</span> For attributes that take a single value, the value
