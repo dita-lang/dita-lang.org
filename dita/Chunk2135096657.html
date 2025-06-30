@@ -1,0 +1,660 @@
+---
+layout: base.njk
+title: ''
+index: 'toc.html'
+notices: 'resources/oasis-notices.html'
+commit: 'bde344e7039ecd9f977d9f96858dd0e5e4fe1acb'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="toc" role="toc"><ul><li><a href="introduction/dita-release-overview.html">Introduction</a></li><li><a href="archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="archSpec/base/accessibility-and-translation.html">Accessibility and translation</a></li><li><a href="archSpec/base/dita-map-processing.html">DITA map processing</a><ul class="nav nav-list"><li><a href="archSpec/base/dita-maps-and-their-usage.html#dita-maps-and-their-usage">DITA maps and their usage</a></li><li><a href="Chunk367197605.html#Chunk367197605">Subject scheme maps</a></li><li class="active"><a href="Chunk2135096657.html#Chunk2135096657">Cascading metadata</a><ul class="nav nav-list"><li><a href="Chunk2135096657.html#map-processing">Metadata cascading</a></li></ul></li><li><a href="Chunk322766914.html#Chunk322766914">Chunking</a></li></ul></li><li><a href="archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="archSpec/base/behaviors.html">DITA processing</a></li><li><a href="archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a></li><li><a href="langRef/langRef-base.html">Element reference</a></li><li><a href="conformance/conformance.html">Conformance</a></li><li><a href="acknowledgments/acknowledgments.html#r-acknowledgments">Acknowledgments</a></li><li><a href="non-normative/aggregated-RFC-2119-statements.html#aggregated-RFC-2119-statements">Aggregated RFC-2119 statements</a></li><li><a href="archSpec/base/coding-requirements.html#coding-practices">Coding practices for DITA grammar files</a></li><li><a href="non-normative/developing-constraint-and-expansion-modules.html#developing-constraint-and-expansion-modules">Constraint modules</a></li><li><a href="non-normative/expansion-modules.html#expansion-modules">Expansion modules</a></li><li><a href="non-normative/elementsMerged.html#elements">Element-by-element recommendations for translators</a></li><li><a href="non-normative/formatting-expectations.html#formatting-expectations">Formatting expectations</a></li><li><a href="non-normative/migrating-to-dita-2.0.html#migrating-to-dita-2.0">Migrating to DITA 2.0</a></li><li><a href="non-normative/basedoctypes.html#oasisdomains">OASIS grammar files</a></li><li><a href="non-normative/interoperability-considerations.html#nteroperability-considerations">Processing interoperability considerations</a></li><li><a href="non-normative/revision-history.html#revision-history">Revision history</a></li></ul></nav><main role="main" class=""><article role="article" aria-labelledby="ariaid-title1"><article class="nested0" aria-labelledby="ariaid-title1" id="Chunk2135096657"><h1 class="title topictitle1" id="ariaid-title1">Cascading metadata</h1><nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="archSpec/base/dita-map-processing.html" title="Introduction to this chapter to be written later, when content is more stable.">DITA map processing</a></div></div></nav><article class="topic concept nested1" aria-labelledby="ariaid-title2" id="map-processing">
+    <h2 class="title topictitle2" id="ariaid-title2"><span style="color:red;" class="ph">Metadata</span> cascading</h2>
+    <div class="body"><p class="shortdesc">Metadata cascading is the process by which metadata elements
+    and attributes specified for a map or for a topic reference cascade to
+    nested references. This allows metadata properties to be set once and
+      <span style="color:red;" class="ph">apply</span> to an entire map or branch of a
+    map.</p></div>
+<article class="topic concept nested2" aria-labelledby="ariaid-title3" lang="en-us" id="cascading-in-a-ditamap">
+  <h3 class="title topictitle3" id="ariaid-title3"><span class="ph">Cascading of metadata attributes in a DITA map</span></h3>
+  
+  
+  <div class="body conbody"><p class="shortdesc">Certain attributes cascade throughout a map, which facilitates
+    attribute and metadata management. When attributes cascade, they apply
+    to the elements that are children of the element where the attributes
+    were specified. Cascading applies to a containment hierarchy, as
+    opposed to <span style="color:red;" class="ph">a specialization
+    hierarchy</span>.</p>
+    <p class="p">The following attributes cascade when set on the <code class="keyword markupname xmlelement">&lt;map&gt;</code> element or when
+      set within a map:</p>
+    <ul class="ul" id="cascading-in-a-ditamap__ul_f2j_pwn_yl">
+<li class="li"><code class="keyword markupname xmlatt">@rev</code></li>
+<li class="li"><span class="ph" id="cascading-in-a-ditamap__propsAndSpecializations"><code class="keyword markupname xmlatt">@props</code> and any
+            attribute specialized from <code class="keyword markupname xmlatt">@props</code>, including
+            those integrated by default in the OASIS-provided document-type
+            shells: <code class="keyword markupname xmlatt">@audience</code>,
+              <code class="keyword markupname xmlatt">@deliveryTarget</code>, <code class="keyword markupname xmlatt">@platform</code>,
+              <code class="keyword markupname xmlatt">@product</code>,
+          <code class="keyword markupname xmlatt">@otherprops</code></span></li>
+                                <li class="li"><code class="keyword markupname xmlatt">@linking</code>, <code class="keyword markupname xmlatt">@toc</code>,
+            <code class="keyword markupname xmlatt">@search</code></li>
+                                <li class="li"><code class="keyword markupname xmlatt">@format</code>, <code class="keyword markupname xmlatt">@scope</code>,
+                                                <code class="keyword markupname xmlatt">@type</code></li>
+                                <li class="li"><code class="keyword markupname xmlatt">@xml:lang</code>, <code class="keyword markupname xmlatt">@dir</code>,
+                                                <code class="keyword markupname xmlatt">@translate</code></li>
+                                <li class="li"><code class="keyword markupname xmlatt">@processing-role</code></li>
+                                <li class="li"><code class="keyword markupname xmlatt">@cascade</code></li>
+        <li class="li"><code class="keyword markupname xmlatt">@subjectrefs</code></li>
+                        </ul>
+    <p class="p">Cascading is additive for attributes that accept multiple values,
+      except when <span style="color:red;" class="ph"><code class="ph codeph">cascade="nomerge"</code> is
+        specified.</span> For attributes that take a single value, the value
+        <span style="color:red;" class="ph">that is defined on the closest containing
+        element</span> takes effect.</p>
+    <div style="color:red;" class="div">
+      <p class="p">In a relationship table, metadata can be applied to entire rows or
+        columns, as well as individual cells. The metadata cascade operates
+        differently due to the nature of this tabular structure The cascade
+        is not driven by a strict containment hierarchy because
+          <code class="keyword markupname xmlelement">&lt;relcolspec&gt;</code> elements do not contain child
+        elements.</p>
+      <p class="p">The following list illustrates how metadata cascades in a
+        relationship table:</p>
+      <ul class="ul" id="cascading-in-a-ditamap__containment">
+        <li class="li"><code class="keyword markupname xmlelement">&lt;reltable&gt;</code><ul class="ul">
+            <li class="li"><code class="keyword markupname xmlelement">&lt;relcolspec&gt;</code><ul class="ul">
+                <li class="li"><code class="keyword markupname xmlelement">&lt;relrow&gt;</code><ul class="ul" id="cascading-in-a-ditamap__ul_dsk_qj2_nsb">
+                    <li class="li"><code class="keyword markupname xmlelement">&lt;relcell&gt;</code><ul class="ul" id="cascading-in-a-ditamap__ul_pyd_rj2_nsb">
+                        <li class="li"><code class="keyword markupname xmlelement">&lt;topicref&gt;</code></li>
+                      </ul></li>
+                  </ul></li>
+              </ul></li>
+          </ul></li>
+      </ul>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="linklist relref" lang="en-us"><strong>Related reference</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="Chunk1899933261.html#topicmeta" title="Topic metadata is metadata that applies to a topic based on its context in a map.">topicmeta</a></li></ul></div></nav><article class="topic concept nested3" aria-labelledby="ariaid-title4" id="processing-cascading-attributes-in-a-map">
+    <h4 class="title topictitle4" id="ariaid-title4">Processing cascading attributes in a map</h4>
+    
+    <div class="body conbody"><p class="shortdesc">Certain rules apply to processors when they process cascading attributes in a
+        map.</p>
+        <p class="p">When determining the value of an attribute, processors <dfn class="term RFC-2119">MUST</dfn> evaluate each attribute on each
+      individual element in a specific order<span style="color:red;" class="ph">. This</span>
+      order is specified in the following list. Applications <dfn class="term RFC-2119">MUST</dfn> continue through the list until
+      a value is established or until the end of the list is reached, at
+      which point no value is established for the attribute. In essence,
+      the list provides instructions on how processors can construct a map
+      where all attribute values are set and all cascading is complete.</p>
+        <div class="p">For attributes within a map, the following processing order <dfn class="term RFC-2119">MUST</dfn> occur:<ol class="ol" id="processing-cascading-attributes-in-a-map__ol_6eb4fb9c-b56f-4471-bb2d-b183fef5980c">
+                <li class="li" id="processing-cascading-attributes-in-a-map__common-start">The <code class="keyword markupname xmlatt">@conref</code> and <code class="keyword markupname xmlatt">@keyref</code>
+                    attributes are evaluated.</li>
+                <li class="li" id="processing-cascading-attributes-in-a-map__explicit-values">The explicit values specified in the document instance are
+                    evaluated. For example, a <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element with the
+                        <code class="keyword markupname xmlatt">@toc</code> attribute set to "no" will use that value.</li>
+                <li class="li">The default or fixed attribute values are evaluated. For example, the
+                        <code class="keyword markupname xmlatt">@toc</code> attribute on the <code class="keyword markupname xmlelement">&lt;reltable&gt;</code>
+                    element has a default value of "no".</li>
+                <li class="li" id="processing-cascading-attributes-in-a-map__common-end">The default values that are supplied by a controlled values file
+                    are evaluated.</li>
+                <li class="li" id="processing-cascading-attributes-in-a-map__attributes-cascade">The attributes cascade. </li>
+                <li class="li">The processing-supplied default values are applied.</li>
+                <li class="li">After the attributes are resolved within the map, <em class="ph i">any values that do not come
+                        from processing-supplied defaults</em> will cascade to referenced maps.
+                        <p class="p">For example, most processors will supply a default value of
+                            <code class="ph codeph">toc="yes"</code> when no <code class="keyword markupname xmlatt">@toc</code> attribute is
+                        specified. However, a processor-supplied default of
+                            <code class="ph codeph">toc="yes"</code> does not override a value of
+                            <code class="ph codeph">toc="no"</code> that is set on a referenced map. If the
+                            <code class="ph codeph">toc="yes"</code> value is explicitly specified, is given as a
+                        default through a DTD, RNG, or controlled values file, or cascades from a
+                        containing element in the map, it will override a <code class="ph codeph">toc="no"</code>
+                        setting on the referenced map. See <a class="xref" href="Chunk2135096657.html#map-to-map-cascading-of-metadata" title="When a DITA map or map branch is referenced by another DITA map, by default certain rules apply. These rules pertain to the cascading behaviors of attributes, metadata elements, and the roles that are assigned to content , for example, the role of &#34;Chapter&#34; that is assigned by a chapter element. Attributes and elements that cascade within a map generally follow the same rules when cascading from one map to another map, but there are some exceptions and additional rules that apply.">Map-to-map cascading behaviors</a> for more
+                    details.</p></li>
+                <li class="li">Repeat steps <a class="xref" href="Chunk2135096657.html#processing-cascading-attributes-in-a-map__common-start">1</a> to
+                        <a class="xref" href="Chunk2135096657.html#processing-cascading-attributes-in-a-map__common-end">4</a> for each
+                    referenced map.</li>
+                <li class="li">The attributes cascade within each referenced map.</li>
+                <li class="li">The processing-supplied default values are applied within each referenced
+                    map.</li>
+                <li class="li">Repeat the process for maps referenced within the referenced maps.</li>
+            </ol></div>
+        <p class="p">For example, in the case of <code class="ph codeph">&lt;topicref toc="yes"&gt;</code>, applications must
+            stop at item <a class="xref" href="Chunk2135096657.html#processing-cascading-attributes-in-a-map__explicit-values">2</a> in the list; a value is specified for <code class="keyword markupname xmlatt">@toc</code> in the
+            document instance, so <code class="keyword markupname xmlatt">@toc</code> values from containing elements will not
+            cascade to that specific <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element. The
+                <code class="ph codeph">toc="yes"</code> setting on that <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element
+            will cascade to contained elements, provided those elements reach item <a class="xref" href="Chunk2135096657.html#processing-cascading-attributes-in-a-map__attributes-cascade">5</a>
+            when evaluating the <code class="keyword markupname xmlatt">@toc</code> attribute.</p>
+    </div>
+</article><article class="topic concept nested3" aria-labelledby="ariaid-title5" id="merging-of-cascading-attributes">
+    <h4 class="title topictitle4" id="ariaid-title5">Merging of cascading attributes</h4>
+    
+    <div class="body conbody"><p class="shortdesc">The <code class="keyword markupname xmlatt">@cascade</code> attribute can be used to modify
+    the additive nature of attribute cascading<span style="color:red;" class="ph">,
+      although</span> it does not turn off cascading altogether. The
+    attribute has two predefined values: <span class="keyword">merge</span> and
+      <span class="keyword">nomerge</span>.</p>
+        <dl class="dl">
+                                
+                                        <dt class="dt dlterm">merge</dt>
+                                        <dd class="dd"><span style="color:red;" class="ph">Indicates
+              that the metadata attributes cascade, and that </span>the
+            values of the metadata attributes are additive. This is the
+            processing default for the <code class="keyword markupname xmlatt">@cascade</code>
+            attribute.</dd>
+                                
+                                
+                                        <dt class="dt dlterm">nomerge</dt>
+                                        <dd class="dd"><span style="color:red;" class="ph">Indicates
+              that the metadata attributes cascade, but that </span>they are
+            not additive for <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements
+            that specify a different value for a specific metadata
+            attribute. If the cascading value for an attribute is already
+            merged based on multiple ancestor elements, that merged value
+            continues to cascade until a new value is encountered<span style="color:red;" class="ph">. That is,</span> setting
+              <code class="ph codeph">cascade="nomerge"</code> does not undo merging that
+            took place on ancestor elements.</dd>
+                                
+                        </dl>
+    <p class="p">If no value is set for the <code class="keyword markupname xmlatt">@merge</code> attribute and no
+      value cascades from a containing element, processors <dfn class="term RFC-2119">SHOULD</dfn> assume a default of
+        <span class="keyword">merge</span>.</p>
+        <p class="p"><span class="implementation-statement" id="merging-of-cascading-attributes__d2323e468" data-id=""></span>Implementers <dfn class="term RFC-2119">MAY</dfn> define their
+        own custom, implementation-specific tokens for the
+          <code class="keyword markupname xmlatt">@merge</code> attribute. <span class="implementation-statement" id="merging-of-cascading-attributes__d2323t475" data-id=""></span>To avoid name conflicts between
+        implementations or with future additions to the standard,
+        implementation-specific tokens <dfn class="term RFC-2119">SHOULD</dfn> consist of a prefix that gives the name or an
+        abbreviation for the implementation followed by a colon followed by
+        the token or method name. For example, a processor might define the
+        token "appToken:audience" in order to specify cascading and merging
+        behaviors for <strong class="ph b">only</strong> the <code class="keyword markupname xmlatt">@audience</code>
+        attribute.</p>
+    
+        <p class="p"><span class="implementation-statement" id="merging-of-cascading-attributes__d2323e486" data-id=""></span>The predefined values for the <code class="keyword markupname xmlatt">@cascade</code> attribute <dfn class="term RFC-2119">MUST</dfn> precede any implementation-specific tokens, for
+            example, <code class="ph codeph">cascade="merge appToken:audience"</code>.</p>
+    </div>
+</article></article><article class="topic reference nested2" aria-labelledby="ariaid-title6" lang="en-us" id="reconciling-topic-and-map-metadata">
+<h3 class="title topictitle3" id="ariaid-title6"><span class="ph">Reconciling topic and map metadata elements</span></h3>
+
+<div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> element in maps <span style="color:red;" class="ph">can contain</span> numerous metadata elements. These
+    metadata elements <span style="color:red;" class="ph">can</span> have an effect on the
+    parent <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element, any child
+      <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements, and – if a direct child
+    of the <code class="keyword markupname xmlelement">&lt;map&gt;</code> element – on the .</p>
+<section class="section" id="reconciling-topic-and-map-metadata__section"><div class="p">For each element that can be contained in the <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> element, the
+    following table addresses the following questions:<dl class="dl">
+     
+      <dt class="dt dlterm">How does it apply to the topic?</dt>
+      <dd class="dd">This column describes how the metadata specified within the
+                <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> element interacts with
+              the metadata specified in the <span style="color:red;" class="ph">referenced</span> topic. In most cases, the properties are
+              additive. <span style="color:red;" class="ph">For example, when a topic
+                reference in a map contains <code style="color:red;" class="ph codeph">&lt;category&gt;installation&lt;/category&gt;</code>,
+                  <code style="color:red;" class="ph codeph">&lt;category&gt;installation&lt;/category&gt;</code> is
+                added during processing to any metadata that is specified
+                in the topic prolog.</span></dd>
+     
+     
+      <dt class="dt dlterm">Does it cascade to other topics in the map?</dt>
+      <dd class="dd">This column indicates whether the specified metadata <span style="color:red;" class="ph">element</span> cascades to nested
+                <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements. <span style="color:red;" class="ph">For example, when a topic reference in a map
+                contains <code style="color:red;" class="ph codeph">&lt;author&gt;Jane
+                  Doe&lt;/author&gt;</code>, <code style="color:red;" class="ph codeph">&lt;author&gt;Jane Doe&lt;/author&gt;</code> is added during
+                processing to the metadata for all child topic references.
+                Some elements do not cascade.</span></dd>
+     
+     
+      <dt class="dt dlterm">What is the purpose when specified on the <code class="keyword markupname xmlelement">&lt;map&gt;</code> element?</dt>
+      <dd class="dd">The map element <span style="color:red;" class="ph">permits</span> metadata to be
+              specified for the map. This column describes <span style="color:red;" class="ph">the effect that</span> an element has when
+              specified at this level.
+              </dd>
+     
+          
+            <dt style="color:red;" class="dt dlterm">When set on the <code class="keyword markupname xmlelement">&lt;map&gt;</code> element, does
+              it apply to all topics referenced in the map?</dt>
+            <dd style="color:red;" class="dd">When specified on the  <code class="keyword markupname xmlelement">&lt;map&gt;</code> element
+              element, some metadata elements then apply to all the topics
+              that are referenced in the map.</dd>
+          
+    </dl></div></section>
+<table class="table"><caption><span class="table--title-label">Table 1. </span><span class="title"><code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> elements and their properties</span></caption><colgroup><col><col><col><col><col></colgroup><thead class="thead">
+          <tr class="row valign-bottom">
+            <th class="entry colsep-1 rowsep-1" id="reconciling-topic-and-map-metadata__entry__1">Element</th>
+            <th class="entry colsep-1 rowsep-1" id="reconciling-topic-and-map-metadata__entry__2">How does it apply to the topic?</th>
+            <th class="entry colsep-1 rowsep-1" id="reconciling-topic-and-map-metadata__entry__3"><span class="ph">Does it cascade to child <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements?</span></th>
+            <th class="entry colsep-1 rowsep-1" id="reconciling-topic-and-map-metadata__entry__4">What is the purpose when set on the
+                <code class="keyword markupname xmlelement">&lt;map&gt;</code> element?</th>
+            <th class="entry rowsep-1" id="reconciling-topic-and-map-metadata__entry__5">When set on the <code class="keyword markupname xmlelement">&lt;map&gt;</code> element,
+              does it apply to all topics referenced in the map?</th>
+          </tr>
+        </thead><tbody class="tbody">
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__1"><code class="keyword markupname xmlelement">&lt;audience&gt;</code></td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__2">Add to the topic</td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__3">Yes</td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__4">Specify an audience for the
+              map</td>
+            <td class="entry rowsep-1" headers="reconciling-topic-and-map-metadata__entry__5">Yes</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__1"><code class="keyword markupname xmlelement">&lt;author&gt;</code></td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__2">Add to the topic</td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__3">Yes</td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__4">Specify an author for the map</td>
+            <td class="entry rowsep-1" headers="reconciling-topic-and-map-metadata__entry__5">Yes</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__1"><code class="keyword markupname xmlelement">&lt;category&gt;</code></td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__2">Add to the topic</td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__3">Yes</td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__4">Specify a category for the
+              map</td>
+            <td class="entry rowsep-1" headers="reconciling-topic-and-map-metadata__entry__5">Yes</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__1"><code class="keyword markupname xmlelement">&lt;copyright&gt;</code></td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__2">Add to the topic</td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__3">Yes</td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__4">Specify a copyright for the
+              map</td>
+            <td class="entry rowsep-1" headers="reconciling-topic-and-map-metadata__entry__5">Yes</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__1"><code class="keyword markupname xmlelement">&lt;critdates&gt;</code></td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__2">Add to the topic</td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__3">Yes</td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__4">Specify critical dates for the
+              map</td>
+            <td class="entry rowsep-1" headers="reconciling-topic-and-map-metadata__entry__5">Yes</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__1"><code class="keyword markupname xmlelement">&lt;data&gt;</code></td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__2">Add to the topic</td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__3">No, unless specialized for a purpose
+              that cascades</td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__4">No stated purpose</td>
+            <td class="entry rowsep-1" headers="reconciling-topic-and-map-metadata__entry__5">No</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__1"><code class="keyword markupname xmlelement">&lt;foreign&gt;</code></td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__2">Add to the topic</td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__3">No, unless specialized for a purpose
+              that cascades</td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__4">No stated purpose</td>
+            <td class="entry rowsep-1" headers="reconciling-topic-and-map-metadata__entry__5">No</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__1"><code class="keyword markupname xmlelement">&lt;keytext&gt;</code></td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__2">Not added to the topic</td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__3">No</td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__4">No stated purpose</td>
+            <td class="entry rowsep-1" headers="reconciling-topic-and-map-metadata__entry__5">No</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__1"><code class="keyword markupname xmlelement">&lt;keywords&gt;</code></td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__2">Add to the topic</td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__3">No</td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__4">No stated purpose</td>
+            <td class="entry rowsep-1" headers="reconciling-topic-and-map-metadata__entry__5">No</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__1"><code class="keyword markupname xmlelement">&lt;metadata&gt;</code></td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__2">Add to the topic</td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__3">Yes</td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__4">Specify metadata for the map</td>
+            <td class="entry rowsep-1" headers="reconciling-topic-and-map-metadata__entry__5">Yes</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__1"><code class="keyword markupname xmlelement">&lt;othermeta&gt;</code></td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__2">Add to the topic</td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__3">No</td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__4">Define metadata for the map</td>
+            <td class="entry rowsep-1" headers="reconciling-topic-and-map-metadata__entry__5">Yes</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__1"><code class="keyword markupname xmlelement">&lt;permissions&gt;</code></td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__2">Add to the topic</td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__3">Yes</td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__4">Specify permissions for the
+              map</td>
+            <td class="entry rowsep-1" headers="reconciling-topic-and-map-metadata__entry__5">Yes</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__1"><code class="keyword markupname xmlelement">&lt;prodinfo&gt;</code></td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__2">Add to the topic</td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__3">Yes</td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__4">Specify product info for the
+              map</td>
+            <td class="entry rowsep-1" headers="reconciling-topic-and-map-metadata__entry__5">Yes</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__1"><code class="keyword markupname xmlelement">&lt;publisher&gt;</code></td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__2">Add to the topic</td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__3">Yes</td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__4">Specify a publisher for the
+              map</td>
+            <td class="entry rowsep-1" headers="reconciling-topic-and-map-metadata__entry__5">No</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__1"><code class="keyword markupname xmlelement">&lt;resourceid&gt;</code></td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__2">Add to the topic</td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__3">No</td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__4">Specify a resource ID for the map
+              itself</td>
+            <td class="entry rowsep-1" headers="reconciling-topic-and-map-metadata__entry__5">No</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__1"><code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code></td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__2">Applies only to links created based on
+              this occurrence in the map</td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__3">No</td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__4">Provide a description of the
+              map</td>
+            <td class="entry rowsep-1" headers="reconciling-topic-and-map-metadata__entry__5">No</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__1"><code class="keyword markupname xmlelement">&lt;source&gt;</code></td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__2">Add to the topic</td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__3">No</td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__4">Specify a source for the map</td>
+            <td class="entry rowsep-1" headers="reconciling-topic-and-map-metadata__entry__5">No</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__1"><code class="keyword markupname xmlelement">&lt;titlealt&gt;</code></td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__2">Add to the topic before its
+                <code class="keyword markupname xmlelement">&lt;titlealt&gt;</code> elements</td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__3">No</td>
+            <td class="entry colsep-1 rowsep-1" headers="reconciling-topic-and-map-metadata__entry__4">Specify an alternative title for the
+              map</td>
+            <td class="entry rowsep-1" headers="reconciling-topic-and-map-metadata__entry__5">No</td>
+          </tr>
+          <tr class="row">
+            <td class="entry colsep-1" headers="reconciling-topic-and-map-metadata__entry__1"><code class="keyword markupname xmlelement">&lt;ux-window&gt;</code></td>
+            <td class="entry colsep-1" headers="reconciling-topic-and-map-metadata__entry__2">Not added to the topic</td>
+            <td class="entry colsep-1" headers="reconciling-topic-and-map-metadata__entry__3">No</td>
+            <td class="entry colsep-1" headers="reconciling-topic-and-map-metadata__entry__4">Definitions are global, so setting at
+              map level is equivalent to setting anywhere else.</td>
+            <td class="entry" headers="reconciling-topic-and-map-metadata__entry__5">No</td>
+          </tr>
+        </tbody></table>
+</div>
+<nav role="navigation" class="related-links"><div class="linklist relref" lang="en-us"><strong>Related reference</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="Chunk1899933261.html#topicmeta" title="Topic metadata is metadata that applies to a topic based on its context in a map.">topicmeta</a></li></ul></div></nav></article><article class="topic concept nested2" aria-labelledby="ariaid-title7" lang="en-us" id="map-to-map-cascading-of-metadata">
+    <h3 class="title topictitle3" id="ariaid-title7">Map-to-map cascading behaviors</h3>
+    <div class="body"><p class="shortdesc">When a DITA map or <span style="color:red;" class="ph">map branch</span> is
+    referenced by another DITA map, by default certain rules apply. These
+    rules pertain to the cascading behaviors of attributes, metadata
+    elements, and <span style="color:red;" class="ph">the</span> roles <span style="color:red;" class="ph">that
+      are</span> assigned to content <span style="color:red;" class="ph">, for</span> example,
+    the role of "Chapter" <span style="color:red;" class="ph">that is</span> assigned by a
+      <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> element. Attributes and elements
+    that cascade within a map generally follow the same rules when
+    cascading from one map to another map, but there are some exceptions
+    and additional rules that apply.</p></div>
+<article class="topic concept nested3" aria-labelledby="ariaid-title8" lang="en-us" id="cascading-of-attributes-from-map-to-map">
+  <h4 class="title topictitle4" id="ariaid-title8">Cascading of attributes from map to map</h4>
+  
+  
+  <div class="body conbody"><p class="shortdesc">Certain <span style="color:red;" class="ph">attributes</span> cascade from map to
+    map.</p>
+    <p class="p">The following attributes cascade from map to map:</p>
+    <ul class="ul" id="cascading-of-attributes-from-map-to-map__cascading-attributes">
+      <li class="li"><code class="keyword markupname xmlatt">@rev</code></li>
+      <li class="li"><span class="ph"><code class="keyword markupname xmlatt">@props</code> and any
+            attribute specialized from <code class="keyword markupname xmlatt">@props</code>, including
+            those integrated by default in the OASIS-provided document-type
+            shells: <code class="keyword markupname xmlatt">@audience</code>,
+              <code class="keyword markupname xmlatt">@deliveryTarget</code>, <code class="keyword markupname xmlatt">@platform</code>,
+              <code class="keyword markupname xmlatt">@product</code>,
+          <code class="keyword markupname xmlatt">@otherprops</code></span></li>
+      <li class="li"><code class="keyword markupname xmlatt">@linking</code>, <code class="keyword markupname xmlatt">@toc</code>,
+          <code class="keyword markupname xmlatt">@search</code></li>
+      <li class="li"><code class="keyword markupname xmlatt">@type</code></li>
+      <li class="li"><code class="keyword markupname xmlatt">@translate</code></li>
+      <li class="li"><code class="keyword markupname xmlatt">@processing-role</code></li>
+      <li class="li"><code class="keyword markupname xmlatt">@cascade</code></li>
+      <li class="li"><code class="keyword markupname xmlatt">@subjectrefs</code></li>
+    </ul>
+    <p class="p">As with values that cascade within a map, the cascading is additive
+      if the attribute permits multiple values<span style="color:red;" class="ph">,
+      </span>such as <code class="keyword markupname xmlatt">@audience</code>. <span style="color:red;" class="ph">For
+        attributes that take a single value, the value that is defined on
+        the closest containing element takes effect.</span></p>
+    <div class="p">The following attributes do not cascade from map to map<dl class="dl">
+        
+          <dt class="dt dlterm"><code class="keyword markupname xmlatt">@format</code></dt>
+          <dd class="dd">The <code class="keyword markupname xmlatt">@format</code> attribute is set to
+              <span class="keyword">ditamap</span> when <span style="color:red;" class="ph">a map or
+              map branch is referenced</span>, so it cannot cascade through
+            to the referenced map.</dd>
+        
+        
+          <dt class="dt dlterm"><code class="keyword markupname xmlatt">@scope</code></dt>
+          <dd class="dd">The value of the <code class="keyword markupname xmlatt">@scope</code> attribute describes
+            the map itself, rather than the content. For example, when the
+              <code class="keyword markupname xmlatt">@scope</code> attribute is set to
+              <span class="keyword">external</span>, it indicates that the referenced
+            map itself is external and unavailable, so the value cannot
+            cascade into that referenced map.</dd>
+        
+        
+          <dt class="dt dlterm"><code class="keyword markupname xmlatt">@xml:lang</code> and <code class="keyword markupname xmlatt">@dir</code></dt>
+          <dd class="dd">Cascading behavior for <code class="keyword markupname xmlatt">@xml:lang</code> is defined
+            in <a class="xref" href="Chunk149695526.html#xmllang" title="The xml:lang attribute specifies the language and optional locale of the content that is contained in an element. The xml:lang attribute is described in the XML Recommendation.">The xml:lang attribute</a>. The <code class="keyword markupname xmlatt">@dir</code>
+            attribute follows the same rules as
+            <code class="keyword markupname xmlatt">@xml:lang</code>.</dd>
+        
+      </dl></div>
+    <p class="p"><span style="color:red;" class="ph">While the <code class="keyword markupname xmlatt">@class</code> attribute is
+        unique and does not cascade, the value of the attribute</span> is
+      used to determine the processing roles that cascade from map to map.
+      See <a class="xref" href="archSpec/base/cascading-of-roles-in-specialized-maps.html" title="When specialized topicref elements, such as chapter or mapref, reference a map, they typically imply a semantic role for the referenced content.">Cascading of roles from map to map</a> for
+      more information.</p>
+  </div>
+</article><article class="topic concept nested3" aria-labelledby="ariaid-title9" lang="en-us" id="cascading-of-metadata-elements-from-map-to-map">
+    <h4 class="title topictitle4" id="ariaid-title9">Cascading of metadata elements from map to map</h4>
+    
+    
+    <div class="body conbody"><p class="shortdesc">Elements that are contained within <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> elements follow
+        the same rules for cascading from map to map as the rules that apply within a single DITA
+        map.</p>
+        <p class="p">For a complete list of which elements cascade within a map, see the column "<span class="ph">Does it cascade to child <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements?</span>" in the topic <a class="xref" href="Chunk2135096657.html#reconciling-topic-and-map-metadata" title="The topicmeta element in maps can contain numerous metadata elements. These metadata elements can have an effect on the parent topicref element, any child topicref elements, and – if a direct child of the map element – on the .">Reconciling topic and map metadata elements</a>.</p>
+    <div class="note note note_note non-normative"><span class="note__title">Note<span class="non-normative-label"> (non-normative)</span>:</span> <div class="note__body">It is possible that a specialization might define metadata that
+      is intended to replace rather than add to metadata in the referenced
+      map, but <span style="color:red;" class="ph">DITA, by default, does not have a
+        mechanism to specify this behavior.</span></div></div>
+    </div>
+</article></article><article class="topic concept nested2 non-normative" aria-labelledby="ariaid-title10" id="cascadeexamples">
+  <h3 class="title topictitle3" id="ariaid-title10">Examples of metadata cascading</h3>
+  
+  
+  <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">These examples illustrate the processing expectations for cascading metadata. The
+    processing examples use either before and after sample markup or expanded syntax that shows the
+    equivalent markup withough cascading.</p></div>
+<article class="topic concept nested3 non-normative" aria-labelledby="ariaid-title11" id="cascadeelements">
+  <h4 class="title topictitle4" id="ariaid-title11">Example: How <span style="color:red;" class="ph">map-level</span> metadata elements
+    cascade to <span style="color:red;" class="ph">the referenced</span> topics</h4>
+  
+  
+  <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">In this scenario, elements <span style="color:red;" class="ph">located in
+      the</span><code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code><span style="color:red;" class="ph"> element
+      for a map</span> cascade <span class="ph">to the referenced topics</span>.</p>
+    <div class="p">The following code sample illustrates how an information architect
+      can apply certain metadata to all the DITA topics in a
+      map:<pre class="pre codeblock" id="cascadeelements__codeblock_tgb_d45_nsb"><code>&lt;map xml:lang="en-us"&gt;
+  &lt;title&gt;DITA maps&lt;/title&gt;
+  &lt;topicmeta&gt;
+    &lt;author&gt;Kristen James Eberlein&lt;/author&gt;
+    &lt;copyright&gt;
+      &lt;copyryear year="2020"/&gt;
+	&lt;copyrholder&gt;OASIS&lt;/copyrholder&gt;
+    &lt;/copyright&gt;
+  &lt;/topicmeta&gt;
+  &lt;topicref href="dita-maps.dita"&gt;
+    &lt;topicref href="definition_ditamaps.dita"/&gt;
+    &lt;topicref href="purpose_ditamaps.dita"/&gt;
+    &lt;!-- ... --&gt;
+  &lt;/topicref&gt;
+&lt;/map&gt;</code></pre></div>
+    <p class="p">The author and copyright information cascades to each of the DITA
+      topics <span style="color:red;" class="ph">that are</span> referenced in the DITA map.
+      When the DITA map is processed to HTML5, for example, the author and
+      copyright metadata apply to each <span style="color:red;" class="ph">generated</span>
+      HTML5 file.</p>
+  </div>
+</article><article class="topic concept nested3 non-normative" aria-labelledby="ariaid-title12" id="cascadeelementsmaptomap">
+    <h4 class="title topictitle4" id="ariaid-title12">Example: How <span style="color:red;" class="ph">metadata</span> elements cascade
+    from one map to another</h4>
+    
+    
+  <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">In this scenario, <span style="color:red;" class="ph">a metadata element that
+      is located in a map reference cascades to the topics that are
+      referenced in</span> a nested map.</p>
+    <div class="p">Assume the following references in
+      <span class="ph filepath">test.ditamap</span>:<pre class="pre codeblock"><code>&lt;map&gt;
+  &lt;topicref href="a.ditamap" format="ditamap" toc="no"/&gt;
+  &lt;mapref href="b.ditamap" audience="developer"/&gt;
+  &lt;mapref href="c.ditamap#branch2" platform="myPlatform"/&gt;
+  <span class="ph">&lt;mapref href="d.ditamap" subjectrefs="puzzles"/&gt;</span>
+&lt;/map&gt;</code></pre></div>
+    <ul class="ul">
+      <li class="li">The map <span class="ph filepath">a.ditamap</span> is treated as if
+          <code class="ph codeph">toc="no"</code> is specified on the root
+          <code class="keyword markupname xmlelement">&lt;map&gt;</code> element. This means that the topics
+        that are referenced by <span class="ph filepath">a.ditamap</span> do not appear
+        in the navigation generated by <span class="ph filepath">test.ditamap</span>,
+        except for branches within the map that explicitly set
+          <code class="ph codeph">toc="yes"</code>.</li>
+      <li class="li">The map <span class="ph filepath">b.ditamap</span> is treated as if
+          <code class="ph codeph">audience="developer"</code> is set on the root
+          <code class="keyword markupname xmlelement">&lt;map&gt;</code> element. If the
+          <code class="keyword markupname xmlatt">@audience</code> attribute is already set on the root
+          <code class="keyword markupname xmlelement">&lt;map&gt;</code> element within
+          <span class="ph filepath">b.ditamap</span>, the value
+          <span class="keyword">developer</span> is added to any existing
+        values.</li>
+      <li class="li">The element with <code class="ph codeph">id="branch2"</code> within the map
+          <span class="ph filepath">c.ditamap</span> is treated as if
+          <code class="ph codeph">platform="myPlatform"</code> is specified on that
+        element. If the <code class="keyword markupname xmlatt">@platform</code> attribute is already
+        specified on the element with <code class="ph codeph">id="branch"</code>, the
+          value<span class="keyword">myPlatform</span> is added to existing
+        values.</li>
+      <li class="li">The map <span class="ph filepath">d.ditamap</span> is treated as if
+          <code class="ph codeph">subjectrefs="puzzles"</code> is set on the root
+          <code class="keyword markupname xmlelement">&lt;map&gt;</code> element. If the
+          <code class="keyword markupname xmlatt">@subjectrefs</code> attribute is already set on the root
+          <code class="keyword markupname xmlelement">&lt;map&gt;</code> element within
+          <span class="ph filepath">d.ditamap</span>, the value
+          <span class="keyword">puzzles</span> is added to any existing values.</li>
+    </ul>
+  </div>
+</article><article class="topic concept nested3 non-normative" aria-labelledby="ariaid-title13" id="cascadeattributesmaptomap">
+  <h4 class="title topictitle4" id="ariaid-title13">Example: How attributes cascade from one map to another</h4>
+  
+  
+  <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">In this scenario, attributes in one map cascade to a nested map.</p>
+    <div class="p">Assume the following references in
+      <span class="ph filepath">test.ditamap</span>:<pre class="pre codeblock" id="cascadeattributesmaptomap__codeblock_sx1_fp5_nsb"><code>&lt;map&gt;
+  &lt;topicref href="a.ditamap" format="ditamap" toc="no"/&gt;
+  &lt;mapref   href="b.ditamap" audience="developer"/&gt;
+  &lt;mapref   href="c.ditamap#branch2" platform="myPlatform"/&gt;
+&lt;/map&gt;</code></pre></div>
+    <ul class="ul" id="cascadeattributesmaptomap__ul_vx1_fp5_nsb">
+      <li class="li">The map <span class="ph filepath">a.ditamap</span> is treated as if
+          <code class="ph codeph">toc="no"</code> is specified on the root
+          <code class="keyword markupname xmlelement">&lt;map&gt;</code> element. This means that the topics
+        that are referenced by <span class="ph filepath">a.ditamap</span> do not appear
+        in the navigation generated by <span class="ph filepath">test.ditamap</span>,
+        except for branches within the map that explicitly set
+          <code class="ph codeph">toc="yes"</code>.</li>
+      <li class="li">The map <span class="ph filepath">b.ditamap</span> is treated as if
+          <code class="ph codeph">audience="developer"</code> is set on the root <code class="keyword markupname xmlelement">&lt;map&gt;</code>
+        element. If the <code class="keyword markupname xmlatt">@audience</code> attribute is already set on the root
+          <code class="keyword markupname xmlelement">&lt;map&gt;</code> element within <span class="ph filepath">b.ditamap</span>, the value
+        "developer" is added to any existing values.</li>
+      <li class="li">The element with <code class="ph codeph">id="branch2"</code> within the map
+          <span class="ph filepath">c.ditamap</span> is treated as if <code class="ph codeph">platform="myPlatform"</code> is
+        specified on that element. If the <code class="keyword markupname xmlatt">@platform</code> attribute is already specified
+        on the element with <code class="ph codeph">id="branch"</code>, the value<span class="keyword">myPlatform</span> is
+        added to existing values.</li>
+    </ul>
+  </div>
+</article><article class="topic concept nested3 non-normative" aria-labelledby="ariaid-title14" id="cascadeattribute">
+  <h4 class="title topictitle4" id="ariaid-title14">Example: How <span style="color:red;" class="ph">the</span>
+    <code class="keyword markupname xmlatt">@cascade</code>
+    <span style="color:red;" class="ph">attribute</span> affects attribute cascading</h4>
+  
+  
+  <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">In this scenario, the <code class="keyword markupname xmlatt">@cascade</code> attribute is used to modify how metadata
+    attributes cascade within a map.</p>
+    <figure class="fig fignone non-normative" id="cascadeattribute__fig_z5z_mg5_nsb"><figcaption><span class="fig--title-label">Figure 1. </span>Example of <code class="ph codeph">cascade="merge"</code></figcaption>
+      
+      <div class="p">Consider the following code
+        example:<pre class="pre codeblock" id="cascadeattribute__codeblock_ptk_mg5_nsb"><code>&lt;map audience="a b" cascade="merge"&gt;
+     &lt;topicref href="topic.dita" audience="c"/&gt;
+&lt;/map&gt;
+</code></pre></div>
+      <p class="p">In this map, the <code class="ph codeph">cascade="merge"</code> attribute instructs a processor to merge
+        attribute values while cascading. With <code class="keyword markupname xmlatt">@audience</code> specified on both the
+          <code class="keyword markupname xmlelement">&lt;map&gt;</code> element and the <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element,
+        the effective <code class="keyword markupname xmlatt">@audience</code> attribute value for the reference to
+          <span class="ph filepath">topic.dita</span> is <span class="keyword">a b c</span>.</p>
+    </figure>
+    <figure class="fig fignone non-normative" id="cascadeattribute__fig_vjm_yg5_nsb"><figcaption><span class="fig--title-label">Figure 2. </span>Example of <code class="ph codeph">cascade="nomerge"</code></figcaption>
+      
+      <div class="p">Consider the following code
+        example:<pre class="pre codeblock" id="cascadeattribute__codeblock_qtk_mg5_nsb"><code>&lt;map audience="a b" cascade="nomerge"&gt;
+     &lt;topicref href="topic.dita" audience="c"/&gt;
+&lt;/map&gt;
+</code></pre></div>
+      <p class="p">In this map, the <code class="ph codeph">cascade="nomerge"</code> attribute instructs a processor
+          <em class="ph i">not</em> to merge attribute values while cascading. With <code class="keyword markupname xmlatt">@audience</code>
+        specified on both the <code class="keyword markupname xmlelement">&lt;map&gt;</code> element and the
+          <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element, the effective <code class="keyword markupname xmlatt">@audience</code>
+        attribute value on the reference to <span class="ph filepath">topic.dita</span> is not merged with the
+        value from the map and remains <span class="keyword">c</span>.</p>
+    </figure>
+    <figure class="fig fignone non-normative" id="cascadeattribute__fig_wl4_3h5_nsb"><figcaption><span class="fig--title-label">Figure 3. </span>Example <span style="color:red;" class="ph">of c</span>hanging the
+          <code class="keyword markupname xmlatt">@cascade</code> value within the map</figcaption>
+      
+      <div class="p">Consider the following code
+        example:<pre class="pre codeblock" id="cascadeattribute__codeblock_rcw_lh5_nsb"><code>&lt;map platform="a" product="x" cascade="merge"&gt;
+  &lt;topicref href="one.dita" platform="b" product="y"&gt;
+    <span style="color:red;" class="ph">&lt;topicref href="two.dita"&gt;
+      &lt;topicref href="three.dita" cascade="nomerge" product="z"&gt;
+        &lt;topicref href="four.dita"/&gt;
+      &lt;/topicref&gt;
+    &lt;/topicref&gt;</span>
+  &lt;/topicref&gt;
+&lt;/map&gt;</code></pre></div>
+      <p class="p">In this map, the <code class="keyword markupname xmlatt">@cascade</code> attribute is set to <span class="keyword">merge</span> at
+        the map level but changes to <span class="keyword">nomerge</span> on a topic reference.</p>
+      <ul class="ul" id="cascadeattribute__ul_sxj_f35_nsb">
+        <li class="li">For the <span style="color:red;" class="ph">topic</span> reference to <span class="ph filepath">one.dita</span>,
+            <code class="ph codeph">cascade="merge"</code>
+          <span style="color:red;" class="ph">is specified</span>. This results in an effective
+            <code class="keyword markupname xmlatt">@platform</code> value of <span class="keyword">a b</span> and an effective
+            <code class="keyword markupname xmlatt">@product</code> value of <span style="color:red;" class="keyword">x y</span>.</li>
+        <li style="color:red;" class="li">The topic reference to <span class="ph filepath">two.dita</span> does not specify any
+          additional attributes. The effective values for the <code class="keyword markupname xmlatt">@platform</code> and
+            <code class="keyword markupname xmlatt">@product</code> attributes are the same as those on the parent topic reference
+          to <span class="ph filepath">one.dita</span>. The effective value of of the <code class="keyword markupname xmlatt">@platform</code>
+          attribute is <span class="keyword">a b</span>, and the effective value for the
+            <code class="keyword markupname xmlatt">@product</code> attribute is <span class="keyword">x y</span>.</li>
+        <li class="li">The <span style="color:red;" class="ph">topic</span> reference to <span style="color:red;" class="ph filepath">three.dita</span> specifies <code class="ph codeph">cascade="nomerge"</code>, so attribute values
+          from other elements do not merge with anything specified on <span style="color:red;" class="ph">the
+            topic</span> reference. The <code class="keyword markupname xmlatt">@platform</code> attribute is not specified, so the
+          effective value is <span class="keyword">a b</span>, which still cascades from the parent element.
+          The <code class="keyword markupname xmlatt">@product</code> value does not merge with values from the parent, so the
+          effective value is <span class="keyword">z</span>.</li>
+        <li style="color:red;" class="li">The topic reference to <span class="ph filepath">four.dita</span> does not specify
+          any additional attributes. The effective values for the <code class="keyword markupname xmlatt">@platform</code> and
+            <code class="keyword markupname xmlatt">@product</code> attributes are the same as those on the parent topic reference
+          to <span class="ph filepath">three.dita</span>. The effective value of of the
+            <code class="keyword markupname xmlatt">@platform</code> attribute is <span class="keyword">a b</span>, and the effective value
+          for the <code class="keyword markupname xmlatt">@product</code> attribute is <span class="keyword">z</span>.</li>
+      </ul>
+    </figure>
+  </div>
+</article></article></article></article><aside class="section-toc" role="aside"></aside></article></main>
