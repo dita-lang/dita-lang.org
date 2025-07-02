@@ -1,0 +1,397 @@
+---
+layout: base.njk
+title: ''
+index: 'toc.html'
+notices: 'resources/oasis-notices.html'
+commit: 'a894a4ded591e16bbcc715b6b75a55f802fe2105'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="toc" role="toc"><ul><li><a href="introduction/dita-release-overview.html">Introduction</a></li><li><a href="archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="archSpec/base/accessibility-and-translation.html">Accessibility and translation</a></li><li><a href="archSpec/base/dita-map-processing.html">DITA map processing</a></li><li><a href="archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="archSpec/base/behaviors.html">DITA processing</a><ul class="nav nav-list"><li><a href="archSpec/base/navigation.html#navigation">Navigation</a></li><li class="active"><a href="Chunk1519247558.html#Chunk1519247558">Indexes</a><ul class="nav nav-list"><li><a href="Chunk1519247558.html#indexes">Indexes</a></li></ul></li><li><a href="Chunk2016079639.html#Chunk2016079639">Content reference (conref)</a></li><li><a href="Chunk328928412.html#Chunk328928412">Conditional processing</a></li><li><a href="Chunk1607176693.html#Chunk1607176693">Branch filtering</a></li><li><a href="archSpec/base/sort-as-processing.html#sort-as-processing">Sorting</a></li><li><a href="archSpec/base/determining-effective-attribute-values.html#concept_afm_sz2_t3b">Determining effective attribute values</a></li></ul></li><li><a href="archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a></li><li><a href="langRef/langRef-base.html">Element reference</a></li><li><a href="conformance/conformance.html">Conformance</a></li><li><a href="acknowledgments/acknowledgments.html#r-acknowledgments">Acknowledgments</a></li><li><a href="non-normative/aggregated-RFC-2119-statements.html#aggregated-RFC-2119-statements">Aggregated RFC-2119 statements</a></li><li><a href="archSpec/base/coding-requirements.html#coding-practices">Coding practices for DITA grammar files</a></li><li><a href="non-normative/developing-constraint-and-expansion-modules.html#developing-constraint-and-expansion-modules">Constraint modules</a></li><li><a href="non-normative/expansion-modules.html#expansion-modules">Expansion modules</a></li><li><a href="non-normative/elementsMerged.html#elements">Element-by-element recommendations for translators</a></li><li><a href="non-normative/formatting-expectations.html#formatting-expectations">Formatting expectations</a></li><li><a href="non-normative/migrating-to-dita-2.0.html#migrating-to-dita-2.0">Migrating to DITA 2.0</a></li><li><a href="non-normative/basedoctypes.html#oasisdomains">OASIS grammar files</a></li><li><a href="non-normative/interoperability-considerations.html#nteroperability-considerations">Processing interoperability considerations</a></li><li><a href="non-normative/revision-history.html#revision-history">Revision history</a></li></ul></nav><main role="main" class=""><article role="article" aria-labelledby="ariaid-title1"><article class="nested0" aria-labelledby="ariaid-title1" id="Chunk1519247558"><h1 class="title topictitle1" id="ariaid-title1">Indexes</h1><nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="archSpec/base/behaviors.html" title="DITA processing is affected by a number of factors, including attributes that indicate the set of vocabulary and constraint modules on which a DITA document depends; navigation; linking; content reuse (using direct or indirect addressing); conditional processing; branch filtering; chunking; and more. In addition, translation of DITA content is expedited through the use of the dir, translate, and xml:lang attributes.">DITA processing</a></div></div></nav><article class="topic concept nested1" aria-labelledby="ariaid-title2" lang="en-us" id="indexes">
+ <h2 class="title topictitle2" id="ariaid-title2">Indexes</h2>
+ <div class="body"><p class="shortdesc">Processors can generate <span style="color:red;" class="ph">indexes</span> from the content of indexing elements.</p></div>
+<article class="topic nested2" aria-labelledby="ariaid-title3" id="indexoverview">
+  <h3 class="title topictitle3" id="ariaid-title3">Index overview</h3>
+  
+  <div class="body"><p class="shortdesc">DITA provides several elements to enable indexing. Whether and
+    how an index is rendered will vary based on implementation decisions
+    and rendering formats.</p>
+    <p class="p">Here are some definitions:</p>
+    <ul class="ul">
+      <li class="li">An <dfn class="term">index</dfn> is a mapping from
+          <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements to locations in the
+        DITA content.</li>
+      <li class="li">A <dfn class="term">generated index</dfn> is a mapping of index terms to
+        rendered locations.</li>
+    </ul>
+    <p class="p">While DITA provides several elements that support indexing, how
+      those elements are used will vary by implementation.</p>
+    <ul class="ul">
+      <li class="li">A publishing format like PDF might use a back-of-the-book style
+        index with page numbers, which typically involves merging index
+        elements and <span style="color:red;" class="ph">generating</span> page
+        numbers.</li>
+      <li class="li">Another publishing format might have no rendered index, but it
+        would instead use the content of index elements to help weight
+        search results.</li>
+      <li class="li">Some implementations might choose to supplement a generated index
+        with additional content, such as treating a specialized
+          <code class="keyword markupname xmlelement">&lt;keyword&gt;</code> element as both normal content
+        and an index entry.</li>
+      <li class="li">Implementations might have different ways to render indexing edge
+        cases, based on either implementation capabilities or style
+        preferences.</li>
+    </ul>
+    <p class="p">While DITA defines markup for indexing and specifies exactly the
+      point to which an <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> refers, it
+      cannot force DITA documents to use consistent patterns that work for
+      all formats. Implementations <span style="color:red;" class="ph">should
+        consider edge cases and how to treat them.</span></p>
+    <div class="p">The following list includes some of the conditions that
+      implementations might want to be aware of when considering how to
+      generate an index:<ul class="ul">
+        <li class="li">Index processors typically ignore leading <span style="color:red;" class="ph">and</span> trailing whitespace
+          characters.</li>
+        <li class="li">Processors might want to treat two entries separately if they
+          are defined with different <span style="color:red;" class="ph">capitalization</span>.</li>
+        <li class="li">Processors need to determine how to handle nested markup, such
+          as an <code class="keyword markupname xmlelement">&lt;keyword&gt;</code>
+          <span style="color:red;" class="ph">element that is located within an
+              <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element.</span></li>
+        <li class="li">Because <code class="keyword markupname xmlelement">&lt;index-see&gt;</code> is used to refer to
+          a term that is used <em class="ph i">instead of</em> the current entry,
+          processors should consider how to handle a case where an index
+          term is used both as a page locator and with an
+            <code class="keyword markupname xmlelement">&lt;index-see&gt;</code>
+          <span style="color:red;" class="ph">element</span> for redirection.</li>
+        <li class="li">Similarly, processors should consider how to handle <span style="color:red;" class="ph">the</span> case where an index term is
+          defined with both an <code class="keyword markupname xmlelement">&lt;index-see&gt;</code> and an
+            <code class="keyword markupname xmlelement">&lt;index-see-also&gt;</code> element.</li>
+      </ul></div>
+  </div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title4" id="index-elements">
+    <h3 class="title topictitle3" id="ariaid-title4">Index elements</h3>
+    
+    
+    <div class="body conbody"><p class="shortdesc">The <span style="color:red;" class="ph">contents</span> of
+      <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements provides the text for the
+    entries in <span style="color:red;" class="ph">an index</span>.
+      <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements can be nested to create
+      <span style="color:red;" class="ph">additional levels of indexing, such as</span>
+    secondary and tertiary index entries. </p>
+        <p class="p">The following elements contain information that processors <span style="color:red;" class="ph">can</span> use to generate indexes:</p>
+        <dl class="dl">
+            
+                <dt class="dt dlterm"><code class="keyword markupname xmlelement">&lt;indexterm&gt;</code></dt>
+                <dd class="dd"><span style="color:red;" class="ph">Defines a term that can
+            contribute to an index.</span>
+          <span style="color:red;" class="ph">Matching values of
+              <code class="keyword markupname xmlatt">@start</code> and <code class="keyword markupname xmlatt">@end</code> attributes on
+              <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements can specify an
+            index range.</span></dd>
+            
+            
+                <dt class="dt dlterm"><code class="keyword markupname xmlelement">&lt;index-see&gt;</code></dt>
+                <dd class="dd"><span style="color:red;" class="ph">Defines a term
+            to use as a <dfn class="term">see reference</dfn>.</span> See references
+          direct a reader to the preferred term.</dd>
+            
+            
+                <dt class="dt dlterm"><code class="keyword markupname xmlelement">&lt;index-see-also&gt;</code></dt>
+                <dd class="dd"><span style="color:red;" class="ph">Defines a term
+            to use as a <dfn class="term">see also reference</dfn>.</span> See also
+          references direct a reader to an alternate index entry for
+          additional information.</dd>
+            
+        </dl>
+        <p class="p">How the index elements are combined, the location of
+        <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements, and the hierarchy of
+      the DITA maps all <span style="color:red;" class="ph">affect</span> how the index
+      elements are processed and the <span style="color:red;" class="ph">index entries
+        that are generated</span>.</p>
+    </div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title5" id="location-of-indexterm-elements">
+    <h3 class="title topictitle3" id="ariaid-title5">Location of <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements</h3>
+    
+    
+    <div class="body conbody"><p class="shortdesc"><code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements can occur in topic prologs, <span class="ph">anywhere else in DITA topics</span>, and in DITA maps.</p>
+    <p style="color:red;" class="p">The location of an
+        <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element determines the point in
+      the document that the element references.</p>
+        <dl class="dl">
+            
+                <dt class="dt dlterm">Topic prologs</dt>
+                <dd class="dd">An <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element that is located in a topic prolog
+                    is a point reference to the title of the topic. <span class="ph">If an
+                            <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element has an <code class="keyword markupname xmlatt">@end</code>
+                        attribute, it is a point reference to the <span style="color:red;" class="ph">end of
+                            the topic, including any sub-topics</span>.</span></dd>
+            
+            
+                <dt class="dt dlterm">Anywhere else in a DITA topic</dt>
+                <dd class="dd">An <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element that is
+          located in a topic (and not <span style="color:red;" class="ph">in</span>
+          the topic prolog) is a point reference to the location where the
+            <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element occurs.</dd>
+            
+            
+                <dt class="dt dlterm">DITA maps</dt>
+                <dd class="dd">An <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element that is
+          contained <span style="color:red;" class="ph">within</span> a
+            <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element is a point reference
+          to the title of the topic. <span class="ph">If an
+              <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element has an
+              <code class="keyword markupname xmlatt">@end</code> attribute, it is a point reference to
+            the <span style="color:red;" class="ph">end of the branch that is
+              specified by the topic reference</span>. If the topic reference
+            is not bound to a resource, the
+              <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element has no stated
+            purpose.</span></dd>
+            
+        </dl>
+    </div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title6" id="index-page-references">
+    <h3 class="title topictitle3" id="ariaid-title6">Index locators</h3>
+    
+    
+    <div class="body conbody"><p class="shortdesc">An <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element <span style="color:red;" class="ph">binds the content of the element, typically a
+      term, to a specific location in a document.</span></p>
+        <p class="p">The nesting of <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements and
+      the presence of <code class="keyword markupname xmlelement">&lt;index-see&gt;</code> elements
+      determines whether locators are rendered in generated <span style="color:red;" class="ph">indexes</span>:</p>
+        <ul class="ul">
+            <li class="li">An <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element that does not contain child
+                    <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements (or an
+                    <code class="keyword markupname xmlelement">&lt;index-see&gt;</code> element) contributes a locator to the
+                generated index entry.</li>
+            <li class="li">An <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element that contains
+        child <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements contributes to
+        the hierarchy of the multilevel index entry that is generated. Only
+        a <dfn style="color:red;" class="term">leaf</dfn>
+        <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element contributes a locator to
+        the generated index entry. <span style="color:red;" class="ph">A leaf
+            <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element is an
+            <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element that does not
+          contain any other <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements.
+        </span></li>
+            <li class="li">If an <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element also contains one or more
+                    <code class="keyword markupname xmlelement">&lt;index-see&gt;</code> elements, <span class="ph">no locator is
+                    included in the generated index entry.</span></li>
+            <li class="li">If an <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element also contains one or more
+                    <code class="keyword markupname xmlelement">&lt;index-see-also&gt;</code> elements, <span class="ph">the
+                        <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element contributes a locator to the
+                    generated index entry, and <code class="keyword markupname xmlelement">&lt;index-see-also&gt;</code> element
+                    provides only a redirection.</span></li>
+        </ul>
+        
+    </div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title7" id="index-redirection">
+    <h3 class="title topictitle3" id="ariaid-title7">Index redirection</h3>
+    
+    
+    <div class="body conbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;index-see&gt;</code> and
+      <code class="keyword markupname xmlelement">&lt;index-see-also&gt;</code> elements enable redirection
+    to other index entries within <span style="color:red;" class="ph">a</span> generated
+    index.</p>
+        <p class="p"> The <code class="keyword markupname xmlelement">&lt;index-see&gt;</code> element contains text for an index entry that the
+            reader should use <em class="ph i">instead of</em> the current one, whereas the
+                <code class="keyword markupname xmlelement">&lt;index-see-also&gt;</code> element contains text for an index entry
+            that the reader should use <em class="ph i">in addition to</em> the current one.</p>
+    </div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title8" id="index-ranges">
+    <h3 class="title topictitle3" id="ariaid-title8">Index ranges</h3>
+    
+    
+    <div class="body conbody"><p class="shortdesc">Authors can use the <code class="keyword markupname xmlatt">@start</code> and
+      <code class="keyword markupname xmlatt">@end</code> attributes on <span style="color:red;" class="ph">a pair
+      of</span>
+    <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements to index <span style="color:red;" class="ph">an extended discussion</span>. <span style="color:red;" class="ph">The generated index entry reflects the span
+      between the two <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements</span>. </p>
+        <p class="p">The start of an index range is indicated by an
+        <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> with a <code class="keyword markupname xmlatt">@start</code>
+      attribute. <span class="ph">This is called a <dfn style="color:red;" class="term">start-of-range element</dfn>.</span></p>
+    <p class="p">The end of an index range is indicated by an
+        <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element with an
+        <code class="keyword markupname xmlatt">@end</code> attribute with a value that matches the
+        <code class="keyword markupname xmlatt">@start</code> attribute on the start element. <span class="ph">This is called an <dfn style="color:red;" class="term">end-of-range element</dfn>.</span>
+      <span style="color:red;" class="ph">End-of-range element should contain no
+        content or nested elements.</span>
+    </p>
+    <p style="color:red;" class="p">The start-of-range and end-of-range elements
+      must be leaf <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements. If part of
+      a multilevel index entry, the start-of-range and end-of-range
+      elements must be at the same level of the hierarchy.</p>
+        <p style="color:red;" class="p">The location of the
+        <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements determines how the <span style="color:red;" class="ph">range</span> is defined:</p>
+        <dl class="dl">
+            
+                <dt class="dt dlterm">Topic body</dt>
+                <dd class="dd" style="color:red;">The start-of-range and end-of-range elements are in the
+          body of the same DITA topic. The range is defined as between two point references in the
+          DITA topic. If an end-of-range element does not exist within the same topic body, the
+          start-of-range element is treated as a point reference rather than as the start of a
+          range.</dd>
+            
+            
+                <dt class="dt dlterm">Topic prolog</dt>
+                <dd class="dd" style="color:red;">The start-of-range and end-of-range elements are in the
+          prolog of the same DITA topic. The range is defined as being between the title of the DITA
+          topic and the end of the last nested topic. If an end-of-range element does not exist
+          within the topic prolog, the start-of-range element is treated as a point reference rather
+          than as the start of a range.</dd>
+            
+            
+                <dt class="dt dlterm">DITA map</dt>
+                <dd class="dd" style="color:red;">The start-of-range and end-of-range elements are contained
+          within topic references in the same DITA map. If an end-of-range element does not exist
+          within the same map, the start-of-range element is treated as a point reference rather
+          than as the start of a range.</dd>
+            
+        </dl>
+        <div class="p">Processors that support index ranges <dfn class="term RFC-2119">SHOULD</dfn> do the following:<ul class="ul">
+                <li class="li">Match <code class="keyword markupname xmlatt">@start</code> and <code class="keyword markupname xmlatt">@end</code>
+          attributes by a character-by-character comparison with all
+          characters significant and no case folding occurring.</li>
+                <li class="li">Ignore <code class="keyword markupname xmlatt">@start</code> and <code class="keyword markupname xmlatt">@end</code> attributes if they occur
+                    on an <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element that has child
+                        <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements.</li>
+        <li class="li">Handle an end-of-range <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code>
+          element that is nested within one or more
+            <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements. The end-of-range
+            <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element should have no
+          content of its own; if it contains content, that content is
+            ignored.</li>
+                <li class="li">When index ranges with the same identifier overlap, <span class="ph">the effective range is determined by matching
+            the earliest <span style="color:red;" class="ph">start-of-range</span>
+            element from the set of overlapping ranges with the latest <span style="color:red;" class="ph">end-of-range element</span> from the set
+            of overlapping ranges.</span></li>
+        <li style="color:red;" class="li">An unmatched start-of-range element is
+          treated as a simple
+          <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code>element.</li>
+                <li class="li">Ignore unmatched end-of-range <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements.</li>
+            </ul></div>
+        
+    
+    </div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title9" id="index-sorting">
+    <h3 class="title topictitle3" id="ariaid-title9">Index sorting</h3>
+    
+    <div class="body conbody"><p class="shortdesc"> The combination of an <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code>
+    and a <code class="keyword markupname xmlelement">&lt;sort-as&gt;</code> element specifies a sort phrase
+      <span style="color:red;" class="ph">under which an index entry is grouped or
+      sorted</span>.</p>
+        <p class="p">This gives an author the flexibility to sort an index entry in
+      an index differently from how its text normally would be <span style="color:red;" class="ph">grouped or sorted</span>. The common use for
+      this <span style="color:red;" class="ph">scenario</span> is to disregard
+      insignificant leading text, such as punctuation or words like "the"
+      or "a". For example, the author might want
+        <code class="ph codeph">&lt;data&gt;</code> to be sorted under the letter D
+      rather than the left angle bracket (&lt;). An author might want to
+      include such an entry under both the punctuation heading and the
+      letter D, in which case there can be two index <span style="color:red;" class="ph">entries</span> differentiated only by the <span style="color:red;" class="ph">sort-as value</span>. </p>
+    
+        <p class="p">Certain languages have special sort order needs. For example,
+      Japanese index entries might be written partially or wholly in kanji,
+      but need to be sorted in phonetic order according to its
+      hiragana/katakana rendition. There is no reliable automated way to
+      map written to phonetic text: for kanji text, there can be multiple
+      phonetic possibilities depending on the context. The only way to
+      correctly sort Japanese index entries is to keep the phonetic
+      counterparts with the written forms. The phonetic text would be
+      presented as the <span style="color:red;" class="ph">sort-as value</span> for
+      indexing purposes.</p>
+    </div>
+</article><article class="topic concept nested2 non-normative" aria-labelledby="ariaid-title10" id="examples-indexing">
+    <h3 class="title topictitle3" id="ariaid-title10">Examples of indexing</h3>
+    <div class="body"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">This section contains examples and scenarios that illustrate the use and processing
+        of indexing elements.</p></div>
+    
+<article class="topic concept nested3 non-normative" aria-labelledby="ariaid-title11" id="example-index-range-in-a-single-topic">
+  <h4 class="title topictitle4" id="ariaid-title11">Example: Index range defined in a single topic</h4>
+  
+  <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">In this scenario, an index range is defined directly in the
+    body of a topic.</p>
+    <p class="p">In the following code sample, the index range begins at the start of
+      the second paragraph and continues to the beginning of the last
+      paragraph.</p>
+    <pre class="pre codeblock"><code>&lt;topic id="accounting"&gt;
+  &lt;title&gt;Accounting regulations&lt;/title&gt;
+  &lt;body&gt;
+    &lt;p&gt;Be ethical in your accounting.&lt;/p&gt;
+    &lt;p&gt;&lt;indexterm start="acctrules"&gt;rules&lt;/indexterm&gt;Remember to do all of the following: ...&lt;/p&gt;
+    &lt;!-- ...pages worth of rules... --&gt;
+    &lt;p&gt;&lt;indexterm end="acctrules"/&gt;Failure to comply will get you audited.&lt;/p&gt;
+  &lt;/body&gt;
+  &lt;!-- Potential sub-topics --&gt;
+&lt;/topic&gt;</code></pre>
+  </div>
+</article><article class="topic concept nested3 non-normative" aria-labelledby="ariaid-title12" id="example-index-range-defined-in-a-topic-prolog">
+    <h4 class="title topictitle4" id="ariaid-title12">Example: Index range defined in a topic prolog</h4>
+    
+    <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">In this scenario, an index range is defined in the topic prolog. Ranges defined in a
+        prolog cover subtopics, including those nested based on a map.</p>
+        <p class="p">Specifying an index range in a topic prolog is useful for defining an index range that
+            contains a topic and its children.</p>
+        <p class="p">Consider the following DITA map which contains topics about a small company's operating
+            procedures. The map contains a topic about accounting (<span class="ph filepath">acct.dita</span>),
+            which has child topics: <span class="ph filepath">procedures.dita</span> and
+                <span class="ph filepath">forms.dita</span>.</p>
+        <pre class="pre codeblock"><code>&lt;map&gt;
+  &lt;title&gt;Company procedures&lt;/title&gt;
+  &lt;topicref href="acct.dita"&gt;
+    &lt;topicref href="procedures.dita"/&gt;
+    &lt;topicref href="forms.dita"/&gt;
+  &lt;/topicref&gt;
+  &lt;!-- ... --&gt;
+&lt;/map&gt;</code></pre>
+        <p class="p">The information developer wants an index entry that will span
+        <span class="ph filepath">acct.dita</span> and its children. <span style="color:red;" class="ph">They use </span>the following markup in
+        <span class="ph filepath">acct.dita</span>:</p>
+        <pre class="pre codeblock"><code>&lt;topic id="accounting-at-acme"&gt;
+  &lt;title&gt;Accounting at Acme&lt;/title&gt;
+  &lt;prolog&gt;
+    &lt;metadata&gt;
+      &lt;keywords&gt;
+        &lt;indexterm start="acct"&gt;accounting&lt;/indexterm&gt;
+        <span style="color:red;" class="ph">&lt;indexterm end="acct"/&gt;</span>
+      &lt;/keywords&gt;
+    &lt;/metadata&gt;
+  &lt;/prolog&gt;
+  &lt;!-- ... --&gt;
+&lt;/topic&gt;</code></pre>
+        <p class="p">This markup specifies that the index range begins with the start of the topic title, and
+            the end of the range is the end of the <span class="ph filepath">forms.dita</span> topic. The index
+            range includes the "Accounting at Acme" topic and its two child topics.</p>
+    </div>
+</article><article class="topic concept nested3 non-normative" aria-labelledby="ariaid-title13" id="example-index-range-defined-in-a-map">
+    <h4 class="title topictitle4" id="ariaid-title13">Example: Index range defined in a map</h4>
+    
+    <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">In this scenario, an index range is defined in the DITA map.
+    Ranges defined in a DITA map can span topics.</p>
+        <p class="p">Consider the following DITA map:</p>
+        <pre class="pre codeblock"><code>&lt;map&gt;
+  &lt;title&gt;Food available in the Acme cafeteria&lt;/title&gt;
+  &lt;!-- ... --&gt;
+  &lt;topicref href="apples.dita"&gt;
+    &lt;topicmeta&gt;
+      &lt;keywords&gt;
+        &lt;indexterm start="acme-fruit"&gt;fruit&lt;/indexterm&gt;
+      &lt;/keywords&gt;
+    &lt;/topicmeta&gt;
+  &lt;/topicref&gt;
+  &lt;topicref href="oranges.dita"/&gt;
+  &lt;topicref href="pineapples.dita"&gt;
+    &lt;topicmeta&gt;
+      &lt;keywords&gt;
+        &lt;indexterm <span style="color:red;" class="ph">end</span>="acme-fruit"/&gt;
+      &lt;/keywords&gt;
+    &lt;/topicmeta&gt;
+  &lt;/topicref&gt;
+  &lt;!-- ... --&gt;
+&lt;/map&gt;</code></pre>
+        <p class="p">The index range begins with the start of the first topic title
+      in <span class="ph filepath">apples.dita</span>, and it continues until the end
+      of the last element in <span class="ph filepath">pineapples.dita</span>.</p>
+    </div>
+</article></article></article></article><aside class="section-toc" role="aside"></aside></article></main>
