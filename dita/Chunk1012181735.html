@@ -1,0 +1,230 @@
+---
+layout: base.njk
+title: ''
+index: 'toc.html'
+notices: 'resources/oasis-notices.html'
+commit: 'e2324147e84f2f8efdf508ded7bed075e2d0a7e4'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="toc" role="toc"><ul><li><a href="introduction/dita-release-overview.html">Introduction</a></li><li><a href="archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="archSpec/base/accessibility-and-translation.html">Accessibility and translation</a></li><li><a href="archSpec/base/dita-map-processing.html">DITA map processing</a></li><li><a href="archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="archSpec/base/behaviors.html">DITA processing</a></li><li><a href="archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a><ul class="nav nav-list"><li><a href="archSpec/base/ditaspecialization.html#ditaspecialization">Overview of DITA extension facilities</a></li><li><a href="Chunk1021136781.html#Chunk1021136781">Configuration</a></li><li><a href="Chunk685810779.html#Chunk685810779">Specialization</a></li><li class="active"><a href="Chunk1012181735.html#Chunk1012181735">Generalization</a><ul class="nav nav-list"><li><a href="Chunk1012181735.html#generalization">Generalization</a></li></ul></li><li><a href="Chunk114436491.html#Chunk114436491">Constraints</a></li><li><a href="Chunk1247303177.html#Chunk1247303177">Expansion modules</a></li></ul></li><li><a href="langRef/langRef-base.html">Element reference</a></li><li><a href="conformance/conformance.html">Conformance</a></li><li><a href="acknowledgments/acknowledgments.html#r-acknowledgments">Acknowledgments</a></li><li><a href="non-normative/aggregated-RFC-2119-statements.html#aggregated-RFC-2119-statements">Aggregated RFC-2119 statements</a></li><li><a href="archSpec/base/coding-requirements.html#coding-practices">Coding practices for DITA grammar files</a></li><li><a href="non-normative/developing-constraint-and-expansion-modules.html#developing-constraint-and-expansion-modules">Constraint modules</a></li><li><a href="non-normative/expansion-modules.html#expansion-modules">Expansion modules</a></li><li><a href="non-normative/elementsMerged.html#elements">Element-by-element recommendations for translators</a></li><li><a href="non-normative/formatting-expectations.html#formatting-expectations">Formatting expectations</a></li><li><a href="non-normative/migrating-to-dita-2.0.html#migrating-to-dita-2.0">Migrating to DITA 2.0</a></li><li><a href="non-normative/basedoctypes.html#oasisdomains">OASIS grammar files</a></li><li><a href="non-normative/interoperability-considerations.html#nteroperability-considerations">Processing interoperability considerations</a></li><li><a href="non-normative/revision-history.html#revision-history">Revision history</a></li></ul></nav><main role="main" class=""><article role="article" aria-labelledby="ariaid-title1"><article class="nested0" aria-labelledby="ariaid-title1" id="Chunk1012181735"><h1 class="title topictitle1" id="ariaid-title1">Generalization</h1><nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="archSpec/base/configuration-specialization-and-constraints.html" title="The extension facilities of DITA allow document-type shells, vocabulary modules, and element-configuration modules (constraint and expansion) to be combined to create specific DITA document types.">Configuration and specialization</a></div></div></nav><article class="topic concept nested1" aria-labelledby="ariaid-title2" lang="en-us" id="generalization">
+  <h2 class="title topictitle2" id="ariaid-title2">Generalization</h2>
+  <div class="body"><p class="shortdesc">Generalization is the process of reversing a specialization. It converts specialized
+    elements or attributes into the original types from which they were derived.</p></div>
+<article class="topic concept nested2" aria-labelledby="ariaid-title3" lang="en-us" id="generalization-overview">
+ <h3 class="title topictitle3" id="ariaid-title3">Overview of generalization</h3>
+ 
+ 
+ <div class="body conbody"><p class="shortdesc">Specialized content can be generalized to any ancestor type. The generalization process
+  can preserve information about the former level of specialization to allow round-tripping between
+  specialized and unspecialized forms of the same content.</p>
+  <p class="p">All DITA documents contain a mix of markup from at least one structural type and zero or more
+   domains. When generalizing the document, any individual structural type or domain can be left
+   as-is, or it can be generalized to any of its ancestors. If the document will be edited or
+   processed in generalized form, it might be necessary to have a document-type shell that includes
+   all non-generalized modules from the original document-type shell.</p>
+  <p class="p">Generalization serves several purposes:</p>
+  <ul class="ul" id="generalization-overview__purposes">
+   <li class="li">It can be used to migrate content. For example, if a specialization is unsuccessful or is no
+    longer needed, the content can be generalized back to a less specialized form.</li>
+   <li class="li">It can be used for temporary round-tripping. For example, if content is shared with a process
+    that is not specialization aware, it can be temporarily generalized for that process and then
+    returned to specialized form.</li>
+   <li class="li">It can allow reuse of specialized content in an environment that does not support the
+    specialization. Similar to round-tripping, content can be generalized for sharing, without the
+    need to re-specialize.</li>
+  </ul>
+  <p class="p">When generalizing for migration, the <code class="keyword markupname xmlatt">@class</code> attribute and
+    <code class="keyword markupname xmlatt">@specializations</code> attribute need to be absent from the generalized instance
+   document, so that the default values in the document-type shell are used.</p>
+  <p class="p">When generalizing for round-tripping, the <code class="keyword markupname xmlatt">@class</code> attribute and
+    <code class="keyword markupname xmlatt">@specializations</code> attribute <dfn class="term RFC-2119">SHOULD</dfn> retain the
+   original specialized values in the generalized instance document.</p>
+<p class="p">Note that when using constraints, a document instance can always be
+      converted from a constrained document type to an unconstrained
+      document type merely by switching the binding of the document
+      instance to the less restricted <span style="color:red;" class="ph">document-type</span>
+      shell. No renaming of elements is needed to remove constraints.</p>
+  <p class="p">However, a document whose document-type shell uses expansion modules might not be
+   interchangeable without first generalizing the element and attribute types that were introduced
+   by the expansion modules. </p>
+ </div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title4" lang="en-us" id="generalize">
+  <h3 class="title topictitle3" id="ariaid-title4">Element generalization</h3>
+  
+  
+  <div class="body conbody"><p class="shortdesc">Elements are generalized by examining the <code class="keyword markupname xmlatt">@class</code> attribute. When a
+    generalization process detects that an element belongs to one of the modules that is being
+    generalized, the element is renamed to a more general form.</p>
+    <p class="p example">For example, the <code class="keyword markupname xmlelement">&lt;step&gt;</code> element has a
+        <code class="keyword markupname xmlatt">@class</code> attribute value of <code class="ph codeph">"- topic/li task/step "</code>. If the
+      task module is generalized, the <code class="keyword markupname xmlelement">&lt;step&gt;</code> element is renamed to its more
+      general form from the topic module: <code class="keyword markupname xmlelement">&lt;li&gt;</code>.</p>
+    <p class="p">For specific concerns when generalizing structural types with
+      dependencies on non-ancestor modules, see <a class="xref" href="Chunk1012181735.html#generalization-w-cross-specialization-dependencies" title="Dependencies across specializations limit generalization targets to those that either preserve the dependency or eliminate them. Some generalization targets will not be valid and need to be detected before generalization occurs.">Generalization with cross-specialization dependencies</a>.</p>
+    <p class="p">While the tag name of a given element is normally the same as the type name of the last token
+      in the <code class="keyword markupname xmlatt">@class</code> value, this is not required. <span class="ph example">For
+        example, if a generalization process has already run on the element, the
+          <code class="keyword markupname xmlatt">@class</code> attribute could contain tokens from two or more modules based on
+        the original specialization. In that case, the element name could already match the first
+        token or an intermediate token in the <code class="keyword markupname xmlatt">@class</code> attribute. A second
+        generalization process could end up renaming the element again or could leave it alone,
+        depending on the target module or document type.</span></p>
+  </div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title5" lang="en-us" id="generalization-processor-expectations">
+ <h3 class="title topictitle3" id="ariaid-title5">Processor expectations when generalizing elements</h3>
+ 
+ 
+ <div class="body conbody"><p class="shortdesc">Generalization processors convert elements from one or more modules into their less
+  specialized form. The list of modules can be supplied to a generalization processor, or it can be
+  inferred based on knowledge of a target document-type shell.</p>
+  <p class="p">The person or application initiating a generalization process can supply the source and target
+   modules for each generalization, for example, "generalize from reference to topic". Multiple
+   target modules can be specified, for example, "generalize from reference to topic and from
+   user-interface domain to topic". When the source and target modules are not supplied, the
+   generalization process is assumed to be from all structural types to the base (topic or map), and
+   no generalization is performed for domains. </p>
+  <p class="p">The person or application initiating a generalization process also can supply the target
+   document-type shell. When the target document-type shell is not supplied, the generalized
+   document will not contain a reference to a document-type shell.</p>
+  
+  <div class="p">A generalization processor <dfn class="term RFC-2119">SHOULD</dfn> be able to handle cases
+   where it is given:<ul class="ul">
+    <li class="li">Only source modules for generalization (in which case the designated source types are
+     generalized to topic or map)</li>
+    <li class="li">Only target modules for generalization (in which case all descendants of each target are
+     generalized to that target)</li>
+    <li class="li">Both (in which case only the specified descendants of each target are generalized to that
+     target)</li>
+   </ul></div>
+  <p class="p">For each structural type instance, the generalization processor checks whether the structural
+   type instance is a candidate for generalization, or whether it has domains that are candidates
+   for generalization. It is important to be selective about which structural type instances to
+   process; if the process simply generalizes every element based on its <code class="keyword markupname xmlatt">@class</code>
+   attribute values, an instruction to generalize "reference" to "topic" could leave a
+   specialization of reference with an invalid content model, since any elements it reuses from
+   "reference" would have been renamed to topic-level equivalents.</p>
+  <p class="p">The <code class="keyword markupname xmlatt">@class</code> attribute for the root element of the structural type is checked
+   before generalizing structural types:</p>
+  <table class="simpletable"><colgroup><col style="width:33.33333333333333%"><col style="width:33.33333333333333%"><col style="width:33.33333333333333%"></colgroup><thead><tr class="sthead">
+    <th class="stentry" scope="col" id="generalization-processor-expectations__stentry__1"></th>
+    <th class="stentry" scope="col" id="generalization-processor-expectations__stentry__2">Source module unspecified</th>
+    <th class="stentry" scope="col" id="generalization-processor-expectations__stentry__3">Source module specified</th>
+   </tr></thead><tbody><tr class="strow">
+    <th class="stentry" scope="row" headers="generalization-processor-expectations__stentry__1">Target module unspecified</th>
+    <td class="stentry" headers="generalization-processor-expectations__stentry__2">Generalize this structural type to its base ancestor</td>
+    <td class="stentry" headers="generalization-processor-expectations__stentry__3">Check whether the root element of the topic type matches a specified source module;
+     generalize to its base ancestor if it does, otherwise ignore the structural type instance
+     unless it has domains to generalize.</td>
+   </tr><tr class="strow">
+    <th class="stentry" scope="row" headers="generalization-processor-expectations__stentry__1">Target module specified</th>
+    <td class="stentry" headers="generalization-processor-expectations__stentry__2">Check whether the <code class="keyword markupname xmlatt">@class</code> attribute contains the target module. If it
+     does contain the target, rename the element to the value associated with the target module.
+     Otherwise, ignore the element.</td>
+    <td class="stentry errorcondition" headers="generalization-processor-expectations__stentry__3"><span class="error-statement" id="generalization-processor-expectations__d2251e319" data-id=""></span>It is an error if the root element matches a specified
+     source but its <code class="keyword markupname xmlatt">@class</code> attribute does not contain the target. If the root
+     element matches a specified source module and its <code class="keyword markupname xmlatt">@class</code> attribute does contain
+     the target module, generalize to the target module. Otherwise, ignore the structural type
+     instance unless it has domains to generalize.</td>
+   </tr></tbody></table>
+  <p class="p">For each element in a candidate structural type instance:</p>
+  <table class="simpletable"><colgroup><col style="width:33.33333333333333%"><col style="width:33.33333333333333%"><col style="width:33.33333333333333%"></colgroup><thead><tr class="sthead">
+    <th class="stentry" scope="col" id="generalization-processor-expectations__stentry__10"></th>
+    <th class="stentry" scope="col" id="generalization-processor-expectations__stentry__11">Source module unspecified</th>
+    <th class="stentry" scope="col" id="generalization-processor-expectations__stentry__12">Source module specified</th>
+   </tr></thead><tbody><tr class="strow">
+    <th class="stentry" scope="row" headers="generalization-processor-expectations__stentry__10">Target module unspecified</th>
+    <td class="stentry" headers="generalization-processor-expectations__stentry__11">If the <code class="keyword markupname xmlatt">@class</code> attribute starts with "-" (part of a structural type),
+     rename the element to its base ancestor equivalent. Otherwise ignore it.</td>
+    <td class="stentry" headers="generalization-processor-expectations__stentry__12">Check whether the last value of the <code class="keyword markupname xmlatt">@class</code> attribute matches a
+     specified source; generalize to its base ancestor if it does, otherwise ignore the
+     element.</td>
+   </tr><tr class="strow">
+    <th class="stentry" scope="row" headers="generalization-processor-expectations__stentry__10">Target module specified</th>
+    <td class="stentry" headers="generalization-processor-expectations__stentry__11">Check whether the <code class="keyword markupname xmlatt">@class</code> attribute contains the target module; rename
+     the element to the value associated with the target module if it does contain the target,
+     otherwise ignore the element.</td>
+    <td class="stentry errorcondition" headers="generalization-processor-expectations__stentry__12"><span class="error-statement" id="generalization-processor-expectations__d2251e375" data-id=""></span>It is an error if the last value in the
+      <code class="keyword markupname xmlatt">@class</code> attribute matches a specified source but the previous values do not
+     include the target. If the last value in the <code class="keyword markupname xmlatt">@class</code> attribute matches a
+     specified source module and the previous values do include the target module, rename the
+     element to the value associated with the target module. Otherwise, ignore the
+     element.</td>
+   </tr></tbody></table>
+  <p class="p">When renaming elements during round-trip generalization, the generalization processor <dfn class="term RFC-2119">SHOULD</dfn> preserve the values of all attributes. When renaming
+   elements during one-way or migration generalization, the process <dfn class="term RFC-2119">SHOULD</dfn> preserve the values of all attributes except the <code class="keyword markupname xmlatt">@class</code>
+   attribute, which is supplied by the target document type.</p>
+ </div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title6" lang="en-us" id="attributegeneralize">
+  <h3 class="title topictitle3" id="ariaid-title6">Attribute generalization</h3>
+  
+  
+  <div class="body conbody"><p class="shortdesc">DITA provides a syntax to generalize attributes that have been specialized from the
+      <code class="keyword markupname xmlatt">@props</code> or <code class="keyword markupname xmlatt">@base</code> attribute.</p>
+    <p class="p">Specialization-aware processors <dfn class="term RFC-2119">MUST</dfn> process both the
+      specialized and generalized forms of an attribute as equivalent in their values.</p>
+    <p class="p">When a specialized attribute is generalized to an ancestor attribute, the value of the
+      ancestor attribute consists of the name of the specialized attribute followed by its
+      specialized value in parentheses.</p>
+    <div class="div example">
+      <p class="p">For example, if <code class="keyword markupname xmlatt">@jobrole</code> is an attribute specialized from
+          <code class="keyword markupname xmlatt">@person</code>, which in turn is specialized from <code class="keyword markupname xmlatt">@props</code>:</p>
+      <ul class="ul">
+        <li class="li"><code class="ph codeph">jobrole="programmer"</code> can be generalized to
+            <code class="ph codeph">person="jobrole(programmer)"</code> or to
+            <code class="ph codeph">props="jobrole(programmer)"</code></li>
+        <li class="li"><code class="ph codeph">props="jobrole(programmer)"</code> can be respecialized to
+            <code class="ph codeph">person="jobrole(programmer)"</code> or to
+            <code class="ph codeph">jobrole="programmer"</code></li>
+      </ul>
+    </div>
+    <p class="p">In this example, processors performing generalization and respecialization can use the
+        <code class="keyword markupname xmlatt">@specializations</code> attribute to determine the ancestry of the specialized
+        <code class="keyword markupname xmlatt">@jobrole</code> attribute, and therefore the validity of the specialized
+        <code class="keyword markupname xmlatt">@person</code> attribute as an intermediate target for generalization.</p>
+    <p class="p">If more than one attribute is generalized, the value of each is separately represented in
+      this way in the value of the ancestor attribute.</p>
+    <p class="p">Generalized attributes are typically not expected to be authored or edited directly. They are
+      used by processors to preserve the values of the specialized attributes during the time or in
+      the circumstances in which the document is in a generalized form.</p>
+    <p class="p">A single element <dfn class="term RFC-2119">MUST NOT</dfn> contain both generalized and
+      specialized values for the same attribute.</p>
+    <div class="div example">
+      <p class="p">For example, the following <code class="keyword markupname xmlelement">&lt;p&gt;</code> element provides two values for the
+          <code class="keyword markupname xmlatt">@jobrole</code> attribute, one in a generalized syntax and the other in a
+        specialized syntax:</p>
+      <pre class="pre codeblock"><code>&lt;p person="jobrole(programmer)" jobrole="admin"&gt;
+    &lt;!-- ... --&gt;
+&lt;/p&gt;</code></pre>
+      <p class="p"><span class="error-statement" id="attributegeneralize__d2251e541" data-id=""></span>This is an error condition, since it means the document has been only partially
+        generalized, or that the document has been generalized and then edited using a specialized
+        document type. </p>
+    </div>
+  </div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title7" lang="en-us" id="generalization-w-cross-specialization-dependencies">
+ <h3 class="title topictitle3" id="ariaid-title7">Generalization with cross-specialization dependencies</h3>
+ 
+ <div class="body conbody"><p class="shortdesc">Dependencies across specializations limit generalization targets to those that either
+  preserve the dependency or eliminate them. Some generalization targets will not be valid and need
+  to be detected before generalization occurs.</p>
+  <p class="p">When a structural specialization has a dependency on a domain specialization, then the domain
+   cannot be generalized without also generalizing the reusing structural specialization.</p>
+  <p class="p">For example, a structural specialization <code class="keyword markupname xmlelement">&lt;codeConcept&gt;</code> might incorporate
+   and require the <code class="keyword markupname xmlelement">&lt;codeblock&gt;</code> element from the programming domain. A
+   generalization process that turns programming domain elements back into topic elements would
+   convert <code class="keyword markupname xmlelement">&lt;codeblock&gt;</code> to <code class="keyword markupname xmlelement">&lt;pre&gt;</code>, making a document
+   that uses <code class="keyword markupname xmlelement">&lt;codeConcept&gt;</code> invalid. However, codeConcept<code class="keyword markupname xmlelement">&lt;&gt;</code> could
+   be generalized to concept or topic, without generalizing programming domain elements, as long as
+   the target document type includes the programming domain.</p>
+  <p class="p">When a structural specialization has a dependency on another structural specialization, then
+   both must be generalized together to a common ancestor. </p>
+  <p class="p">For example, if the task elements in checklist were generalized without also generalizing
+   checklist elements, then the checklist content models that referenced task elements would be
+   broken. And if the checklist elements were generalized to topic without also generalizing the
+   task elements, then the task elements would be out of place, since they cannot be validly present
+   in topic. However, checklist and task can be generalized together to any ancestor they have in
+   common: in this case topic. </p>
+  <p class="p">When possible, generalizing processes <dfn class="term RFC-2119">SHOULD</dfn> detect invalid generalization target combinations and report them as errors.</p>
+ </div>
+</article></article></article><aside class="section-toc" role="aside"></aside></article></main>
