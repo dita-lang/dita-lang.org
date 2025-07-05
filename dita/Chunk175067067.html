@@ -1,0 +1,341 @@
+---
+layout: base.njk
+title: ''
+index: 'toc.html'
+notices: 'resources/oasis-notices.html'
+commit: '1913626831d11bae6e1c3d0b6452127ce3132e0d'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="toc" role="toc"><ul><li><a href="introduction/dita-release-overview.html">Introduction</a></li><li><a href="archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="archSpec/base/accessibility-and-translation.html">Accessibility and translation</a><ul class="nav nav-list"><li><a href="Chunk2012668947.html#Chunk2012668947">Accessibility</a></li><li class="active"><a href="Chunk175067067.html#Chunk175067067">Translation and localization</a><ul class="nav nav-list"><li><a href="Chunk175067067.html#translation">Translation and localization</a></li></ul></li></ul></li><li><a href="archSpec/base/dita-map-processing.html">DITA map processing</a></li><li><a href="archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="archSpec/base/behaviors.html">DITA processing</a></li><li><a href="archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a></li><li><a href="langRef/langRef-base.html">Element reference</a></li><li><a href="conformance/conformance.html">Conformance</a></li><li><a href="acknowledgments/acknowledgments.html#r-acknowledgments">Acknowledgments</a></li><li><a href="non-normative/aggregated-RFC-2119-statements.html#aggregated-RFC-2119-statements">Aggregated RFC-2119 statements</a></li><li><a href="archSpec/base/coding-requirements.html#coding-practices">Coding practices for DITA grammar files</a></li><li><a href="non-normative/developing-constraint-and-expansion-modules.html#developing-constraint-and-expansion-modules">Constraint modules</a></li><li><a href="non-normative/expansion-modules.html#expansion-modules">Expansion modules</a></li><li><a href="non-normative/elementsMerged.html#elements">Element-by-element recommendations for translators</a></li><li><a href="non-normative/formatting-expectations.html#formatting-expectations">Formatting expectations</a></li><li><a href="non-normative/migrating-to-dita-2.0.html#migrating-to-dita-2.0">Migrating to DITA 2.0</a></li><li><a href="non-normative/basedoctypes.html#oasisdomains">OASIS grammar files</a></li><li><a href="non-normative/interoperability-considerations.html#nteroperability-considerations">Processing interoperability considerations</a></li><li><a href="non-normative/revision-history.html#revision-history">Revision history</a></li></ul></nav><main role="main" class=""><article role="article" aria-labelledby="ariaid-title1"><article class="nested0" aria-labelledby="ariaid-title1" id="Chunk175067067"><h1 class="title topictitle1" id="ariaid-title1">Translation and localization</h1><nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="archSpec/base/accessibility-and-translation.html" title="Content needed">Accessibility and translation</a></div></div></nav><article class="topic concept nested1" aria-labelledby="ariaid-title2" lang="en-us" id="translation">
+ <h2 class="title topictitle2" id="ariaid-title2">Translation and localization</h2>
+  <div class="body"><p class="shortdesc">DITA has markup that facilitates translation and localization.
+    This markup includes the <code class="keyword markupname xmlatt">@xml:lang</code> attribute, the
+      <code class="keyword markupname xmlatt">@dir</code> attribute, and the <code class="keyword markupname xmlatt">@translate</code>
+    attribute.</p></div>
+  
+<article class="topic concept nested2" aria-labelledby="ariaid-title3" lang="en-US" id="xmllang"> 
+  <h3 class="title topictitle3" id="ariaid-title3">The <code class="keyword markupname xmlatt">@xml:lang</code> attribute</h3> 
+  
+   
+  <div class="body conbody"><p class="shortdesc"> The <code class="keyword markupname xmlatt">@xml:lang</code> attribute specifies the
+    language and optional locale of the content that is contained in an
+    element. The <code class="keyword markupname xmlatt">@xml:lang</code> attribute is described in the
+      <a class="xref" href="http://www.w3.org/TR/REC-xml/#sec-lang-tag" target="_blank" rel="external noopener">XML Recommendation</a>.</p>
+    <p class="p">Since the <code class="keyword markupname xmlatt">@xml:lang</code> attribute is an inherent
+      property of the XML document, it does not behave in the same way as
+      other DITA metadata attributes do.</p>
+    <p class="p">Within topic and map documents, the <code class="keyword markupname xmlatt">@xml:lang</code>
+      attribute applies to the content and attributes that are contained by
+      the element on which it is specified. This means that it supplies a
+      value for lower-level elements in the containment hierarchy that do
+      not supply their own value for the <code class="keyword markupname xmlatt">@xml:lang</code>
+      attribute. However, any such value is overridden when an
+        <code class="keyword markupname xmlatt">@xml:lang</code> attribute with a different value is
+      specified on lower-level elements in the containment hierarchy.</p>
+    <p class="p">When the <code class="keyword markupname xmlatt">@xml:lang</code> attribute is specified on a topic reference, it does not
+      apply to the referenced resource. This means that the value of the <code class="keyword markupname xmlatt">@xml:lang</code>
+      attribute on a topic reference (or the root element of the map) does not automatically supply
+      a default value for the referenced topic or DITA map.</p>
+    <p class="p">For topic and map documents, if no value for the <code class="keyword markupname xmlatt">@xml:lang</code> value is specified
+      explicitly or on a higher-level element in the containment hierarchy, a processor-determined
+      default value is assumed.</p> 
+  </div> 
+<article class="topic concept nested3" aria-labelledby="ariaid-title4" id="location-of-the-xml-lang-attribute">
+    <h4 class="title topictitle4" id="ariaid-title4">Recommendations for the <code class="keyword markupname xmlatt">@xml:lang</code>
+    attribute</h4>
+    
+  
+    <div class="body conbody"><p class="shortdesc">Specifying the <code class="keyword markupname xmlatt">@xml:lang</code> attribute in the
+    DITA source facilitates translation and helps ensure that processors
+    will handle content appropriately. Accordingly, this specification
+    makes certain <span style="color:red;" class="ph">best-practices recommendations</span>
+    for where the <code class="keyword markupname xmlatt">@xml:lang</code> attribute should be
+    set.</p>
+    <p class="p">Setting the <code class="keyword markupname xmlatt">@xml:lang</code> attribute in the source-language document facilitates
+      the translation process. Some translation tools do not support adding new markup to the
+      document that is being translated, so if the source language content does not set the
+        <code class="keyword markupname xmlatt">@xml:lang</code> attribute, it might be difficult or impossible for a translator to
+      add the <code class="keyword markupname xmlatt">@xml:lang</code> attribute to the translated document.</p>
+    <p class="p">In addition, setting the <code class="keyword markupname xmlatt">@xml:lang</code> attribute in the
+      DITA source ensures that processors handle content in a language- and
+      locale-appropriate way. If the <code class="keyword markupname xmlatt">@xml:lang</code> attribute is
+      not set, processors might assume a default value which is
+      inappropriate for the DITA content.</p>
+    <p class="p">The following table outlines the recommended use of the <code class="keyword markupname xmlatt">@xml:lang</code> attribute
+      in topics and maps. These recommendations ensure that DITA resources have an effective default
+      language.</p>
+    <table class="simpletable"><colgroup><col style="width:50%"><col style="width:50%"></colgroup><thead><tr class="sthead">
+        <th class="stentry" scope="col" id="location-of-the-xml-lang-attribute__stentry__1"><span style="color:red;" class="ph">DITA resource</span></th>
+        <th class="stentry" scope="col" id="location-of-the-xml-lang-attribute__stentry__2">Recommended use</th>
+      </tr></thead><tbody><tr class="strow">
+        <td class="stentry" headers="location-of-the-xml-lang-attribute__stentry__1">DITA topic document that contains a single
+          language</td>
+        <td class="stentry" headers="location-of-the-xml-lang-attribute__stentry__2">Specify the <code class="keyword markupname xmlatt">@xml:lang</code> attribute on the root element of the
+          document.</td>
+      </tr><tr class="strow">
+        <td class="stentry" headers="location-of-the-xml-lang-attribute__stentry__1">DITA topic document that contains more than one
+          language</td>
+        <td class="stentry" headers="location-of-the-xml-lang-attribute__stentry__2">Specify the primary language and locale that applies to
+          the topic on the highest-level element that contains content. If
+          part of a topic is written in a different language, enclose that
+          content in an element with the <code class="keyword markupname xmlatt">@xml:lang</code>
+          attribute set appropriately. This
+           applies
+          to both block and inline elements that use the alternate
+          language.</td>
+      </tr><tr class="strow">
+        <td class="stentry" headers="location-of-the-xml-lang-attribute__stentry__1">DITA map</td>
+        <td class="stentry" headers="location-of-the-xml-lang-attribute__stentry__2">Specify the <code class="keyword markupname xmlatt">@xml:lang</code> attribute on the
+          root element of the map. This applies both to the root map and
+          any submaps.</td>
+      </tr></tbody></table>
+  </div>
+</article><article class="topic concept nested3" aria-labelledby="ariaid-title5" id="processing-expectations-regarding-the-xml-lang-attribute">
+    <h4 class="title topictitle4" id="ariaid-title5">Processing expectations regarding the <code class="keyword markupname xmlatt">@xml:lang</code>
+    attribute</h4>
+    
+  
+    <div class="body conbody"><p class="shortdesc">When the <code class="keyword markupname xmlatt">@xml:lang</code> attribute is specified as
+    recommended, a language for the content is clearly indicated. However,
+    when the <code class="keyword markupname xmlatt">@xml:lang</code> attribute is not specified,
+    processors might need to assign a default value.</p>
+    <p class="p">If the root element of a map or a top-level topic has no value for the
+        <code class="keyword markupname xmlatt">@xml:lang</code> attribute, a processor <dfn class="term RFC-2119">SHOULD</dfn>
+      assume a default value. The default value of the processor can be either fixed, configurable,
+      or derived from the content itself, such as the <code class="keyword markupname xmlatt">@xml:lang</code> attribute on the
+      root map.</p>
+    <p class="p">When a <code class="keyword markupname xmlatt">@conref</code> or <code class="keyword markupname xmlatt">@conkeyref</code>
+      attribute is used to include content from one element into another,
+      the processor <dfn class="term RFC-2119">MUST</dfn> use the
+      effective value of the <code class="keyword markupname xmlatt">@xml:lang</code> attribute from the
+      referenced element. <span style="color:red;" class="ph">If the referenced element does
+        not have an explicit value for the <code class="keyword markupname xmlatt">@xml:lang</code>
+        attribute, the processor <dfn class="term RFC-2119">SHOULD</dfn>
+        use the default value.</span>
+    </p>
+    <p class="p">Processors <dfn class="term RFC-2119">SHOULD</dfn> render each
+      element in a way that is appropriate for its language as identified
+      by the <code class="keyword markupname xmlatt">@xml:lang</code> attribute.</p>
+  </div>
+</article><article class="topic concept nested3 non-normative" aria-labelledby="ariaid-title6" id="example-of-conref-and-the-xml-lang-attribute">
+    <h4 class="title topictitle4" id="ariaid-title6">Example: content reference and the <code class="keyword markupname xmlatt">@xml:lang</code>
+    attribute</h4>
+    
+  
+    <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">This <span style="color:red;" class="ph">example</span> outlines how processors
+    determine the effective value of the <code class="keyword markupname xmlatt">@xml:lang</code>
+    attribute for content that is referenced by the <code class="keyword markupname xmlatt">@conref</code>
+    or <code class="keyword markupname xmlatt">@conkeyref</code> attribute.</p>
+    <p class="p">In this <span style="color:red;" class="ph">scenario, a company has a notices topic
+        that contains warnings in multiple languages. The notices topic
+      </span> specifies an <code class="keyword markupname xmlatt">@xml:lang</code> attribute of
+        <span class="keyword">en</span>. However, it contains content that is reused
+      from topics that explicitly set the <code class="keyword markupname xmlatt">@xml:lang</code>
+      attribute to <span class="keyword">fr</span><span style="color:red;" class="ph"> and
+          <span class="keyword">de</span>.</span></p>
+    <p class="p">The following code block shows the content of the DITA topic that
+      contains the referencing <span style="color:red;" class="ph">elements</span>:</p>
+    <figure class="fig fignone" style="color:red;" id="example-of-conref-and-the-xml-lang-attribute__topic-with-conrefs"><figcaption><span class="fig--title-label">Figure 1. </span>Topic that contains the conrefs</figcaption>
+      
+      <pre class="pre codeblock"><code>&lt;topic xml:lang="en" id="notices"&gt;
+ &lt;title&gt;NOTICES&lt;/title&gt;
+ &lt;shortdesc&gt;Be sure to read all product safety information before using the product.&lt;/shortdesc&gt;
+ &lt;body&gt;
+   &lt;note id="warning-english" conref="warnings-en.dita#warnings/general"/&gt;
+   <strong class="ph b">&lt;note id="warning-french" conref="warnings-fr.dita#warnings/general"/&gt;</strong>
+   <strong class="ph b">&lt;note id="warning-german" conref="warnings-de.dita#warnings/general"/&gt;</strong>
+   &lt;!-- ... All supported languages for the product ... --&gt;
+ &lt;/body&gt;
+&lt;/topic&gt;</code></pre>
+    </figure>
+    <p class="p">The following code <span style="color:red;" class="ph">blocks</span> show the content
+      of the <span style="color:red;" class="ph">topics that contains the referenced
+        elements:</span></p>
+    <figure class="fig fignone" style="color:red;"><figcaption><span class="fig--title-label">Figure 2. </span>English warnings topic:
+        <span class="ph filepath">warnings-en.dita</span></figcaption>
+      
+      <pre class="pre codeblock"><code>&lt;topic id="warnings" xml:lang="en"&gt;
+ &lt;title&gt;Reusable warnings (English)&lt;/title&gt;
+ &lt;body&gt;
+  &lt;note id="general"&gt;General notice about using the product...&lt;/note&gt;
+  &lt;note id="water"&gt;Warning about using the product near water...&lt;/note&gt;
+  &lt;!-- Other reusable warnings --&gt;
+ &lt;/body&gt;
+&lt;/topic&gt;
+</code></pre>
+    </figure>
+    <figure class="fig fignone" style="color:red;"><figcaption><span class="fig--title-label">Figure 3. </span>French warnings topic:
+        <span class="ph filepath">warnings-fr.dita</span></figcaption>
+      
+      <pre class="pre codeblock"><code>&lt;topic id="warnings" xml:lang="fr"&gt;
+ &lt;title&gt;Reusable warnings (French)&lt;/title&gt;
+ &lt;body&gt;
+  &lt;note id="general"&gt;(French translation of: General notice about using the product...)&lt;/note&gt;
+  &lt;note id="water"&gt;(French translation of: Warning about using the product near water...)&lt;/note&gt;
+  &lt;!-- Other reusable warnings --&gt;
+ &lt;/body&gt;
+&lt;/topic&gt;
+</code></pre>
+    </figure>
+    <figure class="fig fignone" style="color:red;"><figcaption><span class="fig--title-label">Figure 4. </span>German warnings topic:
+        <span class="ph filepath">warnings-de.dita</span></figcaption>
+      
+      <pre class="pre codeblock"><code>&lt;topic id="warnings" xml:lang="de"&gt;
+ &lt;title&gt;Reusable warnings (German)&lt;/title&gt;
+ &lt;body&gt;
+  &lt;note id="general"&gt;(German translation of: General notice about using the product...)&lt;/note&gt;
+  &lt;note id="water"&gt;(German translation of: Warning about using the product near water...)&lt;/note&gt;
+  &lt;!-- Other reusable warnings --&gt;
+ &lt;/body&gt;
+&lt;/topic&gt;
+</code></pre>
+    </figure>
+    <div style="color:red;" class="div">
+      <p class="p">When the topic that contains the conrefed notes is processed, the
+        following occurs:</p>
+      <ul class="ul">
+        <li class="li">The <code class="keyword markupname xmlelement">&lt;note&gt;</code> element with the
+            <code class="keyword markupname xmlatt">@id</code> attribute set to
+            <span class="keyword">warning-french</span> has an effective value for
+          the <code class="keyword markupname xmlatt">@xml:lang</code> attribute of
+          <span class="keyword">fr</span>.</li>
+        <li class="li">The <code class="keyword markupname xmlelement">&lt;note&gt;</code> element with the
+            <code class="keyword markupname xmlatt">@id</code> attribute set to
+            <span class="keyword">warning-german</span> has an effective value for
+          the <code class="keyword markupname xmlatt">@xml:lang</code> attribute of
+          <span class="keyword">de</span>.</li>
+      </ul>
+      <p class="p">In each case, the effective value of the <code class="keyword markupname xmlatt">@xml:lang</code>
+        attribute for the note is determined by the value of the
+          <code class="keyword markupname xmlatt">@xml:lang</code> attribute that is specified on the
+        topic that contains the referenced element, instead of the value of
+        the <code class="keyword markupname xmlatt">@xml:lang</code> attribute that is specified on the
+        notices topic that contains the referencing elements.</p>
+    </div>
+  </div>
+</article></article><article class="topic concept nested2" aria-labelledby="ariaid-title7" lang="en-US" id="diratt">
+  <h3 class="title topictitle3" id="ariaid-title7">The <code class="keyword markupname xmlatt">@dir</code> attribute</h3>
+  
+  
+  <div class="body conbody"><p class="shortdesc">The <code class="keyword markupname xmlatt">@dir</code> attribute provides instructions to
+    processors about how bidirectional text is rendered.</p>
+    <section class="section" id="d12364e772">
+      <p class="p">The <code class="keyword markupname xmlatt">@dir</code> attribute identifies or overrides the
+        text directionality. The following values are valid:</p>
+      <dl class="dl">
+              
+                <dt class="dt dlterm">lro</dt>
+                <dd class="dd">Indicates an override of the Unicode Bidirectional Algorithm, forcing the
+                  element into left-to-right mode.</dd>
+              
+              
+                <dt class="dt dlterm">ltr</dt>
+                <dd class="dd">Indicates left-to-right.</dd>
+              
+              
+                <dt class="dt dlterm">rlo</dt>
+                <dd class="dd">Indicates an override of the Unicode Bidirectional Algorithm, forcing the
+                  element into right-to-left mode.</dd>
+              
+              
+                <dt class="dt dlterm">rtl</dt>
+                <dd class="dd">Indicates right-to-left.</dd>
+              
+              
+          <dt class="dt dlterm"><span class="keyword">-dita-use-conref-target</span></dt>
+          <dd class="dd">See <a class="xref" href="Chunk1185794795.html#usingthe-dita-use-conref-targetvalue" title="When an element uses conref to pull in content, for any of its attributes assigned a value of -dita-use-conref-target, the resulting value for those attributes is also pulled in from the referenced element.">Using the -dita-use-conref-target value</a>
+            for more information. </dd>
+        
+            </dl>
+    </section>
+  </div>
+<article class="topic concept nested3" aria-labelledby="ariaid-title8" id="the-unicode-bidirectional-algorithm">
+    <h4 class="title topictitle4" id="ariaid-title8">The Unicode Bidirectional Algorithm</h4>
+    
+  
+    <div class="body conbody"><p class="shortdesc">The Unicode Bidirectional Algorithm plays a critical role in
+    ensuring that bidirectional text is correctly rendered.</p>
+    <p class="p">Bidirectional text is text that contains text in both text
+      directionalities, right-to-left (RTL) and left-to-right (LTR). Common
+      examples of bidirectional text include the following:</p>
+    <ul class="ul">
+      <li class="li">Documents in RTL languages such as Arabic, Hebrew, Farsi, Urdu, and Yiddish that include
+        numerics or embedded sections of LTR text</li>
+      <li class="li">Documents that contain text in both LTR and RLT languages, for
+        example, a topic that <span style="color:red;" class="ph">lists</span> the names of a
+          <span style="color:red;" class="ph">movie</span> in multiple languages</li>
+    </ul>
+    <p class="p">The Unicode Bidirectional Algorithm specifies how text should be
+      rendered for a given language. For more information about the Unicode
+      Bidirectional Algorithm, see the following resources:</p>
+    <ul class="ul">
+      <li style="color:red;" class="li"><a class="xref" href="https://www.unicode.org/reports/tr9/" target="_blank" rel="external noopener">Unicode Bidirectional
+          Algorithm</a>, Unicode Standard Annex #9</li>
+      <li class="li"><a class="xref" href="https://www.w3.org/TR/html4/struct/dirlang.html#h-8.2" target="_blank" rel="external noopener">Specifying the direction of text
+          and tables: the dir attribute</a>, HTML 4.01
+        Specification</li>
+      <li class="li"><a class="xref" href="https://www.w3.org/International/articles/inline-bidi-markup/" target="_blank" rel="external noopener">Inline markup and bidirectional
+          text in HTML</a>, W3C internationalization article</li>
+      <li class="li"><a class="xref" href="https://www.w3.org/TR/2004/WD-xhtml2-20040722/mod-bidi.html" target="_blank" rel="external noopener">XHTML Bi-directional Text
+          Attribute Module</a>, XHTML 2.0 W3C Working Draft 22</li>
+    </ul>
+  </div>
+</article><article class="topic concept nested3" aria-labelledby="ariaid-title9" id="recommended-usage-of-the-dir-attribute">
+    <h4 class="title topictitle4" id="ariaid-title9">Recommended usage of the <code class="keyword markupname xmlatt">@dir</code> attribute</h4>
+    
+  
+    <div class="body conbody"><p class="shortdesc">Typically, processors that fully support the Unicode
+    Bidirectional Algorithm handle bidirectional text without the need to
+    specify directionality in the DITA source, if the
+      <code class="keyword markupname xmlatt">@xml:lang</code> attribute is specified on the highest-level
+    element.</p>
+    <p class="p">The need to specify the <code class="keyword markupname xmlatt">@dir</code> attribute primarily
+      occurs in the following situations:</p>
+    <ul class="ul">
+      <li class="li">Processors that do not fully support the Unicode Bidirectional
+        Algorithm</li>
+      <li class="li">Documents that contain bidirectional text and characters with
+        neutral bidirectionality</li>
+    </ul>
+    <p class="p">For the above situations, we recommend that DITA source documents,
+      in addition to specifying the <code class="keyword markupname xmlatt">@xml:lang</code> attribute,
+      also specify the <code class="keyword markupname xmlatt">@dir</code> attribute on the highest-level
+      element that is necessary.</p>
+    </div>
+</article><article class="topic concept nested3" aria-labelledby="ariaid-title10" id="processing-expectations-about-the-unicode-bidirectional-algorithm">
+    <h4 class="title topictitle4" id="ariaid-title10">Processing expectations <span style="color:red;" class="ph">regarding</span> the
+    Unicode Bidirectional Algorithm</h4>
+    
+  
+    <div class="body conbody"><p class="shortdesc">Processor support for the Unicode Bidirectional Algorithm is
+    critical.</p>
+    <p class="p">DITA
+      processors <dfn class="term RFC-2119">SHOULD</dfn> fully support
+      the Unicode Bidirectional Algorithm. This ensures that processors can
+      implement the script and directionality for each language that is
+      used in a document.</p>
+  </div>
+</article></article><article class="topic concept nested2" aria-labelledby="ariaid-title11" style="color:red;" id="the-translate-attribute">
+  <h3 class="title topictitle3" id="ariaid-title11">The <code class="keyword markupname xmlatt">@translate</code> attribute</h3>
+  
+  
+  <div class="body conbody"><p class="shortdesc">The <code class="keyword markupname xmlatt">@translate</code> attribute provides information
+    about whether the content of an element should be
+    translated.</p>
+    <p class="p">The following values are valid: <span class="keyword">yes</span>,
+        <span class="keyword">no</span>, and
+        <span class="keyword">-dita-use-conref-target</span>. </p>
+    <p class="p">A few elements have the <code class="keyword markupname xmlatt">@translate</code> attribute set by
+      default to <span class="keyword">no</span>. These elements include
+        <code class="keyword markupname xmlelement">&lt;draft-comment&gt;</code> and
+        <code class="keyword markupname xmlelement">&lt;required-cleanup&gt;</code>, all elements that are
+      designed to hold content that is not intended for publication.</p>
+    <p class="p">The non-normative appendix, <a class="xref" href="non-normative/elementsMerged.html#elements" title="This topic contains a list of all elements in the base DITA edition. It includes recommendations on how to present the element type to translators, whether the element contents are likely to be suitable for translation, and whether the element has attributes with values that are likely to be suitable for translation. Examples of content that is not suitable for translation include code fragments and mailing addresses.">Element-by-element recommendations for translators</a>, includes
+      information on whether the element is block or inline, whether the
+      element contents are likely to be suitable for translation, and
+      whether the element has attributes whose values might need
+      translation.</p>
+  </div>
+</article></article></article><aside class="section-toc" role="aside"></aside></article></main>
