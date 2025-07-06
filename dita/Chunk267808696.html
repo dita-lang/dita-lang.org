@@ -1,0 +1,1168 @@
+---
+layout: base.njk
+title: ''
+index: 'toc.html'
+notices: 'resources/oasis-notices.html'
+commit: '243896ef3870f480d9fcc58f5e2afb91c6dc5f00'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="toc" role="toc"><ul><li><a href="introduction/dita-release-overview.html">Introduction</a></li><li><a href="archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="archSpec/base/accessibility-and-translation.html">Accessibility and translation</a></li><li><a href="archSpec/base/dita-map-processing.html">DITA map processing</a><ul class="nav nav-list"><li><a href="archSpec/base/dita-maps-and-their-usage.html#dita-maps-and-their-usage">DITA maps and their usage</a></li><li><a href="Chunk1730232303.html#Chunk1730232303">Subject scheme maps</a></li><li><a href="Chunk383234198.html#Chunk383234198">Cascading metadata</a></li><li class="active"><a href="Chunk267808696.html#Chunk267808696">Chunking</a><ul class="nav nav-list"><li><a href="Chunk267808696.html#chunking">Chunking</a></li></ul></li></ul></li><li><a href="archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="archSpec/base/behaviors.html">DITA processing</a></li><li><a href="archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a></li><li><a href="langRef/langRef-base.html">Element reference</a></li><li><a href="conformance/conformance.html">Conformance</a></li><li><a href="acknowledgments/acknowledgments.html#r-acknowledgments">Acknowledgments</a></li><li><a href="non-normative/aggregated-RFC-2119-statements.html#aggregated-RFC-2119-statements">Aggregated RFC-2119 statements</a></li><li><a href="archSpec/base/coding-requirements.html#coding-practices">Coding practices for DITA grammar files</a></li><li><a href="non-normative/developing-constraint-and-expansion-modules.html#developing-constraint-and-expansion-modules">Constraint modules</a></li><li><a href="non-normative/expansion-modules.html#expansion-modules">Expansion modules</a></li><li><a href="non-normative/elementsMerged.html#elements">Element-by-element recommendations for translators</a></li><li><a href="non-normative/formatting-expectations.html#formatting-expectations">Formatting expectations</a></li><li><a href="non-normative/migrating-to-dita-2.0.html#migrating-to-dita-2.0">Migrating to DITA 2.0</a></li><li><a href="non-normative/basedoctypes.html#oasisdomains">OASIS grammar files</a></li><li><a href="non-normative/interoperability-considerations.html#nteroperability-considerations">Processing interoperability considerations</a></li><li><a href="non-normative/revision-history.html#revision-history">Revision history</a></li></ul></nav><main role="main" class=""><article role="article" aria-labelledby="ariaid-title1"><article class="nested0" aria-labelledby="ariaid-title1" id="Chunk267808696"><h1 class="title topictitle1" id="ariaid-title1">Chunking</h1><nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="archSpec/base/dita-map-processing.html" title="Introduction to this chapter to be written later, when content is more stable.">DITA map processing</a></div></div></nav><article class="topic concept nested1" aria-labelledby="ariaid-title2" lang="en-us" id="chunking">
+<h2 class="title topictitle2" id="ariaid-title2">Chunking</h2>
+<div class="body"><p class="shortdesc">Content often needs to be delivered in a different granularity
+    than it is authored. The <code class="keyword markupname xmlatt">@chunk</code> attribute enables map
+    authors to specify that multiple source documents <span style="color:red;" class="ph">should be</span> combined into a single document for delivery or that
+    a single source document <span style="color:red;" class="ph">should be</span> split into
+    multiple documents for delivery.</p></div>
+<article class="topic concept nested2" aria-labelledby="ariaid-title3" lang="en" id="aboutchunk">
+<h3 class="title topictitle3" id="ariaid-title3">About the <code class="keyword markupname xmlatt">@chunk</code> attribute</h3>
+  
+  
+<div class="body conbody"><p class="shortdesc">The <code class="keyword markupname xmlatt">@chunk</code> attribute specifies how a processor
+      <span style="color:red;" class="ph">should</span> split or combine source DITA documents
+    into alternate organizational schemes for rendering purposes. This
+    means that the <code class="keyword markupname xmlatt">@chunk</code> attribute is only relevant when
+    the organization of source DITA documents has an effect on <span style="color:red;" class="ph">the</span> organization of published
+    documents.</p>
+    <p style="color:red;" class="p">The <code class="keyword markupname xmlatt">@chunk</code> attribute only operates on
+      topics and nested topics. It does not operate on other topic content,
+      such as sections.</p>
+<p class="p">The <code class="keyword markupname xmlatt">@chunk</code> attribute is composed of a single token
+      without any white space. DITA defines the <span style="color:red;" class="ph">following tokens for the <code class="keyword markupname xmlatt">@chunk</code>
+      attribute:</span></p>
+
+<dl style="color:red;" class="dl">
+      
+        <dt class="dt dlterm"><span class="keyword">combine</span></dt>
+        <dd class="dd"><span class="ph">Instructs a processor to combine the
+            referenced source documents for rendering purposes. <span style="color:red;" class="ph">This</span> is intended for cases where a
+            publishing process normally results in a single output artifact
+            for each source XML document.</span></dd>
+      
+      
+        <dt class="dt dlterm"><span class="keyword">split</span></dt>
+        <dd class="dd"><span class="ph">Instructs a processor to split each topic
+            from the referenced source document into its own document for
+            rendering purposes. <span style="color:red;" class="ph">This</span> is intended
+            for cases where a publishing process normally results in a
+            single output artifact for each source XML document, regardless
+            of how many DITA topics exist within each source document.
+          </span></dd>
+      
+    </dl>
+    <p style="color:red;" class="p">Applications can use custom tokens for the
+        <code class="keyword markupname xmlatt">@chunk</code> attribute.</p>
+        <p class="p">The <code class="keyword markupname xmlatt">@chunk</code> attribute does not cascade.</p>
+<div class="p">The following rules apply to all values of the <code class="keyword markupname xmlatt">@chunk</code> attribute:<ul class="ul">
+                <li class="li">When the source document organization has no effect on published output, such as
+                    when producing a single PDF or EPUB, processors <dfn class="term RFC-2119">MAY</dfn> ignore the <code class="keyword markupname xmlatt">@chunk</code> attribute.</li>
+                <li class="li">When the <code class="keyword markupname xmlatt">@chunk</code> attribute results in more or fewer documents
+                    based on the <code class="ph codeph">combine</code> or <code class="ph codeph">split</code> tokens, the
+                    hierarchy of topics within the resulting map and topic organization <dfn class="term RFC-2119">SHOULD</dfn> match the hierarchy in the original
+                    topics and maps.</li>
+                <li class="li">When the <code class="keyword markupname xmlatt">@chunk</code> attribute results in more or fewer documents,
+                    processors <dfn class="term RFC-2119">MAY</dfn> create their own naming
+                    schemes for those reorganized documents.</li>
+                <li class="li"><span style="color:red;" class="ph">The</span>
+          <code class="keyword markupname xmlatt">@chunk</code> attribute values apply to DITA topic
+          documents referenced from a map. Processors <dfn class="term RFC-2119">MAY</dfn> apply equivalent processing
+          to non-DITA documents.</li>
+            </ul></div>
+
+</div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title4" lang="en" id="chunkcombine">
+<h3 class="title topictitle3" id="ariaid-title4">Processing <code class="ph codeph">chunk="combine"</code></h3>
+    
+  
+<div class="body conbody"><p class="shortdesc"><span style="color:red;" class="ph">The presence of </span>
+    <code class="ph codeph">chunk="combine"</code> instructs a processor to combine the
+      <span style="color:red;" class="ph">referenced</span> source documents for rendering
+    purposes.</p>
+        <p class="p">The following rules apply:</p>
+        <ul class="ul">
+            <li class="li">When <span style="color:red;" class="ph"><code class="ph codeph">chunk="combine"</code> is
+          specified</span> on the root element of a map, all source DITA
+        documents <span style="color:red;" class="ph">that are</span> referenced by the map
+        are treated as one DITA document.</li>
+            <li class="li">When <span style="color:red;" class="ph"><code class="ph codeph">chunk="combine"</code> is
+          specified</span> on a branch of a map, all source DITA documents
+          <span style="color:red;" class="ph">that are</span> referenced within that branch
+        are treated as one DITA document. <div class="note note note_note non-normative"><span class="note__title">Note<span class="non-normative-label"> (non-normative)</span>:</span> <div class="note__body">This is true regardless of
+          whether the element that specifies <code class="keyword markupname xmlatt">@chunk</code> refers
+          to a topic or specifies a heading. In cases such as
+            <code class="keyword markupname xmlelement">&lt;topicgroup&gt;</code> where a grouping element
+          specifies <code class="ph codeph">chunk="combine"</code>, the equivalent DITA
+          document would be a single DITA document with a root element <span style="color:red;" class="ph">that groups</span> peer topics.</div></div></li>
+      
+            <li class="li"><span style="color:red;" class="ph">When</span>
+        <code class="ph codeph">chunk="combine"</code> is specified on a map, <span style="color:red;" class="ph">map</span> branch, or map reference, all source DITA
+        documents <span style="color:red;" class="ph">that are</span> grouped by the reference
+        are treated as a single resource. Any additional
+          <code class="keyword markupname xmlatt">@chunk</code> attributes on elements within the <span style="color:red;" class="ph">grouping</span> are ignored.</li>
+        </ul>
+    
+</div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title5" lang="en" id="chunksplit">
+    <h3 class="title topictitle3" id="ariaid-title5">Processing <code class="ph codeph">chunk="split"</code></h3>
+    
+  
+<div class="body conbody"><p class="shortdesc"><span style="color:red;" class="ph">The presence of </span>
+    <code class="ph codeph">chunk="split"</code> instructs a processor to split each
+    topic from the referenced source document into its own document for
+    rendering
+    purposes.</p>
+        <p class="p">The following rules apply:</p>
+        <ul class="ul">
+      <li class="li">When <span style="color:red;" class="ph"><code class="ph codeph">chunk="split"</code> is</span>
+        specified on the root element of a map, it sets a default operation
+        for all source DITA documents <span style="color:red;" class="ph">in the navigation
+          structure of the map.</span> The default <code class="ph codeph">split</code>
+        value is used except where a <code class="ph codeph">combine</code> value is
+        encountered, in which case <code class="ph codeph">combine</code> takes over for
+        that entire branch. </li>
+            <li class="li">When <span style="color:red;" class="ph"><code class="ph codeph">chunk="split"</code>
+          is</span> specified on a <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element
+        that <span style="color:red;" class="ph">references</span> a source DITA document, it
+        indicates that all topics within the referenced document should be
+        rendered as individual documents.</li>
+            <li class="li">When <span style="color:red;" class="ph"><code class="ph codeph">chunk="split"</code>
+          is</span> specified on an element such as
+          <code class="keyword markupname xmlelement">&lt;topicgroup&gt;</code> that does not <span style="color:red;" class="ph">reference a source DITA document or result in
+          published output</span>, the attribute has no meaning.</li>
+        </ul>
+</div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title6" id="chunkother">
+<h3 class="title topictitle3" id="ariaid-title6">Using the <code class="keyword markupname xmlatt">@chunk</code> attribute for other purposes</h3>
+<div class="body"><p class="shortdesc">Applications can define additional tokens for use in the
+      <code class="keyword markupname xmlatt">@chunk</code> attribute. <span class="implementation-statement" id="chunkother__d2284t543" data-id=""></span>These tokens are implementation
+    dependent and might not be supported by other applications.</p></div>
+</article><article class="topic concept nested2 non-normative" aria-labelledby="ariaid-title7" id="chunkexamples">
+<h3 class="title topictitle3" id="ariaid-title7">Examples of the <code class="keyword markupname xmlatt">@chunk</code> attribute</h3>
+
+  
+<div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">These examples illustrate the processing expectations for various scenarios that involve
+        the <code class="keyword markupname xmlatt">@chunk</code> attribute. The processing examples use either before and after
+        sample markup or expanded syntax that shows the equivalent markup without the
+            <code class="keyword markupname xmlatt">@chunk</code> attribute.</p>
+<div class="note note note_note non-normative"><span class="note__title">Note<span class="non-normative-label"> (non-normative)</span>:</span> <div class="note__body">The examples use sample files with modified file names to help
+      illustrate <span style="color:red;" class="ph">the</span> equivalent before and after
+      resolution of <code class="keyword markupname xmlatt">@chunk</code> attributes. However, there is no
+      requirement for implementations processing the <code class="keyword markupname xmlatt">@chunk</code>
+      attribute to generate files, as long as the rendered result is split
+      or combined as described. If generating files, <span style="color:red;" class="ph">the</span> file names are implementation dependent.</div></div>
+</div>
+<article class="topic concept nested3 non-normative" aria-labelledby="ariaid-title8" id="chunkcombineexample">
+<h4 class="title topictitle4" id="ariaid-title8">Example: Using <code class="keyword markupname xmlatt">@chunk</code> to combine all documents into one</h4>
+
+  
+<div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">When a processor would typically render each topic document as
+    an independent result document, the <code class="keyword markupname xmlatt">@chunk</code> attribute
+    can be used to render all content as a single result
+    document.</p>
+<figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Root map and the topics that it references</figcaption>
+      
+      <p class="p">Consider the following DITA map:</p>
+      <pre class="pre codeblock"><code>&lt;map&gt;
+  &lt;title&gt;Lesson plan&lt;/title&gt;
+  &lt;topicref href="background.dita"&gt;
+    &lt;!-- More <span style="color:red;" class="ph">topic references to</span> background topics --&gt;
+  &lt;/topicref&gt;
+  &lt;topicref href="goals.dita"&gt;
+    &lt;!-- More <span style="color:red;" class="ph">topic references to</span> goal topics --&gt;
+  &lt;/topicref&gt;
+  &lt;!-- More <span style="color:red;" class="ph">topic references</span> --&gt;
+&lt;/map&gt;
+</code></pre>
+      <p class="p">The following code samples show the content of
+          <span class="ph filepath">background.dita</span> and
+          <span class="ph filepath">goals.dita</span>:</p>
+      <pre class="pre codeblock"><code><strong class="ph b">&lt;!-- Content of background.dita --&gt;</strong>
+&lt;topic id="background"&gt;
+  &lt;title&gt;Prerequisite concepts&lt;/title&gt;
+  &lt;shortdesc&gt;This information is necessary before starting ...&lt;/shortdesc&gt;
+  &lt;body&gt; &lt;!-- ... --&gt; &lt;/body&gt;
+&lt;/topic&gt;</code></pre>
+      <pre class="pre codeblock"><code><strong class="ph b">&lt;!-- Content of goals.dita --&gt;</strong>
+&lt;topic id="goals"&gt;
+  &lt;title&gt;Lesson <span style="color:red;" class="ph">goals</span>&lt;/title&gt;
+  &lt;shortdesc&gt;After you complete the lesson ...&lt;/shortdesc&gt;
+  &lt;body&gt; &lt;!-- ... --&gt; &lt;/body&gt;
+&lt;/topic&gt;</code></pre>
+      <p class="p">For many systems or output formats, each document in the map is
+          <span style="color:red;" class="ph">typically</span> rendered as an independent
+        document. For example, rendering this map as HTML5 might result in
+          <span class="ph filepath">background.html</span> and
+          <span class="ph filepath">goals.html</span>, in addition to other HTML5
+        files.</p>
+    </figure>
+<figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 2. </span>Root map with chunking specified</figcaption>
+      
+      <p class="p">If the output requirements demand only a single result document,
+        specifying <code class="ph codeph">chunk="combine"</code> on the root map element
+        instructs a processor to render a single document that combines all
+        topics:</p>
+      <pre class="pre codeblock"><code>&lt;map <strong class="ph b">chunk="combine"</strong>&gt;
+  &lt;title&gt;Lesson plan&lt;/title&gt;
+  &lt;topicref href="background.dita"&gt;
+    &lt;!-- More <span style="color:red;" class="ph">topic references to</span> background topics --&gt;
+  &lt;/topicref&gt;
+  &lt;topicref href="goals.dita"&gt;
+    &lt;!-- More <span style="color:red;" class="ph">topic references to</span> goal topics --&gt;
+  &lt;/topicref&gt;
+  &lt;!-- More <span style="color:red;" class="ph">topic references</span> --&gt;
+&lt;/map&gt;</code></pre>
+    </figure>
+<figure class="fig fignone" id="chunkcombineexample__fig_fkg_dhd_1gb"><figcaption><span class="fig--title-label">Figure 3. </span>Equivalent content of source documents after evaluation</figcaption>
+
+      <p class="p">The result of evaluating the <code class="keyword markupname xmlatt">@chunk</code> attribute is
+        equivalent to the following map and topic documents:</p>
+<pre class="pre codeblock"><code><strong class="ph b">&lt;!-- Root map --&gt;</strong>
+&lt;map&gt;
+  &lt;title&gt;Lesson plan&lt;/title&gt;
+  &lt;topicref href="combinedTopics.dita"/&gt;
+&lt;/map&gt;</code></pre>
+      <pre class="pre codeblock"><code>&lt;dita&gt;
+  <strong class="ph b">&lt;!-- original content of background.dita --&gt;</strong>
+  &lt;topic id="background"&gt;
+    &lt;title&gt;Prerequisite concepts&lt;/title&gt;
+    &lt;shortdesc&gt;This information is necessary before starting&lt;/shortdesc&gt;
+    &lt;body&gt; &lt;!-- ... --&gt; &lt;/body&gt;
+      &lt;!-- More background topics --&gt;
+  &lt;/topic&gt;
+  <strong class="ph b">&lt;!-- original content of goals.dita --&gt;</strong>
+  &lt;topic id="goals"&gt;
+    &lt;title&gt;Lesson <span style="color:red;" class="ph">goals</span>&lt;/title&gt;
+    &lt;shortdesc&gt;After you complete the lesson ...&lt;/shortdesc&gt;
+    &lt;body&gt; &lt;!-- ... --&gt; &lt;/body&gt;
+    &lt;!-- More goal topics --&gt;
+  &lt;/topic&gt;
+  &lt;!-- More topics --&gt;
+&lt;/dita&gt;</code></pre>
+      <p class="p"><span style="color:red;" class="ph">The</span> content from all topics within the map
+        is combined into a single result <span style="color:red;" class="ph">document</span>,
+        with a topic order and topic nesting structure that <span style="color:red;" class="ph">matches</span> the original map hierarchy:</p>
+</figure>
+</div>
+</article><article class="topic concept nested3 non-normative" aria-labelledby="ariaid-title9" id="chunkcombinefew">
+<h4 class="title topictitle4" id="ariaid-title9">Example: Using <code class="keyword markupname xmlatt">@chunk</code> to render a single document
+    from one <span style="color:red;" class="ph">or more branches</span></h4>
+
+  
+<div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">When a publishing system typically would render each topic
+    document as an independent result document, the <code class="keyword markupname xmlatt">@chunk</code>
+    attribute can be used to render individual branches of a map as single
+    documents.</p>
+<figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 4. </span>Root map and the topics that it references</figcaption>
+      
+      <p class="p">Consider the following DITA map:</p>
+      <pre class="pre codeblock"><code>&lt;map&gt;
+  &lt;title&gt;Lesson plan&lt;/title&gt;
+  &lt;topicref href="goals.dita"&gt;
+    <span style="color:red;" class="ph">&lt;!-- More topic references to goal topics --&gt;</span>
+  &lt;/topicref&gt;
+  &lt;topicref href="firstLesson.dita"&gt;
+    <span style="color:red;" class="ph">&lt;!-- More topic references to first lesson topics --&gt;</span>
+  &lt;/topicref&gt;
+  &lt;topicref href="nextLesson.dita"&gt;
+    <span style="color:red;" class="ph">&lt;!-- More topic references to second lesson topics --&gt;</span>
+  &lt;/topicref&gt;
+  <span style="color:red;" class="ph">&lt;!-- More map branches --&gt;</span>
+&lt;/map&gt;</code></pre>
+      <p class="p">The following code samples show the content of
+          <span class="ph filepath">firstLesson.dita</span> and
+          <span class="ph filepath">nextLesson.dita</span>:</p>
+      <pre class="pre codeblock"><code><strong class="ph b">&lt;!-- firstLesson.dita --&gt;</strong>
+&lt;task id="firstLesson"&gt;
+  &lt;title&gt;Starting to work with scissors&lt;/title&gt;
+  &lt;shortdesc&gt;This lesson will teach ... &lt;/shortdesc&gt;
+  &lt;taskbody&gt;
+    &lt;!-- ... --&gt;
+  &lt;/taskbody&gt;
+&lt;/task&gt;</code></pre>
+      <pre class="pre codeblock"><code><strong class="ph b">&lt;!-- nextLesson.dita --&gt;</strong>
+&lt;task id="nextLesson"&gt;
+  &lt;title&gt;Advanced cutting&lt;/title&gt;
+  &lt;shortdesc&gt;This lesson will introduce <span style="color:red;" class="ph">complex</span> shapes ... &lt;/shortdesc&gt;
+  &lt;taskbody&gt;
+    &lt;!-- ... --&gt;
+  &lt;/taskbody&gt;
+&lt;/task&gt;</code></pre>
+      <p class="p">For many systems or output formats, each document in the map is
+          <span style="color:red;" class="ph">typically</span>rendered as an independent
+        document. For example, rendering this map as HTML5 might result in
+          <span class="ph filepath">goals.html</span>,
+          <span class="ph filepath">firstLesson.html</span>, and
+          <span class="ph filepath">nextLesson.html</span>, while the child documents
+        within each branch would each result in their own HTML files.</p>
+      
+    </figure>
+<figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 5. </span>Root map with chunking specified for certain branches</figcaption>
+      
+      <p class="p">When output requirements demand that portions of the map be
+        combined into a single document, specifying
+          <code class="ph codeph">chunk="combine"</code> on a map branch instructs a
+        processor to render one document that combines all topics in that
+        branch.</p>
+      <p class="p">In the following code sample, <code class="ph codeph">chunk="combine"</code> is
+        specified on the <span class="ph">map branches for the lessons</span>. This
+        indicates that each lesson branch should rendered as a single
+        result document<span style="color:red;" class="ph">. Topics</span> in the first branch
+        with <span class="ph filepath">goals.dita</span> will not be affected.</p>
+      <pre class="pre codeblock"><code>&lt;map&gt;
+  &lt;title&gt;Lesson plan&lt;/title&gt;
+  &lt;topicref href="goals.dita"&gt;
+    <span style="color:red;" class="ph">&lt;!-- More topic references to goal topics --&gt;</span>
+  &lt;/topicref&gt;
+  &lt;topicref href="firstLesson.dita" <strong class="ph b">chunk="combine"</strong>&gt;
+    <span style="color:red;" class="ph">&lt;!-- More topic references to first lesson topics --&gt;</span>
+  &lt;/topicref&gt;
+  &lt;topicref href="nextLesson.dita"&gt;
+    <span style="color:red;" class="ph">&lt;!-- More topic references to second lesson topics --&gt;</span>
+  &lt;/topicref&gt;
+  <span style="color:red;" class="ph">&lt;!-- More map branches --&gt;</span>
+&lt;/map&gt;</code></pre>
+    </figure>
+<figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 6. </span>Equivalent content of source documents after
+        evaluation</figcaption>
+      
+      <p class="p">The result of evaluating this <code class="keyword markupname xmlatt">@chunk</code> attribute is
+        equivalent to the following map and topic documents:</p>
+      <pre class="pre codeblock"><code><strong class="ph b">&lt;!-- Root map --&gt;</strong>
+&lt;map&gt;
+  &lt;title&gt;Lesson plan&lt;/title&gt;
+  &lt;topicref href="goals.dita"&gt;
+    <span style="color:red;" class="ph">&lt;!-- More topic references to goal topics --&gt;</span>
+  &lt;/topicref&gt;
+  &lt;topicref href="firstLesson.dita"/&gt;
+  &lt;topicref href="nextLesson.dita"/&gt;
+  &lt;!-- More map branches --&gt;
+&lt;/map&gt;</code></pre>
+      <pre class="pre codeblock"><code><strong class="ph b">&lt;!-- firstLesson.dita --&gt;</strong>
+&lt;task id="firstLesson"&gt;
+  &lt;title&gt;Starting to work with scissors&lt;/title&gt;
+  &lt;shortdesc&gt;This lesson will teach ... &lt;/shortdesc&gt;
+  &lt;taskbody&gt;
+    &lt;!-- ... --&gt;
+  &lt;/taskbody&gt;
+  <strong class="ph b">&lt;!-- More first lesson topics --&gt;</strong>
+&lt;/task&gt;</code></pre>
+      <pre class="pre codeblock"><code><strong class="ph b">&lt;!-- nextLesson.dita --&gt;</strong>
+&lt;task id="nextLesson"&gt;
+  &lt;title&gt;Advanced cutting&lt;/title&gt;
+  &lt;shortdesc&gt;This lesson will introduce <span style="color:red;" class="ph">complex</span> shapes...&lt;/shortdesc&gt;
+  &lt;taskbody&gt;
+    &lt;!-- ... --&gt;
+  &lt;/taskbody&gt;
+  <strong class="ph b">&lt;!-- More second lesson topics --&gt;</strong>
+&lt;/task&gt;</code></pre>
+      <p class="p">Content from each branch where <code class="keyword markupname xmlatt">@chunk</code> attribute is
+        specified is combined into a single result document, with a <span style="color:red;" class="ph">topic</span> order and topic nesting structure that
+        matches the original map hierarchy. Content from outside of those
+        branches remains unchanged.</p>
+    </figure>
+</div>
+</article><article class="topic concept nested3 non-normative" aria-labelledby="ariaid-title10" id="examplegrouping">
+<h4 class="title topictitle4" id="ariaid-title10">Example: Using <code class="keyword markupname xmlatt">@chunk</code> to combine <span style="color:red;" class="ph">groups</span> of topics</h4>
+
+  
+<div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">The <code class="keyword markupname xmlatt">@chunk</code> attribute can be used on grouping
+    elements to combine multiple source documents into one result
+    document.</p>
+    <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 7. </span>Root map with <code class="keyword markupname xmlatt">@chunk</code> specified on <span style="color:red;" class="ph">grouping elements</span></figcaption>
+      
+      <p class="p">Consider the following DITA map, where <code class="keyword markupname xmlatt">@chunk</code> is
+        specified on both <code class="keyword markupname xmlelement">&lt;topicgroup&gt;</code> and
+          <code class="keyword markupname xmlelement">&lt;topichead&gt;</code> elements:</p>
+      <pre class="pre codeblock"><code>&lt;map&gt;
+  &lt;title&gt;Groups are combined&lt;/title&gt;
+  &lt;topicgroup <strong class="ph b">chunk="combine"</strong>&gt;
+    &lt;topicref href="ingroup1.dita"/&gt;
+    &lt;topicref href="ingroup2.dita"/&gt;
+  &lt;/topicgroup&gt;
+  &lt;topichead <strong class="ph b">chunk="combine"</strong>&gt;
+    &lt;topicmeta&gt;
+      &lt;navtitle&gt;Heading for a branch&lt;/navtitle&gt;
+    &lt;/topicmeta&gt;
+    &lt;topicref href="inhead1.dita"/&gt;
+    &lt;topicref href="inhead2.dita"/&gt;
+  &lt;/topichead&gt;
+&lt;/map&gt;</code></pre>
+      <p class="p">The result of evaluating the <code class="keyword markupname xmlatt">@chunk</code> attribute on
+        the <code class="keyword markupname xmlelement">&lt;topicgroup&gt;</code> element is equivalent to a
+        single DITA document that contains the content of both
+          <span class="ph filepath">ingroup1.dita</span> and
+          <span class="ph filepath">ingroup2.dita</span>.</p>
+      <p class="p"><span style="color:red;" class="ph">The result of evaluating the</span>
+        <code class="keyword markupname xmlatt">@chunk</code> attribute on
+          <code class="keyword markupname xmlelement">&lt;topichead&gt;</code> is also a single <span style="color:red;" class="ph">result</span> document. In many applications, a
+          <code class="keyword markupname xmlelement">&lt;topichead&gt;</code> is equivalent to a single
+        title-only topic<span style="color:red;" class="ph">. In</span> that case, the chunked
+        result is equivalent to a root topic with the title "Heading for a
+        branch", <span style="color:red;" class="ph">that contains</span> as child topics the
+        content of both <span class="ph filepath">inhead1.dita</span> and
+          <span class="ph filepath">inhead2.dita</span>. If
+          <code class="keyword markupname xmlelement">&lt;topichead&gt;</code> is ignorable in the current
+        processing context, the chunked result would be equivalent to
+        processing <code class="keyword markupname xmlelement">&lt;topicgroup&gt;</code>: a single DITA
+        document with the content of both <span class="ph filepath">inhead1.dita</span>
+        and <span class="ph filepath">inhead2.dita</span>.</p>
+    </figure>
+<figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 8. </span>Equivalent content of source documents after
+        evaluation</figcaption>
+      
+      <p class="p">The result of evaluating the <code class="keyword markupname xmlatt">@chunk</code> attribute is
+        equivalent to the following map and topic documents:</p>
+      <pre class="pre codeblock"><code>&lt;map&gt;
+  &lt;title&gt;Groups are combined&lt;/title&gt;
+  &lt;topicref href="chunkgroup-1.dita"/&gt;
+  &lt;topicref href="chunkgroup-2.dita"/&gt;
+&lt;/map&gt;</code></pre>
+      <p class="p">The following code blocks show the content of <span class="ph filepath">
+          chunkgroup-1.dita</span> and <span class="ph filepath">
+          chunkgroup-2.dita</span>:</p>
+      <pre class="pre codeblock"><code><strong class="ph b">&lt;!-- chunkgroup-1.dita --&gt;</strong>
+&lt;dita&gt;
+  &lt;!-- Content of ingroup1.dita --&gt;
+  &lt;!-- Content of ingroup2.dita --&gt;
+&lt;/dita&gt;</code></pre>
+      <pre class="pre codeblock"><code><strong class="ph b">&lt;!-- chunkgroup-2.dita --&gt;</strong>
+&lt;dita&gt;
+  &lt;topic id="head"&gt;
+    &lt;title&gt;Heading for a branch&lt;/title&gt;
+    &lt;!-- Content of inhead1.dita --&gt;
+    &lt;!-- Content of inhead2.dita --&gt;
+  &lt;/topic&gt;
+&lt;/dita&gt;
+</code></pre>
+    </figure>
+</div>
+</article><article class="topic concept nested3 non-normative" aria-labelledby="ariaid-title11" lang="en" id="examplecombinenest">
+  
+<h4 class="title topictitle4" style="color:red;" id="ariaid-title11">Example: How <code class="ph codeph">chunk="combine"</code> effects
+    the map hierarchy</h4>
+
+  
+<div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">Special attention is necessary when combining a nested map hierarchy that includes
+documents with their own nested topics.</p>
+<figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 9. </span>Source DITA map</figcaption>
+      
+      <p class="p">Consider the following DITA map:</p>
+      <pre class="pre codeblock"><code>&lt;map <strong class="ph b">chunk="combine"</strong>&gt;
+  &lt;title&gt;Generation example&lt;/title&gt;
+  &lt;topicref href="ancestor.dita"&gt;
+    &lt;topicref href="middle.dita"&gt;
+      &lt;topicref href="child.dita"/&gt;
+    &lt;/topicref&gt;
+  &lt;/topicref&gt;
+&lt;/map&gt;
+</code></pre>
+      <p class="p">In this case, the <code class="keyword markupname xmlatt">@chunk</code> attribute instructs a
+        processor to treat the three topics as a single combined document,
+        while preserving the original map hierarchy.</p>
+    </figure>
+<figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 10. </span>Source documents with nested structures</figcaption>
+      
+      <p class="p">Now consider the following three source documents, each of which
+        includes nested or peer topics: <span class="ph filepath">ancestor.dita</span>,
+          <span class="ph filepath">middle.dita</span>, and
+          <span class="ph filepath">child.dita</span>.</p>
+      <pre class="pre codeblock"><code><strong class="ph b">&lt;!-- ancestor.dita --&gt;</strong>
+&lt;dita&gt;
+  &lt;topic id="ancestor-first"&gt;
+    &lt;title&gt;First major topic in ancestor composite document&lt;/title&gt;
+    &lt;!-- ... Topic content ... --&gt;
+  &lt;/topic&gt;
+  &lt;!-- More topics in ancestor composite document --&gt;
+  &lt;topic id="ancestor-last"&gt;
+    &lt;title&gt;Last major topic in ancestor composite doc&lt;/title&gt;
+    &lt;!-- ... Topic content ... --&gt;
+    &lt;topic id="ancestor-last-child"&gt;
+      &lt;title&gt;Child of last major topic in ancestor composite document&lt;/title&gt;
+      &lt;!-- ... Topic content ... --&gt;
+    &lt;/topic&gt;
+  &lt;/topic&gt;
+&lt;/dita&gt;</code></pre>
+      <pre class="pre codeblock"><code><strong class="ph b">&lt;!-- middle.dita --&gt;</strong>
+&lt;topic id="middle-root"&gt;
+  &lt;title&gt;Root topic in middle document&lt;/title&gt;
+  &lt;body&gt;
+    &lt;!-- ... --&gt;
+  &lt;/body&gt;
+  &lt;topic id="middle-child"&gt;
+    &lt;title&gt;Child of root topic in middle document&lt;/title&gt;
+    &lt;!-- ... Body content, maybe more children topics --&gt;
+  &lt;/topic&gt;
+&lt;/topic&gt;</code></pre>
+      <pre class="pre codeblock"><code><strong class="ph b">&lt;!-- child.dita --&gt;</strong>
+&lt;topic id="child"&gt;
+  &lt;title&gt;Small child topic&lt;/title&gt;
+  &lt;!-- ... Topic content ... --&gt;
+&lt;/topic&gt;</code></pre>
+    </figure>
+    <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 11. </span>Evaluating <code class="ph codeph">chunk="combine"</code></figcaption>
+      
+      <p class="p">When <code class="ph codeph">chunk="combine"</code> is evaluated, the three
+        source documents are combined into one. Both the ancestor and
+        middle documents have child topics that need to be taken into
+        account:</p>
+      <ul class="ul" id="examplecombinenest__ul_l3y_wng_thb">
+        
+        
+        <li class="li"><span class="ph filepath">ancestor.dita</span> has a root
+            <code class="keyword markupname xmlelement">&lt;dita&gt;</code> element, with several root-level
+          topics. After evaluating the <code class="keyword markupname xmlatt">@chunk</code> attribute,
+          content from <span class="ph filepath">middle.dita</span> is placed after the
+          topic with <code class="ph codeph">id="ancestor-last-child"</code>in
+            <span class="ph filepath">ancestor.dita</span>.</li>
+        
+        <li class="li"><span class="ph filepath">middle.dita</span> does not have a
+            <code class="keyword markupname xmlelement">&lt;dita&gt;</code> element, but it does have a
+          nested topic, so content from <span class="ph filepath">child.dita</span> is
+          located after that nested topic.</li>
+      </ul>
+      <p style="color:red;" class="p">In each case, the original map hierarchy is
+        preserved.</p>
+    </figure>
+<figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 12. </span>Equivalent content of source documents after
+        evaluation</figcaption>
+      
+      <p class="p">The result of evaluating the <code class="keyword markupname xmlatt">@chunk</code> attribute is
+        equivalent to the following map and topic documents:</p>
+      <pre class="pre codeblock"><code><strong class="ph b">&lt;!-- Root map --&gt;</strong>
+&lt;map&gt;
+  &lt;title&gt;Generation example&lt;/title&gt;
+  &lt;topicref href="input.dita"/&gt;
+&lt;/map&gt;</code></pre>
+      <pre class="pre codeblock"><code><strong class="ph b">&lt;!-- input.dita --&gt;</strong>
+&lt;dita&gt;
+  &lt;topic id="ancestor-first"&gt;
+    &lt;title&gt;First major topic in ancestor composite doc&lt;/title&gt;
+    &lt;!-- ... Topic content ... --&gt;
+  &lt;/topic&gt;
+  &lt;!-- More topics in ancestor composite doc --&gt;
+  &lt;topic id="ancestor-last"&gt;
+    &lt;title&gt;Last major topic in ancestor composite doc&lt;/title&gt;
+    &lt;!-- ... Topic content ... --&gt;
+    &lt;topic id="ancestor-last-child"&gt;
+      &lt;title&gt;Child of last major topic in ancestor composite doc&lt;/title&gt;
+      &lt;!-- ... Topic content ... --&gt;
+    &lt;/topic&gt;
+    <strong class="ph b">&lt;!-- Content of middle.dita combined here --&gt;</strong>
+    &lt;topic id="middle-root"&gt;
+      &lt;title&gt;Root topic in middle doc&lt;/title&gt;
+      &lt;body&gt;&lt;!-- ... --&gt;&lt;/body&gt;
+      &lt;topic id="middle-child"&gt;
+        &lt;title&gt;Child of root topic in middle doc&lt;/title&gt;
+        &lt;!-- ... Body content, maybe more children topics ... --&gt;
+      &lt;/topic&gt;
+      <strong class="ph b">&lt;!-- Content of child.dita combined here --&gt;</strong>
+      &lt;topic id="child"&gt;
+        &lt;title&gt;Small child topic&lt;/title&gt;
+        &lt;!-- ... Topic content ... --&gt;
+      &lt;/topic&gt;
+    &lt;/topic&gt;
+  &lt;/topic&gt;
+&lt;/dita&gt;</code></pre>
+    </figure>
+</div>
+</article><article class="topic concept nested3 non-normative" aria-labelledby="ariaid-title12" lang="en" id="chunksplitexample">
+<h4 class="title topictitle4" id="ariaid-title12">Example: Using <code class="keyword markupname xmlatt">@chunk</code> to split documents</h4>
+
+  
+<div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">When topics are <span style="color:red;" class="ph">authored</span> or generated in
+    a single DITA document, <span style="color:red;" class="ph">specifying
+      </span><code class="ph codeph">chunk="split"</code>
+    <span style="color:red;" class="ph">instructs</span> processors to render them
+    individually when possible.</p>
+    <p style="color:red;" class="p">This topic contains two examples: Splitting a single
+      topic document and splitting all topic documents.</p>
+<div class="example non-normative" id="d28836e1647"><h5 class="title sectiontitle">Splitting a single <span style="color:red;" class="ph">topic</span>
+        document</h5><p class="non-normative-label">This section is non-normative.</p>
+      
+      <p style="color:red;" class="p">This example covers the scenario of splitting a
+        single topic document that is referenced in a DITA map.</p>
+      <figure class="fig fignone" id="chunksplitexample__fig_gqp_nqd_1gb"><figcaption><span class="fig--title-label">Example 13. </span>Root map and the topic documents that it
+          references</figcaption>
+        
+        <p class="p">Consider the following DITA map, <span style="color:red;" class="ph">which
+            references </span> generated topics that document the messages
+            <span style="color:red;" class="ph">that are</span> produced by an
+          application:</p>
+        <pre class="pre codeblock"><code>&lt;map&gt;
+  &lt;title&gt;Message guide&lt;/title&gt;
+  &lt;topicref href="about.dita"&gt;
+    &lt;topicref href="messages-install.dita"/&gt;
+    &lt;topicref href="messages-run.dita"/&gt;
+    &lt;topicref href="messages-other.dita"/&gt;
+  &lt;/topicref&gt;
+&lt;/map&gt;</code></pre>
+        <p style="color:red;" class="p">The following code samples show the contents of
+          the four topic documents: <span class="ph filepath">about.dita</span>,
+            <span class="ph filepath">messages-install.dita</span>,
+            <span class="ph filepath">messages-run.dita</span>, and
+            <span class="ph filepath">messages-other.dita</span>.</p>
+        <pre class="pre codeblock"><code><strong class="ph b">&lt;!-- about.dita --&gt;</strong>
+&lt;topic id="about"&gt;
+  &lt;title&gt;About this guide&lt;/title&gt;
+  &lt;shortdesc&gt;Warnings or errors are displayed when ... &lt;shortdesc&gt;
+&lt;/topic&gt;</code></pre>
+        <pre class="pre codeblock"><code><strong class="ph b">&lt;!-- messages-install.dita --&gt;</strong>
+&lt;dita&gt;
+  &lt;topic id="INS001"&gt;
+    &lt;title&gt;INS001: Installation failure&lt;/title&gt;
+    &lt;!-- Explanation and recovery steps ... --&gt;
+  &lt;/topic&gt;
+  &lt;!-- More topics that document installation messages ... --&gt;
+&lt;/dita&gt;</code></pre>
+        <pre class="pre codeblock"><code><strong class="ph b">&lt;! messages-run.dita --&gt;</strong>
+&lt;dita&gt;
+  &lt;topic id="RUN001"&gt;
+    &lt;title&gt;RUN001: Failed to initialize&lt;/title&gt;
+    &lt;!-- Explanation and recovery steps ... --&gt;
+  &lt;/topic&gt;
+  &lt;!-- Hundreds of message topics ... --&gt;
+  &lt;topic id="RUN999"&gt;
+    &lt;title&gt;RUN999: Out of memory&lt;/title&gt;
+    &lt;!-- Explanation and recovery steps ... --&gt;
+  &lt;/topic&gt;
+&lt;/dita&gt;</code></pre>
+        <pre class="pre codeblock"><code><strong class="ph b">&lt;!-- messages-other.dita --&gt;</strong>
+&lt;topic id="othermsg"&gt;
+  &lt;title&gt;Other messages&lt;/title&gt;
+  &lt;shortdesc&gt;You could also encounter ... &lt;/shortdesc&gt;
+  &lt;topic id="OTHER001"&gt;
+    &lt;title&gt;OTHER001: Analyzer is tired&lt;/title&gt;
+    &lt;!-- Explanation and recovery steps ... --&gt;
+  &lt;/topic&gt;
+  &lt;topic id="OTHER002"&gt;
+    &lt;title&gt;OTHER002: Analyzer needs to be updated&lt;/title&gt;
+    &lt;!-- Explanation and recovery steps ... --&gt;
+  &lt;/topic&gt;
+&lt;/topic&gt;</code></pre>
+        <p class="p"><span style="color:red;" class="ph">When processed</span> to HTML5, this map might
+          result in four result documents: <span class="ph filepath">about.html</span>,
+            <span class="ph filepath">messages-install.html</span>,
+            <span class="ph filepath">messages-run.html</span>, and
+            <span class="ph filepath">messages-other.html</span>.</p>
+      </figure>
+      <figure class="fig fignone" id="chunksplitexample__fig_ltd_yrd_1gb"><figcaption><span class="fig--title-label">Example 14. </span>Splitting topics in one topic
+          document</figcaption>
+        
+        <p class="p">With hundreds of messages in
+            <span class="ph filepath">messages-run.dita</span>, it might be better in
+          some situations to render one result document for each message
+          topic in the document. This can be done by <span style="color:red;" class="ph">specifying</span>
+          <code class="ph codeph">chunk="split"</code> on the topic reference <span class="ph">to
+              <span class="ph filepath">messages-run.dita</span></span>:</p>
+        <pre class="pre codeblock"><code>&lt;map&gt;
+  &lt;title&gt;Message guide&lt;/title&gt;
+  &lt;topicref href="about.dita"&gt;
+    &lt;topicref href="messages-install.dita"/&gt;
+    &lt;topicref href="messages-run.dita" <strong class="ph b">chunk="split"</strong>/&gt;
+    &lt;topicref href="messages-other.dita"/&gt;
+  &lt;/topicref&gt;
+&lt;/map&gt;</code></pre>
+      </figure>
+      <figure class="fig fignone" id="chunksplitexample__fig_htc_2sd_1gb"><figcaption><span class="fig--title-label">Example 15. </span>Equivalent content of source documents after
+          evaluation</figcaption>
+        
+        <p class="p">The result of evaluating <code class="keyword markupname xmlatt">@chunk</code> in this case is
+          equivalent to the following map. While
+            <span class="ph filepath">messages-run.dita</span> now is split into
+          hundreds of topics, <span style="color:red;" class="ph">the</span> other topics in
+          the map are unaffected.</p>
+        <pre class="pre codeblock"><code>&lt;map&gt;
+  &lt;title&gt;Message guide for WidgetAnalyzer&lt;/title&gt;
+  &lt;topicref href="about.dita"&gt;
+    &lt;topicref href="messages-install.dita"/&gt;
+    <strong class="ph b">&lt;topicref href="RUN001.dita"/&gt;
+    &lt;!-- Hundreds of topic references to message topics ... --&gt;
+    &lt;topicref href="RUN999.dita"/&gt;</strong>
+    &lt;topicref href="messages-other.dita"/&gt;
+  &lt;/topicref&gt;
+&lt;/map&gt;</code></pre>
+        <div class="note note note_note non-normative"><span class="note__title">Note<span class="non-normative-label"> (non-normative)</span>:</span> <div class="note__body">Because the <code class="keyword markupname xmlatt">@chunk</code> attribute does not
+          cascade, even if the topic reference to <span style="color:red;" class="ph filepath">messages-run.dita</span> had child topic references, they
+          would be unaffected by the <code class="ph codeph">chunk="split"</code>
+          <span style="color:red;" class="ph">operation</span> in this example.</div></div>
+      </figure>
+    </div>
+<div class="example non-normative" id="d28836e1846"><h5 class="title sectiontitle">Splitting all topic documents in a map</h5><p class="non-normative-label">This section is non-normative.</p>
+
+      <p style="color:red;" class="p">This example covers the scenario of splitting all
+        the topic documents that are referenced in a DITA map.</p>
+<figure class="fig fignone" id="chunksplitexample__fig_qns_tsd_1gb"><figcaption><span class="fig--title-label">Example 16. </span>Root map with chunking specified</figcaption>
+
+        <p class="p"><span style="color:red;" class="ph">Specifying</span>
+          <code class="ph codeph">chunk="split"</code> on the
+            <code class="keyword markupname xmlelement">&lt;map&gt;</code> element sets a default for the
+          entire map. The following change to the DITA map results in
+            <em class="ph i">every</em> referenced DITA document being split into one
+          document per topic. The only source document <span style="color:red;" class="ph">that is</span> not affected by this <span style="color:red;" class="ph">splitting
+            operation</span> is <span class="ph filepath">about.dita</span>, because it
+          only <span style="color:red;" class="ph">contains only one topic</span>.</p>
+<pre class="pre codeblock"><code>&lt;map <strong class="ph b">chunk="split"</strong>&gt;
+  &lt;title&gt;Message guide&lt;/title&gt;
+  &lt;topicref href="about.dita"&gt;
+    &lt;topicref href="messages-install.dita"/&gt;
+    &lt;topicref href="messages-run.dita"/&gt;
+    &lt;topicref href="messages-other.dita"/&gt;
+  &lt;/topicref&gt;
+&lt;/map&gt;</code></pre>
+</figure>
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Example 17. </span>Result of evaluating <code class="ph codeph">chunk="split"</code></figcaption>
+        
+      </figure>
+<p class="p">The result of evaluating <code class="ph codeph">chunk="split"</code> specified on the
+        map element yields the following results:</p>
+<ul class="ul" id="chunksplitexample__ul_m3y_wng_thb">
+<li class="li"><span class="ph filepath">about.dita</span> is unchanged.</li>
+<li class="li"><span class="ph filepath">messages-install.dita</span> is split into one document
+            <span style="color:red;" class="ph">for each</span> message.</li>
+<li class="li"><span class="ph filepath">messages-run.dita</span> is split into one document <span style="color:red;" class="ph">for each</span> message, exactly as in the
+          previous example.</li>
+<li class="li"><span class="ph filepath">messages-other.dita</span> contains a root topic and two child topics, so it
+results in three documents. The hierarchy of those documents is preserved in the map.</li>
+</ul>
+<figure class="fig fignone" id="chunksplitexample__fig_pbm_dtd_1gb"><figcaption><span class="fig--title-label">Example 18. </span>Equivalent content of source documents after
+          evaluation</figcaption>
+        
+        <p class="p">The result of evaluating the <code class="keyword markupname xmlatt">@chunk</code> attribute is
+          the following map:</p>
+<pre class="pre codeblock"><code>&lt;map&gt;
+  &lt;title&gt;Message guide&lt;/title&gt;
+  &lt;topicref href="about.dita"&gt;
+    &lt;topicref href="INS001.dita"/&gt;
+    &lt;!-- More topic references to installation messages ... --&gt;
+    &lt;topicref href="RUN001.dita"/&gt;
+    &lt;!-- Hundreds of topic references to message topics ... --&gt;
+    &lt;topicref href="RUN999.dita"/&gt;
+    &lt;topicref href="othermsg.dita"&gt;
+      &lt;topicref href="OTHER001.dita"/&gt;
+      &lt;topicref href="OTHER002.dita"/&gt;
+    &lt;/topicref&gt;
+  &lt;/topicref&gt;
+&lt;/map&gt;</code></pre>
+</figure>
+</div>
+</div>
+</article><article class="topic concept nested3 non-normative" aria-labelledby="ariaid-title13" lang="en" id="concept_nl2_m4j_1gb">
+  <h4 class="title topictitle4" style="color:red;" id="ariaid-title13">Example: How <code class="ph codeph">chunk="split"</code> affects the map
+    hierarchy</h4>
+  
+
+  
+<div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">Special attention is necessary when evaluating the map hierarchy
+    that results from splitting <span style="color:red;" class="ph">documents that
+      contain</span> nested topics.</p>
+<figure class="fig fignone" id="concept_nl2_m4j_1gb__fig_ol2_m4j_1gb"><figcaption><span class="fig--title-label">Figure 19. </span>Source DITA map with chunking specified</figcaption>
+
+      <p class="p">Consider the following DITA map:</p>
+<pre class="pre codeblock"><code>&lt;map <strong class="ph b">chunk="split"</strong>&gt;
+  &lt;title&gt;Generation example&lt;/title&gt;
+  &lt;topicref href="ancestor.dita"&gt;
+    &lt;topicref href="middle.dita"&gt;
+      &lt;topicref href="child.dita"/&gt;
+    &lt;/topicref&gt;
+  &lt;/topicref&gt;
+&lt;/map&gt;
+</code></pre>
+      <p class="p">Here, the <code class="keyword markupname xmlatt">@chunk</code> attribute instructs a processor
+        to render every topic in each of the three documents as its own
+        document, while preserving any hierarchy from those documents.</p>
+</figure>
+<figure class="fig fignone" id="concept_nl2_m4j_1gb__fig_pl2_m4j_1gb"><figcaption><span class="fig--title-label">Figure 20. </span>Source topic documents with nested or peer topics</figcaption>
+
+      <p class="p">Now consider the following three topic documents, each of which
+        includes nested or peer topics:</p>
+      <div class="p">
+        <figure class="fig fignone">
+          <pre class="pre codeblock"><code><strong class="ph b">&lt;!-- ancestor.dita --&gt;</strong>
+&lt;dita&gt;
+  &lt;topic id="ancestor-first"&gt;
+    &lt;title&gt;First major topic in ancestor composite document&lt;/title&gt;
+    &lt;!-- ... Topic content ... --&gt;
+  &lt;/topic&gt;
+  &lt;!-- More topics in ancestor composite document --&gt;
+  &lt;topic id="ancestor-last"&gt;
+    &lt;title&gt;Last major topic in ancestor composite document&lt;/title&gt;
+    &lt;!-- ... Topic content ... --&gt;
+    &lt;topic id="ancestor-last-child"&gt;
+      &lt;title&gt;Child of last major topic in ancestor composite document&lt;/title&gt;
+      &lt;!-- ... Topic content ... --&gt;
+    &lt;/topic&gt;
+  &lt;/topic&gt;
+&lt;/dita&gt;</code></pre>
+        </figure>
+        <pre class="pre codeblock"><code><strong class="ph b">&lt;!-- middle.dita --&gt;</strong>
+&lt;topic id="middle-root"&gt;
+  &lt;title&gt;Root topic in middle document&lt;/title&gt;
+  &lt;body&gt;
+    &lt;!-- ... --&gt;
+  &lt;/body&gt;
+  &lt;topic id="middle-child"&gt;
+    &lt;title&gt;Child of root topic in middle document&lt;/title&gt;
+    &lt;!-- ... Body content, maybe more children topics ... --&gt;
+  &lt;/topic&gt;
+&lt;/topic&gt;</code></pre>
+        <pre class="pre codeblock"><code><strong class="ph b">&lt;!-- child.dita --&gt;</strong>
+&lt;topic id="child"&gt;
+  &lt;title&gt;Small child topic&lt;/title&gt;
+  &lt;!-- ... Topic content ... --&gt;
+&lt;/topic&gt;</code></pre>
+      </div>
+</figure>
+    <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 21. </span>Evaluating <code class="ph codeph">chunk="split"</code></figcaption>
+      
+      <p class="p">When <code class="ph codeph">chunk="split"</code> is evaluated, both
+          <span class="ph filepath">ancestor.dita</span> and
+          <span class="ph filepath">middle.dita</span> are split and treated as
+        multiple topic documents. <span class="ph filepath">child.dita</span> is only a
+        single topic and has nothing to split.</p>
+      <p style="color:red;" class="p">The following list addresses how the split
+        operation effects the map hierarchy:</p>
+      <ul class="ul" id="concept_nl2_m4j_1gb__ul_n3y_wng_thb">
+        <li class="li"><span class="ph filepath">ancestor.dita</span> has a root
+            <code class="keyword markupname xmlelement">&lt;dita&gt;</code> element, so it results in
+          multiple peer topic references (or branches) in the map. Topic
+          references that were nested within the original reference to
+            <span class="ph filepath">ancestor.dita</span> are now located within the
+          reference to "ancestor-last" (the last topic child of the
+            <code class="keyword markupname xmlelement">&lt;dita&gt;</code> element).</li>
+        <li class="li"><span class="ph filepath">middle.dita</span> has nested topics, so it
+          results in its own new hierarchy within the map. Content from the
+          nested topic reference is now located within the reference to the
+          root topic from <span class="ph filepath">middle.dita</span>, but after any
+          references to child topics.</li>
+      </ul>
+    </figure>
+<figure class="fig fignone" id="concept_nl2_m4j_1gb__fig_ql2_m4j_1gb"><figcaption><span class="fig--title-label">Figure 22. </span>Equivalent content of source documents after evaluation</figcaption>
+
+      <p class="p">The result of evaluating the <code class="keyword markupname xmlatt">@chunk</code> attribute is
+        equivalent to the following DITA map:</p>
+<pre class="pre codeblock"><code>&lt;map chunk="split"&gt;
+  &lt;title&gt;Generation example&lt;/title&gt;
+  &lt;topicref href="ancestor-first.dita"/&gt;
+  &lt;!-- More topics in ancestor composite document --&gt;
+  &lt;topicref href="ancestor-last.dita"&gt;
+    &lt;topicref href="ancestor-last-child.dita"/&gt;
+    &lt;!-- middle.dita now located here, as final child of
+         final topic child of &lt;dita&gt; in ancestor.dita --&gt;
+    &lt;topicref href="middle-root.dita"&gt;
+      &lt;topicref href="middle-child.dita"/&gt;
+      &lt;!-- child.dita now located here, as final topic of
+           child root topic in middle.dita ancestor.dita --&gt;
+      &lt;topicref href="child.dita"/&gt;
+    &lt;/topicref&gt;
+  &lt;/topicref&gt;
+&lt;/map&gt;
+</code></pre>
+</figure>
+</div>
+</article><article class="topic concept nested3 non-normative" aria-labelledby="ariaid-title14" lang="en" id="exampleignorechunk">
+<h4 class="title topictitle4" id="ariaid-title14">Example: When <code class="keyword markupname xmlatt">@chunk</code> is ignored</h4>
+
+  
+<div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">The <code class="keyword markupname xmlatt">@chunk</code> attribute is ignored in some cases, such as when
+<code class="ph codeph">chunk="combine"</code> is already in effect or when <code class="ph codeph">chunk="split"</code> is
+specified on a grouping element.</p>
+    <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 23. </span>Ignoring <code class="keyword markupname xmlatt">@chunk</code> when already combining
+        topics</figcaption>
+      
+      <p class="p">In the following <span style="color:red;" class="ph">code sample</span>, evaluating
+          <code class="ph codeph">chunk="combine"</code> results in one rendered document
+        for each <span style="color:red;" class="ph">map branch</span>. Any additional
+          <code class="keyword markupname xmlatt">@chunk</code> values within <span style="color:red;" class="ph">those
+          branches</span> are ignored, including any <code class="keyword markupname xmlatt">@chunk</code>
+        values within any referenced maps.</p>
+      <pre class="pre codeblock"><code>&lt;map&gt;
+  &lt;title&gt;Ignoring chunking when already combined&lt;/title&gt;
+
+  &lt;topicref href="branchOne.dita" <strong class="ph b">chunk="combine"</strong>&gt;
+    &lt;!-- @chunk ignored for branchOneChild.dita --&gt;
+    &lt;topicref href="branchOneChild.dita" <strong class="ph b">chunk="split"</strong>/&gt;
+  &lt;/topicref&gt;
+
+  &lt;topicref href="branchTwo.dita" <strong class="ph b">chunk="combine"</strong>&gt;
+    &lt;!-- Any @chunk within submap.ditamap is ignored --&gt;
+    &lt;topicref href="submap.ditamap" format="ditamap"/&gt;
+  &lt;/topicref&gt;
+</code></pre>
+    </figure>
+    <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 24. </span>Ignoring <code class="keyword markupname xmlatt">@chunk</code> on a grouping element</figcaption>
+      
+      <p class="p">In the following <span style="color:red;" class="ph">code sample</span>,
+          <code class="ph codeph">chunk="split"</code> is specified on two grouping
+        elements.</p>
+      <pre class="pre codeblock"><code>&lt;map&gt;
+  &lt;title&gt;Trying to "split" groups&lt;/title&gt;
+  &lt;topicgroup <strong class="ph b">chunk="split"</strong>&gt;
+    &lt;topicref href="ingroup1.dita"&gt;&lt;!--...--&gt;&lt;/topicref&gt;
+    &lt;topicref href="ingroup2.dita"&gt;&lt;!--...--&gt;&lt;/topicref&gt;
+  &lt;/topicgroup&gt;
+  &lt;topichead <strong class="ph b">chunk="split"</strong>&gt;
+    &lt;topicmeta&gt;
+      &lt;navtitle&gt;Heading for a branch&lt;/navtitle&gt;
+    &lt;/topicmeta&gt;
+    &lt;topicref href="inhead1.dita"&gt;&lt;!--...--&gt;&lt;/topicref&gt;
+    &lt;topicref href="inhead2.dita"&gt;&lt;!--...--&gt;&lt;/topicref&gt;
+  &lt;/topichead&gt;
+&lt;/map&gt;</code></pre>
+      <p style="color:red;" class="p">The result of evaluating chunking is the
+        following:</p>
+      <ul class="ul" id="exampleignorechunk__ul_o3y_wng_thb">
+        <li class="li">The <code class="keyword markupname xmlatt">@chunk</code> attribute on the
+            <code class="keyword markupname xmlelement">&lt;topicgroup&gt;</code>
+          <span style="color:red;" class="ph">element</span> is ignored<span style="color:red;" class="ph">.
+            The <code class="keyword markupname xmlatt">@chunk</code> attribute</span> does not cascade and
+          there is no referenced topic, so it has no effect.</li>
+        <li class="li">In some cases, an implementation might treat the
+            <code class="keyword markupname xmlelement">&lt;topichead&gt;</code> element as equivalent to a
+          single title-only topic, while in other cases it might be
+          ignored. In either case, the <code class="keyword markupname xmlatt">@chunk</code> value has no
+          effect. If the <code class="keyword markupname xmlelement">&lt;topichead&gt;</code> is treated as a
+          title-only topic, it cannot be split further<span style="color:red;" class="ph">.
+            If</span> it is ignored for the current processing context, it is
+          no different than the <code class="keyword markupname xmlelement">&lt;topicgroup&gt;</code>
+          <span style="color:red;" class="ph">element</span>.</li>
+      </ul>
+    </figure>
+</div>
+</article><article class="topic concept nested3 non-normative" aria-labelledby="ariaid-title15" lang="en" id="chunkedge">
+<h4 class="title topictitle4" style="color:red;" id="ariaid-title15">Example: Using <code class="ph codeph">chunk="combine"</code> when
+    the root map specifies <code class="ph codeph">chunk="split"</code></h4>
+
+  
+<div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">While <code class="keyword markupname xmlatt">@chunk</code> attributes are ignored when <span style="color:red;" class="ph"><code class="ph codeph">chunk="combine"</code></span> is already in
+    effect, it is possible to use <code class="ph codeph">chunk="combine"</code> when
+      <code class="ph codeph">chunk="split"</code> is in effect.</p>
+<figure class="fig fignone" id="chunkedge__fig_htr_jyd_1gb"><figcaption><span class="fig--title-label">Figure 25. </span>Source DITA map</figcaption>
+      
+      
+      <p class="p">Consider the following DITA map, where
+          <code class="ph codeph">chunk="split"</code>
+        <span style="color:red;" class="ph">is specified</span> on the root element. <span style="color:red;" class="ph">The effect of this operation</span> is that all
+        topic documents within <span style="color:red;" class="ph">the</span> map structure
+        are split by default. <span style="color:red;" class="ph">However, a map branch also
+          specifies <code class="ph codeph">chunk="combine"</code>:</span></p>
+<pre class="pre codeblock"><code>&lt;map <strong class="ph b">chunk="split"</strong>&gt;
+  &lt;title&gt;Split most, but not one branch&lt;/title&gt;
+  &lt;topicref href="splitme.dita"&gt;
+    &lt;!-- More topic references --&gt;
+  &lt;/topicref&gt;
+  &lt;topicref href="exception.dita" <strong class="ph b">chunk="combine"</strong>&gt;
+    &lt;!-- More topic references --&gt;
+  &lt;/topicref&gt;
+  &lt;topicref href="splitmetoo.dita"&gt;
+    &lt;!-- More topic references --&gt;
+  &lt;/topicref&gt;<span style="color:red;" class="ph">
+&lt;/map&gt;</span></code></pre>
+      <p class="p"><span style="color:red;" class="ph">Assume also</span> that no other
+          <code class="keyword markupname xmlatt">@chunk</code> attributes are specified in the map.</p>
+</figure>
+    <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 26. </span>Evaluation of <code class="keyword markupname xmlatt">@chunk</code> attributes in the
+        map</figcaption>
+      
+      <p class="p">The following points are true when <code class="keyword markupname xmlatt">@chunk</code> is
+        evaluated:</p>
+      <ul class="ul" id="chunkedge__ol_p3y_wng_thb">
+        <li class="li">The document <span class="ph filepath">splitme.dita</span> is <span style="color:red;" class="ph">rendered</span> as <span style="color:red;" class="ph">one result
+            document for each topic.</span>. The same is true for any other
+            <span style="color:red;" class="ph">topic</span> document within the map
+          branch.</li>
+        <li class="li">The second <span style="color:red;" class="ph">map</span> branch<span style="color:red;" class="ph">, where the outermost <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>
+            elements references <span class="ph filepath">exception.dita</span>,
+          </span>is <span style="color:red;" class="ph">rendered</span> as a single <span style="color:red;" class="ph">result</span> document <span style="color:red;" class="ph">that
+            combines all topic documents</span> within <span style="color:red;" class="ph">the
+            map</span> branch.</li>
+        <li class="li">The document <span class="ph filepath">splitmetoo.dita</span> is <span style="color:red;" class="ph">rendered</span> as <span style="color:red;" class="ph">one result
+            document for each topic.</span>. The same is true for any other
+            <span style="color:red;" class="ph">topic</span> document within the map
+          branch.</li>
+      </ul>
+    </figure>
+</div>
+</article><article class="topic concept nested3 non-normative" aria-labelledby="ariaid-title16" lang="en" id="chunklinking">
+<h4 class="title topictitle4" id="ariaid-title16">Example: Managing links when chunking</h4>
+  
+  
+<div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><div class="abstract">
+    
+     <span style="color:red;" class="shortdesc">If a topic is referenced more than once and
+      one of those instances involves chunking, links to that topic might
+      be ambiguous. In most of such cases, using key references to keys
+      that are defined directly on the chunked instance of the topic will
+      give the correct result.</span>
+  </div>
+    <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 27. </span>Source map and the topic documents that it references </figcaption>
+      
+      <p class="p">Consider the following DITA map, which is used for all examples in
+        this topic:</p>
+      <pre class="pre codeblock"><code>&lt;map&gt;
+  &lt;title&gt;Map with chunks and <span style="color:red;" class="ph">key definitions</span>&lt;/title&gt;
+  &lt;!-- Key definitions --&gt;
+  &lt;keydef href="splitThis.dita" keys="splitThisKey"/&gt;
+  &lt;keydef href="splitThis.dita#splitThisChild" keys="splitThisChildKey"/&gt;
+  &lt;!-- Navigational structure --&gt;
+  &lt;topicref href="splitThis.dita" <strong class="ph b">chunk="split"</strong> keys="explicitSplitKey"/&gt;
+  &lt;topicref href="combineThis.dita" <strong style="color:red;" class="ph b">chunk="combine"</strong> keys="combineThisKey"&gt;
+    &lt;topicref href="combinedChild.dita" keys="combinedChildKey"/&gt;
+  &lt;/topicref&gt;
+&lt;/map&gt;
+</code></pre>
+      <p class="p">The DITA map references the following topics:</p>
+      <pre class="pre codeblock"><code><strong class="ph b">&lt;!-- splitThis.dita --&gt;</strong>
+&lt;topic id="splitThisRoot"&gt;
+  &lt;title&gt;Root topic&lt;/title&gt;
+  &lt;!-- ... --&gt;
+  &lt;topic id="splitThisChild"&gt;
+    &lt;title&gt;Child topic&lt;/title&gt;
+    &lt;!-- ... --&gt;
+  &lt;/topic&gt;
+&lt;/topic&gt;</code></pre>
+      <pre class="pre codeblock"><code><strong class="ph b">&lt;!-- combineThis.dita --&gt;</strong>
+&lt;topic id="combineThisRoot"&gt;
+  &lt;title&gt;Root topic&lt;/title&gt;
+  &lt;!-- ... --&gt;
+  &lt;topic id="combineThisChild"&gt;
+    &lt;title&gt;Child topic&lt;/title&gt;
+    &lt;!-- ... --&gt;
+  &lt;/topic&gt;
+&lt;/topic&gt;</code></pre>
+      <pre class="pre codeblock"><code><strong class="ph b">&lt;!-- combinedChild.dita --&gt;</strong>
+&lt;topic id="combinedChildRoot"&gt;
+  &lt;title&gt;<span style="color:red;" class="ph">Topic in map branch, will be combined with parent topicref</span>&lt;/title&gt;
+  &lt;!-- ... --&gt;
+&lt;/topic&gt;</code></pre>
+    </figure>
+    <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 28. </span>Scenario in which the topic documents are
+        rendered only once</figcaption>
+      
+      
+      <p class="p">Assume that the above map is a root map or a <span style="color:red;" class="ph">submap that is referenced in a context that does not include any
+          references to the above topic documents.</span></p>
+      <p style="color:red;" class="p">The topic documents that are referenced in the
+        above map are rendered in the following ways:</p>
+      <ul class="ul" id="chunklinking__ul_q3y_wng_thb">
+        <li class="li"><span class="ph filepath">splitThis.dita</span><span style="color:red;" class="ph">, which
+            contains two topics,</span> is rendered as two documents. For
+          this example, assume <span style="color:red;" class="ph">the</span> processor
+          creates two documents with names <span style="color:red;" class="ph">that are
+            based on the topic IDs</span>:
+            <span class="ph filepath">splitThisRoot.dita</span> and
+            <span class="ph filepath">splitThisChild.dita</span>.</li>
+        <li class="li">The <span style="color:red;" class="ph">map </span>branch with
+            <span class="ph filepath">combineThis.dita</span><span style="color:red;" class="ph">, which
+            contains two topic references,</span> is rendered as one
+          document: <span class="ph filepath">combineThis.dita</span>. <span style="color:red;" class="ph">The document contains the merged content of both
+              <span class="ph filepath">combineThis.dita</span> and
+              <span class="ph filepath">combinedChild.dita</span>.</span></li>
+      </ul>
+      <p style="color:red;" class="p">Links are resolved in the following ways. Note that
+        the document names are those listed in the above explanation of how
+        the topic documents are rendered in this scenario.</p>
+      <ul class="ul">
+        <li class="li">All links <span style="color:red;" class="ph">that specify</span>
+          <code class="ph codeph">href="splitThis.dita"</code>,
+            <code class="ph codeph">keyref="splitThisKey"</code>, or
+            <code class="ph codeph">keyref="explicitSplitKey"</code> resolve to
+            <span class="ph filepath">splitThisRoot.dita</span><span style="color:red;" class="ph">,
+            which is </span>the only rendered instance of the topic.</li>
+        <li class="li">All links <span style="color:red;" class="ph">that specify</span>
+          <code class="ph codeph">href="splitThis.dita#splitThisChild"</code> or
+            <code class="ph codeph">keyref="splitThisChildKey"</code> resolve to
+            <span class="ph filepath">splitThisChild.dita</span><span style="color:red;" class="ph">,
+            which is </span>the only rendered instance of the topic.</li>
+        <li class="li">All links <span style="color:red;" class="ph">that specify</span>
+          <code class="ph codeph">href="combinedChild.dita"</code> or
+            <code class="ph codeph">keyref="combinedChildKey"</code> resolve to that
+          topic within <span class="ph filepath">combineThis.dita</span><span style="color:red;" class="ph">, which is </span>the only rendered instance of
+          the topic.</li>
+      </ul>
+    </figure>
+    <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 29. </span>Scenario in which the topic documents are
+        rendered more than once</figcaption>
+      
+      <p class="p">Now assume that <span style="color:red;" class="ph">the above map is used as a
+          submap in another context, where the root map also references the
+          three topic documents.</span> As a result, each of the three topic
+        documents (<span class="ph filepath">splitThis.dita</span>,
+          <span class="ph filepath">combineThis.dita</span>, and
+          <span class="ph filepath">combinedChild.dita</span>) are rendered more than
+        once.</p>
+      <p style="color:red;" class="p">In this scenario, the topic documents
+        are rendered in the
+        following ways:</p>
+      <ul class="ul" id="chunklinking__ul_hd5_hd1_rhb">
+        <li class="li">The original source document
+            <span class="ph filepath">splitThis.dita</span> is rendered twice. Based on
+          the map above, assume <span style="color:red;" class="ph">the</span> processor
+          creates two documents with names <span style="color:red;" class="ph">that are
+            based on the topic IDs</span>, so that topic becomes
+            <span class="ph filepath">splitThisRoot.dita</span> and
+            <span class="ph filepath">splitThisChild.dita</span>. At the same time,
+            <span class="ph filepath">splitThis.dita</span> is rendered <em class="ph i">in another
+            context</em> as a single document, with a different name.</li>
+        <li class="li">Based on the map above, the branch that starts with the
+          original source document <span class="ph filepath">combineThis.dita</span> is
+          rendered as one document combined with the content of
+            <span class="ph filepath">combinedChild.dita</span>. At the same time,
+          those two documents are rendered in another context as individual
+          documents. For this example, assume a processor generates the
+          combined document using the generated name
+            <span class="ph filepath">combinThis-2.dita</span>, while the documents
+            <span class="ph filepath">combineThis.dita</span> and
+            <span class="ph filepath">combinedChild.dita</span> retain their names in
+          the other context.</li>
+      </ul>
+      <p style="color:red;" class="p">In this scenario, the links to the topic documents
+        are now problematic:</p>
+      <ul class="ul">
+        <li class="li">All links in this map <span style="color:red;" class="ph">that use</span> the
+          direct URI references <code class="ph codeph">href="splitThis.dita"</code>,
+            <code class="ph codeph">href="splitThis.dita#splitThisChild"</code>,
+            <code class="ph codeph">href="combineThis.dita"</code>, or
+            <code class="ph codeph">href="combinedChild.dita"</code> are  ambiguous. They
+          could <span style="color:red;" class="ph">resolve to either</span> the chunked
+          instance <span style="color:red;" class="ph">of the topic documents</span> or to the
+          individual topics in the other context. Implementations will have
+          to guess which topic to target: the split or combined instances
+            <span style="color:red;" class="ph">of the topic documents</span> or the versions
+          in the alternate context from the root map.</li>
+        <li class="li">All links <span style="color:red;" class="ph">that specify</span>
+          <code class="ph codeph">keyref="splitThisKey"</code> or
+            <code class="ph codeph">keyref="splitThisChildKey"</code> are also ambiguous.
+          The key definitions are not associated explicitly with the
+          chunked or not-chunked instance. If key scopes are used,
+          applications might more reliably guess that the intended target
+          is the split copy in this map, but this is not guaranteed.</li>
+      </ul>
+      <p class="p">All links <span style="color:red;" class="ph">that specify</span>
+        <code class="ph codeph">keyref="explicitSplitKey"</code>,
+          <code class="ph codeph">keyref="combinedThisKey"</code>, or
+          <code class="ph codeph">keyref="combinedChildKey"</code> are unambiguous. These
+        links can only resolve to the chunked instance <span style="color:red;" class="ph">of the topic documents</span>, because <span style="color:red;" class="ph">the key
+          definitions</span> are defined directly within the chunked
+        context.</p>
+      <p class="p">There is no way to unambiguously link to the child document that
+        will result from splitting <span class="ph filepath">splitThis.dita</span>.
+        This is because a <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element that
+        specifies <code class="keyword markupname xmlatt">@chunk</code> can only associate a key
+        definition with the first or root topic in the document. While
+        other key definition elements can be used to associate keys with
+        other topics in the same document, that can only be done outside of
+        the navigation context that uses <code class="keyword markupname xmlatt">@chunk</code><span style="color:red;" class="ph">. As</span> a result, a processor cannot guarantee
+        whether the intended link target is the split topic from the
+        chunked context or a use of the same topic in the second context. </p>
+      <p class="p">It is possible for an implementation to define its own way to
+        resolve this ambiguity. <span style="color:red;" class="ph">However</span>, if a
+        situation requires both multiple instances of split topics and
+        unambiguous cross-implementation links to those split topics,
+        alternate reuse mechanisms need to be considered.</p>
+      <div class="p">
+        
+      </div>
+    </figure>
+</div>
+</article></article></article></article><aside class="section-toc" role="aside"></aside></article></main>

@@ -1,0 +1,619 @@
+---
+layout: base.njk
+title: ''
+index: 'toc.html'
+notices: 'resources/oasis-notices.html'
+commit: '243896ef3870f480d9fcc58f5e2afb91c6dc5f00'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="toc" role="toc"><ul><li><a href="introduction/dita-release-overview.html">Introduction</a></li><li><a href="archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="archSpec/base/accessibility-and-translation.html">Accessibility and translation</a></li><li><a href="archSpec/base/dita-map-processing.html">DITA map processing</a><ul class="nav nav-list"><li><a href="archSpec/base/dita-maps-and-their-usage.html#dita-maps-and-their-usage">DITA maps and their usage</a></li><li class="active"><a href="Chunk1730232303.html#Chunk1730232303">Subject scheme maps</a><ul class="nav nav-list"><li><a href="Chunk1730232303.html#concept_gfn_skx_54">Subject scheme maps and their usage</a></li></ul></li><li><a href="Chunk383234198.html#Chunk383234198">Cascading metadata</a></li><li><a href="Chunk267808696.html#Chunk267808696">Chunking</a></li></ul></li><li><a href="archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="archSpec/base/behaviors.html">DITA processing</a></li><li><a href="archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a></li><li><a href="langRef/langRef-base.html">Element reference</a></li><li><a href="conformance/conformance.html">Conformance</a></li><li><a href="acknowledgments/acknowledgments.html#r-acknowledgments">Acknowledgments</a></li><li><a href="non-normative/aggregated-RFC-2119-statements.html#aggregated-RFC-2119-statements">Aggregated RFC-2119 statements</a></li><li><a href="archSpec/base/coding-requirements.html#coding-practices">Coding practices for DITA grammar files</a></li><li><a href="non-normative/developing-constraint-and-expansion-modules.html#developing-constraint-and-expansion-modules">Constraint modules</a></li><li><a href="non-normative/expansion-modules.html#expansion-modules">Expansion modules</a></li><li><a href="non-normative/elementsMerged.html#elements">Element-by-element recommendations for translators</a></li><li><a href="non-normative/formatting-expectations.html#formatting-expectations">Formatting expectations</a></li><li><a href="non-normative/migrating-to-dita-2.0.html#migrating-to-dita-2.0">Migrating to DITA 2.0</a></li><li><a href="non-normative/basedoctypes.html#oasisdomains">OASIS grammar files</a></li><li><a href="non-normative/interoperability-considerations.html#nteroperability-considerations">Processing interoperability considerations</a></li><li><a href="non-normative/revision-history.html#revision-history">Revision history</a></li></ul></nav><main role="main" class=""><article role="article" aria-labelledby="ariaid-title1"><article class="nested0" aria-labelledby="ariaid-title1" id="Chunk1730232303"><h1 class="title topictitle1" id="ariaid-title1">Subject scheme maps</h1><nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="archSpec/base/dita-map-processing.html" title="Introduction to this chapter to be written later, when content is more stable.">DITA map processing</a></div></div></nav><article class="topic concept nested1" aria-labelledby="ariaid-title2" lang="en-us" id="concept_gfn_skx_54">
+ <h2 class="title topictitle2" id="ariaid-title2">Subject scheme maps and their usage</h2>
+ 
+  
+ <div class="body conbody"><p class="shortdesc">Subject scheme maps can be used to define controlled values and
+    subject definitions. The controlled values can be bound to attributes, as well as element and
+    attribute pairs. The subject definitions can contain metadata and provide links to more detailed
+    information; they can be used to classify content and provide semantics that can be used in
+    taxonomies and ontologies.</p>
+  <p class="p">A DITA map can reference a subject scheme map by using a <code class="keyword markupname xmlelement">&lt;mapref&gt;</code>
+      element. Processors also <dfn class="term RFC-2119">MAY</dfn> provide parameters by which
+      subject scheme maps are referenced.</p>
+ </div>
+<article class="topic concept nested2" aria-labelledby="ariaid-title3" lang="en-us" id="subjectSchema">
+    <h3 class="title topictitle3" id="ariaid-title3">Subject scheme maps</h3>
+    
+    
+    <div class="body conbody"><p class="shortdesc">Subject scheme maps use key definitions to define collections
+        of controlled values and subject definitions.</p>
+        <p class="p"><dfn class="term">Controlled values</dfn> are tokens that can be used as
+      values for attributes. For example, the <code class="keyword markupname xmlatt">@audience</code>
+      attribute can take a value that identifies the users that are
+      associated with a particular product. Typical values for a
+      medical-equipment product might include <span class="keyword">therapist</span>,
+        <span class="keyword">oncologist</span>, <span class="keyword">physicist</span>, and
+        <span class="keyword">radiologist</span>. In a subject scheme map, an
+      information architect can define a list of these values for the
+        <code class="keyword markupname xmlatt">@audience</code> attribute. <span style="color:red;" class="ph">An
+        authoring tool can then provide a pick list for values for the
+        attribute and generate a warning if an author attempts to specify a
+        value that is not one of the controlled values. </span>Controlled
+      values can also be used to <span style="color:red;" class="ph">select </span>content for
+      filtering and flagging at build time.</p>
+        <p class="p"><dfn class="term">Subject definitions</dfn> are classifications and
+      sub-classifications that compose a tree. Subject definitions provide
+      semantics that can be used in conjunction with taxonomies and
+      ontologies.</p>
+        <p class="p">Key references to controlled values are resolved to a key
+            definition using the same precedence rules as apply to any other key. However, once a
+            key is resolved to a controlled value, that key reference does not typically result in
+            links or generated text.</p>
+    
+    </div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title4" lang="en-us" id="controlled-values-for-attributes">
+    <h3 class="title topictitle3" id="ariaid-title4"><span class="ph">Defining</span> controlled values for attributes</h3>
+    
+    
+    <div class="body conbody"><p class="shortdesc">Subject scheme maps can define controlled values for DITA attributes without having
+        to define specializations or constraints. The list of available values can be modified
+        quickly to adapt to new situations.</p>
+        <p class="p">Each controlled value is defined using a <code class="keyword markupname xmlelement">&lt;subjectdef&gt;</code> element,
+            which is a specialization of the <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element. The
+                <code class="keyword markupname xmlelement">&lt;subjectdef&gt;</code> element is used to define both a subject
+            category and a list of controlled values. The parent <code class="keyword markupname xmlelement">&lt;subjectdef&gt;</code>
+            element defines the category, and the children <code class="keyword markupname xmlelement">&lt;subjectdef&gt;</code>
+            elements define the controlled values.</p>
+        <div class="p">The subject definitions can include additional information within a
+                <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> element to clarify the meaning of a value:<ul class="ul">
+                <li class="li">A <code class="keyword markupname xmlelement">&lt;navtitle&gt;</code> (or a
+            <code class="keyword markupname xmlelement">&lt;titlealt&gt;</code> element with a
+            <code class="keyword markupname xmlatt">@title-role</code> of <code class="ph codeph">navigation</code>) can
+          provide a more readable name for the controlled value.</li>
+                <li class="li">The <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code> element can provide a definition.</li>
+            </ul></div>
+        <p class="p">In addition, the <code class="keyword markupname xmlelement">&lt;subjectdef&gt;</code> element can reference a more
+            detailed definition of the subject, for example, another DITA topic or an external
+            resource.</p>
+        <div class="p">The following behavior is expected of processors in regard to subject scheme maps:<ul class="ul">
+                <li class="li">Authoring tools <dfn class="term RFC-2119">SHOULD</dfn> use these lists of
+                    controlled values to provide lists from which authors can select values when
+                    they specify attribute values.</li>
+                <li class="li">Authoring tools <dfn class="term RFC-2119">MAY</dfn> give an organization a
+                    list of readable labels, a hierarchy of values to simplify selection, and a
+                    shared definition of the value.</li>
+                <li class="li">Authoring tools  <dfn class="term RFC-2119">MAY</dfn>
+                    <span class="ph">support accessing and displaying the content of the subject definition
+                        resource in order to provide users with</span> a detailed explanation of the
+                    subject.</li>
+            </ul></div>
+        <div class="example non-normative" id="controlled-values-for-attributes__example"><h4 class="title sectiontitle">Example: Controlled values that provide additional information about the
+                subject</h4><p class="non-normative-label">This section is non-normative.</p>
+            
+            <p class="p">The following code sample illustrates how a subject
+        definition can provide a richer level of information about a
+        controlled value:</p>
+            <pre class="pre codeblock"><code>&lt;subjectdef keys="terminology" href="https://www.oasis-open.org/policies-guidelines/keyword-guidelines"&gt;
+  &lt;subjectdef keys="rfc2119" href="rfc-2119.dita"&gt;
+    &lt;topicmeta&gt;
+      &lt;navtitle&gt;RFC-2119 terminology&lt;/navtitle&gt;
+      &lt;shortdesc&gt;The normative terminology that the DITA TC uses for the DITA specification&lt;/shortdesc&gt;
+    &lt;/topicmeta&gt;
+  &lt;/subjectdef&gt;
+  &lt;subjectdef keys="iso" href="iso-terminology.dita"&gt;
+    &lt;topicmeta&gt;
+      &lt;navtitle&gt;ISO keywords&lt;/navtitle&gt;
+      &lt;shortdesc&gt;The normative terminology used by some other OASIS technical committees
+      &lt;/shortdesc&gt;
+    &lt;/topicmeta&gt;
+  &lt;/subjectdef&gt;
+&lt;/subjectdef&gt;</code></pre>
+            <p class="p">The content of the <code class="keyword markupname xmlelement">&lt;navtitle&gt;</code> and
+          <code class="keyword markupname xmlelement">&lt;shortdesc&gt;</code> elements provide additional
+        information that a processor might display to users as they select
+        attribute values or classify content. The resources referenced by
+        the <code class="keyword markupname xmlatt">@href</code> attributes provide even more detailed
+        information. A processor might render expandable links as part of a
+        user interface that implements a progressive disclosure strategy,
+        or an authoring tool might include the navigation title and short
+        description in a window where the user selects a controlled
+        value.</p>
+        </div>
+    </div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title5" lang="en-us" id="concept_fpj_jlx_54">
+ <h3 class="title topictitle3" id="ariaid-title5">Binding controlled values to an attribute</h3>
+ 
+    
+ <div class="body conbody"><p class="shortdesc"> The controlled values defined in a subject scheme map can be
+    bound to an attribute or an element and attribute pair. This affects
+    the expected behavior for processors and authoring tools.</p>
+        <p class="p">The <code class="keyword markupname xmlelement">&lt;enumerationdef&gt;</code> element binds the
+      set of controlled values to an attribute. Valid attribute values are
+      those that are defined in the set of controlled values. Invalid
+      attribute values are those that are not defined in the set of
+      controlled values. <span style="color:red;" class="ph">If an enumeration specifies an
+        empty <code class="keyword markupname xmlelement">&lt;subjectdef&gt;</code> element that does not
+        reference a set of controlled values, no value is valid for the
+        attribute.</span> An enumeration can also specify an optional default
+      value by using the <code class="keyword markupname xmlelement">&lt;defaultSubject&gt;</code>
+      element.</p>
+        <p class="p">If an enumeration is bound, processors <dfn class="term RFC-2119">SHOULD</dfn>
+            validate attribute values against the controlled values that are defined in the subject
+            scheme map. For authoring tools, this validation prevents users from entering misspelled
+            or undefined values. <span class="implementation-statement" id="concept_fpj_jlx_54__d2269t423" data-id=""></span>Recovery from validation errors is implementation specific.</p>
+        <p class="p">The default attribute values that are specified in a subject scheme map apply only if a
+            value is not otherwise specified in the DITA source or as a default value by the XML
+            grammar. </p>
+    
+        
+        <div class="example non-normative" id="concept_fpj_jlx_54__example-binding-values"><h4 class="title sectiontitle">Example: Binding a list of controlled values to the <code class="keyword markupname xmlatt">@audience</code>
+                attribute</h4><p class="non-normative-label">This section is non-normative.</p>
+            
+            <p class="p">The following code sample illustrates the use of the
+          <code class="keyword markupname xmlelement">&lt;subjectdef&gt;</code> element to define controlled
+        values for types of users. It also binds the controlled values to
+        the <code class="keyword markupname xmlatt">@audience</code> attribute:</p>
+            <pre class="pre codeblock"><code>&lt;subjectScheme&gt;
+  &lt;!-- DEFINE TYPES OF USERS --&gt;
+  &lt;subjectdef keys="users"&gt;
+    &lt;subjectdef keys="therapist"/&gt;
+    &lt;subjectdef keys="oncologist"/&gt;
+    &lt;subjectdef keys="physicist"/&gt;
+    &lt;subjectdef keys="radiologist"/&gt;
+  &lt;/subjectdef&gt;
+  &lt;!-- BIND THE SUBJECT TO THE @AUDIENCE ATTRIBUTE
+       This restricts the @audience attribute to the following
+       values: therapist, oncologist, physicist, radiologist --&gt;
+  &lt;enumerationdef&gt;
+    &lt;attributedef name="audience"/&gt;
+    &lt;subjectdef keyref="users"/&gt;
+  &lt;/enumerationdef&gt;
+&lt;/subjectScheme&gt;</code></pre>
+            <p class="p">When the above subject scheme map is used, the only valid
+        values for the <code class="keyword markupname xmlatt">@audience</code> attribute are "therapist",
+        "oncologist", "physicist", and "radiologist". Note that "users" is
+        not a valid value for the <code class="keyword markupname xmlatt">@audience</code> attribute<span style="color:red;" class="ph">, as it</span> merely identifies the parent or
+        container subject.</p>
+        </div>
+        <div class="example non-normative" id="concept_fpj_jlx_54__example-binding-empty-set"><h4 class="title sectiontitle">Example: Binding an attribute to an empty set</h4><p class="non-normative-label">This section is non-normative.</p>
+      
+      <p class="p">The following code sample specifies that there are no valid values
+        for the <code class="keyword markupname xmlatt">@outputclass</code> attribute:</p>
+      <pre class="pre codeblock"><code>&lt;subjectScheme&gt;
+  &lt;enumerationdef&gt;
+    &lt;attributedef name="outputclass"/&gt;
+    <strong style="color:red;" class="ph b">&lt;subjectdef/&gt;</strong>
+  &lt;/enumerationdef&gt;
+&lt;/subjectScheme&gt;</code></pre>
+      <p style="color:red;" class="p">Authors will not be able to specify the
+          <code class="keyword markupname xmlatt">@outputclass</code> attribute on an element.</p>
+    </div>
+    </div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title6" lang="en-us" id="concept_afh_lx1_wp">
+ <h3 class="title topictitle3" id="ariaid-title6">Processing controlled attribute values</h3>
+ 
+  
+ <div class="body conbody"><p class="shortdesc">An enumeration of controlled values can be defined with hierarchical levels by nesting
+    subject definitions. This affects how processors perform filtering and flagging.</p>
+    <div class="p">The following behavior is expected of processors in regard to subject scheme maps:<ul class="ul">
+        <li class="li">Processors <dfn class="term RFC-2119">SHOULD</dfn> be aware of the hierarchies of
+          attribute values that are defined in subject scheme maps for purposes of filtering,
+          flagging, or other metadata-based categorization.</li>
+        <li class="li">Processors <dfn class="term RFC-2119">SHOULD</dfn> validate
+          that the values of attributes that are bound to controlled values
+          contain only valid values from those sets. <span style="color:red;" class="ph">This requirement is needed because basic XML parsers do not
+            validate the list of controlled values.</span> If the controlled
+          values are part of a named key scope, the scope name is ignored
+          for the purpose of validating the controlled values.</li>
+        <li class="li">Processors <dfn class="term RFC-2119">SHOULD</dfn> check that all values listed for
+          an attribute in a DITAVAL file are bound to the attribute by the subject scheme before
+          filtering or flagging. If a processor encounters values that are not included in the
+          subject scheme, it <dfn class="term RFC-2119">SHOULD</dfn> issue a warning.</li>
+      </ul></div>
+    <div class="p">Processors <dfn class="term RFC-2119">SHOULD</dfn> apply the following algorithm when they
+      apply filtering and flagging rules to attribute values that are defined as a hierarchy of
+      controlled values and bound to an enumeration:<ol class="ol">
+        <li class="li">If an attribute specifies a value in the taxonomy, and a DITAVAL or other categorization
+          tool is configured with that value, the rule matches.</li>
+        <li class="li">Otherwise, if the parent value in the taxonomy has a rule, that matches.</li>
+        <li class="li">Otherwise, continue up the chain in the taxonomy until a matching rule is found.</li>
+      </ol></div>
+    <div class="example non-normative" id="concept_afh_lx1_wp__example-hierarchy"><h4 class="title sectiontitle">Example: A hierarchy of controlled values and conditional processing</h4><p class="non-normative-label">This section is non-normative.</p>
+      
+      <p class="p">The following code sample shows a set of controlled values that contains a hierarchy. </p>
+      <pre class="pre codeblock"><code>&lt;subjectScheme&gt;
+  &lt;subjectdef keys="users"&gt;
+    &lt;subjectdef keys="therapist"&gt;
+      &lt;subjectdef keys="novice-therapist"/&gt;
+      &lt;subjectdef keys="expert-therapist"/&gt;
+    &lt;/subjectdef&gt;
+    &lt;subjectdef keys="oncologist"/&gt;
+    &lt;subjectdef keys="physicist"/&gt;
+    &lt;subjectdef keys="radiologist"/&gt;
+  &lt;/subjectdef&gt;
+  &lt;enumerationdef&gt;
+    &lt;attributedef name="audience"/&gt;
+    &lt;subjectdef keyref="users"/&gt;
+  &lt;/enumerationdef&gt;
+&lt;/subjectScheme&gt;</code></pre>
+      <p class="p">Processors that are aware of the hierarchy that is defined in the subject scheme map will
+        handle filtering and flagging in the following ways:</p>
+      <ul class="ul">
+        <li class="li">If "therapist" is excluded, both "novice-therapist" and
+          "expert-therapist" are by default excluded.</li>
+        <li class="li">If "therapist" is flagged and "novice-therapist" is not explicitly flagged, processors
+          automatically flag "novice-therapist" since it is a type of therapist.</li>
+      </ul>
+    </div>
+  </div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title7" id="subjectrefs-attribute">
+  <h3 class="title topictitle3" id="ariaid-title7">The <code class="keyword markupname xmlatt">@subjectrefs</code> attribute</h3>
+  
+  
+  <div class="body conbody"><p class="shortdesc">The <code class="keyword markupname xmlatt">@subjectrefs</code> attribute specifies one or
+    more keys that are defined by a subject definition in a subject scheme
+    map. Multiple values are separated by white space.</p>
+    <p class="p">The <code class="keyword markupname xmlatt">@subjectrefs</code> attribute cascades. When specified
+      on a topic reference, the <code class="keyword markupname xmlatt">@subjectrefs</code> attribute
+      associates the referenced resource with subjects that are defined in
+      subject scheme maps.</p>
+    <p class="p">The DITA 2.0 specification does not indicate processing expectations
+      for the <code class="keyword markupname xmlatt">@subjectrefs</code> attribute. The DITA Technical
+      Committee expects to specify such expectations in the future.</p>
+  </div>
+</article><article class="topic concept nested2 non-normative" aria-labelledby="ariaid-title8" lang="en-us" id="concept_fl2_3rz_vp">
+ <h3 class="title topictitle3" id="ariaid-title8">Examples of subject scheme maps</h3>
+ <div class="body"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">This section contains examples and scenarios that illustrate the
+  use of subject scheme maps. </p></div>
+<article class="topic concept nested3 non-normative" aria-labelledby="ariaid-title9" id="a-subject-scheme-map-used-to-define-taxonomic-subjects">
+    <h4 class="title topictitle4" id="ariaid-title9">Example: a subject scheme map used to define taxonomic
+    subjects</h4>
+  
+  
+  <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">A subject scheme map can be used to define taxonomic subjects.
+    Once defined, the subjects can be referenced by specifying a
+      <code class="keyword markupname xmlatt">@subjectrefs</code> attribute on a
+      <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element.</p>
+    <p class="p">The following subject scheme map defines a set of subjects that are
+      used to classify content:</p>
+    <pre class="pre codeblock"><code>&lt;subjectScheme&gt;
+  &lt;subjectdef keys="content-types"&gt;
+    &lt;subjectdef keys="conceptual-material"/&gt;
+    &lt;subjectdef keys="reference"/&gt;
+    &lt;subjectdef keys="tutorial"/&gt;
+  &lt;/subjectdef&gt;
+  &lt;subjectdef keys="operating-systems"&gt;
+    &lt;subjectdef keys="linux"/&gt;
+    &lt;subjectdef keys="macosx"/&gt;
+    &lt;subjectdef keys="windows"/&gt;
+  &lt;/subjectdef&gt;
+  &lt;subjectdef keys="user-tasks"&gt;
+    &lt;subjectdef keys="administering"/&gt;
+    &lt;subjectdef keys="developing"/&gt;
+    &lt;subjectdef keys="installing"/&gt;
+    &lt;subjectdef keys="troubleshooting"/&gt;
+  &lt;/subjectdef&gt;
+&lt;/subjectScheme&gt;</code></pre>
+    <p class="p">The keys assigned to the subject definitions can be referenced by
+      specifying the <code class="keyword markupname xmlatt">@subjectrefs</code> attribute on topic
+      references in a navigation map:</p>
+    <pre class="pre codeblock"><code>&lt;map&gt;
+&lt;title&gt;User assistance for the Acme Widget&lt;/title&gt;
+&lt;!-- ... --&gt;
+&lt;topicref keyref="install-overview" <strong class="ph b">subjectrefs="installing"</strong>&gt;
+  &lt;topicref keyref="install-linux"/&gt;
+  &lt;topicref keyref="install-macosx"/&gt;
+  &lt;topicref keyref="install-windows"/&gt;
+  &lt;topicref keyref="install-troubleshooting" <strong class="ph b">subjectrefs="troubleshooting"</strong>/&gt;
+&lt;/topicref&gt;
+&lt;!-- ... --&gt;
+&lt;/map&gt;</code></pre>
+    <p class="p">Because the <code class="keyword markupname xmlatt">@subjectrefs</code> attribute cascades, the
+      effective value of the above markup is the same as the following
+      markup:</p>
+    <pre class="pre codeblock"><code>&lt;map&gt;
+&lt;title&gt;User assistance for the Acme Widget&lt;/title&gt;
+&lt;!-- ... --&gt;
+&lt;topicref keyref="install-overview" subjectrefs="installing"&gt;
+  &lt;topicref keyref="install-linux" subjectrefs="installing"/&gt;
+  &lt;topicref keyref="install-macosx" subjectrefs="installing"/&gt;
+  &lt;topicref keyref="install-windows" subjectrefs="installing"/&gt;
+  &lt;topicref keyref="install-troubleshooting" subjectrefs="installing troubleshooting"/&gt;
+&lt;/topicref&gt;
+&lt;!-- ... --&gt;
+&lt;/map&gt;</code></pre>
+  </div>
+</article><article class="topic concept nested3 non-normative" aria-labelledby="ariaid-title10" lang="en-us" id="concept_hxl_2sz_vp">
+ <h4 class="title topictitle4" id="ariaid-title10">Example: How hierarchies defined in a subject scheme map affect filtering</h4>
+ 
+ 
+ <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">This scenario demonstrates how a processor evaluates attribute values when it performs
+  conditional processing for an attribute that is bound to a set of controlled values.</p>
+  <div class="example non-normative" id="concept_hxl_2sz_vp__example"><h5 class="title sectiontitle">Example</h5><p class="non-normative-label">This section is non-normative.</p>
+   <p class="p">A company defines a subject category for "Operating system", with a
+        key set to <span class="keyword">os</span>. There are sub-categories for
+        Linux, Windows, and z/OS, as well as specific Linux variants: Red
+        Hat Linux and SuSE Linux. The company then binds the values that
+        are enumerated in the "Operating system" category to the
+          <code class="keyword markupname xmlatt">@platform</code> attribute:</p>
+   <pre class="pre codeblock"><code>&lt;subjectScheme&gt;
+    &lt;subjectdef keys="os"&gt;
+        &lt;topicmeta&gt;
+            &lt;navtitle&gt;Operating systems&lt;/navtitle&gt;
+        &lt;/topicmeta&gt;
+        &lt;subjectdef keys="linux"&gt;
+            &lt;topicmeta&gt;
+                &lt;navtitle&gt;Linux&lt;/navtitle&gt;
+            &lt;/topicmeta&gt;
+            &lt;subjectdef keys="redhat"&gt;
+                &lt;topicmeta&gt;
+                    &lt;navtitle&gt;RedHat Linux&lt;/navtitle&gt;
+                &lt;/topicmeta&gt;
+            &lt;/subjectdef&gt;
+            &lt;subjectdef keys="suse"&gt;
+                &lt;topicmeta&gt;
+                    &lt;navtitle&gt;SuSE Linux&lt;/navtitle&gt;
+                &lt;/topicmeta&gt;
+            &lt;/subjectdef&gt;
+        &lt;/subjectdef&gt;
+        &lt;subjectdef keys="windows"&gt;
+            &lt;topicmeta&gt;
+                &lt;navtitle&gt;Windows&lt;/navtitle&gt;
+            &lt;/topicmeta&gt;
+        &lt;/subjectdef&gt;
+        &lt;subjectdef keys="zos"&gt;
+            &lt;topicmeta&gt;
+                &lt;navtitle&gt;z/OS&lt;/navtitle&gt;
+            &lt;/topicmeta&gt;
+        &lt;/subjectdef&gt;
+    &lt;/subjectdef&gt;
+    &lt;enumerationdef&gt;
+        &lt;attributedef name="platform"/&gt;
+        &lt;subjectdef keyref="os"/&gt;
+    &lt;/enumerationdef&gt;
+&lt;/subjectScheme&gt;</code></pre>
+   <p class="p">The enumeration limits valid values for the <code class="keyword markupname xmlatt">@platform</code> attribute to the
+    following: <span class="keyword">linux</span>, <span class="keyword">redhat</span>, <span class="keyword">suse</span>,
+     <span class="keyword">windows</span>, and <span class="keyword">zos</span>. If any other values are encountered,
+    processors validating against the scheme will issue a warning.</p>
+   
+   <p class="p">The following table illustrates how filtering and flagging operate
+        when the above map is processed by a processor. The first two
+        columns provide the values specified in the DITAVAL file<span style="color:red;" class="ph">. The </span>third and fourth columns indicate the
+        results of the filtering or flagging operation.</p>
+   <table class="table"><caption></caption><colgroup><col style="width:24.752475247524753%"><col style="width:25.247524752475247%"><col style="width:25.247524752475247%"><col style="width:24.752475247524753%"></colgroup><thead class="thead">
+      <tr class="row valign-bottom">
+       <th class="entry colsep-1 rowsep-1" id="concept_hxl_2sz_vp__example__entry__1"><code class="ph codeph">att="platform"</code>
+        <code class="ph codeph">val="linux"</code></th>
+       <th class="entry colsep-1 rowsep-1" id="concept_hxl_2sz_vp__example__entry__2"><code class="ph codeph">att="platform"</code>
+        <code class="ph codeph">val="redhat"</code></th>
+       <th class="entry colsep-1 rowsep-1" id="concept_hxl_2sz_vp__example__entry__3">How <code class="ph codeph">platform="redhat"</code> is evaluated</th>
+       <th class="entry rowsep-1" id="concept_hxl_2sz_vp__example__entry__4">How <code class="ph codeph">platform="linux"</code> is evaluated</th>
+      </tr>
+     </thead><tbody class="tbody">
+      <tr class="row">
+       <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__1" rowspan="3">action="exclude"</td>
+       <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__2">action="exclude"</td>
+       <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__3">Excluded.</td>
+       <td class="entry rowsep-1" headers="concept_hxl_2sz_vp__example__entry__4">Excluded.</td>
+      </tr>
+      <tr class="row">
+       <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__2">action="include" or action="flag"</td>
+       <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__3">Excluded. This is an error condition, because if all
+         <span class="keyword">linux</span> content is excluded, <span class="keyword">redhat</span> also is excluded.
+        Applications can recover by generating an error message.</td>
+       <td class="entry rowsep-1" headers="concept_hxl_2sz_vp__example__entry__4">Excluded.</td>
+      </tr>
+      <tr class="row">
+       <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__2">Unspecified</td>
+       <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__3">Excluded, because <span class="keyword">redhat</span> is a kind of
+         <span class="keyword">linux</span>, and <span class="keyword">linux</span> is excluded.</td>
+       <td class="entry rowsep-1" headers="concept_hxl_2sz_vp__example__entry__4">Excluded.</td>
+      </tr>
+      <tr class="row">
+       <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__1" rowspan="4">action="include"</td>
+       <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__2">action="exclude"</td>
+       <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__3">Excluded, because all <span class="keyword">redhat</span> content is
+        excluded.</td>
+       <td class="entry rowsep-1" headers="concept_hxl_2sz_vp__example__entry__4">Included.</td>
+      </tr>
+      <tr class="row">
+       <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__2">action="include"</td>
+       <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__3">Included.</td>
+       <td class="entry rowsep-1" headers="concept_hxl_2sz_vp__example__entry__4">Included.</td>
+      </tr>
+      <tr class="row">
+       <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__2">action="flag"</td>
+       <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__3">Included and flagged with the <span class="keyword">redhat</span> flag.</td>
+       <td class="entry rowsep-1" headers="concept_hxl_2sz_vp__example__entry__4">Included.</td>
+      </tr>
+      <tr class="row">
+       <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__2">Unspecified</td>
+       <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__3">Included, because all <span class="keyword">linux</span> content is
+        included.</td>
+       <td class="entry rowsep-1" headers="concept_hxl_2sz_vp__example__entry__4">Included.</td>
+      </tr>
+      <tr class="row">
+       <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__1" rowspan="4">action="flag"</td>
+       <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__2">action="exclude"</td>
+       <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__3">Excluded, because all
+                  <span class="keyword">redhat</span> content is excluded.</td>
+       <td class="entry rowsep-1" headers="concept_hxl_2sz_vp__example__entry__4">Included and flagged with the <span class="keyword">linux</span>
+        flag.</td>
+      </tr>
+      <tr class="row">
+       <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__2">action="include"</td>
+       <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__3">Included and flagged with the <span class="keyword">linux</span> flag, because
+         <span class="keyword">linux</span> is flagged and <span class="keyword">redhat</span> is a type of
+         <span class="keyword">linux</span>.</td>
+       <td class="entry rowsep-1" headers="concept_hxl_2sz_vp__example__entry__4">Included and flagged with the <span class="keyword">linux</span>
+        flag.</td>
+      </tr>
+      <tr class="row">
+       <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__2">action="flag"</td>
+       <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__3">Included and flagged with the <span class="keyword">redhat</span> flag, because a
+        flag is available that is specifically for <span class="keyword">redhat</span>.</td>
+       <td class="entry rowsep-1" headers="concept_hxl_2sz_vp__example__entry__4">Included and flagged with the <span class="keyword">linux</span>
+        flag.</td>
+      </tr>
+      <tr class="row">
+       <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__2">Unspecified</td>
+       <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__3">Included and flagged with the <span class="keyword">linux</span> flag, because
+         <span class="keyword">linux</span> is flagged and <span class="keyword">redhat</span> is a type of
+         <span class="keyword">linux</span></td>
+       <td class="entry rowsep-1" headers="concept_hxl_2sz_vp__example__entry__4">Included and flagged with the <span class="keyword">linux</span>
+        flag.</td>
+      </tr>
+      <tr class="row">
+       <td class="entry colsep-1" headers="concept_hxl_2sz_vp__example__entry__1" rowspan="4">Unspecified</td>
+       <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__2">action="exclude"</td>
+       <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__3">Excluded, because all <span class="keyword">redhat</span> content is
+        excluded</td>
+       <td class="entry rowsep-1" headers="concept_hxl_2sz_vp__example__entry__4">If the default value for
+                  <code class="keyword markupname xmlatt">@platform</code> set in the DITAVAL is
+                "include", this is included. If the default value for
+                  <code class="keyword markupname xmlatt">@platform</code> set in the DITAVAL is
+                "exclude", this is excluded.</td>
+      </tr>
+      <tr class="row">
+       <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__2">action="include"</td>
+       <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__3">Included.</td>
+       <td class="entry rowsep-1" headers="concept_hxl_2sz_vp__example__entry__4">Included, because all <span class="keyword">redhat</span> content is
+        included, and general Linux content also applies to RedHat</td>
+      </tr>
+      <tr class="row">
+       <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__2">action="flag"</td>
+       <td class="entry colsep-1 rowsep-1" headers="concept_hxl_2sz_vp__example__entry__3">Included and flagged with the <span class="keyword">redhat</span> flag.</td>
+       <td class="entry rowsep-1" headers="concept_hxl_2sz_vp__example__entry__4">Included, because all <span class="keyword">redhat</span> content is
+        included, and general Linux content also applies to RedHat</td>
+      </tr>
+      <tr class="row">
+       <td class="entry colsep-1" headers="concept_hxl_2sz_vp__example__entry__2">Unspecified</td>
+       <td style="color:red;" class="entry colsep-1" headers="concept_hxl_2sz_vp__example__entry__3">If the default value for
+                  <code class="keyword markupname xmlatt">@platform</code> set in the DITAVAL is
+                "include", this is included. If the default value for
+                  <code class="keyword markupname xmlatt">@platform</code> set in the DITAVAL is
+                "exclude", this is excluded.</td>
+       <td class="entry" headers="concept_hxl_2sz_vp__example__entry__4">If the default value for
+                  <code class="keyword markupname xmlatt">@platform</code> set in the DITAVAL is
+                "include", this is included. If the default value for
+                  <code class="keyword markupname xmlatt">@platform</code> set in the DITAVAL is
+                "exclude", this is excluded.</td>
+      </tr>
+     </tbody></table>
+  </div>
+  
+ </div>
+</article><article class="topic reference nested3 non-normative" aria-labelledby="ariaid-title11" lang="en-us" id="example-deliveryTarget">
+  <h4 class="title topictitle4" id="ariaid-title11"><span class="ph">Example: Defining values for
+    <code class="keyword markupname xmlatt">@deliveryTarget</code></span></h4>
+  
+  
+  <div class="body refbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">You can use a subject scheme map to define the values for the
+      <code class="keyword markupname xmlatt">@deliveryTarget</code> attribute. This filtering attribute
+    is intended for use with a set of hierarchical, controlled
+    values.</p>
+    <div class="example non-normative" id="example-deliveryTarget__example"><h5 class="title sectiontitle">Example</h5><p class="non-normative-label">This section is non-normative.</p>
+      <p class="p">In this scenario, one department produces electronic publications
+        (EPUB, EPUB2, EPUB3, Kindle, etc.) while another department produces traditional,
+        print-focused output. Each department needs to exclude a certain category of content when
+        they build documentation deliverables.</p>
+      <p class="p">The following subject scheme map provides a set of values for the
+          <code class="keyword markupname xmlatt">@deliveryTarget</code> attribute that accommodates the needs of both
+        departments.</p>
+      <pre class="pre codeblock"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE subjectScheme PUBLIC "-//OASIS//DTD DITA Subject Scheme Map//EN" "subjectScheme.dtd"&gt; 
+&lt;subjectScheme&gt;
+  &lt;subjectHead&gt;
+    &lt;subjectHeadMeta&gt;
+      &lt;navtitle&gt;Example of values for the @deliveryTarget attribute&lt;/navtitle&gt;
+      &lt;shortdesc&gt;Provides a set of values for use with the
+        @deliveryTarget conditional-processing attribute. This set of values is
+        illustrative only; you can use any values with the @deliveryTarget 
+        attribute.&lt;/shortdesc&gt;      
+    &lt;/subjectHeadMeta&gt;
+  &lt;/subjectHead&gt;
+  &lt;subjectdef keys="deliveryTargetValues"&gt;
+    &lt;topicmeta&gt;&lt;navtitle&gt;Values for @deliveryTarget attributes&lt;/navtitle&gt;&lt;/topicmeta&gt;
+    &lt;!-- A tree of related values --&gt;
+    &lt;subjectdef keys="print"&gt;
+      &lt;topicmeta&gt;&lt;navtitle&gt;Print-primary deliverables&lt;/navtitle&gt;&lt;/topicmeta&gt;
+      &lt;subjectdef keys="pdf"&gt;
+        &lt;topicmeta&gt;&lt;navtitle&gt;PDF&lt;/navtitle&gt;&lt;/topicmeta&gt;
+      &lt;/subjectdef&gt;
+      &lt;subjectdef keys="css-print"&gt;
+        &lt;topicmeta&gt;&lt;navtitle&gt;CSS for print&lt;/navtitle&gt;&lt;/topicmeta&gt;
+      &lt;/subjectdef&gt;
+      &lt;subjectdef keys="xsl-fo"&gt;
+        &lt;topicmeta&gt;&lt;navtitle&gt;XSL-FO&lt;/navtitle&gt;&lt;/topicmeta&gt;
+      &lt;/subjectdef&gt;
+      &lt;subjectdef keys="afp"&gt;
+        &lt;topicmeta&gt;&lt;navtitle&gt;Advanced Function Printing&lt;/navtitle&gt;&lt;/topicmeta&gt;
+      &lt;/subjectdef&gt;
+      &lt;subjectdef keys="ms-word"&gt;
+        &lt;topicmeta&gt;&lt;navtitle&gt;Microsoft Word&lt;/navtitle&gt;&lt;/topicmeta&gt;
+      &lt;/subjectdef&gt;
+      &lt;subjectdef keys="indesign"&gt;
+        &lt;topicmeta&gt;&lt;navtitle&gt;Adobe InDesign&lt;/navtitle&gt;&lt;/topicmeta&gt;
+      &lt;/subjectdef&gt;
+      &lt;subjectdef keys="open-office"&gt;
+        &lt;topicmeta&gt;&lt;navtitle&gt;Open Office&lt;/navtitle&gt;&lt;/topicmeta&gt;
+      &lt;/subjectdef&gt;
+    &lt;/subjectdef&gt;
+    &lt;subjectdef keys="online"&gt;
+      &lt;topicmeta&gt;&lt;navtitle&gt;Online deliverables&lt;/navtitle&gt;&lt;/topicmeta&gt;
+      &lt;subjectdef keys="html-based"&gt;
+        &lt;topicmeta&gt;&lt;navtitle&gt;HTML-based deliverables&lt;/navtitle&gt;&lt;/topicmeta&gt;
+        &lt;subjectdef keys="html"&gt;
+          &lt;topicmeta&gt;&lt;navtitle&gt;HTML&lt;/navtitle&gt;&lt;/topicmeta&gt;
+          &lt;subjectdef keys="html5"&gt;
+            &lt;topicmeta&gt;&lt;navtitle&gt;HTML5&lt;/navtitle&gt;&lt;/topicmeta&gt;
+          &lt;/subjectdef&gt;
+        &lt;/subjectdef&gt;
+        &lt;subjectdef keys="help"&gt;
+          &lt;topicmeta&gt;&lt;navtitle&gt;Contextual help&lt;/navtitle&gt;&lt;/topicmeta&gt;
+          &lt;subjectdef keys="htmlhelp"&gt;
+            &lt;topicmeta&gt;&lt;navtitle&gt;HTML Help&lt;/navtitle&gt;&lt;/topicmeta&gt;
+          &lt;/subjectdef&gt;
+          &lt;subjectdef keys="webhelp"&gt;
+            &lt;topicmeta&gt;&lt;navtitle&gt;Web help&lt;/navtitle&gt;&lt;/topicmeta&gt;
+          &lt;/subjectdef&gt;
+          &lt;subjectdef keys="javahelp"&gt;
+            &lt;topicmeta&gt;&lt;navtitle&gt;Java Help&lt;/navtitle&gt;&lt;/topicmeta&gt;
+          &lt;/subjectdef&gt;
+          &lt;subjectdef keys="eclipseinfocenter"&gt;
+            &lt;topicmeta&gt;&lt;navtitle&gt;Eclipse InfoCenter&lt;/navtitle&gt;&lt;/topicmeta&gt;
+          &lt;/subjectdef&gt;
+        &lt;/subjectdef&gt;
+        &lt;subjectdef keys="epub"&gt;
+          &lt;topicmeta&gt;&lt;navtitle&gt;EPUB&lt;/navtitle&gt;&lt;/topicmeta&gt;
+          &lt;subjectdef keys="epub2"&gt;
+            &lt;topicmeta&gt;&lt;navtitle&gt;EPUB2&lt;/navtitle&gt;&lt;/topicmeta&gt;
+          &lt;/subjectdef&gt;
+          &lt;subjectdef keys="epub3"&gt;
+            &lt;topicmeta&gt;&lt;navtitle&gt;EPUB3&lt;/navtitle&gt;&lt;/topicmeta&gt;
+          &lt;/subjectdef&gt;
+          &lt;subjectdef keys="ibooks"&gt;
+            &lt;topicmeta&gt;&lt;navtitle&gt;iBooks&lt;/navtitle&gt;&lt;/topicmeta&gt;
+          &lt;/subjectdef&gt;
+          &lt;subjectdef keys="nook"&gt;
+            &lt;topicmeta&gt;&lt;navtitle&gt;nook&lt;/navtitle&gt;&lt;/topicmeta&gt;
+          &lt;/subjectdef&gt;
+        &lt;/subjectdef&gt;
+        &lt;subjectdef keys="kindle"&gt;
+          &lt;topicmeta&gt;&lt;navtitle&gt;Amazon Kindle&lt;/navtitle&gt;&lt;/topicmeta&gt;
+          &lt;subjectdef keys="kindle8"&gt;
+            &lt;topicmeta&gt;&lt;navtitle&gt;Kindle Version 8&lt;/navtitle&gt;&lt;/topicmeta&gt;
+          &lt;/subjectdef&gt;
+        &lt;/subjectdef&gt;
+      &lt;/subjectdef&gt;
+    &lt;/subjectdef&gt;
+  &lt;/subjectdef&gt;
+  &lt;enumerationdef&gt;
+    &lt;attributedef name="deliveryTarget"/&gt;
+    &lt;subjectdef   keyref="deliveryTargetValues"/&gt;
+  &lt;/enumerationdef&gt;
+&lt;/subjectScheme&gt;</code></pre>
+    </div>
+  </div>
+</article></article></article></article><aside class="section-toc" role="aside"></aside></article></main>
