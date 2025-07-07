@@ -1,0 +1,145 @@
+---
+layout: base.njk
+title: ''
+index: 'toc.html'
+notices: 'resources/oasis-notices.html'
+commit: 'ec1db616fc038fc6d956c81c0e041b96309e505b'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="toc" role="toc"><ul><li><a href="introduction/dita-release-overview.html">Introduction</a></li><li><a href="archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="archSpec/base/accessibility-and-translation.html">Accessibility and translation</a></li><li><a href="archSpec/base/dita-map-processing.html">DITA map processing</a></li><li><a href="archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="archSpec/base/behaviors.html">DITA processing</a></li><li><a href="archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a><ul class="nav nav-list"><li><a href="archSpec/base/ditaspecialization.html#ditaspecialization">Overview of DITA extension facilities</a></li><li class="active"><a href="Chunk49882447.html#Chunk49882447">Configuration</a><ul class="nav nav-list"><li><a href="Chunk49882447.html#concept_fgy_hbp_wr">Document-type configuration</a></li></ul></li><li><a href="Chunk1132746395.html#Chunk1132746395">Specialization</a></li><li><a href="Chunk1452503579.html#Chunk1452503579">Generalization</a></li><li><a href="Chunk1591574967.html#Chunk1591574967">Constraints</a></li><li><a href="Chunk1415905554.html#Chunk1415905554">Expansion modules</a></li></ul></li><li><a href="langRef/langRef-base.html">Element reference</a></li><li><a href="conformance/conformance.html">Conformance</a></li><li><a href="acknowledgments/acknowledgments.html#r-acknowledgments">Acknowledgments</a></li><li><a href="non-normative/aggregated-RFC-2119-statements.html#aggregated-RFC-2119-statements">Aggregated RFC-2119 statements</a></li><li><a href="archSpec/base/coding-requirements.html#coding-practices">Coding practices for DITA grammar files</a></li><li><a href="non-normative/developing-constraint-and-expansion-modules.html#developing-constraint-and-expansion-modules">Constraint modules</a></li><li><a href="non-normative/expansion-modules.html#expansion-modules">Expansion modules</a></li><li><a href="non-normative/elementsMerged.html#elements">Element-by-element recommendations for translators</a></li><li><a href="non-normative/formatting-expectations.html#formatting-expectations">Formatting expectations</a></li><li><a href="non-normative/migrating-to-dita-2.0.html#migrating-to-dita-2.0">Migrating to DITA 2.0</a></li><li><a href="non-normative/basedoctypes.html#oasisdomains">OASIS grammar files</a></li><li><a href="non-normative/interoperability-considerations.html#nteroperability-considerations">Processing interoperability considerations</a></li><li><a href="non-normative/revision-history.html#revision-history">Revision history</a></li></ul></nav><main role="main" class=""><article role="article" aria-labelledby="ariaid-title1"><article class="nested0" aria-labelledby="ariaid-title1" id="Chunk49882447"><h1 class="title topictitle1" id="ariaid-title1">Configuration</h1><nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="archSpec/base/configuration-specialization-and-constraints.html" title="The extension facilities of DITA allow document-type shells, vocabulary modules, and element-configuration modules (constraint and expansion) to be combined to create specific DITA document types.">Configuration and specialization</a></div></div></nav><article class="topic concept nested1" aria-labelledby="ariaid-title2" lang="en-us" id="concept_fgy_hbp_wr">
+ <h2 class="title topictitle2" id="ariaid-title2">Document-type configuration</h2>
+ <div class="body"><p class="shortdesc"><span class="ph">Document-type configuration</span> enables the
+    definition of DITA document types that include only the vocabulary
+    modules that are required for a given set of documents. There is no
+    need to modify the vocabulary modules. <span class="ph">Document-type
+      configurations</span> are implemented <span class="ph">using </span>
+    document-type shells.</p></div>
+<article class="topic concept nested2" aria-labelledby="ariaid-title3" lang="en-us" id="createCustomDocType"> 
+  <h3 class="title topictitle3" id="ariaid-title3">Overview of document-type shells</h3> 
+  
+	 
+  <div class="body conbody"><p class="shortdesc"><span class="ph">A document-type shell is an XML grammar
+          file that specifies the elements and attributes that are allowed in a DITA document. The
+          document-type shell integrates structural modules, domain modules, and <span class="ph">element-configuration modules</span>. In addition, a document-type shell specifies
+          whether and how topics can nest.</span>
+	</p> 
+	 <p class="p">A DITA document either must have an associated document-type definition or all required
+			attributes must be made explicit in the document instances. Most DITA documents have an
+			associated document-type shell. DITA documents that reference a document-type shell can
+			be validated using most standard XML processors. Such validation enables processors to
+			read the XML grammar files and determine default values for the
+				<code class="keyword markupname xmlatt">@specializations</code> and <code class="keyword markupname xmlatt">@class</code> attributes. </p> 
+	 <p class="p">The following figure illustrates the relationship between a DTD-based DITA document, its
+			document-type shell, the vocabulary modules that it uses, <span class="ph">and the
+				element-configuration modules (constraint and expansion) that it integrates</span>.
+			Similar structure applies to DITA documents that use other XML grammars. </p> 
+	 <figure class="fig fignone"><figcaption><span class="fig--title-label">Figure 1. </span>Document type shell</figcaption>
+			
+			<br><img class="image" src="images/instances-modules-declarations-01.png" height="378" width="504" alt="Diagram showing a typical architecture of a DITA document-type shell. At the top left a DITA document file named myTopic.dita refers to a document type of 'myTopic'. An arrow from this file points to a document-type shell file named myTopic.dtd. Arrows point to several other modules. A constraint module is named strictMyTopicConstraint.mod. An expansion module is named allowEmphMyTopicExpansion.mod.Structural modules are named mytopic.ent, mytopic.mod, topic.ent, and topic.mod. Domain modules are named myPhraseDomain.ent, myPhraseDomain.mod, highlightDomain.ent, highlightDomain.mod, programmingDomain.ent, and programmingDomain.mod. The structural and domain modules are grouped together and labeled vocabulary modules."><br>
+		</figure>
+		 
+	 <p class="p">The DITA specification contains a starter set of document-type shells. These document-type
+			shells are commented and can be used as templates for creating custom document-type
+			shells.</p>
+		<p class="p">While the OASIS-provided document-type shells can be used without any modification, creating
+			custom document-type shells is a best practice. If the document-type shells need to be
+			modified in the future, for example, to include a specialization or integrate <span class="ph">an element-configuration module (constraint or expansion)</span>, the
+			existing DITA documents will not need to be modified to reference a new document-type
+			shell. </p> 
+  </div> 
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title4" lang="en-us" id="concept_vrp_lzb_wr">
+ <h3 class="title topictitle3" id="ariaid-title4">Rules for document-type shells</h3>
+ 
+  
+ <div class="body conbody"><p class="shortdesc">This topic collects the rules that concern DITA document-type shells.</p>
+    <dl class="dl">
+      
+        <dt class="dt dlterm">XML grammars</dt>
+        <dd class="dd">
+          <p class="p">While the DITA specification only defines coding requirements
+            for DTD and RELAX NG, conforming DITA documents <dfn class="term RFC-2119">MAY</dfn> use other document-type
+            constraint languages, such as <span style="color:red;" class="ph">XSD or</span>
+            Schematron.</p>
+        </dd>
+      
+      
+        <dt class="dt dlterm">Defining element or attribute types</dt>
+        <dd class="dd">
+          <div class="p">With two exceptions, a document-type shell <dfn class="term RFC-2119">MUST NOT</dfn>
+            directly define element or attribute types; it only includes vocabulary <span class="ph">and element-configuration modules (constraint and expansion)</span>. The exceptions to
+            this rule are the following:<ul class="ul">
+              <li class="li">The ditabase document-type shell directly defines the
+                  <code class="keyword markupname xmlelement">&lt;dita&gt;</code> element.</li>
+              <li class="li">RNG-based document-type shells directly specify values
+                for the <code class="keyword markupname xmlatt">@specializations</code> attribute. These
+                values reflect the details of the attribute domains that
+                are integrated by the document-type shell.</li>
+            </ul></div>
+        </dd>
+      
+      
+        <dt class="dt dlterm">Document-type shells not provided by OASIS</dt>
+        <dd class="dd">
+          <p class="p">Document-type shells that are not provided by OASIS <dfn class="term RFC-2119">MUST</dfn> have a unique public identifier, if public identifiers are used.</p>
+          <p class="p">Document-type shells that are not provided by OASIS <dfn class="term RFC-2119">MUST NOT</dfn> indicate OASIS as the
+            owner. The public identifier or URN for such document-type
+            shells <dfn class="term RFC-2119">SHOULD</dfn> reflect the
+            owner or creator of the document-type shell. </p>
+          <p class="p example">For example, if <span class="ph filepath">example.com</span> creates a copy
+            of the document-type shell for topic, an appropriate public identifier would be
+            "-//EXAMPLE//DTD DITA Topic//EN", where "EXAMPLE" is the component of the public
+            identifier that identifies the owner. An appropriate URN would be <span style="color:red;" class="keyword">urn:pubid:example.com:names:dita:rng:topic.rng</span>.</p>
+        </dd>
+      
+    </dl>
+ </div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title5" lang="en-us" id="document-type-shells-equivalence">
+  <h3 class="title topictitle3" id="ariaid-title5">Equivalence of document-type shells</h3>
+  
+  
+  <div class="body conbody"><p class="shortdesc">Two distinct DITA document types that are taken from different tools or environments
+    might be functionally equivalent.</p>
+    <p class="p">A DITA document type is defined by the following:</p>
+    <ul class="ul">
+      <li class="li">The set of vocabulary and <span class="ph">element-configuration modules (constraint and
+          expansion)</span> that are integrated by the document-type shell </li>
+      <li class="li">The values of the <code class="keyword markupname xmlatt">@class</code> attributes of all the elements in the
+        document</li>
+      <li class="li">Rules for topic nesting</li>
+    </ul>
+    <p class="p">Two document-type shells define the same DITA document type if they
+      integrate identical vocabulary modules, <span class="ph">element-configuration modules (constraint and expansion)</span>, and
+      rules for topic nesting. For example, a <span style="color:red;" class="ph">document-type</span> shell that is an unmodified copy of the
+      OASIS-provided document-type shell for topic defines the same DITA
+      document type as the original document-type shell. However, the new
+      document-type shell has the following differences:</p>
+    <ul class="ul">
+      <li class="li">It is a distinct file that is stored in a different location.</li>
+      <li class="li">It has a distinct system identifier.</li>
+      <li class="li">If it has a public identifier, the public identifier is unique.</li>
+    </ul>
+    <div class="note note note_note non-normative"><span class="note__title">Note<span class="non-normative-label"> (non-normative)</span>:</span> <div class="note__body">The public or system identifier that is associated with a given
+      document-type shell is not necessarily distinguishing. Two different
+      people or groups might use the same modules and constraints to
+      assemble equivalent <span style="color:red;" class="ph">document-type</span> shells,
+      while giving them different names or public identifiers. </div></div>
+  </div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title6" lang="en-us" id="document-type-shells-conformance">
+  <h3 class="title topictitle3" id="ariaid-title6">Conformance of document-type shells</h3>
+  
+  
+  <div class="body conbody"><p class="shortdesc">DITA documents typically are governed by a conforming DITA document-type shell.
+    However, the conformance of a DITA document is a function of the document instance, not its
+    governing grammar. Conforming DITA documents are not required to use a conforming document-type
+    shell.</p>
+    <p class="p">Conforming DITA documents are not required to have any governing <span style="color:red;" class="ph">document-type</span> declaration or schema. There
+      might be compelling or practical reasons to use non-conforming
+      document-type shells. For example, a document might use a
+      document-type shell that does not conform to the DITA requirements
+      for shells in order to meet the needs of a specific application or
+      tool. Such a non-conforming document-type shell still might enable
+      the creation of conforming DITA content.</p>
+  </div>
+</article></article></article><aside class="section-toc" role="aside"></aside></article></main>
