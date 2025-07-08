@@ -1,0 +1,131 @@
+---
+layout: base.njk
+title: 'Alternate text'
+description: 'Alternate text is a textual description of an image. Systems often render the alternate text when the reader is using assistive technology or the image cannot be rendered.'
+index: '../toc.html'
+notices: '../resources/oasis-notices.html'
+commit: '75673839cd256bfd9414545a94f9381202d92cf0'
+repository: 'oasis-tcs/dita-lwdita'
+classes: ''
+---
+
+<nav class="toc" role="toc"><ul><li><a href="../introduction/introduction.html">Introduction</a></li><li><a href="../authoring-formats/formats-introduction.html">LwDITA authoring formats</a></li><li><a href="../components/component-reference.html">Component reference</a></li><li><a href="../attributes/attributes.html">Attributes</a></li><li><a href="../conformance/conformance.html">Conformance</a></li><li><a href="../acknowledgements/acknowledgements.html">Acknowledgements</a></li><li><a href="../commonspec/specification/non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../introduction/revision-history.html">Revision history</a></li></ul></nav><main role="main" class=""><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Alternate text</h1>
+  
+
+    <div class="body refbody"><p class="shortdesc"><span class="ph" id="lw-shortdesc__alternate-text">Alternate text is a textual description of an
+      image. Systems often render the alternate text when the reader is
+      using assistive technology or the image cannot be
+    rendered.</span></p>
+    <section class="section" id="lw-shortdesc__d2591e27"><h2 class="title sectiontitle">Syntax</h2>
+      
+      <p class="p">The syntax for representing this
+        component varies depending on the authoring format:</p>
+      
+      
+      <table class="simpletable frame-all"><colgroup><col style="width:25%"><col style="width:75%"></colgroup><thead><tr class="sthead">
+          <th class="stentry" scope="col" id="lw-shortdesc__stentry__1">Authoring format</th>
+          <th class="stentry" scope="col" id="lw-shortdesc__stentry__2">Syntax and example</th>
+        </tr></thead><tbody><tr class="strow">
+          <th class="stentry" scope="row" headers="lw-shortdesc__stentry__1">XDITA</th>
+          <td class="stentry" headers="lw-shortdesc__stentry__2">
+            <p class="p"><code class="keyword markupname xmlelement">&lt;alt&gt;</code></p>
+            <pre class="pre codeblock"><code>&lt;image href="save.gif&gt;
+  <strong class="ph b">&lt;alt&gt;Save icon&lt;/alt&gt;</strong>
+&lt;/image&gt;</code></pre>
+          </td>
+        </tr><tr class="strow">
+          <th class="stentry" scope="row" headers="lw-shortdesc__stentry__1">HDITA</th>
+          <td class="stentry" headers="lw-shortdesc__stentry__2">
+            <p class="p"><code class="keyword markupname xmlatt">@alt</code></p>
+            <pre class="pre codeblock"><code>&lt;img <strong class="ph b">alt="Save icon"</strong> href="save.gif"/&gt;</code></pre>
+          </td>
+        </tr><tr class="strow">
+          <th class="stentry" scope="row" headers="lw-shortdesc__stentry__1">MDITA</th>
+          <td class="stentry" headers="lw-shortdesc__stentry__2">
+            <p class="p">Text inside square brackets (<code class="ph codeph">[]</code>), as part
+              of the markup for an image</p>
+            <pre class="pre codeblock"><code>!<strong class="ph b">[Save icon]</strong> (save.gif]</code></pre>
+          </td>
+        </tr></tbody></table>
+    </section>
+
+      <section class="section" id="lw-shortdesc__d2591e119"><h2 class="title sectiontitle">Attributes</h2>
+            
+                        
+      <div class="div">
+        
+        <p class="p">The available attributes vary based on the
+        authoring format:</p>
+        <dl class="dl">
+          
+            <dt class="dt dlterm">XDITA and HDITA</dt>
+            <dd class="dd">The following attributes are available on this element: <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__localization-attributes" title="Localization attributes include dir, translate, and xml:lang.">localization attributes</a></span>, <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__universal-attributes" title="Universal attributes include class and outputclass..">universal
+                  attributes</a></span>, and <a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/lwdita-common-attributes.html#lwdita-common-attributes__keyref"><code class="keyword markupname xmlatt">@keyref</code></a>.</dd>
+          
+          
+          
+            <dt class="dt dlterm">MDITA</dt>
+            <dd class="dd"><span class="ph">For the MDITA core profile, the equivalent
+          of the XDITA <code class="keyword markupname xmlatt">@keyref</code> attribute is supported. For
+          the MDITA extended profile, attributes can be specified by using
+          the HDITA representation.</span></dd>
+          
+        </dl>
+      </div>
+        </section>
+        <div class="example non-normative" id="lw-shortdesc__d2591e196"><h2 class="title sectiontitle">Examples</h2><p class="non-normative-label">This section is non-normative.</p>
+          
+          <figure class="fig fignone"><figcaption><span class="fig--title-label">Example 1. </span>XDITA example</figcaption>
+      
+      <p class="p">The following example demonstrates the use of alternate text in an XDITA topic.</p>
+      <pre class="pre codeblock"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE topic PUBLIC "-//OASIS//DTD LIGHTWEIGHT DITA Topic//EN" "topic.dtd"&gt;
+&lt;topic id="intro-product"&gt;
+  &lt;title&gt;Remote Lighting Overview&lt;/title&gt;
+  &lt;body&gt;
+    &lt;p&gt;The Remote Lighting Network kit includes a wireless smart system that helps make the lighting in your home more energy efficient and easier to manage.&lt;/p&gt;
+    &lt;fig&gt;
+      &lt;image href="images/kit-package.jpg"&gt;&lt;alt&gt;Retail package for the Remote Lighting Network kit &lt;/alt&gt;&lt;/image&gt;
+    &lt;/fig&gt;
+  &lt;/body&gt;
+&lt;/topic&gt;</code></pre>
+
+    </figure>
+
+    <figure class="fig fignone"><figcaption><span class="fig--title-label">Example 2. </span>HDITA example</figcaption>
+      
+      <p class="p">The following example demonstrates the use of alternate text in an HDITA topic.</p>
+
+      <pre class="pre codeblock"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Home&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;article id="intro-product"&gt;
+    &lt;h1&gt;Remote Lighting Overview&lt;/h1&gt;
+    &lt;p&gt;The Remote Lighting Network kit includes a wireless smart system that helps make the lighting in your home more energy efficient and easier to manage.&lt;/p&gt;
+    &lt;figure&gt;
+      &lt;img src="images/kit-package.jpg" alt="Retail package for the Remote Lighting Network kit" /&gt;
+&lt;/figure&gt;
+  &lt;/article&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+    </figure>
+
+
+    <figure class="fig fignone"><figcaption><span class="fig--title-label">Example 3. </span>MDITA example</figcaption>
+      
+      <p class="p">The following example demonstrates the use of alternate text in an MDITA topic.</p>
+      <pre class="pre codeblock"><code># Remote Lighting Overview
+
+The Remote Lighting Network kit includes a wireless smart system that helps make the lighting in your home more energy efficient and easier to manage.
+
+![Retail package for the Remote Lighting Network kit](images/kit-package.jpg)</code></pre>
+    </figure>
+        </div>
+
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../components/containers/body-components.html" title="The body components support the most common types of content authoring for topics: paragraphs, lists, phrases, figures, and other common types of exhibits in a document.">Body components</a></div></div></nav><aside class="section-toc" role="aside"><h2>In this section</h2><ul><li><a href="#lw-shortdesc__d2591e27">Syntax</a></li><li><a href="#lw-shortdesc__d2591e119">Attributes</a></li><li><a href="#lw-shortdesc__d2591e196">Examples</a></li></ul></aside></article></main>

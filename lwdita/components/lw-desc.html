@@ -1,0 +1,162 @@
+---
+layout: base.njk
+title: 'Description'
+description: 'A description is a statement that describes or contains additional information about an object.'
+index: '../toc.html'
+notices: '../resources/oasis-notices.html'
+commit: '75673839cd256bfd9414545a94f9381202d92cf0'
+repository: 'oasis-tcs/dita-lwdita'
+classes: ''
+---
+
+<nav class="toc" role="toc"><ul><li><a href="../introduction/introduction.html">Introduction</a></li><li><a href="../authoring-formats/formats-introduction.html">LwDITA authoring formats</a></li><li><a href="../components/component-reference.html">Component reference</a></li><li><a href="../attributes/attributes.html">Attributes</a></li><li><a href="../conformance/conformance.html">Conformance</a></li><li><a href="../acknowledgements/acknowledgements.html">Acknowledgements</a></li><li><a href="../commonspec/specification/non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../introduction/revision-history.html">Revision history</a></li></ul></nav><main role="main" class=""><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Description</h1>
+  
+    <div class="body refbody"><p class="shortdesc">A description is a
+    statement that describes or contains additional information about an
+    object.</p>
+    <section class="section" id="lw-desc__d19279e24"><h2 class="title sectiontitle">Syntax</h2>
+      
+      <p class="p">The syntax for representing this
+        component varies depending on the authoring format:</p>
+      
+      <table class="simpletable frame-all"><colgroup><col style="width:25%"><col style="width:75%"></colgroup><thead><tr class="sthead">
+          <th class="stentry" scope="col" id="lw-desc__stentry__1">Authoring format</th>
+          <th class="stentry" scope="col" id="lw-desc__stentry__2">Syntax and example</th>
+        </tr></thead><tbody><tr class="strow">
+          <th class="stentry" scope="row" headers="lw-desc__stentry__1">XDITA</th>
+          <td class="stentry" headers="lw-desc__stentry__2">
+            <p class="p"><code class="keyword markupname xmlelement">&lt;desc&gt;</code> inside
+                <code class="keyword markupname xmlelement">&lt;audio&gt;</code>,
+                <code class="keyword markupname xmlelement">&lt;fig&gt;</code>, and
+                <code class="keyword markupname xmlelement">&lt;video&gt;</code></p>
+            <p class="p"><strong class="ph b">Example:</strong></p>
+            <pre class="pre codeblock"><code>&lt;audio autoplay="false" controls="true" loop="false"
+       muted="false"&gt;
+  <strong class="ph b">&lt;desc&gt;Theme song for the LwDITA podcast&lt;/desc&gt;</strong>
+  &lt;fallback&gt;The theme song is not available.&lt;/fallback&gt;
+  &lt;media-source value="theme-song.mp3"/&gt;
+  &lt;media-track srclang="en" value="theme-song.vtt"/&gt;
+&lt;/audio&gt;</code></pre>
+          </td>
+        </tr><tr class="strow">
+          <th class="stentry" scope="row" headers="lw-desc__stentry__1">HDITA</th>
+          <td class="stentry" headers="lw-desc__stentry__2">
+            <p class="p"><code class="keyword markupname xmlatt">@title</code> attribute on
+                <code class="keyword markupname xmlelement">&lt;audio&gt;</code> and
+                <code class="keyword markupname xmlelement">&lt;video&gt;</code></p>
+            <p class="p">There is no specific syntax for description in a figure
+              component.</p>
+            <p class="p"><strong class="ph b">Example:</strong></p>
+            <pre class="pre codeblock"><code>&lt;audio <strong class="ph b">title="Theme song for the LwDITA podcast"</strong> controls&gt;
+  &lt;source src="theme-song.mp3"&gt;
+  &lt;track src="theme-song.vtt" kind="captions" srclang="en"&gt;
+  &lt;p data-class="fallback"&gt;The theme song is not available.&lt;/p&gt;
+&lt;/audio&gt;</code></pre>
+          </td>
+        </tr><tr class="strow">
+          <th class="stentry" scope="row" headers="lw-desc__stentry__1">MDITA</th>
+          <td class="stentry" headers="lw-desc__stentry__2">There is no specific syntax for description in
+            MDITA.</td>
+        </tr></tbody></table>
+    </section>
+      <section class="section" id="lw-desc__d19279e132"><h2 class="title sectiontitle">Usage information</h2>
+      
+      
+      <div class="div">
+        <p class="p">The following list outlines common uses of the description component:</p>
+        <dl class="dl">
+          
+            <dt class="dt dlterm">Table and figure</dt>
+            <dd class="dd">Provides more information than can be contained in the title</dd>
+          
+          
+            <dt class="dt dlterm">Cross reference</dt>
+            <dd class="dd">Provides a description of the target</dd>
+          
+        </dl>
+      </div>
+    </section>
+      <section class="section" id="lw-desc__d19279e168"><h2 class="title sectiontitle">Rendering expectations</h2>
+      
+      
+      <div class="div">
+        <p class="p">When used in conjunction with figures, processors <dfn class="term RFC-2119">SHOULD</dfn> consider the content of description components to be part of the content
+          flow.</p>
+        <p class="p">When used in conjunction with cross references, processors often
+          choose to render the content of description components as hover
+          help or other forms of link preview.</p>
+      </div>
+    </section>
+      <section class="section" id="lw-desc__d19279e188"><h2 class="title sectiontitle">Attributes</h2>
+      
+      
+      <div class="div">
+        
+        <p class="p">The available attributes vary based on the
+        authoring format:</p>
+        <dl class="dl">
+          
+            <dt class="dt dlterm">XDITA</dt>
+            <dd class="dd">The following attributes are available on this element: <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__localization-attributes" title="Localization attributes include dir, translate, and xml:lang.">localization attributes</a></span>, <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__universal-attributes" title="Universal attributes include class and outputclass..">universal
+                  attributes</a></span>, and
+                <a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/lwdita-common-attributes.html#lwdita-common-attributes__props"><code class="keyword markupname xmlatt">@props</code></a>.</dd>
+          
+          
+          
+            <dt class="dt dlterm">MDITA</dt>
+            <dd class="dd"><span class="ph">There is no attribute support for
+          the MDITA core profile. For the MDITA extended profile,
+          attributes can be specified by using the HDITA
+          representation.</span></dd>
+          
+        </dl>
+      </div>
+    </section>
+        <div class="example non-normative" id="lw-desc__d19279e262"><h2 class="title sectiontitle">Examples</h2><p class="non-normative-label">This section is non-normative.</p>
+          
+          <figure class="fig fignone"><figcaption><span class="fig--title-label">Example 1. </span>XDITA example</figcaption>
+      
+      <p class="p">The following example demonstrates the use of description in a figure component in an XDITA
+        topic.</p>
+      <pre class="pre codeblock"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE topic PUBLIC "-//OASIS//DTD LIGHTWEIGHT DITA Topic//EN" "topic.dtd"&gt;
+&lt;topic id="intro-product"&gt;
+  &lt;title&gt;Remote Lighting Overview&lt;/title&gt;
+  &lt;body&gt;
+    &lt;p&gt;The Remote Lighting Network kit includes a wireless smart system that helps make the lighting in your home more energy efficient and easier to manage.&lt;/p&gt;
+    &lt;fig&gt;
+      &lt;desc&gt;This image shows the retail package for version 2.3 of the Remote Lighting Network kit and does not represent any other versions&lt;/desc&gt;
+      &lt;image href="images/kit-package.jpg"&gt;&lt;alt&gt;Retail package for the Remote Lighting Network kit &lt;/alt&gt;&lt;/image&gt;
+    &lt;/fig&gt;
+  &lt;/body&gt;
+&lt;/topic&gt;</code></pre>
+
+
+    </figure>
+
+    <figure class="fig fignone"><figcaption><span class="fig--title-label">Example 2. </span>HDITA example</figcaption>
+      
+      <p class="p">The following example demonstrates the use of description in a video component in an HDITA
+        topic.</p>
+      <pre class="pre codeblock"><code>&lt;!DOCTYPE html&gt;
+&lt;title&gt;The Sensei Sushi Promise&lt;/title&gt;
+&lt;body&gt;
+  &lt;article id="sensei-promise"&gt;
+  &lt;h1&gt;The Sensei Sushi Promise&lt;/h1&gt;
+  &lt;video height="300" width="400" title="Video about the Sensei Sushi promise" controls poster="sensei-video.jpg"&gt;
+  &lt;source src="sensei-video.mp4"/&gt;
+  &lt;source src="sensei-video.ogg"/&gt;
+  &lt;source src="sensei-video.webm"/&gt; 
+  &lt;track srclang="en" src="sensei-video.vtt"/&gt;
+  &lt;img src="video-not-available.png" alt="This video cannot be displayed."/&gt;
+  &lt;/video&gt;
+  &lt;/article&gt;
+&lt;/body&gt;
+  </code></pre>
+
+    </figure>
+        </div>
+
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../components/containers/body-components.html" title="The body components support the most common types of content authoring for topics: paragraphs, lists, phrases, figures, and other common types of exhibits in a document.">Body components</a></div></div></nav><aside class="section-toc" role="aside"><h2>In this section</h2><ul><li><a href="#lw-desc__d19279e24">Syntax</a></li><li><a href="#lw-desc__d19279e132">Usage information</a></li><li><a href="#lw-desc__d19279e168">Rendering expectations</a></li><li><a href="#lw-desc__d19279e188">Attributes</a></li><li><a href="#lw-desc__d19279e262">Examples</a></li></ul></aside></article></main>

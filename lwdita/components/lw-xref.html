@@ -1,0 +1,141 @@
+---
+layout: base.njk
+title: 'Cross reference'
+description: 'A cross reference is an inline link. A cross reference can link to a different location within the current topic, another topic, a specific location in another topic, or an external resource such as a PDF or web page.'
+index: '../toc.html'
+notices: '../resources/oasis-notices.html'
+commit: '75673839cd256bfd9414545a94f9381202d92cf0'
+repository: 'oasis-tcs/dita-lwdita'
+classes: ''
+---
+
+<nav class="toc" role="toc"><ul><li><a href="../introduction/introduction.html">Introduction</a></li><li><a href="../authoring-formats/formats-introduction.html">LwDITA authoring formats</a></li><li><a href="../components/component-reference.html">Component reference</a></li><li><a href="../attributes/attributes.html">Attributes</a></li><li><a href="../conformance/conformance.html">Conformance</a></li><li><a href="../acknowledgements/acknowledgements.html">Acknowledgements</a></li><li><a href="../commonspec/specification/non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../introduction/revision-history.html">Revision history</a></li></ul></nav><main role="main" class=""><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Cross reference</h1>
+  
+
+    <div class="body refbody"><p class="shortdesc">A cross reference is
+    an inline link. A cross reference can link to a different location
+    within the current topic, another topic, a specific location in another
+    topic, or an external resource such as a PDF or <span class="ph">web</span> page.</p>
+    <section class="section" id="lw-xref__d18069e29"><h2 class="title sectiontitle">Syntax</h2>
+      
+      <dl class="dl">
+        
+          <dt class="dt dlterm">XDITA</dt>
+          <dd class="dd"><p class="p"><code class="keyword markupname xmlelement">&lt;xref&gt;</code></p></dd>
+          
+        
+          <dt class="dt dlterm">HDITA</dt>
+          <dd class="dd"><p class="p"><code class="keyword markupname xmlelement">&lt;a href&gt;</code></p></dd>
+        
+        
+          <dt class="dt dlterm">MDITA (core and extended profiles)</dt>
+          <dd class="dd"><p class="p"><code class="ph codeph">[link](/URI "title")</code></p></dd>
+        
+      </dl>
+    </section>
+
+      <section class="section" id="lw-xref__d18069e77"><h2 class="title sectiontitle">Attributes</h2>
+            
+            
+      <div class="div">
+        <p class="p">The available attributes vary based on the
+        authoring format:</p>
+        <dl class="dl">
+          
+            <dt class="dt dlterm">XDITA</dt>
+            <dd class="dd">The following attributes are available on this element: <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__link-relationship-attributes" title="Link relationship attributes include format, href, and scope.">link relationship attributes</a></span>, <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__localization-attributes" title="Localization attributes include dir, translate, and xml:lang.">localization attributes</a></span>, <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__universal-attributes" title="Universal attributes include class and outputclass..">universal
+                  attributes</a></span>,
+                <a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/lwdita-common-attributes.html#lwdita-common-attributes__keyref"><code class="keyword markupname xmlatt">@keyref</code></a>, and <a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/lwdita-common-attributes.html#lwdita-common-attributes__props"><code class="keyword markupname xmlatt">@props</code></a>.</dd>
+          
+          
+            <dt class="dt dlterm">HDITA</dt>
+            <dd class="dd">The following attributes are available on this element: <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__link-relationship-attributes" title="Link relationship attributes include format, href, and scope.">link relationship attributes</a></span>, <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__localization-attributes" title="Localization attributes include dir, translate, and xml:lang.">localization attributes</a></span>, <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__universal-attributes" title="Universal attributes include class and outputclass..">universal
+                  attributes</a></span>,
+                <a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/lwdita-common-attributes.html#lwdita-common-attributes__keyref"><code class="keyword markupname xmlatt">@keyref</code></a>, and <a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/lwdita-common-attributes.html#lwdita-common-attributes__props"><code class="keyword markupname xmlatt">@props</code></a>.</dd>
+          
+          
+            <dt class="dt dlterm">MDITA</dt>
+            <dd class="dd"><span class="ph">For the MDITA core profile, the equivalent
+          of the XDITA <code class="keyword markupname xmlatt">@keyref</code> attribute is supported. For
+          the MDITA extended profile, attributes can be specified by using
+          the HDITA representation.</span></dd>
+          
+        </dl>
+      </div>
+      
+        </section>
+        <div class="example non-normative" id="lw-xref__d18069e243"><h2 class="title sectiontitle">Examples</h2><p class="non-normative-label">This section is non-normative.</p>
+          
+          <figure class="fig fignone"><figcaption><span class="fig--title-label">Example 1. </span>XDITA example</figcaption>
+      
+      <p class="p">The following example demonstrates the use of a cross reference in an XDITA topic.</p>
+      <pre class="pre codeblock"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE topic PUBLIC "-//OASIS//DTD LIGHTWEIGHT DITA Topic//EN" "lw-topic.dtd"&gt;
+&lt;topic id="franchise-offer"&gt;
+  &lt;title&gt;What we offer&lt;/title&gt;
+  &lt;body&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;p&gt;"Know-how" license&lt;/p&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;p&gt;Warranty of territory exclusivity&lt;/p&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;p&gt;Initial training&lt;/p&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;p&gt;Support through online, email, and telephone channels&lt;/p&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;p&gt;Access to our &lt;xref href="http://senseisushico.com/kb" scope="external" format="html"&gt;knowledge base&lt;/xref&gt;&lt;/p&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/body&gt;
+&lt;/topic&gt;</code></pre>
+          </figure>
+
+
+    <figure class="fig fignone"><figcaption><span class="fig--title-label">Example 2. </span>HDITA example</figcaption>
+      
+      <p class="p">The following example demonstrates the use of a cross reference in an HDITA topic.</p>
+      <pre class="pre codeblock"><code>&lt;!DOCTYPE html&gt;
+&lt;title&gt;What we offer&lt;/title&gt;
+&lt;body&gt;
+  &lt;article id="franchise-offer"&gt;
+    &lt;h1&gt;What we offer&lt;/h1&gt;
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;"Know-how" license&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Warranty of territory exclusivity&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Initial training&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Support through online, email, and telephone channels&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Access to our &lt;a href="http://senseisushico.com/kb" rel="external" type="text/html"&gt;knowledge base&lt;/a&gt;&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/article&gt;
+&lt;/body&gt;</code></pre>
+
+    </figure>
+
+
+    <figure class="fig fignone"><figcaption><span class="fig--title-label">Example 3. </span>MDITA example</figcaption>
+      
+      <p class="p">The following example demonstrates the use of a cross reference in an MDITA topic.</p>
+      <pre class="pre codeblock"><code># What we offer
+
+-   "Know-how" license
+
+-   Warranty of territory exclusivity
+
+-   Initial training
+
+-   Support through online, email, and telephone channels
+
+-   Access to our [knowledge base](http://senseisushico.com/kb)</code></pre>
+
+
+    </figure>
+        </div>
+
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../components/containers/body-components.html" title="The body components support the most common types of content authoring for topics: paragraphs, lists, phrases, figures, and other common types of exhibits in a document.">Body components</a></div></div></nav><aside class="section-toc" role="aside"><h2>In this section</h2><ul><li><a href="#lw-xref__d18069e29">Syntax</a></li><li><a href="#lw-xref__d18069e77">Attributes</a></li><li><a href="#lw-xref__d18069e243">Examples</a></li></ul></aside></article></main>
