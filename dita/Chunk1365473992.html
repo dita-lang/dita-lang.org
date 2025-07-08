@@ -1,0 +1,517 @@
+---
+layout: base.njk
+title: ''
+index: 'toc.html'
+notices: 'resources/oasis-notices.html'
+commit: '138a76ad7a1a4afe95a9b146c36102faa84f41ae'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="toc" role="toc"><ul><li><a href="introduction/dita-release-overview.html">Introduction</a></li><li><a href="archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="archSpec/base/accessibility-and-translation.html">Accessibility and translation</a></li><li><a href="archSpec/base/dita-map-processing.html">DITA map processing</a></li><li><a href="archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="archSpec/base/behaviors.html">DITA processing</a></li><li><a href="archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a><ul class="nav nav-list"><li><a href="archSpec/base/ditaspecialization.html#ditaspecialization">Overview of DITA extension facilities</a></li><li><a href="Chunk1040559205.html#Chunk1040559205">Configuration</a></li><li class="active"><a href="Chunk1365473992.html#Chunk1365473992">Specialization</a><ul class="nav nav-list"><li><a href="Chunk1365473992.html#specialize">Specialization</a></li></ul></li><li><a href="Chunk2037262225.html#Chunk2037262225">Generalization</a></li><li><a href="Chunk1088955153.html#Chunk1088955153">Constraints</a></li><li><a href="Chunk33598400.html#Chunk33598400">Expansion modules</a></li></ul></li><li><a href="langRef/langRef-base.html">Element reference</a></li><li><a href="conformance/conformance.html">Conformance</a></li><li><a href="acknowledgments/acknowledgments.html#r-acknowledgments">Acknowledgments</a></li><li><a href="non-normative/aggregated-RFC-2119-statements.html#aggregated-RFC-2119-statements">Aggregated RFC-2119 statements</a></li><li><a href="archSpec/base/coding-requirements.html#coding-practices">Coding practices for DITA grammar files</a></li><li><a href="non-normative/developing-constraint-and-expansion-modules.html#developing-constraint-and-expansion-modules">Constraint modules</a></li><li><a href="non-normative/expansion-modules.html#expansion-modules">Expansion modules</a></li><li><a href="non-normative/elementsMerged.html#elements">Element-by-element recommendations for translators</a></li><li><a href="non-normative/formatting-expectations.html#formatting-expectations">Formatting expectations</a></li><li><a href="non-normative/migrating-to-dita-2.0.html#migrating-to-dita-2.0">Migrating to DITA 2.0</a></li><li><a href="non-normative/basedoctypes.html#oasisdomains">OASIS grammar files</a></li><li><a href="non-normative/interoperability-considerations.html#nteroperability-considerations">Processing interoperability considerations</a></li><li><a href="non-normative/revision-history.html#revision-history">Revision history</a></li></ul></nav><main role="main" class=""><article role="article" aria-labelledby="ariaid-title1"><article class="nested0" aria-labelledby="ariaid-title1" id="Chunk1365473992"><h1 class="title topictitle1" id="ariaid-title1">Specialization</h1><nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="archSpec/base/configuration-specialization-and-constraints.html" title="The extension facilities of DITA allow document-type shells, vocabulary modules, and element-configuration modules (constraint and expansion) to be combined to create specific DITA document types.">Configuration and specialization</a></div></div></nav><article class="topic concept nested1" aria-labelledby="ariaid-title2" lang="en-us" id="specialize">
+  <h2 class="title topictitle2" id="ariaid-title2">Specialization</h2>
+  <div class="body"><p class="shortdesc">
+    <span class="ph">The specialization feature of DITA
+          allows for the creation of new element types and attributes that are explicitly and
+          formally derived from existing types. This facilitates interchange of conforming DITA
+          content and ensures a minimum level of common processing for all DITA content. It also
+          allows specialization-aware processors to add specialization-specific processing to
+          existing base processing. </span></p></div>
+<article class="topic concept nested2" aria-labelledby="ariaid-title3" lang="en-us" id="specialization-overview">
+ <h3 class="title topictitle3" id="ariaid-title3">Overview of specialization</h3>
+ 
+ 
+ <div class="body conbody"><p class="shortdesc">Specialization allows information architects to define new kinds of information (new
+  structural types or new domains of information), while reusing as much of existing design and code
+  as possible, and minimizing or eliminating the costs of interchange, migration, and
+  maintenance.</p>
+  <p class="p">Specialization modules enable information architects to create new element types and
+   attributes. These new element types and attributes are derived from existing element types and
+   attributes.</p>
+  <p class="p">In traditional XML applications, all semantics for a given element instance are bound to the
+   element type, such as <code class="keyword markupname xmlelement">&lt;para&gt;</code> for a paragraph or
+    <code class="keyword markupname xmlelement">&lt;title&gt;</code> for a title. The XML specification provides no built-in mechanism
+   for relating two element types to say "element type B is a subtype of element type A". </p>
+  <p class="p">In contrast, the DITA specialization mechanism provides a standard mechanism for declaring that
+   an element type or attribute is derived from an ancestor type. This means that a specialized type
+   inherits the semantics and default processing behavior from its ancestor type. Additional
+   processing behavior optionally can be associated with the specialized descendant type.</p>
+  <p class="p example">For example, the <code class="keyword markupname xmlelement">&lt;section&gt;</code> element type is part of
+   the DITA base. It represents an organizational division in a topic. Within the task information
+   type (itself a specialization of <code class="keyword markupname xmlelement">&lt;topic&gt;</code>), the
+    <code class="keyword markupname xmlelement">&lt;section&gt;</code> element type is further specialized to other element types
+   (such as <code class="keyword markupname xmlelement">&lt;prereq&gt;</code> and <code class="keyword markupname xmlelement">&lt;context&gt;</code>) that provide more
+   precise semantics about the type of organizational division that they represent. The specialized
+   element types inherit both semantic meaning and default processing from the ancestor
+   elements.</p>
+  <p class="p">There are two types of DITA specializations:</p>
+  <dl class="dl">
+   
+    <dt class="dt dlterm">Structural specialization</dt>
+    <dd class="dd">
+     <p class="p">Structural specializations are developed from either topic or map
+            types. Structural specializations enable information
+              architect<span style="color:red;" class="ph">s</span> to add new document types
+            to DITA. The structures defined in the new document types
+            either directly use<span style="color:red;" class="ph">,</span> or inherit from<span style="color:red;" class="ph">,</span> elements found in other document types.
+            For example<span style="color:red;" class="ph">,</span> concept, task, and
+            reference are specialized from topic, <span style="color:red;" class="ph">and</span> bookmap is specialized from map.</p>
+    </dd>
+   
+   
+    <dt class="dt dlterm">Domain specialization</dt>
+    <dd class="dd">Domain specializations are developed from elements defined <span style="color:red;" class="ph">within</span> topic or map, or from the
+            <code class="keyword markupname xmlatt">@props</code> or <code class="keyword markupname xmlatt">@base</code> attributes.
+          They define markup for a specific information domain or subject
+          area. Domain specializations can be added to document-type
+          shells.</dd>
+   
+  </dl>
+  <p class="p">Each type of specialization module represents an <q class="q">is a</q> hierarchy, in object-oriented terms,
+   with each structural type or domain being a subclass of its parent. For example, a specialization
+   of task is still a task, and a specialization of the user interface domain is still part of the
+   user interface domain. A given domain can be used with any map or topic type. In addition,
+   specific structural types might require the use of specific domains.</p>
+  <p class="p"><span class="ph">Use specialization when you need a new structural type or
+    domain.</span> Specialization is appropriate in the following circumstances:</p>
+  <ul class="ul">
+   <li class="li">You need to create markup to represent new semantics (meaningful categories of information).
+    This might enable you to have increased consistency or descriptiveness in your content
+    model.</li>
+   <li class="li">You have specific needs for output processing and formatting that cannot be addressed using
+    the current content model.</li>
+  </ul>
+  <p class="p">Do not use specialization to simply eliminate element types from specific content models. Use
+   constraint modules to <span class="ph">restrict</span> content models and attribute lists without changing
+   semantics.</p>
+ </div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title4" lang="en-us" id="modularization">
+ <h3 class="title topictitle3" id="ariaid-title4">Modularization</h3>
+ 
+ 
+ <div class="body conbody"><p class="shortdesc">Modularization is at the core of DITA design and implementation. It enables reuse and
+  extension of the DITA specialization hierarchy.</p>
+  <p class="p">The DITA XML grammar files are a set of module files that declare the markup and entities that
+   are required for each specialization. The document-type shell then integrates the modules that
+   are needed for a particular authoring and publishing context.</p>
+  <p class="p">Because all the pieces are modular, the task of developing a new
+      information type or domain is <span style="color:red;" class="ph">simplified</span>. An
+      information architect can start with existing base types (topic or
+      map)—or with an existing specialization if it comes close to matching
+      their business requirements—and only develop an extension that adds
+      the extra semantics or functionality that is required. A
+      specialization reuses elements from ancestor modules, but it only
+      needs to declare the elements and attributes that are unique to the
+      specialization. <span class="error-statement" id="modularization__d2191t272" data-id=""></span>This saves considerable time and effort, reduces
+      error, enforces consistency, and makes interoperability possible.</p>
+  <p class="p">Because all the pieces are modular, it is <span style="color:red;" class="ph">simpler</span> to reuse different modules in different contexts.</p>
+  <p class="p example">For example, a company that produces machines
+      can use the hazard statement domain, while a company that produces
+      software can use the software, user interface, and programming
+      domains. A company that produces health information for consumers can
+      avoid using the standard domains<span style="color:red;" class="ph">. I</span>nstead, it
+      develops a new domain that contains the elements necessary for
+      capturing and tracking the comments made by medical professionals who
+      review information for accuracy and completeness.</p>
+  <p class="p">Because all the pieces are modular, new modules can be created and put into use without
+   affecting existing document-type shells. </p>
+  <p class="p example">For example, a marketing division of a company can develop a new
+   specialization for message campaigns and have their content authors begin using that
+   specialization, without affecting any of the other information types that they have in place.</p>
+ </div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title5" lang="en-us" id="vocabularymodules">
+  <h3 class="title topictitle3" id="ariaid-title5">Vocabulary modules</h3>
+  
+  
+  <div class="body conbody"><p class="shortdesc">A DITA element type or attribute is declared in exactly one vocabulary
+    module.</p>
+    <p class="p">The following terminology is used to refer to DITA vocabulary modules:</p>
+    <dl class="dl">
+      
+        <dt class="dt dlterm">structural module</dt>
+        <dd class="dd">A vocabulary module that defines a top-level map or topic type.</dd>
+      
+      
+        <dt class="dt dlterm">element domain module</dt>
+        <dd class="dd">A vocabulary module that defines one or more specialized element types that can be
+          integrated into maps or topics.</dd>
+      
+      
+        <dt class="dt dlterm">attribute domain module</dt>
+        <dd class="dd">A vocabulary module that defines exactly one specialization of either the
+            <code class="keyword markupname xmlatt">@base</code> or <code class="keyword markupname xmlatt">@props</code> attribute.</dd>
+      
+    </dl>
+    <p class="p">For structural types, the module name is typically the same as the root element. For example,
+      "task" is the name of the structural vocabulary module whose root element is
+        <code class="keyword markupname xmlelement">&lt;task&gt;</code>.</p>
+    <p class="p">For element domain modules, the module name is typically a name that reflects the subject
+      domain to which the domain applies, such as "highlight" or "software". Domain modules often
+      have an associated short name, such as <span class="keyword">hi-d</span> for the highlighting domain or
+        <span class="keyword">sw-d</span> for the software domain.</p>
+    <p class="p">The name (or short name) of an element domain module is used to identify the module in
+        <code class="keyword markupname xmlatt">@class</code> attribute values. While module names need not be globally unique,
+      module names must be unique within the scope of a given specialization hierarchy. The short
+      name must be a valid XML name token. </p>
+    <p class="p">Structural modules based on topic <dfn class="term RFC-2119">MAY</dfn> define additional
+      topic types that are then allowed to occur as subordinate topics within the top-level
+      topic.</p>
+    <p class="p example">For example, a top-level topic type might require the use of
+      subordinate topic types that would only ever be meaningful in the context of their containing
+      type and thus would never be candidates for standalone authoring or aggregation using maps. In
+      that case, the subordinate topic type can be declared in the module for the top-level topic
+      type that uses it. However, in most cases, potential subordinate topics are best defined in
+      their own vocabulary modules.</p>
+    <p class="p">Domain elements intended for use in topics <dfn class="term RFC-2119">MUST</dfn> ultimately be specialized from elements that are defined in the topic module.
+      Domain elements intended for use in maps <dfn class="term RFC-2119">MUST</dfn> ultimately be specialized from elements defined by or used in the map module.
+      Maps share some element types with topics but no map-specific elements can be used within
+      topics.</p>
+    <p class="p">Structural modules also can define specializations of, or reuse elements from, domain or
+      other structural modules. When this happens, the structural module becomes dependent.</p>
+  </div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title6" lang="en-us" id="specialization-rules-elements">
+  <h3 class="title topictitle3" id="ariaid-title6">Specialization rules for element types</h3>
+  
+  
+  <div class="body conbody"><p class="shortdesc">There are certain rules that apply to element type specializations.</p>
+    <dl class="dl">
+      
+        <dt class="dt dlterm">Characteristics</dt>
+        <dd class="dd">
+          <p class="p">A specialized element type has the following
+            characteristics:</p>
+          
+          <ul class="ul">
+            <li class="li">A properly-formed <code class="keyword markupname xmlatt">@class</code> attribute that
+              specifies the specialization hierarchy of the element</li>
+            <li class="li">A content model that is the same or less inclusive than
+              that of the element from which it was specialized</li>
+            <li class="li">A set of attributes that are the same or a subset of those
+              of the element from which it was specialized<span class="ph">,
+                except for specializations of <code class="keyword markupname xmlatt">@base</code> or
+                  <code class="keyword markupname xmlatt">@props</code></span></li>
+            <li class="li">Values or value ranges of attributes that are the same or a
+              subset of those of the element from which it was
+              specialized</li>
+          </ul>
+        </dd>
+      
+      
+        <dt class="dt dlterm">Namespaces</dt>
+        <dd class="dd">
+          <p class="p">DITA elements are never in a namespace. Only the
+              <code class="keyword markupname xmlatt">@DITAArchVersion</code> attribute is in a
+            DITA-defined namespace. All other attributes, except for those
+            defined by the XML standard, are in no namespace.</p>
+          <p class="p">This limitation is imposed by the details of the
+              <code class="keyword markupname xmlatt">@class</code> attribute syntax, which makes it
+            impractical to have namespace-qualified names for either
+            vocabulary modules or individual element types or attributes.
+            Elements included as descendants of the DITA
+              <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> element type can be in any
+            namespace.</p>
+        </dd>
+      
+    </dl>
+    <div class="note note note_note non-normative"><span class="note__title">Note<span class="non-normative-label"> (non-normative)</span>:</span> <div class="note__body">Domain modules that are intended for wide use should define element type names that are
+      unlikely to conflict with names used in other domains, for example, by using a domain-specific
+      prefix on all names.</div></div>
+    
+  </div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title7" lang="en-us" id="specialization-rules-attributes">
+  <h3 class="title topictitle3" id="ariaid-title7">Specialization rules for attributes</h3>
+  
+  
+  <div class="body conbody"><p class="shortdesc">There are certain rules that apply to attribute specializations.</p>
+    <p class="p">A specialized attribute has the following characteristics:</p>
+    <ul class="ul">
+      <li class="li">It is specialized from <code class="keyword markupname xmlatt">@props</code> or <code class="keyword markupname xmlatt">@base</code>.</li>
+      <li class="li">It can be integrated into a document-type shell either globally, which makes it
+        available on all elements, or it can be assigned to specific elements by using an expansion
+        module.</li>
+      <li class="li">It does not have values or value ranges that are more extensive than those of the
+        attribute from which it was specialized.</li>
+      <li class="li">Its values must be alphanumeric<span style="color:red;" class="ph">,</span>
+        space-delimited values.</li>
+      <li class="li">In generalized form, the values must conform to the rules for
+        attribute generalization.</li>
+    </ul>
+  </div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title8" lang="en-us" id="classatt">
+  <h3 class="title topictitle3" id="ariaid-title8">The <code class="keyword markupname xmlatt">@class</code> attribute rules and syntax</h3>
+  
+  
+  <div class="body conbody"><p class="shortdesc">The specialization hierarchy of each DITA element is declared
+    as the value of the <code class="keyword markupname xmlatt">@class</code> attribute. The
+      <code class="keyword markupname xmlatt">@class</code> attribute provides a mapping from the current
+    name of the element to its more general equivalents.<span style="color:red;" class="ph">
+      The <code class="keyword markupname xmlatt">@class</code> attribute</span> also can provide a mapping
+    from the current name to more specialized equivalents. All
+    specialization-aware processing can be defined in terms of
+      <code class="keyword markupname xmlatt">@class</code> attribute values.</p>
+    <p class="p">The <code class="keyword markupname xmlatt">@class</code> attribute tells a processor what general
+      classes of elements the current element belongs to. DITA scopes
+      elements by module type instead of document type<span style="color:red;" class="ph">.
+        Examples of module types are topic type, domain type, or map type.
+        This enables document-type developers to </span>combine multiple
+      module types in a single document without complicating transformation
+      logic.</p>
+    <p class="p">The sequence of values in the <code class="keyword markupname xmlatt">@class</code> attribute is important because it tells
+      processors which value is the most general and which is most specific. This sequence is what
+      enables both specialization aware processing and generalization.</p>
+    <section class="section" id="classatt__syntax"><h4 class="title sectiontitle">Syntax</h4>
+      
+      <div class="p">Values for the <code class="keyword markupname xmlatt">@class</code> attribute have the following syntax requirements:<ul class="ul">
+          <li class="li">An initial "-" or "+" character followed by one or more spaces. Use "-" for element
+            types that are defined in structural vocabulary modules, and use "+" for element types
+            that are defined in domain modules.</li>
+          <li class="li">A sequence of one or more tokens of the form
+                <code class="ph codeph">"<var class="keyword varname">modulename</var>/<var class="keyword varname">typename</var>",</code> with
+            each token separated by one or more spaces, where
+              <var class="keyword varname">modulename</var> is the short name of the vocabulary module and
+              <var class="keyword varname">typename</var> is the element type name. Tokens are ordered left to right
+            from most general to most specialized.<p class="p">These tokens provide a mapping for every
+              structural type or domain in the ancestry of the specialized element. The
+              specialization hierarchy for a given element type must reflect any intermediate
+              modules between the base type and the specialization type, even those in which no
+              element renaming occurs.</p></li>
+          <li class="li">At least one trailing space character (" "). The trailing space ensures that string
+            matches on the tokens can always include a leading and trailing space in order to
+            reliably match full tokens. </li>
+        </ul></div>
+    </section>
+    <section class="section" id="classatt__rules"><h4 class="title sectiontitle">Rules</h4>
+      
+      
+      <p class="p">Every DITA element (except the <code class="keyword markupname xmlelement">&lt;dita&gt;</code> element that is used as the
+        root of a ditabase document) <dfn class="term RFC-2119">MUST</dfn> declare a
+          <code class="keyword markupname xmlatt">@class</code> attribute.</p>
+      <p class="p">When the <code class="keyword markupname xmlatt">@class</code> attribute is declared in an XML grammar, it <dfn class="term RFC-2119">MUST</dfn> be declared with a default value. In order to support
+        generalization round-tripping (generalizing specialized content into a generic form and then
+        returning it to the specialized form) the default value <dfn class="term RFC-2119">MUST
+          NOT</dfn> be fixed. This allows a generalization process to overwrite the default values
+        that are defined by a general document type with specialized values taken from the document
+        being generalized.</p>
+      <p class="p">A vocabulary module <dfn class="term RFC-2119">MUST NOT</dfn> change the
+          <code class="keyword markupname xmlatt">@class</code> attribute for elements that it does not specialize, but simply
+        reuses by reference from more generic levels.</p>
+      <p class="p">Authors <dfn class="term RFC-2119">SHOULD NOT</dfn> modify the
+          <code class="keyword markupname xmlatt">@class</code> attribute. The <code class="keyword markupname xmlatt">@class</code>
+        attribute and its value is generally not surfaced in authored DITA
+        topics, although it might be made explicit as part of a processing
+        operation.</p>
+    </section>
+    <div class="example non-normative" id="classatt__example"><h4 class="title sectiontitle">Example: DTD declaration for <code class="keyword markupname xmlatt">@class</code> attribute for the
+          <code class="keyword markupname xmlelement">&lt;step&gt;</code> element</h4><p class="non-normative-label">This section is non-normative.</p>
+      
+      <p class="p">The following code sample lists the DTD declaration for the <code class="keyword markupname xmlatt">@class</code>
+        attribute for the <code class="keyword markupname xmlelement">&lt;step&gt;</code> element:</p>
+      <pre class="pre codeblock"><code>&lt;!ATTLIST step         class  CDATA "- topic/li task/step "&gt;</code></pre>
+      <p class="p">This indicates that the <code class="keyword markupname xmlelement">&lt;step&gt;</code> element is
+        specialized from the <code class="keyword markupname xmlelement">&lt;li&gt;</code> element in <span style="color:red;" class="ph">the topic module</span>. It also indicates
+        explicitly that the <code class="keyword markupname xmlelement">&lt;step&gt;</code> element is
+        available in a task topic<span style="color:red;" class="ph">. This declaration</span>
+        enables round-trip migration between upper level and lower level
+        types without the loss of information.</p>
+    </div>
+    <div class="example non-normative" id="classatt__example2"><h4 class="title sectiontitle">Example: Element with <code class="keyword markupname xmlatt">@class</code> attribute made explicit</h4><p class="non-normative-label">This section is non-normative.</p>
+      
+      <p class="p">The following code sample shows the value of the <code class="keyword markupname xmlatt">@class</code> attribute for the
+          <code class="keyword markupname xmlelement">&lt;wintitle&gt;</code> element:</p>
+      <pre class="pre codeblock"><code>&lt;wintitle class="+ topic/keyword ui-d/wintitle "&gt;A specialized keyword&lt;/wintitle&gt;</code></pre>
+    </div>
+    <div class="example non-normative" id="classatt__example3"><h4 class="title sectiontitle">Example: <code class="keyword markupname xmlatt">@class</code> attribute with intermediate value</h4><p class="non-normative-label">This section is non-normative.</p>
+      
+      
+      <p class="p">The following code sample shows the value of a <code class="keyword markupname xmlatt">@class</code> attribute for an
+        element in the guiTask module, which is specialized from <code class="keyword markupname xmlelement">&lt;task&gt;</code>. The
+        element is specialized from <code class="keyword markupname xmlelement">&lt;keyword&gt;</code> in the base topic vocabulary,
+        rather than from an element in the task module:</p>
+      <pre class="pre codeblock"><code>&lt;windowName class="- topic/keyword task/keyword guiTask/windowname "&gt;...&lt;/windowName&gt;</code></pre>
+      <p class="p">The intermediate values are necessary so that generalizing and specializing transformations
+        can map the values simply and accurately. For example, if <code class="ph codeph">task/keyword</code> was
+        missing as a value, and a user decided to generalize this guiTask up to a task topic, then
+        the transformation would have to guess whether to map to keyword (appropriate if task is
+        more general than guiTask, which it is) or leave it as windowName (appropriate if task were
+        more specialized, which it isn't). By always providing mappings for more general values,
+        processors can then apply the simple rule that missing mappings must by default be to more
+        specialized values than the one we are generalizing to, which means the last value in the
+        list is appropriate. For example, when generalizing <code class="keyword markupname xmlelement">&lt;guitask&gt;</code> to
+          <code class="keyword markupname xmlelement">&lt;task&gt;</code>, if a <code class="keyword markupname xmlelement">&lt;p&gt;</code> element has no target value
+        for <code class="keyword markupname xmlelement">&lt;task&gt;</code>, we can safely assume that <code class="keyword markupname xmlelement">&lt;p&gt;</code> does
+        not specialize from <code class="keyword markupname xmlelement">&lt;task&gt;</code> and does not need to be generalized.</p>
+    </div>
+  </div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title9" lang="en-us" id="domainsatt">
+<h3 class="title topictitle3" id="ariaid-title9">The <code class="keyword markupname xmlatt">@specializations</code> attribute rules and
+    syntax</h3>
+
+  
+<div class="body conbody"><p class="shortdesc">The <code class="keyword markupname xmlatt">@specializations</code> attribute enables
+    processors to determine what attribute specializations are available in
+    a document. The attribute is declared on the root element for each
+    topic or map type. Each attribute domain defines a token to declare the
+      extension<span style="color:red;" class="ph">. The </span>effective value of the
+      <code class="keyword markupname xmlatt">@specializations</code> attribute is composed of these
+    tokens.</p>
+    <section class="section" id="domainsatt__syntax"><h4 class="title sectiontitle">Syntax and rules</h4>
+      
+      <p class="p">The <code class="keyword markupname xmlatt">@props</code> and <code class="keyword markupname xmlatt">@base</code> attributes are the only two core
+        attributes available for specialization.</p>
+      <p class="p">Each specialization of the <code class="keyword markupname xmlatt">@props</code> and <code class="keyword markupname xmlatt">@base</code> attributes
+          <dfn class="term RFC-2119">MUST</dfn> provide a token for use by the
+          <code class="keyword markupname xmlatt">@specializations</code> attribute.</p>
+      <p class="p">The <code class="keyword markupname xmlatt">@specializations</code> token for an attribute specialization begins with
+        either <code class="keyword markupname xmlatt">@props</code> or <code class="keyword markupname xmlatt">@base</code> followed by a slash, followed by the
+        name of the new attribute:</p>
+      <pre class="pre codeblock"><code>'@', <var class="keyword varname">props-or-base</var>, ('/', <var class="keyword varname">attname</var>)+</code></pre>
+      <div class="p example">For example:<ul class="ul" id="domainsatt__ul_arf_pxx_gkb">
+          <li class="li">If <code class="keyword markupname xmlatt">@props</code> is specialized to create <code class="keyword markupname xmlatt">@myNewProp</code>, this
+            results in the following token: <code class="ph codeph">@props/myNewProp</code></li>
+          <li class="li">If <code class="keyword markupname xmlatt">@base</code> is specialized to create <code class="keyword markupname xmlatt">@myFirstBase</code>, this
+            results in the following token: <code class="ph codeph">@base/myFirstBase</code></li>
+          <li class="li">If that specialized attribute <code class="keyword markupname xmlatt">@myFirstBase</code> is further specialized to
+            create <code class="keyword markupname xmlatt">@mySecondBase</code>, this results in the following token:
+              <code class="ph codeph">@base/myFirstBase/mySecondBase</code></li>
+        </ul></div>
+      <p class="p">Note that the value for the <code class="keyword markupname xmlatt">@specializations</code>
+        attribute is not authored. Instead, the value is defaulted based on
+        the modules that are included in the document type shell.</p>
+    </section>
+<div class="example non-normative" id="domainsatt__example"><h4 class="title sectiontitle">Example: <code class="keyword markupname xmlatt">@specializations attribute for </code> a task with multiple
+        domains</h4><p class="non-normative-label">This section is non-normative.</p>
+      
+      <p class="p">In this example, a document-type shell integrates the task structural module and the
+        following domain modules:</p>
+      <table class="simpletable frame-all"><colgroup><col style="width:50%"><col style="width:50%"></colgroup><thead><tr class="sthead">
+          <th class="stentry" scope="col" id="domainsatt__example__stentry__1">Domain</th>
+          <th class="stentry" scope="col" id="domainsatt__example__stentry__2">Domain short name</th>
+        </tr></thead><tbody><tr class="strow">
+          <td class="stentry" headers="domainsatt__example__stentry__1">User interface</td>
+          <td class="stentry" headers="domainsatt__example__stentry__2">ui-d</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="domainsatt__example__stentry__1">Software</td>
+          <td class="stentry" headers="domainsatt__example__stentry__2">sw-d</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="domainsatt__example__stentry__1"><code class="keyword markupname xmlatt">@deliveryTarget</code> attribute</td>
+          <td class="stentry" headers="domainsatt__example__stentry__2">deliveryTarget</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="domainsatt__example__stentry__1"><code class="keyword markupname xmlatt">@platform</code> attribute</td>
+          <td class="stentry" headers="domainsatt__example__stentry__2">platform</td>
+        </tr><tr class="strow">
+          <td class="stentry" headers="domainsatt__example__stentry__1"><code class="keyword markupname xmlatt">@product</code> attribute</td>
+          <td class="stentry" headers="domainsatt__example__stentry__2">product</td>
+        </tr></tbody></table>
+      <p class="p">The value of the <code class="keyword markupname xmlatt">@specializations</code> attribute
+        includes one value from each attribute module<span style="color:red;" class="ph">.
+          The</span> effective value is the following:</p>
+      <pre class="pre codeblock"><code>specializations="@props/deliveryTarget @props/platform @props/product"</code></pre>
+      <p class="p">If the document-type shell also used a specialization of the <code class="keyword markupname xmlatt">@platform</code>
+        attribute that describes the hardware platform, the new <code class="keyword markupname xmlatt">@hardwarePlatform</code>
+        attribute domain would add an additional value to the <code class="keyword markupname xmlatt">@specializations</code>
+        attribute:</p>
+      <pre class="pre codeblock"><code>specializations="@props/deliveryTarget @props/platform @props/platform/hardwarePlatform @props/product"</code></pre>
+    </div>
+</div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title10" lang="en-us" id="concept-1">
+  <h3 class="title topictitle3" id="ariaid-title10">Specializing to include non-DITA content</h3>
+  
+  
+  <div class="body conbody"><p class="shortdesc">You can extend DITA to incorporate standard vocabularies for non-textual content, such
+    as MathML and SVG, as markup within DITA documents. This is done by specializing the
+      <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> element.</p>
+    <section class="section" id="concept-1__foreign-methods">
+      <p class="p">There are three methods of incorporating foreign content into DITA. </p>
+      <ul class="ul">
+        <li class="li">A domain specialization of the <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> element. This is the
+          usual implementation.</li>
+        <li class="li">A structural specialization using the <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> element. This
+          affords more control over the content <span style="color:red;" class="ph">model</span>.</li>
+        <li class="li">Directly embedding the non-DITA content within <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> element.
+          If the non-DITA content has interoperability or vocabulary naming issues such as those
+          that are addressed by specialization in DITA, they must be addressed by means that are
+          appropriate to the non-DITA content.</li>
+      </ul>
+      <p class="p">Do not use <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> element to include textual content or metadata
+        in DITA
+        documents.</p>
+    </section>
+    <div class="example non-normative" id="concept-1__example-svgDomain"><h4 class="title sectiontitle">Example: Creating an element domain specialization for SVG</h4><p class="non-normative-label">This section is non-normative.</p>
+      
+      <p class="p">The following code sample, which is from the <span class="ph filepath">svgDomain.ent</span> file, shows
+        the domain declaration for the SVG domain.</p>
+      <pre class="pre codeblock"><code>&lt;!-- ============================================================= --&gt;
+&lt;!--                   SVG DOMAIN ENTITIES                         --&gt;
+&lt;!-- ============================================================= --&gt;
+
+&lt;!-- SVG elements must be prefixed, otherwise they conflict with
+     existing DITA elements (e.g., &lt;desc&gt; and &lt;title&gt;.
+  --&gt;
+&lt;!ENTITY % NS.prefixed "INCLUDE" &gt;
+&lt;!ENTITY % SVG.prefix "svg" &gt;
+
+&lt;!ENTITY % svg-d-foreign
+   "svg-container
+   "
+&gt;</code></pre>
+      <p class="p">Note that the SVG-specific <code class="keyword markupname parameterentity">%SVG.prefix;</code> parameter entity
+        is declared. This establishes the default namespace prefix to be used for the SVG content
+        embedded with this domain. The namespace can be overridden in a document-type shell by
+        declaring the parameter entity before the reference to the
+          <span class="ph filepath">svgDomain.ent</span> file. Other foreign domains <span class="ph">might</span> need similar entities when required by the new vocabulary.</p>
+      <p class="p">For more information, see the <span class="ph filepath">svgDomain.mod</span>
+        file that is shipped with the <span class="ph">DITA Technical Content
+          edition</span>. For an example of including the SVG domain in a
+        document-type shell, see <span class="ph filepath">task.dtd</span>.</p>
+    </div>
+    
+    
+    
+  </div>
+</article><article class="topic concept nested2" aria-labelledby="ariaid-title11" lang="en-us" id="topic_nt3_b12_zl">
+  <h3 class="title topictitle3" id="ariaid-title11">Sharing elements across specializations</h3>
+  
+  
+  <div class="body conbody"><p class="shortdesc">Specialization enables reuse of elements from ancestor
+    specializations. However, it is also possible to reuse elements from
+    non-ancestor
+    specializations.</p>
+    <section class="section" id="topic_nt3_b12_zl__sharing">
+      <p class="p">A structural specialization can incorporate elements from unrelated domains or other
+        structural specializations by referencing them in the content model of a specialized
+        element. The elements included in this manner must be specialized from ancestor content that
+        is valid in the new context. If the reusing and reused specializations share common
+        ancestry, the reused elements must be valid in the reusing context at every level they share
+        in common.</p>
+      <p class="p">Although a well-designed structural specialization hierarchy with controlled use of domains
+        is still the primary means of sharing and reusing elements in DITA, the ability to also
+        share elements declared elsewhere in the hierarchy allows for situations where relevant
+        markup comes from multiple sources and would otherwise be developed redundantly.</p>
+    </section>
+    <div class="example non-normative" id="topic_nt3_b12_zl__conceptexample"><h4 class="title sectiontitle">Example: A specialization of <code class="keyword markupname xmlelement">&lt;concept&gt;</code> reuses an element from
+        the task module</h4><p class="non-normative-label">This section is non-normative.</p>
+      
+      <p class="p">A specialized concept topic could declare a specialized <code class="keyword markupname xmlelement">&lt;process&gt;</code>
+        section that contains the <code class="keyword markupname xmlelement">&lt;steps&gt;</code> element that is defined in the task
+        module. This is possible because of the following factors:</p>
+      <ul class="ul">
+        <li class="li">The <code class="keyword markupname xmlelement">&lt;steps&gt;</code> element is specialized from
+            <code class="keyword markupname xmlelement">&lt;ol&gt;</code>.</li>
+        <li class="li">The <code class="keyword markupname xmlelement">&lt;process&gt;</code> element is specialized from
+            <code class="keyword markupname xmlelement">&lt;section&gt;</code>, and the content model of
+            <code class="keyword markupname xmlelement">&lt;section&gt;</code> includes <code class="keyword markupname xmlelement">&lt;ol&gt;</code>.</li>
+      </ul>
+      <p class="p">The <code class="keyword markupname xmlelement">&lt;steps&gt;</code> element in <code class="keyword markupname xmlelement">&lt;process&gt;</code> always can
+        be generalized back to <code class="keyword markupname xmlelement">&lt;ol&gt;</code> in <code class="keyword markupname xmlelement">&lt;section&gt;</code>.</p>
+    </div>
+    <div class="example non-normative" id="topic_nt3_b12_zl__referenceexample"><h4 class="title sectiontitle">Example: A specialization of <code class="keyword markupname xmlelement">&lt;reference&gt;</code> reuses an element from
+        the programming domain</h4><p class="non-normative-label">This section is non-normative.</p>
+      
+      <p class="p">A specialized reference topic could declare a specialized list
+          (<code class="keyword markupname xmlelement">&lt;apilist&gt;</code>) in which each <code class="keyword markupname xmlelement">&lt;apilistitem&gt;</code>
+        contains an <code class="keyword markupname xmlelement">&lt;apiname&gt;</code> element that is borrowed from the programming
+        domain. </p>
+      
+    </div>
+  </div>
+</article></article></article><aside class="section-toc" role="aside"></aside></article></main>
