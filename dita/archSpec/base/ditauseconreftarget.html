@@ -1,0 +1,37 @@
+---
+layout: base.njk
+title: 'Using the -dita-use-conref-target value'
+description: 'When an element uses conref to pull in content, for any of its attributes assigned a value of -dita-use-conref-target, the resulting value for those attributes is also pulled in from the referenced element.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '041f6874b58d3619065b5f531f065514f55285ab'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="toc" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction</a></li><li><a href="../../archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="../../archSpec/base/accessibility-and-translation.html">Accessibility and translation</a></li><li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a></li><li><a href="../../langRef/langRef-base.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../non-normative/developing-constraint-and-expansion-modules.html">Constraint modules</a></li><li><a href="../../non-normative/expansion-modules.html">Expansion modules</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../non-normative/formatting-expectations.html">Formatting expectations</a></li><li><a href="../../non-normative/migrating-to-dita-2.0.html">Migrating to DITA 2.0</a></li><li><a href="../../non-normative/basedoctypes.html">OASIS grammar files</a></li><li><a href="../../non-normative/interoperability-considerations.html">Processing interoperability considerations</a></li><li><a href="../../non-normative/revision-history.html">Revision history</a></li></ul></nav><main role="main" class=""><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Using the <span class="keyword">-dita-use-conref-target</span> value</h1>
+  
+  
+  <div class="body conbody"><p class="shortdesc">When an element uses <code class="keyword markupname xmlatt">@conref</code> to pull in content, for any of its
+    attributes assigned a value of <span class="keyword">-dita-use-conref-target</span>, the resulting value
+    for those attributes is also pulled in from the referenced element.</p>
+    
+      <p class="p">Ordinarily, when an element uses <code class="keyword markupname xmlatt">@conref</code>, any other
+        attributes specified locally will be preserved when the reference is resolved. This causes
+        problems when attributes are required, because required attributes must be specified
+        regardless of whether the <code class="keyword markupname xmlatt">@conref</code> attribute is present. The purpose of the
+        <span class="keyword">-dita-use-conref-target</span> value is to allow the author to specify a value for a required
+        attribute while still allowing the conref resolution process to use the matching attribute
+        from the referenced element. The value has the same result when the attribute is not
+        required.</p>
+      <p class="p">The<span class="keyword"> -dita-use-conref-target</span> token is allowed on any attribute where it is not prohibited by
+        the XML grammar files or by the specification. For example, while <code class="keyword markupname xmlatt">@cols</code> on
+        the <code class="keyword markupname xmlelement">&lt;tgroup&gt;</code> element is defined as being a number, this token is
+        implicitly allowed in order to support conref processing for
+        <code class="keyword markupname xmlelement">&lt;tgroup&gt;</code>. However, the token is not allowed for the
+          <code class="keyword markupname xmlatt">@id</code> attribute on the <code class="keyword markupname xmlelement">&lt;topic&gt;</code> element, because
+        "-dita-use-conref-target" does not fit the syntax required by the XML grammar
+      files.</p>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/conref-attributes-specified-on-elements.html" title="When resolving conrefs, processors need to combine the attributes that are specified on the referencing and referenced element.">Processing attributes when resolving conrefs</a></div></div><div class="linklist relconcepts"><strong>Related concepts</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="../../archSpec/base/conref.html" title="The DITA conref attributes are mechanisms that enable effective content reuse. DITA content references support complex reuse scenarios that are otherwise challenging or impossible to achieve. In addition, DITA content references have rules to ensure that the content is valid DITA after the content reference has been resolved.">Content reference (conref)</a></li><li class="linklist"><a class="link" href="../../archSpec/base/example-conref-ditauseconreftarget.html" title="In this scenario, an element in a map is reused, with some of the attributes resolved using the -dita-use-conref-target token.">Example: Using the -dita-use-conref-target value</a></li></ul></div></nav><aside class="section-toc" role="aside"></aside></article></main>

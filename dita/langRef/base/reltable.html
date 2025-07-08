@@ -1,0 +1,414 @@
+---
+layout: base.njk
+title: 'reltable'
+description: 'A relationship table is a mechanism that creates relationships among topics, based on the familiar table model of rows, columns, and cells.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '041f6874b58d3619065b5f531f065514f55285ab'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="toc" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction</a></li><li><a href="../../archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="../../archSpec/base/accessibility-and-translation.html">Accessibility and translation</a></li><li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a></li><li><a href="../../langRef/langRef-base.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../non-normative/developing-constraint-and-expansion-modules.html">Constraint modules</a></li><li><a href="../../non-normative/expansion-modules.html">Expansion modules</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../non-normative/formatting-expectations.html">Formatting expectations</a></li><li><a href="../../non-normative/migrating-to-dita-2.0.html">Migrating to DITA 2.0</a></li><li><a href="../../non-normative/basedoctypes.html">OASIS grammar files</a></li><li><a href="../../non-normative/interoperability-considerations.html">Processing interoperability considerations</a></li><li><a href="../../non-normative/revision-history.html">Revision history</a></li></ul></nav><main role="main" class=""><article role="article" aria-labelledby="ariaid-title1">
+<h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;reltable&gt;</code></h1>
+
+  
+<div class="body refbody"><p class="shortdesc">A relationship table is a mechanism that creates relationships
+    among topics, based on the familiar table model of rows, columns, and
+    cells.</p>
+    <section class="section" id="reltable__usage-information"><h2 class="title sectiontitle">Usage information</h2>
+      
+      <div style="color:red;" class="div">
+        <p class="p">Relationship tables can be used in conjunction with hierarchies
+          and groups to manage all the related links in an information
+          set.</p>
+        <p class="p">Each column in a relationship table typically represents a
+          specific role in a set of relationships, and each row defines
+          relationships between the resources that are referenced in the
+          different cells of that row.</p>
+        <p class="p">A frequently-used type of relationship table uses the following
+          structure:</p>
+        <ul class="ul">
+          <li class="li">The first column contains references to task topics.</li>
+          <li class="li">The second column contains references to concept topics.</li>
+          <li class="li">The third column contains references to reference
+            topics.</li>
+        </ul>
+        <p class="p">Such a relationship table establishes relationships between task
+          topics and the concept and reference topics that support the
+          tasks. It help authors and architects determine where related
+          information is missing or undefined.</p>
+      </div>
+      <p class="p">When a title is associated with a relationship table, the title typically is used as an
+        authoring convenience and is not displayed in generated publications.</p>
+      
+    </section>
+    <section class="section" id="reltable__processing-expectations"><h2 class="title sectiontitle">Processing expectations</h2>
+      
+      <p class="p">By default, the contents of a <code class="keyword markupname xmlelement">&lt;reltable&gt;</code> element are not rendered in
+        a table of contents; they are used only to define relationships that can be expressed as
+        topic-to-topic links. The <code class="keyword markupname xmlelement">&lt;relcell&gt;</code> elements can contain
+          <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements, which are then related to other
+          <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements in the same row (although not necessarily in
+        the same cell).</p>
+      <p class="p">Within a root map, the effective relationship table is the union
+        of all relationship tables in the map hierarchy.</p>
+    </section>
+    <section class="section generated" id="reltable__content-model"><h2 class="title sectiontitle">Content model</h2>
+         
+         <p class="p content-model generated">
+            <a class="xref" href="../content-models/../base/title.html" title="A title is a heading or label for an object. Titles can be associated with topics, maps, sections, examples, figures, tables, and other structures.">
+               <code class="keyword markupname xmlelement">&lt;title&gt;</code>
+            </a>?, <a class="xref" href="../content-models/../base/topicmeta.html" title="Topic metadata is metadata that applies to a topic based on its context in a map.">
+               <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code>
+            </a>?, <a class="xref" href="../content-models/../base/relheader.html" title="A header row in a relationship table is a group of column definitions for a relationship table.">
+               <code class="keyword markupname xmlelement">&lt;relheader&gt;</code>
+            </a>?, <a class="xref" href="../content-models/../base/relrow.html" title="A row in a relationship table creates a relationship between the cells in that row, which is often expressed in output as links between the topics or resources that are referenced in those cells.">
+               <code class="keyword markupname xmlelement">&lt;relrow&gt;</code>
+            </a>+</p>
+         <p class="p content-model generated">Contained by</p>
+         <p class="p content-model generated">
+            <a class="xref" href="../content-models/../base/map.html" title="A DITA map is the mechanism for aggregating topic references and defining a context for those references. It contains references to topics, maps, and other resources. These references are organized into hierarchies, groups, and tables.">
+               <code class="keyword markupname xmlelement">&lt;map&gt;</code>
+            </a>
+         </p>
+         <div class="p content-model-prose generated">In order<ol class="ol content-model-list generated">
+               <li class="li">Optional <a class="xref" href="../content-models/../base/title.html" title="A title is a heading or label for an object. Titles can be associated with topics, maps, sections, examples, figures, tables, and other structures.">
+                     <code class="keyword markupname xmlelement">&lt;title&gt;</code>
+                  </a>
+               </li>
+               <li class="li">Optional <a class="xref" href="../content-models/../base/topicmeta.html" title="Topic metadata is metadata that applies to a topic based on its context in a map.">
+                     <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code>
+                  </a>
+               </li>
+               <li class="li">Optional <a class="xref" href="../content-models/../base/relheader.html" title="A header row in a relationship table is a group of column definitions for a relationship table.">
+                     <code class="keyword markupname xmlelement">&lt;relheader&gt;</code>
+                  </a>
+               </li>
+               <li class="li">One or more <a class="xref" href="../content-models/../base/relrow.html" title="A row in a relationship table creates a relationship between the cells in that row, which is often expressed in output as links between the topics or resources that are referenced in those cells.">
+                     <code class="keyword markupname xmlelement">&lt;relrow&gt;</code>
+                  </a>
+               </li>
+            </ol>
+         </div>
+         <p class="p content-model-prose generated">Contained by</p>
+         <ul class="ul content-model-prose contained-by-list generated">
+            <li class="li">
+               <a class="xref" href="../content-models/../base/map.html" title="A DITA map is the mechanism for aggregating topic references and defining a context for those references. It contains references to topics, maps, and other resources. These references are organized into hierarchies, groups, and tables.">
+                  <code class="keyword markupname xmlelement">&lt;map&gt;</code>
+               </a>
+            </li>
+         </ul>
+      </section>
+<section class="section generated" id="reltable__inheritance"><h2 class="title sectiontitle">Inheritance</h2>
+            
+            <p class="p inheritance">- map/reltable </p>
+            <p class="p inheritance-prose">The <code class="keyword markupname xmlelement">&lt;reltable&gt;</code> element is a base element type. It is defined in the map module.</p>
+         </section>    <section class="section" id="reltable__attributes"><h2 class="title sectiontitle">Attributes</h2>
+      
+      <p class="p attributes-prose">The following attributes are available on this element: <span class="ph"><a class="xref" href="../../common/../langRef/attributes/commonAttributes.html#common-atts__commonmapatts" title="Common map attributes include: cascade, chunk, collection-type, keyscope, linking, processing-role, search, and toc">common map attributes</a></span> (without <code class="keyword markupname xmlatt">@keyscope</code> or
+          <code class="keyword markupname xmlatt">@collection-type</code>), <span class="ph"><a class="xref" href="../../common/../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
+                                                  attributes</a></span>,
+          <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-format"><code class="keyword markupname xmlatt">@format</code></a>, <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-scope"><code class="keyword markupname xmlatt">@scope</code></a>, and <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-type"><code class="keyword markupname xmlatt">@type</code></a>.</p>
+      <p class="p attributes-prose attr-exception" id="reltable__attr-exception">For this element, the <code class="keyword markupname xmlatt">@toc</code> attribute has a default
+        value of <span class="keyword">no</span>.</p>
+    <p class="p inlined-attributes">The following attributes are available on this element: <a class="xref" href="../../common/../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
+                                                  attributes</a> and the attributes defined below.</p><dl class="dl inlined-attributes"><dt class="dt dlterm" id="reltable__attr-cascade"><code class="keyword markupname xmlatt">@cascade</code><span class="ph"> (common map
+            attributes)</span></dt><dd class="dd">
+            <p class="p">Specifies how metadata attributes cascade within a map. The
+              specification defines the following values:</p>
+            <dl class="dl">
+                                
+                                        <dt class="dt dlterm">merge</dt>
+                                        <dd class="dd"><span style="color:red;" class="ph">Indicates
+              that the metadata attributes cascade, and that </span>the
+            values of the metadata attributes are additive. This is the
+            processing default for the <code class="keyword markupname xmlatt">@cascade</code>
+            attribute.</dd>
+                                
+                                
+                                        <dt class="dt dlterm">nomerge</dt>
+                                        <dd class="dd"><span style="color:red;" class="ph">Indicates
+              that the metadata attributes cascade, but that </span>they are
+            not additive for <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements
+            that specify a different value for a specific metadata
+            attribute. If the cascading value for an attribute is already
+            merged based on multiple ancestor elements, that merged value
+            continues to cascade until a new value is encountered<span style="color:red;" class="ph">. That is,</span> setting
+              <code class="ph codeph">cascade="nomerge"</code> does not undo merging that
+            took place on ancestor elements.</dd>
+                                
+                        </dl>
+            <p class="p"><span class="implementation-statement" id="reltable__d2534e497" data-id="DITAIMP-0150"></span>Processors can also define custom,
+        implementation-specific tokens for this attribute.</p>
+            <p class="p">See <a class="xref" href="../../archSpec/base/cascading-in-a-ditamap.html" title="Certain attributes cascade throughout a map, which facilitates attribute and metadata management. When attributes cascade, they apply to the elements that are children of the element where the attributes were specified. Cascading applies to a containment hierarchy, as opposed to a specialization hierarchy.">Cascading of metadata attributes in a DITA map</a>
+              for more information about how this attribute interacts with
+              metadata attributes.</p>
+          </dd><dt class="dt dlterm" id="reltable__attr-chunk"><code class="keyword markupname xmlatt">@chunk</code>
+            <span class="ph">(common map
+            attributes)</span></dt><dd class="dd">Specifies how a processor should render a map or branch of a
+            map. <span class="ph example">For example, it can be used to
+              specify that individual topic documents should be rendered as
+              a single document, or that a single document with multiple
+              topics should be rendered as multiple documents.</span><div class="p">The
+              following values are valid:<dl class="dl">
+                
+                  <dt class="dt dlterm">combine</dt>
+                  <dd class="dd"><span class="ph">Instructs a processor to combine the
+            referenced source documents for rendering purposes. <span style="color:red;" class="ph">This</span> is intended for cases where a
+            publishing process normally results in a single output artifact
+            for each source XML document.</span></dd>
+                
+                
+                  <dt class="dt dlterm">split</dt>
+                  <dd class="dd"><span class="ph">Instructs a processor to split each topic
+            from the referenced source document into its own document for
+            rendering purposes. <span style="color:red;" class="ph">This</span> is intended
+            for cases where a publishing process normally results in a
+            single output artifact for each source XML document, regardless
+            of how many DITA topics exist within each source document.
+          </span></dd>
+                
+              </dl></div><p class="p"><span class="implementation-statement" id="reltable__d2534e642" data-id="DITAIMP-0160"></span>Processors can also define custom,
+        implementation-specific tokens for this attribute.</p><p class="p">For a detailed description of the <code class="keyword markupname xmlatt">@chunk</code>
+              attribute and its usage, see <a class="xref" href="../../archSpec/base/chunking.html" title="Content often needs to be delivered in a different granularity than it is authored. The chunk attribute enables map authors to specify that multiple source documents should be combined into a single document for delivery or that a single source document should be split into multiple documents for delivery.">Chunking</a>.</p></dd><dt class="dt dlterm" id="reltable__attr-collection-type"><code class="keyword markupname xmlatt">@collection-type</code>
+            <span class="ph">(common map
+            attributes)</span></dt><dd class="dd">Specifies how topics or links relate to each other. The
+            processing default is <span class="keyword">unordered</span>, although no
+            default is specified in the OASIS-provided grammar files. The
+            following values are valid:<dl class="dl" id="reltable__colltypevalues">
+              
+                <dt class="dt dlterm">unordered </dt>
+                <dd class="dd">Indicates that the order of the child topics is not
+                  significant. </dd>
+              
+              
+                <dt class="dt dlterm">sequence </dt>
+                <dd class="dd">Indicates that the order of the child topics is
+                  significant. Output processors will typically link
+                  between them in order. </dd>
+              
+              
+                <dt class="dt dlterm">choice </dt>
+                <dd class="dd">Indicates that one of the children should be
+                  selected.</dd>
+              
+              
+                <dt class="dt dlterm">family </dt>
+                <dd class="dd">Indicates a tight grouping in which each of the
+                  referenced topics not only relates to the current topic
+                  but also relate to each other. </dd>
+              
+            </dl></dd><dt class="dt dlterm" id="reltable__attr-format"><code class="keyword markupname xmlatt">@format</code>
+            <span class="ph">(link-relationship
+              attributes)</span></dt><dd class="dd">Specifies the format of the resource that is referenced.<span class="ph"> See <a class="xref" href="../../archSpec/base/theformatattribute.html" title="The format attribute identifies the format of the referenced resource.">The format attribute</a> for
+              detailed information on supported values and processing
+              implications.</span></dd><dt class="dt dlterm" id="reltable__attr-keyscope"><code class="keyword markupname xmlatt">@keyscope</code>
+            <span class="ph">(common map
+            attributes)</span></dt><dd class="dd">Specifies that the element marks the boundaries of a key
+            scope. <p class="p">See <a class="xref" href="../../archSpec/base/the-key-scope-attribute.html" title="The keyscope attribute consists of one or more space-separated key scope names. Map authors define the boundaries for key scopes by specifying the keyscope attribute on map elements, topicref elements, or elements that are specializations of map or topicref. Such elements, their contents, and any locally-scoped content referenced from within the element, are considered to be part of the scope. Keys defined within a scope are only directly referenceable from within the same scope. They can be referenced from the parent scope using the scope's name, followed by a period, followed by the key name.">The keyscope attribute</a> for
+              information on using this attribute.</p></dd><dt class="dt dlterm" id="reltable__attr-linking"><code class="keyword markupname xmlatt">@linking</code>
+            <span class="ph">(common map
+            attributes)</span></dt><dd class="dd">Specifies linking characteristics of a topic specific to the
+            location of this reference in a map. <span class="ph">If the value is not specified
+          locally, the value might cascade from another element in the map
+          (for cascade rules, see <a class="xref" href="../../common/../archSpec/base/cascading-in-a-ditamap.html#cascading-in-a-ditamap" title="Certain attributes cascade throughout a map, which facilitates attribute and metadata management. When attributes cascade, they apply to the elements that are children of the element where the attributes were specified. Cascading applies to a containment hierarchy, as opposed to a specialization hierarchy.">Cascading of metadata attributes in a DITA map</a>).</span>
+            The
+            following values are valid:<dl class="dl">
+              
+                <dt class="dt dlterm"><span class="keyword">targetonly</span></dt>
+                <dd class="dd">A topic can only be linked to and cannot link to other
+                  topics.</dd>
+              
+              
+                <dt class="dt dlterm"><span class="keyword">sourceonly</span></dt>
+                <dd class="dd">A topic cannot be linked to but can link to other
+                  topics.</dd>
+              
+              
+                <dt class="dt dlterm">normal </dt>
+                <dd class="dd">A topic can be linked to and can link to other topics.
+                  Use this to override the linking value of a parent topic.
+                </dd>
+              
+              
+                <dt class="dt dlterm">none </dt>
+                <dd class="dd">A topic cannot be linked to or link to other
+                  topics.</dd>
+              
+              
+          <dt class="dt dlterm"><span class="keyword">-dita-use-conref-target</span></dt>
+          <dd class="dd">See <a class="xref" href="../../common/../archSpec/base/ditauseconreftarget.html" title="When an element uses conref to pull in content, for any of its attributes assigned a value of -dita-use-conref-target, the resulting value for those attributes is also pulled in from the referenced element.">Using the -dita-use-conref-target value</a>
+            for more information. </dd>
+        
+            </dl></dd><dt class="dt dlterm" id="reltable__attr-processing-role"><code class="keyword markupname xmlatt">@processing-role</code>
+            <span class="ph">(common map
+            attributes)</span></dt><dd class="dd" id="reltable__def-processing-role">Specifies whether the referenced
+            resource is processed normally or treated as a resource that is
+            only included in order to resolve references, such as key or
+            content references. The following values are valid:<dl class="dl">
+              
+                <dt class="dt dlterm">normal </dt>
+                <dd class="dd">Indicates that the resource is a readable part of the
+                  information set. It is included in navigation and search
+                  results. This is the default value for the
+                    <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element.</dd>
+              
+              
+                <dt class="dt dlterm">resource-only </dt>
+                <dd class="dd">Indicates that the resource should be used only for
+                  processing purposes. It is not included in navigation or
+                  search results, nor is it rendered as a topic. This is
+                  the default value for the <code class="keyword markupname xmlelement">&lt;keydef&gt;</code>
+                  element.</dd>
+              
+            </dl><dl class="dl">
+              
+          <dt class="dt dlterm"><span class="keyword">-dita-use-conref-target</span></dt>
+          <dd class="dd">See <a class="xref" href="../../common/../archSpec/base/ditauseconreftarget.html" title="When an element uses conref to pull in content, for any of its attributes assigned a value of -dita-use-conref-target, the resulting value for those attributes is also pulled in from the referenced element.">Using the -dita-use-conref-target value</a>
+            for more information. </dd>
+        
+            </dl><p class="p"><span class="ph">If no value is specified but the attribute is
+          specified on a containing element within a map or within the
+          related-links section, the value cascades from the closest
+          containing element.</span></p></dd><dt class="dt dlterm" id="reltable__attr-scope"><code class="keyword markupname xmlatt">@scope</code>
+            <span class="ph">(link-relationship
+              attributes)</span></dt><dd class="dd">Specifies the closeness of the relationship between the
+            current document and the referenced resource.<span class="ph"> The following values are valid:
+                <span class="keyword">local</span>, <span class="keyword">peer</span>,
+                <span class="keyword">external</span>, and
+                <span class="keyword">-dita-use-conref-target</span>. </span><p class="p">See
+                <a class="xref" href="../../archSpec/base/thescopeattribute.html" title="The scope attribute identifies the closeness of the relationship between the current document and the target resource.">The scope attribute</a> for detailed information
+              on supported values and processing implications.</p></dd><dt class="dt dlterm" id="reltable__attr-search"><code class="keyword markupname xmlatt">@search</code>
+            <span class="ph">(common map
+            attributes)</span></dt><dd class="dd">Specifies whether the target is available for searching. <span class="ph">If the value is not specified
+          locally, the value might cascade from another element in the map
+          (for cascade rules, see <a class="xref" href="../../common/../archSpec/base/cascading-in-a-ditamap.html#cascading-in-a-ditamap" title="Certain attributes cascade throughout a map, which facilitates attribute and metadata management. When attributes cascade, they apply to the elements that are children of the element where the attributes were specified. Cascading applies to a containment hierarchy, as opposed to a specialization hierarchy.">Cascading of metadata attributes in a DITA map</a>).</span> The following
+            values are valid: <span class="keyword">yes</span>,
+            <span class="keyword">no</span>, and
+              <span class="keyword">-dita-use-conref-target</span>.</dd><dt class="dt dlterm" id="reltable__attr-subjectrefs"><code class="keyword markupname xmlatt">@subjectrefs</code>
+            <span class="ph">(common map
+            attributes)</span></dt><dd class="dd">Specifies one or more keys that are each defined by a subject
+            definition in a subject scheme map. Multiple values are
+            separated by white space.</dd><dt class="dt dlterm" id="reltable__attr-toc"><code class="keyword markupname xmlatt">@toc</code>
+            <span class="ph">(common map
+            attributes)</span></dt><dd class="dd">Specifies whether a topic appears in the table of contents
+            (TOC) based on the current map context. <span class="ph">If the value is not specified
+          locally, the value might cascade from another element in the map
+          (for cascade rules, see <a class="xref" href="../../common/../archSpec/base/cascading-in-a-ditamap.html#cascading-in-a-ditamap" title="Certain attributes cascade throughout a map, which facilitates attribute and metadata management. When attributes cascade, they apply to the elements that are children of the element where the attributes were specified. Cascading applies to a containment hierarchy, as opposed to a specialization hierarchy.">Cascading of metadata attributes in a DITA map</a>).</span> The following
+            values are valid:<dl class="dl">
+              
+                <dt class="dt dlterm">yes </dt>
+                <dd class="dd">The topic appears in a generated TOC.</dd>
+              
+              
+                <dt class="dt dlterm">no </dt>
+                <dd class="dd">The topic does not appear in a generated TOC.</dd>
+              
+              
+                <dt class="dt dlterm">-dita-use-conref-target </dt>
+                <dd class="dd">See <a class="xref" href="../../archSpec/base/ditauseconreftarget.html" title="When an element uses conref to pull in content, for any of its attributes assigned a value of -dita-use-conref-target, the resulting value for those attributes is also pulled in from the referenced element.">Using the -dita-use-conref-target value</a> for
+                  more information. </dd>
+              
+            </dl></dd><dd class="dd ddexpand">For this element, the <code class="keyword markupname xmlatt">@toc</code> attribute has a default
+        value of <span class="keyword">no</span>.</dd><dt class="dt dlterm" id="reltable__attr-type"><code class="keyword markupname xmlatt">@type</code>
+            <span class="ph">(link-relationship
+              attributes)</span></dt><dd class="dd">Describes the target of a reference. See <a class="xref" href="../../archSpec/base/thetypeattribute.html" title="On linking elements, the type attribute describes the target of a reference. The type attribute is also used on several non-linking elements for other purposes.">The type attribute</a> for detailed
+            information on supported values and processing implications. </dd></dl></section>
+<div class="example non-normative" id="reltable__example"><h2 class="title sectiontitle">Example</h2><p class="non-normative-label">This section is non-normative.</p>
+      <p class="p">In the following code sample, a relationship table is defined with three
+        columns: one for "concept", one for "task", and one for
+        "reference". Three cells are defined within each row. The first
+        cell contains one concept topic:
+          <span class="ph filepath">about-MyDevice.dita</span>. The second cell
+        contains two task topics:
+          <span class="ph filepath">setting-up-MyDevice.dita</span> and
+          <span class="ph filepath">operating-MyDevice.dita</span>. The third cell
+        contains two reference topics:
+          <span class="ph filepath">MyDevice-settings.dita</span> and
+          <span class="ph filepath">MyDevice-version-info.dita</span>.</p><pre class="pre codeblock"><code>&lt;map&gt;
+  &lt;reltable&gt;
+    &lt;relheader&gt;
+      &lt;relcolspec type="concept"/&gt;
+      &lt;relcolspec type="task"/&gt;
+      &lt;relcolspec type="reference"/&gt;
+    &lt;/relheader&gt;
+    &lt;relrow&gt;
+      &lt;relcell&gt;
+        &lt;topicref href="about-MyDevice.dita"/&gt;
+      &lt;/relcell&gt;
+      &lt;relcell&gt;
+        &lt;topicref href="setting-up-MyDevice.dita"/&gt;
+        &lt;topicref href="operating-MyDevice.dita"/&gt;
+      &lt;/relcell&gt;
+      &lt;relcell&gt;
+        &lt;topicref href="MyDevice-settings.dita"/&gt;
+        &lt;topicref href="MyDevice-version-info.dita"/&gt;
+      &lt;/relcell&gt;
+    &lt;/relrow&gt;
+  &lt;/reltable&gt;
+&lt;/map&gt;</code></pre><p class="p">A graphical version of the relationship table in an editor might look like this:</p>
+      <table class="simpletable"><colgroup><col style="width:33.33333333333333%"><col style="width:33.33333333333333%"><col style="width:33.33333333333333%"></colgroup><thead><tr class="sthead">
+<th class="stentry" scope="col" id="reltable__example__stentry__1">type="concept"</th>
+<th class="stentry" scope="col" id="reltable__example__stentry__2">type="task"</th>
+<th class="stentry" scope="col" id="reltable__example__stentry__3">type="reference"</th>
+</tr></thead><tbody><tr class="strow">
+<td class="stentry" headers="reltable__example__stentry__1"><span class="ph filepath">about-MyDevice.dita</span></td>
+<td class="stentry" headers="reltable__example__stentry__2"><p class="lines"><span class="ph filepath">setting-up-MyDevice.dita</span><br><span class="ph filepath">operating-MyDevice.dita</span></p></td>
+<td class="stentry" headers="reltable__example__stentry__3"><p class="lines"><span class="ph filepath">MyDevice-settings.dita</span><br><span class="ph filepath">MyDevice-version-info.dita</span></p></td>
+</tr></tbody></table><p class="p">When rendered, links are added to topics that are in the same row, but not in the same cell. This
+        allows simple maintenance of parallel relationships: for example, in this case,
+          <span class="ph filepath">setting-up-MyDevice.dita</span> and
+          <span class="ph filepath">operating-MyDevice.dita</span> are two tasks that require the same
+        supporting information (concept and reference topics) but might otherwise be unrelated. When
+        topics in the same cell are in fact related, the <code class="keyword markupname xmlatt">@collection-type</code> attribute
+        for the cell can be set to <span class="keyword">family</span>. If some cells or columns are intended
+        solely as supporting information and should not link back to topics in other cells, you can
+        set the <code class="keyword markupname xmlatt">@linking</code> attribute on the <code class="keyword markupname xmlelement">&lt;relcell&gt;</code> or
+          <code class="keyword markupname xmlelement">&lt;relcolspec&gt;</code> to <span class="keyword">targetonly</span>.</p><p class="p">In this example, the related links would be as follows:</p>
+      
+      <dl class="dl">
+        
+          <dt class="dt dlterm"><span class="ph filepath">about-MyDevice.dita</span></dt>
+          <dd class="dd"><span class="ph filepath">setting-up-MyDevice.dita</span>,
+              <span class="ph filepath">operating-MyDevice.dita</span>,
+              <span class="ph filepath">MyDevice-settings.dita</span>,
+              <span class="ph filepath">MyDevice-version-info.dita</span></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph filepath">setting-up-MyDevice.dita</span></dt>
+          <dd class="dd"><span class="ph filepath">about-MyDevice.dita</span>,
+              <span class="ph filepath">MyDevice-settings.dita</span>,
+              <span class="ph filepath">MyDevice-version-info.dita</span></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph filepath">operating-MyDevice.dita</span></dt>
+          <dd class="dd"><span class="ph filepath">about-MyDevice.dita</span>,
+              <span class="ph filepath">MyDevice-settings.dita</span>,
+              <span class="ph filepath">MyDevice-version-info.dita</span></dd>
+        
+        
+          <dt class="dt dlterm"><span class="ph filepath">MyDevice-settings.dita</span></dt>
+          <dd class="dd"><span class="ph filepath">about-MyDevice.dita</span>,
+              <span class="ph filepath">setting-up-MyDevice.dita</span>,
+              <span class="ph filepath">operating-MyDevice.dita</span></dd>
+        
+        
+          <dt class="dt dlterm">
+            <span class="ph filepath">MyDevice-version-info.dita</span></dt>
+          <dd class="dd"><span class="ph filepath">about-MyDevice.dita</span>,
+              <span class="ph filepath">setting-up-MyDevice.dita</span>,
+              <span class="ph filepath">operating-MyDevice.dita</span></dd>
+        
+      </dl><p class="p">Relationship tables are inherently an efficient way to manage these
+        links. In particular, they increase the prospect for reuse among
+        topics, because those topics do not contain context-specific links.
+        A relationship table also makes it easy to see and manage patterns;
+        for example, the fact that
+          <span class="ph filepath">operating-MyDevice.dita</span> and
+          <span class="ph filepath">setting-up-MyDevice.dita</span> have the same
+        relationships to supporting information is clear from the table,
+        but would require some comparison and counting to determine from
+        the list summary just before this paragraph.</p></div>
+</div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/basic-map-elements.html" title="DITA maps are built from a few core elements that are used for referencing and organizing topics. In addition, the topicmeta element can be used to specify metadata for the map, individual topics, or groups of topics.">Basic map elements</a></div></div></nav><aside class="section-toc" role="aside"><h2>In this section</h2><ul><li><a href="#reltable__usage-information">Usage information</a></li><li><a href="#reltable__processing-expectations">Processing expectations</a></li><li><a href="#reltable__content-model">Content model</a></li><li><a href="#reltable__inheritance">Inheritance</a></li><li><a href="#reltable__attributes">Attributes</a></li><li><a href="#reltable__example">Example</a></li></ul></aside></article></main>
