@@ -1,0 +1,69 @@
+---
+layout: base.njk
+title: 'glossAlt'
+description: 'The glossAlt element contains information about a variant for the term that is specified in the glossterm element. A variant might include an acronym or a synonym.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '4ba6c08378b430f2db5079d63929df8d41381b0b'
+repository: 'oasis-tcs/dita-techcomm'
+classes: ''
+---
+
+<nav class="toc" role="toc"><ul><li><a href="../../introduction/specIntroTechnicalContent.html">Introduction</a></li><li><a href="../../archSpec/technicalContent/dita-technicalContent-InformationTypes.html">Topic and map document types</a></li><li><a href="../../archSpec/technicalContent/glossary-entry-topics-and-terminology-management.html">Usage of glossary entry topics</a></li><li><a href="../../langRef/langRef-technicalContent.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../baseSpec/specification/langRef/attributes/attributes.html">Attributes</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../revision-history/revision-history.html">Revision history</a></li></ul></nav><main role="main" class=""><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;glossAlt&gt;</code></h1>
+  
+  
+  <div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;glossAlt&gt;</code> element contains information about a variant for
+    the term<span style="color:red;" class="ph"> that is</span> specified in the
+      <code class="keyword markupname xmlelement">&lt;glossterm&gt;</code> element. A variant might include an acronym<span style="color:red;" class="ph"> or a synonym</span>.</p>
+    <section class="section" id="glossAlt__usage-information"><h2 class="title sectiontitle">Usage information</h2>
+      
+      <p class="p">The variant should have the same meaning as the term in the
+          <code class="keyword markupname xmlelement">&lt;glossterm&gt;</code> element; the variant is simply another way to refer to
+        the same term. There might be many ways to refer to a term; each variant is placed in its
+        own <code class="keyword markupname xmlelement">&lt;glossAlt&gt;</code> element. The <code class="keyword markupname xmlelement">&lt;glossUsage&gt;</code>
+        element can be used within <code class="keyword markupname xmlelement">&lt;glossAlt&gt;</code> to indicate when use of the
+        alternate term is appropriate.</p>
+    </section>
+    <section class="section" id="glossAlt__specialization-hierarchy"><h2 class="title sectiontitle">Specialization hierarchy</h2>
+      
+      <p class="p">The <code class="keyword markupname xmlelement">&lt;glossAlt&gt;</code> element is specialized from
+          <code class="keyword markupname xmlelement">&lt;section&gt;</code>. It is defined in the glossary entry module.</p>
+    </section>
+    <section class="section" id="glossAlt__content-model"></section>
+<section class="section" id="glossAlt__inheritance"></section>    <section class="section" id="glossAlt__attributes"><h2 class="title sectiontitle">Attributes</h2>
+      
+      <p class="p attributes-prose">The following attributes are available on this element: <span class="ph"><a class="xref" href="../../baseSpec/specification/common/../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
+                                                  attributes</a></span>.</p>
+    <p class="p inlined-attributes">The following attributes are available on this element: <a class="xref" href="../../baseSpec/specification/common/../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
+                                                  attributes</a>.</p></section>
+    <div class="example non-normative" id="glossAlt__example"><h2 class="title sectiontitle">Example</h2><p class="non-normative-label">This section is non-normative.</p>
+      
+      <p class="p">The following code sample shows how a glossary entry topic might provide alternative forms
+        of the term.</p>
+      <pre class="pre codeblock"><code>&lt;glossentry id="usa"&gt;
+  &lt;glossterm&gt;United States of America&lt;/glossterm&gt;
+  &lt;glossdef&gt;A federal republic in the northern Western Hemisphere comprising 48 contiguous 
+     states, the District of Columbia, Alaska in North America, and Hawaii in the North 
+     Pacific, and in some contexts considered along with its five inhabited island 
+     territories (Puerto Rico, U.S. Virgin Islands, Guam, North Mariana Islands, American 
+     Samoa).&lt;/glossdef&gt;
+  &lt;glossBody&gt;
+    <strong class="ph b">&lt;glossAlt&gt;</strong>
+      &lt;glossAcronym&gt;US&lt;/glossSynonym&gt;
+      &lt;glossUsage&gt;Used as an adjective.&lt;/glossUsage&gt;
+    <strong class="ph b">&lt;/glossAlt&gt;
+    &lt;glossAlt&gt;</strong>
+      &lt;glossAcronym&gt;USA&lt;/glossSynonym&gt;
+      &lt;glossUsage&gt;Used as a noun.&lt;/glossUsage&gt;
+    <strong class="ph b">&lt;/glossAlt&gt;
+    &lt;glossAlt&gt;</strong>
+      &lt;glossSynonym&gt;America&lt;/glossSynonym&gt;
+      &lt;glossUsage&gt;Do not use; the American continents include other countries.&lt;/glossUsage&gt;
+    <strong class="ph b">&lt;/glossAlt&gt;</strong>
+  &lt;/glossBody&gt;<strong class="ph b">
+&lt;/glossentry&gt;
+</strong></code></pre>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/glossentry-elements.html" title="The glossary entry specialization contains markup that supports the development and delivery of glossaries. It also can be used in conjunction with the abbreviated-form domain to provide a solution for rendering different forms of a term on first and later usage in a publication.">Glossary entry elements</a></div></div></nav><aside class="section-toc" role="aside"><h2>In this section</h2><ul><li><a href="#glossAlt__usage-information">Usage information</a></li><li><a href="#glossAlt__specialization-hierarchy">Specialization hierarchy</a></li><li><a href="#glossAlt__attributes">Attributes</a></li><li><a href="#glossAlt__example">Example</a></li></ul></aside></article></main>

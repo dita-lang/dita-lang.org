@@ -1,0 +1,90 @@
+---
+layout: base.njk
+title: 'equation-number'
+description: 'The equation-number element indicates that a block equation should be numbered. It optionally specifies the number to use for the block equation.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '4ba6c08378b430f2db5079d63929df8d41381b0b'
+repository: 'oasis-tcs/dita-techcomm'
+classes: ''
+---
+
+<nav class="toc" role="toc"><ul><li><a href="../../introduction/specIntroTechnicalContent.html">Introduction</a></li><li><a href="../../archSpec/technicalContent/dita-technicalContent-InformationTypes.html">Topic and map document types</a></li><li><a href="../../archSpec/technicalContent/glossary-entry-topics-and-terminology-management.html">Usage of glossary entry topics</a></li><li><a href="../../langRef/langRef-technicalContent.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../baseSpec/specification/langRef/attributes/attributes.html">Attributes</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../revision-history/revision-history.html">Revision history</a></li></ul></nav><main role="main" class=""><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;equation-number&gt;</code></h1>
+  
+  
+  <div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;equation-number&gt;</code> element indicates
+    that a block equation <span class="ph">should be</span> numbered. It
+    optionally specifies the number to use for the block
+    equation.</p>
+    <section class="section" id="equation-number__usage-information"><h2 class="title sectiontitle">Usage information</h2>
+      
+      <p class="p">In normal usage, a block equation has a single number. However,
+        the <code class="keyword markupname xmlelement">&lt;equation-number&gt;</code> element can occur
+        multiple times within the <code class="keyword markupname xmlelement">&lt;equation-block&gt;</code>
+        element. This enables the use of numbers with different (and
+        exclusive) conditional properties.</p>
+      <p class="p">When the <code class="keyword markupname xmlelement">&lt;equation-figure&gt;</code> element contains
+        content, the content of the element should be the number value
+        without any <span style="color:red;" class="ph">rendering-specific</span> punctuation,
+        for example, <span class="keyword">3.2a</span> rather than
+          <span class="keyword">(3.2a)</span>. </p>
+    </section>
+    <section class="section" id="equation-number__rendering-expectations"><h2 class="title sectiontitle">Rendering expectations</h2>
+      
+      <p class="p">In this context, white-space content is considered equivalent to
+        empty content. When the <code class="keyword markupname xmlelement">&lt;equation-number&gt;</code>
+        element has empty content, the equation number <dfn class="term RFC-2119">SHOULD</dfn> be generated. When the
+          <code class="keyword markupname xmlelement">&lt;equation-number&gt;</code> element is not empty,
+        the content <dfn class="term RFC-2119">SHOULD</dfn> be used as
+        the equation number. Processors <dfn class="term RFC-2119">MAY</dfn> add punctuation or decoration to the number.</p>
+      <p class="p">The details of equation numbering and number presentation are processor-specific. A common
+        practice is to present the equation number to the right of the equation, centered vertically
+        within the vertical extent of the block equation.</p>
+    </section>
+    <section class="section" id="equation-number__specialization-hierarchy"><h2 class="title sectiontitle">Specialization hierarchy</h2>
+      
+      <p class="p">The <code class="keyword markupname xmlelement">&lt;equation-number&gt;</code> element is specialized from
+          <code class="keyword markupname xmlelement">&lt;ph&gt;</code>. It is defined in the equation domain module.</p>
+    </section>
+    <section class="section" id="equation-number__content-model"></section>
+<section class="section" id="equation-number__inheritance"></section>    <section class="section" id="equation-number__attributes"><h2 class="title sectiontitle">Attributes</h2>
+      
+      <p class="p attributes-prose">The following attributes are
+        available on this element: <span class="ph"><a class="xref" href="../../baseSpec/specification/common/../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
+                                                  attributes</a></span>.</p>
+    <p class="p inlined-attributes">The following attributes are available on this element: <a class="xref" href="../../baseSpec/specification/common/../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
+                                                  attributes</a>.</p></section>
+    <div class="example non-normative" id="equation-number__example"><h2 class="title sectiontitle">Examples</h2><p class="non-normative-label">This section is non-normative.</p>
+      
+      <p class="p">This section contains examples of how the
+          <code class="keyword markupname xmlelement">&lt;equation-number&gt;</code> element can be used:</p>
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Example 1. </span>An equation where the number will be generated</figcaption>
+        
+        <p class="p">The following code sample shows how an
+            <code class="keyword markupname xmlelement">&lt;equation-number&gt;</code> element can be used to
+          indicate to a processor that an equation number should be
+          auto-generated:</p>
+        <pre class="pre codeblock"><code>&lt;equation-block id="eq-001"&gt;
+  <strong class="ph b">&lt;equation-number/&gt;</strong>
+  &lt;image keyref="equation-image-01"&gt;
+    &lt;alt&gt;a squared plus b squared.&lt;/alt&gt;
+  &lt;/image&gt;
+&lt;/equation-block&gt;</code></pre>
+      </figure>
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Example 2. </span>An equation where the equation number is explicitly
+          specified</figcaption>
+        
+      </figure>
+      <p class="p">The following code sample shows how an
+          <code class="keyword markupname xmlelement">&lt;equation-number&gt;</code> element can specify the
+        value for an equation number:</p>
+      <pre class="pre codeblock"><code>&lt;equation-block id="eq-3.2a"&gt;
+  <strong class="ph b">&lt;equation-number&gt;3.2a&lt;/equation-number&gt;</strong>
+  &lt;image keyref="equation-image-01"&gt;
+    &lt;alt&gt;a squared plus b squared.&lt;/alt&gt;
+  &lt;/image&gt;
+&lt;/equation-block&gt;</code></pre>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/equation-elements.html" title="The equation domain includes elements that authors can use to identify, number, and format equations within a document. This domain can be used independently of the MathML domain.">Equation domain</a></div></div></nav><aside class="section-toc" role="aside"><h2>In this section</h2><ul><li><a href="#equation-number__usage-information">Usage information</a></li><li><a href="#equation-number__rendering-expectations">Rendering expectations</a></li><li><a href="#equation-number__specialization-hierarchy">Specialization hierarchy</a></li><li><a href="#equation-number__attributes">Attributes</a></li><li><a href="#equation-number__example">Examples</a></li></ul></aside></article></main>

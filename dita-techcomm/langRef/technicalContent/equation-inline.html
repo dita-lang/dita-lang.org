@@ -1,0 +1,97 @@
+---
+layout: base.njk
+title: 'equation-inline'
+description: 'The equation-inline element represents an equation that is presented inline within a paragraph or similar context.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '4ba6c08378b430f2db5079d63929df8d41381b0b'
+repository: 'oasis-tcs/dita-techcomm'
+classes: ''
+---
+
+<nav class="toc" role="toc"><ul><li><a href="../../introduction/specIntroTechnicalContent.html">Introduction</a></li><li><a href="../../archSpec/technicalContent/dita-technicalContent-InformationTypes.html">Topic and map document types</a></li><li><a href="../../archSpec/technicalContent/glossary-entry-topics-and-terminology-management.html">Usage of glossary entry topics</a></li><li><a href="../../langRef/langRef-technicalContent.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../baseSpec/specification/langRef/attributes/attributes.html">Attributes</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../revision-history/revision-history.html">Revision history</a></li></ul></nav><main role="main" class=""><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;equation-inline&gt;</code></h1>
+  
+  
+  <div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;equation-inline&gt;</code> element represents an equation that is
+    presented inline within a paragraph or similar context.</p>
+    <section class="section" id="equation-inline__usage-information"><h2 class="title sectiontitle">Usage information</h2>
+      
+      <p class="p">Inline equations are not intended to be numbered.</p>
+      <p class="p">When an <code class="keyword markupname xmlelement">&lt;equation-inline&gt;</code> element has multiple direct child
+        elements, each child represents an alternative form of the equation.</p>
+    </section>
+      <section class="section" id="equation-inline__processing-expectations"><h2 class="title sectiontitle">Processing expectations</h2>
+         
+      <p class="p">When there are multiple forms of an
+        equation, processors can choose the form or forms that they render.
+        For example, if there is both an image and MathML markup, an
+        HTML-generating processor could generate both the image reference
+        and the MathML with appropriate HTML <code class="keyword markupname xmlatt">@class</code> or
+          <code class="keyword markupname xmlatt">@id</code> values to enable dynamic rendering <span style="color:red;" class="ph">that is</span> based on browser capability.</p>
+      </section>    
+    <section class="section" id="equation-inline__specialization-hierarchy"><h2 class="title sectiontitle">Specialization hierarchy</h2>
+      
+      <p class="p">The <code class="keyword markupname xmlelement">&lt;equation-inline&gt;</code> element is specialized from
+          <code class="keyword markupname xmlelement">&lt;ph&gt;</code>. It is defined in the equation domain module.</p>
+    </section>
+    <section class="section" id="equation-inline__content-model"></section>
+<section class="section" id="equation-inline__inheritance"></section>    <section class="section" id="equation-inline__attributes"><h2 class="title sectiontitle">Attributes</h2>
+      
+      <p class="p attributes-prose">The following attributes are
+        available on this element: <span class="ph"><a class="xref" href="../../baseSpec/specification/common/../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
+                                                  attributes</a></span> and <a class="xref" href="../../baseSpec/specification/common/../langRef/attributes/commonAttributes.html#common-atts__attr-keyref"><code class="keyword markupname xmlatt">@keyref</code></a>.</p>
+    <p class="p inlined-attributes">The following attributes are available on this element: <a class="xref" href="../../baseSpec/specification/common/../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
+                                                  attributes</a> and the attributes defined below.</p><dl class="dl inlined-attributes"><dt class="dt dlterm" id="equation-inline__attr-keyref"><code class="keyword markupname xmlatt">@keyref</code></dt><dd class="dd" id="equation-inline__def-keyref"><span class="ph" id="equation-inline__keyrefDescription">Specifies a key
+              name that acts as a redirectable reference based on a key
+              definition within a map.<span class="ph"> See <a class="xref" href="../../../../stubs/StubTopic.html">STUB CONTENT</a> for information on using
+                this attribute.</span></span><p class="p">For HDITA, the equivalent of
+                <code class="keyword markupname xmlatt">@keyref</code> is
+              <code class="keyword markupname xmlatt">@data-keyref</code></p></dd></dl></section>
+    <div class="example non-normative" id="equation-inline__example"><h2 class="title sectiontitle">Examples</h2><p class="non-normative-label">This section is non-normative.</p>
+      
+      <p class="p">This section contains examples of how the
+          <code class="keyword markupname xmlelement">&lt;equation-inline&gt;</code> element can be used.</p>
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Example 1. </span>An inline equation</figcaption>
+        
+        <p class="p">The following code sample shows how a paragraph can contain an
+            <code class="keyword markupname xmlelement">&lt;equation-inline&gt;</code> element that holds
+          MathML markup:</p>
+        <pre class="pre codeblock"><code>&lt;p&gt;Consider the following equation:
+  <strong class="ph b">&lt;equation-inline&gt;</strong>
+    &lt;mathml&gt;
+      &lt;m:math display='inline'&gt;
+        &lt;m:semantics&gt;
+          &lt;m:mrow&gt;
+            &lt;m:msqrt&gt;
+              &lt;m:mrow&gt;
+                &lt;m:msup&gt;&lt;m:mi&gt;a&lt;/m:mi&gt;&lt;m:mn&gt;2&lt;/m:mn&gt;&lt;/m:msup&gt;
+                &lt;m:mo&gt;+&lt;/m:mo&gt;
+                &lt;m:msup&gt;&lt;m:mi&gt;b&lt;/m:mi&gt;&lt;m:mn&gt;2&lt;/m:mn&gt;&lt;/m:msup&gt;
+              &lt;/m:mrow&gt;
+            &lt;/m:msqrt&gt;        
+          &lt;/m:mrow&gt;
+        &lt;/m:semantics&gt;
+      &lt;/m:math&gt;
+    &lt;/mathml&gt;
+  <strong class="ph b">&lt;/equation-inline&gt;</strong>
+It is simple arithmetic that school children understand.&lt;/p&gt;</code></pre>
+      </figure>
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Example 2. </span>An inline equation that is image-based</figcaption>
+        
+      </figure>
+      <p class="p">The following code sample shows how the
+          <code class="keyword markupname xmlelement">&lt;equation-inline&gt;</code> element can contain an
+        image:</p>
+      <pre class="pre codeblock"><code>&lt;p&gt;The Pythagorean Theorem describes the relationship among the three sides of a 
+   right triangle. In any right triangle, the sum of the areas of the squares formed on the 
+   legs of the triangle equals the area of the square formed on the hypotenuse:
+  <strong class="ph b">&lt;equation-inline&gt;</strong>
+    &lt;image keyref="equation-image-01"&gt;
+      &lt;alt&gt;a squared plus b squared.&lt;/alt&gt;
+    &lt;/image&gt;
+  <strong class="ph b">&lt;/equation-inline&gt;</strong>
+&lt;/p&gt;</code></pre>
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/equation-elements.html" title="The equation domain includes elements that authors can use to identify, number, and format equations within a document. This domain can be used independently of the MathML domain.">Equation domain</a></div></div></nav><aside class="section-toc" role="aside"><h2>In this section</h2><ul><li><a href="#equation-inline__usage-information">Usage information</a></li><li><a href="#equation-inline__processing-expectations">Processing expectations</a></li><li><a href="#equation-inline__specialization-hierarchy">Specialization hierarchy</a></li><li><a href="#equation-inline__attributes">Attributes</a></li><li><a href="#equation-inline__example">Examples</a></li></ul></aside></article></main>

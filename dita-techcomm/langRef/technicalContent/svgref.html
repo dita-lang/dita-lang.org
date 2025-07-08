@@ -1,0 +1,217 @@
+---
+layout: base.njk
+title: 'svgref'
+description: 'The svgref element references a non-DITA XML document that contains scalable vector graphic (SVG) markup.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '4ba6c08378b430f2db5079d63929df8d41381b0b'
+repository: 'oasis-tcs/dita-techcomm'
+classes: ''
+---
+
+<nav class="toc" role="toc"><ul><li><a href="../../introduction/specIntroTechnicalContent.html">Introduction</a></li><li><a href="../../archSpec/technicalContent/dita-technicalContent-InformationTypes.html">Topic and map document types</a></li><li><a href="../../archSpec/technicalContent/glossary-entry-topics-and-terminology-management.html">Usage of glossary entry topics</a></li><li><a href="../../langRef/langRef-technicalContent.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../baseSpec/specification/langRef/attributes/attributes.html">Attributes</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../revision-history/revision-history.html">Revision history</a></li></ul></nav><main role="main" class=""><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1"><code class="keyword markupname xmlelement">&lt;svgref&gt;</code></h1>
+  
+  
+  <div class="body refbody"><p class="shortdesc">The <code class="keyword markupname xmlelement">&lt;svgref&gt;</code> element references a non-DITA XML document that
+    contains scalable vector graphic (SVG) markup.</p>
+    <section class="section" id="svgref__usage-information"><h2 class="title sectiontitle">Usage information</h2>
+      
+      <p class="p">The <code class="keyword markupname xmlelement">&lt;svgref&gt;</code> element enables the use of SVG
+        markup by reference. The reference must be to a SVG
+          <code class="keyword markupname xmlelement">&lt;svg&gt;</code> element <span style="color:red;" class="ph">that is
+          stored in a separate, non-DITA XML document</span>. The reference
+        can be one of the following:</p>
+      <ul class="ul">
+        <li class="li">A URI that addresses an XML document which has a SVG
+            <code class="keyword markupname xmlelement">&lt;svg&gt;</code> element as the root element</li>
+        <li class="li">A URI that addresses an XML document and contains a fragment
+          identifier that is the XML ID of a <code class="keyword markupname xmlelement">&lt;svg&gt;</code>
+          element within the document </li>
+      </ul>
+      <p class="p">The reference can be direct, using the <code class="keyword markupname xmlatt">@href</code> attribute, or indirect, using
+        the <code class="keyword markupname xmlatt">@keyref</code> attribute. For indirect referencing, only the key name should be
+        specified. The ID of the <code class="keyword markupname xmlelement">&lt;svg&gt;</code> element must be specified as part of
+        the value for the <code class="keyword markupname xmlatt">@href</code> attribute on the key definition.</p>
+      <div class="div example">
+        <p class="p">For example, to refer to the <code class="keyword markupname xmlelement">&lt;svg&gt;</code>
+          element with the <code class="keyword markupname xmlatt">@id</code> of
+            <span class="keyword">svg-fragment-02</span> within a larger document
+          using a key reference, you would define the key in the following
+          way:</p>
+        <pre class="pre codeblock"><code>&lt;keydef keys="svg-fragment-0002" href="svg/svg-library.xml#svg-fragment-02"/&gt;</code></pre>
+        <p class="p">You reference this key by using just the key name:</p>
+        <pre class="pre codeblock"><code>&lt;svg-container&gt;
+  &lt;svgref <strong class="ph b">keyref="svg-fragment-0002"</strong>/&gt;
+&lt;/svg-container&gt;</code></pre>
+      </div>
+    </section>
+    <section class="section" id="svgref__processing-information"><h2 class="title sectiontitle">Processing information</h2>
+      
+      <p class="p">Processors <dfn class="term RFC-2119">SHOULD</dfn> process the
+        SVG as though the <code class="keyword markupname xmlelement">&lt;svg&gt;</code> element occurs
+        directly in the content of the containing
+          <code class="keyword markupname xmlelement">&lt;svg-container&gt;</code> element.</p>
+    </section>
+    <section class="section" id="svgref__specialization-hierarchy"><h2 class="title sectiontitle">Specialization hierarchy</h2>
+      
+      <p class="p">The <code class="keyword markupname xmlelement">&lt;svgref&gt;</code> is specialized from <code class="keyword markupname xmlelement">&lt;include&gt;</code>.
+        It is defined in the SVG domain module.</p>
+    </section>
+    <section class="section" id="svgref__content-model"></section>
+<section class="section" id="svgref__inheritance"></section>    <section class="section" id="svgref__attributes"><h2 class="title sectiontitle">Attributes</h2>
+      
+      <p class="p attributes-prose">The following attributes are available on this element: <span class="ph"><a class="xref" href="../../baseSpec/specification/common/../langRef/attributes/commonAttributes.html#common-atts__inclusionatts" title="Inclusion attributes include: encoding and parse">inclusion attributes</a></span>, <span class="ph"><a class="xref" href="../../baseSpec/specification/common/../langRef/attributes/commonAttributes.html#common-atts__linkatts" title="Link relationship attributes include: format, href, type, and scope">link-relationship attributes</a></span>, <span class="ph"><a class="xref" href="../../baseSpec/specification/common/../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
+                                                  attributes</a></span>, and <a class="xref" href="../../baseSpec/specification/langRef/attributes/commonAttributes.html#common-atts__attr-keyref"><code class="keyword markupname xmlatt">@keyref</code></a>.</p>
+      <div class="p attributes-prose attr-exception" id="svgref__attr-exception">For this element:<ul class="ul">
+          <li class="li">The <code class="keyword markupname xmlatt">@format</code> attribute has a default value of
+              <span class="keyword">svg</span>.</li>
+          <li class="li">The <code class="keyword markupname xmlatt">@href</code> attribute is a reference to an SVG
+            document or SVG element. If the <code class="keyword markupname xmlelement">&lt;svg&gt;</code>
+            element is the root element of the referenced resource, then no
+            fragment identifier is required. Otherwise, a fragment
+            identifier must be specified, where the fragment identifier is
+            the XML ID of the <code class="keyword markupname xmlelement">&lt;svg&gt;</code> element.</li>
+          <li class="li">The <code class="keyword markupname xmlatt">@parse</code> attribute has a default value of
+              <span class="keyword">xml</span>.</li>
+        </ul></div>
+    <p class="p inlined-attributes">The following attributes are available on this element: <a class="xref" href="../../baseSpec/specification/common/../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
+                                                  attributes</a> and the attributes defined below.</p><dl class="dl inlined-attributes"><dt class="dt dlterm" id="svgref__attr-encoding"><code class="keyword markupname xmlatt">@encoding</code>
+            <span class="ph">(inclusion
+            attributes)</span></dt><dd class="dd">Specifies the character encoding to use when translating the character
+            data from the referenced content. The value should be a valid encoding name. If not
+            specified, processors may make attempts to automatically determine the correct encoding,
+            for example using HTTP headers, through analysis of the binary structure of the
+            referenced data, or the <code class="keyword markupname xmlpi">&lt;?xml?&gt;</code> processing instruction when including XML as
+            text. The resource should be treated as UTF-8 if no other encoding information can be
+              determined.<p class="p">When <code class="ph codeph">parse="xml"</code>, standard XML parsing rules apply for
+              the detection of character encoding. <span class="implementation-statement" id="svgref__d2058t944" data-id="DTTCIMP-0080"></span>The necessity and uses of
+                <code class="keyword markupname xmlatt">@encoding</code> for non-standard values of <code class="keyword markupname xmlatt">@parse</code> are
+              implementation-dependent.</p></dd><dt class="dt dlterm" id="svgref__attr-format"><code class="keyword markupname xmlatt">@format</code>
+            <span class="ph">(link-relationship
+              attributes)</span></dt><dd class="dd">Specifies the format of the resource that is referenced.<span class="ph"> See <a class="xref" href="../../../../stubs/StubTopic.html">STUB CONTENT</a> for
+              detailed information on supported values and processing
+              implications.</span></dd><dd class="dd ddexpand">The <code class="keyword markupname xmlatt">@format</code> attribute has a default value of
+              <span class="keyword">svg</span>.</dd><dt class="dt dlterm" id="svgref__attr-href"><code class="keyword markupname xmlatt">@href</code>
+            <span class="ph">(link-relationship
+              attributes)</span></dt><dd class="dd">Specifies a reference to a resource.<span class="ph"> See
+                <a class="xref" href="../../../../stubs/StubTopic.html">STUB CONTENT</a> for detailed information
+              on supported values and processing implications.</span></dd><dd class="dd ddexpand">The <code class="keyword markupname xmlatt">@href</code> attribute is a reference to an SVG
+            document or SVG element. If the <code class="keyword markupname xmlelement">&lt;svg&gt;</code>
+            element is the root element of the referenced resource, then no
+            fragment identifier is required. Otherwise, a fragment
+            identifier must be specified, where the fragment identifier is
+            the XML ID of the <code class="keyword markupname xmlelement">&lt;svg&gt;</code> element.</dd><dt class="dt dlterm" id="svgref__attr-keyref"><code class="keyword markupname xmlatt">@keyref</code></dt><dd class="dd" id="svgref__def-keyref"><span class="ph" id="svgref__keyrefDescription">Specifies a key
+              name that acts as a redirectable reference based on a key
+              definition within a map.<span class="ph"> See <a class="xref" href="../../../../stubs/StubTopic.html">STUB CONTENT</a> for information on using
+                this attribute.</span></span><p class="p">For HDITA, the equivalent of
+                <code class="keyword markupname xmlatt">@keyref</code> is
+              <code class="keyword markupname xmlatt">@data-keyref</code></p></dd><dt class="dt dlterm" id="svgref__attr-parse"><code class="keyword markupname xmlatt">@parse</code> (inclusion attributes)</dt><dd class="dd">Specifies the processing expectations for the referenced resource. Processors must
+            support the following values:<dl class="dl">
+              
+                <dt class="dt dlterm"><span class="keyword">text</span></dt>
+                <dd class="dd">
+                  <p class="p">The contents should be treated as plain text. Reserved XML characters should be
+                    displayed, and not interpreted as XML markup.</p>
+                </dd>
+              
+              
+                <dt class="dt dlterm"><span class="keyword">xml</span></dt>
+                <dd class="dd">
+                  <p class="p">The contents of the referenced resource should be treated as an XML document,
+                    and the referenced element should be inserted at the location of the
+                      <code class="keyword markupname xmlelement">&lt;include&gt;</code> element. If a fragment identifier is included
+                    in the address of the content, processors must select the element with the
+                    specified ID. If no fragment identifier is included, the root element of the
+                    referenced XML document is selected. Any grammar processing should be performed
+                    during resolution, such that default attribute values are explicitly populated.
+                    Prolog content must be discarded.</p>
+                  <p class="p errorcondition"><span class="error-statement" id="svgref__d2058e1681" data-id="DTTCERR-0020"></span>It is an error to use <code class="ph codeph">parse="xml"</code>
+                    anywhere other than within <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> or a specialization
+                    thereof.</p>
+                </dd>
+              
+            </dl><p class="p">Processors may support other values for the <code class="keyword markupname xmlatt">@parse</code> attribute
+              with proprietary processing semantics. Processors should issue warnings and use
+                <code class="keyword markupname xmlelement">&lt;fallback&gt;</code> when they encounter unsupported
+                <code class="keyword markupname xmlatt">@parse</code> values. Non-standard <code class="keyword markupname xmlatt">@parse</code> instructions
+              should be expressed as URIs.</p><div class="note note note_note non-normative"><span class="note__title">Note<span class="non-normative-label"> (non-normative)</span>:</span> <div class="note__body">Proprietary <code class="keyword markupname xmlatt">@parse</code> values will
+              likely limit the portability and interoperability of DITA content, so should be used
+              with care.</div></div></dd><dd class="dd ddexpand">The <code class="keyword markupname xmlatt">@parse</code> attribute has a default value of
+              <span class="keyword">xml</span>.</dd><dt class="dt dlterm" id="svgref__attr-scope"><code class="keyword markupname xmlatt">@scope</code>
+            <span class="ph">(link-relationship
+              attributes)</span></dt><dd class="dd">Specifies the closeness of the relationship between the
+            current document and the referenced resource.<span class="ph"> The following values are valid:
+                <span class="keyword">local</span>, <span class="keyword">peer</span>,
+                <span class="keyword">external</span>, and
+                <span class="keyword">-dita-use-conref-target</span>. </span><p class="p">See
+                <a class="xref" href="../../../../stubs/StubTopic.html">STUB CONTENT</a> for detailed information
+              on supported values and processing implications.</p></dd><dt class="dt dlterm" id="svgref__attr-type"><code class="keyword markupname xmlatt">@type</code>
+            <span class="ph">(link-relationship
+              attributes)</span></dt><dd class="dd">Describes the target of a reference. See <a class="xref" href="../../../../stubs/StubTopic.html">STUB CONTENT</a> for detailed
+            information on supported values and processing implications. </dd></dl></section>
+    <div class="example non-normative" id="svgref__example"><h2 class="title sectiontitle">Examples</h2><p class="non-normative-label">This section is non-normative.</p>
+      
+      <p class="p">This section contains examples of how the
+          <code class="keyword markupname xmlelement">&lt;svgref&gt;</code> element can be used.</p>
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Example 1. </span>Referencing an SVG that is a root element</figcaption>
+        
+        <p class="p">The following code sample shows how an
+            <code class="keyword markupname xmlelement">&lt;svgref&gt;</code> element can be used to
+          reference an <code class="keyword markupname xmlelement">&lt;svg&gt;</code> element that is the
+          root element of its containing document:</p>
+        <pre class="pre codeblock"><code>&lt;fig&gt;
+  &lt;title&gt;Figure with an SVG container&lt;/title&gt;
+  &lt;svg-container&gt;
+    <strong class="ph b">&lt;svgref href="media/svg/svg-graphic-01.xml"/&gt;</strong>
+  &lt;/svg-container&gt;
+&lt;/fig&gt;</code></pre>
+        <div class="p">The <span class="ph filepath">svg-graphic-01.xml</span> file contains the
+          following content. Note that the <code class="keyword markupname xmlelement">&lt;svg&gt;</code>
+          element sets the SVG namespace as the default namespace, so there
+          are no namespace prefixes on the SVG
+          markup.<pre class="pre codeblock"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;svg <strong class="ph b">xmlns="http://www.w3.org/2000/svg"</strong> width="100" height="100"&gt;
+  &lt;defs&gt;
+    &lt;filter id="f1" x="0" y="0"&gt;
+      &lt;feGaussianBlur in="SourceGraphic" stdDeviation="15"/&gt;
+    &lt;/filter&gt;
+  &lt;/defs&gt;
+  &lt;rect width="90" height="90" stroke="green" stroke-width="3" fill="yellow" 
+        filter="url(#f1)"/&gt;
+&lt;/svg&gt;</code></pre></div>
+      </figure>
+      <figure class="fig fignone"><figcaption><span class="fig--title-label">Example 2. </span>Referencing a specific SVG within a document</figcaption>
+        
+        <p class="p">The following code sample shows an
+            <code class="keyword markupname xmlelement">&lt;svgref&gt;</code> element can be used to
+          reference a specific <code class="keyword markupname xmlelement">&lt;svg&gt;</code> element in a
+          containing XML file:</p>
+        <pre class="pre codeblock"><code>&lt;fig&gt;
+  &lt;title&gt;Figure with SVG container&lt;/title&gt;
+  &lt;svg-container&gt;
+    <strong class="ph b">&lt;svgref href="media/svg/svg-library.xml#frag-0001" /&gt;</strong>
+  &lt;/svg-container&gt;
+&lt;/fig&gt;</code></pre>
+        <div class="p">The <span class="ph filepath">svg-library.xml</span> file contains the
+          following
+          content:<pre class="pre codeblock"><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;
+  &lt;part&gt;
+    &lt;svg <strong class="ph b">id="frag-0001"</strong> xmlns="http://www.w3.org/2000/svg" width="100" height="100"&gt;
+      &lt;defs&gt;
+        &lt;filter id="f1" x="0" y="0"&gt;
+          &lt;feGaussianBlur in="SourceGraphic" stdDeviation="15"/&gt;
+        &lt;/filter&gt;
+      &lt;/defs&gt;
+      &lt;rect width="90" height="90" stroke="green" stroke-width="3" fill="yellow" 
+            filter="url(#f1)"/&gt;
+    &lt;/svg&gt;
+    &lt;!-- ... --&gt;
+  &lt;/part&gt;
+&lt;/root&gt;</code></pre></div>
+      </figure>
+      
+    </div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/SVG-elements.html" title="The SVG domain elements enable the use of embedded or referenced SVG markup. Referenced SVG markup must be stored in separate, non-DITA XML documents. SVG is a W3C standard.">SVG domain</a></div></div></nav><aside class="section-toc" role="aside"><h2>In this section</h2><ul><li><a href="#svgref__usage-information">Usage information</a></li><li><a href="#svgref__processing-information">Processing information</a></li><li><a href="#svgref__specialization-hierarchy">Specialization hierarchy</a></li><li><a href="#svgref__attributes">Attributes</a></li><li><a href="#svgref__example">Examples</a></li></ul></aside></article></main>
