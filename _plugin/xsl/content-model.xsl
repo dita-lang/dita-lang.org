@@ -225,7 +225,6 @@
     <xsl:text>Any</xsl:text>
   </xsl:template>
 
-
   <xsl:template match="element">
     <xref keyref="elements-{@name}"><!-- href="{$element-prefix}{@name}.dita"-->
       <xmlelement>

@@ -210,7 +210,7 @@
     </xsl:copy>
   </xsl:template>
 
-  <xsl:template match="optional | define | empty | choice" mode="clean">
+  <xsl:template match="optional | define | empty | choice | interleave" mode="clean">
     <xsl:variable name="contents" as="element()*">
       <xsl:apply-templates select="*" mode="#current"/>
     </xsl:variable>
