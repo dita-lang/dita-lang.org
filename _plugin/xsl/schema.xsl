@@ -99,6 +99,8 @@
 
   <!-- Merge -->
 
+  <xsl:mode name="merge"/>
+
   <xsl:template match="@* | node()" mode="merge">
     <xsl:copy>
       <xsl:apply-templates select="@* | node()" mode="#current"/>
@@ -106,6 +108,7 @@
   </xsl:template>
 
   <xsl:template match="include" mode="merge">
+    <xsl:sequence select="*"/>
     <xsl:apply-templates select="document(x:resolve(@href))/grammar/*" mode="#current"/>
   </xsl:template>
 
@@ -116,6 +119,8 @@
   <xsl:template match="a:documentation | dita:moduleDesc" mode="merge"/>
 
   <!-- Resolve -->
+
+  <xsl:mode name="resolve"/>
 
   <xsl:key name="define" match="define" use="@name"/>
 
@@ -169,16 +174,24 @@
         <xsl:copy-of select="."/>
       </xsl:when>
       <xsl:otherwise>
+        <xsl:variable name="defs" select="key('define', @name)" as="element()*"/>
         <xsl:choose>
-          <xsl:when test="count(key('define', @name)) gt 1">
+          <xsl:when test="count($defs) gt 1 and (every $d in $defs satisfies $d/@combine = 'choice')">
             <xsl:element name="choice" namespace="http://relaxng.org/ns/structure/1.0">
-              <xsl:apply-templates select="key('define', @name)/*" mode="#current">
+              <xsl:apply-templates select="$defs/*" mode="#current">
+                <xsl:with-param name="visited" select="($visited, @name)" as="xs:string*" tunnel="yes"/>
+              </xsl:apply-templates>
+            </xsl:element>
+          </xsl:when>
+          <xsl:when test="count($defs) gt 1 and (every $d in $defs satisfies $d/@combine = 'interleave')">
+            <xsl:element name="interleave" namespace="http://relaxng.org/ns/structure/1.0">
+              <xsl:apply-templates select="$defs/*" mode="#current">
                 <xsl:with-param name="visited" select="($visited, @name)" as="xs:string*" tunnel="yes"/>
               </xsl:apply-templates>
             </xsl:element>
           </xsl:when>
           <xsl:otherwise>
-            <xsl:apply-templates select="key('define', @name)[1]/*" mode="#current">
+            <xsl:apply-templates select="$defs[1]/*" mode="#current">
               <xsl:with-param name="visited" select="($visited, @name)" as="xs:string*" tunnel="yes"/>
             </xsl:apply-templates>
           </xsl:otherwise>
@@ -188,6 +201,8 @@
   </xsl:template>
 
   <!-- Clean -->
+
+  <xsl:mode name="clean"/>
 
   <xsl:template match="@* | node()" mode="clean">
     <xsl:copy>
@@ -217,6 +232,8 @@
   <xsl:template match="grammar/define[not(ends-with(@name, $element-suffix))]" mode="clean"/>
 
   <!-- Filter -->
+
+  <xsl:mode name="filter"/>
 
   <xsl:template match="node() | @*" mode="filter">
     <xsl:copy>
