@@ -6,7 +6,7 @@
 
   <xsl:strip-space elements="*"/>
 
-  <xsl:output indent="yes"/>
+  <xsl:output indent="no"/>
 
   <xsl:param name="element-suffix" as="xs:string" select="'.element'"/>
 

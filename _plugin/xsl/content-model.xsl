@@ -8,7 +8,7 @@
 
   <xsl:strip-space elements="*"/>
 
-  <xsl:output indent="yes" doctype-public="-//OASIS//DTD DITA Topic//EN" doctype-system="topic.dtd"/>
+  <xsl:output indent="no" doctype-public="-//OASIS//DTD DITA Topic//EN" doctype-system="topic.dtd"/>
 
   <xsl:param name="element-prefix" as="xs:string" select="''"/>
   <xsl:param name="schema" as="xs:string"/>
