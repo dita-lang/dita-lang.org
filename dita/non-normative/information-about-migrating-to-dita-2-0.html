@@ -1,10 +1,10 @@
 ---
 layout: base.njk
 title: 'Information about migrating to DITA 2.0'
-description: ''
+description: 'This topic includes information on required steps to migrate content from DITA 1.x to DITA 2.0.'
 index: '../toc.html'
 notices: '../resources/oasis-notices.html'
-commit: '041f6874b58d3619065b5f531f065514f55285ab'
+commit: 'b854434cc26f8f3731e5d2e7553bdffceeff27b0'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -12,7 +12,190 @@ classes: ''
 <nav class="toc" role="toc"><ul><li><a href="../introduction/dita-release-overview.html">Introduction</a></li><li><a href="../archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="../archSpec/base/accessibility-and-translation.html">Accessibility and translation</a></li><li><a href="../archSpec/base/dita-map-processing.html">DITA map processing</a></li><li><a href="../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a></li><li><a href="../langRef/langRef-base.html">Element reference</a></li><li><a href="../conformance/conformance.html">Conformance</a></li><li><a href="../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../non-normative/developing-constraint-and-expansion-modules.html">Constraint modules</a></li><li><a href="../non-normative/expansion-modules.html">Expansion modules</a></li><li><a href="../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../non-normative/formatting-expectations.html">Formatting expectations</a></li><li><a href="../non-normative/migrating-to-dita-2.0.html">Migrating to DITA 2.0</a><ul class="nav nav-list"><li><a href="../non-normative/changes-from-dita-1.3-to-dita-2.0.html">Changes from DITA 1.3 to DITA 2.0</a></li><li class="active"><a href="../non-normative/information-about-migrating-to-dita-2-0.html">Information about migrating to DITA 2.0</a></li></ul></li><li><a href="../non-normative/basedoctypes.html">OASIS grammar files</a></li><li><a href="../non-normative/interoperability-considerations.html">Processing interoperability considerations</a></li><li><a href="../non-normative/revision-history.html">Revision history</a></li></ul></nav><main role="main" class=""><article role="article" aria-labelledby="ariaid-title1">
     <h1 class="title topictitle1" id="ariaid-title1">Information about migrating to DITA 2.0</h1>
     
-    <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc"></p>
-        <p class="p"></p>
+    <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">This topic includes information on required steps to migrate content from DITA 1.x to
+        DITA 2.0.</p>
+        
+        <section class="section" id="information-about-migrating-to-dita-2-0__section_zvz_hlk_xhc"><h2 class="title sectiontitle">Markup to migrate for DITA 2.0</h2>
+            
+            <p class="p">The following elements and attributes have been removed from the grammar as obsolete.
+                They have been replaced by alternate markup or approaches.</p>
+            <ul class="ul" id="information-about-migrating-to-dita-2-0__ul_axr_klk_xhc">
+                <li class="li">The <code class="keyword markupname xmlatt">@navtitle</code> attribute on the <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>
+                    element is replaced by the <code class="keyword markupname xmlelement">&lt;navtitle&gt;</code> or
+                        <code class="keyword markupname xmlelement">&lt;titlehint&gt;</code> element within
+                        <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code>. Use <code class="keyword markupname xmlelement">&lt;navtitle&gt;</code> if
+                    you wish to preserve the title in any table of contents; use
+                        <code class="keyword markupname xmlelement">&lt;titlehint&gt;</code> if you only used this attribute as a hint
+                    about the topic purpose.</li>
+                <li class="li">The <code class="keyword markupname xmlatt">@locktitle</code> attribute is removed from
+                        <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element. To preserve the title locking
+                    behavior, ensure you use the </li>
+                <li class="li">In maps, the <code class="keyword markupname xmlatt">@title</code> attribute on <code class="keyword markupname xmlelement">&lt;map&gt;</code> is
+                    replaced by the <code class="keyword markupname xmlelement">&lt;title&gt;</code> element inside of the map.</li>
+                <li class="li">In maps, the <code class="keyword markupname xmlatt">@title</code> attribute on
+                        <code class="keyword markupname xmlelement">&lt;reltable&gt;</code> elements is replaced by the
+                        <code class="keyword markupname xmlelement">&lt;title&gt;</code> element inside of the relationshipt
+                    table.</li>
+                <li class="li">In maps, all existing values for the <code class="keyword markupname xmlatt">@chunk</code> attribute are
+                    removed. In the attribute, the DITA 1.x token <span class="keyword">to-content</span> is
+                    replaced by the token <span class="keyword">combine</span>, and the
+                        <span class="keyword">by-topic</span> token is replaced by the token
+                        <span class="keyword">split</span>. Other tokens from 1.x are no longer
+                    supported.</li>
+                <li class="li">The <code class="keyword markupname xmlatt">@alt</code> attribute on images is removed in favor of the
+                        <code class="keyword markupname xmlelement">&lt;alt&gt;</code> element within the image.</li>
+                <li class="li">The <code class="keyword markupname xmlatt">@longdescref</code> attribute on images is removed in favor of the
+                        <code class="keyword markupname xmlelement">&lt;longdescref&gt;</code> element within the image.</li>
+                <li class="li">The <code class="keyword markupname xmlatt">@print</code> attribute is removed in favor of the specialized
+                        <code class="keyword markupname xmlatt">@deliveryTarget</code> attribute.</li>
+                <li class="li">The <code class="keyword markupname xmlatt">@copy-to</code> attribute is removed in favor of an updated
+                        <code class="keyword markupname xmlelement">&lt;resourceid&gt;</code> element that can specify the copy
+                    target.</li>
+                <li class="li">The <code class="keyword markupname xmlelement">&lt;substeps&gt;</code> and <code class="keyword markupname xmlelement">&lt;substep&gt;</code>
+                    elements are removed in favor of directly nesting the
+                        <code class="keyword markupname xmlelement">&lt;steps&gt;</code> element.</li>
+                <li class="li">The <code class="keyword markupname xmlelement">&lt;topicset&gt;</code> and <code class="keyword markupname xmlelement">&lt;topicsetref&gt;</code>
+                    elements are removed in favor of the generic <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>
+                    element.</li>
+                <li class="li">The <code class="keyword markupname xmlelement">&lt;index-sort-as&gt;</code> element is removed in favor of the
+                        <code class="keyword markupname xmlelement">&lt;sort-as&gt;</code> element.</li>
+                <li class="li">The <code class="keyword markupname xmlelement">&lt;titlealts&gt;</code> element is removed. Alternate titles are
+                    now stored within the topic <code class="keyword markupname xmlelement">&lt;prolog&gt;</code>.</li>
+                <li class="li">The <code class="keyword markupname xmlelement">&lt;linktext&gt;</code> element in maps is removed in favor of the
+                    new <code class="keyword markupname xmlelement">&lt;linktitle&gt;</code> element. </li>
+                <li class="li">The <code class="keyword markupname xmlelement">&lt;itemgroup&gt;</code> element is removed in favor of the
+                        <code class="keyword markupname xmlelement">&lt;div&gt;</code> element.</li>
+                <li class="li">The <code class="keyword markupname xmlelement">&lt;sectiondiv&gt;</code> element is removed in favor of the
+                        <code class="keyword markupname xmlelement">&lt;div&gt;</code> element.</li>
+                <li class="li">The <code class="keyword markupname xmlelement">&lt;state&gt;</code> element is removed. It can be migrated to the
+                        <code class="keyword markupname xmlelement">&lt;data&gt;</code> element (if used for metadata) or to
+                        <code class="keyword markupname xmlelement">&lt;keyword&gt;</code> (if used as a content element).</li>
+                <li class="li">The <code class="keyword markupname xmlelement">&lt;unknown&gt;</code> element is removed in favor of the
+                        <code class="keyword markupname xmlelement">&lt;required-cleanup&gt;</code> element.</li>
+                <li class="li">The <code class="keyword markupname xmlatt">@otherjob</code> and <code class="keyword markupname xmlatt">@othertype</code> attributes are
+                    removed from the <code class="keyword markupname xmlelement">&lt;audience&gt;</code> element in favor of the
+                        <code class="keyword markupname xmlatt">@job</code> and <code class="keyword markupname xmlatt">@type</code> attributes.</li>
+                <li class="li">In the <code class="keyword markupname xmlatt">@type</code> attribute on the
+                        <code class="keyword markupname xmlelement">&lt;hazardstatement&gt;</code> element, the values
+                        <span class="keyword">attention</span>, <span class="keyword">fastpath</span>,
+                        <span class="keyword">important</span>, <span class="keyword">note</span>,
+                        <span class="keyword">other</span>, <span class="keyword">remember</span>,
+                        <span class="keyword">restriction</span>, and <span class="keyword">tip</span> are removed. The
+                        <code class="keyword markupname xmlatt">@type</code> attribute on this element is now required. Valid
+                    values are now <span class="keyword">caution</span>, <span class="keyword">danger</span>,
+                        <span class="keyword">notice</span>, and <span class="keyword">warning</span>.</li>
+                <li class="li">The location of <code class="keyword markupname xmlelement">&lt;hazardsymbol&gt;</code> within a hazard statement
+                    has moved. It is now located directly within the
+                        <code class="keyword markupname xmlelement">&lt;consequence&gt;</code>, <code class="keyword markupname xmlelement">&lt;howtoavoid&gt;</code>,
+                        <code class="keyword markupname xmlelement">&lt;messagepanel&gt;</code>, or
+                        <code class="keyword markupname xmlelement">&lt;typeofhazard&gt;</code> elements.</li>
+                <li class="li">The <code class="keyword markupname textentity">&amp;nbsp;</code> entity is removed from the grammar files in
+                    favor of using the character or a hexidecimal entity.</li>
+            </ul>
+        </section>
+        <section class="section" id="information-about-migrating-to-dita-2-0__section_mgq_2lk_xhc"><h2 class="title sectiontitle">Obsolete markup to remove</h2>
+            
+            <p class="p">The following elements and attributes have been removed from the grammar as obsolete.
+                They can be removed.</p>
+            <ul class="ul" id="information-about-migrating-to-dita-2-0__ul_ewl_slk_xhc">
+                <li class="li">The <code class="keyword markupname xmlelement">&lt;boolean&gt;</code> element is removed.</li>
+                <li class="li">The <code class="keyword markupname xmlelement">&lt;indextermref&gt;</code> element is removed.</li>
+                <li class="li">The <code class="keyword markupname xmlelement">&lt;index-base&gt;</code> element is removed.</li>
+                <li class="li">The <code class="keyword markupname xmlelement">&lt;data-about&gt;</code> element is removed.</li>
+                <li class="li">The <code class="keyword markupname xmlelement">&lt;longquoteref&gt;</code> element is removed.</li>
+                <li class="li">The <code class="keyword markupname xmlelement">&lt;anchor&gt;</code> element is removed from maps.</li>
+                <li class="li">The <code class="keyword markupname xmlelement">&lt;anchorref&gt;</code> element is removed from the map group
+                    domain.</li>
+                <li class="li">The <code class="keyword markupname xmlelement">&lt;hasInstance&gt;</code>, <code class="keyword markupname xmlelement">&lt;hasKind&gt;</code>,
+                        <code class="keyword markupname xmlelement">&lt;hasNarrower&gt;</code>, <code class="keyword markupname xmlelement">&lt;hasPart&gt;</code>,
+                        <code class="keyword markupname xmlelement">&lt;hasRelated&gt;</code>,
+                        <code class="keyword markupname xmlelement">&lt;relatedSubjects&gt;</code>,
+                        <code class="keyword markupname xmlelement">&lt;subjectRel&gt;</code>,
+                        <code class="keyword markupname xmlelement">&lt;subjectRelTable&gt;</code>,
+                        <code class="keyword markupname xmlelement">&lt;subjectRelHeader&gt;</code>, and
+                        <code class="keyword markupname xmlelement">&lt;subjectRole&gt;</code> elements are removed from the subject
+                    scheme specialization.</li>
+                <li class="li">The <code class="keyword markupname xmlelement">&lt;glossAbbreviation&gt;</code>,
+                        <code class="keyword markupname xmlelement">&lt;glossAlternateFor&gt;</code>,
+                        <code class="keyword markupname xmlelement">&lt;glossPartOfSpeech&gt;</code>,
+                        <code class="keyword markupname xmlelement">&lt;glossProperty&gt;</code>,
+                        <code class="keyword markupname xmlelement">&lt;glossScopeNote&gt;</code>,
+                        <code class="keyword markupname xmlelement">&lt;glossShortForm&gt;</code>, and
+                        <code class="keyword markupname xmlelement">&lt;glossStatus&gt;</code> elements are removed from the
+                    glossentry specialization module.</li>
+                <li class="li">The <code class="keyword markupname xmlatt">@collection-type</code> attribute is removed from the
+                        <code class="keyword markupname xmlelement">&lt;reltable&gt;</code> and <code class="keyword markupname xmlelement">&lt;relcolspec&gt;</code>
+                    elements.</li>
+                <li class="li">The <code class="keyword markupname xmlatt">@keyref</code> attribute is removed from the
+                        <code class="keyword markupname xmlelement">&lt;navref&gt;</code> element.</li>
+                <li class="li">The <code class="keyword markupname xmlatt">@mapkeyref</code> attribute is removed from all elements.</li>
+                <li class="li">The <code class="keyword markupname xmlatt">@xtrc</code> and <code class="keyword markupname xmlatt">@xtrf</code> attributes are removed from
+                    all elements.</li>
+                <li class="li">In the <code class="keyword markupname xmlatt">@collection-type</code> attribute, the value
+                        <span class="keyword">tree</span> is removed.</li>
+                <li class="li">In the <code class="keyword markupname xmlatt">@role</code> attribute, the values <span class="keyword">sample</span> and
+                        <span class="keyword">external</span> are removed.</li>
+                <li class="li">In the <code class="keyword markupname xmlatt">@type</code> attribute on the <code class="keyword markupname xmlelement">&lt;lq&gt;</code>
+                    element, the values <span class="keyword">internal</span> and <span class="keyword">external</span>
+                    are removed.</li>
+                <li class="li">In the <code class="keyword markupname xmlatt">@type</code> attribute on the <code class="keyword markupname xmlelement">&lt;note&gt;</code>
+                    element, the value <span class="keyword">fastpath</span> is removed.</li>
+                <li class="li">The <code class="keyword markupname xmlatt">@lockmeta</code> attribute is removed from
+                        <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> in maps.</li>
+                <li class="li">The <code class="keyword markupname xmlatt">@query</code> attribute is removed from all elements.</li>
+                <li class="li">The <code class="keyword markupname xmlatt">@specentry</code> attribute is removed from all elements.</li>
+                <li class="li">The <code class="keyword markupname xmlatt">@spectitle</code> attribute is removed from all elements.</li>
+                <li class="li">The <code class="keyword markupname xmlatt">@anchorref</code> attribute is removed from the
+                        <code class="keyword markupname xmlelement">&lt;map&gt;</code> element.</li>
+                <li class="li">The <code class="keyword markupname xmlatt">@refcols</code> attribute is removed from
+                        <code class="keyword markupname xmlelement">&lt;simpletable&gt;</code>.</li>
+                <li class="li">The <code class="keyword markupname xmlatt">@archive</code>, <code class="keyword markupname xmlatt">@archivekeyrefs</code>,
+                        <code class="keyword markupname xmlatt">@classid</code>, <code class="keyword markupname xmlatt">@classidkeyref</code>,
+                        <code class="keyword markupname xmlatt">@codebase</code>, <code class="keyword markupname xmlatt">@codebasekeyref</code>,
+                        <code class="keyword markupname xmlatt">@declare</code>, and <code class="keyword markupname xmlatt">@standby</code> attributes are
+                    removed from the <code class="keyword markupname xmlelement">&lt;object&gt;</code> element.</li>
+            </ul>
+        </section>
+        <section class="section" id="information-about-migrating-to-dita-2-0__section_jfp_1sw_xhc"><h2 class="title sectiontitle">Removed specialization modules</h2>
+            
+            <p class="p">The following specialization modules are no longer maintained as part of the OASIS
+                DITA specification. Although they are no longer defined within the specification,
+                updated versions of these modules can still be used with DITA 2.0.</p>
+            <ul class="ul" id="information-about-migrating-to-dita-2-0__ul_ym4_fsw_xhc">
+                <li class="li">Machinery task domain</li>
+                <li class="li">Classification map domain</li>
+                <li class="li">Delayed conref domain</li>
+                <li class="li">XNAL domain</li>
+            </ul>
+        </section>
+        <section class="section" id="information-about-migrating-to-dita-2-0__section_jtp_tbx_xhc"><h2 class="title sectiontitle">Removed document type configurations</h2>
+            
+            <p class="p">The following configurted shells are no longer maintained as part of the OASIS DITA
+                specification.</p>
+            <ul class="ul" id="information-about-migrating-to-dita-2-0__ul_ktp_tbx_xhc">
+                <li class="li">Machinery task doctype configuration</li>
+                <li class="li">Classification map doctype configuration</li>
+                <li class="li">The "glossary.dtd" is removed in favor of the equivalent "glossentry.dtd"
+                    doctype configuration.</li>
+            </ul>
+        </section>
+        <section class="section" id="information-about-migrating-to-dita-2-0__section_jry_cmk_xhc"><h2 class="title sectiontitle">Other migration concerns</h2>
+            
+            <p class="p">The following markup may require migration, depending on how you make use of your
+                content.</p>
+            <ul class="ul" id="information-about-migrating-to-dita-2-0__ul_swg_2mk_xhc">
+                <li class="li">If you are using <code class="keyword markupname xmlatt">@navtitle</code> or <code class="keyword markupname xmlelement">&lt;navtitle&gt;</code>
+                    in maps as a hint, without using the <code class="keyword markupname xmlatt">@locktitle</code> attribute, you
+                    might need to switch to the new <code class="keyword markupname xmlelement">&lt;titlehint&gt;</code> element.</li>
+                <li class="li">The <code class="keyword markupname xmlelement">&lt;syntaxdiagram&gt;</code> and <code class="keyword markupname xmlelement">&lt;synph&gt;</code>
+                    elements have moved from the programming domain into a new syntax diagram
+                    domain. If you use these elements within your own configured shells, you will
+                    need to update the shells to include the new domain.</li>
+                <li class="li">The <code class="keyword markupname xmlatt">@domains</code> attribute is replaced by
+                        <code class="keyword markupname xmlatt">@specializations</code>. This attribute is typically set to a
+                    default inside of configured doctype shells; migration will typically be
+                    required for shells but not for content.</li>
+            </ul>
+        </section>
     </div>
-<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../non-normative/migrating-to-dita-2.0.html" title="This section contains information about the changes between DITA 1.3 and DITA 2.0. It also contains tips about migrating DITA source and grammar files to DITA 2.0, including information about applications and other resources that DITA architects might find helpful.">Migrating to DITA 2.0</a></div></div></nav><aside class="section-toc" role="aside"></aside></article></main>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../non-normative/migrating-to-dita-2.0.html" title="This section contains information about the changes between DITA 1.3 and DITA 2.0. It also contains tips about migrating DITA source and grammar files to DITA 2.0, including information about applications and other resources that DITA architects might find helpful.">Migrating to DITA 2.0</a></div></div></nav><aside class="section-toc" role="aside"><h2>In this section</h2><ul><li><a href="#information-about-migrating-to-dita-2-0__section_zvz_hlk_xhc">Markup to migrate for DITA 2.0</a></li><li><a href="#information-about-migrating-to-dita-2-0__section_mgq_2lk_xhc">Obsolete markup to remove</a></li><li><a href="#information-about-migrating-to-dita-2-0__section_jfp_1sw_xhc">Removed specialization modules</a></li><li><a href="#information-about-migrating-to-dita-2-0__section_jtp_tbx_xhc">Removed document type configurations</a></li><li><a href="#information-about-migrating-to-dita-2-0__section_jry_cmk_xhc">Other migration concerns</a></li></ul></aside></article></main>
