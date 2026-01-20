@@ -4,7 +4,7 @@ title: 'Flagging based on metadata attributes'
 description: 'When rendering content, a conditional processing profile can be used to specify whether an element''s content is flagged based on its conditional processing attributes.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '041f6874b58d3619065b5f531f065514f55285ab'
+commit: 'dd96ec584d9707dfda8e83f8d292fae9be0c4745'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -19,10 +19,17 @@ classes: ''
    applies to a specific audience or operating system. Flagging can also draw a reader's attention
    to content that has been marked as being revised.</p>
   <p class="p">When deciding whether to flag a particular element, a processor evaluates each value. Wherever
-   an attribute value that has been set as flagged appears (for example,
-    <code class="ph codeph">audience="administrator"</code>), the processor adds the flag. When multiple flags
-   apply to a single element, multiple flags are rendered, typically in the order that they are
-   encountered.</p>
+      an attribute value that has been set as flagged appears (for example,
+        <code class="ph codeph">audience="administrator"</code>), the processor adds the flag. When multiple flags
+      apply to a single element, multiple flags are rendered, typically in the order that they are
+      encountered.</p>
+    
+    <p class="p">Flagging behavior is determined based on the DITAVAL rule that matches a metadata attribute
+      value. Flagging options for the content of an element include setting a text style, color, or
+      background color. It also includes the ability to place an image or text at the start or end
+      of the flagged content. If the <code class="keyword markupname xmlatt">@add-outputclass</code> attribute is present in the
+      matching DITAVAL rule, the flagged element is treated as if the specified value is added to
+      its <code class="keyword markupname xmlatt">@outputclass</code> attribute.</p>
   <p class="p">When the same element evaluates as both flagged and included, the element is both flagged and
    included. When the same element evaluates as both flagged and filtered (for example, flagged
    because of a value for the <code class="keyword markupname xmlatt">@audience</code> attribute and filtered because of a value
