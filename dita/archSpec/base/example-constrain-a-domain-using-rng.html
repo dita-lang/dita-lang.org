@@ -4,7 +4,7 @@ title: 'Example: Constrain a domain module using RNG'
 description: 'In this scenario, a DITA architect wants to use only a subset of the elements defined in the highlighting domain. They want to use b and i but not any other of the elements in the domain. They want to integrate this constraint into the document-type shell for task.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '041f6874b58d3619065b5f531f065514f55285ab'
+commit: '2befc4d52b7fe442b75d8408957c84d9d7f3af04'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -39,7 +39,7 @@ classes: ''
           "MODULE INCLUSIONS" division to exclude the elements that <span class="ph">they do</span> not want the implementation to use:</p>
         <pre class="pre codeblock"><code>&lt;div&gt;
   &lt;a:documentation&gt;MODULE INCLUSIONS&lt;/a:documentation&gt;
-  ...
+  &lt;!-- ... --&gt;
   &lt;include href="highlightDomain.rng"&gt;
     &lt;define name="line-through.element"&gt;
       &lt;notAllowed/&gt;
@@ -60,7 +60,7 @@ classes: ''
       &lt;notAllowed/&gt;
     &lt;/define&gt;
   &lt;/include&gt;
-  ..  
+  &lt;!-- ... --&gt;
 &lt;/div&gt;</code></pre>
         <div class="note note note_note non-normative"><span class="note__title">Note<span class="non-normative-label"> (non-normative)</span>:</span> <div class="note__body">The <span class="ph">DITA</span> architect made a choice as to
           where in the document-type shell <span class="ph">they</span> would

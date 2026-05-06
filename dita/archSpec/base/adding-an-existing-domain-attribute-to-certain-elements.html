@@ -4,7 +4,7 @@ title: 'Example: Adding an existing domain attribute to certain elements using D
 description: 'In this scenario, a company wants to use the otherprops attribute specialization. However, they want to make the attribute available only on certain elements: p, div, and section.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '041f6874b58d3619065b5f531f065514f55285ab'
+commit: '2befc4d52b7fe442b75d8408957c84d9d7f3af04'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -39,13 +39,12 @@ classes: ''
       </li>
       <li class="li">They then update the <span class="ph filepath">catalog.xml</span> file to
         include the expansion module.</li>
-      <li class="li">They integrate the extension module into the applicable
-        document-type shell, <strong class="ph b">after</strong> the declaration for the
-          <code class="keyword markupname xmlatt">@otherprops</code> attribute-specialization
+      <li class="li">They integrate the extension module into the applicable document-type shell, <strong class="ph b">after</strong>
+        the declaration for the <code class="keyword markupname xmlatt">@otherprops</code> attribute-specialization
         module:<pre class="pre codeblock"><code>&lt;!-- ============================================================= --&gt;
 &lt;!--             DOMAIN ATTRIBUTES DECLARATIONS                    --&gt;
 &lt;!-- ============================================================= --&gt;
-...
+&lt;!-- ... --&gt;
 
 &lt;!ENTITY % otherpropsAtt-d-dec
   PUBLIC "-//OASIS//ENTITIES DITA 2.0 Otherprops Attribute Domain//EN"
@@ -57,7 +56,8 @@ classes: ''
          "acme-otherpropsAttExpansion.mod"
   &gt;%otherprops-expansion-e-def;</strong>
 
-...</code></pre></li>
+&lt;!-- ... --&gt;
+</code></pre></li>
       <li class="li">
         <p class="p">They remove the reference to the <code class="keyword markupname xmlatt">@otherprops</code>
           attribute from the <code class="ph codeph">props-attribute-extension</code>

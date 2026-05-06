@@ -4,7 +4,7 @@ title: 'Example: Using chunk to split documents'
 description: 'When topics are authored or generated in a single DITA document, specifying chunk="split" instructs processors to render them individually when possible.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: 'd31d6f11b17e5c76ece1d525a653d488a52baf0f'
+commit: '2befc4d52b7fe442b75d8408957c84d9d7f3af04'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -20,17 +20,15 @@ classes: ''
     individually when possible.</p>
     <p style="color:red;" class="p">This topic contains two examples: Splitting a single
       topic document and splitting all topic documents.</p>
-<div class="example non-normative" id="chunksplitexample__d142467e77"><h2 class="title sectiontitle">Splitting a single <span style="color:red;" class="ph">topic</span>
+<div class="example non-normative" id="chunksplitexample__d142465e77"><h2 class="title sectiontitle">Splitting a single <span style="color:red;" class="ph">topic</span>
         document</h2><p class="non-normative-label">This section is non-normative.</p>
       
       <p style="color:red;" class="p">This example covers the scenario of splitting a
         single topic document that is referenced in a DITA map.</p>
-      <figure class="fig fignone" id="chunksplitexample__fig_gqp_nqd_1gb"><figcaption><span class="fig--title-label">Example 1. </span>Root map and the topic documents that it
-          references</figcaption>
+      <figure class="fig fignone" id="chunksplitexample__fig_gqp_nqd_1gb"><figcaption><span class="fig--title-label">Example 1. </span>Root map and the topic documents that it references</figcaption>
         
-        <p class="p">Consider the following DITA map, <span style="color:red;" class="ph">which
-            references </span> generated topics that document the messages
-            <span style="color:red;" class="ph">that are</span> produced by an
+        <p class="p">Consider the following DITA map, <span style="color:red;" class="ph">which references </span> generated
+          topics that document the messages <span style="color:red;" class="ph">that are</span> produced by an
           application:</p>
         <pre class="pre codeblock"><code>&lt;map&gt;
   &lt;title&gt;Message guide&lt;/title&gt;
@@ -40,15 +38,14 @@ classes: ''
     &lt;topicref href="messages-other.dita"/&gt;
   &lt;/topicref&gt;
 &lt;/map&gt;</code></pre>
-        <p style="color:red;" class="p">The following code samples show the contents of
-          the four topic documents: <span class="ph filepath">about.dita</span>,
-            <span class="ph filepath">messages-install.dita</span>,
+        <p style="color:red;" class="p">The following code samples show the contents of the four topic documents:
+            <span class="ph filepath">about.dita</span>, <span class="ph filepath">messages-install.dita</span>,
             <span class="ph filepath">messages-run.dita</span>, and
-            <span class="ph filepath">messages-other.dita</span>.</p>
+          <span class="ph filepath">messages-other.dita</span>.</p>
         <pre class="pre codeblock"><code><strong class="ph b">&lt;!-- about.dita --&gt;</strong>
 &lt;topic id="about"&gt;
   &lt;title&gt;About this guide&lt;/title&gt;
-  &lt;shortdesc&gt;Warnings or errors are displayed when ... &lt;shortdesc&gt;
+  &lt;shortdesc&gt;Warnings or errors are displayed when ... &lt;/shortdesc&gt;
 &lt;/topic&gt;</code></pre>
         <pre class="pre codeblock"><code><strong class="ph b">&lt;!-- messages-install.dita --&gt;</strong>
 &lt;dita&gt;
@@ -58,7 +55,7 @@ classes: ''
   &lt;/topic&gt;
   &lt;!-- More topics that document installation messages ... --&gt;
 &lt;/dita&gt;</code></pre>
-        <pre class="pre codeblock"><code><strong class="ph b">&lt;! messages-run.dita --&gt;</strong>
+        <pre class="pre codeblock"><code><strong class="ph b">&lt;!-- messages-run.dita --&gt;</strong>
 &lt;dita&gt;
   &lt;topic id="RUN001"&gt;
     &lt;title&gt;RUN001: Failed to initialize&lt;/title&gt;
@@ -83,11 +80,10 @@ classes: ''
     &lt;!-- Explanation and recovery steps ... --&gt;
   &lt;/topic&gt;
 &lt;/topic&gt;</code></pre>
-        <p class="p"><span style="color:red;" class="ph">When processed</span> to HTML5, this map might
-          result in four result documents: <span class="ph filepath">about.html</span>,
-            <span class="ph filepath">messages-install.html</span>,
+        <p class="p"><span style="color:red;" class="ph">When processed</span> to HTML5, this map might result in four result
+          documents: <span class="ph filepath">about.html</span>, <span class="ph filepath">messages-install.html</span>,
             <span class="ph filepath">messages-run.html</span>, and
-            <span class="ph filepath">messages-other.html</span>.</p>
+          <span class="ph filepath">messages-other.html</span>.</p>
       </figure>
       <figure class="fig fignone" id="chunksplitexample__fig_ltd_yrd_1gb"><figcaption><span class="fig--title-label">Example 2. </span>Splitting topics in one topic
           document</figcaption>
@@ -131,7 +127,7 @@ classes: ''
           <span style="color:red;" class="ph">operation</span> in this example.</div></div>
       </figure>
     </div>
-<div class="example non-normative" id="chunksplitexample__d142467e276"><h2 class="title sectiontitle">Splitting all topic documents in a map</h2><p class="non-normative-label">This section is non-normative.</p>
+<div class="example non-normative" id="chunksplitexample__d142465e276"><h2 class="title sectiontitle">Splitting all topic documents in a map</h2><p class="non-normative-label">This section is non-normative.</p>
 
       <p style="color:red;" class="p">This example covers the scenario of splitting all
         the topic documents that are referenced in a DITA map.</p>
@@ -190,5 +186,5 @@ results in three documents. The hierarchy of those documents is preserved in the
 </figure>
 </div>
 </div>
-<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/examples-of-chunking.html" title="These examples illustrate the processing expectations for various scenarios that involve the chunk attribute. The processing examples use either before and after sample markup or expanded syntax that shows the equivalent markup without the chunk attribute.">Examples of the chunk attribute</a></div></div></nav><aside class="section-toc" role="aside"><h2>In this section</h2><ul><li><a href="#chunksplitexample__d142467e77">Splitting a single topic
-        document</a></li><li><a href="#chunksplitexample__d142467e276">Splitting all topic documents in a map</a></li></ul></aside></article></main>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/examples-of-chunking.html" title="These examples illustrate the processing expectations for various scenarios that involve the chunk attribute. The processing examples use either before and after sample markup or expanded syntax that shows the equivalent markup without the chunk attribute.">Examples of the chunk attribute</a></div></div></nav><aside class="section-toc" role="aside"><h2>In this section</h2><ul><li><a href="#chunksplitexample__d142465e77">Splitting a single topic
+        document</a></li><li><a href="#chunksplitexample__d142465e276">Splitting all topic documents in a map</a></li></ul></aside></article></main>
