@@ -1,0 +1,57 @@
+---
+layout: base.njk
+title: 'How topicref elements establish hierarchies in a map'
+description: 'In a DITA map, topicref elements establish hierarchical relationships among referenced topics and can define ordered sequences that processors can use to derive navigation.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: 'daac5028dfc081cc8ca0a4a3861d2c4ea631604d'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="toc" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction</a></li><li><a href="../../archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="../../archSpec/base/accessibility-and-translation.html">Accessibility and translation</a></li><li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a><ul class="nav nav-list"><li><a href="../../archSpec/base/dita-maps-and-their-usage.html">DITA maps and their usage</a><ul class="nav nav-list"><li class="active"><a href="../../archSpec/base/topicref-creating-hierarchies.html">How topicref elements establish hierarchies in a map</a></li><li><a href="../../archSpec/base/establishing-links-with-reltable.html">How relationship tables establish linking relationships</a></li><li><a href="../../archSpec/base/controlling-linking-with-attributes.html">Controlling link relationships with collection-type and linking</a></li><li><a href="../../archSpec/base/title-usage-within-maps.html">Using titles in maps and submaps</a></li><li><a href="../../archSpec/base/impose-topicref-role.html">Imposing roles when referencing a map</a></li><li><a href="../../archSpec/base/map-convenience-elements.html">Specialized convenience elements in the map group domain</a></li><li><a href="../../archSpec/base/example-ditamaps.html">Examples of DITA maps</a></li></ul></li><li><a href="../../archSpec/base/subject-scheme-maps-and-usage.html">Subject scheme maps and their usage</a></li><li><a href="../../archSpec/base/map-cascading.html">Metadata cascading</a></li><li><a href="../../archSpec/base/chunking.html">Chunking</a></li></ul></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a></li><li><a href="../../langRef/langRef-base.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../non-normative/developing-constraint-and-expansion-modules.html">Constraint modules</a></li><li><a href="../../non-normative/expansion-modules.html">Expansion modules</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../non-normative/formatting-expectations.html">Formatting expectations</a></li><li><a href="../../non-normative/migrating-to-dita-2.0.html">Migrating to DITA 2.0</a></li><li><a href="../../non-normative/basedoctypes.html">OASIS grammar files</a></li><li><a href="../../non-normative/interoperability-considerations.html">Processing interoperability considerations</a></li><li><a href="../../non-normative/revision-history.html">Revision history</a></li></ul></nav><main role="main" class=""><article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">How <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements establish hierarchies in a map</h1>
+    
+    <div class="body conbody"><p class="shortdesc"> In a DITA map, <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements establish hierarchical
+        relationships among referenced topics and can define ordered sequences that processors can
+        use to derive navigation. </p>
+        <p class="p"> Map authors can use <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements to define the structural
+            organization of a publication. The nesting and order of
+                <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements provide the primary basis for
+            parent/child context and for sequential navigation in rendered output.  Processors can
+            use this organization to infer several relationships, while authors can use attributes
+            such as <code class="keyword markupname xmlatt">@collection-type</code> to make some of those relationships
+            explicit.</p>
+        <dl class="dl">
+            
+                <dt class="dt dlterm">Parent/child relationships</dt>
+                <dd class="dd">
+                    <p class="p"> A <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element that contains other
+                            <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements establishes a hierarchical
+                        relationship in which the containing <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> is
+                        the parent and each nested <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> is a child. </p>
+                    <p class="p"> Processors use this hierarchy to determine structural context, for example,
+                        when generating navigation trees and breadcrumb paths. This allows for
+                        automated hierarchical relationships and linking based on map structure,
+                        rather than relying on links authored in the topic content.</p>
+                </dd>
+            
+            
+                <dt class="dt dlterm">Next/previous relationships</dt>
+                <dd class="dd">
+                    <p class="p"> Within a given branch of the map hierarchy, sibling
+                            <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements are ordered by document
+                        order. While these relationships are considered undered by default,
+                        processors can use this order in some contexts to determine effective
+                        next/previous relationships. Authors can also use
+                            <code class="keyword markupname xmlatt">@collection-type</code> to make the next/previous ordering
+                        explicit.</p>
+                </dd>
+            
+        </dl>
+        <p class="p"> Hierarchy and sequence are complementary. Nesting establishes containment and context,
+            while ordering establishes progression. </p>
+        <p class="p"> When processors derive navigation from a map, they use both the hierarchical position
+            and the relative order of <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements. </p>
+    </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/dita-maps-and-their-usage.html" title="DITA maps serve a variety of roles, both setting up navigation hierarchies and creating relationships between topics and resoruces. These relationships can be both explicit based on relationship tables and attributes within the map, and implicit based on how topic references are nested within the map.">DITA maps and their usage</a></div></div><div class="linklist relconcepts"><strong>Related concepts</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="../../archSpec/base/table-of-contents.html" title="Processors can generate a table of contents (TOC) based on the hierarchy of the elements in a DITA map. By default, each topicref element in a map represents a node in the TOC. These topic references define a navigation tree.">Table of contents</a></li></ul></div></nav><aside class="section-toc" role="aside"></aside></article></main>

@@ -1,0 +1,54 @@
+---
+layout: base.njk
+title: 'Using titles in maps and submaps'
+description: 'Titles in DITA maps can serve different roles depending on where they are located. The titlealt element and the alternative-title domain also provide the ability to include a variety of different titles for additional purposes. This topic serves as a guide for how implementations generally treat titles when publishing DITA content.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: 'daac5028dfc081cc8ca0a4a3861d2c4ea631604d'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="toc" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction</a></li><li><a href="../../archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="../../archSpec/base/accessibility-and-translation.html">Accessibility and translation</a></li><li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a><ul class="nav nav-list"><li><a href="../../archSpec/base/dita-maps-and-their-usage.html">DITA maps and their usage</a><ul class="nav nav-list"><li><a href="../../archSpec/base/topicref-creating-hierarchies.html">How topicref elements establish hierarchies in a map</a></li><li><a href="../../archSpec/base/establishing-links-with-reltable.html">How relationship tables establish linking relationships</a></li><li><a href="../../archSpec/base/controlling-linking-with-attributes.html">Controlling link relationships with collection-type and linking</a></li><li class="active"><a href="../../archSpec/base/title-usage-within-maps.html">Using titles in maps and submaps</a></li><li><a href="../../archSpec/base/impose-topicref-role.html">Imposing roles when referencing a map</a></li><li><a href="../../archSpec/base/map-convenience-elements.html">Specialized convenience elements in the map group domain</a></li><li><a href="../../archSpec/base/example-ditamaps.html">Examples of DITA maps</a></li></ul></li><li><a href="../../archSpec/base/subject-scheme-maps-and-usage.html">Subject scheme maps and their usage</a></li><li><a href="../../archSpec/base/map-cascading.html">Metadata cascading</a></li><li><a href="../../archSpec/base/chunking.html">Chunking</a></li></ul></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a></li><li><a href="../../langRef/langRef-base.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../non-normative/developing-constraint-and-expansion-modules.html">Constraint modules</a></li><li><a href="../../non-normative/expansion-modules.html">Expansion modules</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../non-normative/formatting-expectations.html">Formatting expectations</a></li><li><a href="../../non-normative/migrating-to-dita-2.0.html">Migrating to DITA 2.0</a></li><li><a href="../../non-normative/basedoctypes.html">OASIS grammar files</a></li><li><a href="../../non-normative/interoperability-considerations.html">Processing interoperability considerations</a></li><li><a href="../../non-normative/revision-history.html">Revision history</a></li></ul></nav><main role="main" class=""><article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Using titles in maps and submaps</h1>
+    
+    <div class="body conbody"><p class="shortdesc"> Titles in DITA maps can serve different roles depending on where they are located.
+        The <code class="keyword markupname xmlelement">&lt;titlealt&gt;</code> element and the alternative-title domain also provide
+        the ability to include a variety of different titles for additional purposes. This topic
+        serves as a guide for how implementations generally treat titles when publishing DITA
+        content.</p>
+        <p class="p">Map authors use titles to label maps and map structures. Some of these titles are
+            expected to appear in any published version of the map, while others might serve as
+            metadata or might be ignored entirely by a processor. In most cases, a processor can
+            choose what titles to display and which to treat as metadata. While this topic is
+            intended to lay out some common expectations, the specification does lay out some </p>
+        <dl class="dl">
+            
+                <dt class="dt dlterm"><code class="keyword markupname xmlelement">&lt;title&gt;</code> in the root map</dt>
+                <dd class="dd">The title of the root map generally represents the title of the
+                    publication.</dd>
+            
+            
+                <dt class="dt dlterm"><code class="keyword markupname xmlelement">&lt;title&gt;</code> in a nested map</dt>
+                <dd class="dd">In most cases, processors will assemble a navigation tree for a document made up
+                    of the root map and all submaps. There is no default expectation that the title
+                    of a submap becomes part of the navigation hierarchy. However, a processor can
+                    make use of the title of a nested map if that is useful for a given publication
+                    format.</dd>
+            
+            
+                <dt class="dt dlterm"><code class="keyword markupname xmlelement">&lt;titlealt&gt;</code> within the <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code>
+                    element</dt>
+                <dd class="dd">The behavior of alternative titles, whether in the
+                        <code class="keyword markupname xmlelement">&lt;topicmeta&gt;</code> for a <code class="keyword markupname xmlelement">&lt;map&gt;</code>
+                    element or for a <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element, are governed by the
+                    rules laid out in <a class="xref" href="../../langRef/base/titlealt.html" title="An alternative title is used to convey information about a document in contexts other than straightforward display.">titlealt</a>.</dd>
+            
+            
+                <dt class="dt dlterm"><code class="keyword markupname xmlelement">&lt;title&gt;</code> within <code class="keyword markupname xmlelement">&lt;reltable&gt;</code></dt>
+                <dd class="dd">See <a class="xref" href="../../langRef/base/reltable.html" title="A relationship table is a mechanism that creates relationships among topics, based on the familiar table model of rows, columns, and cells.">reltable</a> for information about titles inside of
+                    relationship tables.</dd>
+            
+        </dl>
+    </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/dita-maps-and-their-usage.html" title="DITA maps serve a variety of roles, both setting up navigation hierarchies and creating relationships between topics and resoruces. These relationships can be both explicit based on relationship tables and attributes within the map, and implicit based on how topic references are nested within the map.">DITA maps and their usage</a></div></div><div class="linklist relconcepts"><strong>Related concepts</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="../../archSpec/base/alternative-titles.html" title="This topic contains examples of alternative titles moved from the titlealt topic. It needs editing and to be restructured.">Alternative titles</a></li></ul></div></nav><aside class="section-toc" role="aside"></aside></article></main>

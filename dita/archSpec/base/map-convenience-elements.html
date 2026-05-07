@@ -1,0 +1,45 @@
+---
+layout: base.njk
+title: 'Specialized convenience elements in the map group domain'
+description: 'DITA specialization can be used to create convenience elements that simplify authoring while preserving the processing behavior of existing base elements. Most of the elements in the map group domain are created for this purpose.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: 'daac5028dfc081cc8ca0a4a3861d2c4ea631604d'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="toc" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction</a></li><li><a href="../../archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="../../archSpec/base/accessibility-and-translation.html">Accessibility and translation</a></li><li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a><ul class="nav nav-list"><li><a href="../../archSpec/base/dita-maps-and-their-usage.html">DITA maps and their usage</a><ul class="nav nav-list"><li><a href="../../archSpec/base/topicref-creating-hierarchies.html">How topicref elements establish hierarchies in a map</a></li><li><a href="../../archSpec/base/establishing-links-with-reltable.html">How relationship tables establish linking relationships</a></li><li><a href="../../archSpec/base/controlling-linking-with-attributes.html">Controlling link relationships with collection-type and linking</a></li><li><a href="../../archSpec/base/title-usage-within-maps.html">Using titles in maps and submaps</a></li><li><a href="../../archSpec/base/impose-topicref-role.html">Imposing roles when referencing a map</a></li><li class="active"><a href="../../archSpec/base/map-convenience-elements.html">Specialized convenience elements in the map group domain</a></li><li><a href="../../archSpec/base/example-ditamaps.html">Examples of DITA maps</a></li></ul></li><li><a href="../../archSpec/base/subject-scheme-maps-and-usage.html">Subject scheme maps and their usage</a></li><li><a href="../../archSpec/base/map-cascading.html">Metadata cascading</a></li><li><a href="../../archSpec/base/chunking.html">Chunking</a></li></ul></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a></li><li><a href="../../langRef/langRef-base.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../non-normative/developing-constraint-and-expansion-modules.html">Constraint modules</a></li><li><a href="../../non-normative/expansion-modules.html">Expansion modules</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../non-normative/formatting-expectations.html">Formatting expectations</a></li><li><a href="../../non-normative/migrating-to-dita-2.0.html">Migrating to DITA 2.0</a></li><li><a href="../../non-normative/basedoctypes.html">OASIS grammar files</a></li><li><a href="../../non-normative/interoperability-considerations.html">Processing interoperability considerations</a></li><li><a href="../../non-normative/revision-history.html">Revision history</a></li></ul></nav><main role="main" class=""><article role="article" aria-labelledby="ariaid-title1">
+    <h1 class="title topictitle1" id="ariaid-title1">Specialized convenience elements in the map group domain</h1>
+    
+    <div class="body conbody"><p class="shortdesc"> DITA specialization can be used to create convenience elements that simplify
+        authoring while preserving the processing behavior of existing base elements. Most of the
+        elements in the map group domain are created for this purpose.</p>
+        <p class="p">A convenience element is a specialization that adds clearer intent, default behavior, or
+            simpler markup for common authoring patterns. Because the element is specialized from an
+            existing base type, processors can continue to use the architectural semantics of the
+            base element. </p>
+        <p class="p">Convenience specializations in maps can reduce repetitive attribute authoring, make map
+            structures easier to read, and improve consistency across large information sets. They
+            also enable information architects to express intent directly in markup, rather than
+            relying on implicit conventions. </p>
+        <p class="p"> The map group domain illustrates this pattern. Every element in this domain is a
+            specialization of  <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> created to support common authoring
+            pattern. <span class="error-statement" id="specialization-for-convenience-elements__d3451t20" data-id="DITAERR-0020"></span>The same functions can be accomplished with <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>,
+            but the elements are designed to make authoring easier and less error-prone.</p>
+        <p class="p">For example, the <code class="keyword markupname xmlelement">&lt;topichead&gt;</code> and
+                <code class="keyword markupname xmlelement">&lt;topicgroup&gt;</code> elements each provide a way to group other
+            topics without directly referencing another resource. Each of these elements removes
+                <code class="keyword markupname xmlatt">@href</code> and <code class="keyword markupname xmlatt">@keyref</code> while keeping most other
+            attributes from the base <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element. By also placing
+            restrictions on the use of titles, the <code class="keyword markupname xmlelement">&lt;topicgroup&gt;</code> element also
+            provides a clearer way to group topic references without impacting the navigation
+            hierarchy of the map.</p>
+        <p class="p">Similarly, any key definition created with
+                <code class="keyword markupname xmlelement">&lt;keydef&gt;</code> can also be created with
+                <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>, but the <code class="keyword markupname xmlelement">&lt;keydef&gt;</code> element
+            improves the authoring experience by requiring <code class="keyword markupname xmlatt">@keys</code> and setting a
+            default value for <code class="keyword markupname xmlatt">@processing-role</code> to treat the referenced resource as
+                <span class="keyword">resource-only</span>.</p>
+    </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/dita-maps-and-their-usage.html" title="DITA maps serve a variety of roles, both setting up navigation hierarchies and creating relationships between topics and resoruces. These relationships can be both explicit based on relationship tables and attributes within the map, and implicit based on how topic references are nested within the map.">DITA maps and their usage</a></div></div></nav><aside class="section-toc" role="aside"></aside></article></main>
