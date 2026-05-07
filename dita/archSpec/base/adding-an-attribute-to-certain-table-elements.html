@@ -4,7 +4,7 @@ title: 'Example: Adding an attribute to certain table elements using DTDs'
 description: 'In this scenario, a company makes extensive use of complex tables to present product listings. They occasionally highlight individual cells, rows, or columns for various purposes. The DITA architect wants to implement a semantically meaningful way to identify the purpose of various table elements.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '041f6874b58d3619065b5f531f065514f55285ab'
+commit: '5e1e9565b6f38946fe590000e4baf5aa44e28fdb'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -19,9 +19,8 @@ classes: ''
     individual cells, rows, or columns for various purposes. The DITA
     architect wants to implement a semantically meaningful way to identify
     the purpose of various table elements.</p>
-    <p class="p">The DITA architect decides to create a new attribute
-        (<code class="keyword markupname xmlatt">@cell-purpose</code>) and add it to the attribute lists
-      of the following elements:</p>
+    <p class="p">The DITA architect decides to create a new attribute (<code class="keyword markupname xmlatt">@cellPurpose</code>) and add
+      it to the attribute lists of the following elements:</p>
     <ul class="ul">
       <li class="li"><code class="keyword markupname xmlelement">&lt;colspec&gt;</code></li>
       <li class="li"><code class="keyword markupname xmlelement">&lt;entry&gt;</code></li>
@@ -38,24 +37,23 @@ classes: ''
       decide the elements to which to apply the attribute.</p>
     <ol class="ol">
       <li class="li">First,
-        the DITA architect creates the expansion module for the
-          <code class="keyword markupname xmlatt">@cell-purpose</code> attribute:
+        the DITA architect creates the expansion module for the <code class="keyword markupname xmlatt">@cellPurpose</code>
+        attribute:
           <span class="ph filepath">acme-cellPurposeAttExpansion.ent</span>.<pre class="pre codeblock"><code>&lt;!-- Define the attribute --&gt;
 &lt;!ENTITY % cellPurposeAtt-d-attribute-expansion
-  "cell-purpose  (sale | out-of-stock | new | last-chance | inherit | none)  #IMPLIED"
+  "cellPurpose  (sale | out-of-stock | new | last-chance | inherit | none)  #IMPLIED"
 &gt;
 
 &lt;!-- Declare the entity to be used in the @specializations attribute --&gt;
-&lt;!ENTITY cellPurposeAtt-d-att "@base/cell-purpose" &gt;
+&lt;!ENTITY cellPurposeAtt-d-att "@base/cellPurpose" &gt;
 
 &lt;!-- Add the attribute to the elements. --&gt;
 &lt;!ATTLIST entry %cellPurposeAtt-d-attribute-expansion;&gt;
 &lt;!ATTLIST row %cellPurposeAtt-d-attribute-expansion;&gt;
 &lt;!ATTLIST colspec %cellPurposeAtt-d-attribute-expansion;&gt;
 &lt;!ATTLIST strow %cellPurposeAtt-d-attribute-expansion;&gt;
-&lt;!ATTLIST stentry %cellPurposeAtt-d-attribute-expansion;&gt;</code></pre><div class="note note note_note non-normative"><span class="note__title">Note<span class="non-normative-label"> (non-normative)</span>:</span> <div class="note__body">The attribute definition entity is optional. It is used
-          here to enable the DITA architect to add the same attribute with
-          the same tokens to several elements.</div></div></li>
+&lt;!ATTLIST stentry %cellPurposeAtt-d-attribute-expansion;&gt;</code></pre><div class="note note note_note non-normative"><span class="note__title">Note<span class="non-normative-label"> (non-normative)</span>:</span> <div class="note__body">The attribute definition entity is optional. It is used here to enable the DITA architect
+          to add the same attribute with the same tokens to several elements.</div></div></li>
       <li class="li"><span class="ph">They then update</span> the
           <span class="ph filepath">catalog.xml</span> file to include the expansion
         module.</li>
