@@ -4,7 +4,7 @@ title: 'Information about migrating to DITA 2.0'
 description: 'This topic includes information on required steps to migrate content from DITA 1.x to DITA 2.0.'
 index: '../toc.html'
 notices: '../resources/oasis-notices.html'
-commit: '5aed0cf71361c70c2ef0a410ff3210ebabd69e77'
+commit: '3265f7052018a2e2c690887a7c5b672c439baefb'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -196,6 +196,12 @@ classes: ''
                         <code class="keyword markupname xmlatt">@specializations</code>. This attribute is typically set to a
                     default inside of configured doctype shells; migration will typically be
                     required for shells but not for content.</li>
+                <li class="li">The <code class="keyword markupname xmlelement">&lt;dita&gt;</code> element is defined in the base specification,
+                    but was not defined as part of the base DTD or RelaxNG files in DITA 1.x. The
+                    element is now defined as a single-element module in the base specification, and
+                    that module is imported into the composite document type within the technical
+                    content grammar files. Custom shells that use the <code class="keyword markupname xmlelement">&lt;dita&gt;</code>
+                    element can now import that module directly from the base vocabulary.</li>
             </ul>
         </section>
     </div>
