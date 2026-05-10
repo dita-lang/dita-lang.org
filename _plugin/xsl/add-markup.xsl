@@ -4,7 +4,7 @@
                 xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot"
                 xmlns:related-links="http://dita-ot.sourceforge.net/ns/200709/related-links"
                 xmlns:x="x"
-                version="2.0"
+                version="3.0"
                 exclude-result-prefixes="xs dita-ot related-links x">
 
   <xsl:template match="@* | node()">
@@ -14,8 +14,31 @@
   </xsl:template>
 
   <xsl:template match="/">
+    <xsl:variable name="generate-ids" as="node()*">
+      <xsl:variable name="ids" as="document-node()">
+        <xsl:document>
+          <xsl:for-each select="//*[contains(@class, ' topic/section ') or contains(@class, ' topic/example ')][empty(@id)]">
+            <xsl:variable name="title" select="lower-case(translate(normalize-space(*[contains(@class, ' topic/title ')][1]), ' ', '-'))"/>
+            <elem generate-id="{generate-id()}" title="{if ($title) then $title else name()}"/>
+          </xsl:for-each>
+        </xsl:document>
+      </xsl:variable>
+      <xsl:variable name="unique-ids" as="element()*">
+        <xsl:for-each-group  select="$ids/elem" group-by="@title">
+          <xsl:for-each select="current-group()">
+            <xsl:copy>
+              <xsl:copy-of select="@generate-id"/>
+              <xsl:attribute name="title" select="if (position() eq 1) then @title else concat(@title, '_', position() - 1)"/>
+            </xsl:copy>
+          </xsl:for-each>
+        </xsl:for-each-group>
+      </xsl:variable>
+      <xsl:apply-templates mode="generate-ids">
+        <xsl:with-param name="ids" select="$unique-ids" tunnel="yes"/>
+      </xsl:apply-templates>
+    </xsl:variable>
     <xsl:variable name="non-normative" as="node()*">
-      <xsl:apply-templates select="node()" mode="non-normative"/>
+      <xsl:apply-templates select="$generate-ids" mode="non-normative"/>
     </xsl:variable>
     <xsl:variable name="with-starts" as="node()*">
       <xsl:apply-templates select="$non-normative" mode="add-markup"/>
@@ -23,13 +46,22 @@
     <xsl:apply-templates select="$with-starts" mode="mark-error"/>
   </xsl:template>
 
-  <!-- Add non-normative -->
+  <!-- Generate ids -->
 
-  <xsl:template match="@* | node()" mode="non-normative">
+  <xsl:mode name="generate-ids" on-no-match="shallow-copy"/>
+
+  <xsl:template match="*[contains(@class, ' topic/section ') or contains(@class, ' topic/example ')][empty(@id)]" mode="generate-ids">
+    <xsl:param name="ids" tunnel="yes" as="element()*"/>
+    <xsl:variable name="id" select="$ids[@generate-id = generate-id(current())]"/>
     <xsl:copy>
-      <xsl:apply-templates select="@* | node()" mode="#current"/>
+      <xsl:attribute name="id" select="$id/@title"/>
+      <xsl:apply-templates select="node() | @*" mode="#current"/>
     </xsl:copy>
   </xsl:template>
+
+  <!-- Add non-normative -->
+
+  <xsl:mode name="non-normative" on-no-match="shallow-copy" />
 
   <xsl:template match="*[contains(@class, ' topic/note ') or
                          contains(@class, ' topic/example ')] |
@@ -47,11 +79,7 @@
 
   <!-- Add sentence start -->
 
-  <xsl:template match="@* | node()" mode="add-markup">
-    <xsl:copy>
-      <xsl:apply-templates select="@* | node()" mode="#current"/>
-    </xsl:copy>
-  </xsl:template>
+  <xsl:mode name="add-markup" on-no-match="shallow-copy" />
 
   <xsl:template match="*[tokenize(@outputclass, '\s+') = 'non-normative']" mode="add-markup" priority="100">
     <xsl:copy-of select="."/>
@@ -87,11 +115,7 @@
 
   <!-- Mark error statement sentences -->
 
-  <xsl:template match="@* | node()" mode="mark-error">
-    <xsl:copy>
-      <xsl:apply-templates select="@* | node()" mode="#current"/>
-    </xsl:copy>
-  </xsl:template>
+  <xsl:mode name="mark-error" on-no-match="shallow-copy" />
 
   <xsl:template match="processing-instruction('sentence')" mode="mark-error">
     <xsl:variable name="next" select="(following::processing-instruction('sentence'))[1]"/>
