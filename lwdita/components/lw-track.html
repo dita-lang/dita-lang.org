@@ -15,17 +15,17 @@ classes: ''
     <div class="body refbody"><p class="shortdesc">Media track settings
     specify the location of supplemental, text-based data for the
     referenced media, for example, subtitles or descriptions.</p>
-    <section class="section" id="lw-track__d11475e24"><h2 class="title sectiontitle">Syntax</h2>
+    <section class="section" id="lw-track__syntax"><h2 class="title sectiontitle">Syntax</h2>
       
       <p class="p">The syntax for representing this
         component varies depending on the authoring format:</p>
       
       <table class="simpletable frame-all"><colgroup><col style="width:25%"><col style="width:75%"></colgroup><thead><tr class="sthead">
-          <th class="stentry" scope="col" id="lw-track__stentry__1">Authoring format</th>
-          <th class="stentry" scope="col" id="lw-track__stentry__2">Syntax and example</th>
+          <th class="stentry" scope="col" id="lw-track__syntax__stentry__1">Authoring format</th>
+          <th class="stentry" scope="col" id="lw-track__syntax__stentry__2">Syntax and example</th>
         </tr></thead><tbody><tr class="strow">
-          <th class="stentry" scope="row" headers="lw-track__stentry__1">XDITA</th>
-          <td class="stentry" headers="lw-track__stentry__2">
+          <th class="stentry" scope="row" headers="lw-track__syntax__stentry__1">XDITA</th>
+          <td class="stentry" headers="lw-track__syntax__stentry__2">
             <p class="p"><code class="keyword markupname xmlelement">&lt;media-track&gt;</code></p>
             <pre class="pre codeblock"><code>&lt;audio autoplay="false" controls="true" loop="false"
        muted="false"&gt;
@@ -38,8 +38,8 @@ classes: ''
 &lt;/audio&gt;</code></pre>
           </td>
         </tr><tr class="strow">
-          <th class="stentry" scope="row" headers="lw-track__stentry__1">HDITA</th>
-          <td class="stentry" headers="lw-track__stentry__2">
+          <th class="stentry" scope="row" headers="lw-track__syntax__stentry__1">HDITA</th>
+          <td class="stentry" headers="lw-track__syntax__stentry__2">
             <p class="p"><code class="keyword markupname xmlelement">&lt;track&gt;</code></p>
             <pre class="pre codeblock"><code>&lt;audio title="Theme song for the LwDITA podcast" controls&gt;
   &lt;source src="theme-song.mp3"&gt;
@@ -48,26 +48,26 @@ classes: ''
 &lt;/audio&gt;</code></pre>
           </td>
         </tr><tr class="strow">
-          <th class="stentry" scope="row" headers="lw-track__stentry__1">MDITA</th>
-          <td class="stentry" headers="lw-track__stentry__2">There is no specific syntax for description in
+          <th class="stentry" scope="row" headers="lw-track__syntax__stentry__1">MDITA</th>
+          <td class="stentry" headers="lw-track__syntax__stentry__2">There is no specific syntax for description in
             MDITA.</td>
         </tr></tbody></table>
     </section>
 
-      <section class="section" id="lw-track__d11475e103"><h2 class="title sectiontitle">Usage information</h2>
+      <section class="section" id="lw-track__usage-information"><h2 class="title sectiontitle">Usage information</h2>
       
       <p class="p">The media track settings are modeled on the
           <code class="keyword markupname xmlelement">&lt;track&gt;</code> element used in HTML5 media
         elements. They refer to track resources that use <a class="xref" href="https://www.w3.org/TR/webvtt1/" target="_blank" rel="external noopener">Web Video Text Track Format (WebVTT)</a>. </p>
     </section>
 
-      <section class="section" id="lw-track__d11475e123"><h2 class="title sectiontitle">Attributes</h2>
+      <section class="section" id="lw-track__attributes"><h2 class="title sectiontitle">Attributes</h2>
       
       
       <div class="div">
         <p class="p">The available attributes vary based on the
         authoring format:</p>
-        <dl class="dl">
+        <dl class="dl attributes-prose">
           
             <dt class="dt dlterm">XDITA and HDITA</dt>
             <dd class="dd">The following attributes are available on this element: <span class="ph"><a class="xref" href="../commonspec/specification/common/reuse-w-lwdita/../../langRef/attributes/attribute-groups.html#attribute-groups__id-attributes" title="ID and conref attributes include conref and id.">ID
@@ -89,7 +89,7 @@ classes: ''
       </div>
       <p class="p">For XDITA and
         HDITA, the following additional attributes are also available:</p>
-      <dl class="dl">
+      <dl class="dl attributes-prose">
         
           <dt class="dt dlterm" id="lw-track__attr-kind"><code class="keyword markupname xmlatt">@kind</code></dt>
           <dd class="dd">Specifies the usage for the track resource. This attribute is
@@ -145,10 +145,57 @@ classes: ''
           <dd class="dd">Specifies the language of the track resource.</dd>
         
       </dl>
-      <p class="p attr-exception">For this element, the <code class="keyword markupname xmlatt">@href</code> attribute specifies
+      <p class="p attributes-prose attr-exception">For this element, the <code class="keyword markupname xmlatt">@href</code> attribute specifies
         the URI of the track resource.</p>
-    </section>
-        <div class="example non-normative" id="lw-track__d11475e332"><h2 class="title sectiontitle">Examples</h2><p class="non-normative-label">This section is non-normative.</p>
+    <dl class="dl inlined-attributes"><dt class="dt dlterm"><code class="keyword markupname xmlatt">@href</code></dt><dd class="dd">For this element, the <code class="keyword markupname xmlatt">@href</code> attribute specifies
+        the URI of the track resource.</dd><dt class="dt dlterm" id="lw-track__attr-kind"><code class="keyword markupname xmlatt">@kind</code></dt><dd class="dd">Specifies the usage for the track resource. This attribute is
+            modeled on the <code class="keyword markupname xmlatt">@kind</code> attribute on the HTML5
+              <code class="keyword markupname xmlelement">&lt;track&gt;</code> element, as described by the
+              <a class="xref" href="https://html.spec.whatwg.org/dev/media.html#dom-TrackList-getKind-categories" target="_blank" rel="external noopener"><cite class="cite">HTML specification,
+                WHATWG version</cite></a>. The values for this attribute
+            are derived from the HTML5 standard:<dl class="dl">
+              
+                <dt class="dt dlterm">captions</dt>
+                <dd class="dd">Transcription or translation of the dialogue, sound
+                  effects, relevant musical cues, and other relevant audio
+                  information. This is intended for use when the soundtrack
+                  is unavailable, for example, because it is muted or
+                  because the user is hard-of-hearing. This information is
+                  rendered over the video and labeled as appropriate for
+                  hard-of-hearing users.</dd>
+              
+              
+                <dt class="dt dlterm">chapters</dt>
+                <dd class="dd">Chapter titles, which are intended to be used for
+                  navigating the media resource. The chapter titles are
+                  rendered as an interactive list in the interface for the
+                  user agent.</dd>
+              
+              
+                <dt class="dt dlterm">descriptions</dt>
+                <dd class="dd">Textual descriptions of the video component of the
+                  media resource. This is intended for audio synthesis when
+                  the visual component is unavailable, for example, because
+                  the user is interacting with the application without a
+                  screen or because the user is blind. Descriptions are
+                  synthesized as separate audio tracks.</dd>
+              
+              
+                <dt class="dt dlterm">metadata</dt>
+                <dd class="dd">Tracks intended for use from script. This metadata is
+                  not displayed by the user agent.</dd>
+              
+              
+                <dt class="dt dlterm">subtitles</dt>
+                <dd class="dd">Transcription or translation of the dialogue, suitable
+                  for when the sound is available but not understood, for
+                  example, because the user does not understand the
+                  language of the soundtrack. Subtitles are rendered over
+                  the video.</dd>
+              
+              
+            </dl></dd><dt class="dt dlterm" id="lw-track__attr-srclang"><code class="keyword markupname xmlatt">@srclang</code></dt><dd class="dd">Specifies the language of the track resource.</dd></dl></section>
+        <div class="example non-normative" id="lw-track__examples"><h2 class="title sectiontitle">Examples</h2><p class="non-normative-label">This section is non-normative.</p>
           
           <figure class="fig fignone"><figcaption><span class="fig--title-label">Example 1. </span>XDITA example</figcaption>
       
@@ -202,4 +249,4 @@ classes: ''
         </div>
 
   </div>
-<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../components/containers/multimedia-components.html" title="The multimedia components are used to reference audio or video content.">Multimedia components</a></div></div></nav><aside class="section-toc" role="aside"><h2>In this section</h2><ul><li><a href="#lw-track__d11475e24">Syntax</a></li><li><a href="#lw-track__d11475e103">Usage information</a></li><li><a href="#lw-track__d11475e123">Attributes</a></li><li><a href="#lw-track__d11475e332">Examples</a></li></ul></aside></article></main>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../components/containers/multimedia-components.html" title="The multimedia components are used to reference audio or video content.">Multimedia components</a></div></div></nav><aside class="section-toc" role="aside"><h2>In this section</h2><ul><li><a href="#lw-track__syntax">Syntax</a></li><li><a href="#lw-track__usage-information">Usage information</a></li><li><a href="#lw-track__attributes">Attributes</a></li><li><a href="#lw-track__examples">Examples</a></li></ul></aside></article></main>
