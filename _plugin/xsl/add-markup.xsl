@@ -18,7 +18,7 @@
       <xsl:variable name="ids" as="document-node()">
         <xsl:document>
           <xsl:for-each select="//*[contains(@class, ' topic/section ') or contains(@class, ' topic/example ')][empty(@id)]">
-            <xsl:variable name="title" select="lower-case(translate(normalize-space(*[contains(@class, ' topic/title ')][1]), ' ', '-'))"/>
+            <xsl:variable name="title" select="lower-case(translate(normalize-space(replace(*[contains(@class, ' topic/title ')][1], '\W+', ' ')), ' ', '-'))"/>
             <elem generate-id="{generate-id()}" title="{if ($title) then $title else name()}"/>
           </xsl:for-each>
         </xsl:document>
