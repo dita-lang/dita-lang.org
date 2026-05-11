@@ -81,7 +81,7 @@
 
   <xsl:mode name="add-markup" on-no-match="shallow-copy" />
 
-  <xsl:template match="*[contain-token(@outputclass, 'non-normative')]" mode="add-markup" priority="100">
+  <xsl:template match="*[contains-token(@outputclass, 'non-normative')]" mode="add-markup" priority="100">
     <xsl:copy-of select="."/>
   </xsl:template>
 
