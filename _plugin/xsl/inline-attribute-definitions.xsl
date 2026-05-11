@@ -4,7 +4,7 @@
                 xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot"
                 xmlns:related-links="http://dita-ot.sourceforge.net/ns/200709/related-links"
                 xmlns:x="x"
-                version="2.0"
+                version="3.0"
                 exclude-result-prefixes="xs dita-ot related-links x">
 
   <xsl:template match="@* | node()">
@@ -15,18 +15,18 @@
 
   <xsl:variable name="attributes-dl" as="element(dl)*"
                 select="//*[@id = 'attributes']
-                          //*[contains(@class, ' topic/dl ')]
-                             [empty(ancestor::*[contains(@class, ' topic/dl ')])]"/>
+                          //*[contains-token(@class, 'topic/dl')]
+                             [empty(ancestor::*[contains-token(@class, 'topic/dl')])]"/>
 
-  <xsl:template match="*[contains(@class, ' topic/section ')][@id = 'attributes']">
+  <xsl:template match="*[contains-token(@class, 'topic/section')][@id = 'attributes']">
 <!--    <xsl:if test="count(p) gt 1">-->
 <!--      <xsl:message>-->
 <!--        <xsl:processing-instruction name="level" select="'ERROR'"/>-->
 <!--        <xsl:value-of select="base-uri()"/>-->
 <!--      </xsl:message>-->
 <!--    </xsl:if>-->
-    <xsl:variable name="attr-list" select="*[contains(@class, ' topic/p ')][starts-with(normalize-space(.), 'The following attributes are available on this element')]" as="element()?"/>
-    <xsl:variable name="xrefs" select="descendant::*[contains(@class, ' topic/p ')]/descendant::*[contains(@class, ' topic/xref ')]" as="element()*"/>
+    <xsl:variable name="attr-list" select="*[contains-token(@class, 'topic/p')][starts-with(normalize-space(.), 'The following attributes are available on this element')]" as="element()?"/>
+    <xsl:variable name="xrefs" select="descendant::*[contains-token(@class, 'topic/p')]/descendant::*[contains-token(@class, 'topic/xref')]" as="element()*"/>
     <xsl:variable name="inlined" as="element()*">
       <!-- Descriptions -->
       <xsl:sequence select="$attributes-dl"/>
@@ -87,7 +87,7 @@
               </dl>
             </xsl:if>
           </xsl:when>
-          <xsl:when test="exists(descendant::*[contains(@class, ' xml-d/xmlatt ')])">
+          <xsl:when test="exists(descendant::*[contains-token(@class, 'xml-d/xmlatt')])">
             <dl class="- topic/dl ">
               <xsl:apply-templates select="." mode="resolve"/>
             </dl>
@@ -105,11 +105,11 @@
         </xsl:choose>
       </xsl:for-each>
       <!-- Exceptions -->
-      <xsl:for-each select="descendant::*[contains(@class, ' topic/p ')][@outputclass = 'attr-exception']">
+      <xsl:for-each select="descendant::*[contains-token(@class, 'topic/p')][@outputclass = 'attr-exception']">
         <dl class="- topic/dl ">
           <xsl:choose>
-            <xsl:when test="*[contains(@class, ' topic/ul ')]">
-              <xsl:apply-templates select="descendant::*[contains(@class, ' topic/li ')]" mode="exception"/>
+            <xsl:when test="*[contains-token(@class, 'topic/ul')]">
+              <xsl:apply-templates select="descendant::*[contains-token(@class, 'topic/li')]" mode="exception"/>
             </xsl:when>
             <xsl:otherwise>
               <xsl:apply-templates select="." mode="exception"/>
@@ -128,7 +128,7 @@
                         select="$attr-list/text()[contains(normalize-space(), 'which is removed for all elements in this domain')]"/>
           <xsl:if test="exists($exception-text)">
             <xsl:text> (except for </xsl:text>
-            <xsl:sequence select="$exception-text/preceding-sibling::*[contains(@class, ' xml-d/xmlatt ')][1]"/>
+            <xsl:sequence select="$exception-text/preceding-sibling::*[contains-token(@class, 'xml-d/xmlatt')][1]"/>
             <xsl:text> which is removed for all elements in this domain)</xsl:text>
           </xsl:if>
           <xsl:if test="$inlined/*">
@@ -139,8 +139,8 @@
       </xsl:if>
       <dl class="- topic/dl " outputclass="inlined-attributes">
         <xsl:for-each-group select="$inlined/*"
-                            group-by="*[contains(@class, ' topic/dt ')]//*[contains(@class, ' xml-d/xmlatt ')]/string()">
-          <xsl:sort select="lower-case(normalize-space(*[contains(@class, ' topic/dt ')]))"/>
+                            group-by="*[contains-token(@class, 'topic/dt')]//*[contains-token(@class, 'xml-d/xmlatt')]/string()">
+          <xsl:sort select="lower-case(normalize-space(*[contains-token(@class, 'topic/dt')]))"/>
 
 <!--          <xsl:message>-->
 <!--            <xsl:processing-instruction name="level" select="'ERROR'"/>-->
@@ -149,8 +149,8 @@
 
 <!--          &lt;<xsl:value-of select="name()"/>&gt;-->
           <dlentry class="- topic/dlentry ">
-            <xsl:sequence select="current-group()[1]/*[contains(@class, ' topic/dt ')]"/>
-            <xsl:sequence select="current-group()/*[contains(@class, ' topic/dd ')]"/>
+            <xsl:sequence select="current-group()[1]/*[contains-token(@class, 'topic/dt')]"/>
+            <xsl:sequence select="current-group()/*[contains-token(@class, 'topic/dd')]"/>
           </dlentry>
         </xsl:for-each-group>
       </dl>
@@ -160,11 +160,11 @@
   <xsl:template match="*" mode="exception">
     <dlentry class="- topic/dlentry ">
       <dt class="- topic/dt ">
-        <xsl:sequence select="descendant::*[contains(@class, ' xml-d/xmlatt ')][1]"/>
-        <xsl:if test="count(distinct-values(descendant::*[contains(@class, ' xml-d/xmlatt ')])) gt 1">
+        <xsl:sequence select="descendant::*[contains-token(@class, 'xml-d/xmlatt')][1]"/>
+        <xsl:if test="count(distinct-values(descendant::*[contains-token(@class, 'xml-d/xmlatt')])) gt 1">
           <xsl:message>
             <xsl:processing-instruction name="level" select="'ERROR'"/>
-            <xsl:value-of select="base-uri(), 'Multiple xmlatt elements', descendant::*[contains(@class, ' xml-d/xmlatt ')]" separator=": "/>
+            <xsl:value-of select="base-uri(), 'Multiple xmlatt elements', descendant::*[contains-token(@class, 'xml-d/xmlatt')]" separator=": "/>
           </xsl:message>
         </xsl:if>
       </dt>
@@ -181,7 +181,7 @@
   </xsl:function>
 
   <!-- Ignore namespace declaration -->
-  <xsl:template match="*[contains(@class, ' xml-d/xmlatt ') and . = 'xmlns:ditaarch']" mode="resolve" priority="10"/>
+  <xsl:template match="*[contains-token(@class, 'xml-d/xmlatt') and . = 'xmlns:ditaarch']" mode="resolve" priority="10"/>
 
   <xsl:template match="*" mode="resolve" as="element(dlentry)*">
     <xsl:param name="href" select="@href"/>
@@ -199,7 +199,7 @@
     </xsl:if>
 
     <xsl:variable name="dlentry" as="element(dlentry)?"
-                  select="$target/ancestor-or-self::*[contains(@class, ' topic/dlentry ')][1]"/>
+                  select="$target/ancestor-or-self::*[contains-token(@class, 'topic/dlentry')][1]"/>
 
     <xsl:sequence select="$dlentry"/>
   </xsl:template>
@@ -219,15 +219,15 @@
       </xsl:message>
     </xsl:if>
     <xsl:variable name="dlentry" as="element(dlentry)?"
-                  select="$target/ancestor-or-self::*[contains(@class, ' topic/dlentry ')][1]"/>
+                  select="$target/ancestor-or-self::*[contains-token(@class, 'topic/dlentry')][1]"/>
 
     <xsl:choose>
       <!-- This should have been a link to `attr-` prefix, fallback to linking to element -->
-      <xsl:when test="$dlentry/*[contains(@class, ' topic/dt ')]//*[contains(@class, ' xml-d/xmlatt ')]">
+      <xsl:when test="$dlentry/*[contains-token(@class, 'topic/dt')]//*[contains-token(@class, 'xml-d/xmlatt')]">
         <xsl:sequence select="$dlentry"/>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:for-each select="$dlentry/*[contains(@class, ' topic/dd ')]//*[contains(@class, ' xml-d/xmlatt ')]">
+        <xsl:for-each select="$dlentry/*[contains-token(@class, 'topic/dd')]//*[contains-token(@class, 'xml-d/xmlatt')]">
           <xsl:apply-templates select="." mode="resolve">
             <xsl:with-param name="target-file" select="$target-file"/>
             <xsl:with-param name="topic-id" select="$topic-id"/>
@@ -243,7 +243,7 @@
     <xsl:copy>
       <xsl:apply-templates select="@*" mode="#current"/>
       <xsl:if test="(some $dl in $attributes-dl satisfies . is $dl) or
-                    (contains(@class, ' topic/p ') and starts-with(normalize-space(.), 'The following attributes are available on this element')) or
+                    (contains-token(@class, 'topic/p') and starts-with(normalize-space(.), 'The following attributes are available on this element')) or
                     @outputclass = 'attr-exception'">
         <xsl:attribute name="outputclass" select="'attributes-prose', @outputclass" separator=" "/>
       </xsl:if>

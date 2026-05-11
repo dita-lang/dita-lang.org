@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                version="2.0"
+                version="3.0"
                 exclude-result-prefixes="xs">
 
   <xsl:param name="repository" as="xs:string"/>
@@ -16,7 +16,7 @@
     </xsl:variable>
     <xsl:variable name="root" select="/" as="document-node()"/>
     <xsl:variable name="topicrefs" as="xs:anyURI*"
-                  select="descendant::*[contains(@class, ' map/topicref ')]
+                  select="descendant::*[contains-token(@class, 'map/topicref')]
                                        [exists(@href)]
                                        [empty(@format) or @format = 'dita']
                                        [empty(@processing-role) or @processing-role = 'normal']/@href"/>
@@ -29,7 +29,7 @@
             <xsl:variable name="rows" as="element()*">
               <xsl:for-each-group select="$topicrefs" group-by=".">
                 <xsl:for-each
-                  select="document(current-grouping-key(), $root)//processing-instruction('sentence')[tokenize(., '\s+') = 'error-statement']">
+                  select="document(current-grouping-key(), $root)//processing-instruction('sentence')[contains-token(., 'error-statement')]">
                   <xsl:variable name="sentence-id" select="substring(tokenize(., '\s+')[1], 2)"/>
                   <dlentry class="- topic/dlentry "
                          href="{ current-grouping-key() }#{ /*/@id }/{ $sentence-id }">
@@ -61,7 +61,7 @@
             <xsl:variable name="rows" as="element()*">
               <xsl:for-each-group select="$topicrefs" group-by=".">
                 <xsl:for-each
-                  select="document(current-grouping-key(), $root)//processing-instruction('sentence')[tokenize(., '\s+') = 'implementation-statement']">
+                  select="document(current-grouping-key(), $root)//processing-instruction('sentence')[contains-token(., 'implementation-statement')]">
                   <xsl:variable name="sentence-id" select="substring(tokenize(., '\s+')[1], 2)"/>
                   <dlentry class="- topic/dlentry "
                          href="{ current-grouping-key() }#{ /*/@id }/{ $sentence-id }">
@@ -93,7 +93,7 @@
             <xsl:variable name="rows" as="element()*">
               <xsl:for-each-group select="$topicrefs" group-by=".">
                 <xsl:for-each
-                  select="document(current-grouping-key(), $root)//processing-instruction('sentence')[tokenize(., '\s+') = 'rfc-2119-statement']">
+                  select="document(current-grouping-key(), $root)//processing-instruction('sentence')[contains-token(., 'rfc-2119-statement')]">
                   <xsl:variable name="sentence-id" select="substring(tokenize(., '\s+')[1], 2)"/>
                   <dlentry class="- topic/dlentry "
                          href="{ current-grouping-key() }#{ /*/@id }/{ $sentence-id }">

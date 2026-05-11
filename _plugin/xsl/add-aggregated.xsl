@@ -2,7 +2,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot"
-                version="2.0"
+                version="3.0"
                 exclude-result-prefixes="xs dita-ot">
 
   <xsl:import href="plugin:org.dita.base:xsl/common/uri-utils.xsl"/>
@@ -18,34 +18,34 @@
     </xsl:copy>
   </xsl:template>
 
-  <xsl:template match="processing-instruction('sentence')[tokenize(., '\s+') = 'error-statement']">
+  <xsl:template match="processing-instruction('sentence')[contains-token(., 'error-statement')]">
     <xsl:variable name="statement-id" select="substring(tokenize(., '\s+')[1], 2)"/>
     <xsl:variable name="doc" select="document($aggregated)"/>
     <xsl:processing-instruction name="{name()}">
       <xsl:value-of select="."/>
       <xsl:text> </xsl:text>
-      <xsl:value-of select="concat('#', ($doc/descendant::*[contains(@class, ' topic/xref ')]
+      <xsl:value-of select="concat('#', ($doc/descendant::*[contains-token(@class, 'topic/xref')]
                                               [@outputclass = 'error-statement']
                                               [ends-with(@href, concat('#', $id, '/', $statement-id))])[1])"/>
     </xsl:processing-instruction>
   </xsl:template>
 
-  <xsl:template match="processing-instruction('sentence')[tokenize(., '\s+') = 'implementation-statement']">
+  <xsl:template match="processing-instruction('sentence')[contains-token(., 'implementation-statement')]">
     <xsl:variable name="statement-id" select="substring(tokenize(., '\s+')[1], 2)"/>
     <xsl:variable name="doc" select="document($aggregated)"/>
     <xsl:processing-instruction name="{name()}">
       <xsl:value-of select="."/>
       <xsl:text> </xsl:text>
-      <xsl:value-of select="concat('#', ($doc/descendant::*[contains(@class, ' topic/xref ')]
+      <xsl:value-of select="concat('#', ($doc/descendant::*[contains-token(@class, 'topic/xref')]
                                               [@outputclass = 'implementation-statement']
                                               [ends-with(@href, concat('#', $id, '/', $statement-id))])[1])"/>
     </xsl:processing-instruction>
   </xsl:template>
 
-  <xsl:template match="*[contains(@class, ' topic/data ') and @name = 'rfc-list']">
+  <xsl:template match="*[contains-token(@class, 'topic/data') and @name = 'rfc-list']">
     <xsl:variable name="doc" select="document($aggregated)"/>
 
-    <xsl:apply-templates select="$doc/*[contains(@class, ' topic/topic ')]/*[contains(@class, ' topic/body ')]/*" mode="embed"/>
+    <xsl:apply-templates select="$doc/*[contains-token(@class, 'topic/topic')]/*[contains-token(@class, 'topic/body')]/*" mode="embed"/>
   </xsl:template>
 
   <xsl:template match="@* | node()" mode="embed">

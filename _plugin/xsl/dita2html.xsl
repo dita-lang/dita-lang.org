@@ -4,7 +4,7 @@
                 xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot"
                 xmlns:dita2html="http://dita-ot.sourceforge.net/ns/200801/dita2html"
                 xmlns:related-links="http://dita-ot.sourceforge.net/ns/200709/related-links"
-                version="2.0"
+                version="3.0"
                 exclude-result-prefixes="xs dita-ot dita2html related-links">
 
   <xsl:import href="plugin:org.dita.html5:xsl/dita2html5Impl.xsl"/>
@@ -32,13 +32,13 @@
     <xsl:text>&#xA;</xsl:text>
     <xsl:text>title: '</xsl:text>
     <xsl:variable name="title-text-only">
-      <xsl:apply-templates select="*[contains(@class, ' topic/title ')][1]" mode="text-only"/>
+      <xsl:apply-templates select="*[contains-token(@class, 'topic/title')][1]" mode="text-only"/>
     </xsl:variable>
     <xsl:value-of select="replace(normalize-space(string-join($title-text-only, ' ')), &quot;'&quot;, &quot;''&quot;)"/>
     <xsl:text>'&#xA;</xsl:text>
     <xsl:variable name="shortdescs" as="element()*"
-                  select="*[contains(@class, ' topic/shortdesc ')] |
-                          *[contains(@class, ' topic/abstract ')]/*[contains(@class, ' topic/shortdesc ')]"/>
+                  select="*[contains-token(@class, 'topic/shortdesc')] |
+                          *[contains-token(@class, 'topic/abstract')]/*[contains-token(@class, 'topic/shortdesc')]"/>
     <xsl:if test="exists($shortdescs)">
       <xsl:text>description: '</xsl:text>
       <xsl:variable name="shortdesc-text-only">
@@ -70,7 +70,7 @@
       <xsl:value-of select="normalize-space($repository)"/>
       <xsl:text>'&#xA;</xsl:text>
     </xsl:if>
-    <xsl:if test="(/* | /*/*[contains(@class, ' topic/title ')])[tokenize(@outputclass, '\s+') = 'generated']">
+    <xsl:if test="(/* | /*/*[contains-token(@class, 'topic/title')])[contains-token(@outputclass, 'generated')]">
       <xsl:text>generated: true</xsl:text>
       <xsl:text>&#xA;</xsl:text>
     </xsl:if>
@@ -108,21 +108,21 @@
           <xsl:apply-templates select="*[contains(@class,' topic/title ')] |
                                        self::dita/*[1]/*[contains(@class,' topic/title ')]" mode="return-aria-label-id"/>
         </xsl:attribute>
-        <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]" mode="out-of-line"/>
+        <xsl:apply-templates select="*[contains-token(@class, 'ditaot-d/ditaval-startprop')]" mode="out-of-line"/>
         <xsl:apply-templates/>
         <xsl:call-template name="gen-user-aside"/>
         <!-- TODO: Replace with mode="gen-endnotes" -->
         <xsl:call-template name="gen-endnotes"/>    <!-- include footnote-endnotes -->
-        <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-endprop ')]" mode="out-of-line"/>
+        <xsl:apply-templates select="*[contains-token(@class, 'ditaot-d/ditaval-endprop')]" mode="out-of-line"/>
       </article>
     </main>
   </xsl:template>
 
   <xsl:template name="gen-user-aside">
     <xsl:variable name="sections" as="element()*"
-                  select="*[contains(@class, ' topic/body ')]/
-                            *[contains(@class, ' topic/section ') or contains(@class, ' topic/example ')]
-                             [exists(*[contains(@class, ' topic/title ')])]"/>
+                  select="*[contains-token(@class, 'topic/body')]/
+                            *[contains-token(@class, 'topic/section') or contains-token(@class, 'topic/example')]
+                             [exists(*[contains-token(@class, 'topic/title')])]"/>
     <aside class="section-toc" role="aside">
       <xsl:if test="$sections">
         <h2>In this section</h2>
@@ -130,7 +130,7 @@
           <xsl:for-each select="$sections">
             <li>
               <a href="#{dita-ot:generate-id((/*/@id), (@id, generate-id(.))[1])}">
-                <xsl:apply-templates select="*[contains(@class, ' topic/title ')]" mode="text-only"/>
+                <xsl:apply-templates select="*[contains-token(@class, 'topic/title')]" mode="text-only"/>
               </a>
             </li>
           </xsl:for-each>
@@ -140,16 +140,16 @@
   </xsl:template>
 
   <xsl:template name="gen-toc-id">
-    <xsl:if test="(contains(@class, ' topic/section ') or contains(@class, ' topic/example ')) and empty(@id)">
+    <xsl:if test="(contains-token(@class, 'topic/section') or contains-token(@class, 'topic/example')) and empty(@id)">
       <xsl:attribute name="id" select="(/*/@id, generate-id(.))" separator="__"/>
     </xsl:if>
   </xsl:template>
 
-  <xsl:template match="*[contains(@class, ' topic/topic ')]/*[contains(@class, ' topic/title ')]">
+  <xsl:template match="*[contains-token(@class, 'topic/topic')]/*[contains-token(@class, 'topic/title')]">
     <xsl:param name="headinglevel" as="xs:integer">
       <xsl:choose>
-        <xsl:when test="count(ancestor::*[contains(@class, ' topic/topic ')]) > 6">6</xsl:when>
-        <xsl:otherwise><xsl:sequence select="count(ancestor::*[contains(@class, ' topic/topic ')])"/></xsl:otherwise>
+        <xsl:when test="count(ancestor::*[contains-token(@class, 'topic/topic')]) > 6">6</xsl:when>
+        <xsl:otherwise><xsl:sequence select="count(ancestor::*[contains-token(@class, 'topic/topic')])"/></xsl:otherwise>
       </xsl:choose>
     </xsl:param>
     <xsl:element name="h{$headinglevel}">
@@ -160,7 +160,7 @@
       <xsl:attribute name="id"><xsl:apply-templates select="." mode="return-aria-label-id"/></xsl:attribute>
       <xsl:choose>
         <xsl:when test="$headinglevel eq 1 and $FILENAME eq 'oasis-cover.dita'">
-          <xsl:apply-templates select="$input.map/*/*[contains(@class, ' bookmap/booktitle ')]/*[contains(@class, ' bookmap/mainbooktitle ')]/node()"/>
+          <xsl:apply-templates select="$input.map/*/*[contains-token(@class, 'bookmap/booktitle')]/*[contains-token(@class, 'bookmap/mainbooktitle')]/node()"/>
         </xsl:when>
         <xsl:otherwise>
           <xsl:apply-templates/>
@@ -175,46 +175,46 @@
     </p>
   </xsl:template>
 
-  <xsl:template match="*[contains(@class, ' topic/abstract ')]">
-    <xsl:if test="not(following-sibling::*[contains(@class, ' topic/body ')])">
+  <xsl:template match="*[contains-token(@class, 'topic/abstract')]">
+    <xsl:if test="not(following-sibling::*[contains-token(@class, 'topic/body')])">
       <div class="body">
-        <xsl:if test="tokenize(../@outputclass, '\s+')['non-normative'] or
-                      $current-topicref/ancestor-or-self::*[contains(@class, ' bookmap/appendix ')]">
+        <xsl:if test="contains-token(../@outputclass, 'non-normative') or
+                      $current-topicref/ancestor-or-self::*[contains-token(@class, 'bookmap/appendix')]">
           <xsl:call-template name="non-normative-label"/>
         </xsl:if>
         <xsl:apply-templates select="." mode="outofline"/>
-        <xsl:apply-templates select="following-sibling::*[contains(@class, ' topic/related-links ')]" mode="prereqs"/>
+        <xsl:apply-templates select="following-sibling::*[contains-token(@class, 'topic/related-links')]" mode="prereqs"/>
       </div>
     </xsl:if>
   </xsl:template>
 
-  <xsl:template match="*[contains(@class, ' topic/shortdesc ')]">
+  <xsl:template match="*[contains-token(@class, 'topic/shortdesc')]">
     <xsl:choose>
-      <xsl:when test="parent::*[contains(@class, ' topic/abstract ')]">
+      <xsl:when test="parent::*[contains-token(@class, 'topic/abstract')]">
         <xsl:apply-templates select="." mode="outofline.abstract"/>
       </xsl:when>
-      <xsl:when test="not(following-sibling::*[contains(@class, ' topic/body ')])">
+      <xsl:when test="not(following-sibling::*[contains-token(@class, 'topic/body')])">
         <div class="body">
-          <xsl:if test="tokenize(../@outputclass, '\s+')['non-normative'] or
-                        $current-topicref/ancestor-or-self::*[contains(@class, ' bookmap/appendix ')]">
+          <xsl:if test="contains-token(../@outputclass, 'non-normative') or
+                        $current-topicref/ancestor-or-self::*[contains-token(@class, 'bookmap/appendix')]">
             <xsl:call-template name="non-normative-label"/>
           </xsl:if>
           <xsl:apply-templates select="." mode="outofline"/>
-          <xsl:apply-templates select="following-sibling::*[contains(@class, ' topic/related-links ')]" mode="prereqs"/>
+          <xsl:apply-templates select="following-sibling::*[contains-token(@class, 'topic/related-links')]" mode="prereqs"/>
         </div>
       </xsl:when>
       <xsl:otherwise/>
     </xsl:choose>
   </xsl:template>
 
-  <xsl:template match="*[contains(@class, ' topic/body ')]" name="topic.body">
+  <xsl:template match="*[contains-token(@class, 'topic/body')]" name="topic.body">
     <div>
       <xsl:call-template name="commonattributes"/>
       <xsl:call-template name="setidaname"/>
-      <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]" mode="out-of-line"/>
+      <xsl:apply-templates select="*[contains-token(@class, 'ditaot-d/ditaval-startprop')]" mode="out-of-line"/>
 
-      <xsl:if test="tokenize(../@outputclass, '\s+')['non-normative'] or
-                    $current-topicref/ancestor-or-self::*[contains(@class, ' bookmap/appendix ')]">
+      <xsl:if test="contains-token(../@outputclass, 'non-normative') or
+                    $current-topicref/ancestor-or-self::*[contains-token(@class, 'bookmap/appendix')]">
         <xsl:call-template name="non-normative-label"/>
       </xsl:if>
 
@@ -229,16 +229,16 @@
 
       <!-- Added for DITA 1.1 "Shortdesc proposal" -->
       <!-- get the abstract para -->
-      <xsl:apply-templates select="preceding-sibling::*[contains(@class, ' topic/abstract ')]" mode="outofline"/>
+      <xsl:apply-templates select="preceding-sibling::*[contains-token(@class, 'topic/abstract')]" mode="outofline"/>
 
       <!-- get the shortdesc para -->
-      <xsl:apply-templates select="preceding-sibling::*[contains(@class, ' topic/shortdesc ')]" mode="outofline"/>
+      <xsl:apply-templates select="preceding-sibling::*[contains-token(@class, 'topic/shortdesc')]" mode="outofline"/>
 
       <!-- Insert pre-req links - after shortdesc - unless there is a prereq section about -->
-      <xsl:apply-templates select="following-sibling::*[contains(@class, ' topic/related-links ')]" mode="prereqs"/>
+      <xsl:apply-templates select="following-sibling::*[contains-token(@class, 'topic/related-links')]" mode="prereqs"/>
 
       <xsl:apply-templates/>
-      <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-endprop ')]" mode="out-of-line"/>
+      <xsl:apply-templates select="*[contains-token(@class, 'ditaot-d/ditaval-endprop')]" mode="out-of-line"/>
     </div>
   </xsl:template>
 
@@ -261,14 +261,14 @@
     <xsl:attribute name="class">nav nav-list</xsl:attribute>
   </xsl:attribute-set>
 
-  <xsl:template match="*[contains(@class, ' topic/link ')][@role = ('child', 'descendant')]" priority="2" name="topic.link_child">
+  <xsl:template match="*[contains-token(@class, 'topic/link')][@role = ('child', 'descendant')]" priority="2" name="topic.link_child">
     <li>
       <xsl:call-template name="commonattributes">
         <xsl:with-param name="default-output-class" select="'ulchildlink'"/>
       </xsl:call-template>
       <!-- Allow for unknown metadata (future-proofing) -->
-      <xsl:apply-templates select="*[contains(@class, ' topic/data ') or contains(@class, ' topic/foreign ')]"/>
-      <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]" mode="out-of-line"/>
+      <xsl:apply-templates select="*[contains-token(@class, 'topic/data') or contains-token(@class, 'topic/foreign')]"/>
+      <xsl:apply-templates select="*[contains-token(@class, 'ditaot-d/ditaval-startprop')]" mode="out-of-line"/>
       <strong>
         <xsl:apply-templates select="." mode="related-links:unordered.child.prefix"/>
         <xsl:apply-templates select="." mode="add-link-highlight-at-start"/>
@@ -278,8 +278,8 @@
 
           <!--use linktext as linktext if it exists, otherwise use href as linktext-->
           <xsl:choose>
-            <xsl:when test="*[contains(@class, ' topic/linktext ')]">
-              <xsl:apply-templates select="*[contains(@class, ' topic/linktext ')]"/>
+            <xsl:when test="*[contains-token(@class, 'topic/linktext')]">
+              <xsl:apply-templates select="*[contains-token(@class, 'topic/linktext')]"/>
             </xsl:when>
             <xsl:otherwise>
               <!--use href-->
@@ -289,10 +289,10 @@
         </a>
         <xsl:apply-templates select="." mode="add-link-highlight-at-end"/>
       </strong>
-      <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-endprop ')]" mode="out-of-line"/>
+      <xsl:apply-templates select="*[contains-token(@class, 'ditaot-d/ditaval-endprop')]" mode="out-of-line"/>
       <div class="desc">
         <!--add the description on the next line, like a summary-->
-        <xsl:apply-templates select="*[contains(@class, ' topic/desc ')]"/>
+        <xsl:apply-templates select="*[contains-token(@class, 'topic/desc')]"/>
       </div>
     </li>
   </xsl:template>
@@ -304,7 +304,7 @@
   <!--      <xsl:variable name="next" select="(following::processing-instruction('sentence'))[1]" as="processing-instruction()?"/>-->
   <!--      <xsl:if test="not($next = 'error-statement')">-->
         <xsl:attribute name="class" select="'error-statement'"/>
-        <xsl:attribute name="id" select="string-join((ancestor::*[contains(@class, ' topic/topic ')][1]/@id, substring($values[1], 2)), '__')"/>
+        <xsl:attribute name="id" select="string-join((ancestor::*[contains-token(@class, 'topic/topic')][1]/@id, substring($values[1], 2)), '__')"/>
         <xsl:attribute name="data-id" select="substring($values[starts-with(., '#')][2], 2)"/>
   <!--      </xsl:if>-->
       </span>
@@ -314,7 +314,7 @@
         <!--      <xsl:variable name="next" select="(following::processing-instruction('sentence'))[1]" as="processing-instruction()?"/>-->
         <!--      <xsl:if test="not($next = 'error-statement')">-->
         <xsl:attribute name="class" select="'implementation-statement'"/>
-        <xsl:attribute name="id" select="string-join((ancestor::*[contains(@class, ' topic/topic ')][1]/@id, substring($values[1], 2)), '__')"/>
+        <xsl:attribute name="id" select="string-join((ancestor::*[contains-token(@class, 'topic/topic')][1]/@id, substring($values[1], 2)), '__')"/>
         <xsl:attribute name="data-id" select="substring($values[starts-with(., '#')][2], 2)"/>
         <!--      </xsl:if>-->
       </span>
@@ -324,13 +324,13 @@
   <xsl:template name="place-fig-lbl">
     <xsl:param name="stringName"/>
     <!-- Number of fig/title's including this one -->
-    <xsl:variable name="fig-count-actual" select="count(preceding::*[contains(@class, ' topic/fig ')]/*[contains(@class, ' topic/title ')])+1"/>
+    <xsl:variable name="fig-count-actual" select="count(preceding::*[contains-token(@class, 'topic/fig')]/*[contains-token(@class, 'topic/title')])+1"/>
     <xsl:variable name="ancestorlang">
       <xsl:call-template name="getLowerCaseLang"/>
     </xsl:variable>
     <xsl:choose>
       <!-- title -or- title & desc -->
-      <xsl:when test="*[contains(@class, ' topic/title ')]">
+      <xsl:when test="*[contains-token(@class, 'topic/title')]">
         <figcaption>
           <span class="fig--title-label">
             <xsl:choose>      <!-- Hungarian: "1. Figure " -->
@@ -338,13 +338,13 @@
                 <xsl:value-of select="$fig-count-actual"/>
                 <xsl:text>. </xsl:text>
                 <xsl:call-template name="getVariable">
-                  <xsl:with-param name="id" select="if (ancestor::*[contains(@class, ' topic/example ')]) then 'task_example' else 'Figure'"/>
+                  <xsl:with-param name="id" select="if (ancestor::*[contains-token(@class, 'topic/example')]) then 'task_example' else 'Figure'"/>
                 </xsl:call-template>
                 <xsl:text> </xsl:text>
               </xsl:when>
               <xsl:otherwise>
                 <xsl:call-template name="getVariable">
-                  <xsl:with-param name="id" select="if (ancestor::*[contains(@class, ' topic/example ')]) then 'task_example' else 'Figure'"/>
+                  <xsl:with-param name="id" select="if (ancestor::*[contains-token(@class, 'topic/example')]) then 'task_example' else 'Figure'"/>
                 </xsl:call-template>
                 <xsl:text> </xsl:text>
                 <xsl:value-of select="$fig-count-actual"/>
@@ -352,11 +352,11 @@
               </xsl:otherwise>
             </xsl:choose>
           </span>
-          <xsl:apply-templates select="*[contains(@class, ' topic/title ')]" mode="figtitle"/>
-          <xsl:if test="*[contains(@class, ' topic/desc ')]">
+          <xsl:apply-templates select="*[contains-token(@class, 'topic/title')]" mode="figtitle"/>
+          <xsl:if test="*[contains-token(@class, 'topic/desc')]">
             <xsl:text>. </xsl:text>
           </xsl:if>
-          <xsl:for-each select="*[contains(@class, ' topic/desc ')]">
+          <xsl:for-each select="*[contains-token(@class, 'topic/desc')]">
             <span>
               <xsl:call-template name="commonattributes">
                 <xsl:with-param name="default-output-class" select="'figdesc'"/>
@@ -367,8 +367,8 @@
         </figcaption>
       </xsl:when>
       <!-- desc -->
-      <xsl:when test="*[contains(@class, ' topic/desc ')]">
-        <xsl:for-each select="*[contains(@class, ' topic/desc ')]">
+      <xsl:when test="*[contains-token(@class, 'topic/desc')]">
+        <xsl:for-each select="*[contains-token(@class, 'topic/desc')]">
           <figcaption>
             <xsl:call-template name="commonattributes"/>
             <xsl:apply-templates select="." mode="figdesc"/>
@@ -391,7 +391,7 @@
       </xsl:call-template>
       <xsl:call-template name="setidaname"/>
       <!-- Normal flags go around the entire note (including before the generated title) -->
-      <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]/prop" mode="ditaval-outputflag"/>
+      <xsl:apply-templates select="*[contains-token(@class, 'ditaot-d/ditaval-startprop')]/prop" mode="ditaval-outputflag"/>
       <span class="note__title">
         <xsl:copy-of select="$title"/>
         <span class="non-normative-label">
@@ -406,24 +406,24 @@
       <xsl:text> </xsl:text>
       <div class="note__body">
         <!-- Revision flags go around only the content -->
-        <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]/revprop" mode="ditaval-outputflag"/>
+        <xsl:apply-templates select="*[contains-token(@class, 'ditaot-d/ditaval-startprop')]/revprop" mode="ditaval-outputflag"/>
         <xsl:apply-templates/>
-        <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-endprop ')]/revprop" mode="ditaval-outputflag"/>
+        <xsl:apply-templates select="*[contains-token(@class, 'ditaot-d/ditaval-endprop')]/revprop" mode="ditaval-outputflag"/>
       </div>
-      <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-endprop ')]/prop" mode="ditaval-outputflag"/>
+      <xsl:apply-templates select="*[contains-token(@class, 'ditaot-d/ditaval-endprop')]/prop" mode="ditaval-outputflag"/>
     </div>
   </xsl:template>
 
-  <xsl:template match="*[contains(@class, ' topic/example ')]" name="topic.example">
+  <xsl:template match="*[contains-token(@class, 'topic/example')]" name="topic.example">
     <div>
       <xsl:call-template name="commonattributes"/>
       <xsl:call-template name="gen-toc-id"/>
       <xsl:call-template name="setidaname"/>
-      <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]" mode="out-of-line"/>
+      <xsl:apply-templates select="*[contains-token(@class, 'ditaot-d/ditaval-startprop')]" mode="out-of-line"/>
       <xsl:apply-templates select="." mode="dita2html:section-heading"/>
       <xsl:call-template name="non-normative-label"/>
-      <xsl:apply-templates select="*[not(contains(@class, ' topic/title '))] | text() | comment() | processing-instruction()"/>
-      <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-endprop ')]" mode="out-of-line"/>
+      <xsl:apply-templates select="*[not(contains-token(@class, 'topic/title'))] | text() | comment() | processing-instruction()"/>
+      <xsl:apply-templates select="*[contains-token(@class, 'ditaot-d/ditaval-endprop')]" mode="out-of-line"/>
     </div>
   </xsl:template>
 

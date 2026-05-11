@@ -17,8 +17,8 @@
     <xsl:variable name="generate-ids" as="node()*">
       <xsl:variable name="ids" as="document-node()">
         <xsl:document>
-          <xsl:for-each select="//*[contains(@class, ' topic/section ') or contains(@class, ' topic/example ')][empty(@id)]">
-            <xsl:variable name="title" select="lower-case(translate(normalize-space(replace(*[contains(@class, ' topic/title ')][1], '\W+', ' ')), ' ', '-'))"/>
+          <xsl:for-each select="//*[contains-token(@class, 'topic/section') or contains-token(@class, 'topic/example')][empty(@id)]">
+            <xsl:variable name="title" select="lower-case(translate(normalize-space(replace(*[contains-token(@class, 'topic/title')][1], '\W+', ' ')), ' ', '-'))"/>
             <elem generate-id="{generate-id()}" title="{if ($title) then $title else name()}"/>
           </xsl:for-each>
         </xsl:document>
@@ -50,7 +50,7 @@
 
   <xsl:mode name="generate-ids" on-no-match="shallow-copy"/>
 
-  <xsl:template match="*[contains(@class, ' topic/section ') or contains(@class, ' topic/example ')][empty(@id)]" mode="generate-ids">
+  <xsl:template match="*[contains-token(@class, 'topic/section') or contains-token(@class, 'topic/example')][empty(@id)]" mode="generate-ids">
     <xsl:param name="ids" tunnel="yes" as="element()*"/>
     <xsl:variable name="id" select="$ids[@generate-id = generate-id(current())]"/>
     <xsl:copy>
@@ -63,14 +63,14 @@
 
   <xsl:mode name="non-normative" on-no-match="shallow-copy" />
 
-  <xsl:template match="*[contains(@class, ' topic/note ') or
-                         contains(@class, ' topic/example ')] |
-                       *[*[contains(@class, ' topic/title ')]
+  <xsl:template match="*[contains-token(@class, 'topic/note') or
+                         contains-token(@class, 'topic/example')] |
+                       *[*[contains-token(@class, 'topic/title')]
                           [matches(normalize-space(.), '^\s*Examples?:?\s', 'i')]]" mode="non-normative" priority="100">
     <xsl:copy>
       <xsl:apply-templates select="@* except @outputclass" mode="#current"/>
       <xsl:attribute name="outputclass" select="normalize-space(string-join(('non-normative', @outputclass), ' '))"/>
-      <xsl:if test="self::*[contains(@class, ' topic/example ')] and empty(*[contains(@class, ' topic/title ')])">
+      <xsl:if test="self::*[contains-token(@class, 'topic/example')] and empty(*[contains-token(@class, 'topic/title')])">
         <title class="- topic/title ">Example</title>
       </xsl:if>
       <xsl:apply-templates select="node()" mode="#current"/>
@@ -81,18 +81,18 @@
 
   <xsl:mode name="add-markup" on-no-match="shallow-copy" />
 
-  <xsl:template match="*[tokenize(@outputclass, '\s+') = 'non-normative']" mode="add-markup" priority="100">
+  <xsl:template match="*[contain-token(@outputclass, 'non-normative')]" mode="add-markup" priority="100">
     <xsl:copy-of select="."/>
   </xsl:template>
 
-  <xsl:template match="*[contains(@class, ' topic/p ') or
-                         contains(@class, ' topic/shortdesc ') or
-                         contains(@class, ' topic/abstract ') or
-                         contains(@class, ' topic/fig ') or
-                         contains(@class, ' topic/td ') or
-                         contains(@class, ' topic/stentry ') or
-                         contains(@class, ' topic/dd ') or
-                         contains(@class, ' topic/li ')]" mode="add-markup">
+  <xsl:template match="*[contains-token(@class, 'topic/p') or
+                         contains-token(@class, 'topic/shortdesc') or
+                         contains-token(@class, 'topic/abstract') or
+                         contains-token(@class, 'topic/fig') or
+                         contains-token(@class, 'topic/td') or
+                         contains-token(@class, 'topic/stentry') or
+                         contains-token(@class, 'topic/dd') or
+                         contains-token(@class, 'topic/li')]" mode="add-markup">
     <xsl:copy>
       <xsl:apply-templates select="@*" mode="#current"/>
       <xsl:processing-instruction name="sentence" select="concat('#', generate-id(.))"/>
@@ -130,7 +130,7 @@
       <xsl:value-of select="."/>
       <xsl:if test="matches($contents, '\s?error[^s]', 'i')"> error-statement</xsl:if>
       <xsl:if test="matches($contents, '\s?implementation(\s+|-)(dependent|specific)', 'i')"> implementation-statement</xsl:if>
-      <xsl:if test="$content-nodes/ancestor-or-self::*[tokenize(@outputclass, '\s+') = 'RFC-2119']"> rfc-2119-statement</xsl:if>
+      <xsl:if test="$content-nodes/ancestor-or-self::*[contains-token(@outputclass, 'RFC-2119')]"> rfc-2119-statement</xsl:if>
     </xsl:processing-instruction>
   </xsl:template>
 
@@ -138,7 +138,7 @@
     <xsl:apply-templates select="node()" mode="#current"/>
   </xsl:template>
 
-  <xsl:template match="*[contains(@class, ' sw-d/filepath ') or x:is-block(.)]" mode="text" priority="10"/>
+  <xsl:template match="*[contains-token(@class, 'sw-d/filepath') or x:is-block(.)]" mode="text" priority="10"/>
 
   <xsl:template match="text()" mode="text" priority="10">
     <xsl:value-of select="."/>
