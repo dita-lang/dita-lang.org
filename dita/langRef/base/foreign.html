@@ -4,7 +4,7 @@ title: 'foreign'
 description: 'Foreign content is non-DITA content, such as MathML, SVG, or Rich Text Format (RTF).'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: 'daac5028dfc081cc8ca0a4a3861d2c4ea631604d'
+commit: 'a1552af2eb3b52119ed657d3e29da7702c62946b'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -22,14 +22,12 @@ classes: ''
         specializations.</p>
       <p class="p">The <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> element can contain non-DITA
         content or a mix of DITA and non-DITA content.</p>
-      <p class="p">If alternate content is wanted, use or specialize the
-          <code class="keyword markupname xmlelement">&lt;desc&gt;</code> element inside of the
-          <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> specialization. Such alternate
-        content needs to be valid wherever the
-          <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> specialization is valid. This
-        way, if a processor is not able to recognize or render the
-          <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> content itself, it can use the
-        alternate content from <code class="keyword markupname xmlelement">&lt;desc&gt;</code>.</p>
+      <p class="p">If alternate content is wanted, use or specialize the <code class="keyword markupname xmlelement">&lt;desc&gt;</code> element
+        inside of the <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> specialization. Such alternate content needs
+        to be valid wherever the <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> specialization is valid. This way,
+        if a processor is not able to recognize or render the <code class="keyword markupname xmlelement">&lt;foreign&gt;</code>
+        content itself, it can use the alternate content from <code class="keyword markupname xmlelement">&lt;desc&gt;</code>. <span class="ph">Alternate content can also be provided using <code class="keyword markupname xmlelement">&lt;image&gt;</code> or
+            <code class="keyword markupname xmlelement">&lt;object&gt;</code>.</span></p>
     </section>
     <section class="section" id="foreign__processing-expectations"><h2 class="title sectiontitle">Processing expectations</h2>
       
@@ -66,23 +64,20 @@ classes: ''
                                                   attributes</a></span>.</p>
     <p class="p inlined-attributes">The following attributes are available on this element: <a class="xref" href="../../common/../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
                                                   attributes</a>.</p></section>
-<div class="example non-normative" id="foreign__example"><h2 class="title sectiontitle">Example</h2><p class="non-normative-label">This section is non-normative.</p>       
+<div class="example non-normative" id="foreign__example"><h2 class="title sectiontitle">Example </h2><p class="non-normative-label">This section is non-normative.</p>
       
-      <p class="p">The following code sample shows a specialization of
-          <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> that is used to hold SVG
-        elements. For this to work, the specialization module that defines
-          <code class="keyword markupname xmlelement">&lt;svg&gt;</code> also needs to include the
-        definitions for the SVG elements.</p><pre class="pre codeblock"><code>&lt;p&gt;... as in the formula 
-  <strong class="ph b">&lt;svg&gt;</strong>
-    &lt;svg:svg width="100%" height="100%" version="1.1"
-xmlns="http://www.w3.org/2000/svg"&gt;
-
-&lt;ellipse cx="300" cy="150" rx="200" ry="80"
-style="fill:rgb(200,100,50);
-stroke:rgb(0,0,100);stroke-width:2"/&gt;
-
+      <p class="p">The following code sample shows a specialization of <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> that
+        is used to hold SVG elements. For this to work, the specialization module that defines
+          <code class="keyword markupname xmlelement">&lt;svg-container&gt;</code> also needs to include the definitions for the SVG
+        elements.</p>
+      <pre class="pre codeblock"><code>&lt;p&gt;To turn on your product, press the elliptical orange button:
+  <strong class="ph b">&lt;svg-container&gt;</strong>
+    &lt;svg:svg width="100%" height="100%" version="1.1"&gt;
+      &lt;svg:ellipse cx="300" cy="150" rx="200" ry="80"
+        style="fill:rgb(200,100,50);
+        stroke:rgb(0,0,100);stroke-width:2"/&gt;
     &lt;/svg:svg&gt;    
-  <strong class="ph b">&lt;/svg&gt;</strong>.
-&lt;/p&gt; </code></pre>     </div>
+  <strong class="ph b">&lt;/svg-container&gt;</strong>.&lt;/p&gt;</code></pre>
+    </div>
 </div>
-<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/specialization-elements.html" title="Several DITA elements exist either for architectural reasons or for support of specialized markup yet to be designed.">Specialization elements</a></div></div></nav><aside class="section-toc" role="aside"><h2>In this section</h2><ul><li><a href="#foreign__usage-information">Usage information</a></li><li><a href="#foreign__processing-expectations">Processing expectations</a></li><li><a href="#foreign__content-model">Content model</a></li><li><a href="#foreign__inheritance">Inheritance</a></li><li><a href="#foreign__attributes">Attributes</a></li><li><a href="#foreign__example">Example</a></li></ul></aside></article></main>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/specialization-elements.html" title="Several DITA elements exist either for architectural reasons or for support of specialized markup yet to be designed.">Specialization elements</a></div></div></nav><aside class="section-toc" role="aside"><h2>In this section</h2><ul><li><a href="#foreign__usage-information">Usage information</a></li><li><a href="#foreign__processing-expectations">Processing expectations</a></li><li><a href="#foreign__content-model">Content model</a></li><li><a href="#foreign__inheritance">Inheritance</a></li><li><a href="#foreign__attributes">Attributes</a></li><li><a href="#foreign__example">Example </a></li></ul></aside></article></main>
