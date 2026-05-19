@@ -94,12 +94,12 @@ function Common(index) {
     try {
       addPlatformTabs($main)
     } catch (e) {
-      console.log(`Failed to add profiling controls: ${e}`)
+      console.error(`Failed to add profiling controls:`, e)
     }
     try {
       Prism.highlightAll()
     } catch (e) {
-      console.log(`Failed to add syntax highlighting: ${e}`)
+      console.error(`Failed to add syntax highlighting:`, e)
     }
 
     function addLinkHandlers() {
@@ -236,7 +236,7 @@ export function addPlatformTabs($main = $('main[role=main]')) {
         $current.after(tabs(Math.floor(Math.random() * 26), items))
         $current.remove()
       } else {
-        console.log('not every row has platform', $rows, $rows.filter('[data-platform]'))
+        // console.log('not every row has platform', $rows, $rows.filter('[data-platform]'))
       }
     })
   $main
@@ -279,7 +279,7 @@ export function addPlatformTabs($main = $('main[role=main]')) {
         $current.after(tabs(Math.floor(Math.random() * 26), items))
         $current.remove()
       } else {
-        console.log('steps has no platform profiles')
+        // console.log('steps has no platform profiles')
       }
     })
 
@@ -357,7 +357,7 @@ function getActivePlatform() {
     try {
       return JSON.parse(stored)
     } catch (e) {
-      console.log(`Failed to read platform profile from local storage: ${e}`)
+      console.error(`Failed to read platform profile from local storage:`, e)
     }
   }
   let active

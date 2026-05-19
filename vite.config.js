@@ -10,6 +10,7 @@ export default defineConfig({
         mainCSS: resolve(__dirname, 'css/main.scss'),
         implementer: resolve(__dirname, 'css/implementer.scss'),
         source: resolve(__dirname, 'css/source.scss'),
+        review: resolve(__dirname, 'css/review.scss'),
         debug: resolve(__dirname, 'css/debug.scss'),
       },
       output: {
