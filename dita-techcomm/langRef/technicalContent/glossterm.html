@@ -4,7 +4,7 @@ title: 'glossterm'
 description: 'The glossterm element specifies the term that is defined by the glossary entry topic.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '7a19722a251ff9a24fd8cef4a4f0ea56ba37a5cd'
+commit: '01aa96856f3ab8d3f16ee6cef1dfcb4229d41832'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -129,17 +129,57 @@ classes: ''
             basic semantic and expectations for the element. In particular, the
               <code class="keyword markupname xmlatt">@outputclass</code> attribute can be used for styling during output
             processing; HTML output will typically preserve <code class="keyword markupname xmlatt">@outputclass</code> for CSS
-              processing.</dd><dt class="dt dlterm" id="glossterm__attr-rev"><code class="keyword markupname xmlatt">@rev</code></dt><dd class="dd">Specifies a revision level of an element that identifies when the element was added or
+              processing.<div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>I don't like "The
+              role must be consistent...", that seems like best practice that cannot be normative –
+              and I could easily say outputclass="flashy" which makes my element show up with
+              sparkles, and has nothing to do with "the basic semantic and expectations for the element".<p class="p">
+                <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 13 May 2026: how about saying "the role
+                  can be", or even a lower-case should, rather than "must be"?</div>
+              </p></div></dd><dt class="dt dlterm" id="glossterm__attr-rev"><code class="keyword markupname xmlatt">@rev</code></dt><dd class="dd">Specifies a revision level of an element that identifies when the element was added or
             modified. It can be used to flag outputs when it matches a run-time parameter. It cannot
             be used for filtering nor is it sufficient to be used for version control. <span class="ph">If no value is specified but the attribute is
           specified on a containing element within a map or within the
           related-links section, the value cascades from the closest
-          containing element.</span>
+          containing element.</span><div class="draft-comment"><div><strong>Draft comment: </strong>Kristen J Eberlein 29 September 2022</div>
+              <p class="p">I want to tweak this. How about the following? Also, neither definition describes
+                what values are permitted.</p>
+              <p class="p">Specifies metadata that identifies when the element was added or the content of the
+                element was modified. The <code class="keyword markupname xmlatt">@rev</code> attribute can be used for flagging.
+                It cannot be used for filtering nor is it sufficient to be used for version control.
+                  <span class="ph">If no value is specified but the attribute is
+          specified on a containing element within a map or within the
+          related-links section, the value cascades from the closest
+          containing element.</span></p>
+              <p class="p">
+                <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 13 May 2026: Sounds good, I might say
+                  "can be used for flagging revisions" just because that sentence feels a bit odd
+                  ending in "for flagging" but really don't care, fine with using the text with or
+                  without that update.</div>
+              </p>
+            </div>
           </dd><dt class="dt dlterm" id="glossterm__attr-translate"><code class="keyword markupname xmlatt">@translate</code></dt><dd class="dd">Specifies whether the content of the element should be translated. <span class="ph">The following values are valid: <span class="keyword">yes</span>, <span class="keyword">no</span>, and
                 <span class="keyword">-dita-use-conref-target</span>.</span><p class="p">See <a class="xref" href="../../non-normative/elementsMerged.html" title="This topic contains a list of all elements in the base DITA edition. It includes recommendations on how to present the element type to translators, whether the element contents are likely to be suitable for translation, and whether the element has attributes with values that are likely to be suitable for translation. Examples of content that is not suitable for translation include code fragments and mailing addresses.">Element-by-element recommendations for translators</a> for
-              suggested processing defaults for each element.</p></dd><dt class="dt dlterm" id="glossterm__attr-xmllang"><code class="keyword markupname xmlatt">@xml:lang</code></dt><dd class="dd" id="glossterm__reusable-lang">Specifies the language and optional locale of the content that is
+              suggested processing defaults for each element.</p><div class="draft-comment"><div><strong>Draft comment: </strong>Kristen J Eberlein 31 December 2021</div>
+              <p class="p">Does <a class="xref" href="../../non-normative/elementsMerged.html" title="This topic contains a list of all elements in the base DITA edition. It includes recommendations on how to present the element type to translators, whether the element contents are likely to be suitable for translation, and whether the element has attributes with values that are likely to be suitable for translation. Examples of content that is not suitable for translation include code fragments and mailing addresses.">Element-by-element recommendations for translators</a> really provide
+                suggested processing defaults for each element? I thought it covered whether an
+                element was block or in-line and whether there were considerations that translators
+                needed to be aware of.</p>
+              <p class="p">
+                <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 13 May 2026: Can we update to "See
+                  (link) for information on additional considerations on translating DITA
+                  elements."</div>
+              </p>
+            </div></dd><dt class="dt dlterm" id="glossterm__attr-xmllang"><code class="keyword markupname xmlatt">@xml:lang</code></dt><dd class="dd" id="glossterm__reusable-lang">Specifies the language and optional locale of the content that is
             contained in an element. Valid values are language tokens or the null string. The
-              <code class="keyword markupname xmlatt">@xml:lang</code> attribute and its values are described in the <a class="xref" href="http://www.w3.org/TR/REC-xml/#sec-lang-tag" target="_blank" rel="external noopener">Extensible Markup Language 1.0 specification, fifth edition</a>.</dd></dl></section>
+              <code class="keyword markupname xmlatt">@xml:lang</code> attribute and its values are described in the <a class="xref" href="http://www.w3.org/TR/REC-xml/#sec-lang-tag" target="_blank" rel="external noopener">Extensible Markup Language 1.0 specification, fifth edition</a>.<div class="draft-comment"><div><strong>Draft comment: </strong>Kristen J Eberlein 29 September 2022</div>
+              <p class="p">Do we also want to direct readers to the architectural topics about the
+                  <code class="keyword markupname xmlatt">@xml:lang</code> attribute?</p>
+              <p class="p">
+                <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 13 May 2026: Yes, should provide a cross
+                  reference, not sure if that will work in the lwdita spec but can figure that out
+                  later</div>
+              </p>
+            </div></dd></dl></section>
       <div class="example non-normative" id="glossterm__example"><h2 class="title sectiontitle">Example</h2><p class="non-normative-label">This section is non-normative.</p>
       
       <p class="p">The following code sample shows how the <code class="keyword markupname xmlelement">&lt;glossterm&gt;</code> element

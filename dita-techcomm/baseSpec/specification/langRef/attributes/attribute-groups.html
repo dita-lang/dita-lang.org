@@ -4,7 +4,7 @@ title: 'Attribute groups'
 description: 'Many of the attributes used on DITA elements are defined in attribute groups. These attribute groups are used both in the grammar files and the specification,'
 index: '../../../../toc.html'
 notices: '../../../../resources/oasis-notices.html'
-commit: '731f235d16abee57ca40e12d94f1c2828447980d'
+commit: '01aa96856f3ab8d3f16ee6cef1dfcb4229d41832'
 repository: 'oasis-tcs/dita-techcomm'
 classes: ''
 ---
@@ -64,7 +64,15 @@ classes: ''
       
       <p class="p" id="attribute-groups__common-map-attr">This group contains attributes that are frequently used on map
         elements. </p>
-      
+      <div class="draft-comment"><div><strong>Draft comment: </strong>Kristen J Eberlein 28 September 2022</div>
+        <p class="p">I've added draft comments to the attribute definitions in this
+          section that explain how the attribute is defined in the "DITA
+          map attributes" topic.</p>
+        <p class="p">
+          <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 13 May 2026: I think there is nothing to
+            resolve here, can remove</div>
+        </p>
+      </div>
       <dl class="dl">
         
           <dt class="dt dlterm" id="attribute-groups__attr-cascade"><code class="keyword markupname xmlatt">@cascade</code><span class="ph"> (common map
@@ -158,7 +166,61 @@ classes: ''
                 <dt class="dt dlterm">family </dt>
                 <dd class="dd">Indicates a tight grouping in which each of the
                   referenced topics not only relates to the current topic
-                  but also relate to each other. </dd>
+                  but also relate to each other. <div class="draft-comment"><div><strong>Draft comment: </strong>Kristen J Eberlein 28 September 2022</div>
+                    <p class="p">Here is the content from the "DITA map attributes"
+                      topic:</p>
+                    <dl class="dl">
+                      
+                        <dt class="dt dlterm"><code class="keyword markupname xmlatt">@collection-type</code>
+                        </dt>
+                        <dd class="dd">The <code class="keyword markupname xmlatt">@collection-type</code> attribute
+                          specifies how the children of a
+                            <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element
+                          relate to their parent and to each other. This
+                          attribute, which is set on the parent element,
+                          typically is used by processors to determine how
+                          to generate navigation links in the rendered
+                          topics. For example, a
+                            <code class="keyword markupname xmlatt">@collection-type</code> value of
+                          "sequence" indicates that children of the
+                          specifying <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>
+                          element represent an ordered sequence of topics;
+                          processors might add numbers to the list of child
+                          topics or generate next/previous links for online
+                          presentation. This attribute is available in
+                          topics on the <code class="keyword markupname xmlelement">&lt;linklist&gt;</code>
+                          and <code class="keyword markupname xmlelement">&lt;linkpool&gt;</code> elements,
+                          where it has the same behavior. Where the
+                            <code class="keyword markupname xmlatt">@collection-type</code> attribute is
+                          available on elements that cannot directly
+                          contain elements, the behavior of the attribute
+                          is undefined. </dd>
+                      
+                    </dl>
+                    <p class="p">
+                      <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 13 May 2026: Make sure nothing
+                        here conflicts, and add a link from this to the architectural
+                        section</div>
+                    </p>
+                  </div><div class="draft-comment"><div><strong>Draft comment: </strong>Kristen J Eberlein 28 September 2022</div>
+                    <p class="p">In the definitions of the supported values, do we
+                      want to refer to "resources" instead of "topics"?
+                      Since we specify that
+                        <code class="keyword markupname xmlatt">@collection-type</code> specifies "how
+                      topics <strong class="ph b">or links</strong> relate to each other" ...</p>
+                    <div class="p">
+                      <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 13 May 2026: Good point, no strong
+                        feeling, but we should be consistent here, we already use "topics", "child
+                        topics", "children", and "referenced topics". Maybe:<ul class="ul" id="attribute-groups__ul_dbr_ylz_fjc">
+                          <li class="li">Start with "Specifies how child topic references or links within the
+                            current element relate to each other"? Since this applies to children
+                            and we only sort of say that in the definitions of the tokens</li>
+                          <li class="li">When describing the tokens, maybe use "referenced resources", as in
+                            "Indicates that the order of the referenced resources is not
+                            significant"</li>
+                        </ul></div>
+                    </div>
+                  </div></dd>
               
             </dl></dd>
         
@@ -168,7 +230,26 @@ classes: ''
             attributes)</span></dt>
           <dd class="dd">Specifies that the element marks the boundaries of a key
             scope. <p class="p">See <a class="xref" href="https://dita-lang.org/dita/langref/attributes/commonattributes#common-atts__attr-keyscope" target="_blank" rel="external noopener">TODO: Update link and title to OASIS published URI</a> for
-              information on using this attribute.</p></dd>
+              information on using this attribute.</p><div class="draft-comment"><div><strong>Draft comment: </strong>Kristen J Eberlein 28 September 2022</div>
+              <p class="p">Here is the content from the "DITA map attributes"
+                topic:</p>
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><code class="keyword markupname xmlatt">@keyscope</code></dt>
+                  <dd class="dd">Defines a new scope for key definition and
+                    resolution, and gives the scope one or more names. For
+                    more information about key scopes, see <a class="xref" href="../../archSpec/base/key-based-addressing.html" title="DITA keys provide an alternative to direct addressing. The key reference mechanism provides a layer of indirection so that resources (for example, URIs, metadata, or variable text strings) can be defined at the DITA map level instead of locally in each topic.">Indirect key-based addressing</a>.</dd>
+                
+              </dl>
+              <div class="p">
+                <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 13 May 2026: Double check each to make
+                  sure the latest content is consistent, and remove the draft comment<p class="p">But also …
+                    it might be a good idea to keep this draft comment (and others for the
+                    keys/keyref stuff) until after that section is fully reviewed, so that we have
+                    an easy way to find these "content should be consistent"
+                  issues</p></div>
+              </div>
+            </div></dd>
         
         
           <dt class="dt dlterm" id="attribute-groups__attr-linking"><code class="keyword markupname xmlatt">@linking</code>
@@ -178,7 +259,17 @@ classes: ''
             reference in a map. <span class="ph">If the value is not specified
           locally, the value might cascade from another element in the map
           (for cascade rules, see <a class="xref" href="../../common/../archSpec/base/cascading-in-a-ditamap.html#cascading-in-a-ditamap" title="Certain attributes cascade throughout a map, which facilitates attribute and metadata management. When attributes cascade, they apply to the elements that are children of the element where the attributes were specified. Cascading applies to a containment hierarchy, as opposed to a specialization hierarchy.">Cascading of metadata attributes in a DITA map</a>).</span>
-            The following values are valid:<dl class="dl">
+            <div class="draft-comment"><div><strong>Draft comment: </strong>robander Dec 28 2021</div>The text below matches <a class="xref" href="http://docs.oasis-open.org/dita/dita/v1.3/errata02/os/complete/part3-all-inclusive/langRef/attributes/commonMapAttributes.html#topicref-atts__linking" target="_blank" rel="external noopener">1.3 spec text</a> but I'm nervous about "cannot
+              link" type definition. It's describing how to generate links based on the current
+              context in the map - it's not describing what the topic itself is allowed to link to,
+              which is how I interpret "can".<div class="p">
+                <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 13 May 2026: Yeah we should remove the
+                  can/cannot and replace with a description of the intent here... like, targetonly
+                  "The topic or resource can be the target of any context based linking, but is not
+                  meant to be updated with links related to this context."<p class="p">similarly, none could
+                    be "The topic or resource does not participate in any context-based
+                  linking"</p></div>
+              </div></div>The following values are valid:<dl class="dl">
               
                 <dt class="dt dlterm"><span class="keyword">targetonly</span></dt>
                 <dd class="dd">A topic can only be linked to and cannot link to other topics.</dd>
@@ -201,7 +292,68 @@ classes: ''
           <dd class="dd">See <a class="xref" href="../../common/../archSpec/base/ditauseconreftarget.html" title="When an element uses conref to pull in content, for any of its attributes assigned a value of -dita-use-conref-target, the resulting value for those attributes is also pulled in from the referenced element.">Using the -dita-use-conref-target value</a>
             for more information. </dd>
         
-            </dl></dd>
+            </dl><div class="draft-comment"><div><strong>Draft comment: </strong>Kristen J Eberlein 28 September 2022</div>
+              <p class="p">Here is the content from the "DITA map attributes" topic:</p>
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><code class="keyword markupname xmlatt">@linking</code></dt>
+                  <dd class="dd">
+                    <p class="p">By default, the relationships between the topics that are referenced in a map
+                      are reciprocal:</p>
+                    <ul class="ul">
+                      <li class="li">Child topics link to parent topics and vice versa. </li>
+                      <li class="li">Next and previous topics in a sequence link to each other. </li>
+                      <li class="li">Topics in a family link to their sibling topics. </li>
+                      <li class="li">Topics referenced in the table cells of the same row in a relationship
+                        table link to each other. A topic referenced within a table cell does not
+                        (by default) link to other topics referenced in the same table cell. </li>
+                    </ul>
+                    <p class="p">This behavior can be modified by using the <code class="keyword markupname xmlatt">@linking</code>
+                      attribute, which enables an author or information architect to specify how a
+                      topic participates in a relationship. The following values are valid:</p>
+                    <dl class="dl">
+                      
+                        <dt class="dt dlterm"><code class="ph codeph">linking="none"</code>
+                        </dt>
+                        <dd class="dd">Specifies that the topic does not exist in the map for the purposes of
+                          calculating links. </dd>
+                      
+                      
+                        <dt class="dt dlterm"><code class="ph codeph">linking="sourceonly"</code>
+                        </dt>
+                        <dd class="dd">Specifies that the topic will link to its related topics but not vice
+                          versa. </dd>
+                      
+                      
+                        <dt class="dt dlterm"><code class="ph codeph">linking="targetonly"</code>
+                        </dt>
+                        <dd class="dd">Specifies that the related topics will link to it but not vice versa.
+                        </dd>
+                      
+                      
+                        <dt class="dt dlterm"><code class="ph codeph">linking="normal"</code>
+                        </dt>
+                        <dd class="dd">Default value. It specifies that linking will be reciprocal (the topic
+                          will link to related topics, and they will link back to it). </dd>
+                      
+                    </dl>
+                    <p class="p">Authors also can create links directly in a topic by using the
+                        <code class="keyword markupname xmlelement">&lt;xref&gt;</code> or <code class="keyword markupname xmlelement">&lt;link&gt;</code> elements, but
+                      in most cases map-based linking is preferable, because links in topics create
+                      dependencies between topics that can hinder reuse. </p>
+                    <p class="p">Note that while the relationships between the topics that are referenced in a
+                      map are reciprocal, the relationships merely <em class="ph i">imply</em> reciprocal links in
+                      generated output that includes links. The rendered navigation links are a
+                      function of the presentation style that is determined by the processor. </p>
+                  </dd>
+                
+              </dl>
+              <p class="p">
+                <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 13 May 2026: Ensure there is nothing
+                  conflicting, and add a link from here to the more architectural info that gives
+                  all the details</div>
+              </p>
+            </div></dd>
         
         
           <dt class="dt dlterm" id="attribute-groups__attr-processing-role"><code class="keyword markupname xmlatt">@processing-role</code>
@@ -241,7 +393,21 @@ classes: ''
           locally, the value might cascade from another element in the map
           (for cascade rules, see <a class="xref" href="../../common/../archSpec/base/cascading-in-a-ditamap.html#cascading-in-a-ditamap" title="Certain attributes cascade throughout a map, which facilitates attribute and metadata management. When attributes cascade, they apply to the elements that are children of the element where the attributes were specified. Cascading applies to a containment hierarchy, as opposed to a specialization hierarchy.">Cascading of metadata attributes in a DITA map</a>).</span> The following values are valid:
               <span class="keyword">yes</span>, <span class="keyword">no</span>, and
-              <span class="keyword">-dita-use-conref-target</span>.</dd>
+              <span class="keyword">-dita-use-conref-target</span>.<div class="draft-comment"><div><strong>Draft comment: </strong>Kristen J Eberlein 28 September 2022</div>
+              <p class="p">Here is the content from the "DITA map attributes" topic:</p>
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><code class="keyword markupname xmlatt">@search</code>
+                  </dt>
+                  <dd class="dd"> Specifies whether the topic is included in search indexes. </dd>
+                
+              </dl>
+              <p class="p">
+                <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 13 May 2026: Update to use the same
+                  description, these are very similar but not exact. If the description is this
+                  short and similar it should be reused with conref.</div>
+              </p>
+            </div></dd>
         
         
           <dt class="dt dlterm" id="attribute-groups__attr-subjectrefs"><code class="keyword markupname xmlatt">@subjectrefs</code>
@@ -271,7 +437,24 @@ classes: ''
                 <dt class="dt dlterm">-dita-use-conref-target </dt>
                 <dd class="dd">See <a class="xref" href="https://dita-lang.org/dita/archspec/base/ditauseconreftarget" target="_blank" rel="external noopener">TODO: Update link and title to OASIS published URI</a> for more information. </dd>
               
-            </dl></dd>
+            </dl><div class="draft-comment"><div><strong>Draft comment: </strong>Kristen J Eberlein 28 September 2022</div>
+              <p class="p">Here is the content from the "DITA map attributes" topic:</p>
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><code class="keyword markupname xmlatt">@toc</code></dt>
+                  <dd class="dd">Specifies whether topics are excluded from navigation output, such as a Web
+                    site map or an online table of contents. By default,
+                      <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> hierarchies are included in navigation
+                    output; relationship tables are excluded. </dd>
+                
+              </dl>
+              <p class="p">
+                <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 13 May 2026: I read that and kind of
+                  hate "web site map". Kind of think we should delete that bit from the other topic,
+                  and replace the first sentence there with a reused sentence from
+                  here.</div>
+              </p>
+            </div></dd>
         
       </dl>
     </section>
@@ -481,7 +664,11 @@ classes: ''
           <dt class="dt dlterm" id="attribute-groups__attr-name"><code class="keyword markupname xmlatt">@name</code>
             <span class="ph">(data-element
             attributes)</span></dt>
-          <dd class="dd">Defines a unique name for the object.</dd>
+          <dd class="dd">Defines a unique name for the object.<div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>Do we need to specify the scope of "unique" here?<p class="p">
+                <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 13 May 2026: ha, it often won't be
+                  unique because you often use the same name for all instances of a specific type of
+                  metadata. Maybe we just get rid of "unique"</div>
+              </p></div></dd>
         
         
           <dt class="dt dlterm" id="attribute-groups__attr-value"><code class="keyword markupname xmlatt">@value</code>
@@ -705,13 +892,27 @@ classes: ''
       
       <p class="p">This group includes attributes defined on
           <code class="keyword markupname xmlelement">&lt;include&gt;</code> and its specializations:</p>
-      
+      <div class="draft-comment"><div><strong>Draft comment: </strong>Kristen J Eberlein 28 September 2002</div>
+        <p class="p">What is specialized from <code class="keyword markupname xmlelement">&lt;include&gt;</code>? Both
+          base (if any) and technical content ...</p>
+        <p class="p">
+          <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 13 May 2026: Is this a suggestion that we list
+            the specializations here? They are all in the technical content spec: coderef, svgref,
+            mathmlref. We could list those but I don't think it is necessary.</div>
+        </p>
+      </div>
       <dl class="dl">
         
           <dt class="dt dlterm" id="attribute-groups__attr-encoding"><code class="keyword markupname xmlatt">@encoding</code>
             <span class="ph">(inclusion
             attributes)</span></dt>
-          <dd class="dd">Specifies the character encoding to use when translating the character
+          <dd class="dd"><div class="draft-comment"><div><strong>Draft comment: </strong>Kristen J Eberlein 29 April 2019</div>
+              <p class="p">Can we replace "should" in the following definition?</p>
+              <p class="p">
+                <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 13 May 2026: we can change to
+                  "is"</div>
+              </p>
+            </div>Specifies the character encoding to use when translating the character
             data from the referenced content. The value should be a valid encoding name. If not
             specified, processors may make attempts to automatically determine the correct encoding,
             for example using HTTP headers, through analysis of the binary structure of the
@@ -803,7 +1004,17 @@ classes: ''
     </section>
     <section class="section" id="attribute-groups__localization-attributes"><h2 class="title sectiontitle">Localization attributes</h2>
       
-      
+      <div class="draft-comment"><div><strong>Draft comment: </strong>Kristen J Eberlein 29 September 2022</div>
+        <p class="p">The definition of the localizations attribute matches how they
+          are described in the architectural topics. Wherever possible, the
+          definition is reused. Where it is not reused (because the
+          definition in the archSpec topics is in a shortdesc), I've
+          checked to ensure that wording is identical.</p>
+        <p class="p">
+          <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 13 May 2026: I don't think there is any action
+            here, maybe change this to an XML comment?</div>
+        </p>
+      </div>
       <p class="p" id="attribute-groups__localization-attr">This group contains the attributes that are related to translation
         and localization. </p>
       <dl class="dl">
@@ -846,13 +1057,31 @@ classes: ''
           <dt class="dt dlterm" id="attribute-groups__attr-translate"><code class="keyword markupname xmlatt">@translate</code></dt>
           <dd class="dd">Specifies whether the content of the element should be translated. <span class="ph">The following values are valid: <span class="keyword">yes</span>, <span class="keyword">no</span>, and
                 <span class="keyword">-dita-use-conref-target</span>.</span><p class="p">See <a class="xref" href="../../non-normative/elementsMerged.html" title="This topic contains a list of all elements in the base DITA edition. It includes recommendations on how to present the element type to translators, whether the element contents are likely to be suitable for translation, and whether the element has attributes with values that are likely to be suitable for translation. Examples of content that is not suitable for translation include code fragments and mailing addresses.">Element-by-element recommendations for translators</a> for
-              suggested processing defaults for each element.</p></dd>
+              suggested processing defaults for each element.</p><div class="draft-comment"><div><strong>Draft comment: </strong>Kristen J Eberlein 31 December 2021</div>
+              <p class="p">Does <a class="xref" href="../../non-normative/elementsMerged.html" title="This topic contains a list of all elements in the base DITA edition. It includes recommendations on how to present the element type to translators, whether the element contents are likely to be suitable for translation, and whether the element has attributes with values that are likely to be suitable for translation. Examples of content that is not suitable for translation include code fragments and mailing addresses.">Element-by-element recommendations for translators</a> really provide
+                suggested processing defaults for each element? I thought it covered whether an
+                element was block or in-line and whether there were considerations that translators
+                needed to be aware of.</p>
+              <p class="p">
+                <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 13 May 2026: Can we update to "See
+                  (link) for information on additional considerations on translating DITA
+                  elements."</div>
+              </p>
+            </div></dd>
         
         
           <dt class="dt dlterm" id="attribute-groups__attr-xmllang"><code class="keyword markupname xmlatt">@xml:lang</code></dt>
           <dd class="dd" id="attribute-groups__reusable-lang">Specifies the language and optional locale of the content that is
             contained in an element. Valid values are language tokens or the null string. The
-              <code class="keyword markupname xmlatt">@xml:lang</code> attribute and its values are described in the <a class="xref" href="http://www.w3.org/TR/REC-xml/#sec-lang-tag" target="_blank" rel="external noopener">Extensible Markup Language 1.0 specification, fifth edition</a>.</dd>
+              <code class="keyword markupname xmlatt">@xml:lang</code> attribute and its values are described in the <a class="xref" href="http://www.w3.org/TR/REC-xml/#sec-lang-tag" target="_blank" rel="external noopener">Extensible Markup Language 1.0 specification, fifth edition</a>.<div class="draft-comment"><div><strong>Draft comment: </strong>Kristen J Eberlein 29 September 2022</div>
+              <p class="p">Do we also want to direct readers to the architectural topics about the
+                  <code class="keyword markupname xmlatt">@xml:lang</code> attribute?</p>
+              <p class="p">
+                <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 13 May 2026: Yes, should provide a cross
+                  reference, not sure if that will work in the lwdita spec but can figure that out
+                  later</div>
+              </p>
+            </div></dd>
         
       </dl>
     </section>
@@ -885,7 +1114,21 @@ classes: ''
             attribute is not used for conditional processing, although applications might use the
             value of the <code class="keyword markupname xmlatt">@importance</code> attribute to highlight elements. <span class="ph example">For example, in steps of a task topic, the value of the
                 <code class="keyword markupname xmlatt">@importance</code> attribute indicates whether a step is optional or
-              required.</span></dd>
+              required.</span><div class="draft-comment"><div><strong>Draft comment: </strong>Kristen J Eberlein 29 September 2022</div>
+              <p class="p">I think the phrase "to highlight elements" is a little off. Maybe "render generated
+                text"? And how about adding "Processors often add text or images to ensure that
+                readers of the generated content understand whether the step is optional or
+                required." to the end of the example?</p>
+              <div class="p">
+                <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 13 May 2026: <ul class="ul" id="attribute-groups__ul_bhy_2sz_fjc">
+                    <li class="li">maybe change to "… although applications can modify how content is rendered
+                      based on the value of the <code class="keyword markupname xmlatt">@importance</code> attribute</li>
+                    <li class="li">And update the example with something like "For example, in steps of a task
+                      topic, processors often add text or images to highlight that a step is
+                      optional or required"</li>
+                  </ul></div>
+              </div>
+            </div></dd>
         
         
           <dt class="dt dlterm" id="attribute-groups__attr-props"><code class="keyword markupname xmlatt">@props</code></dt>
@@ -907,7 +1150,23 @@ classes: ''
             be used for filtering nor is it sufficient to be used for version control. <span class="ph">If no value is specified but the attribute is
           specified on a containing element within a map or within the
           related-links section, the value cascades from the closest
-          containing element.</span>
+          containing element.</span><div class="draft-comment"><div><strong>Draft comment: </strong>Kristen J Eberlein 29 September 2022</div>
+              <p class="p">I want to tweak this. How about the following? Also, neither definition describes
+                what values are permitted.</p>
+              <p class="p">Specifies metadata that identifies when the element was added or the content of the
+                element was modified. The <code class="keyword markupname xmlatt">@rev</code> attribute can be used for flagging.
+                It cannot be used for filtering nor is it sufficient to be used for version control.
+                  <span class="ph">If no value is specified but the attribute is
+          specified on a containing element within a map or within the
+          related-links section, the value cascades from the closest
+          containing element.</span></p>
+              <p class="p">
+                <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 13 May 2026: Sounds good, I might say
+                  "can be used for flagging revisions" just because that sentence feels a bit odd
+                  ending in "for flagging" but really don't care, fine with using the text with or
+                  without that update.</div>
+              </p>
+            </div>
           </dd>
         
         
@@ -1028,7 +1287,13 @@ classes: ''
             basic semantic and expectations for the element. In particular, the
               <code class="keyword markupname xmlatt">@outputclass</code> attribute can be used for styling during output
             processing; HTML output will typically preserve <code class="keyword markupname xmlatt">@outputclass</code> for CSS
-              processing.</dd>
+              processing.<div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>I don't like "The
+              role must be consistent...", that seems like best practice that cannot be normative –
+              and I could easily say outputclass="flashy" which makes my element show up with
+              sparkles, and has nothing to do with "the basic semantic and expectations for the element".<p class="p">
+                <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 13 May 2026: how about saying "the role
+                  can be", or even a lower-case should, rather than "must be"?</div>
+              </p></div></dd>
         
       </dl>
     </section>
