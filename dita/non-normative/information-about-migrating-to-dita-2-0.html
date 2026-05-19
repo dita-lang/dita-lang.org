@@ -4,7 +4,7 @@ title: 'Information about migrating to DITA 2.0'
 description: 'This topic includes information on required steps to migrate content from DITA 1.x to DITA 2.0.'
 index: '../toc.html'
 notices: '../resources/oasis-notices.html'
-commit: '3265f7052018a2e2c690887a7c5b672c439baefb'
+commit: 'e46a02402c0a98eb942a5696a268b90f62a38cd5'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -202,6 +202,14 @@ classes: ''
                     that module is imported into the composite document type within the technical
                     content grammar files. Custom shells that use the <code class="keyword markupname xmlelement">&lt;dita&gt;</code>
                     element can now import that module directly from the base vocabulary.</li>
+                <li class="li">The <code class="keyword markupname xmlatt">@outputclass</code> attribute in DITA 1.x was defined directly on
+                    elements in the DTD and RelaxNG grammar files, but is now part of the universal
+                    attribute group. <span class="error-statement" id="information-about-migrating-to-dita-2-0__d4118t726" data-id="DITAERR-0320"></span>If a specialized element defined this attribute and also uses
+                    the universal attribute group, that extra definition is now redundant and will
+                    result in a parsing error against the DITA 2.x grammar files. The extra
+                    definition of <code class="keyword markupname xmlatt">@outputclass</code> needs to be removed from the element
+                    definition; the attribute will still be defined based on the copy in the
+                    universal attribute group.</li>
             </ul>
         </section>
     </div>
