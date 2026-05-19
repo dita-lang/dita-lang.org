@@ -427,4 +427,26 @@
     </div>
   </xsl:template>
 
+  <xsl:template match="*[contains(@class, ' topic/draft-comment ')]" name="topic.draft-comment">
+    <div>
+      <xsl:call-template name="commonattributes">
+        <xsl:with-param name="default-output-class">draft-comment</xsl:with-param>
+      </xsl:call-template>
+      <xsl:call-template name="setidaname"/>
+      <div>
+        <strong>
+          <xsl:call-template name="getVariable">
+            <xsl:with-param name="id" select="'Draft comment'"/>
+          </xsl:call-template>
+          <xsl:call-template name="getVariable">
+            <xsl:with-param name="id" select="'ColonSymbol'"/>
+          </xsl:call-template>
+          <xsl:text> </xsl:text>
+        </strong>
+        <xsl:value-of select="@author, @disposition, @time" separator=" "/>
+      </div>
+      <xsl:apply-templates/>
+    </div>
+  </xsl:template>
+
 </xsl:stylesheet>
