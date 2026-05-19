@@ -4,7 +4,7 @@ title: 'Attribute groups'
 description: 'Many of the attributes used on DITA elements are defined in attribute groups. These attribute groups are used both in the grammar files and the specification,'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '03e638314581681faf20cbe4de85dca4b04a29f0'
+commit: '2edf93877eceed6611f4082a2d9360afe8cdf6d8'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -64,7 +64,6 @@ classes: ''
       
       <p class="p" id="attribute-groups__common-map-attr">This group contains attributes that are frequently used on map
         elements. </p>
-      
       <dl class="dl">
         
           <dt class="dt dlterm" id="attribute-groups__attr-cascade"><code class="keyword markupname xmlatt">@cascade</code><span class="ph"> (common map
@@ -94,7 +93,7 @@ classes: ''
             took place on ancestor elements.</dd>
                                 
                         </dl>
-            <p class="p"><span class="implementation-statement" id="attribute-groups__d3580e259" data-id="DITAIMP-0120"></span>Processors can also define custom,
+            <p class="p"><span class="implementation-statement" id="attribute-groups__d3580e247" data-id="DITAIMP-0120"></span>Processors can also define custom,
         implementation-specific tokens for this attribute.</p>
             <p class="p">See <a class="xref" href="../../archSpec/base/cascading-in-a-ditamap.html" title="Certain attributes cascade throughout a map, which facilitates attribute and metadata management. When attributes cascade, they apply to the elements that are children of the element where the attributes were specified. Cascading applies to a containment hierarchy, as opposed to a specialization hierarchy.">Cascading of metadata attributes in a DITA map</a>
               for more information about how this attribute interacts with
@@ -126,7 +125,7 @@ classes: ''
             of how many DITA topics exist within each source document.
           </span></dd>
                 
-              </dl></div><p class="p"><span class="implementation-statement" id="attribute-groups__d3580e324" data-id="DITAIMP-0130"></span>Processors can also define custom,
+              </dl></div><p class="p"><span class="implementation-statement" id="attribute-groups__d3580e312" data-id="DITAIMP-0130"></span>Processors can also define custom,
         implementation-specific tokens for this attribute.</p><p class="p">For a detailed
               description of the <code class="keyword markupname xmlatt">@chunk</code> attribute and its usage, see <a class="xref" href="../../archSpec/base/chunking.html" title="Content often needs to be delivered in a different granularity than it is authored. The chunk attribute enables map authors to specify that multiple source documents should be combined into a single document for delivery or that a single source document should be split into multiple documents for delivery.">Chunking</a>.</p></dd>
         
@@ -481,7 +480,7 @@ classes: ''
           <dt class="dt dlterm" id="attribute-groups__attr-name"><code class="keyword markupname xmlatt">@name</code>
             <span class="ph">(data-element
             attributes)</span></dt>
-          <dd class="dd">Defines a unique name for the object.</dd>
+          <dd class="dd">Defines a name for the object.</dd>
         
         
           <dt class="dt dlterm" id="attribute-groups__attr-value"><code class="keyword markupname xmlatt">@value</code>
@@ -712,13 +711,13 @@ classes: ''
             <span class="ph">(inclusion
             attributes)</span></dt>
           <dd class="dd">Specifies the character encoding to use when translating the character
-            data from the referenced content. The value should be a valid encoding name. If not
-            specified, processors may make attempts to automatically determine the correct encoding,
-            for example using HTTP headers, through analysis of the binary structure of the
-            referenced data, or the <code class="keyword markupname xmlpi">&lt;?xml?&gt;</code> processing instruction when including XML as
-            text. The resource should be treated as UTF-8 if no other encoding information can be
+            data from the referenced content. The value is a valid encoding name. If not specified,
+            processors can make attempts to automatically determine the correct encoding, for
+            example using HTTP headers, through analysis of the binary structure of the referenced
+            data, or the <code class="keyword markupname xmlpi">&lt;?xml?&gt;</code> processing instruction when including XML as text. The
+            resource should be treated as UTF-8 if no other encoding information can be
               determined.<p class="p">When <code class="ph codeph">parse="xml"</code>, standard XML parsing rules apply for
-              the detection of character encoding. <span class="implementation-statement" id="attribute-groups__d3580t2010" data-id="DITAIMP-0140"></span>The necessity and uses of
+              the detection of character encoding. <span class="implementation-statement" id="attribute-groups__d3580t1993" data-id="DITAIMP-0140"></span>The necessity and uses of
                 <code class="keyword markupname xmlatt">@encoding</code> for non-standard values of <code class="keyword markupname xmlatt">@parse</code> are
               implementation-dependent.</p></dd>
         
@@ -744,7 +743,7 @@ classes: ''
                     referenced XML document is selected. Any grammar processing should be performed
                     during resolution, such that default attribute values are explicitly populated.
                     Prolog content must be discarded.</p>
-                  <p class="p errorcondition"><span class="error-statement" id="attribute-groups__d3580e2057" data-id="DITAERR-0300"></span>It is an error to use <code class="ph codeph">parse="xml"</code>
+                  <p class="p errorcondition"><span class="error-statement" id="attribute-groups__d3580e2040" data-id="DITAERR-0300"></span>It is an error to use <code class="ph codeph">parse="xml"</code>
                     anywhere other than within <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> or a specialization
                     thereof.</p>
                 </dd>
@@ -846,13 +845,14 @@ classes: ''
           <dt class="dt dlterm" id="attribute-groups__attr-translate"><code class="keyword markupname xmlatt">@translate</code></dt>
           <dd class="dd">Specifies whether the content of the element should be translated. <span class="ph">The following values are valid: <span class="keyword">yes</span>, <span class="keyword">no</span>, and
                 <span class="keyword">-dita-use-conref-target</span>.</span><p class="p">See <a class="xref" href="../../non-normative/elementsMerged.html" title="This topic contains a list of all elements in the base DITA edition. It includes recommendations on how to present the element type to translators, whether the element contents are likely to be suitable for translation, and whether the element has attributes with values that are likely to be suitable for translation. Examples of content that is not suitable for translation include code fragments and mailing addresses.">Element-by-element recommendations for translators</a> for
-              suggested processing defaults for each element.</p></dd>
+              additional considerations on translating DITA elements.</p></dd>
         
         
           <dt class="dt dlterm" id="attribute-groups__attr-xmllang"><code class="keyword markupname xmlatt">@xml:lang</code></dt>
           <dd class="dd" id="attribute-groups__reusable-lang">Specifies the language and optional locale of the content that is
             contained in an element. Valid values are language tokens or the null string. The
-              <code class="keyword markupname xmlatt">@xml:lang</code> attribute and its values are described in the <a class="xref" href="http://www.w3.org/TR/REC-xml/#sec-lang-tag" target="_blank" rel="external noopener">Extensible Markup Language 1.0 specification, fifth edition</a>.</dd>
+              <code class="keyword markupname xmlatt">@xml:lang</code> attribute and its values are described in the <a class="xref" href="http://www.w3.org/TR/REC-xml/#sec-lang-tag" target="_blank" rel="external noopener">Extensible Markup Language 1.0 specification, fifth edition</a>.<p class="p">See <a class="xref" href="../../archSpec/base/xmllang.html" title="The xml:lang attribute specifies the language and optional locale of the content that is contained in an element. The xml:lang attribute is described in the XML Recommendation.">The xml:lang attribute</a> for additional information about using the
+                <code class="keyword markupname xmlatt">@xml:lang</code> attribute.</p></dd>
         
       </dl>
     </section>
@@ -882,10 +882,9 @@ classes: ''
               <span class="keyword">obsolete</span>, <span class="keyword">optional</span>,
               <span class="keyword">recommended</span>, <span class="keyword">required</span>,
             <span class="keyword">urgent</span>, and <span class="keyword">-dita-use-conref-target</span>. This
-            attribute is not used for conditional processing, although applications might use the
-            value of the <code class="keyword markupname xmlatt">@importance</code> attribute to highlight elements. <span class="ph example">For example, in steps of a task topic, the value of the
-                <code class="keyword markupname xmlatt">@importance</code> attribute indicates whether a step is optional or
-              required.</span></dd>
+            attribute is not used for conditional processing, although applications can modify how
+            content is rendered based on the value of the <code class="keyword markupname xmlatt">@importance</code> attribute. <span class="ph example">For example, in steps of a task topic, processors often add text
+              or images to highlight that a step is marked optional or required.</span></dd>
         
         
           <dt class="dt dlterm" id="attribute-groups__attr-props"><code class="keyword markupname xmlatt">@props</code></dt>
@@ -902,9 +901,10 @@ classes: ''
         
         
           <dt class="dt dlterm" id="attribute-groups__attr-rev"><code class="keyword markupname xmlatt">@rev</code></dt>
-          <dd class="dd">Specifies a revision level of an element that identifies when the element was added or
-            modified. It can be used to flag outputs when it matches a run-time parameter. It cannot
-            be used for filtering nor is it sufficient to be used for version control. <span class="ph">If no value is specified but the attribute is
+          <dd class="dd">Specifies metadata that identifies when the element was added or the content of the
+            element was modified. The <code class="keyword markupname xmlatt">@rev</code> attribute can be used for flagging
+            revisions when content is rendered. It cannot be used for filtering nor is it sufficient
+            to be used for version control. <span class="ph">If no value is specified but the attribute is
           specified on a containing element within a map or within the
           related-links section, the value cascades from the closest
           containing element.</span>
@@ -1024,11 +1024,12 @@ classes: ''
         
         
           <dt class="dt dlterm" id="attribute-groups__attr-outputclass"><code class="keyword markupname xmlatt">@outputclass</code></dt>
-          <dd class="dd">Specifies a role that the element is playing. The role must be consistent with the
+          
+          <dd class="dd">Specifies a role that the element is playing. The role should be consistent with the
             basic semantic and expectations for the element. In particular, the
               <code class="keyword markupname xmlatt">@outputclass</code> attribute can be used for styling during output
             processing; HTML output will typically preserve <code class="keyword markupname xmlatt">@outputclass</code> for CSS
-              processing.</dd>
+            processing.</dd>
         
       </dl>
     </section>

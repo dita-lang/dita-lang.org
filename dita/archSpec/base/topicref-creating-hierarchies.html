@@ -4,7 +4,7 @@ title: 'How topicref elements establish hierarchies in a map'
 description: 'In a DITA map, topicref elements establish hierarchical relationships among referenced topics and can define ordered sequences that processors can use to derive navigation.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: 'daac5028dfc081cc8ca0a4a3861d2c4ea631604d'
+commit: '2edf93877eceed6611f4082a2d9360afe8cdf6d8'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -50,8 +50,15 @@ classes: ''
             
         </dl>
         <p class="p"> Hierarchy and sequence are complementary. Nesting establishes containment and context,
-            while ordering establishes progression. </p>
+            while ordering establishes progression.</p>
         <p class="p"> When processors derive navigation from a map, they use both the hierarchical position
-            and the relative order of <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements. </p>
+            and the relative order of <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> elements. The
+                <code class="keyword markupname xmlelement">&lt;related-links&gt;</code> element in a topic provides markup that can
+            reflect these hierarchical links within the topic; processors might choose to merge
+            map-based hierarchical links directly into any <code class="keyword markupname xmlelement">&lt;related-links&gt;</code>
+            section for rendering purposes. Processors might also choose to render different sets of
+            links based on a selected output format. <span class="ph example">For example, a
+                processor that generates next and previous links when rendering a map as HTML might
+                choose to skip those links when rendering a map as PDF.</span></p>
     </div>
-<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/dita-maps-and-their-usage.html" title="DITA maps serve a variety of roles, both setting up navigation hierarchies and creating relationships between topics and resoruces. These relationships can be both explicit based on relationship tables and attributes within the map, and implicit based on how topic references are nested within the map.">DITA maps and their usage</a></div></div><div class="linklist relconcepts"><strong>Related concepts</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="../../archSpec/base/table-of-contents.html" title="Processors can generate a table of contents (TOC) based on the hierarchy of the elements in a DITA map. By default, each topicref element in a map represents a node in the TOC. These topic references define a navigation tree.">Table of contents</a></li></ul></div></nav><aside class="section-toc" role="aside"></aside></article></main>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/dita-maps-and-their-usage.html" title="DITA maps serve a variety of roles, both setting up navigation hierarchies and creating relationships between topics and resoruces. These relationships can be both explicit based on relationship tables and attributes within the map, and implicit based on how topic references are nested within the map.">DITA maps and their usage</a></div></div><div class="linklist relconcepts"><strong>Related concepts</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="../../archSpec/base/table-of-contents.html" title="Processors can generate a table of contents (TOC) based on the hierarchy of the elements in a DITA map. By default, each topicref element in a map represents a node in the TOC. These topic references define a navigation tree.">Table of contents</a></li></ul></div><div class="linklist relref"><strong>Related reference</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="../../langRef/base/related-links.html" title="Related links are a group of references to other topics or external information related to the current topic.">related-links</a></li></ul></div></nav><aside class="section-toc" role="aside"></aside></article></main>

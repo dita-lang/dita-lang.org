@@ -4,7 +4,7 @@ title: 'ux-window'
 description: 'A UX window specification is a collection of metadata for a window or viewport in which a user assistance topic or web page can be displayed. The window or viewport can be referenced by the resourceid element that is associated with a topic or topicref element.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: 'daac5028dfc081cc8ca0a4a3861d2c4ea631604d'
+commit: '2edf93877eceed6611f4082a2d9360afe8cdf6d8'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -225,10 +225,9 @@ classes: ''
               <span class="keyword">obsolete</span>, <span class="keyword">optional</span>,
               <span class="keyword">recommended</span>, <span class="keyword">required</span>,
             <span class="keyword">urgent</span>, and <span class="keyword">-dita-use-conref-target</span>. This
-            attribute is not used for conditional processing, although applications might use the
-            value of the <code class="keyword markupname xmlatt">@importance</code> attribute to highlight elements. <span class="ph example">For example, in steps of a task topic, the value of the
-                <code class="keyword markupname xmlatt">@importance</code> attribute indicates whether a step is optional or
-              required.</span></dd><dt class="dt dlterm" id="ux-window__uxatt-left"><code class="keyword markupname xmlatt">@left</code></dt><dd class="dd">Specifies the left position of the target help window,
+            attribute is not used for conditional processing, although applications can modify how
+            content is rendered based on the value of the <code class="keyword markupname xmlatt">@importance</code> attribute. <span class="ph example">For example, in steps of a task topic, processors often add text
+              or images to highlight that a step is marked optional or required.</span></dd><dt class="dt dlterm" id="ux-window__uxatt-left"><code class="keyword markupname xmlatt">@left</code></dt><dd class="dd">Specifies the left position of the target help window,
             whether relative to the calling window or to the entire
             display. The value of this attribute is a real number
             optionally followed by a unit of measure from the set of pc,
@@ -250,11 +249,12 @@ classes: ''
           related-links section, the value cascades from the closest
           containing element.</span>
           </dd><dt class="dt dlterm" id="ux-window__attr-platform"><code class="keyword markupname xmlatt">@platform</code>
-            <em class="ph i">(specialized attribute)</em></dt><dd class="dd">Indicates operating system and hardware. <span class="ph">If no value is specified but the attribute is
+            <em class="ph i">(specialized attribute)</em></dt><dd class="dd">Indicates that the content is relevant to the specified platform, such as an operating
+            system or hardware. <span class="ph">If no value is specified but the attribute is
           specified on a containing element within a map or within the
           related-links section, the value cascades from the closest
           containing element.</span>
-            </dd><dt class="dt dlterm" id="ux-window__attr-product"><code class="keyword markupname xmlatt">@product</code>
+          </dd><dt class="dt dlterm" id="ux-window__attr-product"><code class="keyword markupname xmlatt">@product</code>
             <span class="ph"><em class="ph i">(specialized attribute)</em></span></dt><dd class="dd">Specifies the name of the product to which the element applies. <span class="ph">If no value is specified but the attribute is
           specified on a containing element within a map or within the
           related-links section, the value cascades from the closest
@@ -296,9 +296,10 @@ classes: ''
           <dd class="dd">See <a class="xref" href="../../common/../archSpec/base/ditauseconreftarget.html" title="When an element uses conref to pull in content, for any of its attributes assigned a value of -dita-use-conref-target, the resulting value for those attributes is also pulled in from the referenced element.">Using the -dita-use-conref-target value</a>
             for more information. </dd>
         
-            </dl></dd><dt class="dt dlterm" id="ux-window__attr-rev"><code class="keyword markupname xmlatt">@rev</code></dt><dd class="dd">Specifies a revision level of an element that identifies when the element was added or
-            modified. It can be used to flag outputs when it matches a run-time parameter. It cannot
-            be used for filtering nor is it sufficient to be used for version control. <span class="ph">If no value is specified but the attribute is
+            </dl></dd><dt class="dt dlterm" id="ux-window__attr-rev"><code class="keyword markupname xmlatt">@rev</code></dt><dd class="dd">Specifies metadata that identifies when the element was added or the content of the
+            element was modified. The <code class="keyword markupname xmlatt">@rev</code> attribute can be used for flagging
+            revisions when content is rendered. It cannot be used for filtering nor is it sufficient
+            to be used for version control. <span class="ph">If no value is specified but the attribute is
           specified on a containing element within a map or within the
           related-links section, the value cascades from the closest
           containing element.</span>

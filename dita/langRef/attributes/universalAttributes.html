@@ -4,7 +4,7 @@ title: 'Universal attribute group'
 description: 'The universal attribute group defines a set of common attributes that are available on almost every DITA element. The universal attribute group includes all attributes from the ID, localization, and metadata attribute groups, plus the class and outputclass attributes.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: 'daac5028dfc081cc8ca0a4a3861d2c4ea631604d'
+commit: '2edf93877eceed6611f4082a2d9360afe8cdf6d8'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -52,11 +52,9 @@ classes: ''
         
           <dt class="dt dlterm" id="univ-atts__metadataatts">Metadata attributes</dt>
           <dd class="dd">
-            <div class="p" id="univ-atts__metadata-attr">This group includes common metadata
-              attributes, two of which are available for specialization:
-                <code class="keyword markupname xmlatt">@base</code>, <code class="keyword markupname xmlatt">@importance</code>,
-                <code class="keyword markupname xmlatt">@props</code>, <code class="keyword markupname xmlatt">@rev</code>, and
-                <code class="keyword markupname xmlatt">@status</code>.</div>
+            <p class="p" id="univ-atts__metadata-attr">This group includes common metadata attributes:
+                <code class="keyword markupname xmlatt">@base</code>, <code class="keyword markupname xmlatt">@importance</code>, <code class="keyword markupname xmlatt">@props</code>,
+                <code class="keyword markupname xmlatt">@rev</code>, and <code class="keyword markupname xmlatt">@status</code>.</p>
           </dd>
           <dd class="dd ddexpand">
             <p class="p" id="univ-atts__specializations-of-props">The base DITA vocabulary from
@@ -239,10 +237,9 @@ classes: ''
               <span class="keyword">obsolete</span>, <span class="keyword">optional</span>,
               <span class="keyword">recommended</span>, <span class="keyword">required</span>,
             <span class="keyword">urgent</span>, and <span class="keyword">-dita-use-conref-target</span>. This
-            attribute is not used for conditional processing, although applications might use the
-            value of the <code class="keyword markupname xmlatt">@importance</code> attribute to highlight elements. <span class="ph example">For example, in steps of a task topic, the value of the
-                <code class="keyword markupname xmlatt">@importance</code> attribute indicates whether a step is optional or
-              required.</span></dd>
+            attribute is not used for conditional processing, although applications can modify how
+            content is rendered based on the value of the <code class="keyword markupname xmlatt">@importance</code> attribute. <span class="ph example">For example, in steps of a task topic, processors often add text
+              or images to highlight that a step is marked optional or required.</span></dd>
         
         
           <dt class="dt dlterm" id="univ-atts__attr-otherprops"><a id="univ-atts__otherprops"></a><code class="keyword markupname xmlatt">@otherprops</code>
@@ -258,20 +255,22 @@ classes: ''
         
         
           <dt class="dt dlterm" id="univ-atts__attr-outputclass"><a id="univ-atts__outputclass"></a><code class="keyword markupname xmlatt">@outputclass</code></dt>
-          <dd class="dd">Specifies a role that the element is playing. The role must be consistent with the
+          
+          <dd class="dd">Specifies a role that the element is playing. The role should be consistent with the
             basic semantic and expectations for the element. In particular, the
               <code class="keyword markupname xmlatt">@outputclass</code> attribute can be used for styling during output
             processing; HTML output will typically preserve <code class="keyword markupname xmlatt">@outputclass</code> for CSS
-              processing.</dd>
+            processing.</dd>
         
         
           <dt class="dt dlterm" id="univ-atts__attr-platform"><a id="univ-atts__platform"></a><code class="keyword markupname xmlatt">@platform</code>
             <em class="ph i">(specialized attribute)</em></dt>
-          <dd class="dd">Indicates operating system and hardware. <span class="ph">If no value is specified but the attribute is
+          <dd class="dd">Indicates that the content is relevant to the specified platform, such as an operating
+            system or hardware. <span class="ph">If no value is specified but the attribute is
           specified on a containing element within a map or within the
           related-links section, the value cascades from the closest
           containing element.</span>
-            </dd>
+          </dd>
         
         
           <dt class="dt dlterm" id="univ-atts__attr-product"><a id="univ-atts__product"></a><code class="keyword markupname xmlatt">@product</code>
@@ -297,9 +296,10 @@ classes: ''
         
         
           <dt class="dt dlterm" id="univ-atts__attr-rev"><a id="univ-atts__rev"></a><code class="keyword markupname xmlatt">@rev</code></dt>
-          <dd class="dd">Specifies a revision level of an element that identifies when the element was added or
-            modified. It can be used to flag outputs when it matches a run-time parameter. It cannot
-            be used for filtering nor is it sufficient to be used for version control. <span class="ph">If no value is specified but the attribute is
+          <dd class="dd">Specifies metadata that identifies when the element was added or the content of the
+            element was modified. The <code class="keyword markupname xmlatt">@rev</code> attribute can be used for flagging
+            revisions when content is rendered. It cannot be used for filtering nor is it sufficient
+            to be used for version control. <span class="ph">If no value is specified but the attribute is
           specified on a containing element within a map or within the
           related-links section, the value cascades from the closest
           containing element.</span>
@@ -315,13 +315,14 @@ classes: ''
           <dt class="dt dlterm" id="univ-atts__attr-translate"><a id="univ-atts__translate"></a><code class="keyword markupname xmlatt">@translate</code></dt>
           <dd class="dd">Specifies whether the content of the element should be translated. <span class="ph">The following values are valid: <span class="keyword">yes</span>, <span class="keyword">no</span>, and
                 <span class="keyword">-dita-use-conref-target</span>.</span><p class="p">See <a class="xref" href="../../non-normative/elementsMerged.html" title="This topic contains a list of all elements in the base DITA edition. It includes recommendations on how to present the element type to translators, whether the element contents are likely to be suitable for translation, and whether the element has attributes with values that are likely to be suitable for translation. Examples of content that is not suitable for translation include code fragments and mailing addresses.">Element-by-element recommendations for translators</a> for
-              suggested processing defaults for each element.</p></dd>
+              additional considerations on translating DITA elements.</p></dd>
         
         
           <dt class="dt dlterm" id="univ-atts__attr-xmllang"><a id="univ-atts__xmllang"></a><code class="keyword markupname xmlatt">@xml:lang</code></dt>
           <dd class="dd" id="univ-atts__reusable-lang">Specifies the language and optional locale of the content that is
             contained in an element. Valid values are language tokens or the null string. The
-              <code class="keyword markupname xmlatt">@xml:lang</code> attribute and its values are described in the <a class="xref" href="http://www.w3.org/TR/REC-xml/#sec-lang-tag" target="_blank" rel="external noopener">Extensible Markup Language 1.0 specification, fifth edition</a>.</dd>
+              <code class="keyword markupname xmlatt">@xml:lang</code> attribute and its values are described in the <a class="xref" href="http://www.w3.org/TR/REC-xml/#sec-lang-tag" target="_blank" rel="external noopener">Extensible Markup Language 1.0 specification, fifth edition</a>.<p class="p">See <a class="xref" href="../../archSpec/base/xmllang.html" title="The xml:lang attribute specifies the language and optional locale of the content that is contained in an element. The xml:lang attribute is described in the XML Recommendation.">The xml:lang attribute</a> for additional information about using the
+                <code class="keyword markupname xmlatt">@xml:lang</code> attribute.</p></dd>
         
       </dl>
     </section>
