@@ -4,7 +4,7 @@ title: 'Cascading of roles from map to map'
 description: 'When specialized topicref elements, such as chapter or mapref, reference a map, they typically imply a semantic role for the referenced content.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '03e638314581681faf20cbe4de85dca4b04a29f0'
+commit: '4424114c3101f3adf32f26646447a3c3d6ae51ec'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -18,7 +18,14 @@ classes: ''
       <code class="keyword markupname xmlelement">&lt;mapref&gt;</code>, reference a map, they typically
     imply a semantic role for the referenced content. </p>
     
-    
+    <div class="draft-comment"><div><strong>Draft comment: </strong>Kristen J Eberlein 04 July 2019</div>
+      <p class="p">We need to look at the instances of "should" in this topic. Can they be recast? Do we need
+        to introduce RFC-2119 language?</p>
+      <p class="p">
+        <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 11 May 2026: just need to do the editorial pass
+          and clean up each use of should, use RFC if needed</div>
+      </p>
+    </div>
     <p class="p">The semantic role reflects the <code class="keyword markupname xmlatt">@class</code> hierarchy of
       the referencing <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element<span style="color:red;" class="ph">. It </span>is equivalent to having the
         <code class="keyword markupname xmlatt">@class</code> attribute from the referencing
@@ -34,7 +41,15 @@ classes: ''
    role of "topic"), or when a <code class="keyword markupname xmlelement">&lt;mapref&gt;</code> element references a DITA map (giving
    it the role of "DITA map").</p>
     
-    
+    <div class="draft-comment"><div><strong>Draft comment: </strong>rodaande 8 Feb 2022</div>The following paragraph includes the
+      statement: "the non-default behavior should be clearly specified"<p class="p">We do not say how or
+        where. For mapgroup, I believe it is only specified here in this topic. I think either we
+        need this as part of every mapgroup element definition, in "Processing expectations", or we
+        need a clear table here listing every element where this behavior does not apply.</p><p class="p">
+        <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 11 May 2026: I believe the
+            <code class="keyword markupname xmlatt">@impose-role</code> attribute is now available for this, we should say so and
+          link to the topic about it</div>
+      </p></div>
   <p class="p">Unless otherwise instructed, a specialized <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element that
       references a map supplies a role for the referenced content. This means that, in effect, the
         <code class="keyword markupname xmlatt">@class</code> attribute of the referencing element cascades to top-level topicref

@@ -4,7 +4,7 @@ title: 'Basic DITA terminology'
 description: 'Certain terminology is used for basic DITA components.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '03e638314581681faf20cbe4de85dca4b04a29f0'
+commit: '4424114c3101f3adf32f26646447a3c3d6ae51ec'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -13,7 +13,29 @@ classes: ''
     <h1 class="title topictitle1" id="ariaid-title1">Basic DITA terminology</h1>
     
     <div class="body conbody"><p class="shortdesc">Certain terminology is used for basic DITA components.</p>
-        
+        <div class="draft-comment"><div><strong>Draft comment: </strong>rodaande 13 December 2022</div>Somewhere - likely in this topic -
+            we need a definition of "DITA Processor". Currently as used in the spec, that would
+            encompass any tool that processes DITA in any way – not just rendering tools that use
+            DITA as source, but any tools that work with DITA. For example, an editor is not
+            required to evaluate any DITA feature (such as a simple text editor). However a DITA
+            editor that resolves content references or keys inline is a DITA processor, which is
+            processing those features based on processor requirements in the spec. Similarly a CCMS
+            that evaluates content references falls under the umbrella of a DITA processor.<p class="p">This
+                assumes that we retain current use of "DITA processor" as used in the specification.
+                Jarno noted that HTML5 uses producer/ consumer, where producer is aimed more at
+                rules for authors / creators of DITA content and consumer is a tool that acts upon
+                the content.</p><div class="p">
+                <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 11 May 2026: this is a hard one. How
+                    about we add the term but with a broad definition stating that a processor is an
+                    implementation of DITA that renders DITA content or implements features of the
+                    DITA specification. This <strong class="ph b">can</strong> include editors that attempt to render DITA
+                    content as anything other than plain text, processors that render DITA content
+                    as some other format, content management systems that process relationships
+                    between DITA documents, and other systems that attempt to handle DITA content as
+                    anything other than plain XML.<p class="p">Or, if we can't come up with wording that works
+                        with that, just skip this and not define a DITA
+                    processor.</p></div>
+            </div></div>
         <dl class="dl">
             
                 <dt class="dt dlterm">DITA document</dt>
@@ -26,7 +48,16 @@ classes: ''
                             <li class="li"><code class="keyword markupname xmlelement">&lt;topic&gt;</code> or a specialization of the
                                     <code class="keyword markupname xmlelement">&lt;topic&gt;</code> element</li>
                             <li class="li"><code class="keyword markupname xmlelement">&lt;dita&gt;</code>, which cannot be specialized, but
-                                which allows documents with multiple sibling topics</li>
+                                which allows documents with multiple sibling topics<div class="draft-comment"><div><strong>Draft comment: </strong>robander 26 may 2021</div>picky comment: a &lt;dita&gt; root element (singular) only allows
+                                    ONE document with sibling topics. Also, not to over-complicate,
+                                    but an ordinary topic also allows sibling topics (as children),
+                                    so what really distinguishes this is that it allows "root"
+                                    siblings, but I don't think we have a word for that.<p class="p">
+                                        <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 11 May 2026:
+                                            recommend replacing with "...which cannot be
+                                            specialized, but which allows for a DITA document with
+                                            multiple root-level sibling topics"</div>
+                                    </p></div></li>
                         </ul></div>
                 </dd>
             
@@ -52,7 +83,25 @@ classes: ''
                     exhibit a <code class="keyword markupname xmlatt">@class</code> attribute that has a value that conforms to the
                     rules for specialization hierarchy specifications.</dd>
                 <dd class="dd ddexpand">
-                    
+                    <div class="draft-comment"><div><strong>Draft comment: </strong>Kristen J Eberlein 02 July 2019</div>
+                        <p class="p">Suggest removing the last sentence of the definition. It uses the word
+                            'must'; also, it needs to be better aligned with the topic about
+                            architectural attributes.</p>
+                        <div class="p">
+                            <div class="draft-comment"><div><strong>Draft comment: </strong>robander 26 may 2021</div>Having @class is such a core part of being a DITA
+                                element that I'd be inclined to keep it, except that 1) we could
+                                just remove "must" (it's a statement of fact, not a rule) and 2) I
+                                am continually confused by the term "exhibit" in this context. Also,
+                                &lt;dita&gt; doesn't have class and is a DITA element, so it's an
+                                oddball.</div>
+                            <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 11 May 2026: suggest we <ol class="ol" id="basic-dita-terminology__ol_kkn_l24_fjc">
+                                    <li class="li">confirm that somewhere in this spec we do say that you have
+                                        to have <code class="keyword markupname xmlatt">@class</code>, which I'm pretty sure we do,
+                                        and then</li>
+                                    <li class="li">delete the sentence as Kris suggested</li>
+                                </ol></div>
+                        </div>
+                    </div>
                 </dd>
             
             

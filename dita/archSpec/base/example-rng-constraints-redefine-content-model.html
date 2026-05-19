@@ -4,7 +4,7 @@ title: 'Example: Restrict the content model for the topic element using RNG'
 description: 'In this scenario, the DITA architect for Acme Incorporated wants to redefine the content model for the topic document type. They want to omit certain elements, make the shortdesc element required, and disallow topic nesting.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '041f6874b58d3619065b5f531f065514f55285ab'
+commit: '4424114c3101f3adf32f26646447a3c3d6ae51ec'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -49,7 +49,18 @@ classes: ''
       &lt;/optional&gt;
     &lt;/define&gt;
   &lt;/include&gt;
-&lt;/div&gt;</code></pre></li>
+&lt;/div&gt;</code></pre><div class="draft-comment"><div><strong>Draft comment: </strong>Kristen J Eberlein 21 April 2021</div>
+          <p class="p">I know that the override won't happen without
+              <code class="ph codeph">combine="interleave"</code>, but I don't know if we
+            cover that in the coding requirements topic. If people start
+            with copying-and-pasting from the module that they are
+            overriding, they won't have that and will get errors.</p>
+          <p class="p">
+            <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 12 May 2026: we cover it for attribute
+              lists. Recommend updating the "overview of coding requirements" for RNG, and add a
+              comment about how it is used, then delete this draft comment.</div>
+          </p>
+        </div></li>
       <li class="li"><span class="ph">They then integrate</span> the constraint module into
         the document-type shell for topic by adding an
           <code class="keyword markupname xmlelement">&lt;include&gt;</code> element in the "ELEMENT-TYPE

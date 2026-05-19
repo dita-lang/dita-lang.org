@@ -4,7 +4,7 @@ title: 'linklist'
 description: 'A link list is an author-ordered group of links that can include a title.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '03e638314581681faf20cbe4de85dca4b04a29f0'
+commit: '4424114c3101f3adf32f26646447a3c3d6ae51ec'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -60,7 +60,61 @@ classes: ''
                 <dt class="dt dlterm">family </dt>
                 <dd class="dd">Indicates a tight grouping in which each of the
                   referenced topics not only relates to the current topic
-                  but also relate to each other. </dd>
+                  but also relate to each other. <div class="draft-comment"><div><strong>Draft comment: </strong>Kristen J Eberlein 28 September 2022</div>
+                    <p class="p">Here is the content from the "DITA map attributes"
+                      topic:</p>
+                    <dl class="dl">
+                      
+                        <dt class="dt dlterm"><code class="keyword markupname xmlatt">@collection-type</code>
+                        </dt>
+                        <dd class="dd">The <code class="keyword markupname xmlatt">@collection-type</code> attribute
+                          specifies how the children of a
+                            <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element
+                          relate to their parent and to each other. This
+                          attribute, which is set on the parent element,
+                          typically is used by processors to determine how
+                          to generate navigation links in the rendered
+                          topics. For example, a
+                            <code class="keyword markupname xmlatt">@collection-type</code> value of
+                          "sequence" indicates that children of the
+                          specifying <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>
+                          element represent an ordered sequence of topics;
+                          processors might add numbers to the list of child
+                          topics or generate next/previous links for online
+                          presentation. This attribute is available in
+                          topics on the <code class="keyword markupname xmlelement">&lt;linklist&gt;</code>
+                          and <code class="keyword markupname xmlelement">&lt;linkpool&gt;</code> elements,
+                          where it has the same behavior. Where the
+                            <code class="keyword markupname xmlatt">@collection-type</code> attribute is
+                          available on elements that cannot directly
+                          contain elements, the behavior of the attribute
+                          is undefined. </dd>
+                      
+                    </dl>
+                    <p class="p">
+                      <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 13 May 2026: Make sure nothing
+                        here conflicts, and add a link from this to the architectural
+                        section</div>
+                    </p>
+                  </div><div class="draft-comment"><div><strong>Draft comment: </strong>Kristen J Eberlein 28 September 2022</div>
+                    <p class="p">In the definitions of the supported values, do we
+                      want to refer to "resources" instead of "topics"?
+                      Since we specify that
+                        <code class="keyword markupname xmlatt">@collection-type</code> specifies "how
+                      topics <strong class="ph b">or links</strong> relate to each other" ...</p>
+                    <div class="p">
+                      <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 13 May 2026: Good point, no strong
+                        feeling, but we should be consistent here, we already use "topics", "child
+                        topics", "children", and "referenced topics". Maybe:<ul class="ul" id="linklist__ul_dbr_ylz_fjc">
+                          <li class="li">Start with "Specifies how child topic references or links within the
+                            current element relate to each other"? Since this applies to children
+                            and we only sort of say that in the definitions of the tokens</li>
+                          <li class="li">When describing the tokens, maybe use "referenced resources", as in
+                            "Indicates that the order of the referenced resources is not
+                            significant"</li>
+                        </ul></div>
+                    </div>
+                  </div></dd>
               
             </dl></dd><dt class="dt dlterm" id="linklist__attr-duplicates"><code class="keyword markupname xmlatt">@duplicates</code></dt><dd class="dd">Specifies whether duplicate links are removed from a group of links. Duplicate links
             are links that address the same resource using the same properties, such as link text
@@ -81,7 +135,13 @@ classes: ''
         
             </dl><p class="p">The suggested processing default is <span class="keyword">yes</span> within
                 <code class="keyword markupname xmlelement">&lt;linklist&gt;</code> elements and <span class="keyword">no</span> for other
-              links.</p></dd><dt class="dt dlterm" id="linklist__attr-format"><code class="keyword markupname xmlatt">@format</code>
+              links.</p><div class="draft-comment"><div><strong>Draft comment: </strong>robander Dec 28 2021</div>"How duplicate links are
+              determined is processor-specific" ==&gt; this should be included in any updates to
+              standardize language around "implementation dependent".<p class="p">
+                <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 13 May 2026: Ugh, we still need to do
+                  this - a review of the spec for any wording that hits at this, and then make it
+                  specific. Maybe a magic robot can help find all instances here.</div>
+              </p></div></dd><dt class="dt dlterm" id="linklist__attr-format"><code class="keyword markupname xmlatt">@format</code>
             <span class="ph">(link-relationship
               attributes)</span></dt><dd class="dd">Specifies the format of the resource that is referenced.<span class="ph"> See <a class="xref" href="../../archSpec/base/theformatattribute.html" title="The format attribute identifies the format of the referenced resource.">The format attribute</a> for
               detailed information on supported values and processing

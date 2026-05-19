@@ -4,7 +4,7 @@ title: 'Cross-deliverable addressing and linking'
 description: 'A map can use scoped keys to reference keys that are defined in a different root map. This cross-deliverable addressing can support the production of deliverables that contain working links to other deliverables.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '041f6874b58d3619065b5f531f065514f55285ab'
+commit: '4424114c3101f3adf32f26646447a3c3d6ae51ec'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -21,7 +21,15 @@ classes: ''
             maps are managed in tandem, and that the author of the referencing map might have access
             to the referenced map. Adding a key scope to the reference indicates that the peer map
             should be treated as a separate deliverable for the purposes of linking.</p>
-    
+    <div class="draft-comment"><div><strong>Draft comment: </strong>Kristen J Eberlein 19 April 2022</div>
+      <p class="p">When this topic is reviewed, we should also check the definition
+        of <code class="ph codeph">scope="peer"</code> in the <code class="keyword markupname xmlatt">@scope</code>
+        topic.</p>
+            <p class="p">
+                <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 12 May 2026: I suppose, just make sure
+                    we're consistent with language in that topic</div>
+            </p>
+    </div>
   <p class="p">The keys that are defined by the peer map belong to <span class="ph">any key scopes
                 that are</span> declared on the <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element that
             references that map. Such keys can be referenced from content in the referencing map by
@@ -33,7 +41,15 @@ classes: ''
             the potential to resolve key references to peer maps. There might be performance, scale,
             and user interface challenges in implementing such systems, but the ability to resolve
             any given reference is ensured when the source files are physically accessible.</p>
-        
+        <div class="draft-comment"><div><strong>Draft comment: </strong>Kristen J Eberlein 04 July 2019</div>
+            <p class="p">Should the following statement about what processors do "when a reference to a peer
+                map cannot be resolved" contain RFC-2119 language?</p>
+            <p class="p">
+                <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 12 May 2026: I don't think so, because
+                    resolution is up to them, and it's meaningless to say processors MAY or SHOULD
+                    recover any way they wish</div>
+            </p>
+        </div>
         
   <p class="p">Note the inverse implication; if the peer map is not available, then it is impossible to
             resolve the key reference. Processors that resolve key references to peer maps should

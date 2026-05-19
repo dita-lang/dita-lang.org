@@ -4,7 +4,7 @@ title: 'Index ranges'
 description: 'Authors can use the start and end attributes on a pair of indexterm elements to index an extended discussion. The generated index entry reflects the span between the two indexterm elements.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '041f6874b58d3619065b5f531f065514f55285ab'
+commit: '4424114c3101f3adf32f26646447a3c3d6ae51ec'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -71,7 +71,24 @@ classes: ''
             <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> elements. The end-of-range
             <code class="keyword markupname xmlelement">&lt;indexterm&gt;</code> element should have no
           content of its own; if it contains content, that content is
-            ignored.</li>
+            ignored.<div class="draft-comment"><div><strong>Draft comment: </strong>Kristen J Eberlein</div>
+            <p class="p">Can we improve the phrasing of the two above list items?
+              Robert and I think that they were authored in order to
+              communicate that if you want a range to be specified for a
+              secondary entry, it has to be done like this:</p>
+            <pre class="pre codeblock"><code>&lt;indexterm&gt;Potato
+  &lt;indexterm start="yellow"&gt;Yellow potatoes&lt;/indexterm&gt;
+&lt;/indexterm&gt;
+
+&lt;indexterm&gt;Potato
+  &lt;indexterm end="yellow"/&gt;
+&lt;indexterm&gt;</code></pre>
+            <p class="p">
+              <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 12 May 2026: Try to come up with a simple
+                wording tweak to describe it based on our understanding from long
+                ago</div>
+            </p>
+          </div></li>
                 <li class="li">When index ranges with the same identifier overlap, <span class="ph">the effective range is determined by matching
             the earliest <span style="color:red;" class="ph">start-of-range</span>
             element from the set of overlapping ranges with the latest <span style="color:red;" class="ph">end-of-range element</span> from the set

@@ -4,7 +4,7 @@ title: 'The keyscope attribute'
 description: 'The keyscope attribute consists of one or more space-separated key scope names. Map authors define the boundaries for key scopes by specifying the keyscope attribute on map elements, topicref elements, or elements that are specializations of map or topicref. Such elements, their contents, and any locally-scoped content referenced from within the element, are considered to be part of the scope. Keys defined within a scope are only directly referenceable from within the same scope. They can be referenced from the parent scope using the scope''s name, followed by a period, followed by the key name.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: 'daac5028dfc081cc8ca0a4a3861d2c4ea631604d'
+commit: '4424114c3101f3adf32f26646447a3c3d6ae51ec'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -23,7 +23,16 @@ classes: ''
     the same scope. They can be referenced from the parent scope using the scope's name, followed by
     a period, followed by the key name.</p>
     <section class="section" id="keyscope-attribute__duplicate-scope">
-      
+      <div class="draft-comment"><div><strong>Draft comment: </strong>robander 19 May 2021</div>This topic contains a lot of processor /
+        implementation rules and was moved from the langref to the archspec seciton about keys. Need
+        to merge with existing key scope rules to ensure no duplication / no conflicting
+          content.<p class="p">Update Oct 14 2021: there is now a longer example of the non-intersecting
+          behavior in <a class="xref" href="example-scoped-key-name-conflicts.html" title="In a large publication it is possible that two sets of content will use the same key scope name. These scopes have no relationship with each other aside from the shared name; key definitions in one are not shared with the other.">Example: How key scopes with the same name interact</a> so probably want to
+          remove the simpler example from this page</p><p class="p">
+          <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 13 May 2026: No strong opinion here; could
+            remove the example or leave it to have something useful in context. Could also add a
+            related link back/forth between the two topics.</div>
+        </p></div>
       <p class="p" id="keyscope-attribute__non-intersecting">All key scopes are contiguous and non-intersecting. Within a root
         map, two distinct key scopes with the same name have no relationship with each other aside
         from that implied by their relative locations in the key scope hierarchy. They do not, for

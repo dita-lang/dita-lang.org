@@ -4,7 +4,7 @@ title: 'defaultSubject'
 description: 'The defaultSubject element specifies the default value for the attribute in cases where no value is specified. The default value must be one of the controlled values that are bound to the attribute.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '03e638314581681faf20cbe4de85dca4b04a29f0'
+commit: '4424114c3101f3adf32f26646447a3c3d6ae51ec'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -18,8 +18,51 @@ classes: ''
     values that are bound to the attribute.</p>
     <section class="section" id="defaultSubject__processing-expectations"><h2 class="title sectiontitle">Processing expectations</h2>
       
-      
-      
+      <div class="draft-comment"><div><strong>Draft comment: </strong>Kristen J Eberlein 03 December 2021</div>
+        <p class="p">Do we want to make a normative statement about how processors
+          should handle default values for attributes when they are
+          specified by <code class="keyword markupname xmlelement">&lt;defaultSubject&gt;</code>?</p>
+        <p class="p">
+          <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 13 May 2026: I think this would be covered by
+            the "how to determine attributes" topic, and does not need an extra rule
+            here</div>
+        </p>
+      </div>
+      <div class="draft-comment"><div><strong>Draft comment: </strong>Kristen J Eberlein 13 December 2021</div>
+        <p class="p">Comments from review D:</p>
+        <p class="p"><strong class="ph b">Frank Wegmann:</strong> Let's assume, in the DTD or a
+          specialization there is an attribute defined with an enumeration
+          data type and some default value. Now a subject scheme imposes
+          maybe different controlled values for that attribute with a
+          different default value? How is an implementation supposed to
+          validate a document instance? My naive understanding would be
+          that the DTD/schema definitions have precedence. This would mean
+          that if the subject scheme defines a set of controlled values
+          none of which are in the attribute definition of the schema, then
+          the default value of the DTD would be taken. But what is a tool
+          like Oxygen supposed to be doing then? Maybe I ask this, because
+          I have (apparently) no idea what's going on behind the scenes,
+          but then I wonder if this is worth discussing in the spec? Not
+          necessarily here, but earlier in the usage chapter.</p>
+        <p class="p"><strong class="ph b">Robert Anderson: </strong>I think we should add this as a draft
+          comment in this page, and then make sure it is covered in the
+          section about how to determine values:
+          https://github.com/oasis-tcs/dita/blob/DITA-2.0/specification/archSpec/base/determining-effective-attribute-values.dita</p>
+        <p class="p">I think the answer is implied by the language today, but it's
+          not directly addressed. <span class="error-statement" id="defaultSubject__d3714t64" data-id="DITAERR-0190"></span>The spec says that if your scheme tells
+          you "a" and "b" are the only valid values in an attribute, then
+          specifying "x" and "y" are both in error, and processors /
+          applications can treat that as an error. <span class="error-statement" id="defaultSubject__d3714t64" data-id="DITAERR-0190"></span>If you set up that
+          scheme but your grammar files only allow "x" and "y", then you've
+          set up a scheme that means every usage of that element is
+          automatically an error condition.</p>
+        <p class="p">
+          <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 13 May 2026: That referenced topic is the one
+            we are stuck on, but that is where the rules for this should be specified. I think this
+            section could / should be updated with a link to that section, because it's highly
+            relevant when reading about this topic.</div>
+        </p>
+      </div>
     </section>
     <section class="section" id="defaultSubject__specialization-hierarchy"><h2 class="title sectiontitle">Specialization hierarchy</h2>
       
@@ -72,7 +115,11 @@ classes: ''
         <span class="keyword">keeptarget</span>.</dd><dt class="dt dlterm" id="defaultSubject__attr-keyref"><code class="keyword markupname xmlatt">@keyref</code></dt><dd class="dd" id="defaultSubject__def-keyref"><span class="ph" id="defaultSubject__keyrefDescription">Specifies a key name that acts as a
               redirectable reference based on a key definition within a map.<span class="ph"> See
                   <a class="xref" href="../../archSpec/base/thekeyrefattribute.html" title="The keyref attribute provides an indirect, late-bound reference to topics, to collections of topics (ditabase), to maps, to referenceable portions of maps, to non-DITA documents, to external URIs, or to XML content contained within a key definition topic reference. When the DITA content is processed, the key references are resolved using key definitions from DITA maps.">The keyref attribute</a> for information on using this
-              attribute.</span></span></dd><dt class="dt dlterm" id="defaultSubject__attr-keys"><code class="keyword markupname xmlatt">@keys</code></dt><dd class="dd">Specifies one or more names for a resource.<span class="ph"> See <a class="xref" href="../../archSpec/base/thekeysattribute.html" title="A keys attribute consists of one or more space-separated keys. Map authors define keys using a topicref or topicref specialization that contains the keys attribute. Each key definition introduces an identifier for a resource referenced from a map. Keys resolve to the resources given as the href value on the key definition topicref element, to content contained within the key definition topicref element, or both.">Setting key names with the keys attribute</a> for information on using this attribute.</span></dd><dt class="dt dlterm" id="defaultSubject__attr-processing-role"><code class="keyword markupname xmlatt">@processing-role</code>
+              attribute.</span></span><div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>The definiton above for @keyref should be synchronized with the
+              definition in the linked section on keys.<p class="p">
+                <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 13 May 2026: Check the topic we link to
+                  and make sure this is consistent, then remove the draft comment</div>
+              </p></div></dd><dt class="dt dlterm" id="defaultSubject__attr-keys"><code class="keyword markupname xmlatt">@keys</code></dt><dd class="dd">Specifies one or more names for a resource.<span class="ph"> See <a class="xref" href="../../archSpec/base/thekeysattribute.html" title="A keys attribute consists of one or more space-separated keys. Map authors define keys using a topicref or topicref specialization that contains the keys attribute. Each key definition introduces an identifier for a resource referenced from a map. Keys resolve to the resources given as the href value on the key definition topicref element, to content contained within the key definition topicref element, or both.">Setting key names with the keys attribute</a> for information on using this attribute.</span></dd><dt class="dt dlterm" id="defaultSubject__attr-processing-role"><code class="keyword markupname xmlatt">@processing-role</code>
             <span class="ph">(common map
             attributes)</span></dt><dd class="dd" id="defaultSubject__def-processing-role">Specifies whether the referenced resource is processed
             normally or treated as a resource that is only included in order to resolve references,
@@ -124,7 +171,24 @@ classes: ''
                 <dt class="dt dlterm">-dita-use-conref-target </dt>
                 <dd class="dd">See <a class="xref" href="../../archSpec/base/ditauseconreftarget.html" title="When an element uses conref to pull in content, for any of its attributes assigned a value of -dita-use-conref-target, the resulting value for those attributes is also pulled in from the referenced element.">Using the -dita-use-conref-target value</a> for more information. </dd>
               
-            </dl></dd><dt class="dt dlterm" id="defaultSubject__attr-type"><code class="keyword markupname xmlatt">@type</code>
+            </dl><div class="draft-comment"><div><strong>Draft comment: </strong>Kristen J Eberlein 28 September 2022</div>
+              <p class="p">Here is the content from the "DITA map attributes" topic:</p>
+              <dl class="dl">
+                
+                  <dt class="dt dlterm"><code class="keyword markupname xmlatt">@toc</code></dt>
+                  <dd class="dd">Specifies whether topics are excluded from navigation output, such as a Web
+                    site map or an online table of contents. By default,
+                      <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> hierarchies are included in navigation
+                    output; relationship tables are excluded. </dd>
+                
+              </dl>
+              <p class="p">
+                <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 13 May 2026: I read that and kind of
+                  hate "web site map". Kind of think we should delete that bit from the other topic,
+                  and replace the first sentence there with a reused sentence from
+                  here.</div>
+              </p>
+            </div></dd><dt class="dt dlterm" id="defaultSubject__attr-type"><code class="keyword markupname xmlatt">@type</code>
             <span class="ph">(link-relationship
               attributes)</span></dt><dd class="dd">Describes the target of a reference. See <a class="xref" href="../../archSpec/base/thetypeattribute.html" title="On linking elements, the type attribute describes the target of a reference. The type attribute is also used on several non-linking elements for other purposes.">The type attribute</a> for detailed
             information on supported values and processing implications. </dd></dl></section>

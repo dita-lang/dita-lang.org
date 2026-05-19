@@ -4,7 +4,7 @@ title: 'foreign'
 description: 'Foreign content is non-DITA content, such as MathML, SVG, or Rich Text Format (RTF).'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: 'a1552af2eb3b52119ed657d3e29da7702c62946b'
+commit: '4424114c3101f3adf32f26646447a3c3d6ae51ec'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -35,7 +35,37 @@ classes: ''
         content unless otherwise instructed. If a processor cannot render
         the content, it <dfn class="term RFC-2119">MAY</dfn> issue a
         warning.</p>
-      
+      <div class="draft-comment"><div><strong>Draft comment: </strong>Kristen J Eberlein 28 December 2021</div>The following content needs editing.<div class="p">
+          <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 13 May 2026: We or the magic robots should do
+            a single editing pass and call it done<p class="p">Also noted … the first rule, about &lt;desc&gt;,
+              the 1.3 language (still present) says to treat like &lt;section&gt;, but with no title. I
+              don't know anymore what that means, and desc is not allowed in section (my first read
+              is "treat desc in foreign like you would treat desc in section" but that can't be
+              right)</p><p class="p">Suggested rework of the following paragraph and list:</p><p class="p">By the nature
+              of the element, content within a <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> element is
+              unexpected in a DITA context. For this reason, the enabler of a foreign vocabulary
+              typically needs to extend tools or provide processing support for the new
+              content.</p><ul class="ul" id="foreign__ul_bpr_hkm_hjc">
+              <li class="li">If <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> contains more than one element to provide
+                alternative content, each should be processed.</li>
+              <li class="li">When alternative content is provided using <code class="keyword markupname xmlelement">&lt;desc&gt;</code>,
+                processors will typlically render each <code class="keyword markupname xmlelement">&lt;desc&gt;</code> similar to a
+                  <code class="keyword markupname xmlelement">&lt;div&gt;</code> in HTML, but this is not required.</li>
+              <li class="li"> If no <code class="keyword markupname xmlelement">&lt;desc&gt;</code>, <code class="keyword markupname xmlelement">&lt;object&gt;</code>, or
+                  <code class="keyword markupname xmlelement">&lt;image&gt;</code> element is found within an instance of the
+                  <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> element, a processor can emit a warning about the
+                absence of processable content.</li>
+              <li class="li">The base processing for <code class="keyword markupname xmlelement">&lt;object&gt;</code> might emit the content of
+                  <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> as a file at the location specified by the
+                  <code class="keyword markupname xmlatt">@data</code> attribute of the <code class="keyword markupname xmlelement">&lt;object&gt;</code> element,
+                turning the inline foreign content into a referenced object to be handled by
+                rendering tools.</li>
+              <li class="li">When used to provide alternative content inside of
+                  <code class="keyword markupname xmlelement">&lt;foreign&gt;</code>, the <code class="keyword markupname xmlelement">&lt;object&gt;</code> element
+                should have a data attribute or a <code class="keyword markupname xmlelement">&lt;foreign&gt;</code> sub-element but
+                not both. If both are present, a processor can choose which to ignore.</li>
+            </ul></div>
+        </div></div>
       <p class="p">The enabler of the foreign vocabulary must provide the processing and override the base
         processing for <code class="keyword markupname xmlelement">&lt;foreign&gt;</code>. </p>
       <ul class="ul" id="foreign__ul_f2h_3kf_bbb">

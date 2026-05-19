@@ -4,7 +4,7 @@ title: 'include'
 description: 'Included content is a reference to non-DITA content outside the current document that will be rendered at the location of the reference. The resource is specified using either a URI or a key reference. Processing expectations for the referenced data can also be specified.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '2edf93877eceed6611f4082a2d9360afe8cdf6d8'
+commit: '4424114c3101f3adf32f26646447a3c3d6ae51ec'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -61,7 +61,16 @@ are presented instead.</p>
         <p class="p inlined-attributes">The following attributes are available on this element: <a class="xref" href="../../common/../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
                                                   attributes</a> and the attributes defined below.</p><dl class="dl inlined-attributes"><dt class="dt dlterm" id="include__attr-encoding"><code class="keyword markupname xmlatt">@encoding</code>
             <span class="ph">(inclusion
-            attributes)</span></dt><dd class="dd">Specifies the character encoding to use when translating the character
+            attributes)</span></dt><dd class="dd"><div class="draft-comment"><div><strong>Draft comment: </strong>Kristen J Eberlein 29 April 2019</div>
+              <p class="p">Can we replace "should" in the following definition?</p>
+              <div class="p">
+                <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 13 May 2026: we can change to
+                    "is"<p class="p">Update 18 May 2026: made that change, but also noticed it says
+                    "processors may make attempts to..." which in this context really feels like a
+                    normative rule that was not marked as a normative rule. Changed to "can" for
+                    now.</p></div>
+              </div>
+            </div>Specifies the character encoding to use when translating the character
             data from the referenced content. The value is a valid encoding name. If not specified,
             processors can make attempts to automatically determine the correct encoding, for
             example using HTTP headers, through analysis of the binary structure of the referenced
@@ -81,7 +90,11 @@ are presented instead.</p>
               on supported values and processing implications.</span></dd><dt class="dt dlterm" id="include__attr-keyref"><code class="keyword markupname xmlatt">@keyref</code></dt><dd class="dd" id="include__def-keyref"><span class="ph" id="include__keyrefDescription">Specifies a key name that acts as a
               redirectable reference based on a key definition within a map.<span class="ph"> See
                   <a class="xref" href="../../archSpec/base/thekeyrefattribute.html" title="The keyref attribute provides an indirect, late-bound reference to topics, to collections of topics (ditabase), to maps, to referenceable portions of maps, to non-DITA documents, to external URIs, or to XML content contained within a key definition topic reference. When the DITA content is processed, the key references are resolved using key definitions from DITA maps.">The keyref attribute</a> for information on using this
-              attribute.</span></span></dd><dt class="dt dlterm" id="include__attr-parse"><code class="keyword markupname xmlatt">@parse</code> (inclusion attributes)</dt><dd class="dd">Specifies the processing expectations for the referenced resource. Processors must
+              attribute.</span></span><div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>The definiton above for @keyref should be synchronized with the
+              definition in the linked section on keys.<p class="p">
+                <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 13 May 2026: Check the topic we link to
+                  and make sure this is consistent, then remove the draft comment</div>
+              </p></div></dd><dt class="dt dlterm" id="include__attr-parse"><code class="keyword markupname xmlatt">@parse</code> (inclusion attributes)</dt><dd class="dd">Specifies the processing expectations for the referenced resource. Processors must
             support the following values:<dl class="dl">
               
                 <dt class="dt dlterm"><span class="keyword">text</span></dt>
