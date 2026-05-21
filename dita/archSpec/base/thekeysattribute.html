@@ -4,7 +4,7 @@ title: 'Setting key names with the keys attribute'
 description: 'A keys attribute consists of one or more space-separated keys. Map authors define keys using a topicref or topicref specialization that contains the keys attribute. Each key definition introduces an identifier for a resource referenced from a map. Keys resolve to the resources given as the href value on the key definition topicref element, to content contained within the key definition topicref element, or both.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '4424114c3101f3adf32f26646447a3c3d6ae51ec'
+commit: '00682854f17a78e83bfc0ab3f6d8c89aced14747'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -21,27 +21,11 @@ classes: ''
   content contained within the key definition <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element, or
   both.</p>
   <section class="section" id="thekeysattribute__section-1">
-   <div class="draft-comment"><div><strong>Draft comment: </strong>robander 19 May 2021</div>This topic was moved from the langref; it
-    needs to be here as it defines normative rules about the syntax of a key attribute. The
-    following paragraph comes from reuse-general but in the base spec this is the only use, so
-    should probably be taken out of the reuse file. Need to go over this section more closely now
-    that attribute content has moved here.<p class="p">
-     <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 13 May 2026: Move from "reuse" to just use it here,
-      and do a quick edit pass to get this ready for TC review.</div>
-    </p></div>
-   <div class="p">The <code class="keyword markupname xmlatt">@keys</code> attribute uses the
-                                following syntax:<ul class="ul" id="thekeysattribute__ul_yxs_dr5_yl">
-                                        <li class="li">The value of the <code class="keyword markupname xmlatt">@keys</code> attribute is one
-                                                or more space-separated key names.</li>
-                                        <li class="li"> Key names consist of characters that are legal in a
-                                                URI. The case of key names is significant.</li>
-                                        <li class="li">The following characters are prohibited in key names:
-                                                "{", "}", "[", "]", "/", "#", "?", and whitespace
-                                                characters.</li>
-                                </ul></div>
-   <p class="p">A key <span class="ph">cannot</span> resolve to sub-topic elements, although a
-     <code class="keyword markupname xmlatt">@keyref</code> attribute <span class="ph">can</span> do so by combining a key
-    with a sub-topic element id.</p>
+   <p class="p">The <code class="keyword markupname xmlatt">@keys</code> attribute is defined using the XML type <a class="xref" href="https://www.w3.org/TR/2006/REC-xml11-20060816/#NT-Nmtokens" target="_blank" rel="external noopener">NMTOKENS</a>.</p>
+   <p class="p">When a key is bound to a resource using <code class="keyword markupname xmlatt">@href</code>, that resource can be a DITA
+    topic, DITA document, or a non-DITA resource. A key cannot resolve to sub-topic elements.</p>
+   <p class="p">When more than one key name is specified on <code class="keyword markupname xmlatt">@keys</code>, each key name is bound to
+    the same resource or resources.</p>
   </section>
  </div>
 <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/key-based-addressing.html" title="DITA keys provide an alternative to direct addressing. The key reference mechanism provides a layer of indirection so that resources (for example, URIs, metadata, or variable text strings) can be defined at the DITA map level instead of locally in each topic.">Indirect key-based addressing</a></div></div><div class="linklist relconcepts"><strong>Related concepts</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="../../archSpec/base/key-based-addressing.html" title="DITA keys provide an alternative to direct addressing. The key reference mechanism provides a layer of indirection so that resources (for example, URIs, metadata, or variable text strings) can be defined at the DITA map level instead of locally in each topic.">Indirect key-based addressing</a></li></ul></div></nav><aside class="section-toc" role="aside"></aside></article></main>

@@ -1,76 +1,31 @@
 ---
 layout: base.njk
 title: 'Determining effective attribute values'
-description: 'Topic to be moved to more appropriate location: how to determine effective attribute values.'
+description: 'This topic defines the precedence rules for determining the effective value of an attribute.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '4424114c3101f3adf32f26646447a3c3d6ae51ec'
+commit: '00682854f17a78e83bfc0ab3f6d8c89aced14747'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
 
-<nav class="toc" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction</a></li><li><a href="../../archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="../../archSpec/base/accessibility-and-translation.html">Accessibility and translation</a></li><li><a href="../../archSpec/base/dita-map-processing.html">DITA map processing</a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/behaviors.html">DITA processing</a><ul class="nav nav-list"><li><a href="../../archSpec/base/navigation.html">Navigation</a></li><li><a href="../../archSpec/base/indexes.html">Indexes</a></li><li><a href="../../archSpec/base/conref.html">Content reference (conref)</a></li><li><a href="../../archSpec/base/condproc.html">Conditional processing</a></li><li><a href="../../archSpec/base/branch-filtering.html">Branch filtering</a></li><li><a href="../../archSpec/base/sort-as-processing.html">Sorting</a></li><li class="active"><a href="../../archSpec/base/determining-effective-attribute-values.html">Determining effective attribute values</a></li></ul></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a></li><li><a href="../../langRef/langRef-base.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../non-normative/developing-constraint-and-expansion-modules.html">Constraint modules</a></li><li><a href="../../non-normative/expansion-modules.html">Expansion modules</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../non-normative/formatting-expectations.html">Formatting expectations</a></li><li><a href="../../non-normative/migrating-to-dita-2.0.html">Migrating to DITA 2.0</a></li><li><a href="../../non-normative/basedoctypes.html">OASIS grammar files</a></li><li><a href="../../non-normative/interoperability-considerations.html">Processing interoperability considerations</a></li><li><a href="../../non-normative/revision-history.html">Revision history</a></li></ul></nav><main role="main" class=""><article role="article" aria-labelledby="ariaid-title1">
+<nav class="toc" role="toc"><ul><li><a href="../../introduction/dita-release-overview.html">Introduction</a></li><li><a href="../../archSpec/base/dita-terminology.html">DITA terminology, notation, and conventions</a></li><li><a href="../../archSpec/base/introduction-to-dita.html">Overview of DITA</a></li><li><a href="../../archSpec/base/accessibility-and-translation.html">Accessibility and translation</a></li><li><a href="../../archSpec/base/dita-maps.html">DITA maps</a></li><li><a href="../../archSpec/base/ditaaddressing.html">DITA addressing</a></li><li><a href="../../archSpec/base/ditaprocessing.html">DITA processing</a><ul class="nav nav-list"><li><a href="../../archSpec/base/navigation.html">Navigation</a></li><li><a href="../../archSpec/base/indexes.html">Indexes</a></li><li><a href="../../archSpec/base/conref.html">Content reference (conref)</a></li><li><a href="../../archSpec/base/condproc.html">Conditional processing</a></li><li><a href="../../archSpec/base/map-cascading.html">Metadata cascading</a></li><li><a href="../../archSpec/base/chunking.html">Chunking</a></li><li><a href="../../archSpec/base/branch-filtering.html">Branch filtering</a></li><li><a href="../../archSpec/base/sort-as-processing.html">Sorting</a></li><li class="active"><a href="../../archSpec/base/determining-effective-attribute-values.html">Determining effective attribute values</a></li></ul></li><li><a href="../../archSpec/base/configuration-specialization-and-constraints.html">Configuration and specialization </a></li><li><a href="../../langRef/langRef-base.html">Element reference</a></li><li><a href="../../conformance/conformance.html">Conformance</a></li><li><a href="../../acknowledgments/acknowledgments.html">Acknowledgments</a></li><li><a href="../../non-normative/aggregated-RFC-2119-statements.html">Aggregated RFC-2119 statements</a></li><li><a href="../../archSpec/base/coding-requirements.html">Coding practices for DITA grammar files</a></li><li><a href="../../non-normative/developing-constraint-and-expansion-modules.html">Constraint modules</a></li><li><a href="../../non-normative/expansion-modules.html">Expansion modules</a></li><li><a href="../../non-normative/elementsMerged.html">Element-by-element recommendations for translators</a></li><li><a href="../../non-normative/formatting-expectations.html">Formatting expectations</a></li><li><a href="../../non-normative/migrating-to-dita-2.0.html">Migrating to DITA 2.0</a></li><li><a href="../../non-normative/basedoctypes.html">OASIS grammar files</a></li><li><a href="../../non-normative/interoperability-considerations.html">Processing interoperability considerations</a></li><li><a href="../../non-normative/revision-history.html">Revision history</a></li></ul></nav><main role="main" class=""><article role="article" aria-labelledby="ariaid-title1">
 <h1 class="title topictitle1" id="ariaid-title1">Determining effective attribute values</h1>
 
-<div class="body conbody"><p class="shortdesc">Topic to be moved to more appropriate location: how to determine effective attribute
-values.</p>
-<p class="p">Need to reconcile the two different existing lists, in <a class="xref" href="processing-cascading-attributes-in-a-map.html" title="Certain rules apply to processors when they process cascading attributes in a map.">Processing cascading attributes in a map</a> and <a class="xref" href="binding-controlled-values-to-attribute.html" title="The controlled values defined in a subject scheme map can be bound to an attribute or an element and attribute pair. This affects the expected behavior for processors and authoring tools.">Binding controlled values to an attribute</a>.</p>
-<section class="section" id="concept_afm_sz2_t3b__section_wd2_c1f_t3b"><h2 class="title sectiontitle">From "processing cascading attributes"</h2>
-
-<div class="p">For attributes within a map, the following processing order <dfn class="term RFC-2119">MUST</dfn> occur:<ol class="ol" id="concept_afm_sz2_t3b__ol_6eb4fb9c-b56f-4471-bb2d-b183fef5980c">
-<li class="li" id="concept_afm_sz2_t3b__common-start">The <code class="keyword markupname xmlatt">@conref</code> and <code class="keyword markupname xmlatt">@keyref</code> attributes are
-evaluated.</li>
-<li class="li" id="concept_afm_sz2_t3b__explicit-values">The explicit values specified in the document instance are evaluated. For
-example, a <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element with the <code class="keyword markupname xmlatt">@toc</code> attribute set to
-"no" will use that value.</li>
-<li class="li">The default or fixed attribute values are evaluated. For example, the <code class="keyword markupname xmlatt">@toc</code>
-attribute on the <code class="keyword markupname xmlelement">&lt;reltable&gt;</code> element has a default value of "no".</li>
-<li class="li" id="concept_afm_sz2_t3b__common-end">The default values that are supplied by a controlled values file are
-evaluated.</li>
-<li class="li" id="concept_afm_sz2_t3b__attributes-cascade">The attributes cascade.</li>
-<li class="li">The processing-supplied default values are applied.</li>
-<li class="li">After the attributes are resolved within the map, they cascade to referenced maps.
-                            <div class="draft-comment"><div><strong>Draft comment: </strong>Kristen J Eberlein 15 May 2019</div>
-                            <p class="p">The following note is problematic. It contains a normative statement,
-                                but we explicitly state that notes are non-normative.</p>
-                            <p class="p">Discussed at TC call on 28 May 2019.</p>
-                            <p class="p">
-                                <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 11 May 2026: I think
-                                    this is the hardest bit we have left. We need to dig up those
-                                    notes from 2019 to find out what the TC said
-                                    there.</div>
-                            </p>
-                        </div><div class="note note note_note non-normative"><span class="note__title">Note<span class="non-normative-label"> (non-normative)</span>:</span> <div class="note__body">The processing-supplied default values do not cascade
-                            to other maps. For example, most processors will supply a default value
-                            of <code class="ph codeph">toc="yes"</code> when no <code class="keyword markupname xmlatt">@toc</code> attribute is
-                            specified. However, a processor-supplied default of
-                                <code class="ph codeph">toc="yes"</code>
-                            <dfn class="term RFC-2119">MUST NOT</dfn> override a value of
-                                <code class="ph codeph">toc="no"</code> that is set on a referenced map. If the
-                                <code class="ph codeph">toc="yes"</code> value is explicitly specified, is given
-                            as a default through a DTD, XSD, RNG, or controlled values file, or
-                            cascades from a containing element in the map, it <dfn class="term RFC-2119">MUST</dfn> override a
-                                <code class="ph codeph">toc="no"</code> setting on the referenced map. See <a class="xref" href="map-to-map-cascading-of-metadata.html" title="When a DITA map or map branch is referenced by another DITA map, by default certain rules apply. These rules pertain to the cascading behaviors of attributes, metadata elements, and the roles that are assigned to content , for example, the role of &#34;Chapter&#34; that is assigned by a chapter element. Attributes and elements that cascade within a map generally follow the same rules when cascading from one map to another map, but there are some exceptions and additional rules that apply.">Map-to-map cascading behaviors</a> for more
-                            details.</div></div></li>
-<li class="li">Repeat steps <a class="xref" href="#concept_afm_sz2_t3b__common-start">1</a> to <a class="xref" href="#concept_afm_sz2_t3b__common-end">4</a>
-for each referenced map.</li>
-<li class="li">The attributes cascade within each referenced map.</li>
-<li class="li">The processing-supplied default values are applied within each referenced map.</li>
-<li class="li">Repeat the process for maps referenced within the referenced maps.</li>
-</ol></div>
-</section>
-<section class="section" id="concept_afm_sz2_t3b__section_ngh_b1f_t3b"><h2 class="title sectiontitle">From "binding controlled values"</h2>
-
-<p class="p">To determine the effective value for a DITA attribute, processors check for the following in the
-order outlined:</p>
-<ol class="ol" id="concept_afm_sz2_t3b__ol_o2r_b1f_t3b">
-<li class="li">An explicit value in the element instance</li>
-<li class="li">A default value in the XML grammar</li>
-<li class="li">Cascaded value within the document</li>
-<li class="li">Cascaded value from a higher level document to the document</li>
-<li class="li">A default controlled value, as specified in the <code class="keyword markupname xmlelement">&lt;defaultSubject&gt;</code> element </li>
-<li class="li">A value set by processing rules</li>
-</ol>
-</section>
+<div class="body conbody"><p class="shortdesc">This topic defines the precedence rules for determining the effective value of an
+attribute.</p>
+<p class="p">For DITA map attributes, effective values are resolved in this
+        order, after resolution of <code class="keyword markupname xmlatt">@conref</code> and <code class="keyword markupname xmlatt">@keyref</code>: explicit
+        value, XML grammar default or fixed value, cascading value, controlled-value default, and
+        processing-supplied default.</p>
+<p class="p">For single-value attributes, once a value is established at a
+        higher-precedence step, lower-precedence steps do not replace it. For multi-value
+        attributes, additive and non-additive behavior follows the rules of the
+          <code class="keyword markupname xmlatt">@cascade</code> attribute.</p>
+<p class="p">The complete normative cascading algorithm is defined in
+          <a class="xref" href="../../common/../archSpec/base/processing-cascading-attributes-in-a-map.html" title="Certain rules apply to processors when they process cascading attributes in a map.">Processing cascading attributes in a map</a>.</p>
+<p class="p">For map processing details, including haw attributes cascade across referenced maps and the rule
+            that processing-supplied defaults do not cascade to referenced maps, see <a class="xref" href="processing-cascading-attributes-in-a-map.html" title="Certain rules apply to processors when they process cascading attributes in a map.">Processing cascading attributes in a map</a> and <a class="xref" href="map-to-map-cascading-of-metadata.html" title="When a DITA map or map branch is referenced by another DITA map, by default certain rules apply. These rules pertain to the cascading behaviors of attributes, metadata elements, and the roles that are assigned to content , for example, the role of &#34;Chapter&#34; that is assigned by a chapter element. Attributes and elements that cascade within a map generally follow the same rules when cascading from one map to another map, but there are some exceptions and additional rules that apply.">Map-to-map cascading behaviors</a>.</p>
+<p class="p">For controlled-value binding and validation behavior, see <a class="xref" href="binding-controlled-values-to-attribute.html" title="The controlled values defined in a subject scheme map can be bound to an attribute or an element and attribute pair. This affects the expected behavior for processors and authoring tools.">Binding controlled values to an attribute</a> and <a class="xref" href="processing-controlled-attribute-values.html" title="An enumeration of controlled values can be defined with hierarchical levels by nesting subject definitions. This affects how processors perform filtering and flagging.">Processing controlled attribute values</a>.</p>
 </div>
-<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/behaviors.html" title="DITA markup includes many features that require some form of processing, such as content reuse and conditional processing. The markup itself also contains implicit information that can be derived by processors to support additional features, such as automated linking and navigation. This section lays out the rules for these and other DITA features.">DITA processing</a></div></div></nav><aside class="section-toc" role="aside"><h2>In this section</h2><ul><li><a href="#concept_afm_sz2_t3b__section_wd2_c1f_t3b">From "processing cascading attributes"</a></li><li><a href="#concept_afm_sz2_t3b__section_ngh_b1f_t3b">From "binding controlled values"</a></li></ul></aside></article></main>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/ditaprocessing.html" title="DITA markup includes many features that require some form of processing, such as content reuse and conditional processing. The markup itself also contains implicit information that can be derived by processors to support additional features, such as automated linking and navigation. This section lays out the rules for these and other DITA features.">DITA processing</a></div></div></nav><aside class="section-toc" role="aside"></aside></article></main>

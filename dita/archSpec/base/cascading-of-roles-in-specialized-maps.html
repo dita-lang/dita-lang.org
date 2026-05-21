@@ -4,7 +4,7 @@ title: 'Cascading of roles from map to map'
 description: 'When specialized topicref elements, such as chapter or mapref, reference a map, they typically imply a semantic role for the referenced content.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '4424114c3101f3adf32f26646447a3c3d6ae51ec'
+commit: '00682854f17a78e83bfc0ab3f6d8c89aced14747'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -23,7 +23,7 @@ classes: ''
         to introduce RFC-2119 language?</p>
       <p class="p">
         <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 11 May 2026: just need to do the editorial pass
-          and clean up each use of should, use RFC if needed</div>
+          and clean up each use of should, use RFC if needed. </div>
       </p>
     </div>
     <p class="p">The semantic role reflects the <code class="keyword markupname xmlatt">@class</code> hierarchy of
@@ -45,11 +45,13 @@ classes: ''
       statement: "the non-default behavior should be clearly specified"<p class="p">We do not say how or
         where. For mapgroup, I believe it is only specified here in this topic. I think either we
         need this as part of every mapgroup element definition, in "Processing expectations", or we
-        need a clear table here listing every element where this behavior does not apply.</p><p class="p">
+        need a clear table here listing every element where this behavior does not apply.</p><div class="p">
         <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 11 May 2026: I believe the
             <code class="keyword markupname xmlatt">@impose-role</code> attribute is now available for this, we should say so and
-          link to the topic about it</div>
-      </p></div>
+          link to the topic about it.<p class="p">Bigger issue, this topic is not listed in the root map, as
+            reported in <a class="xref" href="https://github.com/oasis-tcs/dita/issues/959" target="_blank" rel="external noopener">https://github.com/oasis-tcs/dita/issues/959</a>, but it has normative language. This topic needs to be restored to
+            the spec and/or merged with the new topic about imposing roles. </p></div>
+      </div></div>
   <p class="p">Unless otherwise instructed, a specialized <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element that
       references a map supplies a role for the referenced content. This means that, in effect, the
         <code class="keyword markupname xmlatt">@class</code> attribute of the referencing element cascades to top-level topicref
@@ -75,7 +77,7 @@ classes: ''
       contain nested <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> elements. Treating the
         <code class="keyword markupname xmlelement">&lt;part&gt;</code> element as a <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> will result in a
       chapter that nests other chapters, which is not valid in bookmap and might not be
-      understandable by processors. <span class="implementation-statement" id="cascading-of-roles-in-specialized-maps__d2848t188" data-id=""></span>The result is implementation specific<span style="color:red;" class="ph">.
+      understandable by processors. <span class="implementation-statement" id="cascading-of-roles-in-specialized-maps__d2868t192" data-id=""></span>The result is implementation specific<span style="color:red;" class="ph">.
       P</span>rocessors <dfn class="term RFC-2119">MAY</dfn> choose to treat this as an error,
       issue a warning, or simply assign new roles to the problematic elements.</p>
  </div>
