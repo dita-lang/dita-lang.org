@@ -2,7 +2,7 @@ module.exports = function (eleventyConfig) {
   // Copy static assets
   eleventyConfig.addPassthroughCopy('assets')
   eleventyConfig.addPassthroughCopy('fonts')
-  eleventyConfig.addPassthroughCopy('**/images')
+  eleventyConfig.addPassthroughCopy('**/images/*')
   eleventyConfig.addPassthroughCopy('_redirects')
 
   // Watch for changes in these directories
