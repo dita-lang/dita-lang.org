@@ -4,7 +4,7 @@ title: 'Cascading of roles from map to map'
 description: 'When specialized topicref elements, such as chapter or mapref, reference a map, they typically imply a semantic role for the referenced content.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '00682854f17a78e83bfc0ab3f6d8c89aced14747'
+commit: '5d1d25154fa3cfa493cc57382db1131e2be35b5b'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -57,8 +57,8 @@ classes: ''
         <code class="keyword markupname xmlatt">@class</code> attribute of the referencing element cascades to top-level topicref
       elements in the referenced map. In situations where this should not happen—such as all
       elements from the mapgroup domain—the non-default behavior should be clearly specified.</p>
-  <p class="p">For example, when a <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> element from the bookmap specialization
-      references a map, it supplies a role of "chapter" for each top-level
+  <p class="p example">For example, when a <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> element from the
+      bookmap specialization references a map, it supplies a role of "chapter" for each top-level
         <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element in the referenced map. When the
         <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> element references a branch in another map, it supplies a
       role of "chapter" for that branch. In effect, the <code class="keyword markupname xmlatt">@class</code> attribute for
@@ -72,13 +72,13 @@ classes: ''
       attribute from the <code class="keyword markupname xmlelement">&lt;mapref&gt;</code> element (<code class="ph codeph">"+ map/topicref
         mapgroup-d/mapref "</code>) does not cascade to the referenced map.</p>
   <p class="p errorcondition">In some cases, preserving the role of the referencing element
-      might result in out-of-context content. For example, a <code class="keyword markupname xmlelement">&lt;chapter&gt;</code>
-      element that references a bookmap might pull in <code class="keyword markupname xmlelement">&lt;part&gt;</code> elements that
-      contain nested <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> elements. Treating the
-        <code class="keyword markupname xmlelement">&lt;part&gt;</code> element as a <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> will result in a
-      chapter that nests other chapters, which is not valid in bookmap and might not be
-      understandable by processors. <span class="implementation-statement" id="cascading-of-roles-in-specialized-maps__d2868t192" data-id=""></span>The result is implementation specific<span style="color:red;" class="ph">.
-      P</span>rocessors <dfn class="term RFC-2119">MAY</dfn> choose to treat this as an error,
-      issue a warning, or simply assign new roles to the problematic elements.</p>
+      might result in out-of-context content. <span class="ph example">For example, a
+          <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> element that references a bookmap might pull in
+          <code class="keyword markupname xmlelement">&lt;part&gt;</code> elements that contain nested
+          <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> elements. Treating the <code class="keyword markupname xmlelement">&lt;part&gt;</code>
+        element as a <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> will result in a chapter that nests other
+        chapters, which is not valid in bookmap and might not be understandable by processors.</span>
+      The result is implementation specific<span style="color:red;" class="ph">. P</span>rocessors <dfn class="term RFC-2119">MAY</dfn> choose to treat this as an error, issue a warning, or
+      simply assign new roles to the problematic elements.</p>
  </div>
 <aside class="section-toc" role="aside"></aside></article></main>
