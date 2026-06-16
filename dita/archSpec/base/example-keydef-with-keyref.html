@@ -4,7 +4,7 @@ title: 'Example: Key definition with key reference'
 description: 'When a key definition also specifies a key reference, the key reference also must be resolved in order to determine the effective resources that are bound to that key definition.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '4a272cd0459b992c3d76f260c96bfe5c01b956fe'
+commit: '8f74fd154a6935432e9bae5184a979ed504f1437'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -21,11 +21,11 @@ classes: ''
   &lt;topicref keyref="widget" id="example"/&gt;
   &lt;keydef keys="widget" href="widgetInfo.dita" scope="local" format="dita" rev="v1r2"
           keyref="mainProduct"&gt;
-    &lt;topicmeta&gt;&lt;navtitle&gt;Information about Widget&lt;/navtitle&gt;&lt;/topicmeta&gt;
+    &lt;topicmeta&gt;&lt;linktitle&gt;Information about Widget&lt;/linktitle&gt;&lt;/topicmeta&gt;
   &lt;/keydef&gt;
   &lt;keydef keys="mainProduct" href="http://example.com/productPage" scope="external" format="html"
           product="prodCode" audience="sysadmin"&gt;
-    &lt;topicmeta&gt;&lt;navtitle&gt;Generic product page&lt;/navtitle&gt;&lt;/topicmeta&gt;
+    &lt;topicmeta&gt;&lt;linktitle&gt;Generic product page&lt;/linktitle&gt;&lt;/topicmeta&gt;
   &lt;/keydef&gt;
 &lt;/map&gt;
   </code></pre>
@@ -36,8 +36,8 @@ classes: ''
       <li class="li">The metadata resources from "mainProduct" are combined with the resources already
         specified on the "widget" key definition, resulting in the addition of
           <code class="keyword markupname xmlatt">@product</code> and <code class="keyword markupname xmlatt">@audience</code> values.</li>
-      <li class="li">The navigation title on the "widget" key definition overrides those on the "mainProduct"
-        key definition.</li>
+      <li class="li">The link title on the "widget" key definition overrides those on the "mainProduct" key
+        definition.</li>
       <li class="li">The <code class="keyword markupname xmlatt">@href</code>, <code class="keyword markupname xmlatt">@scope</code>, and <code class="keyword markupname xmlatt">@format</code> attributes
         on the "mainProduct" key definition override those on "widget".</li>
     </ul>
@@ -47,7 +47,7 @@ classes: ''
           href="http://example.com/productPage" scope="external" format="html" 
           rev="v1r2"
           product="prodCode" audience="sysadmin"&gt;
-   &lt;topicmeta&gt;&lt;navtitle&gt;Information about Widget&lt;/navtitle&gt;&lt;/topicmeta&gt;
+   &lt;topicmeta&gt;&lt;linktitle&gt;Information about Widget&lt;/linktitle&gt;&lt;/topicmeta&gt;
 &lt;/topicref&gt;</code></pre>
   </div>
 <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/examples-of-keys.html" title="This section of the specification contains examples and scenarios. They illustrate a wide variety of ways that keys can be used.">Examples of keys</a></div></div></nav><aside class="section-toc" role="aside"></aside></article></main>
