@@ -142,6 +142,209 @@ title: 'DITA'
   </p>
 </div>
 <hr />
+<div class="container" id="comparison">
+  <h3 id="compare-dita-to-other-markup-languages">Compare DITA to other markup languages</h3>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <button
+        class="btn btn-link"
+        data-toggle="collapse"
+        data-target="#collapseZero"
+        aria-expanded="true"
+        aria-controls="collapseZero"
+      >
+        Markdown
+      </button>
+    </li>
+    <li class="nav-item">
+      <button
+        class="btn btn-link collapsed"
+        data-toggle="collapse"
+        data-target="#collapseOne"
+        aria-expanded="false"
+        aria-controls="collapseOne"
+      >
+        HTML5
+      </button>
+    </li>
+    <li class="nav-item">
+      <button
+        class="btn btn-link collapsed"
+        data-toggle="collapse"
+        data-target="#collapseTwo"
+        aria-expanded="false"
+        aria-controls="collapseTwo"
+      >
+        AsciiDoc
+      </button>
+    </li>
+    <li class="nav-item">
+      <button
+        class="btn btn-link collapsed"
+        data-toggle="collapse"
+        data-target="#collapseThree"
+        aria-expanded="false"
+        aria-controls="collapseThree"
+      >
+        reStructuredText
+      </button>
+    </li>
+  </ul>
+  <div
+    id="collapseZero"
+    class="collapse show"
+    aria-labelledby="headingZero"
+    data-parent="#comparison"
+  >
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><code>index.md</code></h5>
+              <div class="card-text">
+                {% highlight "md" %}{% include "_includes/examples/markdown/index.md" %}{%
+                endhighlight %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><code>index.dita</code></h5>
+              <div class="card-text">
+                {% highlight "xml" %}{% include "_includes/examples/markdown/index.dita" %}{%
+                endhighlight %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p>
+        Markdown’s appeal is its simplicity: a handful of characters produce headings, lists, and
+        links, which makes it ideal for READMEs, changelogs, and short-lived content. That same
+        simplicity means Markdown has no standard mechanism for content reuse, conditional text, or
+        semantic topic types, so large documentation sets built in Markdown tend to accumulate
+        inconsistency as they grow. Through Lightweight DITA, the MDITA authoring format lets
+        writers use familiar Markdown syntax while still producing standard DITA content that
+        benefits from DITA’s reuse and publishing model.
+      </p>
+    </div>
+  </div>
+  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#comparison">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><code>index.html</code></h5>
+              <div class="card-text">
+                {% highlight "html" %}{% include "_includes/examples/html5/index.html" %}{%
+                endhighlight %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><code>index.dita</code></h5>
+              <div class="card-text">
+                {% highlight "xml" %}{% include "_includes/examples/html5/index.dita" %}{%
+                endhighlight %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p>
+        HTML5 is the language browsers render, not a language people typically author large
+        documentation sets in directly. It has no native concept of topics, content reuse, or
+        conditional publishing—those concerns are usually bolted on with a separate content
+        management system. With DITA, HTML5 is simply one of the outputs a publishing engine can
+        generate from a single set of source topics, alongside PDF, EPUB, and other formats, without
+        requiring a second authoring effort.
+      </p>
+    </div>
+  </div>
+  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#comparison">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><code>index.adoc</code></h5>
+              <div class="card-text">
+                {% highlight "asciidoc" %}{% include "_includes/examples/asciidoc/index.adoc" %}{%
+                endhighlight %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><code>index.dita</code></h5>
+              <div class="card-text">
+                {% highlight "xml" %}{% include "_includes/examples/asciidoc/index.dita" %}{%
+                endhighlight %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p>
+        AsciiDoc is a plain-text format with includes, attributes, and semantic blocks that support
+        meaningful content reuse and conditional text without leaving plain text. DITA takes a
+        different approach to the same problems: instead of relying on convention and tooling
+        configuration, it defines formal, schema-validated topic types and a map structure for
+        assembling content from many independent files. That trade-off—more upfront structure in
+        exchange for machine-enforced consistency—tends to matter most for large, multi-author,
+        multi-product documentation sets, which is also why Lightweight DITA offers an XML-light
+        authoring option (XDITA) for teams who want DITA’s model without writing XML by hand.
+      </p>
+    </div>
+  </div>
+  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#comparison">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><code>index.rst</code></h5>
+              <div class="card-text">
+                {% highlight "rest" %}{% include "_includes/examples/restructuredtext/index.rst"
+                %}{% endhighlight %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><code>index.dita</code></h5>
+              <div class="card-text">
+                {% highlight "xml" %}{% include "_includes/examples/restructuredtext/index.dita"
+                %}{% endhighlight %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p>
+        reStructuredText, especially paired with Sphinx, is a strong choice for documenting a single
+        codebase or project, with directives and roles that support structured, cross-referenced
+        technical writing. DITA is built for a broader scope: maps let you assemble and reuse topics
+        across many products, releases, and even organizations, and formal specialization lets teams
+        extend the vocabulary for their domain while staying interoperable with standard DITA tools.
+        Where reStructuredText is closely tied to its surrounding tool ecosystem, DITA’s processing
+        model is defined independently of any single publishing engine.
+      </p>
+    </div>
+  </div>
+</div>
+<hr />
 <div class="container" id="getting-started-section">
   <h3 id="start-your-dita-journey-today">Start Your DITA Journey Today</h3>
   <p>
