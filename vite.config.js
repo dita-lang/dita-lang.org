@@ -7,6 +7,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, '_js/main.js'),
+        cover: resolve(__dirname, '_js/cover.js'),
         mainCSS: resolve(__dirname, 'css/main.scss'),
         implementer: resolve(__dirname, 'css/implementer.scss'),
         source: resolve(__dirname, 'css/source.scss'),
