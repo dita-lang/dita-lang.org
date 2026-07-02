@@ -10,8 +10,6 @@ An external link to `Eclipse <https://eclipse.org>`_.
 A reusable link to `GitLab`_.
 
 .. image:: /images/an-image.png
-   :height: 600
-   :width: 800
    :alt: An image
 
 Subsection title
