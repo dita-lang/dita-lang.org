@@ -16,5 +16,6 @@ drop-down menu in the site header. Supported profiles are:
 - Implementer — intended for implementers. It contains generated content models in terse syntax
   format and highlights non-normative sections. Attribute lists are inlined for easier access.
 - Source — intended for DITA source reviewers. It only contains content from DITA source.
+- Review — indended to DITA source reviewers. It only contains content from DITA source, including draft comments.
 - Debug — intended for debugging site publishing issues. It contains all generated content even
   when the information is duplicated.
