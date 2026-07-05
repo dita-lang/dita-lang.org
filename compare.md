@@ -35,12 +35,12 @@ pages.
       </tr>
       <tr>
         <th scope="row">Primary role</th>
-        <td>Authoring &amp; source format</td>
-        <td>Rendering &amp; output format</td>
+        <td>Authoring format</td>
+        <td>Output format</td>
         <td>Authoring format</td>
         <td>Authoring format</td>
         <td>Authoring format</td>
-        <td>Authoring &amp; source format</td>
+        <td>Authoring format</td>
       </tr>
       <tr>
         <th scope="row">Content model</th>
