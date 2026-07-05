@@ -1,18 +1,9 @@
 ---
-layout: cover.njk
+layout: site.njk
 title: 'History of DITA'
 ---
 
-<div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-3 ml-md-4 ml-lg-n2">{{ title }}</h1>
-    <p class="lead">
-      From an internal IBM authoring practice to an OASIS open standard used across the world.
-    </p>
-  </div>
-</div>
-
-<div class="container" id="predecessors-section">
+From an internal IBM authoring practice to an OASIS open standard used across the world.
 
 ### Before DITA
 
@@ -33,12 +24,6 @@ content models, reaching a working demonstration by late 2000. IBM piloted the e
 on the documentation for IBM WebSphere Application Server before rolling it out more broadly,
 continuing to adapt IBMIDDoc’s modularity and extensibility ideas into what would become DITA’s
 specialization mechanism.
-
-</div>
-
-<hr />
-
-<div class="container" id="origins-section">
 
 ### Origins at IBM
 
@@ -64,51 +49,26 @@ yet—that came later, once OASIS took on the language.
 [developerworks6]: https://web.archive.org/web/20051125214806/http://www-128.ibm.com/developerworks/xml/library/x-dita6/
 [developerworks6-downloads]: https://web.archive.org/web/20031017222717/http://www-106.ibm.com/developerworks/xml/library/x-dita6/x-dita_downloads.html
 
-</div>
-
-<hr />
-
-<div class="container" id="oasis-standard-section">
-
 ### Becoming an OASIS Standard
 
 IBM transferred DITA to OASIS in **March 2004**, with other organizations, including Arbortext,
 Innodata Isogen, and Nokia, joining the proposal for a new technical committee to take over
-stewardship of the language. The [OASIS DITA Technical Committee](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=dita)
+stewardship of the language. The [OASIS DITA Technical Committee]
 was formally chartered the following month, in **April 2004**. IBM’s own internal approvals for
 the contribution ran for about a year, in parallel with the Technical Committee’s early
 standardization work, and DITA **1.0**—based closely on the IBM DITA architecture—was approved as
 an OASIS Standard on **June 1, 2005**.
 
+[OASIS DITA Technical Committee]: https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=dita
+
 Since then, the language has been maintained entirely through the OASIS standards process, with
 releases shaped by public review and consensus among vendors, enterprises, and individual
 practitioners rather than any single company.
 
-</div>
-
-<hr />
-
-<div class="container" id="timeline-section">
-
 ### Release Timeline
-
-<!--
-<li>
-  <strong>Late 1980s–early 1990s</strong>—IBM develops IBMIDDoc, an SGML vocabulary using HyTime
-  architectural forms, to replace its BookMaster GML application.
-</li>
-<li>
-  <strong>2000</strong>—A cross-company workgroup spanning IBM, Lotus, and Tivoli teams develops
-  a concept/task/reference topic typing scheme and a specialization mechanism, piloted on IBM
-  WebSphere Application Server
-  documentation.
-</li>
--->
 
 - **March 2001**—IBM publishes the core DTD and XML Schema grammar files for IBM DITA, along with
   articles describing the architecture.
-- **2003**—IBM presents DITA at a conference, and organizing discussions begin, with Arbortext,
-  Innodata Isogen, Nokia, and others, toward a new OASIS technical committee for the language.
 - **March 2004**—IBM transfers DITA to OASIS.
 - **April 2004**—The OASIS DITA Technical Committee is formally chartered.
 - **Early 2005**—The DITA Open Toolkit, an open-source reference implementation for the emerging
@@ -139,17 +99,9 @@ The current state of that work is available as the
 [LwDITA draft](/lwdita/resources/oasis-cover.html) hosted on this site, with the full release
 history of earlier, approved versions on the [Specifications](/specifications) page.
 
-</div>
-
-<hr />
-
-<div class="container" id="why-it-matters-section">
-
 ### Why the History Matters
 
 Two decades of incremental, consensus-driven evolution are part of what makes DITA a safe
 long-term bet for content strategy. Each release has been backward-compatible where possible and
 driven by real implementation experience from OASIS member organizations, rather than the roadmap
 of a single vendor or tool.
-
-</div>
