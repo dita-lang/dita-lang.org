@@ -144,14 +144,14 @@ title: 'DITA'
 
 <div class="container" id="comparison">
   <h3 id="compare-dita-to-other-markup-languages">Compare DITA to other markup languages</h3>
-  <ul class="nav nav-tabs mb-3">
+  <ul class="nav nav-tabs mb-3" role="tablist">
     <li class="nav-item">
       <button
-        class="btn btn-link"
-        data-toggle="collapse"
-        data-target="#collapseZero"
+        class="btn btn-link active"
+        data-toggle="tab"
+        data-target="#markdown"
         aria-expanded="true"
-        aria-controls="collapseZero"
+        aria-controls="markdown"
       >
         Markdown
       </button>
@@ -159,10 +159,10 @@ title: 'DITA'
     <li class="nav-item">
       <button
         class="btn btn-link collapsed"
-        data-toggle="collapse"
-        data-target="#collapseOne"
+        data-toggle="tab"
+        data-target="#html5"
         aria-expanded="false"
-        aria-controls="collapseOne"
+        aria-controls="html5"
       >
         HTML5
       </button>
@@ -170,10 +170,10 @@ title: 'DITA'
     <li class="nav-item">
       <button
         class="btn btn-link collapsed"
-        data-toggle="collapse"
-        data-target="#collapseTwo"
+        data-toggle="tab"
+        data-target="#asciidoc"
         aria-expanded="false"
-        aria-controls="collapseTwo"
+        aria-controls="asciidoc"
       >
         AsciiDoc
       </button>
@@ -181,10 +181,10 @@ title: 'DITA'
     <li class="nav-item">
       <button
         class="btn btn-link collapsed"
-        data-toggle="collapse"
-        data-target="#collapseThree"
+        data-toggle="tab"
+        data-target="#restructuredtext"
         aria-expanded="false"
-        aria-controls="collapseThree"
+        aria-controls="restructuredtext"
       >
         reStructuredText
       </button>
@@ -192,191 +192,219 @@ title: 'DITA'
     <li class="nav-item">
       <button
         class="btn btn-link collapsed"
-        data-toggle="collapse"
-        data-target="#collapseFour"
+        data-toggle="tab"
+        data-target="#docbook"
         aria-expanded="false"
-        aria-controls="collapseFour"
+        aria-controls="docbook"
       >
         DocBook
       </button>
     </li>
   </ul>
-  <div
-    id="collapseZero"
-    class="collapse show"
-    aria-labelledby="headingZero"
-    data-parent="#comparison"
-  >
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="card mb-3">
-          <div class="card-body">
-            <h5 class="card-title"><code>index.md</code></h5>
-            <div class="card-text">
-              {% highlight "md" %}{% include "_includes/examples/markdown/index.md" %}{%
-              endhighlight %}
+  <div class="tab-content">
+    <div
+      id="markdown"
+      role="tabpanel"
+      class="tab-pane show active"
+      aria-labelledby="headingZero"
+      data-parent="#comparison"
+    >
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title"><code>index.md</code></h5>
+              <div class="card-text">
+                {% highlight "md" %}{% include "_includes/examples/markdown/index.md" %}{%
+                endhighlight %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title"><code>index.dita</code></h5>
+              <div class="card-text">
+                {% highlight "xml" %}{% include "_includes/examples/dita/index.dita" %}{%
+                endhighlight %}
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-sm-6">
-        <div class="card mb-3">
-          <div class="card-body">
-            <h5 class="card-title"><code>index.dita</code></h5>
-            <div class="card-text">
-              {% highlight "xml" %}{% include "_includes/examples/dita/index.dita" %}{% endhighlight
-              %}
-            </div>
-          </div>
-        </div>
-      </div>
+      <p>
+        Markdown’s appeal is its simplicity: a handful of characters produce headings, lists, and
+        links. That makes it ideal for READMEs, changelogs, and short-lived content. It has no
+        standard mechanism for content reuse, conditional text, or semantic topic types, so large
+        documentation sets built in Markdown tend to accumulate inconsistency as they grow. DITA
+        addresses that gap directly, with content references and topic types built into the
+        language. Through Lightweight DITA, the MDITA format lets writers use familiar Markdown
+        syntax while still producing standard DITA content.
+      </p>
     </div>
-    <p>
-      Markdown’s appeal is its simplicity: a handful of characters produce headings, lists, and
-      links. That makes it ideal for READMEs, changelogs, and short-lived content. It has no
-      standard mechanism for content reuse, conditional text, or semantic topic types, so large
-      documentation sets built in Markdown tend to accumulate inconsistency as they grow. DITA
-      addresses that gap directly, with content references and topic types built into the language.
-      Through Lightweight DITA, the MDITA format lets writers use familiar Markdown syntax while
-      still producing standard DITA content.
-    </p>
-  </div>
-  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#comparison">
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="card mb-3">
-          <div class="card-body">
-            <h5 class="card-title"><code>index.html</code></h5>
-            <div class="card-text">
-              {% highlight "html" %}{% include "_includes/examples/html5/index.html" %}{%
-              endhighlight %}
+    <div
+      id="html5"
+      role="tabpanel"
+      class="tab-pane"
+      aria-labelledby="headingOne"
+      data-parent="#comparison"
+    >
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title"><code>index.html</code></h5>
+              <div class="card-text">
+                {% highlight "html" %}{% include "_includes/examples/html5/index.html" %}{%
+                endhighlight %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title"><code>index.dita</code></h5>
+              <div class="card-text">
+                {% highlight "xml" %}{% include "_includes/examples/dita/index.dita" %}{%
+                endhighlight %}
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-sm-6">
-        <div class="card mb-3">
-          <div class="card-body">
-            <h5 class="card-title"><code>index.dita</code></h5>
-            <div class="card-text">
-              {% highlight "xml" %}{% include "_includes/examples/dita/index.dita" %}{% endhighlight
-              %}
-            </div>
-          </div>
-        </div>
-      </div>
+      <p>
+        HTML5 is the language browsers render, not one people typically author large documentation
+        sets in directly. It has no native concept of topics, content reuse, or conditional
+        publishing. Those concerns are usually bolted on with a separate content management system.
+        With DITA, HTML5 is simply one of several outputs a publishing engine can generate from a
+        single set of source topics. That means no second authoring effort is needed to also produce
+        PDF, EPUB, or other formats.
+      </p>
     </div>
-    <p>
-      HTML5 is the language browsers render, not one people typically author large documentation
-      sets in directly. It has no native concept of topics, content reuse, or conditional
-      publishing. Those concerns are usually bolted on with a separate content management system.
-      With DITA, HTML5 is simply one of several outputs a publishing engine can generate from a
-      single set of source topics. That means no second authoring effort is needed to also produce
-      PDF, EPUB, or other formats.
-    </p>
-  </div>
-  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#comparison">
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="card mb-3">
-          <div class="card-body">
-            <h5 class="card-title"><code>index.adoc</code></h5>
-            <div class="card-text">
-              {% highlight "asciidoc" %}{% include "_includes/examples/asciidoc/index.adoc" %}{%
-              endhighlight %}
+    <div
+      id="asciidoc"
+      role="tabpanel"
+      class="tab-pane"
+      aria-labelledby="headingTwo"
+      data-parent="#comparison"
+    >
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title"><code>index.adoc</code></h5>
+              <div class="card-text">
+                {% highlight "asciidoc" %}{% include "_includes/examples/asciidoc/index.adoc" %}{%
+                endhighlight %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title"><code>index.dita</code></h5>
+              <div class="card-text">
+                {% highlight "xml" %}{% include "_includes/examples/dita/index.dita" %}{%
+                endhighlight %}
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-sm-6">
-        <div class="card mb-3">
-          <div class="card-body">
-            <h5 class="card-title"><code>index.dita</code></h5>
-            <div class="card-text">
-              {% highlight "xml" %}{% include "_includes/examples/dita/index.dita" %}{% endhighlight
-              %}
-            </div>
-          </div>
-        </div>
-      </div>
+      <p>
+        AsciiDoc is a plain-text format with includes, attributes, and semantic blocks. Those
+        features support meaningful content reuse and conditional text without leaving plain text.
+        DITA takes a different approach: formal, schema-validated topic types and a map structure
+        assemble content from many independent files. That trade-off—more upfront structure for
+        machine-enforced consistency—tends to matter most for large, multi-author, multi-product
+        documentation sets.
+      </p>
     </div>
-    <p>
-      AsciiDoc is a plain-text format with includes, attributes, and semantic blocks. Those features
-      support meaningful content reuse and conditional text without leaving plain text. DITA takes a
-      different approach: formal, schema-validated topic types and a map structure assemble content
-      from many independent files. That trade-off—more upfront structure for machine-enforced
-      consistency—tends to matter most for large, multi-author, multi-product documentation sets.
-    </p>
-  </div>
-  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#comparison">
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="card mb-3">
-          <div class="card-body">
-            <h5 class="card-title"><code>index.rst</code></h5>
-            <div class="card-text">
-              {% highlight "rest" %}{% include "_includes/examples/restructuredtext/index.rst" %}{%
-              endhighlight %}
+    <div
+      id="restructuredtext"
+      role="tabpanel"
+      class="tab-pane"
+      aria-labelledby="headingThree"
+      data-parent="#comparison"
+    >
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title"><code>index.rst</code></h5>
+              <div class="card-text">
+                {% highlight "rest" %}{% include "_includes/examples/restructuredtext/index.rst"
+                %}{% endhighlight %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title"><code>index.dita</code></h5>
+              <div class="card-text">
+                {% highlight "xml" %}{% include "_includes/examples/dita/index.dita" %}{%
+                endhighlight %}
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-sm-6">
-        <div class="card mb-3">
-          <div class="card-body">
-            <h5 class="card-title"><code>index.dita</code></h5>
-            <div class="card-text">
-              {% highlight "xml" %}{% include "_includes/examples/dita/index.dita" %}{% endhighlight
-              %}
-            </div>
-          </div>
-        </div>
-      </div>
+      <p>
+        reStructuredText, especially paired with Sphinx, is a strong choice for documenting a single
+        codebase or project. Directives and roles support structured, cross-referenced technical
+        writing. DITA is built for a broader scope, assembling and reusing topics across many
+        products, releases, and organizations through maps. Formal specialization lets teams extend
+        the vocabulary for their domain while staying interoperable with standard DITA tools. Where
+        reStructuredText is closely tied to its surrounding tool ecosystem, DITA’s processing model
+        is defined independently of any single publishing engine.
+      </p>
     </div>
-    <p>
-      reStructuredText, especially paired with Sphinx, is a strong choice for documenting a single
-      codebase or project. Directives and roles support structured, cross-referenced technical
-      writing. DITA is built for a broader scope, assembling and reusing topics across many
-      products, releases, and organizations through maps. Formal specialization lets teams extend
-      the vocabulary for their domain while staying interoperable with standard DITA tools. Where
-      reStructuredText is closely tied to its surrounding tool ecosystem, DITA’s processing model is
-      defined independently of any single publishing engine.
-    </p>
-  </div>
-  <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#comparison">
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="card mb-3">
-          <div class="card-body">
-            <h5 class="card-title"><code>index.xml</code></h5>
-            <div class="card-text">
-              {% highlight "xml" %}{% include "_includes/examples/docbook/index.xml" %}{%
-              endhighlight %}
+    <div
+      id="docbook"
+      role="tabpanel"
+      class="tab-pane"
+      aria-labelledby="headingFour"
+      data-parent="#comparison"
+    >
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title"><code>index.xml</code></h5>
+              <div class="card-text">
+                {% highlight "xml" %}{% include "_includes/examples/docbook/index.xml" %}{%
+                endhighlight %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title"><code>index.dita</code></h5>
+              <div class="card-text">
+                {% highlight "xml" %}{% include "_includes/examples/dita/index.dita" %}{%
+                endhighlight %}
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-sm-6">
-        <div class="card mb-3">
-          <div class="card-body">
-            <h5 class="card-title"><code>index.dita</code></h5>
-            <div class="card-text">
-              {% highlight "xml" %}{% include "_includes/examples/dita/index.dita" %}{% endhighlight
-              %}
-            </div>
-          </div>
-        </div>
-      </div>
+      <p>
+        DocBook is also a mature XML vocabulary, used for software documentation, books, and Linux
+        distribution manuals. It supports modularization through mechanisms like XInclude. It was
+        developed under OASIS, but its Technical Committee closed in 2024, so it’s no longer under
+        active development. Where DocBook centers on document structures—books, chapters, and
+        prefaces—DITA centers on independent topics assembled through maps. Depending on whether
+        your content is closer to a single authored volume or spans many products, either structure
+        can be a good fit.
+      </p>
     </div>
-    <p>
-      DocBook is also a mature XML vocabulary, used for software documentation, books, and Linux
-      distribution manuals. It supports modularization through mechanisms like XInclude. It was
-      developed under OASIS, but its Technical Committee closed in 2024, so it’s no longer under
-      active development. Where DocBook centers on document structures—books, chapters, and
-      prefaces—DITA centers on independent topics assembled through maps. Depending on whether your
-      content is closer to a single authored volume or spans many products, either structure can be
-      a good fit.
-    </p>
   </div>
 </div>
 <!---->
