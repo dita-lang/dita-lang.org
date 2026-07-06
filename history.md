@@ -5,7 +5,7 @@ title: 'History of DITA'
 
 From an internal IBM authoring practice to an OASIS open standard used across the world.
 
-### Before DITA
+## Before DITA
 
 DITA’s ideas reach back further than 2001. IBM had long used GML, its own precursor to SGML, in
 addition to SGML itself for documentation, but by the 1990s its many divisions relied on locally
@@ -25,7 +25,7 @@ on the documentation for IBM WebSphere Application Server before rolling it out 
 continuing to adapt IBMIDDoc’s modularity and extensibility ideas into what would become DITA’s
 specialization mechanism.
 
-### Origins at IBM
+## Origins at IBM
 
 [coverpages]: https://xml.coverpages.org/dita.html
 
@@ -49,7 +49,7 @@ yet—that came later, once OASIS took on the language.
 [developerworks6]: https://web.archive.org/web/20051125214806/http://www-128.ibm.com/developerworks/xml/library/x-dita6/
 [developerworks6-downloads]: https://web.archive.org/web/20031017222717/http://www-106.ibm.com/developerworks/xml/library/x-dita6/x-dita_downloads.html
 
-### Becoming an OASIS Standard
+## Becoming an OASIS Standard
 
 IBM transferred DITA to OASIS in **March 2004**, with other organizations, including Arbortext,
 Innodata Isogen, and Nokia, joining the proposal for a new technical committee to take over
@@ -65,17 +65,14 @@ Since then, the language has been maintained entirely through the OASIS standard
 releases shaped by public review and consensus among vendors, enterprises, and individual
 practitioners rather than any single company.
 
-### Release Timeline
+## Release Timeline
 
 - **March 2001**—IBM publishes the core DTD and XML Schema grammar files for IBM DITA, along with
   articles describing the architecture.
 - **March 2004**—IBM transfers DITA to OASIS.
 - **April 2004**—The OASIS DITA Technical Committee is formally chartered.
-- **Early 2005**—The DITA Open Toolkit, an open-source reference implementation for the emerging
-  OASIS DITA standard, is released, transforming DITA content into HTML, PDF, and help formats.
 - **June 1, 2005**—DITA 1.0 is approved as an OASIS Standard, carrying over the IBM DITA
   architecture largely without modification.
-- **August 2005**—The DITA Open Toolkit reaches version 1.1, its first major update.
 - **August 2007**—DITA 1.1 adds the bookmap specialization for book-length publications and
   formalizes DITAVAL filtering syntax for conditional content.
 - **December 2010**—DITA 1.2 introduces keys for indirect addressing, expanded glossary support,
@@ -99,7 +96,7 @@ The current state of that work is available as the
 [LwDITA draft](/lwdita/resources/oasis-cover.html) hosted on this site, with the full release
 history of earlier, approved versions on the [Specifications](/specifications) page.
 
-### Why the History Matters
+## Why the History Matters
 
 Two decades of incremental, consensus-driven evolution are part of what makes DITA a safe
 long-term bet for content strategy. Each release has been backward-compatible where possible and

@@ -16,7 +16,7 @@ title: 'Specifications'
 
 ## Drafts
 
-Unofficial preview drafts.
+Previews of the current specification drafts.
 
 - [DITA 2.0 draft](/dita/resources/oasis-cover.html)
 - [DITA Technical Communication 2.0 draft](/dita-techcomm/resources/oasis-cover.html)

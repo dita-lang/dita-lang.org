@@ -100,7 +100,7 @@ pages.
   </table>
 </div>
 
-### DITA vs. HTML5
+## DITA vs. HTML5
 
 HTML5 is the language browsers render, not a language people typically author large
 documentation sets in directly. It has no native concept of topics, content reuse, or
@@ -109,7 +109,7 @@ system. With DITA, HTML5 is simply one of the outputs a publishing engine can ge
 single set of source topics, alongside PDF, EPUB, and other formats, without requiring a second
 authoring effort.
 
-### DITA vs. Markdown
+## DITA vs. Markdown
 
 Markdown’s appeal is its simplicity: a handful of characters produce headings, lists, and links,
 which makes it ideal for READMEs, changelogs, and short-lived content. That same simplicity
@@ -119,7 +119,7 @@ grow. Through Lightweight DITA, the MDITA authoring format lets writers use fami
 syntax while still producing standard DITA content that benefits from DITA’s reuse and
 publishing model.
 
-### DITA vs. AsciiDoc
+## DITA vs. AsciiDoc
 
 AsciiDoc is a plain-text format with includes, attributes, and semantic blocks that support
 meaningful content reuse and conditional text without leaving plain text. DITA takes a different
@@ -130,7 +130,7 @@ consistency—tends to matter most for large, multi-author, multi-product docume
 which is also why Lightweight DITA offers an XML-light authoring option (XDITA) for teams who
 want DITA’s model without writing XML by hand.
 
-### DITA vs. reStructuredText
+## DITA vs. reStructuredText
 
 reStructuredText, especially paired with Sphinx, is a strong choice for documenting a single
 codebase or project, with directives and roles that support structured, cross-referenced
@@ -140,7 +140,7 @@ extend the vocabulary for their domain while staying interoperable with standard
 Where reStructuredText is closely tied to its surrounding tool ecosystem, DITA’s processing
 model is defined independently of any single publishing engine.
 
-### DITA vs. DocBook
+## DITA vs. DocBook
 
 DocBook is also a mature XML vocabulary with a background that overlaps with DITA’s in places:
 it’s used for software documentation, books, and Linux distribution manuals, and supports
@@ -152,7 +152,7 @@ the same content looks like a chapter within a book in DocBook and a standalone 
 Depending on whether your content is closer to a single authored volume or spans many products
 and audiences, either structure can be a good fit.
 
-### Choosing the Right Format
+## Choosing the Right Format
 
 There’s no single correct answer for every project. Lightweight, single-document formats like
 Markdown, AsciiDoc, and reStructuredText are often the fastest way to get a small project

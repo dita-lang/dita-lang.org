@@ -14,132 +14,124 @@ title: 'DITA'
     </p>
   </div>
 </div>
-<!--<div class="container" id="call-to-action-buttons">-->
-<!--  <ul>-->
-<!--    <li><strong>Learn DITA</strong> (primary)</li>-->
-<!--    <li><strong>View Examples</strong> (secondary)</li>-->
-<!--    <li><strong>Find Tools</strong> (tertiary)</li>-->
-<!--  </ul>-->
-<!--</div>-->
-<!---->
-<div class="container" id="value-propositions">
+<div class="container">
   <div class="row mb-3">
     <div class="col-4">
-      <h3 id="write-once-publish-everywhere">Write Once, Publish Everywhere</h3>
-      <p>
-        The DITA language lets you structure content in topic-based modules. DITA-compatible
-        publishing tools can then generate HTML, PDF, mobile, print, and other formats from that
-        same set of source files.
-      </p>
-    </div>
-    <div class="col-4">
-      <h3 id="built-for-scale">Built for Scale</h3>
-      <p>
-        From startups to Fortune 500 companies, the DITA language specification provides the
-        foundation for handling complex documentation projects with thousands of topics, multiple
-        products, and global translation requirements.
-      </p>
-    </div>
-    <div class="col-4">
-      <h3 id="reuse-everything">Reuse Everything</h3>
-      <p>
-        DITA’s structured markup gives you several ways to write content once and reuse it
-        elsewhere. Use topic-based authoring to create modular content, content references to pull
-        in shared information, and conditional text to show different content to different
-        audiences—all from the same source files.
-      </p>
-    </div>
-  </div>
+
+### Write Once, Publish Everywhere
+
+The DITA language lets you structure content in topic-based modules. DITA-compatible
+publishing tools can then generate HTML, PDF, mobile, print, and other formats from that
+same set of source files.
+
+</div>
+<div class="col-4">
+
+### Built for Scale
+
+From startups to Fortune 500 companies, the DITA language specification provides the
+foundation for handling complex documentation projects with thousands of topics, multiple
+products, and global translation requirements.
+
+</div>
+<div class="col-4">
+
+### Reuse Everything
+
+DITA’s structured markup gives you several ways to write content once and reuse it
+elsewhere. Use topic-based authoring to create modular content, content references to pull
+in shared information, and conditional text to show different content to different
+audiences—all from the same source files.
+
+</div>
+</div>
 </div>
 
 <div class="container" id="use-cases-section">
-  <h3 id="for-technical-writers">For Technical Writers</h3>
-  <p><strong>Professional documentation language that adapts to your workflow</strong></p>
-  <p>
-    Transform your content creation process with DITA’s topic-based authoring syntax. Focus on
-    writing while DITA-compatible tools handle the structure, cross-references, and publishing
-    automation.
-  </p>
-  <ul>
-    <li>Topic-based writing language that mirrors how users actually consume information</li>
-    <li>Built-in syntax for cross-references and linking</li>
-    <li>Content reuse markup that eliminates copy-paste errors</li>
-    <li>Semantic structure that enables professional publishing</li>
-  </ul>
-  <h3 id="for-product-teams">For Product Teams</h3>
-  <p><strong>Documentation language that scales with your product</strong></p>
-  <p>
-    Keep your docs in sync with rapid product development. DITA’s modular markup approach means
-    updates in one place propagate everywhere they’re needed when processed by DITA tools.
-  </p>
-  <ul>
-    <li>Single-source content markup for multiple products and releases</li>
-    <li>Conditional publishing syntax for different audiences</li>
-    <li>Language designed for integration with development workflows</li>
-    <li>Structured approach that ensures consistency across all documentation</li>
-  </ul>
-  <h3 id="for-enterprise">For Enterprise</h3>
-  <p><strong>A content language for large-scale documentation programs</strong></p>
-  <p>
-    For organizations managing documentation across many products and teams, the DITA language
-    specification offers a governance model, workflow foundation, and scalability suited to that
-    scope.
-  </p>
-  <ul>
-    <li>Standards-based markup language backed by OASIS</li>
-    <li>Language designed for enterprise-grade content management workflows</li>
-    <li>Built-in translation and localization support</li>
-    <li>Extensible language architecture for custom requirements</li>
-  </ul>
+
+### For Technical Writers
+
+**Professional documentation language that adapts to your workflow**
+
+Transform your content creation process with DITA’s topic-based authoring syntax. Focus on
+writing while DITA-compatible tools handle the structure, cross-references, and publishing
+automation.
+
+- Topic-based writing language that mirrors how users actually consume information
+- Built-in syntax for cross-references and linking
+- Content reuse markup that eliminates copy-paste errors
+- Semantic structure that enables professional publishing
+
+### For Product Teams
+
+**Documentation language that scales with your product**
+
+Keep your docs in sync with rapid product development. DITA’s modular markup approach means
+updates in one place propagate everywhere they’re needed when processed by DITA tools.
+
+- Single-source content markup for multiple products and releases
+- Conditional publishing syntax for different audiences
+- Language designed for integration with development workflows
+- Structured approach that ensures consistency across all documentation
+
+### For Enterprise
+
+**A content language for large-scale documentation programs**
+
+For organizations managing documentation across many products and teams, the DITA language
+specification offers a governance model, workflow foundation, and scalability suited to that
+scope.
+
+- Standards-based markup language backed by OASIS
+- Language designed for enterprise-grade content management workflows
+- Built-in translation and localization support
+- Extensible language architecture for custom requirements
+
 </div>
 
-<div class="container" id="problemsolution-section">
-  <h3 id="why-structure-content">Why Structure Content</h3>
-  <p>
-    As documentation grows across products, teams, and languages, keeping it consistent and current
-    takes real, ongoing effort. DITA offers one way to manage that complexity: it treats content as
-    structured data rather than free-form text, which supports content reuse, automated publishing
-    workflows, and content that can adapt as your needs change.
-  </p>
-  <p>
-    A key part of that structure is topic-based authoring: content is organized into self-contained
-    topics that each focus on a single subject, such as a concept, task, or reference, rather than
-    one continuous document. Because a topic doesn’t depend on the narrative around it, it can be
-    reused, reordered, and assembled into different documents and outputs, which is what makes
-    DITA’s content reuse and multi-format publishing possible.
-  </p>
+<div class="container">
+
+### Why Structure Content
+
+As documentation grows across products, teams, and languages, keeping it consistent and current
+takes real, ongoing effort. DITA offers one way to manage that complexity: it treats content as
+structured data rather than free-form text, which supports content reuse, automated publishing
+workflows, and content that can adapt as your needs change.
+
+A key part of that structure is topic-based authoring: content is organized into self-contained
+topics that each focus on a single subject, such as a concept, task, or reference, rather than
+one continuous document. Because a topic doesn’t depend on the narrative around it, it can be
+reused, reordered, and assembled into different documents and outputs, which is what makes
+DITA’s content reuse and multi-format publishing possible.
+
 </div>
 
-<div class="container" id="technical-highlights-section">
-  <h3 id="language-features">Language Features</h3>
-  <p>
-    <strong>Content Reuse</strong> DITA’s content reference syntax lets you reference content
-    fragments across topics and publications, so an update in one place is reflected wherever that
-    content is used.
-  </p>
-  <p>
-    <strong>Conditional Publishing</strong> Built-in markup for creating different versions for
-    different audiences from the same source. Filter by product, platform, experience level, or any
-    criteria you define in the language.
-  </p>
-  <p>
-    <strong>Multiple Output Formats</strong> DITA’s semantic structure supports generating HTML,
-    PDF, EPUB, mobile apps, and more through compatible publishing tools.
-  </p>
-  <p>
-    <strong>Extensibility</strong> Adapt DITA to your specific needs through specialization. Create
-    custom topic types, add industry-specific elements, or extend the language while maintaining
-    compatibility.
-  </p>
-  <p>
-    <strong>Translation Support</strong> Built-in language features for localization workflows.
-    DITA’s structure supports translation memory, multilingual content management, and consistency
-    across languages.
-  </p>
-  <p>
-    <strong>Open Standard</strong> DITA is maintained by OASIS as an open, vendor-neutral standard,
-    so your content isn’t tied to a single vendor’s tools.
-  </p>
+<div class="container">
+
+### Language Features
+
+**Content Reuse** DITA’s content reference syntax lets you reference content
+fragments across topics and publications, so an update in one place is reflected wherever that
+content is used.
+
+**Conditional Publishing** Built-in markup for creating different versions for
+different audiences from the same source. Filter by product, platform, experience level, or any
+criteria you define in the language.
+
+**Multiple Output Formats** DITA’s semantic structure supports generating HTML,
+PDF, EPUB, mobile apps, and more through compatible publishing tools.
+
+**Extensibility** Adapt DITA to your specific needs through specialization. Create
+custom topic types, add industry-specific elements, or extend the language while maintaining
+compatibility.
+
+**Translation Support** Built-in language features for localization workflows.
+DITA’s structure supports translation memory, multilingual content management, and consistency
+across languages.
+
+**Open Standard** DITA is maintained by OASIS as an open, vendor-neutral standard,
+so your content isn’t tied to a single vendor’s tools.
+
 </div>
 
 <div class="container" id="comparison">
@@ -218,7 +210,7 @@ title: 'DITA'
         <div class="col-sm-6">
           <h5>Markdown</h5>
           <code>index.md</code>
-          {% highlight "md" %}{% include "_includes/examples/markdown/index.md" %}{% endhighlight %}
+{% highlight "md" %}{% include "_includes/examples/markdown/index.md" %}{% endhighlight %}
         </div>
         <div class="col-sm-6">
           <h5>DITA</h5>
@@ -227,7 +219,7 @@ title: 'DITA'
           <!--                  <li class="nav-item"><code class="nav-link">keys.ditamap</code></li>-->
           <!--                </ul>-->
           <code>index.dita</code>
-          {% highlight "xml" %}{% include "_includes/examples/dita/index.dita" %}{% endhighlight %}
+{% highlight "xml" %}{% include "_includes/examples/dita/index.dita" %}{% endhighlight %}
         </div>
       </div>
       <p>
@@ -251,13 +243,13 @@ title: 'DITA'
         <div class="col-sm-6">
           <h5>HTML5</h5>
           <code>index.html</code>
-          {% highlight "html" %}{% include "_includes/examples/html5/index.html" %}{% endhighlight
+{% highlight "html" %}{% include "_includes/examples/html5/index.html" %}{% endhighlight
           %}
         </div>
         <div class="col-sm-6">
           <h5>DITA</h5>
           <code>index.dita</code>
-          {% highlight "xml" %}{% include "_includes/examples/dita/index.dita" %}{% endhighlight %}
+{% highlight "xml" %}{% include "_includes/examples/dita/index.dita" %}{% endhighlight %}
         </div>
       </div>
       <p>
@@ -280,13 +272,13 @@ title: 'DITA'
         <div class="col-sm-6">
           <h5>AsciiDoc</h5>
           <code>index.adoc</code>
-          {% highlight "asciidoc" %}{% include "_includes/examples/asciidoc/index.adoc" %}{%
+{% highlight "asciidoc" %}{% include "_includes/examples/asciidoc/index.adoc" %}{%
           endhighlight %}
         </div>
         <div class="col-sm-6">
           <h5>DITA</h5>
           <code>index.dita</code>
-          {% highlight "xml" %}{% include "_includes/examples/dita/index.dita" %}{% endhighlight %}
+{% highlight "xml" %}{% include "_includes/examples/dita/index.dita" %}{% endhighlight %}
         </div>
       </div>
       <p>
@@ -309,13 +301,13 @@ title: 'DITA'
         <div class="col-sm-6">
           <h5>reStructuredText</h5>
           <code>index.rst</code>
-          {% highlight "rest" %}{% include "_includes/examples/restructuredtext/index.rst" %}{%
+{% highlight "rest" %}{% include "_includes/examples/restructuredtext/index.rst" %}{%
           endhighlight %}
         </div>
         <div class="col-sm-6">
           <h5>DITA</h5>
           <code>index.dita</code>
-          {% highlight "xml" %}{% include "_includes/examples/dita/index.dita" %}{% endhighlight %}
+{% highlight "xml" %}{% include "_includes/examples/dita/index.dita" %}{% endhighlight %}
         </div>
       </div>
       <p>
@@ -339,13 +331,13 @@ title: 'DITA'
         <div class="col-sm-6">
           <h5>DocBook</h5>
           <code>index.xml</code>
-          {% highlight "xml" %}{% include "_includes/examples/docbook/index.xml" %}{% endhighlight
+{% highlight "xml" %}{% include "_includes/examples/docbook/index.xml" %}{% endhighlight
           %}
         </div>
         <div class="col-sm-6">
           <h5>DITA</h5>
           <code>index.dita</code>
-          {% highlight "xml" %}{% include "_includes/examples/dita/index.dita" %}{% endhighlight %}
+{% highlight "xml" %}{% include "_includes/examples/dita/index.dita" %}{% endhighlight %}
         </div>
       </div>
       <p>
