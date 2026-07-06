@@ -46,8 +46,7 @@ audiences—all from the same source files.
 </div>
 </div>
 </div>
-
-<div class="container" id="use-cases-section">
+<div class="container">
 
 ### For Technical Writers
 
@@ -88,7 +87,6 @@ scope.
 - Extensible language architecture for custom requirements
 
 </div>
-
 <div class="container">
 
 ### Why Structure Content
@@ -105,7 +103,6 @@ reused, reordered, and assembled into different documents and outputs, which is 
 DITA’s content reuse and multi-format publishing possible.
 
 </div>
-
 <div class="container">
 
 ### Language Features
@@ -133,225 +130,14 @@ across languages.
 so your content isn’t tied to a single vendor’s tools.
 
 </div>
-
 <div class="container" id="comparison">
-  <h3 id="compare-dita-to-other-markup-languages">Compare DITA to other markup languages</h3>
-  <ul class="nav nav-tabs mb-3" role="tablist">
-    <li class="nav-item">
-      <a
-        class="nav-link active"
-        data-toggle="tab"
-        href="#markdown"
-        aria-expanded="true"
-        aria-controls="markdown"
-        role="tab"
-      >
-        Markdown
-      </a>
-    </li>
-    <li class="nav-item">
-      <a
-        class="nav-link"
-        data-toggle="tab"
-        href="#html5"
-        aria-expanded="false"
-        aria-controls="html5"
-        role="tab"
-      >
-        HTML5
-      </a>
-    </li>
-    <li class="nav-item">
-      <a
-        class="nav-link"
-        data-toggle="tab"
-        href="#asciidoc"
-        aria-expanded="false"
-        aria-controls="asciidoc"
-        role="tab"
-      >
-        AsciiDoc
-      </a>
-    </li>
-    <li class="nav-item">
-      <a
-        class="nav-link"
-        data-toggle="tab"
-        href="#restructuredtext"
-        aria-expanded="false"
-        aria-controls="restructuredtext"
-        role="tab"
-      >
-        reStructuredText
-      </a>
-    </li>
-    <li class="nav-item">
-      <a
-        class="nav-link"
-        data-toggle="tab"
-        href="#docbook"
-        aria-expanded="false"
-        aria-controls="docbook"
-        role="tab"
-      >
-        DocBook
-      </a>
-    </li>
-  </ul>
-  <div class="tab-content">
-    <div
-      id="markdown"
-      role="tabpanel"
-      class="tab-pane show active"
-      aria-labelledby="headingZero"
-      data-parent="#comparison"
-    >
-      <div class="row mb-3">
-        <div class="col-sm-6">
-          <h5>Markdown</h5>
-          <code>index.md</code>
-{% highlight "md" %}{% include "_includes/examples/markdown/index.md" %}{% endhighlight %}
-        </div>
-        <div class="col-sm-6">
-          <h5>DITA</h5>
-          <!--                <ul class="nav nav-pills">-->
-          <!--                  <li class="nav-item"><code class="nav-link active">index.dita</code></li>-->
-          <!--                  <li class="nav-item"><code class="nav-link">keys.ditamap</code></li>-->
-          <!--                </ul>-->
-          <code>index.dita</code>
-{% highlight "xml" %}{% include "_includes/examples/dita/index.dita" %}{% endhighlight %}
-        </div>
-      </div>
-      <p>
-        Markdown’s appeal is its simplicity: a handful of characters produce headings, lists, and
-        links. That makes it ideal for READMEs, changelogs, and short-lived content. It has no
-        standard mechanism for content reuse, conditional text, or semantic topic types, so large
-        documentation sets built in Markdown tend to accumulate inconsistency as they grow. DITA
-        addresses that gap directly, with content references and topic types built into the
-        language. Through Lightweight DITA, the MDITA format lets writers use familiar Markdown
-        syntax while still producing standard DITA content.
-      </p>
-    </div>
-    <div
-      id="html5"
-      role="tabpanel"
-      class="tab-pane"
-      aria-labelledby="headingOne"
-      data-parent="#comparison"
-    >
-      <div class="row mb-3">
-        <div class="col-sm-6">
-          <h5>HTML5</h5>
-          <code>index.html</code>
-{% highlight "html" %}{% include "_includes/examples/html5/index.html" %}{% endhighlight
-          %}
-        </div>
-        <div class="col-sm-6">
-          <h5>DITA</h5>
-          <code>index.dita</code>
-{% highlight "xml" %}{% include "_includes/examples/dita/index.dita" %}{% endhighlight %}
-        </div>
-      </div>
-      <p>
-        HTML5 is the language browsers render, not one people typically author large documentation
-        sets in directly. It has no native concept of topics, content reuse, or conditional
-        publishing. Those concerns are usually bolted on with a separate content management system.
-        With DITA, HTML5 is simply one of several outputs a publishing engine can generate from a
-        single set of source topics. That means no second authoring effort is needed to also produce
-        PDF, EPUB, or other formats.
-      </p>
-    </div>
-    <div
-      id="asciidoc"
-      role="tabpanel"
-      class="tab-pane"
-      aria-labelledby="headingTwo"
-      data-parent="#comparison"
-    >
-      <div class="row mb-3">
-        <div class="col-sm-6">
-          <h5>AsciiDoc</h5>
-          <code>index.adoc</code>
-{% highlight "asciidoc" %}{% include "_includes/examples/asciidoc/index.adoc" %}{%
-          endhighlight %}
-        </div>
-        <div class="col-sm-6">
-          <h5>DITA</h5>
-          <code>index.dita</code>
-{% highlight "xml" %}{% include "_includes/examples/dita/index.dita" %}{% endhighlight %}
-        </div>
-      </div>
-      <p>
-        AsciiDoc is a plain-text format with includes, attributes, and semantic blocks. Those
-        features support meaningful content reuse and conditional text without leaving plain text.
-        DITA takes a different approach: formal, schema-validated topic types and a map structure
-        assemble content from many independent files. That trade-off—more upfront structure for
-        machine-enforced consistency—tends to matter most for large, multi-author, multi-product
-        documentation sets.
-      </p>
-    </div>
-    <div
-      id="restructuredtext"
-      role="tabpanel"
-      class="tab-pane"
-      aria-labelledby="headingThree"
-      data-parent="#comparison"
-    >
-      <div class="row mb-3">
-        <div class="col-sm-6">
-          <h5>reStructuredText</h5>
-          <code>index.rst</code>
-{% highlight "rest" %}{% include "_includes/examples/restructuredtext/index.rst" %}{%
-          endhighlight %}
-        </div>
-        <div class="col-sm-6">
-          <h5>DITA</h5>
-          <code>index.dita</code>
-{% highlight "xml" %}{% include "_includes/examples/dita/index.dita" %}{% endhighlight %}
-        </div>
-      </div>
-      <p>
-        reStructuredText, especially paired with Sphinx, is a strong choice for documenting a single
-        codebase or project. Directives and roles support structured, cross-referenced technical
-        writing. DITA is built for a broader scope, assembling and reusing topics across many
-        products, releases, and organizations through maps. Formal specialization lets teams extend
-        the vocabulary for their domain while staying interoperable with standard DITA tools. Where
-        reStructuredText is closely tied to its surrounding tool ecosystem, DITA’s processing model
-        is defined independently of any single publishing engine.
-      </p>
-    </div>
-    <div
-      id="docbook"
-      role="tabpanel"
-      class="tab-pane"
-      aria-labelledby="headingFour"
-      data-parent="#comparison"
-    >
-      <div class="row mb-3">
-        <div class="col-sm-6">
-          <h5>DocBook</h5>
-          <code>index.xml</code>
-{% highlight "xml" %}{% include "_includes/examples/docbook/index.xml" %}{% endhighlight
-          %}
-        </div>
-        <div class="col-sm-6">
-          <h5>DITA</h5>
-          <code>index.dita</code>
-{% highlight "xml" %}{% include "_includes/examples/dita/index.dita" %}{% endhighlight %}
-        </div>
-      </div>
-      <p>
-        DocBook is also a mature XML vocabulary, used for software documentation, books, and Linux
-        distribution manuals. It supports modularization through mechanisms like XInclude. It was
-        developed under OASIS, but its Technical Committee closed in 2024, so it’s no longer under
-        active development. Where DocBook centers on document structures—books, chapters, and
-        prefaces—DITA centers on independent topics assembled through maps. Depending on whether
-        your content is closer to a single authored volume or spans many products, either structure
-        can be a good fit.
-      </p>
-    </div>
-  </div>
+
+### Compare DITA to other markup languages
+
+{% include "_includes/examples/comparison.njk" %}
+
 </div>
+
 <!---->
 <!--<div class="container" id="getting-started-section">-->
 <!--  <h3 id="start-your-dita-journey-today">Start Your DITA Journey Today</h3>-->
