@@ -1,19 +1,13 @@
 ---
 layout: cover.njk
-title: 'DITA'
+title: DITA
+lead: Structure your content. Scale your documentation. Deliver everywhere.
+description: |
+  Darwin Information Typing Architecture (DITA) is an XML-based open standard for structured
+  content and topic-based authoring, helping teams create, reuse, and publish technical
+  documentation.
 ---
 
-<div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-3 ml-md-4 ml-lg-n2">{{ title }}</h1>
-    <p class="lead">Structure your content. Scale your documentation. Deliver everywhere.</p>
-    <p>
-      Darwin Information Typing Architecture (DITA) is an XML-based open standard for structured
-      content and topic-based authoring, helping teams create, reuse, and publish technical
-      documentation.
-    </p>
-  </div>
-</div>
 <div class="container">
   <div class="row mb-3">
     <div class="col-4">
@@ -46,6 +40,7 @@ audiences—all from the same source files.
 </div>
 </div>
 </div>
+<div class="cover-section">
 <div class="container">
 
 ### For Technical Writers
@@ -87,6 +82,7 @@ scope.
 - Extensible language architecture for custom requirements
 
 </div>
+</div>
 <div class="container">
 
 ### Why Structure Content
@@ -103,6 +99,7 @@ reused, reordered, and assembled into different documents and outputs, which is 
 DITA’s content reuse and multi-format publishing possible.
 
 </div>
+<div class="cover-section">
 <div class="container">
 
 ### Language Features
@@ -129,6 +126,7 @@ across languages.
 **Open Standard** DITA is maintained by OASIS as an open, vendor-neutral standard,
 so your content isn’t tied to a single vendor’s tools.
 
+</div>
 </div>
 <div class="container" id="comparison">
 
