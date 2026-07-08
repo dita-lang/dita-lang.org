@@ -25,9 +25,14 @@ on the documentation for IBM WebSphere Application Server before rolling it out 
 continuing to adapt IBMIDDoc’s modularity and extensibility ideas into what would become DITA’s
 specialization mechanism.
 
+{# Print source: Eliot Kimber, "DITA for Practitioners" (XML Press) #}
+[ditawriter1]: https://www.ditawriter.com/don-day-and-michael-priestley-on-the-beginnings-of-dita-part-1/
+[ditawriter2]: https://www.ditawriter.com/don-day-and-michael-priestly-on-the-beginnings-of-dita-part-2/
+
 ## Origins at IBM
 
 [coverpages]: https://xml.coverpages.org/dita.html
+[coverpages-2001]: https://xml.coverpages.org/ni2001-03-16-a.html
 
 What would become DITA grew out of IBM’s internal efforts to make large-scale software and
 hardware documentation easier to write, reuse, and translate. Rather than producing whole books or
@@ -51,6 +56,9 @@ yet—that came later, once OASIS took on the language.
 
 ## Becoming an OASIS Standard
 
+[coverpages-2004-tc]: https://xml.coverpages.org/ni2004-03-29-b.html
+[oasis-pr-dita10]: https://www.oasis-open.org/news/pr/members-approve-dita-as-oasis-standard/
+
 IBM transferred DITA to OASIS in **March 2004**, with other organizations, including Arbortext,
 Innodata Isogen, and Nokia, joining the proposal for a new technical committee to take over
 stewardship of the language. The [OASIS DITA Technical Committee]
@@ -66,6 +74,9 @@ releases shaped by public review and consensus among vendors, enterprises, and i
 practitioners rather than any single company.
 
 ## Release Timeline
+
+[wikipedia-dita]: https://en.wikipedia.org/wiki/Darwin_Information_Typing_Architecture
+[lwdita-v1]: https://docs.oasis-open.org/dita/LwDITA/v1.0/LwDITA-v1.0.html
 
 - **March 2001**—IBM publishes the core DTD and XML Schema grammar files for IBM DITA, along with
   articles describing the architecture.

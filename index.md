@@ -3,7 +3,7 @@ layout: cover.njk
 title: DITA
 lead: Structure your content. Scale your documentation. Deliver everywhere.
 description: |
-  Darwin Information Typing Architecture (DITA) is an XML-based open standard for structured
+  Darwin Information Typing Architecture (DITA) is an open standard for structured
   content and topic-based authoring, helping teams create, reuse, and publish technical
   documentation.
 ---
@@ -135,37 +135,3 @@ so your content isn’t tied to a single vendor’s tools.
 {% include "_includes/examples/comparison.njk" %}
 
 </div>
-
-<!---->
-<!--<div class="container" id="getting-started-section">-->
-<!--  <h3 id="start-your-dita-journey-today">Start Your DITA Journey Today</h3>-->
-<!--  <p>-->
-<!--    <strong>Learn the Language</strong> New to structured authoring? Our getting started guide walks-->
-<!--    you through DITA language concepts with practical examples you can try immediately. [Read the-->
-<!--    Language Guide →]-->
-<!--  </p>-->
-<!--  <p>-->
-<!--    <strong>Explore Tools &amp; Implementations</strong> Discover authoring tools, content-->
-<!--    management systems, and publishing engines that support the DITA language specification. [Browse-->
-<!--    DITA Tools →]-->
-<!--  </p>-->
-<!--  <p>-->
-<!--    <strong>Join the Community</strong> Connect with DITA practitioners worldwide. Ask questions,-->
-<!--    share experiences, and learn from teams who’ve successfully adopted the DITA language. [Join-->
-<!--    Community →]-->
-<!--  </p>-->
-<!--</div>-->
-<!---->
-<!--<div class="container" id="footer-value-proposition">-->
-<!--  <h3 id="why-choose-dita">Why Choose DITA?</h3>-->
-<!--  <p>-->
-<!--    DITA is a structured authoring language designed to scale with your organization, from-->
-<!--    single-author projects to global enterprise implementations, providing a semantic foundation for-->
-<!--    your content.-->
-<!--  </p>-->
-<!--  <p>-->
-<!--    <strong>Curious whether structured authoring fits your documentation?</strong> [Learn DITA Today-->
-<!--    →]-->
-<!--  </p>-->
-<!--  -->
-<!--</div>-->
