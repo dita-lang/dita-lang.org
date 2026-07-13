@@ -130,8 +130,19 @@ so your content isn’t tied to a single vendor’s tools.
 </div>
 <div class="container" id="comparison">
 
-### Compare DITA to other markup languages
+{# ### Compare DITA to other markup languages #}
 
-{% include "_includes/examples/comparison.njk" %}
+{# % include "_includes/examples/comparison.njk" % #}
+
+{# </div> #}
+{# <div class="container"> #}
+
+### Learn More
+
+- [Take a tour](/tour) of DITA’s topics, elements, and reuse mechanisms.
+- [See how DITA compares](/compare) to HTML5, Markdown, AsciiDoc, reStructuredText, and
+  DocBook.
+- [Read the history](/history) of DITA, from IBM to OASIS standard.
+- [Browse the specifications](/specifications) for the full language reference.
 
 </div>

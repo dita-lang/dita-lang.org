@@ -1,15 +1,16 @@
 ---
 layout: site.njk
-title: 'DITA Quick Element Reference'
+title: 'A Tour of DITA'
 ---
 
 {% from "example-row.njk" import row %}
 
-A fast look at the most common DITA elements, with terse fragments rather than complete
-topics. DITA 1.3 defines 182 elements in its base vocabulary and 610 overall once
-specializations and domains are included, but few authors need most of them: most start
-with a small set of common elements and adopt more only as their content needs more
-specific markup. For the full language reference, see [Specifications](/specifications).
+A shallow, practical look at how DITA structures content: topics, reuse, and maps, shown
+through terse fragments rather than complete topics. Under the hood, DITA 1.3 defines 182
+elements in its base vocabulary and 610 overall once specializations and domains are
+included, but few authors need most of them: most start with a small, common set and adopt
+more only as their content needs more specific markup. For the full language reference, see
+[Specifications](/specifications).
 
 <div class="note"><span class="note__title">Note</span>: Each fragment comes with an <em>example rendition</em>. Published output depends on DITA processor
 and custom styling.</div>
@@ -67,7 +68,7 @@ A `<task>` walks a reader through the steps needed to accomplish a goal.
       </step>
       <step>
         <cmd>Click <uicontrol>Format</uicontrol>.</cmd>
-        <info>The disk is formatted with the default file system.</info>
+        <stepresult>The disk is formatted with the default file system.</stepresult>
       </step>
     </steps>
     <result>

@@ -100,57 +100,41 @@ pages.
   </table>
 </div>
 
-## DITA vs. HTML5
+{#% include "_includes/examples/comparison.njk" %#}
 
-HTML5 is the language browsers render, not a language people typically author large
-documentation sets in directly. It has no native concept of topics, content reuse, or
-conditional publishing—those concerns are usually bolted on with a separate content management
-system. With DITA, HTML5 is simply one of the outputs a publishing engine can generate from a
-single set of source topics, alongside PDF, EPUB, and other formats, without requiring a second
-authoring effort.
+{% set items = {
+markdown: { title: "Markdown", extension: "md" },
+html5: { title: "HTML5", extension: "html" },
+asciidoc: { title: "AsciiDoc", extension: "adoc" },
+restructuredtext: { title: "reStructuredText", extension: "rst" },
+docbook: { title: "DocBook", extension: "xml" }
+} %}
+{% for name, item in items %}
 
-## DITA vs. Markdown
+## DITA vs. {{ item.title }}
 
-Markdown’s appeal is its simplicity: a handful of characters produce headings, lists, and links,
-which makes it ideal for READMEs, changelogs, and short-lived content. That same simplicity
-means Markdown has no standard mechanism for content reuse, conditional text, or semantic topic
-types, so large documentation sets built in Markdown tend to accumulate inconsistency as they
-grow. Through Lightweight DITA, the MDITA authoring format lets writers use familiar Markdown
-syntax while still producing standard DITA content that benefits from DITA’s reuse and
-publishing model.
-
-## DITA vs. AsciiDoc
-
-AsciiDoc is a plain-text format with includes, attributes, and semantic blocks that support
-meaningful content reuse and conditional text without leaving plain text. DITA takes a different
-approach to the same problems: instead of relying on convention and tooling configuration, it
-defines formal, schema-validated topic types and a map structure for assembling content from
-many independent files. That trade-off—more upfront structure in exchange for machine-enforced
-consistency—tends to matter most for large, multi-author, multi-product documentation sets,
-which is also why Lightweight DITA offers an XML-light authoring option (XDITA) for teams who
-want DITA’s model without writing XML by hand.
-
-## DITA vs. reStructuredText
-
-reStructuredText, especially paired with Sphinx, is a strong choice for documenting a single
-codebase or project, with directives and roles that support structured, cross-referenced
-technical writing. DITA is built for a broader scope: maps let you assemble and reuse topics
-across many products, releases, and even organizations, and formal specialization lets teams
-extend the vocabulary for their domain while staying interoperable with standard DITA tools.
-Where reStructuredText is closely tied to its surrounding tool ecosystem, DITA’s processing
-model is defined independently of any single publishing engine.
-
-## DITA vs. DocBook
-
-DocBook is also a mature XML vocabulary with a background that overlaps with DITA’s in places:
-it’s used for software documentation, books, and Linux distribution manuals, and supports
-modularization through mechanisms like XInclude. It was developed under OASIS, but its Technical
-Committee closed in 2024, so DocBook is no longer under active development even though it’s
-still hosted there and used in practice. Where DocBook centers on document structures—books,
-chapters, and prefaces—DITA centers on independent topics assembled through maps, which is why
-the same content looks like a chapter within a book in DocBook and a standalone topic in DITA.
-Depending on whether your content is closer to a single authored volume or spans many products
-and audiences, either structure can be a good fit.
+<div class="row">
+  <div class="col-sm-6">
+{#
+    <h5>{{ item.title }}</h5>
+    <code>index.{{ item.extension }}</code>
+#}
+{% highlight "md" %}{% include "_includes/examples/" ~ name ~ "/index." ~ item.extension %}{% endhighlight %}
+  </div>
+  <div class="col-sm-6">
+{#
+    <h5>DITA</h5>
+    <!--                <ul class="nav nav-pills">-->
+    <!--                  <li class="nav-item"><code class="nav-link active">index.dita</code></li>-->
+    <!--                  <li class="nav-item"><code class="nav-link">keys.ditamap</code></li>-->
+    <!--                </ul>-->
+    <code>index.dita</code>
+#}
+{% highlight "xml" %}{% include "_includes/examples/dita/index.dita" %}{% endhighlight %}
+  </div>
+</div>
+<p>{% include "_includes/examples/" ~ name ~ "/description.md" %}</p>
+{% endfor %}
 
 ## Choosing the Right Format
 
@@ -159,7 +143,3 @@ Markdown, AsciiDoc, and reStructuredText are often the fastest way to get a smal
 documented well. DITA’s more complex features pay off when content needs to be reused across
 products, translated into multiple languages, filtered for different audiences, or published to
 several formats from one source—the scenarios technical documentation teams hit as they scale.
-
-**Ready to see if DITA fits your content?**
-[Explore the specifications](/specifications) or read about
-[DITA’s history](/history) as an OASIS standard.
