@@ -329,8 +329,7 @@ as warning, tip, or danger.
 
 ### Table
 
-`<simpletable>` is a lightweight table of rows and columns. `<table>` supports column spans,
-alignment, and other CALS table features.
+`<simpletable>` is a lightweight table of rows and columns.
 
 {% set code %}
 
@@ -356,6 +355,53 @@ alignment, and other CALS table features.
 </thead>
 <tbody>
 <tr><td>disk0</td><td>SSD</td></tr>
+</tbody>
+</table>
+{% endset %}
+{{ row(code, rendition) }}
+
+`<table>` is the full CALS-style table model, built from a `<tgroup>` of `<colspec>` columns.
+An `entry` spans columns with `namest`/`nameend`, and spans rows with `morerows`.
+
+{% set code %}
+
+```xml
+<table>
+  <tgroup cols="3">
+    <colspec colname="c1"/>
+    <colspec colname="c2"/>
+    <colspec colname="c3"/>
+    <thead>
+      <row>
+        <entry namest="c1" nameend="c2">Disk</entry>
+        <entry>Status</entry>
+      </row>
+    </thead>
+    <tbody>
+      <row>
+        <entry morerows="1">disk0</entry>
+        <entry>Partition 1</entry>
+        <entry>Healthy</entry>
+      </row>
+      <row>
+        <entry>Partition 2</entry>
+        <entry>Healthy</entry>
+      </row>
+    </tbody>
+  </tgroup>
+</table>
+```
+
+{% endset %}
+{% set rendition %}
+
+<table class="table">
+<thead>
+<tr><th colspan="2">Disk</th><th>Status</th></tr>
+</thead>
+<tbody>
+<tr><td rowspan="2">disk0</td><td>Partition 1</td><td>Healthy</td></tr>
+<tr><td>Partition 2</td><td>Healthy</td></tr>
 </tbody>
 </table>
 {% endset %}
