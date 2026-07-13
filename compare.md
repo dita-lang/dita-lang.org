@@ -100,7 +100,7 @@ pages.
   </table>
 </div>
 
-{#% include "_includes/examples/comparison.njk" %#}
+{#% include "\_includes/examples/comparison.njk" %#}
 
 {% set items = {
 markdown: { title: "Markdown", extension: "md" },

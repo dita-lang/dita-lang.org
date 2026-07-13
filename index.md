@@ -99,6 +99,30 @@ reused, reordered, and assembled into different documents and outputs, which is 
 DITA’s content reuse and multi-format publishing possible.
 
 </div>
+<div class="container">
+
+### Is DITA a Good Fit?
+
+DITA’s value comes from specific features: semantic markup, content reuse, conditional filtering,
+specialization, and topic-based authoring. None of that comes from the XML syntax itself,
+and whether those features are worth adopting depends on the shape of your content. In some
+situations, they get used constantly. In others, they’d mostly sit unused, and a different
+tool might do the job just as well or better—not just a lighter markup language like
+Markdown or AsciiDoc, but also non-markup tools such as Microsoft Word or Adobe FrameMaker.
+
+| DITA’s features get used                                 | DITA’s features go unused                         |
+| -------------------------------------------------------- | ------------------------------------------------- |
+| The same content appears in multiple topics or products  | Content is used in exactly one place              |
+| Several product variants share most of their content     | There’s only one product or variant               |
+| One source publishes to multiple output formats          | Only one output format is ever needed             |
+| Content needs audience- or platform-based filtering      | All readers see the same content                  |
+| Content is translated into many languages                | Content is rarely or never translated             |
+| Content naturally splits into self-contained topics      | Content only works as one continuous narrative    |
+| Multiple authors need enforced structure                 | Content has a single author                       |
+| Content is long-lived and maintained for years           | Content is one-off or short-lived                 |
+| The team can invest in tooling and a publishing pipeline | The team needs to ship quickly with minimal setup |
+
+</div>
 <div class="cover-section">
 <div class="container">
 
@@ -132,7 +156,7 @@ so your content isn’t tied to a single vendor’s tools.
 
 {# ### Compare DITA to other markup languages #}
 
-{# % include "_includes/examples/comparison.njk" % #}
+{# % include "\_includes/examples/comparison.njk" % #}
 
 {# </div> #}
 {# <div class="container"> #}
