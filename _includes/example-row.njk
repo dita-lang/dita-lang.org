@@ -1,0 +1,27 @@
+{% macro row(code, rendition, description) %}
+
+<div class="row">
+<div class="col-md-6">
+
+{{ code | safe }}
+
+</div>
+{% if description %}
+<div class="col-md-6 mt-3">
+
+{{ description | safe }}
+
+{% if rendition %}
+<div class="rendition">
+{{ rendition | safe }}
+</div>
+{% endif %}
+</div>
+{% else %}
+<div class="col-md-6 rendition">
+{{ rendition | safe }}
+</div>
+{% endif %}
+</div>
+
+{% endmacro %}
