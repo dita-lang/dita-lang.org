@@ -99,6 +99,7 @@ reused, reordered, and assembled into different documents and outputs, which is 
 DITA’s content reuse and multi-format publishing possible.
 
 </div>
+<div class="cover-section">
 <div class="container">
 
 ### Is DITA a Good Fit?
@@ -123,7 +124,7 @@ Markdown or AsciiDoc, but also non-markup tools such as Microsoft Word or Adobe 
 | The team can invest in tooling and a publishing pipeline | The team needs to ship quickly with minimal setup |
 
 </div>
-<div class="cover-section">
+</div>
 <div class="container">
 
 ### Language Features
@@ -151,15 +152,16 @@ across languages.
 so your content isn’t tied to a single vendor’s tools.
 
 </div>
-</div>
-<div class="container" id="comparison">
+{# <div class="container" id="comparison"> #}
 
 {# ### Compare DITA to other markup languages #}
 
 {# % include "\_includes/examples/comparison.njk" % #}
 
 {# </div> #}
-{# <div class="container"> #}
+
+<div class="cover-section">
+<div class="container">
 
 ### Learn More
 
@@ -169,4 +171,5 @@ so your content isn’t tied to a single vendor’s tools.
 - [Read the history](/history) of DITA, from IBM to OASIS standard.
 - [Browse the specifications](/specifications) for the full language reference.
 
+</div>
 </div>
