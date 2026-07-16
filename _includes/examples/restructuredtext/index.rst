@@ -1,19 +1,16 @@
-**************
+.. _GitLab: https://gitlab.eclipse.org
+.. |reg| unicode:: U+00AE
+
 Document Title
 **************
 
-Section title
-=============
+A brief description of topic with **bold** and *italic* text.
 
-A paragraph with **bold** and *italic* text.
-An external link to `Eclipse <https://eclipse.org>`_.
+An external link to `Eclipse |reg| <https://eclipse.org>`_.
 A reusable link to `GitLab`_.
 
 .. image:: /images/an-image.png
    :alt: An image
-
-Subsection title
-----------------
 
 * Unordered list item
 
@@ -23,12 +20,8 @@ Subsection title
 
 .. note:: One of two supported admonition block types.
 
-Sub-subsection title
-^^^^^^^^^^^^^^^^^^^^
-
-::
-
-  Preformatted text must be indented by two spaces and follow a text block that ends with the :: marker.
+Subsection title
+----------------
 
 The following source code block contains a Ruby function named ``hello`` that prints "Hello, World!".
 
@@ -37,5 +30,3 @@ The following source code block contains a Ruby function named ``hello`` that pr
    def hello name = 'World'
      puts "Hello, #{name}!"
    end
-
-.. _GitLab: https://gitlab.eclipse.org
