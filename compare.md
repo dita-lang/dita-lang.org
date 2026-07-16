@@ -102,35 +102,76 @@ pages.
 
 {#% include "\_includes/examples/comparison.njk" %#}
 
+{% set dita = { title: "DITA", files: [ "index.dita", "book.ditamap" ] } %}
 {% set items = {
-markdown: { title: "Markdown", extension: "md" },
-html5: { title: "HTML5", extension: "html" },
-asciidoc: { title: "AsciiDoc", extension: "adoc" },
-restructuredtext: { title: "reStructuredText", extension: "rst" },
-docbook: { title: "DocBook", extension: "xml" }
+markdown: { title: "Markdown", files: [ "index.md" ] },
+html5: { title: "HTML5", files: [ "index.html" ] },
+asciidoc: { title: "AsciiDoc", files: [ "index.adoc", "book.adoc" ] },
+restructuredtext: { title: "reStructuredText", files: [ "index.rst", "book.rst" ] },
+docbook: { title: "DocBook", files: [ "index.xml", "book.xml" ] }
 } %}
 {% for name, item in items %}
 
 ## DITA vs. {{ item.title }}
 
-<div class="row">
+<div class="row" id="{{ name }}">
   <div class="col-sm-6">
-{#
-    <h5>{{ item.title }}</h5>
-    <code>index.{{ item.extension }}</code>
-#}
-{% highlight "md" %}{% include "_includes/examples/" ~ name ~ "/index." ~ item.extension %}{% endhighlight %}
+    <ul class="nav nav-tabs mb-3" role="tablist">
+      {% for file in item.files %}
+        <li class="nav-item mr-1">
+          <a
+            class="nav-link{% if loop.first %} active{% endif %}"
+            data-toggle="tab"
+            href="#{{ name ~ "-" ~ file | replace(".", "-") }}"
+            aria-expanded="{{ loop.first }}"
+            aria-controls="{{ name }}"
+            role="tab"
+          >
+            {{ file }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+    <div class="tab-content">
+      {% for file in item.files %}
+        <div id="{{ name ~ "-" ~ file | replace(".", "-") }}"
+              role="tabpanel"
+              class="tab-pane show{% if loop.first %} active{% endif %}"
+              aria-labelledby="headingZero"
+              data-parent="#{{ name }} ">
+{% highlight "md" %}{% include "_includes/examples/" ~ name ~ "/" ~ file %}{% endhighlight %}
+        </div>
+      {% endfor %}
+    </div>
   </div>
   <div class="col-sm-6">
-{#
-    <h5>DITA</h5>
-    <!--                <ul class="nav nav-pills">-->
-    <!--                  <li class="nav-item"><code class="nav-link active">index.dita</code></li>-->
-    <!--                  <li class="nav-item"><code class="nav-link">keys.ditamap</code></li>-->
-    <!--                </ul>-->
-    <code>index.dita</code>
-#}
-{% highlight "xml" %}{% include "_includes/examples/dita/index.dita" %}{% endhighlight %}
+    <ul class="nav nav-tabs mb-3" role="tablist">
+      {% for file in dita.files %}
+        <li class="nav-item mr-1">
+          <a
+            class="nav-link{% if loop.first %} active{% endif %}"
+            data-toggle="tab"
+            href="#{{ name ~ "-" ~ file | replace(".", "-") }}"
+            aria-expanded="{{ loop.first }}"
+            aria-controls="{{ name }}"
+            role="tab"
+          >
+            {{ file }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+    <div class="tab-content">
+      {% for file in dita.files %}
+        <div id="{{ name ~ "-" ~ file | replace(".", "-") }}"
+              role="tabpanel"
+              class="tab-pane show{% if loop.first %} active{% endif %}"
+              aria-labelledby="headingZero"
+              data-parent="#{{ name }} ">
+{% highlight "xml" %}{% include "_includes/examples/dita/" ~ file  %}{% endhighlight %}
+        </div>
+      {% endfor %}
+    </div>
   </div>
 </div>
 <p>{% include "_includes/examples/" ~ name ~ "/description.md" %}</p>

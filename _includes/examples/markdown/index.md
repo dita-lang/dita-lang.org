@@ -23,4 +23,4 @@ def hello name = 'World'
 end
 ```
 
-[gitlab]: https://gitlab.com
+[gitlab]: https://about.gitlab.com/

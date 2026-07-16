@@ -1,6 +1,3 @@
-.. _GitLab: https://gitlab.eclipse.org
-.. |reg| unicode:: U+00AE
-
 Document Title
 **************
 
@@ -18,7 +15,7 @@ A reusable link to `GitLab`_.
 
 * Another unordered list item
 
-.. note:: One of two supported admonition block types.
+.. tip:: One of nine supported admonition block types.
 
 Subsection title
 ----------------
