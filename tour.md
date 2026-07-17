@@ -288,8 +288,6 @@ Open `/Applications/Utilities/Disk Utility.app`, then choose **File** > **New Im
    {% endset %}
    {{ row(code, rendition) }}
 
-### Definition List
-
 `<dl>` pairs terms (`<dt>`) with descriptions (`<dd>`), grouped in `<dlentry>` elements.
 
 {% set code %}
@@ -313,7 +311,7 @@ Open `/Applications/Utilities/Disk Utility.app`, then choose **File** > **New Im
 {% endset %}
 {{ row(code, rendition) }}
 
-### Note
+### Admonition
 
 `<note>` flags supplementary information. The `type` attribute selects a built-in kind, such
 as warning, tip, or danger.
