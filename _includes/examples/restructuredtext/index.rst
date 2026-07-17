@@ -20,7 +20,8 @@ A reusable link to `GitLab`_.
 Subsection title
 ----------------
 
-The following source code block contains a Ruby function named ``hello`` that prints "Hello, World!".
+The following source code block contains a Ruby function named ``hello``
+that prints "Hello, World!".
 
 .. code-block:: ruby
 

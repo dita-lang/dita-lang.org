@@ -114,6 +114,7 @@ docbook: { title: "DocBook", files: [ "index.xml", "book.xml" ] }
 
 ## DITA vs. {{ item.title }}
 
+<p>{% include "_includes/examples/" ~ name ~ "/description.md" %}</p>
 <div class="row" id="{{ name }}">
   <div class="col-sm-6">
     <ul class="nav nav-tabs mb-3" role="tablist">
@@ -174,7 +175,6 @@ docbook: { title: "DocBook", files: [ "index.xml", "book.xml" ] }
     </div>
   </div>
 </div>
-<p>{% include "_includes/examples/" ~ name ~ "/description.md" %}</p>
 {% endfor %}
 
 ## Choosing the Right Format

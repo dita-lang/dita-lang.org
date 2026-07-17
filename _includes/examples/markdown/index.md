@@ -15,7 +15,8 @@ A reusable link to [GitLab](gitlab).
 
 ## Subsection title
 
-A code block with a Ruby function named `hello` that prints “Hello, World!”:
+A code block with a Ruby function named `hello` that prints
+“Hello, World!”:
 
 ```ruby
 def hello name = 'World'
