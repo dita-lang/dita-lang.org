@@ -1,3 +1,6 @@
+const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
+const Prism = require('prismjs')
+
 module.exports = function (eleventyConfig) {
   // Copy static assets
   eleventyConfig.addPassthroughCopy('assets')
@@ -24,6 +27,14 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addGlobalData('permalink', () => {
     return (data) => `${data.page.filePathStem}.${data.page.outputFileExtension}`
+  })
+
+  eleventyConfig.addPlugin(syntaxHighlight, {
+    init: function ({ Prism }) {
+      require('prismjs/components/prism-asciidoc')
+      require('prismjs/components/prism-markdown')
+      require('prismjs/components/prism-rest')
+    },
   })
 
   return {

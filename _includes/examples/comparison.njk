@@ -1,0 +1,52 @@
+{% set items = {
+  markdown: { title: "Markdown", extension: "md" },
+  html5: { title: "HTML5", extension: "html" },
+  asciidoc: { title: "AsciiDoc", extension: "adoc" },
+  restructuredtext: { title: "reStructuredText", extension: "rst" },
+  docbook: { title: "DocBook", extension: "xml" }
+} %}
+<ul class="nav nav-tabs mb-3" role="tablist">
+  {% for name, item in items %}
+    <li class="nav-item">
+      <a
+        class="nav-link{% if loop.first %} active{% endif %}"
+        data-toggle="tab"
+        href="#{{ name }}"
+        aria-expanded="{{ loop.first }}"
+        aria-controls="{{ name }}"
+        role="tab"
+      >
+        {{ item.title }}
+      </a>
+    </li>
+  {% endfor %}
+</ul>
+<div class="tab-content">
+  {% for name, item in items %}
+    <div
+      id="{{ name }}"
+      role="tabpanel"
+      class="tab-pane show{% if loop.first %} active{% endif %}"
+      aria-labelledby="headingZero"
+      data-parent="#comparison"
+    >
+      <div class="row">
+        <div class="col-sm-6">
+          <h5>{{ item.title }}</h5>
+          <code>index.{{ item.extension }}</code>
+{% highlight "md" %}{% include "./" ~ name ~ "/index." ~ item.extension %}{% endhighlight %}
+        </div>
+        <div class="col-sm-6">
+          <h5>DITA</h5>
+          <!--                <ul class="nav nav-pills">-->
+          <!--                  <li class="nav-item"><code class="nav-link active">index.dita</code></li>-->
+          <!--                  <li class="nav-item"><code class="nav-link">keys.ditamap</code></li>-->
+          <!--                </ul>-->
+          <code>index.dita</code>
+{% highlight "xml" %}{% include "./dita/index.dita" %}{% endhighlight %}
+        </div>
+      </div>
+      <p>{% include "./" ~ name ~ "/description.md" %}</p>
+    </div>
+  {% endfor %}
+</div>
