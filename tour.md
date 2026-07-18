@@ -152,6 +152,43 @@ diskutil <command> [device]
 {% endset %}
 {{ row(code, rendition) }}
 
+## Maps
+
+A map assembles topics into a navigable structure and defines relationships between them,
+without containing content of its own. `<topichead>` groups topic references under a heading
+that doesn’t correspond to an actual topic.
+
+{% set code %}
+
+```xml
+<map>
+  <title>Disk Management Guide</title>
+  <topicref href="disk_management.dita"/>
+  <topicref href="format_disk.dita"/>
+  <topichead navtitle="Reference">
+    <topicref href="disk_commands.dita"/>
+  </topichead>
+</map>
+```
+
+{% endset %}
+{% set description %}
+_Generated navigation, e.g. a table of contents:_
+{% endset %}
+{% set rendition %}
+
+<ul class="rendition__toc">
+<li><a href="disk_management.html" rel="nofollow">Disk Management</a></li>
+<li><a href="format_disk.html" rel="nofollow">Formatting a Disk</a></li>
+<li class="rendition__toc--open">Reference
+<ul>
+<li><a href="disk_commands.html" rel="nofollow">Disk Commands</a></li>
+</ul>
+</li>
+</ul>
+{% endset %}
+{{ row(code, rendition, description) }}
+
 ## Common Elements
 
 ### Paragraph and Short Description
@@ -572,43 +609,6 @@ each with an optional description.
 </table>
 {% endset %}
 {{ row(code, rendition) }}
-
-## Maps
-
-A map assembles topics into a navigable structure and defines relationships between them,
-without containing content of its own. `<topichead>` groups topic references under a heading
-that doesn’t correspond to an actual topic.
-
-{% set code %}
-
-```xml
-<map>
-  <title>Disk Management Guide</title>
-  <topicref href="disk_management.dita"/>
-  <topicref href="format_disk.dita"/>
-  <topichead navtitle="Reference">
-    <topicref href="disk_commands.dita"/>
-  </topichead>
-</map>
-```
-
-{% endset %}
-{% set description %}
-_Generated navigation, e.g. a table of contents:_
-{% endset %}
-{% set rendition %}
-
-<ul class="rendition__toc">
-<li><a href="disk_management.html" rel="nofollow">Disk Management</a></li>
-<li><a href="format_disk.html" rel="nofollow">Formatting a Disk</a></li>
-<li class="rendition__toc--open">Reference
-<ul>
-<li><a href="disk_commands.html" rel="nofollow">Disk Commands</a></li>
-</ul>
-</li>
-</ul>
-{% endset %}
-{{ row(code, rendition, description) }}
 
 ## Content Reuse with Keys
 
