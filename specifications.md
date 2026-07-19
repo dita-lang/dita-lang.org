@@ -18,6 +18,6 @@ title: 'Specifications'
 
 Previews of the current specification drafts.
 
-- [DITA 2.0 draft](/dita/resources/oasis-cover.html)
-- [DITA Technical Communication 2.0 draft](/dita-techcomm/resources/oasis-cover.html)
+- [DITA 2.0 draft](/2.0/dita/resources/oasis-cover.html)
+- [DITA Technical Communication 2.0 draft](/2.0/dita-techcomm/resources/oasis-cover.html)
 - [LwDITA draft](/lwdita/resources/oasis-cover.html)
