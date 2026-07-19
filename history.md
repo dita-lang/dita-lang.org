@@ -102,8 +102,8 @@ practitioners rather than any single company.
   for public review as the Technical Committee refines the specification.
 
 The current state of that work is available as the
-[DITA 2.0 draft](/dita/resources/oasis-cover.html),
-[DITA Technical Communication 2.0 draft](/dita-techcomm/resources/oasis-cover.html), and
+[DITA 2.0 draft](/2.0/dita/resources/oasis-cover.html),
+[DITA Technical Communication 2.0 draft](/2.0/dita-techcomm/resources/oasis-cover.html), and
 [LwDITA draft](/lwdita/resources/oasis-cover.html) hosted on this site, with the full release
 history of earlier, approved versions on the [Specifications](/specifications) page.
 
