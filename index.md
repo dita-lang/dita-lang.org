@@ -27,6 +27,80 @@ From startups to Fortune 500 companies, the DITA language specification provides
 foundation for handling complex documentation projects with thousands of topics, multiple
 products, and global translation requirements.
 
+{#-
+https://www.ditawriter.com/companies-using-dita/ lists the following Fortune 500 companies:
+1. Amazon (+ Amazon Web Services)
+4. Apple
+11. Microsoft
+15. Nvidia
+19. Chevron
+27. Verizon
+37. Dell Technologies
+40. Tesla
+41. FedEx
+45. Boeing
+48. T-Mobile
+54. Wells Fargo
+65. Allstate
+66. Caterpillar
+67. IBM
+68. Oracle
+71. Broadcom
+72. Delta Airlines
+81. United Airlines
+84. Goldman Sachs
+85. Cisco
+86. HP
+91. Intel
+94. General Dynamics
+105. Molina Healthcare
+107. Thermo Fisher Scientific
+108. Abbott
+109. Qualcomm
+116. Salesforce
+120. VISA
+124. GE Vernova (+ GE Vernova Grid Solutions, GE-Hitachi Nuclear Energy)
+126. Honeywell
+127. Micron Technology
+132. SLB
+134. Advanced Micro Devices (AMD)
+136. HPE
+141. PayPal
+143. Mastercard Worldwide
+161. Applied Materials
+165. Baker Hughes
+166. Fidelity Investments
+181. Stryker Medical
+191. Charles Schwab
+192. Adobe
+208. Landmark/Halliburton
+211. BD
+212. Carrier
+216. L3 Harris
+218. Fiserv
+219. Cognizant
+220. GE Healthcare
+221. ADP
+225. Boston Scientific
+243. Lam Research
+249. Emerson Electric
+256. Texas Instruments
+260. S&P Global
+295. Dominion Energy
+320. Western Digital
+330. KLA-Tencor
+340. Equitable
+350. Analog Devices
+360. Motorola Solutions
+390. Baxter
+400. Rockwell Automation
+410. ServiceNow
+420. Xylem
+460. Polaris
+470. Palo Alto Networks
+480. SAIC
+495. Workday
+#}
 </div>
 <div class="col-4">
 
@@ -152,13 +226,6 @@ across languages.
 so your content isn’t tied to a single vendor’s tools.
 
 </div>
-{# <div class="container" id="comparison"> #}
-
-{# ### Compare DITA to other markup languages #}
-
-{# % include "\_includes/examples/comparison.njk" % #}
-
-{# </div> #}
 
 <div class="cover-section">
 <div class="container">

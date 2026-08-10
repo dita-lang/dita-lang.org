@@ -9,3 +9,12 @@ The publishing process for the DITA specification draft previews:
    easier.
 4. Publish DITA to HTML using DITA-OT. During preprocessing generated markup is added to the content to track error
    definitions and requirement levels.
+
+## Building
+
+1. ```shell
+   nvm use
+   ```
+2. ```shell
+   npm run build:assets && eleventy
+   ```
