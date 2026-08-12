@@ -31,7 +31,8 @@ runs:
     - name: Run multi-page DITA-OT
       shell: bash
       run: |
-        rm -rf dita-lang/${{ inputs.OUTPUT_DIR }}/*
+        find "dita-lang/${{ inputs.OUTPUT_DIR }}" -type f ! -name "LICENSE" -delete
+
         $DITA_HOME/bin/dita \
           -i ${{ inputs.MAP }} \
           -o dita-lang/${{ inputs.OUTPUT_DIR }} \
@@ -44,7 +45,8 @@ runs:
       if: ${{ false }}
       shell: bash
       run: |
-        rm -rf dita-lang/${{ inputs.OUTPUT_DIR }}/single/*
+        find "dita-lang/${{ inputs.OUTPUT_DIR }}/single" -type f ! -name "LICENSE" -delete
+
         mkdir -p dita-lang/${{ inputs.OUTPUT_DIR }}/single/
         $DITA_HOME/bin/dita \
           -i ${{ inputs.MAP }} \
