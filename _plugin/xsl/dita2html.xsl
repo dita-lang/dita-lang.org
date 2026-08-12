@@ -159,7 +159,8 @@
       </xsl:call-template>
       <xsl:attribute name="id"><xsl:apply-templates select="." mode="return-aria-label-id"/></xsl:attribute>
       <xsl:choose>
-        <xsl:when test="$headinglevel eq 1 and $FILENAME eq 'oasis-cover.dita'">
+        <xsl:when test="$headinglevel eq 1 and
+                        $FILENAME = ('oasis-cover.dita', 'oasis-errata-cover-all-inclusive.dita')">
           <xsl:apply-templates select="$input.map/*/*[contains-token(@class, 'bookmap/booktitle')]/*[contains-token(@class, 'bookmap/mainbooktitle')]/node()"/>
         </xsl:when>
         <xsl:otherwise>
