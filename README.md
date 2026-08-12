@@ -16,5 +16,5 @@ The publishing process for the DITA specification draft previews:
    nvm use
    ```
 2. ```shell
-   npm run build:assets && eleventy
+   npm run build
    ```
