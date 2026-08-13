@@ -552,6 +552,52 @@ path:
 {% endset %}
 {{ row(code, rendition) }}
 
+## Profiling and Filtering
+
+A DITAVAL file lets a publishing pipeline profile content: include, exclude, or flag it by
+attribute value, without editing the source. Content is marked with profiling attributes,
+such as `audience`, `platform`, or `product`.
+
+{% set code %}
+
+```xml
+<p>Back up important data before making changes to a disk.</p>
+<p audience="novice">Use Disk Utility to format and manage disks.</p>
+<p audience="expert">Use <cmdname>diskutil</cmdname> to format and
+  manage disks from the command line.</p>
+```
+
+{% endset %}
+{% set rendition %}
+Back up important data before making changes to a disk.
+
+Use Disk Utility to format and manage disks.
+
+Use `diskutil` to format and manage disks from the command line.
+{% endset %}
+{{ row(code, rendition) }}
+
+A DITAVAL file can then exclude the novice content and keep the expert content. The
+unconditioned paragraph has no `audience` attribute, so it’s unaffected and appears either
+way:
+
+{% set code %}
+
+```xml
+<val>
+  <prop att="audience" val="novice" action="exclude"/>
+  <prop att="audience" val="expert" action="include"/>
+</val>
+```
+
+{% endset %}
+{% set rendition %}
+Back up important data before making changes to a disk.
+
+Use `diskutil` to format and manage disks from the command line.
+{% endset %}
+{{ row(code, rendition) }}
+
 <a id="specialization"></a>
 
 ## Specialization
