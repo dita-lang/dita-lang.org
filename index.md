@@ -29,6 +29,8 @@ products, and global translation requirements.
 
 {#-
 https://www.ditawriter.com/companies-using-dita/ lists the following Fortune 500 companies:
+
+<!-- prettier-ignore-start -->
 1. Amazon (+ Amazon Web Services)
 4. Apple
 11. Microsoft
@@ -100,7 +102,11 @@ https://www.ditawriter.com/companies-using-dita/ lists the following Fortune 500
 470. Palo Alto Networks
 480. SAIC
 495. Workday
+
+<!-- prettier-ignore-end -->
+
 #}
+
 </div>
 <div class="col-4">
 

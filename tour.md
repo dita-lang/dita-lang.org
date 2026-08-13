@@ -15,26 +15,24 @@ more only as their content needs more specific markup. For the full language ref
 <div class="note"><span class="note__title">Note</span>: Each fragment comes with an <em>example rendition</em>. Published output depends on DITA processor
 and custom styling.</div>
 
-## Topic Types
+## Topics
 
-DITA content is written in typed topics. Each type specializes the base `<topic>` element for
-a specific kind of content.
-
-### Concept
-
-A `<concept>` explains background information a reader needs to understand before acting.
+DITA content is written in topics. `<topic>` is the base topic type: a title, an optional
+short description, and a body made up of common elements like paragraphs, lists, and tables.
+Other topic types used throughout this page, like concept, task, and reference, are
+specializations of `<topic>`.
 
 {% set code %}
 
 ```xml
-<concept id="disk_management">
+<topic id="disk_management">
   <title>Disk Management</title>
   <shortdesc>Disk management lets you partition, format, and monitor
     storage devices.</shortdesc>
-  <conbody>
+  <body>
     <p>A disk must be partitioned before it can be formatted.</p>
-  </conbody>
-</concept>
+  </body>
+</topic>
 ```
 
 {% endset %}
@@ -45,110 +43,6 @@ A `<concept>` explains background information a reader needs to understand befor
 Disk management lets you partition, format, and monitor storage devices.
 
 A disk must be partitioned before it can be formatted.
-{% endset %}
-{{ row(code, rendition) }}
-
-### Task
-
-A `<task>` walks a reader through the steps needed to accomplish a goal.
-
-{% set code %}
-
-```xml
-<task id="format_disk">
-  <title>Formatting a Disk</title>
-  <shortdesc>Format a disk to prepare it for use.</shortdesc>
-  <taskbody>
-    <context>
-      <p>Formatting erases all data on the disk.</p>
-    </context>
-    <steps>
-      <step>
-        <cmd>Select the disk.</cmd>
-      </step>
-      <step>
-        <cmd>Click <uicontrol>Format</uicontrol>.</cmd>
-        <stepresult>The disk is formatted with the default file system.</stepresult>
-      </step>
-    </steps>
-    <result>
-      <p>The disk is ready to store files.</p>
-    </result>
-  </taskbody>
-</task>
-```
-
-{% endset %}
-{% set rendition %}
-
-# Formatting a Disk
-
-Format a disk to prepare it for use.
-
-Formatting erases all data on the disk.
-
-1. Select the disk.
-2. Click **Format**.
-
-   The disk is formatted with the default file system.
-
-The disk is ready to store files.
-{% endset %}
-{{ row(code, rendition) }}
-
-### Reference
-
-A `<reference>` presents lookup information, such as command syntax or property tables.
-
-{% set code %}
-
-```xml
-<reference id="disk_commands">
-  <title>Disk Commands</title>
-  <shortdesc>Command-line utilities for managing disks.</shortdesc>
-  <refbody>
-    <refsyn>
-      <pre>diskutil &lt;command&gt; [device]</pre>
-    </refsyn>
-    <section>
-      <title>Commands</title>
-      <simpletable>
-        <sthead>
-          <stentry>Command</stentry>
-          <stentry>Description</stentry>
-        </sthead>
-        <strow>
-          <stentry>list</stentry>
-          <stentry>Lists available disks.</stentry>
-        </strow>
-      </simpletable>
-    </section>
-  </refbody>
-</reference>
-```
-
-{% endset %}
-{% set rendition %}
-
-# Disk Commands
-
-Command-line utilities for managing disks.
-
-```
-diskutil <command> [device]
-```
-
-## Commands
-
-<table class="table">
-<thead>
-<tr><th>Command</th><th>Description</th></tr>
-</thead>
-<tbody>
-<tr><td>list</td><td>Lists available disks.</td></tr>
-</tbody>
-</table>
-
 {% endset %}
 {{ row(code, rendition) }}
 
@@ -189,7 +83,7 @@ _Generated navigation, e.g. a table of contents:_
 {% endset %}
 {{ row(code, rendition, description) }}
 
-## Common Elements
+## Common Topic Elements
 
 ### Paragraph and Short Description
 
@@ -540,76 +434,6 @@ diskutil list
 {% endset %}
 {{ row(code, rendition) }}
 
-## Task-Specific Elements
-
-`<steps>` holds an ordered sequence of `<step>` elements, each with a command (`<cmd>`), an
-optional explanation (`<info>`), and an optional result (`<stepresult>`).
-
-{% set code %}
-
-```xml
-<steps>
-  <step>
-    <cmd>Open Disk Utility.</cmd>
-  </step>
-  <step>
-    <cmd>Select the disk, then click <uicontrol>Erase</uicontrol>.</cmd>
-    <info>This step permanently deletes all data on the disk.</info>
-    <stepresult>The disk is erased and ready to format.</stepresult>
-  </step>
-</steps>
-```
-
-{% endset %}
-{% set rendition %}
-
-## Steps
-
-1. Open Disk Utility.
-2. Select the disk, then click **Erase**.
-
-   This step permanently deletes all data on the disk.
-
-   The disk is erased and ready to format.
-   {% endset %}
-   {{ row(code, rendition) }}
-
-## Reference-Specific Elements
-
-`<properties>` lists name/value pairs, such as command options or configuration settings,
-each with an optional description.
-
-{% set code %}
-
-```xml
-<properties>
-  <prophead>
-    <proptypehd>Option</proptypehd>
-    <propvaluehd>Value</propvaluehd>
-    <propdeschd>Description</propdeschd>
-  </prophead>
-  <property>
-    <proptype>-v</proptype>
-    <propvalue>verbose</propvalue>
-    <propdesc>Prints detailed output.</propdesc>
-  </property>
-</properties>
-```
-
-{% endset %}
-{% set rendition %}
-
-<table class="table">
-<thead>
-<tr><th>Option</th><th>Value</th><th>Description</th></tr>
-</thead>
-<tbody>
-<tr><td>-v</td><td>verbose</td><td>Prints detailed output.</td></tr>
-</tbody>
-</table>
-{% endset %}
-{{ row(code, rendition) }}
-
 ## Content Reuse with Keys
 
 A `<keydef>` in a map assigns a key to a resource. A `keyref` attribute, on elements such as
@@ -725,5 +549,182 @@ path:
 {% set rendition %}
 
 <div class="note warning"><span class="note__title">Warning: </span>Formatting a disk erases all data on it.</div>
+{% endset %}
+{{ row(code, rendition) }}
+
+<a id="specialization"></a>
+
+## Specialization
+
+DITA topic types and elements can be specialized: derived into new types and elements that
+attach more specific semantic meaning and narrow what content is allowed, while still
+validating against the base vocabulary. `<concept>`, `<task>`, and `<reference>`, used
+throughout this page, are the built-in specializations of `<topic>`.
+
+### Concept
+
+A `<concept>` explains background information a reader needs to understand before acting.
+
+{% set code %}
+
+```xml
+<concept id="disk_management">
+  <title>Disk Management</title>
+  <shortdesc>Disk management lets you partition, format, and monitor
+    storage devices.</shortdesc>
+  <conbody>
+    <p>A disk must be partitioned before it can be formatted.</p>
+  </conbody>
+</concept>
+```
+
+{% endset %}
+{% set rendition %}
+
+# Disk Management
+
+Disk management lets you partition, format, and monitor storage devices.
+
+A disk must be partitioned before it can be formatted.
+{% endset %}
+{{ row(code, rendition) }}
+
+### Task
+
+A `<task>` specializes `<topic>` for a goal-oriented procedure: a `<taskbody>` with an
+optional `<context>`, an ordered `<steps>` sequence, and an optional `<result>`. Each
+`<step>` has a command (`<cmd>`), an optional explanation (`<info>`), and an optional
+result (`<stepresult>`).
+
+{% set code %}
+
+```xml
+<task id="format_disk">
+  <title>Formatting a Disk</title>
+  <shortdesc>Format a disk to prepare it for use.</shortdesc>
+  <taskbody>
+    <context>
+      <p>Formatting erases all data on the disk.</p>
+    </context>
+    <steps>
+      <step>
+        <cmd>Open Disk Utility.</cmd>
+      </step>
+      <step>
+        <cmd>Select the disk, then click <uicontrol>Erase</uicontrol>.</cmd>
+        <info>This step permanently deletes all data on the disk.</info>
+        <stepresult>The disk is erased and ready to format.</stepresult>
+      </step>
+    </steps>
+    <result>
+      <p>The disk is ready to store files.</p>
+    </result>
+  </taskbody>
+</task>
+```
+
+{% endset %}
+{% set rendition %}
+
+# Formatting a Disk
+
+Format a disk to prepare it for use.
+
+## About this task
+
+Formatting erases all data on the disk.
+
+## Procedure
+
+1. Open Disk Utility.
+2. Select the disk, then click **Erase**.
+
+   This step permanently deletes all data on the disk.
+
+   The disk is erased and ready to format.
+
+## Results
+
+The disk is ready to store files.
+{% endset %}
+{{ row(code, rendition) }}
+
+### Reference
+
+A `<reference>` specializes `<topic>` for lookup information: a `<refbody>` with an optional
+`<refsyn>` for syntax, plus `<section>` and `<properties>` for the reference content itself.
+`<properties>` lists name/value pairs, such as command options, each with an optional
+description.
+
+{% set code %}
+
+```xml
+<reference id="disk_commands">
+  <title>Disk Commands</title>
+  <shortdesc>Command-line utilities for managing disks.</shortdesc>
+  <refbody>
+    <refsyn>
+      <pre>diskutil &lt;command&gt; [device]</pre>
+    </refsyn>
+    <section>
+      <title>Commands</title>
+      <simpletable>
+        <sthead>
+          <stentry>Command</stentry>
+          <stentry>Description</stentry>
+        </sthead>
+        <strow>
+          <stentry>list</stentry>
+          <stentry>Lists available disks.</stentry>
+        </strow>
+      </simpletable>
+    </section>
+    <properties>
+      <prophead>
+        <proptypehd>Option</proptypehd>
+        <propvaluehd>Value</propvaluehd>
+        <propdeschd>Description</propdeschd>
+      </prophead>
+      <property>
+        <proptype>-v</proptype>
+        <propvalue>verbose</propvalue>
+        <propdesc>Prints detailed output.</propdesc>
+      </property>
+    </properties>
+  </refbody>
+</reference>
+```
+
+{% endset %}
+{% set rendition %}
+
+# Disk Commands
+
+Command-line utilities for managing disks.
+
+```
+diskutil <command> [device]
+```
+
+## Commands
+
+<table class="table">
+<thead>
+<tr><th>Command</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>list</td><td>Lists available disks.</td></tr>
+</tbody>
+</table>
+
+<table class="table">
+<thead>
+<tr><th>Option</th><th>Value</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>-v</td><td>verbose</td><td>Prints detailed output.</td></tr>
+</tbody>
+</table>
+
 {% endset %}
 {{ row(code, rendition) }}
