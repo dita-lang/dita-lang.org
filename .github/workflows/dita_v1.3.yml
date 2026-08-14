@@ -26,7 +26,7 @@ jobs:
           OUTPUT: dita/specification/langRef/base
           DIR: dita/specification/langRef/content-models
           MAP: dita/specification/langRef/base-elements.ditamap
-          SCHEMAS: 'base/basetopic.rng:base/basemap.rng:subjectScheme/subjectScheme.rng'
+          SCHEMAS: 'base/rng/basetopic.rng:base/rng/basemap.rng:subjectScheme/rng/subjectScheme.rng'
       - name: Generate content models
         uses: ./dita-lang/.github/actions/content-model
         with:
@@ -34,7 +34,7 @@ jobs:
           OUTPUT: dita/specification/langRef/ditaval
           DIR: dita/specification/langRef/content-models
           MAP: dita/specification/langRef/base-elements.ditamap
-          SCHEMAS: 'ditaval/ditaval.rng'
+          SCHEMAS: 'ditaval/rng/ditaval.rng'
       - name: Generate content models
         uses: ./dita-lang/.github/actions/content-model
         with:
@@ -42,7 +42,7 @@ jobs:
           OUTPUT: dita-techcomm/specification/langRef/technicalContent
           DIR: dita-techcomm/specification/langRef/content-models
           MAP: dita-techcomm/specification/langRef/technicalContent-elements.ditamap
-          SCHEMAS: 'bookmap/bookmap.rng:technicalContent/concept.rng:technicalContent/task.rng:technicalContent/reference.rng:technicalContent/troubleshooting.rng:technicalContent/glossgroup.rng'
+          SCHEMAS: 'bookmap/rng/bookmap.rng:technicalContent/rng/concept.rng:technicalContent/rng/task.rng:technicalContent/rng/reference.rng:technicalContent/rng/troubleshooting.rng:technicalContent/rng/glossgroup.rng'
       - name: Generate content models
         uses: ./dita-lang/.github/actions/content-model
         with:
@@ -50,7 +50,7 @@ jobs:
           OUTPUT: dita-techcomm/specification/langRef/learning
           DIR: dita-techcomm/specification/langRef/content-models
           MAP: dita-techcomm/specification/langRef/learning-elements.ditamap
-          SCHEMAS: 'learning/learningAssessment.rng:learning/learningBookmap.rng:learning/learningContent.rng:learning/learningGroupMap.rng:learning/learningMap.rng:learning/learningObjectMap.rng:learning/learningOverview.rng:learning/learningPlan.rng:learning/learningSummary.rng'
+          SCHEMAS: 'learning/rng/learningAssessment.rng:learning/rng/learningBookmap.rng:learning/rng/learningContent.rng:learning/rng/learningGroupMap.rng:learning/rng/learningMap.rng:learning/rng/learningObjectMap.rng:learning/rng/learningOverview.rng:learning/rng/learningPlan.rng:learning/rng/learningSummary.rng'
 
       - name: Push source changes
         run: |
