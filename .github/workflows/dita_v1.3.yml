@@ -19,6 +19,52 @@ jobs:
           ref: 'hotfix/DITA-1.3_Errata03'
           path: dita
           token: ${{ secrets.UPLOAD_GITHUB_TOKEN }}
+      - name: Generate content models
+        uses: ./dita-lang/.github/actions/content-model
+        with:
+          INPUT: dita/doctypes/rng
+          OUTPUT: dita/specification/langRef/base
+          DIR: dita/specification/langRef/content-models
+          MAP: dita/specification/langRef/base-elements.ditamap
+          SCHEMAS: 'base/basetopic.rng:base/basemap.rng:subjectScheme/subjectScheme.rng'
+      - name: Generate content models
+        uses: ./dita-lang/.github/actions/content-model
+        with:
+          INPUT: dita/doctypes/rng
+          OUTPUT: dita/specification/langRef/ditaval
+          DIR: dita/specification/langRef/content-models
+          MAP: dita/specification/langRef/base-elements.ditamap
+          SCHEMAS: 'ditaval/ditaval.rng'
+      - name: Generate content models
+        uses: ./dita-lang/.github/actions/content-model
+        with:
+          INPUT: dita-techcomm/doctypes/rng
+          OUTPUT: dita-techcomm/specification/langRef/technicalContent
+          DIR: dita-techcomm/specification/langRef/content-models
+          MAP: dita-techcomm/specification/langRef/technicalContent-elements.ditamap
+          SCHEMAS: 'bookmap/bookmap.rng:technicalContent/concept.rng:technicalContent/task.rng:technicalContent/reference.rng:technicalContent/troubleshooting.rng:technicalContent/glossgroup.rng'
+      - name: Generate content models
+        uses: ./dita-lang/.github/actions/content-model
+        with:
+          INPUT: dita-techcomm/doctypes/rng
+          OUTPUT: dita-techcomm/specification/langRef/learning
+          DIR: dita-techcomm/specification/langRef/content-models
+          MAP: dita-techcomm/specification/langRef/learning-elements.ditamap
+          SCHEMAS: 'learning/learningAssessment.rng:learning/learningBookmap.rng:learning/learningContent.rng:learning/learningGroupMap.rng:learning/learningMap.rng:learning/learningObjectMap.rng:learning/learningOverview.rng:learning/learningPlan.rng:learning/learningSummary.rng'
+
+      - name: Push source changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          #git config user.name github-actions
+          #git config user.email github-actions@github.com
+          git remote set-url origin https://github.com/dita-lang/dita.git
+          git fetch
+
+          git add --all
+          git commit -m "Generate content models"
+          git push -v --force-with-lease origin hotfix/DITA-1.3_Errata03:hotfix/DITA-1.3_Errata03-generated
+        working-directory: dita
 
       - name: Publish DITA
         uses: ./dita-lang/.github/actions/publish
