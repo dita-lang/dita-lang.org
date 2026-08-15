@@ -25,6 +25,10 @@ runs:
         distribution: 'temurin'
         java-version: '17'
         cache: 'gradle'
+    - name: Set up Python
+      uses: actions/setup-python@v7
+      with:
+        python-version-file: ${{ github.action_path }}/.python-version
     - name: Generate content models
       shell: bash
       run: |
@@ -60,8 +64,10 @@ runs:
           if [[ "${{ inputs.VERSION }}" == "2" ]]; then
             perl -pi.bak -e "s/((\s*)<section(?:\s+[\w-]+=[\"'].+?[\"'])*(\s+id=\"attributes\")(?:\s+[\w-]+=[\"'].+?[\"'])*+\s*\/?>)/\2<section conkeyref=\"content-models-${name}\/${name}.element\" id=\"content-model\"\/>\n<section conkeyref=\"inheritance-${name}\/${name}.inheritance\" id=\"inheritance\"\/>\1/" "$i"
           else
-            perl -pi.bak -e "s/(\s*)<section(?:\s+[\w-]+=[\"'].+?[\"'])*(\s+id=\"contains\")(?:\s+[\w-]+=[\"'].+?[\"'])*+\s*><\/section>/\1<section conkeyref=\"content-models-${name}\/${name}.element\" id=\"content-model\"\/>/" "$i"
-            perl -pi.bak -e "s/(\s*)<section(?:\s+[\w-]+=[\"'].+?[\"'])*(\s+id=\"inheritance\")(?:\s+[\w-]+=[\"'].+?[\"'])*+\s*>[\w\W]+?<\/section>/\1<section conkeyref=\"inheritance-${name}\/${name}.inheritance\" id=\"inheritance\"\/>/" "$i"
+            python "${{ github.action_path }}/replace_by_attr.py" "$i" "contains" "<section conkeyref=\"content-models-${name}/${name}.element\" id=\"content-model\"/>"
+            python "${{ github.action_path }}/replace_by_attr.py" "$i" "inheritance" "<section conkeyref=\"inheritance-${name}/${name}.inheritance\" id=\"inheritance\"/>"
+            #perl -pi.bak -e "s/(\s*)<section(?:\s+[\w-]+=[\"'].+?[\"'])*(\s+id=\"contains\")(?:\s+[\w-]+=[\"'].+?[\"'])*+\s*><\/section>/\1<section conkeyref=\"content-models-${name}\/${name}.element\" id=\"content-model\"\/>/" "$i"
+            #perl -pi.bak -e "s/(\s*)<section(?:\s+[\w-]+=[\"'].+?[\"'])*(\s+id=\"inheritance\")(?:\s+[\w-]+=[\"'].+?[\"'])*+\s*>[\w\W]+?<\/section>/\1<section conkeyref=\"inheritance-${name}\/${name}.inheritance\" id=\"inheritance\"\/>/" "$i"
           fi
           rm "$i.bak"
         done
