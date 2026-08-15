@@ -13,6 +13,9 @@ inputs:
     default: ''
   SCHEMAS:
     required: true
+  VERSION:
+    required: false
+    default: '2'
 runs:
   using: 'composite'
   steps:
@@ -54,7 +57,12 @@ runs:
           echo "$i $name"
           # XXX This may not be needed anymore
           perl -pi.bak -e 's/<!--(<section id="attributes"><title>Attributes<\/title><p conkeyref="reuse-attributes\/no-atts"\/><\/section>)-->/\1/g' "$i"
-          perl -pi.bak -e "s/((\s*)<section(?:\s+[\w-]+=[\"'].+?[\"'])*(\s+id=\"attributes\")(?:\s+[\w-]+=[\"'].+?[\"'])*+\s*\/?>)/\2<section conkeyref=\"content-models-${name}\/${name}.element\" id=\"content-model\"\/>\n<section conkeyref=\"inheritance-${name}\/${name}.inheritance\" id=\"inheritance\"\/>\1/" "$i"
+          if [[ "${{ inputs.VERSION }}" == "2" ]]; then
+            perl -pi.bak -e "s/((\s*)<section(?:\s+[\w-]+=[\"'].+?[\"'])*(\s+id=\"attributes\")(?:\s+[\w-]+=[\"'].+?[\"'])*+\s*\/?>)/\2<section conkeyref=\"content-models-${name}\/${name}.element\" id=\"content-model\"\/>\n<section conkeyref=\"inheritance-${name}\/${name}.inheritance\" id=\"inheritance\"\/>\1/" "$i"
+          else
+            perl -pi.bak -e "s/(\s*)<section(?:\s+[\w-]+=[\"'].+?[\"'])*(\s+id=\"contains\")(?:\s+[\w-]+=[\"'].+?[\"'])*+\s*><\/section>/\1<section conkeyref=\"content-models-${name}\/${name}.element\" id=\"content-model\"\/>/" "$i"
+            perl -pi.bak -e "s/(\s*)<section(?:\s+[\w-]+=[\"'].+?[\"'])*(\s+id=\"inheritance\")(?:\s+[\w-]+=[\"'].+?[\"'])*+\s*>[\w\W]+?<\/section>/\1<section conkeyref=\"inheritance-${name}\/${name}.inheritance\" id=\"inheritance\"\/>/" "$i"
+          fi
           rm "$i.bak"
         done
         cd -
