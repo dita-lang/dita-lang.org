@@ -4,7 +4,7 @@ title: 'Using the chunk attribute'
 description: 'The specification defines tokens for the chunk attribute that cover the most common chunking scenarios. These tokens can be used to override whatever default chunking behavior is set by a processor. Chunking is necessarily format specific, with chunked output required for some and not supported for other rendered formats. Chunking is also implementation specific with some implementations supporting some, but not all, chunking methods, or adding new methods to the standard ones described in this specification.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '5f019c873757aa110b3cbabed130a31fb433952c'
+commit: '2f009127a8187d861456d91866e068bfb8dd45aa'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -16,13 +16,13 @@ classes: ''
       the most common chunking scenarios. These tokens <span class="ph">can</span> be used to
       override whatever default chunking behavior is set by a processor. Chunking is necessarily
       format specific, with chunked output required for some and not supported for other rendered
-      formats. <span class="implementation-statement" id="chunkingdetails__d5239t15" data-id="DITAIMP-0070"></span>Chunking is also implementation specific with some implementations supporting some,
+      formats. <span class="implementation-statement" id="chunkingdetails__d5242t15" data-id="DITAIMP-0070"></span>Chunking is also implementation specific with some implementations supporting some,
       but not all, chunking methods, or adding new methods to the standard ones described in this
       specification. </p>
       <section class="section" id="chunkingdetails__section1"><p class="p">The value of the <code class="keyword markupname xmlatt">@chunk</code> attribute consists of one or
             more space delimited tokens. Tokens are defined in three categories: for selecting
             topics, for setting chunking policies, and for defining how the chunk values impact
-            rendering. <span class="error-statement" id="chunkingdetails__d5239t24" data-id="DITAERR-0060"></span>It is an error to use two tokens from the same category on a single
+            rendering. <span class="error-statement" id="chunkingdetails__d5242t24" data-id="DITAERR-0060"></span>It is an error to use two tokens from the same category on a single
                <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element.</p><dl class="dl">
             
                <dt class="dt dlterm" id="chunkingdetails__chunking-select-topic">Selecting topics</dt>
@@ -98,16 +98,16 @@ classes: ''
                   </ul></dd>
             
          </dl><p class="p">Some tokens or combinations of tokens might not be appropriate for all output
-            types. <span class="error-statement" id="chunkingdetails__d5239t186" data-id="DITAERR-0070"></span>When unsupported or conflicting tokens are encountered during output processing,
+            types. <span class="error-statement" id="chunkingdetails__d5242t186" data-id="DITAERR-0070"></span>When unsupported or conflicting tokens are encountered during output processing,
             processors <dfn class="term RFC-2119">SHOULD</dfn> produce warning or error messages.
-<span class="implementation-statement" id="chunkingdetails__d5239t189" data-id="DITAIMP-0080"></span>            Recovery from such conflicts or other errors is implementation dependent. </p><p class="p">There
+<span class="implementation-statement" id="chunkingdetails__d5242t189" data-id="DITAIMP-0080"></span>            Recovery from such conflicts or other errors is implementation dependent. </p><p class="p">There
             is no default value for the <code class="keyword markupname xmlatt">@chunk</code> attribute on most elements and the
                <code class="keyword markupname xmlatt">@chunk</code> attribute does not cascade from container elements, meaning
             that the <code class="keyword markupname xmlatt">@chunk</code> value on one <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> is not
             passed to its children. A default by-xxx policy for an entire map <span class="ph">can</span> be established by setting the <code class="keyword markupname xmlatt">@chunk</code>
             attribute on the <code class="keyword markupname xmlelement">&lt;map&gt;</code> element, which will apply to any
                <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> that does not specify its own by-xxx
-            policy.</p><p class="p"><span class="implementation-statement" id="chunkingdetails__d5239e217" data-id="DITAIMP-0090"></span>When no <code class="keyword markupname xmlatt">@chunk</code> attribute values are specified or
+            policy.</p><p class="p"><span class="implementation-statement" id="chunkingdetails__d5242e217" data-id="DITAIMP-0090"></span>When no <code class="keyword markupname xmlatt">@chunk</code> attribute values are specified or
             defaulted, chunking behavior is implementation dependent. When variations of this sort
             are not desired, a default for a specific map can be established by including a
                <code class="keyword markupname xmlatt">@chunk</code> attribute value on the <code class="keyword markupname xmlelement">&lt;map&gt;</code> element.
@@ -135,8 +135,8 @@ classes: ''
          </div></section>
       <section class="section" id="chunkingdetails__implementation-tokens"><h2 class="title sectiontitle">Implementation-specific tokens and future considerations </h2>
          
-         <p class="p"><span class="implementation-statement" id="chunkingdetails__d5239e317" data-id="DITAIMP-0100"></span>Implementers <dfn class="term RFC-2119">MAY</dfn> define
-                                their own custom, implementation-specific tokens. <span class="implementation-statement" id="chunkingdetails__d5239t321" data-id="DITAIMP-0110"></span>To avoid name
+         <p class="p"><span class="implementation-statement" id="chunkingdetails__d5242e317" data-id="DITAIMP-0100"></span>Implementers <dfn class="term RFC-2119">MAY</dfn> define
+                                their own custom, implementation-specific tokens. <span class="implementation-statement" id="chunkingdetails__d5242t321" data-id="DITAIMP-0110"></span>To avoid name
                                 conflicts between implementations or with future additions to the
                                 standard, implementation-specific tokens <dfn class="term RFC-2119">SHOULD</dfn>
                                 consist of a prefix that gives the name or an abbreviation for the
