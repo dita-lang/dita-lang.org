@@ -60,16 +60,13 @@ runs:
           name=${name##${{ inputs.PREFIX }}}
           echo "$i $name"
           # XXX This may not be needed anymore
-          perl -pi.bak -e 's/<!--(<section id="attributes"><title>Attributes<\/title><p conkeyref="reuse-attributes\/no-atts"\/><\/section>)-->/\1/g' "$i"
-          rm "$i.bak"
+          #perl -pi.bak -e 's/<!--(<section id="attributes"><title>Attributes<\/title><p conkeyref="reuse-attributes\/no-atts"\/><\/section>)-->/\1/g' "$i"
+          #rm "$i.bak"
           if [[ "${{ inputs.VERSION }}" == "2" ]]; then
-            python "${{ github.action_path }}/replace_by_attr.py" "$i" "attributes" prepend "<section conkeyref=\"content-models-${name}/${name}.element\" id=\"content-model\"/>\n<section conkeyref=\"inheritance-${name}/${name}.inheritance\" id=\"inheritance\"/>"
-            #perl -pi.bak -e "s/((\s*)<section(?:\s+[\w-]+=[\"'].+?[\"'])*(\s+id=\"attributes\")(?:\s+[\w-]+=[\"'].+?[\"'])*+\s*\/?>)/\2<section conkeyref=\"content-models-${name}\/${name}.element\" id=\"content-model\"\/>\n<section conkeyref=\"inheritance-${name}\/${name}.inheritance\" id=\"inheritance\"\/>\1/" "$i"
+            python "${{ github.action_path }}/replace_by_attr.py" "$i" "attributes" prepend "<section conkeyref=\"content-models-${name}/${name}.element\" id=\"content-model\"/><section conkeyref=\"inheritance-${name}/${name}.inheritance\" id=\"inheritance\"/>"
           else
             python "${{ github.action_path }}/replace_by_attr.py" "$i" "contains" replace "<section conkeyref=\"content-models-${name}/${name}.element\" id=\"content-model\"/>"
             python "${{ github.action_path }}/replace_by_attr.py" "$i" "inheritance" replace "<section conkeyref=\"inheritance-${name}/${name}.inheritance\" id=\"inheritance\"/>"
-            #perl -pi.bak -e "s/(\s*)<section(?:\s+[\w-]+=[\"'].+?[\"'])*(\s+id=\"contains\")(?:\s+[\w-]+=[\"'].+?[\"'])*+\s*><\/section>/\1<section conkeyref=\"content-models-${name}\/${name}.element\" id=\"content-model\"\/>/" "$i"
-            #perl -pi.bak -e "s/(\s*)<section(?:\s+[\w-]+=[\"'].+?[\"'])*(\s+id=\"inheritance\")(?:\s+[\w-]+=[\"'].+?[\"'])*+\s*>[\w\W]+?<\/section>/\1<section conkeyref=\"inheritance-${name}\/${name}.inheritance\" id=\"inheritance\"\/>/" "$i"
           fi
         done
         cd -
