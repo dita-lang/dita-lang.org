@@ -21,7 +21,7 @@ class ReplaceByAttrTests(unittest.TestCase):
         )
         replacement = b'<topic id="inheritance-topic"><title>Inheritance</title></topic>'
 
-        result = replace_by_attr(data, "id", "inheritance", replacement)
+        result = replace_by_attr(data, "id", "inheritance", "replace", replacement)
 
         expected = (
             b"<root>\n"
@@ -45,7 +45,7 @@ class ReplaceByAttrTests(unittest.TestCase):
             b"</root>\n"
         )
 
-        result = replace_by_attr(data, "id", "inheritance", b'<topic id="x"/>')
+        result = replace_by_attr(data, "id", "inheritance", "replace", b'<topic id="x"/>')
 
         expected = (
             b"<root>\n"
@@ -58,21 +58,21 @@ class ReplaceByAttrTests(unittest.TestCase):
     def test_no_match_returns_data_unchanged(self):
         data = b'<root><section id="other"/></root>'
 
-        result = replace_by_attr(data, "id", "does-not-exist", b"<x/>")
+        result = replace_by_attr(data, "id", "does-not-exist", "replace", b"<x/>")
 
         self.assertEqual(result, data)
 
     def test_matches_any_element_name_not_just_specific_tag(self):
         data = b'<root><para id="inheritance">text</para></root>'
 
-        result = replace_by_attr(data, "id", "inheritance", b"<topic/>")
+        result = replace_by_attr(data, "id", "inheritance", "replace", b"<topic/>")
 
         self.assertEqual(result, b"<root><topic/></root>")
 
     def test_replaces_all_elements_sharing_the_same_id_value(self):
         data = b'<root><a id="dup"/><b id="dup"/></root>'
 
-        result = replace_by_attr(data, "id", "dup", b"<x/>")
+        result = replace_by_attr(data, "id", "dup", "replace", b"<x/>")
 
         self.assertEqual(result, b"<root><x/><x/></root>")
 
@@ -92,7 +92,7 @@ class ReplaceByAttrTests(unittest.TestCase):
             b"</topic>\n"
         )
 
-        result = replace_by_attr(data, "id", "inheritance", b'<section id="new"/>')
+        result = replace_by_attr(data, "id", "inheritance", "replace", b'<section id="new"/>')
 
         expected = (
             b'<?xml version="1.0"?>\n'
@@ -103,6 +103,70 @@ class ReplaceByAttrTests(unittest.TestCase):
             b"</topic>\n"
         )
         self.assertEqual(result, expected)
+
+    def test_prepend_inserts_before_normal_element_and_leaves_it_intact(self):
+        data = (
+            b"<root>\n"
+            b'  <section id="inheritance">\n'
+            b"    <p>Old contents about inheritance.</p>\n"
+            b"  </section>\n"
+            b'  <section id="other"/>\n'
+            b"</root>\n"
+        )
+
+        result = replace_by_attr(
+            data, "id", "inheritance", "prepend", b'<note type="warning">Deprecated.</note>\n  '
+        )
+
+        expected = (
+            b"<root>\n"
+            b'  <note type="warning">Deprecated.</note>\n'
+            b'  <section id="inheritance">\n'
+            b"    <p>Old contents about inheritance.</p>\n"
+            b"  </section>\n"
+            b'  <section id="other"/>\n'
+            b"</root>\n"
+        )
+        self.assertEqual(result, expected)
+
+    def test_prepend_before_self_closing_target_leaves_it_intact(self):
+        data = (
+            b"<root>\n"
+            b'  <section id="inheritance"   />\n'
+            b'  <section id="keep">unchanged</section>\n'
+            b"</root>\n"
+        )
+
+        result = replace_by_attr(data, "id", "inheritance", "prepend", b"<topic/>\n  ")
+
+        expected = (
+            b"<root>\n"
+            b"  <topic/>\n"
+            b'  <section id="inheritance"   />\n'
+            b'  <section id="keep">unchanged</section>\n'
+            b"</root>\n"
+        )
+        self.assertEqual(result, expected)
+
+    def test_prepend_no_match_returns_data_unchanged(self):
+        data = b'<root><section id="other"/></root>'
+
+        result = replace_by_attr(data, "id", "does-not-exist", "prepend", b"<x/>")
+
+        self.assertEqual(result, data)
+
+    def test_prepend_before_all_elements_sharing_the_same_id_value(self):
+        data = b'<root><a id="dup"/><b id="dup"/></root>'
+
+        result = replace_by_attr(data, "id", "dup", "prepend", b"<x/>")
+
+        self.assertEqual(result, b'<root><x/><a id="dup"/><x/><b id="dup"/></root>')
+
+    def test_invalid_position_raises_value_error(self):
+        data = b'<root><section id="inheritance"/></root>'
+
+        with self.assertRaises(ValueError):
+            replace_by_attr(data, "id", "inheritance", "append", b"<x/>")
 
 
 if __name__ == "__main__":

@@ -1,13 +1,20 @@
 #!/usr/bin/env python3
-"""Replace an XML element (and its contents), matched by its "id" attribute
-value, with a replacement XML fragment -- preserving every other byte of the
-file exactly as-is (including unusual whitespace/quoting in untouched tags).
+"""Replace or prepend to an XML element, matched by its "id" attribute
+value, with an XML fragment -- preserving every other byte of the file
+exactly as-is (including unusual whitespace/quoting in untouched tags).
 
 Usage:
-    python replace_by_attr.py <file> <id-value> <replacement-xml>
+    python replace_by_attr.py <file> <id-value> <position> <replacement-xml>
+
+`position` is one of:
+    replace  - replace the matched element and its contents (default behavior)
+    prepend  - insert the fragment immediately before the matched element,
+               leaving the matched element itself untouched
 """
 import sys
 import xml.parsers.expat
+
+POSITIONS = ("replace", "prepend")
 
 
 def find_element_spans(data: bytes, attr: str, value: str):
@@ -42,25 +49,42 @@ def find_element_spans(data: bytes, attr: str, value: str):
     return spans
 
 
-def replace_by_attr(data: bytes, attr: str, value: str, replacement: bytes) -> bytes:
-    """Return `data` with every element matching `attr`=`value` replaced by
-    `replacement`. Returns `data` unchanged if nothing matches."""
+def replace_by_attr(
+    data: bytes, attr: str, value: str, position: str, replacement: bytes
+) -> bytes:
+    """Return `data` with `replacement` applied at every element matching
+    `attr`=`value`. Returns `data` unchanged if nothing matches.
+
+    If `position` is "replace", each matched element (and its contents) is
+    replaced by `replacement`. If `position` is "prepend", `replacement` is
+    inserted immediately before each matched element, which is otherwise
+    left untouched.
+    """
+    if position not in POSITIONS:
+        raise ValueError(f"position must be one of {POSITIONS}, got {position!r}")
+
     spans = find_element_spans(data, attr, value)
     result = data
     for start, end in sorted(spans, reverse=True):
-        result = result[:start] + replacement + result[end:]
+        cut_end = end if position == "replace" else start
+        result = result[:start] + replacement + result[cut_end:]
     return result
 
 
 def main():
-    if len(sys.argv) != 4:
-        raise SystemExit(f"Usage: {sys.argv[0]} <file> <id-value> <replacement-xml>")
-    path, id_value, replacement_xml = sys.argv[1:4]
+    if len(sys.argv) != 5:
+        raise SystemExit(
+            f"Usage: {sys.argv[0]} <file> <id-value> <{'|'.join(POSITIONS)}> <replacement-xml>"
+        )
+    path, id_value, position, replacement_xml = sys.argv[1:5]
+
+    if position not in POSITIONS:
+        raise SystemExit(f"position must be one of {POSITIONS}, got {position!r}")
 
     with open(path, "rb") as f:
         data = f.read()
 
-    result = replace_by_attr(data, "id", id_value, replacement_xml.encode("utf-8"))
+    result = replace_by_attr(data, "id", id_value, position, replacement_xml.encode("utf-8"))
     if result == data:
         print(f"No element found with id={id_value!r}; left {path} unchanged.", file=sys.stderr)
 
