@@ -4,7 +4,7 @@ title: 'Flagging based on metadata attributes'
 description: 'When rendering content, a conditional processing profile can be used to specify whether an element''s content is flagged based on its conditional processing attributes.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '00682854f17a78e83bfc0ab3f6d8c89aced14747'
+commit: '0b2efdae01af5eccd51fa10e688b08c4311ae7a6'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -13,8 +13,7 @@ classes: ''
  <h1 class="title topictitle1" id="ariaid-title1">Flagging based on metadata attributes</h1>
  
  <div class="body conbody"><p class="shortdesc">When rendering content, a conditional processing profile can be used to specify whether
-  an element's content is flagged based on its conditional processing
-  attributes.</p>
+    an element's content is flagged based on its conditional processing attributes.</p>
   <p class="p example">For example, flagging can be used to highlight the fact that content
    applies to a specific audience or operating system. Flagging can also draw a reader's attention
    to content that has been marked as being revised.</p>
@@ -30,20 +29,14 @@ classes: ''
       of the flagged content. If the <code class="keyword markupname xmlatt">@add-outputclass</code> attribute is present in the
       matching DITAVAL rule, the flagged element is treated as if the specified value is added to
       its <code class="keyword markupname xmlatt">@outputclass</code> attribute.</p>
+    <p class="p">If a matching DITAVAL rule uses the attribute vaule <code class="ph codeph">action="passthrough"</code>, a
+      processor is instructed to pass the attribute directly through to rendered output, which
+      enables flagging within rendering tools. How the attribute is passed through will depend on
+      the requirements of those rendering tools.</p>
   <p class="p">When the same element evaluates as both flagged and included, the element is both flagged and
    included. When the same element evaluates as both flagged and filtered (for example, flagged
    because of a value for the <code class="keyword markupname xmlatt">@audience</code> attribute and filtered because of a value
    for the <code class="keyword markupname xmlatt">@product</code> attribute value), the element is filtered.</p>
-    <div class="draft-comment"><div><strong>Draft comment: </strong>Kristen J Eberlein 21 March 2022</div>
-      <p class="p">I moved the following content from the
-          <code class="keyword markupname xmlelement">&lt;style-conflict&gt;</code> topic, where it did not
-        belong. It's general information about how processors should handle
-        flagging.</p>
-      <p class="p">
-        <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 12 May 2026: I think no action is needed, can
-          remove this draft comment</div>
-      </p>
-    </div>
     <p class="p"><span style="color:red;" class="ph">When</span> flagging methods are specified for
       elements at different levels of the containment hierarchy, the
       flagging method <span style="color:red;" class="ph">that is</span> specified for the
