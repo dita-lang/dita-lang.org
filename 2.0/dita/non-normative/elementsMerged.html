@@ -4,7 +4,7 @@ title: 'Element-by-element recommendations for translators'
 description: 'This topic contains a list of all elements in the base DITA edition. It includes recommendations on how to present the element type to translators, whether the element contents are likely to be suitable for translation, and whether the element has attributes with values that are likely to be suitable for translation. Examples of content that is not suitable for translation include code fragments and mailing addresses.'
 index: '../toc.html'
 notices: '../resources/oasis-notices.html'
-commit: '00682854f17a78e83bfc0ab3f6d8c89aced14747'
+commit: 'e7f94328e916dff568ea0b8a10552550fe3fd17e'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -79,13 +79,10 @@ classes: ''
             the domain elements.</dd>
         
         
-        
           <dt class="dt dlterm">Block/inline translation</dt>
-          <dd class="dd">Specifies whether the element represents a complete
-            translatable segment. The value <span class="keyword">block</span>
-            indicates that the element is a single segment, while the value
-              <span class="keyword">inline</span> indicates that the element is part
-            of a larger
+          <dd class="dd">Specifies whether the element represents a complete translatable segment. The value
+              <span class="keyword">block</span> indicates that the element is a single segment, while the
+            value <span class="keyword">inline</span> indicates that the element is part of a larger
             segment.</dd>
         
         
@@ -318,11 +315,11 @@ classes: ''
             processed.</td>
         </tr><tr class="strow">
           <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;image&gt;</code>
-            </td>
-          <td class="stentry" headers="elements__simpletable_body__stentry__2">block when <code class="keyword markupname xmlatt">@placement</code>= break, otherwise
-            inline</td>
+          </td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__2">n/a (container element)</td>
           <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
-          <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
+          <td class="stentry" headers="elements__simpletable_body__stentry__4">The nested <code class="keyword markupname xmlelement">&lt;alt&gt;</code> element has translatable text, and the
+            referenced image might require translation.</td>
         </tr><tr class="strow">
           <td class="stentry" headers="elements__simpletable_body__stentry__1"><code class="keyword markupname xmlelement">&lt;include&gt;</code></td>
           <td class="stentry" headers="elements__simpletable_body__stentry__2">inline</td>
@@ -655,25 +652,6 @@ classes: ''
           <td class="stentry" headers="elements__simpletable_body__stentry__3">yes</td>
           <td class="stentry" headers="elements__simpletable_body__stentry__4"></td>
         </tr></tbody></table>
-      <div class="draft-comment"><div><strong>Draft comment: </strong>Kristen J Eberlein 11 October 2022</div>
-        <p class="p">We need to consider how we want to handle
-            <code class="keyword markupname xmlelement">&lt;image&gt;</code> and
-            <code class="keyword markupname xmlelement">&lt;hazardsymbol&gt;</code> (specialized from
-            <code class="keyword markupname xmlelement">&lt;image&gt;</code>). The current wording in the
-          tables in awkward.</p>
-        <p class="p">Also, Eliot pointed out the following in the Content Fusion
-          review: "<code class="keyword markupname xmlelement">&lt;image&gt;</code> is not a block for
-          translation purposes, it is a container -- only the
-            <code class="keyword markupname xmlelement">&lt;alt&gt;</code> element within
-            <code class="keyword markupname xmlelement">&lt;image&gt;</code> contains translatable text.
-          Localization of the image would be separate."</p>
-        <p class="p">
-          <div class="draft-comment"><div><strong>Draft comment: </strong>robander</div>TO RESOLVE 13 May 2026: For those two, can we change the
-            block/inline column to say "N/A (container element)", and in the final notes colum, say
-            that "The nested <code class="keyword markupname xmlelement">&lt;alt&gt;</code> element has translatable text, and the
-            referenced image may also require translation."</div>
-        </p>
-      </div>
     </section>
     <section class="section" id="elements__section-map"><h2 class="title sectiontitle">Map elements</h2>
       
@@ -825,8 +803,7 @@ classes: ''
           <td class="stentry" headers="elements__section-hazard-d__stentry__1"><code class="keyword markupname xmlelement">&lt;hazardsymbol&gt;</code></td>
           <td class="stentry" headers="elements__section-hazard-d__stentry__2"><code class="keyword markupname xmlelement">&lt;image&gt;</code></td>
           <td class="stentry" headers="elements__section-hazard-d__stentry__3">yes</td>
-          <td class="stentry" headers="elements__section-hazard-d__stentry__4">block when <code class="keyword markupname xmlatt">@placement</code>= break, otherwise
-            inline</td>
+          <td class="stentry" headers="elements__section-hazard-d__stentry__4">n/a (container element)</td>
           <td class="stentry" headers="elements__section-hazard-d__stentry__5">yes</td>
         </tr><tr class="strow">
           <td class="stentry" headers="elements__section-hazard-d__stentry__1"><code class="keyword markupname xmlelement">&lt;howtoavoid&gt;</code></td>
@@ -1088,7 +1065,7 @@ classes: ''
         </tr><tr class="strow">
           <td class="stentry" headers="elements__simpletable_ditaval__stentry__1"><code class="keyword markupname xmlelement">&lt;style-conflict&gt;</code></td>
           <td style="color:red;" class="stentry" headers="elements__simpletable_ditaval__stentry__2">n/a (empty)</td>
-          <td class="stentry" headers="elements__simpletable_ditaval__stentry__3">n/a (empty element)</td>
+          <td class="stentry" headers="elements__simpletable_ditaval__stentry__3">n/a (empty)</td>
         </tr><tr class="strow">
           <td class="stentry" headers="elements__simpletable_ditaval__stentry__1"><code class="keyword markupname xmlelement">&lt;val&gt;</code></td>
           <td class="stentry" headers="elements__simpletable_ditaval__stentry__2">block</td>
