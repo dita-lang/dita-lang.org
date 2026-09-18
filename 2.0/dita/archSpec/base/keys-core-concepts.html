@@ -4,7 +4,7 @@ title: 'Core concepts for working with keys'
 description: 'The concepts described below are critical for a full understanding of keys and key processing.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: 'dfeca48f8dae2302b5f0106d391b1f5a8de63896'
+commit: '78f967e80a84f7ce528d0a5072ff3070a0e2b375'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -16,11 +16,16 @@ classes: ''
   processing.</p>
     <section class="section" id="concept_igf_3c4_kn__section">
       
-      <p class="p">The use of the phases "<code class="keyword markupname xmlelement">&lt;map&gt;</code> element" or
+      <div class="note note note_note non-normative"><span class="note__title">Note<span class="non-normative-label"> (non-normative)</span>:</span> <div class="note__body">The use of the phases "<code class="keyword markupname xmlelement">&lt;map&gt;</code> element" or
           "<code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element" should be interpreted as
           "<code class="keyword markupname xmlelement">&lt;map&gt;</code> element and any specialization of
           <code class="keyword markupname xmlelement">&lt;map&gt;</code> element " or " <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element or
-        any specialization of <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element."</p>
+        any specialization of <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element."<p class="p">When
+          considering keys and key references, it is important to remember that
+            <code class="keyword markupname xmlelement">&lt;keydef&gt;</code> is included among the <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>
+          specializations in this specification. The <a class="xref" href="../../langRef/base/keydef.html" title="A key definition provides a simple way to define a key without making the definition itself a part of rendered content."><code class="keyword markupname xmlelement">&lt;keydef&gt;</code></a> element is a convenience element that has a
+          required <code class="keyword markupname xmlatt">@keys</code> attribute, and provides a default value for the
+            <code class="keyword markupname xmlatt">@processing-role</code> attribute.</p></div></div>
     </section>
   <section class="section" id="concept_igf_3c4_kn__definitions"><h2 class="title sectiontitle">Definitions related to keys</h2>
    
@@ -123,25 +128,29 @@ classes: ''
    </ol>
    <div class="note note note_note non-normative"><span class="note__title">Note<span class="non-normative-label"> (non-normative)</span>:</span> <div class="note__body">Because of rules 1 and 3, the key space that is associated with a child scope includes the
         scope-qualified copies of its own keys that are inherited from the key space of the parent
-        scope, as well as those from other "sibling" scopes.</div></div>
+        scope, as well as those from other "sibling" scopes. <span class="ph">Scope-qualified
+          keys are covered in more detail in <a class="xref" href="using-keys-to-address-keys-across-scopes.html" title="When referencing key definitions that are defined in a different key scope, key names might need to be qualified with key scope names.">Addressing keys across scopes</a>.</span></div></div>
   </section>
   <section class="section" id="concept_igf_3c4_kn__effective-key-definition-full"><h2 class="title sectiontitle">Effective key definitions</h2>
       
       <p class="p">A key space can contain many definitions for a given key, but only one definition is
         effective for the purpose of resolving key references.</p>
-      <p class="p">When a key has a definition in the key space that is <span class="ph">inherited from</span> a parent scope, that definition is effective.
-        Otherwise, a key definition is effective if it is first in a breadth-first traversal of the
-        locally-scoped submaps beneath the scope-defining element. <span class="ph">Put
-          another way, a key definition is effective if it is the first definition for that key name
-          in the shallowest map that contains that key definition.</span> This allows higher-level map
+      <p class="p">When a key has a definition in the key space that is inherited from a parent scope, that
+        definition is effective. Otherwise, a key definition is effective if it is first in a
+        breadth-first traversal of the locally-scoped submaps beneath the scope-defining element.
+        Put another way, a key definition is effective if it is the first definition for that key
+        name in the shallowest map that contains that key definition. This allows higher-level map
         authors to override keys defined in referenced submaps.</p>
+      <div class="note note note_note non-normative" id="concept_igf_3c4_kn__note_r5q_clz_4kc"><span class="note__title">Note<span class="non-normative-label"> (non-normative)</span>:</span> <div class="note__body">Because key definitions inherited from a parent
+        scope are effective, the reverse is also true: key definitions in a child key scope will not
+        override key definitions in the parent scope.</div></div>
       <div class="note note note_note non-normative"><span class="note__title">Note<span class="non-normative-label"> (non-normative)</span>:</span> <div class="note__body">A key definition that specifies more than one key name in its <code class="keyword markupname xmlatt">@keys</code>
         attribute <span class="ph">might</span> be the effective definition for some of its
         keys but not for others.</div></div>
       <p class="p">Within a key scope, keys do not have to be defined before they are referenced. The key
         space is effective for the entire scope, so the order of key definitions and key references
-        relative to one another is not significant. <span class="ph">This has the following
-          implications for processors:</span></p>
+        relative to one another is not significant. This has the following implications for
+        processors:</p>
       <ul class="ul">
         <li class="li">All key spaces for a root map must be determined before any key reference processing can
           be performed.</li>
@@ -155,4 +164,4 @@ classes: ''
           more information.</span></p>
     </section>
  </div>
-<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/key-based-addressing.html" title="DITA keys provide an alternative to direct addressing. The key reference mechanism provides a layer of indirection so that resources (for example, URIs, metadata, or variable text strings) can be defined at the DITA map level instead of locally in each topic.">Indirect key-based addressing</a></div></div></nav><aside class="section-toc" role="aside"><h2>In this section</h2><ul><li><a href="#concept_igf_3c4_kn__definitions">Definitions related to keys</a></li><li><a href="#concept_igf_3c4_kn__key-definition-full">Key definitions</a></li><li><a href="#concept_igf_3c4_kn__key-scope-full">Key scopes</a></li><li><a href="#concept_igf_3c4_kn__key-space-full">Key spaces</a></li><li><a href="#concept_igf_3c4_kn__effective-key-definition-full">Effective key definitions</a></li></ul></aside></article></main>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/key-based-addressing.html" title="DITA keys provide an alternative to direct addressing. The key reference mechanism provides a layer of indirection so that resources can be defined at the DITA map level instead of locally in each topic. Those resources can include URIs, metadata, variable text strings, and more.">Indirect key-based addressing</a></div></div></nav><aside class="section-toc" role="aside"><h2>In this section</h2><ul><li><a href="#concept_igf_3c4_kn__definitions">Definitions related to keys</a></li><li><a href="#concept_igf_3c4_kn__key-definition-full">Key definitions</a></li><li><a href="#concept_igf_3c4_kn__key-scope-full">Key scopes</a></li><li><a href="#concept_igf_3c4_kn__key-space-full">Key spaces</a></li><li><a href="#concept_igf_3c4_kn__effective-key-definition-full">Effective key definitions</a></li></ul></aside></article></main>
