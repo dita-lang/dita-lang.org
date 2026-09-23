@@ -4,7 +4,7 @@ title: 'How filtering rules interact'
 description: 'With branch filtering, it is possible to set include or exclude rules globally, within a map, and within an already filtered map branch. The general rule for conflicts is that once specified, "exclude" conditions are in effect for the entire map or branch.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '00682854f17a78e83bfc0ab3f6d8c89aced14747'
+commit: 'b4eb6270ef16f9968ceb79bf0c5a2c37368aeb4f'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -24,8 +24,11 @@ classes: ''
         <p class="p">Using <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> elements, it is possible to specify one set of
             conditions for a branch and another set of conditions for a subset of the branch. As
             with global conditions, properties set to "exclude" for a map branch override any other
-            settings for the same property specified for a subset of the branch. Branch conditions
-            that set a conditional property to "include" or "flag" do not override conditions on a
-            subset of the branch that explicitly set the same property to "exclude".</p>
+            settings for the same property specified for a subset of the branch. This is true
+            regardless of how the "exclude" condition is specified; for example, it can be set using
+            a rule for the specific attribute and value, or it can be set using a default "exclude"
+            action. Branch conditions that set a conditional property to "include" or "flag" do not
+            override conditions on a subset of the branch that explicitly set the same property to
+            "exclude".</p>
     </div>
 <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/branch-filtering.html" title="The branch filtering mechanism enables map authors to set filtering conditions for specific branches of a map. This makes it possible for multiple conditional-processing profiles to be applied within a single publication.">Branch filtering</a></div></div></nav><aside class="section-toc" role="aside"></aside></article></main>
