@@ -7,6 +7,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('fonts')
   eleventyConfig.addPassthroughCopy('!(_site)/**/images/*')
   eleventyConfig.addPassthroughCopy('_redirects')
+  eleventyConfig.addPassthroughCopy('1.0/**/*.md')
+  eleventyConfig.addPassthroughCopy('2.0/**/*.md')
+  eleventyConfig.addPassthroughCopy('lwdita/**/*.md')
 
   // Watch for changes in these directories
   eleventyConfig.addWatchTarget('css/')
