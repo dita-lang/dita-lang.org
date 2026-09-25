@@ -14,7 +14,18 @@
                    build-init,
                    preprocess,
                    html5.topic,
-                   html5.map"/>
+                   html5.map">
+    <antcall target="dita2org.dita-ot.markdown" inheritAll="true" inheritRefs="true">
+      <param name="out.ext" value=".md"/>
+      <param name="args.xsl" value="${dita.plugin.org.lwdita.dir}/xsl/dita2markdown_github.xsl"/>
+      <param name="dita.markdown.reloadstylesheet" value="false"/>
+    </antcall>
+  </target>
+
+  <target name="dita2org.dita-ot.markdown"
+          depends="markdown.init,
+                   markdown.topic,
+                   markdown.map"/>
 
   <target name="add-markup">
     <pipeline taskname="add-markup">
