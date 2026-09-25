@@ -4,7 +4,7 @@ title: 'ditavalref'
 description: 'The ditavalref element references a DITAVAL document that specifies filter conditions to be used when processing a map or map branch.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: 'b4eb6270ef16f9968ceb79bf0c5a2c37368aeb4f'
+commit: 'fa244eb7be2374c2d607f2c834a33cb1e8c0bc11'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -34,13 +34,14 @@ classes: ''
       
       <p class="p attributes-prose">The following attributes are available on this element: <span class="ph"><a class="xref" href="../../common/../langRef/attributes/universalAttributes.html" title="Universal attributes include: audience, base, class, conaction, conkeyref, conref, conrefend, deliveryTarget, dir, id, importance, otherprops, outputclass, platform, product, props, rev, status, translate, and xml:lang">universal
                                                   attributes</a></span> (except for <code class="keyword markupname xmlatt">@conkeyref</code>,
-        which is removed for all elements in this domain), <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-format"><code class="keyword markupname xmlatt">@format</code></a>, <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-href"><code class="keyword markupname xmlatt">@href</code></a>, <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-impose-role"><code class="keyword markupname xmlatt">@impose-role</code></a>, and <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-scope"><code class="keyword markupname xmlatt">@scope</code></a>.</p>
+        which is removed for all elements in this domain), <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-format"><code class="keyword markupname xmlatt">@format</code></a>, <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-href"><code class="keyword markupname xmlatt">@href</code></a>, <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-impose-role"><code class="keyword markupname xmlatt">@impose-role</code></a>, <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-processing-role"><code class="keyword markupname xmlatt">@processing-role</code></a>,
+        and <a class="xref" href="../attributes/commonAttributes.html#common-atts__attr-scope"><code class="keyword markupname xmlatt">@scope</code></a>.</p>
       <div class="p attributes-prose attr-exception" id="ditavalref__attr-exception">For this element:<ul class="ul" id="ditavalref__ul_xlk_gc4_qpb">
           <li class="li">The <code class="keyword markupname xmlatt">@format</code> attribute has a default value of
               <span class="keyword">ditaval</span>.</li>
           <li class="li">The <code class="keyword markupname xmlatt">@impose-role</code> attribute has a fixed value of
               <span class="keyword">keeptarget</span>.</li>
-          <li class="li">The <code class="keyword markupname xmlatt">@href</code> attribute specivies a reference to a DITAVAL document. If
+          <li class="li">The <code class="keyword markupname xmlatt">@href</code> attribute specifies a reference to a DITAVAL document. If
             the <code class="keyword markupname xmlatt">@href</code> attribute is unspecified, this
               <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> will not result in any new filtering behavior, but
             other aspects of the element are still evaluated.</li>
@@ -64,7 +65,7 @@ classes: ''
             <span class="ph">(link-relationship
               attributes)</span></dt><dd class="dd">Specifies a reference to a resource.<span class="ph"> See
                 <a class="xref" href="../../archSpec/base/thehrefattribute.html" title="The href attribute specifies the URI of the resource that is addressed. The referenced resource can be another DITA topic or map, an element inside a DITA topic or map, or a non-DITA resource.">The href attribute</a> for detailed information
-              on supported values and processing implications.</span></dd><dd class="dd ddexpand">The <code class="keyword markupname xmlatt">@href</code> attribute specivies a reference to a DITAVAL document. If
+              on supported values and processing implications.</span></dd><dd class="dd ddexpand">The <code class="keyword markupname xmlatt">@href</code> attribute specifies a reference to a DITAVAL document. If
             the <code class="keyword markupname xmlatt">@href</code> attribute is unspecified, this
               <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> will not result in any new filtering behavior, but
             other aspects of the element are still evaluated.</dd><dt class="dt dlterm" id="ditavalref__attr-impose-role"><code class="keyword markupname xmlatt">@impose-role</code></dt><dd class="dd">Specifies whether this element will impose its role on elements in a referenced map.
@@ -91,7 +92,33 @@ classes: ''
         
             </dl><p class="p"><span class="ph"> See <a class="xref" href="../../archSpec/base/thehrefattribute.html" title="The href attribute specifies the URI of the resource that is addressed. The referenced resource can be another DITA topic or map, an element inside a DITA topic or map, or a non-DITA resource.">The href attribute</a> for detailed
                 information on supported values and processing implications.</span></p></dd><dd class="dd ddexpand">The <code class="keyword markupname xmlatt">@impose-role</code> attribute has a fixed value of
-              <span class="keyword">keeptarget</span>.</dd><dt class="dt dlterm"><code class="keyword markupname xmlatt">@processing-role</code></dt><dd class="dd">The <code class="keyword markupname xmlatt">@processing-role</code> attribute has a default value of
+              <span class="keyword">keeptarget</span>.</dd><dt class="dt dlterm" id="ditavalref__attr-processing-role"><code class="keyword markupname xmlatt">@processing-role</code>
+            <span class="ph">(common map
+            attributes)</span></dt><dd class="dd" id="ditavalref__def-processing-role">Specifies whether the referenced resource is processed
+            normally or treated as a resource that is only included in order to resolve references,
+            such as key or content references. The following values are valid:<dl class="dl">
+              
+                <dt class="dt dlterm">normal </dt>
+                <dd class="dd">Indicates that the resource is a readable part of the information set. It is
+                  included in navigation and search results. This is the default value for the
+                    <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element.</dd>
+              
+              
+                <dt class="dt dlterm">resource-only </dt>
+                <dd class="dd">Indicates that the resource should be used only for processing purposes. It is
+                  not included in navigation or search results, nor is it rendered as a topic. This
+                  is the default value for the <code class="keyword markupname xmlelement">&lt;keydef&gt;</code> element.</dd>
+              
+            </dl><dl class="dl">
+              
+          <dt class="dt dlterm"><span class="keyword">-dita-use-conref-target</span></dt>
+          <dd class="dd">See <a class="xref" href="../../common/../archSpec/base/ditauseconreftarget.html" title="When an element uses conref to pull in content, for any of its attributes assigned a value of -dita-use-conref-target, the resulting value for those attributes is also pulled in from the referenced element.">Using the -dita-use-conref-target value</a>
+            for more information. </dd>
+        
+            </dl><p class="p"><span class="ph">If no value is specified but the attribute is
+          specified on a containing element within a map or within the
+          related-links section, the value cascades from the closest
+          containing element.</span></p></dd><dd class="dd ddexpand">The <code class="keyword markupname xmlatt">@processing-role</code> attribute has a default value of
               <span class="keyword">resource-only</span>.</dd><dt class="dt dlterm" id="ditavalref__attr-scope"><code class="keyword markupname xmlatt">@scope</code>
             <span class="ph">(link-relationship
               attributes)</span></dt><dd class="dd">Specifies the closeness of the relationship between the
@@ -107,4 +134,4 @@ classes: ''
 the <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element.</p>
    </div>
   </div>
-<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/ditaval-d.html" title="The DITAVAL-reference domain is used to reference a DITAVAL document that contains conditions that apply only to a subset of a DITA map. It also can be used to replicate a subset of a DITA map for multiple audiences.">DITAVAL-reference domain element</a></div></div></nav><aside class="section-toc" role="aside"><h2>In this section</h2><ul><li><a href="#ditavalref__processing-expectations">Processing expectations</a></li><li><a href="#ditavalref__specialization-hierarchy">Specialization hierarchy</a></li><li><a href="#ditavalref__content-model">Content model</a></li><li><a href="#ditavalref__inheritance">Inheritance</a></li><li><a href="#ditavalref__attributes">Attributes</a></li><li><a href="#ditavalref__example">Example</a></li></ul></aside></article></main>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/ditaval-d.html" title="The DITAVAL-reference domain is used to reference a DITAVAL document that contains conditions that apply only to a subset of a DITA map. It also can be used to replicate a subset of a DITA map for multiple audiences.">DITAVAL-reference domain elements</a></div></div></nav><aside class="section-toc" role="aside"><h2>In this section</h2><ul><li><a href="#ditavalref__processing-expectations">Processing expectations</a></li><li><a href="#ditavalref__specialization-hierarchy">Specialization hierarchy</a></li><li><a href="#ditavalref__content-model">Content model</a></li><li><a href="#ditavalref__inheritance">Inheritance</a></li><li><a href="#ditavalref__attributes">Attributes</a></li><li><a href="#ditavalref__example">Example</a></li></ul></aside></article></main>

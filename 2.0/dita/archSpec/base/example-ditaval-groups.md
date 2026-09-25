@@ -12,7 +12,7 @@ The following code sample illustrates a list item that applies to two different 
 <ol>
   <li>Common step</li>
   <li product="appServer(mySERVER) database(dbOne dbOther)">
-    <ph>Do something special for databases dbTwo or dbOther when installing on mySERVER</ph>
+    <ph>Do something special for databases dbOne or dbOther when installing on mySERVER</ph>
   </li>
   <!-- additional list items -->
 </ol>

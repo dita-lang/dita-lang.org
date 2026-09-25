@@ -4,7 +4,7 @@ author: OASIS DITA Technical Committee
 
 # Branch filtering: Impact on resource and key names
 
-When map branches are cloned by a processor in order to support multiple condition sets, processors must manage conflicting resource and key names. The DITAVALref domain includes metadata elements that authors can use to specify how resource and key names are renamed.
+When map branches are cloned by a processor in order to support multiple condition sets, processors must manage conflicting resource and key names. The DITAVAL-reference domain includes metadata elements that authors can use to specify how resource and key names are renamed.
 
 **Note:** While the processing controls that are described here are intended primarily for use with map branches that specify multiple condition sets, they also can be used with map branches that include only a single `<ditavalref>` element.
 

@@ -8,7 +8,7 @@ A domain is a grouping of related DITA elements that can be integrated into docu
 
 -   **[Alternative-titles domain elements](../../langRef/containers/alternativeTitles-d.md)**  
 The alternative title elements are designed to provide alternative titles for resources. The elements in the alternative-titles domain are specialized from the `<titlealt>` element.
--   **[DITAVAL-reference domain element](../../langRef/containers/ditaval-d.md)**  
+-   **[DITAVAL-reference domain elements](../../langRef/containers/ditaval-d.md)**  
 The DITAVAL-reference domain is used to reference a DITAVAL document that contains conditions that apply only to a subset of a DITA map. It also can be used to replicate a subset of a DITA map for multiple audiences.
 -   **[Emphasis domain elements](../../langRef/containers/emphasis-domain.md)**  
 The emphasis elements are used to indicate text that has special meaning or importance, or text that needs to be distinguished from surrounding text.

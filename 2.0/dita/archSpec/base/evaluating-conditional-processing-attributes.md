@@ -30,12 +30,6 @@ Consider the following DITA source fragment and conditional processing profile:
 
 When the content is rendered, the paragraph is flagged, and the first list item is excluded \(since it applies to extendedProd\). The second list item is still included; even though it does apply to extendedProd, it also applies to basicProd, which was not excluded.
 
-**Draft comment:**rodaande 21 March 2022  
-Probably want the following bit to become a screen capture
-
-**Draft comment:**robander   
-TO RESOLVE 11 May 2026: If someone wants to put in a screen capture, great, otherwise just go with this
-
 The result will look something like the following:
 
 **ADMIN** Set the configuration options:

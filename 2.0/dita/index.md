@@ -410,7 +410,7 @@
             -   [searchtitle](langRef/base/searchtitle.md)
             -   [subtitle](langRef/base/subtitle.md)
             -   [titlehint](langRef/base/titlehint.md)
-        -   [DITAVAL-reference domain element](langRef/containers/ditaval-d.md)
+        -   [DITAVAL-reference domain elements](langRef/containers/ditaval-d.md)
             -   [ditavalref](langRef/base/ditavalref.md)
             -   [ditavalmeta](langRef/base/ditavalmeta.md)
             -   [dvrResourcePrefix](langRef/base/dvrResourcePrefix.md)

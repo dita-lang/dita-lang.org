@@ -109,8 +109,8 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
     The following markup in a DITAVAL document is an error condition:
 
     -   More than one `<prop>` element with no `@att` attribute
-    -   More than one `<prop>` element with the same `@att` attribute and no value
-    -   More than one `<prop>` element with the same `@att` attribute and same `@value`
+    -   More than one `<prop>` element with the same `@att` attribute and no `@val` attribute
+    -   More than one `<prop>` element with the same `@att` attribute and same `@val`
     Processors MAY provide an error or warning message for these error conditions.
 
 -   **[DITAERR-0260](../langRef/ditaval/revprop.md#d3133e176)**
@@ -188,7 +188,7 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     The available height is implementation dependent, but if feasible, it is suggested to be the page \(or table cell\) height or some other reasonable value.
 
--   **[DITAIMP-0110](../langRef/ditaval/prop.md#d4536t444)**
+-   **[DITAIMP-0110](../langRef/ditaval/prop.md#d4536t447)**
 
     How the attribute is preserved and used is implementation dependent.
 

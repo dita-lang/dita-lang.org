@@ -4,7 +4,7 @@ title: 'Example: ditavalref error conditions'
 description: 'In this scenario, multiple, non-equivalent copies of the same resource name are created as a result of branch filtering. In addition, the process results in duplicate key names, making it impossible to reliably reference individual result topics.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '00682854f17a78e83bfc0ab3f6d8c89aced14747'
+commit: 'fa244eb7be2374c2d607f2c834a33cb1e8c0bc11'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -51,10 +51,10 @@ classes: ''
 &lt;/topicref&gt;
 &lt;topicref href="a.dita"/&gt;
 &lt;topicref href="c-token.dita" keys="c"&gt; 
-  &lt;!-- c-token.ditaval to be filtered by one.ditaval --&gt;
+  &lt;!-- c-token.dita to be filtered by one.ditaval --&gt;
 &lt;/topicref&gt;
 &lt;topicref href="c-token.dita" keys="c"&gt; 
-  &lt;!-- c-token.ditaval to be filtered by two.ditaval, key "c" ignored --&gt;
+  &lt;!-- c-token.dita to be filtered by two.ditaval, key "c" ignored --&gt;
 &lt;/topicref&gt;</code></pre>
       </div>
       <div class="p">The equivalent map highlights several problems with the original source:<ul class="ul">
@@ -66,17 +66,17 @@ classes: ''
             the same problem.</li>
           <li class="li">The file <span class="ph filepath">c.dita</span> is filtered with two sets of conditions, each of
             which explicitly maps the filtered resource to <span class="ph filepath">c-token.dita</span>. This
-            is an error condition that processors need to report.</li>
+            is an error condition that processors should report.</li>
           <li class="li">In situations where resource names map directly to output file names, such as an HTML5
             rendering that creates files based on the original resource name, the following name
-            conflicts also occur. In this case a processor would need to report an error, use an
-            alternate naming scheme, or both:<ol class="ol">
+            conflicts also occur. In this case a processor should report an error, use an alternate
+            naming scheme, or both:<ol class="ol">
               <li class="li"><span class="ph filepath">a.dita</span> generates <span class="ph filepath">a.html</span> using three
-                alternate set of conditions. One version uses <span class="ph filepath">one.ditaval</span>, one
+                alternate sets of conditions. One version uses <span class="ph filepath">one.ditaval</span>, one
                 version uses <span class="ph filepath">two.ditaval</span>, and the third version uses no
                 filtering.</li>
               <li class="li"><span class="ph filepath">b.dita</span> generates <span class="ph filepath">b.html</span> using two
-                alternate set of conditions. One version uses <span class="ph filepath">one.ditaval</span>, and
+                alternate sets of conditions. One version uses <span class="ph filepath">one.ditaval</span>, and
                 the other version uses <span class="ph filepath">two.ditaval</span>.</li>
             </ol></li>
         </ul></div>

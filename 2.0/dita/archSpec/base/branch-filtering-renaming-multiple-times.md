@@ -26,7 +26,7 @@ When renaming, metadata on the `<ditavalref>` nested more deeply within the bran
 </topicref>
 ```
 
-In this situation, the resource `branchChild.dita` is given a prefix based on both the reference to `parent.ditaval` and the reference to `child.ditaval`. The value childPrefix- is specified in the `<ditavalref>` that is nested more deeply within the branch, so it appears closer to the original resource name. The resource `branchChild.dita` would result in `parentPrefix-childPrefix-branchChild.dita`. Suffixes \(if specified\) would be added in a similar manner, resulting in a name like `branchChild-childSuffix-parentSuffix.dita`. Note that the hyphens are part of the specified prefix; they are not added automatically.
+In this situation, the resource `branchChild.dita` is given a prefix based on both the reference to `parent.ditaval` and the reference to `child.ditaval`. The value childPrefix- is specified in the `<ditavalref>` that is nested more deeply within the branch, so it appears closer to the original resource name. The resource `branchChild.dita` would result in `parentPrefix-childPrefix-branchChild.dita`. Suffixes \(if specified\) would be added in a similar manner, resulting in a name like `branchChild-childSuffix-parentSuffix.dita`. Note that the hyphens in these examples are part of the specified prefix and suffix values; they are not added automatically.
 
 **Parent topic:**[Branch filtering: Impact on resource and key names](../../archSpec/base/branch-filtering-resource-names.md)
 

@@ -12,7 +12,7 @@ When deciding whether to flag a particular element, a processor evaluates each v
 
 Flagging behavior is determined based on the DITAVAL rule that matches a metadata attribute value. Flagging options for the content of an element include setting a text style, color, or background color. It also includes the ability to place an image or text at the start or end of the flagged content. If the `@add-outputclass` attribute is present in the matching DITAVAL rule, the flagged element is treated as if the specified value is added to its `@outputclass` attribute.
 
-If a matching DITAVAL rule uses the attribute vaule `action="passthrough"`, a processor is instructed to pass the attribute directly through to rendered output, which enables flagging within rendering tools. How the attribute is passed through will depend on the requirements of those rendering tools.
+If a matching DITAVAL rule uses the attribute value `action="passthrough"`, a processor is instructed to pass the attribute directly through to rendered output, which enables flagging within rendering tools. How the attribute is passed through will depend on the requirements of those rendering tools.
 
 When the same element evaluates as both flagged and included, the element is both flagged and included. When the same element evaluates as both flagged and filtered \(for example, flagged because of a value for the `@audience` attribute and filtered because of a value for the `@product` attribute value\), the element is filtered.
 

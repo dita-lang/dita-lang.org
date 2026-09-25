@@ -21,7 +21,7 @@ In this scenario, a publisher wants to flag information that applies to administ
 -   **[Example: Combining a DITAVAL document with subject schemes](../../archSpec/base/example-ditaval-subjectscheme.md)**  
 A DITAVAL document can reference tokens that pull in additional topics from a subject scheme.
 -   **[Example: DITAVAL with conditions for groups](../../archSpec/base/example-ditaval-with-conditions-for-groups.md)**  
-In this advanced scenario, grouped values are used for filtewring within a conditional processing attribute.
+In this advanced scenario, grouped values are used for filtering within a conditional processing attribute.
 
 **Parent topic:**[Conditional processing](../../archSpec/base/condproc.md)
 

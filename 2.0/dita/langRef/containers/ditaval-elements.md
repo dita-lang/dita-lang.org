@@ -17,7 +17,7 @@ The `<revprop>` element in a DITAVAL document identifies a value of the `@rev` a
 -   **[startflag](../../langRef/ditaval/startflag.md)**  
 The `<startflag>` element in a DITAVAL document specifies information that identifies the beginning of flagged content. The information can be an image, alternate text, or both.
 -   **[style-conflict](../../langRef/ditaval/style-conflict.md)**  
-The `<style-conflict>` element in a DITAVAL document declares the behavior to be used when one or more flagging methods collide on the same element..
+The `<style-conflict>` element in a DITAVAL document declares the behavior to be used when one or more flagging methods collide on the same element.
 -   **[val](../../langRef/ditaval/val.md)**  
 The `<val>` element is the root element of a DITAVAL document.
 

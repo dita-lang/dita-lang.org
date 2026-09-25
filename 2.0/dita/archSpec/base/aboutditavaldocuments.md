@@ -19,7 +19,7 @@ Those rules in a DITAVAL document enable the following actions when a processor 
 1.  A DITAVAL rule can instruct processors to include matching content.
 2.  A DITAVAL rule can instruct processors to exclude matching content.
 3.  A DITAVAL rule can instruct processors to flag matching revisions.
-4.  A DITAVAL rule can instruct processors to flag matching content with styles also specified on the `<prop>` or `<revprop>` elemen.t
+4.  A DITAVAL rule can instruct processors to flag matching content with styles also specified on the `<prop>` or `<revprop>` element.
 5.  A DITAVAL rule can instruct processors to pass the matching attribute through to rendered output, for processors that are able to recognize and make use of the value.
 6.  A DITAVAL rule can instruct processors to treat the matching content as if the element has an `@outputclass` attribute, with the value specified in the `<prop>` or `<revprop>` element using `@add-outputclass`
 

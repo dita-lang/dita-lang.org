@@ -6,7 +6,7 @@ author: OASIS DITA Technical Committee
 
 Using a single `<ditavalref>` element as a child of a map or map branch indicates that the map or map branch is filtered using the rules specified in the referenced DITAVAL document.
 
-The following rules outline how the filtering conditions that are specified in DITAVAL document are applied:
+The following rules outline how the filtering conditions that are specified in a DITAVAL document are applied:
 
 -   **`<ditavalref>` element as a direct child of a map**
 

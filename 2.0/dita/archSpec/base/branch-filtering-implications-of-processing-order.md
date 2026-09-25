@@ -1,5 +1,5 @@
 ---
-author: OASIS DITA Technical Committee
+author: [OASIS DITA Technical Committee, OASIS DITA Technical Committee]
 ---
 
 # Branch filtering: Implications of processing order
