@@ -1,0 +1,17 @@
+---
+author: OASIS DITA Technical Committee
+---
+
+# Overview of branch filtering
+
+Maps or map branches can be filtered by adding a `<ditavalref>` element that specifies the DITAVAL document to use for that map or map branch.
+
+The `<ditavalref>` element is designed to manage conditional processing for the following use cases.
+
+1.  A map branch needs to be filtered using conditions that do not apply to the rest of the publication. exampleFor example, a root map might contain content that is written for both novice and expert users. However, the authors want to add a section that targets only novice users. Using branch filtering, a map branch can be filtered so that it only includes content germane to a novice audience, while the content of the rest of the map remains appropriate for multiple audiences.
+2.  A map branch needs to be presented differently for different audiences. exampleFor example, a set of software documentation might contain installation instructions that differ between operating systems. In that case, the map branch with the installation instructions needs to be filtered multiple times with distinct sets of conditions, while the rest of the map remains common to all operating systems.
+
+In addition to filtering, applications MAY support flagging at the branch level based on the referenced DITAVAL documents.
+
+**Parent topic:**[Branch filtering](../../archSpec/base/branch-filtering.md)
+

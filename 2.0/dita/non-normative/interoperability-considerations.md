@@ -1,0 +1,42 @@
+---
+author: OASIS DITA Technical Committee
+---
+
+# Processing interoperability considerations
+
+The DITA specification does not require processors to perform filtering, content reference resolution, key space construction, and other processing related to base DITA semantics in any particular order. This means that different conforming DITA processors might produce different results for the same initial data set and filtering conditions. DITA users and DITA implementers need to be aware of these potential differences in behavior when DITA content will be processed by different processors.
+
+In general, in any situation in which two elements interact during processing, applying filtering before or after the processing is done can result in different results when either or both of the elements is conditional.
+
+For conditional elements, an element is "applicable" if it is filtered in and "inapplicable" if it is filtered out.
+
+## Filtering and content reference resolution
+
+When two elements are merged as result of a content reference, the attributes of the two elements are combined. By default, the attributes of the referencing element take precedence over the referenced element. However, any attribute can specify the value "-dita-use-conref-target", which causes the referenced element attribute to take precedence. This means that the effective value of filtering attributes might reflect either the referencing element or the referenced element depending on how each attribute is configured on the referencing element. This in turn means that, in certain cases, filtering before resolving content references will produce a different result than when filtering is applied after resolving content references.
+
+In two cases, the order in which filtering is applied results in either an element being in the effective result or an element not being in the effective result. There is a third case in which there will be either an empty element \(and unresolvable content reference\) or no element.
+
+In the case where a referenced element is not applicable and the referencing element is explicitly applicable for the same condition \(that is, both elements specify values for the same filtering attribute and the referencing element is applicable\), if content references are resolved *before* filtering, the content reference is resolved and the effective value of the referencing element reflects the referenced element. If content referencing is resolved *after* filtering, the referenced element is filtered out and the content reference cannot be resolved, typically generating an error.
+
+The same scenario results in different results for the case of conref push. An applicable, referencing element can use conref push to replace another element that would otherwise be filtered out. If content references are resolved *before* filtering, the content is pushed and the effective value of the referenced element reflects the referencing element. If content referencing is resolved *after* filtering, the referenced element will be filtered out and the content reference can no longer be resolved.
+
+If the referencing element is not conditional and the referenced element is inapplicable, filtering applied before content reference resolution results in an unresolvable content reference. If filtering is applied after content resolution, the explicit condition on the referenced element becomes the effective value for that condition following content resolution and the result is then filtered out. The difference in these two cases is that in the first case the content reference cannot be resolved, resulting in a processing error and a potentially nonsensical element if the referencing element has required subelements \(for example, a content reference from a topic to another topic, where the referencing topic must have a title subelement\), but in the second case the element is filtered completely out.
+
+Different processing orders might also provide different results in the case where pushed content is grouped in an element that is filtered out. If filtering is applied before content resolution, that entire block of content \(the grouping element and the content to be pushed\) is filtered out before the content reference is resolved. If filtering is applied after content resolution, the push action will be resolved first so that content appears in the referenced location, after which the referencing element \(along with its grouping element\) is filtered from the original source location.
+
+## Filtering and key space resolution
+
+See [Keys and conditional processing](../archSpec/base/processing-key-references-general.md#keys-and-condproc) for a discussion of effective key definitions and conditional processing.
+
+As an implementation detail for key-space-constructing processors, if filtering is applied before constructing the key space, then the set of effective key definitions is simply the first definition of each unique key name. However, if filtering is applied after key space construction, and in particular, if a processor needs to allow dynamic resolution of keys based on different filtering specifications applied to the same constructed key space, then the set of effective key definitions is the first definition of each pair of unique key name and unique selection specification set. This second form of constructed key space would be needed by processors such as editors and content management systems that need to quickly provide different filtering-specific key bindings without reconstructing the entire key space for each new set of filtering conditions.
+
+For example, given a map that contains two definitions for the key "topic-01", one with an `@audience` value of "expert" and one with an `@audience` value of "novice", a filter-first processor would only have at most one effective key definition for the key name "topic-01", whichever of the two definitions was filtered in by the active filter specification and was the first definition encountered \(if both happen to be filtered in\). In a processor that supports dynamic key definition filtering, there would be two effective definitions for the key name "topic-01", one for `@audience` of "expert" and one for `@audience` of "novice". The processor would also need to maintain knowledge of the definition order of the two key definitions in order to correctly handle the case when both "expert" and "novice" are applicable for a given key access request \(in which case, whichever of the two definitions was first would be used as the effective value of the key\).
+
+## Link resolution
+
+If a cross reference, link, or other linking element is resolved to its target before filtering and the target is subsequently filtered out, the link would be to a non-existent target but might reflect properties of the target \(for example, a cross reference link text might reflect the target title\). If the link is resolved after filtering is applied and the target is filtered out, the link is to a non-existent target, which will result in a different link text. The rendition effect for the navigation link is the same: the link cannot be navigated because the target does not exist in the rendered result.
+
+## Topicref resolution
+
+Resolution of `<topicref>` elements before filtering can result in use of topic-provided navigation titles or metadata that would not be used if the target topic was filtered out before resolution. In both cases, the topicref as rendered would be to a missing topic.
+
