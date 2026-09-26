@@ -1,0 +1,14 @@
+---
+author: OASIS DITA Technical Committee
+---
+
+# Conformance
+
+An implementation is a conforming implementation of the DITA for Technical Content specification if it adds support for technical content elements while also conforming to the base DITA specification. A document is a conforming DITA for Technical Content document if it uses or specializes elements from the DITA for Technical Content specification while also conforming to the base DITA specification.
+
+**Draft comment:**robander   
+Are there any additional rules to conform here? For example, implementations must support abbreviated form, or anything else?
+
+**Draft comment:**robander   
+TO RESOLVE 18 May 2026: Leave this comment open until closer to the end of editing, and do a quick review looking for any conformance rules that may be required. Most likely candidate is abbreviated form; not sure if there are any others, all of the technical-content based formatting \(from book maps, to code phrases and xml mention, to syntax diagrams\) seems optional / up to the tool and not something that requires conformance
+
