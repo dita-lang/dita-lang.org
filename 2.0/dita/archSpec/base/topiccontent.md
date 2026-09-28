@@ -12,7 +12,7 @@ The content of all topics, regardless of topic type, is built on the same common
 
 -   **Sections and examples**
 
-    The body of a topic might contain divisions, such as sections and examples. They might contain block-level elements like titles and paragraphs and phrase-level elements like API names or text. It is recommend that sections have titles, whether they are entered directly into the `<title>` element or rendered using a fixed or default title.
+    The body of a topic might contain divisions, such as sections and examples. They might contain block-level elements like titles and paragraphs and phrase-level elements like API names or text. It is recommended that sections have titles, whether they are entered directly into the `<title>` element or rendered using a fixed or default title.
 
     Either body divisions or untitled sections or examples can be used to delimit arbitrary structures within a topic body. However, body divisions can nest, but sections and examples cannot contain sections.
 

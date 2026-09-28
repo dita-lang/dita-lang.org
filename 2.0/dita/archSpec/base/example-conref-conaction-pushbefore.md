@@ -6,7 +6,7 @@ author: OASIS DITA Technical Committee
 
 In this scenario, a `@conref` and `@conaction` are used to push content before an element in another topic.
 
-Consider the following topic, which is set up to push a step before a step in another topic. It needs to use two step elements to set up the reuse. The referencing element itself uses `conaction="mark"` to mark the referenced element. The element to be pushed immediately preceeds the marking element and uses `conaction="pushbefore"`:
+Consider the following topic, which is set up to push a step before a step in another topic. It needs to use two step elements to set up the reuse. The referencing element itself uses `conaction="mark"` to mark the referenced element. The element to be pushed immediately precedes the marking element and uses `conaction="pushbefore"`:
 
 ```
 <steps>

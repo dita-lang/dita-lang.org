@@ -6,7 +6,7 @@ author: OASIS DITA Technical Committee
 
 In this scenario, a simple DITAVAL document sets up rules for filtering and flagging based on conditional processing attributes.
 
-The following code sample illustrates a simple DITAVAL document that sets up two rules for filtering, and two rules for flagging.
+The following code sample illustrates a simple DITAVAL document that sets up two rules for filtering and two rules for flagging.
 
 ```
 <val>

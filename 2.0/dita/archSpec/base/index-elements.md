@@ -4,7 +4,7 @@ author: OASIS DITA Technical Committee
 
 # Index elements
 
-The contents of `<indexterm>` elements provides the text for the entries in an index. `<indexterm>` elements can be nested to create additional levels of indexing, such as secondary and tertiary index entries.
+The contents of `<indexterm>` elements provide the text for the entries in an index. `<indexterm>` elements can be nested to create additional levels of indexing, such as secondary and tertiary index entries.
 
 The following elements contain information that processors can use to generate indexes:
 

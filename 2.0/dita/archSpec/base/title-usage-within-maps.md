@@ -6,7 +6,7 @@ author: OASIS DITA Technical Committee
 
 Titles in DITA maps can serve different roles depending on where they are located. The `<titlealt>` element and the alternative-title domain also provide the ability to include a variety of different titles for additional purposes. This topic serves as a guide for how implementations generally treat titles when publishing DITA content.
 
-Map authors use titles to label maps and map structures. Some of these titles are expected to appear in any published version of the map, while others might serve as metadata or might be ignored entirely by a processor. In most cases, a processor can choose what titles to display and which to treat as metadata. While this topic is intended to lay out some common expectations, the specification does lay out some
+Map authors use titles to label maps and map structures. Some of these titles are expected to appear in any published version of the map, while others might serve as metadata or might be ignored entirely by a processor. In most cases, a processor can choose what titles to display and which to treat as metadata. This topic lays out some common expectations for titles in specific map contexts.
 
 -   **`<title>` in the root map**
 

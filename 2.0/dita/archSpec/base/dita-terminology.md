@@ -23,7 +23,7 @@ Certain terminology is used to discuss keys.
 -   **[Map terminology](../../archSpec/base/map-terminology.md)**  
 Certain terminology is used for DITA maps.
 -   **[Other terminology](../../archSpec/base/other-terminology.md)**  
-
+This topic defines terms for general concepts that commonly arise when discussing DITA.
 -   **[File extensions](../../archSpec/base/fileext.md)**  
 DITA uses certain file extensions for topics, maps, and conditional processing profiles.
 

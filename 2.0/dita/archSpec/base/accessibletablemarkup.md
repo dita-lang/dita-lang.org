@@ -32,7 +32,7 @@ The following list provides information about table features that have an effect
 
     -   **Simple table**
 
-        The `<sthead>` element can provide a single row header.
+        The `<sthead>` element can provide a single header row.
 
 -   **Row headers**
 

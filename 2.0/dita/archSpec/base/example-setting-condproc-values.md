@@ -24,7 +24,7 @@ In the example,
 
 -   The entire paragraph and list of options applies to an audience of administrator.
 -   The first configuration item applies only to the extendedProd product.
--   The second configuration option applies to both the baseProd and extendedProd products.
+-   The second configuration option applies to both the basicProd and extendedProd products.
 
 When combined with a DITAVAL document, these attributes can be used as a way to filter or flag the content when it is rendered.
 

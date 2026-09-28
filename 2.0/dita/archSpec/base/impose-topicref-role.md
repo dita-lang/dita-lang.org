@@ -18,7 +18,7 @@ The role created by a `<topicref>` is reflected by the `@class` hierarchy of the
 
 Specialized topic references achieve this behavior by setting up a default value for the `@impose-role` attribute on the new element: `impose-role="impose"`.
 
-When a role is imposed in this manner, it does not apply to all content referenced by the element. If a `<topicref>` refers to a branch of a map, the role is imposed only on the root element of that branch. If a `<topicref>` refers to an entire map, the role is imposed only on the highest-level topic references within that map. The role does not cascade to other nested referencs within the map. For example, if a `<chapter>` element applied that role to every reference in another map, that map would be made up only of chapters nested within chapters.
+When a role is imposed in this manner, it does not apply to all content referenced by the element. If a `<topicref>` refers to a branch of a map, the role is imposed only on the root element of that branch. If a `<topicref>` refers to an entire map, the role is imposed only on the highest-level topic references within that map. The role does not cascade to other nested references within the map. For example, if a `<chapter>` element applied that role to every reference in another map, that map would be made up only of chapters nested within chapters.
 
 For elements that do not create a role for the referenced content, the `@impose-role` attribute is defined with a default value indicating that the target of the reference keeps its original role: `impose-role="keeptarget"`. For example, the `<mapref>` element is a convenience element used to simplify references to other maps. It does not force the content in other maps to be treated as `<mapref>` - no special role is created for the referenced content. For this reason, it is defined in the grammar file with a fixed value of keeptarget.
 
@@ -34,8 +34,8 @@ In an RNG grammar file, this default value can be set as follows:
 
 ```
 <optional>
-  <attribute name="impose-role" a:defaultValue="keeptarget">
-    <value>keeptarget</value>
+  <attribute name="impose-role" a:defaultValue="impose">
+    <value>impose</value>
   </attribute>
 </optional>
 ```
@@ -121,7 +121,7 @@ The referenced map contains three branches as children of the root `<map>` eleme
 </map>
 ```
 
-Because the `<chapter>` element is defined with a fixed value of impose for the `@impose-role` attribute, processors will impose the "chapter" role on the highest-level references within the nested map. This means the processors imposes the role of "chapter" on all three branches in the nested map. As with the previous example, the "chapter" role is not imposed on the child topics in each branch. While processors do not need to literally resolve the content in a normal map, the effective result is similar to this merged map:
+Because the `<chapter>` element is defined with a fixed value of impose for the `@impose-role` attribute, processors will impose the "chapter" role on the highest-level references within the nested map. This means the processors impose the role of "chapter" on all three branches in the nested map. As with the previous example, the "chapter" role is not imposed on the child topics in each branch. While processors do not need to literally resolve the content in a normal map, the effective result is similar to this merged map:
 
 ```
 <bookmap>

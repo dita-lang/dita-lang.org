@@ -22,7 +22,7 @@ Consider the following topic:
 </task>
 ```
 
-The key is defined as a reference to a resue library:
+The key is defined as a reference to a reuse library:
 
 ```
 <map>

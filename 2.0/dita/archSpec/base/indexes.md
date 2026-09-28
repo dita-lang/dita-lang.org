@@ -9,7 +9,7 @@ Processors can generate indexes from the content of indexing elements.
 -   **[Index overview](../../archSpec/base/index-overview.md)**  
 DITA provides several elements to enable indexing. Whether and how an index is rendered will vary based on implementation decisions and rendering formats.
 -   **[Index elements](../../archSpec/base/index-elements.md)**  
-The contents of `<indexterm>` elements provides the text for the entries in an index. `<indexterm>` elements can be nested to create additional levels of indexing, such as secondary and tertiary index entries.
+The contents of `<indexterm>` elements provide the text for the entries in an index. `<indexterm>` elements can be nested to create additional levels of indexing, such as secondary and tertiary index entries.
 -   **[Location of indexterm elements](../../archSpec/base/location-of-indexterm-elements.md)**  
 `<indexterm>` elements can occur in topic prologs, anywhere else in DITA topics, and in DITA maps.
 -   **[Index locators](../../archSpec/base/index-page-references.md)**  

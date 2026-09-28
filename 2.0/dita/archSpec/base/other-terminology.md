@@ -4,6 +4,8 @@ author: OASIS DITA Technical Committee
 
 # Other terminology
 
+This topic defines terms for general concepts that commonly arise when discussing DITA.
+
 -   **convenience elements**
 
     Specialized element types that are equivalent to base element types with certain attributes configured.

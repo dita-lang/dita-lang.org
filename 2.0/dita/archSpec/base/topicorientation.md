@@ -8,7 +8,7 @@ Topic-oriented writing is a disciplined approach to writing that emphasizes modu
 
 -   **Conciseness and appropriateness**
 
-    Readers who are trying to learn or do something quickly appreciate information that is written in a structure that is easy to follow and contains only the information needed to complete that task or grasp a fact. Recipes, encyclopedia entries, car repair procedures; all serve up a uniquely focused unit of information. The topic contains everything required by the reader.
+    Readers who are trying to learn or do something quickly appreciate information that is written in a structure that is easy to follow and contains only the information needed to complete that task or grasp a fact. Recipes, encyclopedia entries, and car repair procedures, all serve up a uniquely focused unit of information. The topic contains everything required by the reader.
 
 -   **Locational independence**
 

@@ -50,7 +50,7 @@ expected points in column c2 and actual points in column c3.</desc>
 
 The output might be rendered in the following way:
 
-![The image shows a three-column table. The first column lists names, the second column lists expected points, and the third column lists actual points. There are two header rows that contains spans. The header row is shaded with green, and the text in the header column and rows is bold. The edges of the screen capture are tattered, to indicate that the image is part of a larger document.](../../langRef/images/table-manual-accessibility.jpg)
+![The image shows a three-column table. The first column lists names, the second column lists expected points, and the third column lists actual points. There are two header rows that contain spans. The header row is shaded with green, and the text in the header column and rows is bold. The edges of the screen capture are tattered, to indicate that the image is part of a larger document.](../../langRef/images/table-manual-accessibility.jpg)
 
 The rendered HTML used by a screen reader might look as follows.
 

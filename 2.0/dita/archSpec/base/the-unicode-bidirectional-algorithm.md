@@ -9,7 +9,7 @@ The Unicode Bidirectional Algorithm plays a critical role in ensuring that bidir
 Bidirectional text is text that contains text in both text directionalities, right-to-left \(RTL\) and left-to-right \(LTR\). Common examples of bidirectional text include the following:
 
 -   Documents in RTL languages such as Arabic, Hebrew, Farsi, Urdu, and Yiddish that include numerics or embedded sections of LTR text
--   Documents that contain text in both LTR and RLT languages, for example, a topic that lists the names of a movie in multiple languages
+-   Documents that contain text in both LTR and RTL languages, for example, a topic that lists the names of a movie in multiple languages
 
 The Unicode Bidirectional Algorithm specifies how text should be rendered for a given language. For more information about the Unicode Bidirectional Algorithm, see the following resources:
 

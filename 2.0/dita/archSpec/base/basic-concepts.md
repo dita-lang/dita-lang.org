@@ -24,7 +24,7 @@ DITA has been designed to satisfy requirements for information typing, semantic 
 
 -   **Content reuse**
 
-    The DITA `@conref`, `@conkeyref`, `@conrefend`, and `@conaction` attributes provide mechanisms for reusing content within DITA topics or maps. These mechanisms can be used both to pull and push content. See [Content reuse](conref.md) for more information
+    The DITA `@conref`, `@conkeyref`, `@conrefend`, and `@conaction` attributes provide mechanisms for reusing content within DITA topics or maps. These mechanisms can be used both to pull and push content. See [Content reuse](conref.md) for more information.
 
 -   **Conditional processing**
 

@@ -7,7 +7,7 @@ author: OASIS DITA Technical Committee
 The Darwin Information Typing Architecture \(DITA\) specification defines a set of document types for authoring and aggregating topic-oriented information, as well as a set of mechanisms for combining, extending, and constraining document types.
 
 -   **[Terminology](../introduction/terminology.md)**  
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT, "RECOMMEND", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [**\[RFC-2119\]**](normative-references.md#RFC-2119) and **\[RFC8174\]** when, and only when, they appear in all capitals, as shown here.
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMEND", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [**\[RFC-2119\]**](normative-references.md#RFC-2119) and **\[RFC8174\]** when, and only when, they appear in all capitals, as shown here.
 -   **[References](../introduction/references.md)**  
 This section contains the normative and informative references that are used in this document.
 -   **[Normative versions of DITA grammar files](../archSpec/base/using-relax-ng.md)**  

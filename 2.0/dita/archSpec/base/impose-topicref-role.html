@@ -4,7 +4,7 @@ title: 'Imposing roles when referencing a map'
 description: 'When specialized topicref elements reference a map, they might imply a semantic role for the referenced content. The impose-role attribute provides a mechanism to declare that such references impose their original role on referenced content.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: 'ce7c361d66152e42d7d1f89ed3831967f30a9755'
+commit: '48356eef297bdc98f565febb1dd5f4cdddd291e2'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -59,7 +59,7 @@ classes: ''
       element. If a <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> refers to a branch of a map, the role is
       imposed only on the root element of that branch. If a <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> refers
       to an entire map, the role is imposed only on the highest-level topic references within that
-      map. The role does not cascade to other nested referencs within the map. For example, if a
+      map. The role does not cascade to other nested references within the map. For example, if a
         <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> element applied that role to every reference in another
       map, that map would be made up only of chapters nested within chapters.</p>
     <p class="p">For elements that do not create a role for the referenced content, the
@@ -92,8 +92,8 @@ classes: ''
         for content in the other map.</p>
       <div class="p">In an RNG grammar file, this default value can be set as
         follows:<pre class="pre codeblock"><code>&lt;optional&gt;
-  &lt;attribute name="impose-role" a:defaultValue="keeptarget"&gt;
-    &lt;value&gt;keeptarget&lt;/value&gt;
+  &lt;attribute name="impose-role" a:defaultValue="impose"&gt;
+    &lt;value&gt;impose&lt;/value&gt;
   &lt;/attribute&gt;
 &lt;/optional&gt;</code></pre></div>
       <div class="p">In a DTD grammar file, this default value can be set as
@@ -167,10 +167,10 @@ classes: ''
       <div class="p">Because the <code class="keyword markupname xmlelement">&lt;chapter&gt;</code> element is defined with a fixed value of
           <span class="keyword">impose</span> for the <code class="keyword markupname xmlatt">@impose-role</code> attribute, processors will
         impose the "chapter" role on the highest-level references within the nested map. This means
-        the processors imposes the role of "chapter" on all three branches in the nested map. As
-        with the previous example, the "chapter" role is not imposed on the child topics in each
-        branch. While processors do not need to literally resolve the content in a normal map, the
-        effective result is similar to this merged map:<pre class="pre codeblock"><code>&lt;bookmap&gt;
+        the processors impose the role of "chapter" on all three branches in the nested map. As with
+        the previous example, the "chapter" role is not imposed on the child topics in each branch.
+        While processors do not need to literally resolve the content in a normal map, the effective
+        result is similar to this merged map:<pre class="pre codeblock"><code>&lt;bookmap&gt;
   &lt;!-- ... title, front matter, and other chapters --&gt;
   &lt;chapter href="branch1.dita"&gt; &lt;!-- ... --&gt; &lt;/chapter&gt;
   &lt;chapter href="branch2.dita"&gt;

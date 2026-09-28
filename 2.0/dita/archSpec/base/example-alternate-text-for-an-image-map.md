@@ -65,7 +65,7 @@ The following table lists the link targets and alternate text for each of the de
 |----|--------------|-----------|
 |**1**|Charlotte Brontë|[Wikipedia entry for Charlotte Brontë](https://en.wikipedia.org/wiki/Charlotte_Bront%C3%AB)|
 |**2**|Emily Brontë|[Wikipedia entry for Emily Brontë](https://en.wikipedia.org/wiki/Emily_Bront%C3%AB)|
-|**3**|Anne Brontë|[Wikipeda entry for Anne Brontë](https://en.wikipedia.org/wiki/Anne_Bront%C3%AB)|
+|**3**|Anne Brontë|[Wikipedia entry for Anne Brontë](https://en.wikipedia.org/wiki/Anne_Bront%C3%AB)|
 
 **Parent topic:**[Examples of DITA markup for accessibility](../../archSpec/base/examples-of-dita-markup-for-accessibility.md)
 

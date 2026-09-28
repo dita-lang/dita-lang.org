@@ -36,7 +36,7 @@ In the following sample, the referencing element is a paragraph. It references a
 </topic>
 ```
 
-In the resolved topic, all list items from the starting paragraph to the ending paragraph are pulled in to replace the referencing element. The `@id` attributes on the referenced elements are not preserved, but any `@id` attributes on intermediate elements are preserved.
+In the resolved topic, all elements from the starting paragraph to the ending paragraph are pulled in to replace the referencing element. The `@id` attributes on the referenced elements are not preserved, but any `@id` attributes on intermediate elements are preserved.
 
 ```
 <topic id="y">

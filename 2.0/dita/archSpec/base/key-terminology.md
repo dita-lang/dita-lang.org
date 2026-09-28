@@ -10,7 +10,7 @@ Certain terminology is used to discuss keys.
 
     For the purposes of keys and key resolution, one of the following:
 
-    -   An object addressed by URI
+    -   An object addressed by a URI
     -   Metadata specified on a resource, such as a `@scope` or `@format` attribute
     -   Text or metadata located within a `<topicmeta>` element
 -   **key**

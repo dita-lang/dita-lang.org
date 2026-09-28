@@ -104,7 +104,7 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     It is an error if there is more than one `<sort-as>` child for a given `<indexterm>` element.
 
--   **[DITAERR-0250](../langRef/ditaval/prop.md#d4536e258)**
+-   **[DITAERR-0250](../langRef/ditaval/prop.md#d4536e261)**
 
     The following markup in a DITAVAL document is an error condition:
 
@@ -188,7 +188,7 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     The available height is implementation dependent, but if feasible, it is suggested to be the page \(or table cell\) height or some other reasonable value.
 
--   **[DITAIMP-0110](../langRef/ditaval/prop.md#d4536t447)**
+-   **[DITAIMP-0110](../langRef/ditaval/prop.md#d4536t450)**
 
     How the attribute is preserved and used is implementation dependent.
 
@@ -421,7 +421,7 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
         
         <indexterm>Potato
           <indexterm end="yellow"/>
-        <indexterm>
+        </indexterm>
         ```
 
         **Draft comment:**robander   
@@ -863,13 +863,13 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     Processors MUST strip this element from output by default.
 
--   **[DITAREQ-1390](../langRef/ditaval/prop.md#d4536e161)**
+-   **[DITAREQ-1390](../langRef/ditaval/prop.md#d4536e164)**
 
     For the `@color` and `@backcolor` attributes on `<prop>` and `<revprop>`, processors SHOULD support at least the following values:
 
     -   The color names listed under the heading "&lt;color&gt;" in [the XSL version 1.1 specification](http://www.w3.org/TR/2006/REC-xsl11-20061205/#datatype)
     -   The associated hex code
--   **[DITAREQ-1400](../langRef/ditaval/prop.md#d4536e201)**
+-   **[DITAREQ-1400](../langRef/ditaval/prop.md#d4536e204)**
 
     For the `@style` attribute on `<prop>` and `<revprop>`, processors SHOULD support the following tokens:
 
@@ -878,15 +878,15 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
     -   italics
     -   overline
     -   underline
--   **[DITAREQ-1410](../langRef/ditaval/prop.md#d4536e233)**
+-   **[DITAREQ-1410](../langRef/ditaval/prop.md#d4536e236)**
 
     In addition, processors MAY support proprietary tokens for the `@style` attribute.
 
--   **[DITAREQ-1420](../langRef/ditaval/prop.md#d4536t240)**
+-   **[DITAREQ-1420](../langRef/ditaval/prop.md#d4536t243)**
 
     Such tokens SHOULD have a processor-specific prefix to identify them as proprietary.
 
--   **[DITAREQ-1430](../langRef/ditaval/prop.md#d4536t243)**
+-   **[DITAREQ-1430](../langRef/ditaval/prop.md#d4536t246)**
 
     If a processor encounters an unsupported style token, it MAY issue a warning, and it MAY render content that is flagged with such a style token by using some default formatting.
 

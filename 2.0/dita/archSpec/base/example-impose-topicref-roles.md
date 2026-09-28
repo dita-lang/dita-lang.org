@@ -18,11 +18,11 @@ Consider the scenario of a `<chapter>` element from the Bookmap specialization t
 
 -   **Referenced map contains a single `<appendix>` element**
 
-    The "chapter" role is imposed on the `<appendix>` element, which is processed as it were a `<chapter>` element.
+    The "chapter" role is imposed on the `<appendix>` element, which is processed as if it were a `<chapter>` element.
 
 -   **Referenced map contains a single `<part>` element, with nested `<chapter>` elements**
 
-    The "chapter" role is imposed on the `<part>` element, which is processed as it were a `<chapter>` element. Nested `<chapter>` elements might not be understandable by processors, which can treat this as an error or recover as they are able.
+    The "chapter" role is imposed on the `<part>` element, which is processed as if it were a `<chapter>` element. Nested `<chapter>` elements might not be understandable by processors, which can treat this as an error or recover as they are able.
 
 -   **`<chapter>` element references a single `<topicref>` element rather than a map**
 

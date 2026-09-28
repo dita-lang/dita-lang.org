@@ -35,8 +35,6 @@ Certain concepts are critical for a full understanding of conditional processing
 
     DITAVAL documents also support flagging by passing through conditional processing attributes into rendered output, and by adding `@outputclass` values to elements.
 
-    .
-
 
 **Parent topic:**[Conditional processing](../../archSpec/base/condproc.md)
 

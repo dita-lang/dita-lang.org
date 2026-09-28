@@ -10,7 +10,7 @@ A convenience element is a specialization that adds clearer intent, default beha
 
 Convenience specializations in maps can reduce repetitive attribute authoring, make map structures easier to read, and improve consistency across large information sets. They also enable information architects to express intent directly in markup, rather than relying on implicit conventions.
 
-The map group domain illustrates this pattern. Every element in this domain is a specialization of `<topicref>` created to support common authoring pattern. The same functions can be accomplished with `<topicref>`, but the elements are designed to make authoring easier and less error-prone.
+The map group domain illustrates this pattern. Every element in this domain is a specialization of `<topicref>` created to support a common authoring pattern. The same functions can be accomplished with `<topicref>`, but the elements are designed to make authoring easier and less error-prone.
 
 exampleFor example, the `<topichead>` and `<topicgroup>` elements each provide a way to group other topics without directly referencing another resource. Each of these elements removes `@href` and `@keyref` while keeping most other attributes from the base `<topicref>` element. By also placing restrictions on the use of titles, the `<topicgroup>` element also provides a clearer way to group topic references without impacting the navigation hierarchy of the map.
 

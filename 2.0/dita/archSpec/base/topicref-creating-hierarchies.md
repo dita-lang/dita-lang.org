@@ -16,7 +16,7 @@ Map authors can use `<topicref>` elements to define the structural organization 
 
 -   **Next/previous relationships**
 
-    Within a given branch of the map hierarchy, sibling `<topicref>` elements are ordered by document order. While these relationships are considered undered by default, processors can use this order in some contexts to determine effective next/previous relationships. Authors can also use `@collection-type` to make the next/previous ordering explicit.
+    Within a given branch of the map hierarchy, sibling `<topicref>` elements are ordered by document order. While these relationships are considered unordered by default, processors can use this order in some contexts to determine effective next/previous relationships. Authors can also use `@collection-type` to make the next/previous ordering explicit.
 
 
 Hierarchy and sequence are complementary. Nesting establishes containment and context, while ordering establishes progression.

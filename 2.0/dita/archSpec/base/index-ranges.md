@@ -8,7 +8,7 @@ Authors can use the `@start` and `@end` attributes on a pair of `<indexterm>` el
 
 The start of an index range is indicated by an `<indexterm>` with a `@start` attribute. This is called a start-of-range element.
 
-The end of an index range is indicated by an `<indexterm>` element with an `@end` attribute with a value that matches the `@start` attribute on the start element. This is called an end-of-range element. End-of-range element should contain no content or nested elements.
+The end of an index range is indicated by an `<indexterm>` element with an `@end` attribute with a value that matches the `@start` attribute on the start element. This is called an end-of-range element. An end-of-range element should contain no content or nested elements.
 
 The start-of-range and end-of-range elements must be leaf `<indexterm>` elements. If part of a multilevel index entry, the start-of-range and end-of-range elements must be at the same level of the hierarchy.
 
@@ -45,7 +45,7 @@ Processors that support index ranges SHOULD do the following:
     
     <indexterm>Potato
       <indexterm end="yellow"/>
-    <indexterm>
+    </indexterm>
     ```
 
     **Draft comment:**robander   

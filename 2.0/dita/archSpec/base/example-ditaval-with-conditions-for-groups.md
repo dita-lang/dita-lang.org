@@ -35,7 +35,7 @@ Remember that with groups, if all values inside of a single group evaluate to "e
 -   `<p product="database(dbFIRST dbSECOND newDB)">` is included, because both "dbFIRST" and "dbSECOND" are included, so the group evaluates to include.
 -   `<p product="database(newDB) appServer(mySERVER)">` is filtered out, because the token "newDB" is excluded when found in the database group. The entire "database" group on this paragraph evaluates to "exclude", so the element is excluded, regardless of how the "appServer" group evaluates.
 
-**Note:** If two groups with the same name exist on different attributes, each group will evaluate the same way. For example, rules for the database group in this sample would evaluate the same whether the group is used within `@product` or `@platform`. See [Conditional processing](condproc.md) for suggestions on how to handle similar groups on different attributes.
+**Note:** When two groups with the same name exist on different attributes, a DITAVAL rule that targets the group name applies to each group in the same way. For example, the rules for the database group in this sample would evaluate the same whether the group is used within `@product` or `@platform`. See [Conditional processing](condproc.md) for suggestions on how to handle similar groups on different attributes.
 
 **Parent topic:**[Examples of conditional processing](../../archSpec/base/examples-of-conditional-processing.md)
 

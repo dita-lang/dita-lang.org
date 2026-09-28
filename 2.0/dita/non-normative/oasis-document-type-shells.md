@@ -8,15 +8,15 @@ The DITA specification contains a starter set of document-type shells. These doc
 
 The following table lists the document-type shells that are included in the base DITA edition and the domains that are integrated into them.
 
-<table><thead><tr><th align="left" id="d230482e32">
+<table><thead><tr><th align="left" id="d230475e32">
 
 Document-type shell
 
-</th><th align="left" id="d230482e36">
+</th><th align="left" id="d230475e36">
 
 Domains included
 
-</th><th align="left" id="d230482e40">
+</th><th align="left" id="d230475e40">
 
 Domains NOT included
 
