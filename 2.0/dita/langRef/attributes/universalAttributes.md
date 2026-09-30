@@ -4,7 +4,7 @@ author: [OASIS DITA Technical Committee, OASIS DITA Technical Committee]
 
 # Universal attribute group
 
-The universal attribute group defines a set of common attributes that are available on almost every DITA element. The universal attribute group includes all attributes from the ID, localization, and metadata attribute groups, plus the `@class` and `@outputclass` attributes.
+The universal attribute group collects a set of common attributes that are available on almost every DITA element. The universal attribute group includes all attributes from the ID, localization, and metadata attribute groups, plus the `@class` and `@outputclass` attributes.
 
 **Draft comment:**Kristen J Eberlein 29 December 2021  
 
@@ -14,13 +14,9 @@ This is something wrong with the organizational structure of this topic ... Look
 **Draft comment:**robander   
 TO RESOLVE 13 May 2026: Not sure what to change here. Looking at the topic at dita-lang.org, the only thing that really stands out is the heading "Common attribute groups". Maybe we can delete that title, check the remaining content in that section for accuracy, and be done?
 
-## Common attribute groups
+## Attributes included with the universal attibutes
 
-The following attribute groups are referenced in this specification. They are also used in the grammar files when the element attributes are defined.
-
--   **Universal attributes**
-
-    Includes `@class` and `@outputclass`, along with every attribute in the ID, localization, and metadata attribute groups.
+The following common attribute groups are referenced in this specification. The universal attributes group includes each attribute from the following groups, along with `@class` and `@outputclass`.
 
 -   **ID attributes**
 
@@ -149,7 +145,7 @@ The universal attributes for OASIS DITA elements are defined below. Specialized 
 
 -   **`@outputclass`**
 
-    Specifies a role that the element is playing. The role should be consistent with the basic semantic and expectations for the element. In particular, the `@outputclass` attribute can be used for styling during output processing; HTML output will typically preserve `@outputclass` for CSS processing.
+    Specifies a role that the element is playing. The role should be consistent with the basic semantics and expectations for the element. In particular, the `@outputclass` attribute can be used for styling during output processing; HTML output will typically preserve `@outputclass` for CSS processing.
 
 -   **`@platform` _\(specialized attribute\)_**
 

@@ -6,7 +6,7 @@ author: OASIS DITA Technical Committee
 
 Each DITA grammar file has a globally-unique identifier. This identifier can reference either the latest version or a specific version of the grammar file.
 
-Each of the following grammar files has globally-unique identifier:
+Each of the following grammar files has a globally-unique identifier:
 
 -   Document-type shell
 -   Structural vocabulary module

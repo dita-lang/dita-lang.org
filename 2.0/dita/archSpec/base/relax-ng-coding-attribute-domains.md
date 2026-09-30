@@ -22,7 +22,7 @@ An attribute-domain module consists of a single file, which has three sections:
 
     example
 
-    For example, the following code samples shows the the `@audience` specialization of `@props`:
+    For example, the following code sample shows the the `@audience` specialization of `@props`:
 
     ```
     <define name="audienceAtt-d-attribute">

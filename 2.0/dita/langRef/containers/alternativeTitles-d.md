@@ -13,7 +13,7 @@ A navigation title is an alternative title for a resource. It is designed for si
 -   **[searchtitle](../../langRef/base/searchtitle.md)**  
 A search title is an alternative title that is displayed by search tools.
 -   **[subtitle](../../langRef/base/subtitle.md)**  
-A subtitle is an subordinate title for a resource. It is designed to augment the information about the resource in certain display contexts.
+A subtitle is a subordinate title for a resource. It is designed to augment the information about the resource in certain display contexts.
 -   **[titlehint](../../langRef/base/titlehint.md)**  
 A title hint provides information to map authors about the title of the referenced resource. This is useful if the referenced resources are not available.
 

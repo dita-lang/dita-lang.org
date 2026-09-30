@@ -12,7 +12,7 @@ For single-value attributes, once a value is established at a higher-precedence 
 
 The complete normative cascading algorithm is defined in [Processing cascading attributes in a map](../../common/../archSpec/base/processing-cascading-attributes-in-a-map.md).
 
-For map processing details, including haw attributes cascade across referenced maps and the rule that processing-supplied defaults do not cascade to referenced maps, see [Processing cascading attributes in a map](processing-cascading-attributes-in-a-map.md) and [Map-to-map cascading behaviors](map-to-map-cascading-of-metadata.md).
+For map processing details, including how attributes cascade across referenced maps and the rule that processing-supplied defaults do not cascade to referenced maps, see [Processing cascading attributes in a map](processing-cascading-attributes-in-a-map.md) and [Map-to-map cascading behaviors](map-to-map-cascading-of-metadata.md).
 
 For controlled-value binding and validation behavior, see [Binding controlled values to an attribute](binding-controlled-values-to-attribute.md) and [Processing controlled attribute values](processing-controlled-attribute-values.md).
 

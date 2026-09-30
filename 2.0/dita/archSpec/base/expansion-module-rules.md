@@ -8,13 +8,13 @@ There are certain rules that apply to the design and implementation of expansion
 
 -   **Specialization base of expanded elements**
 
-    Elements that are added to content models by expansion models must be specializations of existing elements that are permitted in the original content model.
+    Elements that are added to content models by expansion modules must be specializations of existing elements that are permitted in the original content model.
 
 -   **Content model of expanded elements**
 
-    Elements that are added to content models by expansion models must be allowed only where their specialization base is allowed.
+    Elements that are added to content models by expansion modules must be allowed only where their specialization base is allowed.
 
-    exampleFor example, when creating an expansion model that adds a specialization of `<data>` to `<ol>`, the specialization of `<data>` must only be allowed before any `<li>` elements, as that is the only place that the `<data>` element is allowed in the content model for an ordered list.
+    exampleFor example, when creating an expansion module that adds a specialization of `<data>` to `<ol>`, the specialization of `<data>` must only be allowed before any `<li>` elements, as that is the only place that the `<data>` element is allowed in the content model for an ordered list.
 
 -   **Ordinality of expanded elements**
 

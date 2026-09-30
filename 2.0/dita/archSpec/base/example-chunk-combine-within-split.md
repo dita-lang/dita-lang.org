@@ -27,9 +27,9 @@ Assume also that no other `@chunk` attributes are specified in the map.
 
 The following points are true when `@chunk` is evaluated:
 
--   The document `splitme.dita` is rendered as one result document for each topic.. The same is true for any other topic document within the map branch.
--   The second map branch, where the outermost `<topicref>` elements references `exception.dita`,is rendered as a single result document that combines all topic documents within the map branch.
--   The document `splitmetoo.dita` is rendered as one result document for each topic.. The same is true for any other topic document within the map branch.
+-   The document `splitme.dita` is rendered as one result document for each topic. The same is true for any other topic document within the map branch.
+-   The second map branch, where the outermost `<topicref>` element references `exception.dita`, is rendered as a single result document that combines all topic documents within the map branch.
+-   The document `splitmetoo.dita` is rendered as one result document for each topic. The same is true for any other topic document within the map branch.
 
 **Parent topic:**[Examples of the chunk attribute](../../archSpec/base/examples-of-chunking.md)
 

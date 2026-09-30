@@ -2,7 +2,7 @@
 author: OASIS DITA Technical Committee
 ---
 
-# Example: How `chunk="combine"` effects the map hierarchy
+# Example: How `chunk="combine"` affects the map hierarchy
 
 Special attention is necessary when combining a nested map hierarchy that includes documents with their own nested topics.
 
@@ -67,7 +67,7 @@ Now consider the following three source documents, each of which includes nested
 
 When `chunk="combine"` is evaluated, the three source documents are combined into one. Both the ancestor and middle documents have child topics that need to be taken into account:
 
--   `ancestor.dita` has a root `<dita>` element, with several root-level topics. After evaluating the `@chunk` attribute, content from `middle.dita` is placed after the topic with `id="ancestor-last-child"`in `ancestor.dita`.
+-   `ancestor.dita` has a root `<dita>` element, with several root-level topics. After evaluating the `@chunk` attribute, content from `middle.dita` is placed after the topic with `id="ancestor-last-child"` in `ancestor.dita`.
 -   `middle.dita` does not have a `<dita>` element, but it does have a nested topic, so content from `child.dita` is located after that nested topic.
 
 In each case, the original map hierarchy is preserved.

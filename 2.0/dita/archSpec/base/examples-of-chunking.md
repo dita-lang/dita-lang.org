@@ -14,7 +14,7 @@ When a processor would typically render each topic document as an independent re
 When a publishing system typically would render each topic document as an independent result document, the `@chunk` attribute can be used to render individual branches of a map as single documents.
 -   **[Example: Using chunk to combine groups of topics](../../archSpec/base/example-chunk-combine-group.md)**  
 The `@chunk` attribute can be used on grouping elements to combine multiple source documents into one result document.
--   **[Example: How chunk="combine" effects the map hierarchy](../../archSpec/base/example-chunk-combine-nested-topics.md)**  
+-   **[Example: How chunk="combine" affects the map hierarchy](../../archSpec/base/example-chunk-combine-nested-topics.md)**  
 Special attention is necessary when combining a nested map hierarchy that includes documents with their own nested topics.
 -   **[Example: Using chunk to split documents](../../archSpec/base/example-chunk-split.md)**  
 When topics are authored or generated in a single DITA document, specifying`chunk="split"` instructs processors to render them individually when possible.
@@ -25,7 +25,7 @@ The `@chunk` attribute is ignored in some cases, such as when `chunk="combine"` 
 -   **[Example: Using chunk="combine" when the root map specifies chunk="split"](../../archSpec/base/example-chunk-combine-within-split.md)**  
 While `@chunk` attributes are ignored when `chunk="combine"` is already in effect, it is possible to use `chunk="combine"` when `chunk="split"` is in effect.
 -   **[Example: Managing links when chunking](../../archSpec/base/example-chunk-managing-links.md)**  
-If a topic is referenced more than once and one of those instances involves chunking, links to that topic might be ambiguous. In most of such cases, using key references to keys that are defined directly on the chunked instance of the topic will give the correct result.
+If a topic is referenced more than once and one of those instances involves chunking, links to that topic might be ambiguous. In most such cases, using key references to keys that are defined directly on the chunked instance of the topic will give the correct result.
 
 **Parent topic:**[Chunking](../../archSpec/base/chunking.md)
 

@@ -37,19 +37,19 @@ The paragraphs are used by content reference from other topics, including the `u
 
 Processors must consider different contexts when resolving `<xref>` references within the referenced paragraphs. The rendered cross references in `using-topic-01.dita` are shown in the following table.
 
-<table id="simpletable_pbc_f3g_scc"><thead><tr><th align="left" id="d200968e53">
+<table id="simpletable_pbc_f3g_scc"><thead><tr><th align="left" id="d200848e53">
 
 Paragraph
 
-</th><th align="left" id="d200968e56">
+</th><th align="left" id="d200848e56">
 
 Value of `@id` attribute on conrefed paragraph
 
-</th><th align="left" id="d200968e62">
+</th><th align="left" id="d200848e62">
 
 `<xref>` within conrefed paragraph
 
-</th><th align="left" id="d200968e67">
+</th><th align="left" id="d200848e67">
 
 Resolution
 

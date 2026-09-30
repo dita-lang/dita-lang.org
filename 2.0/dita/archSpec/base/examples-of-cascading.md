@@ -4,10 +4,10 @@ author: OASIS DITA Technical Committee
 
 # Examples of metadata cascading
 
-These examples illustrate the processing expectations for cascading metadata. The processing examples use either before and after sample markup or expanded syntax that shows the equivalent markup withough cascading.
+These examples illustrate the processing expectations for cascading metadata. The processing examples use either before and after sample markup or expanded syntax that shows the equivalent markup without cascading.
 
 -   **[Example: How map-level metadata elements cascade to the referenced topics](../../archSpec/base/example-cascade-elements.md)**  
-In this scenario, elements located in the`<topicmeta>`element for a map cascade to the referenced topics.
+In this scenario, elements located in the `<topicmeta>`element for a map cascade to the referenced topics.
 -   **[Example: How metadata elements cascade from one map to another](../../archSpec/base/example-cascade-map-to-map-elements.md)**  
 In this scenario, a metadata element that is located in a map reference cascades to the topics that are referenced in a nested map.
 -   **[Example: How attributes cascade from one map to another](../../archSpec/base/example-cascade-map-to-map-attributes.md)**  

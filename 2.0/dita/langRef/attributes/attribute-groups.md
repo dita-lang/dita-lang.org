@@ -4,7 +4,7 @@ author: [OASIS DITA Technical Committee, OASIS DITA Technical Committee]
 
 # Attribute groups
 
-Many of the attributes used on DITA elements are defined in attribute groups. These attribute groups are used both in the grammar files and the specification,
+Many of the attributes used on DITA elements are defined in attribute groups. These attribute groups are used both in the grammar files and in the specification.
 
 ## Architectural attributes
 
@@ -79,7 +79,7 @@ This group contains attributes that are frequently used on map elements.
 
     -   **family**
 
-        Indicates a tight grouping in which each of the referenced topics not only relates to the current topic but also relate to each other.
+        Indicates a tight grouping in which each of the referenced topics not only relates to the current topic but also relates to each other.
 
         **Draft comment:**Kristen J Eberlein 28 September 2022  
         
@@ -264,7 +264,7 @@ This group contains attributes that are frequently used on map elements.
 
 ## Complex table attributes
 
-This group includes attributes that are defined on complex table elements. Unless other noted, these attributes are part of the OASIS Exchange Table Model. Complex table elements typically use only a subset of the attributes that are defined in this group.
+This group includes attributes that are defined on complex table elements. Unless otherwise noted, these attributes are part of the OASIS Exchange Table Model. Complex table elements typically use only a subset of the attributes that are defined in this group.
 
 -   **`@align` \(complex table attributes\)**
 
@@ -733,7 +733,7 @@ This group defines a set of attributes that are available on almost all DITA ele
 
 -   **`@outputclass`**
 
-    Specifies a role that the element is playing. The role should be consistent with the basic semantic and expectations for the element. In particular, the `@outputclass` attribute can be used for styling during output processing; HTML output will typically preserve `@outputclass` for CSS processing.
+    Specifies a role that the element is playing. The role should be consistent with the basic semantics and expectations for the element. In particular, the `@outputclass` attribute can be used for styling during output processing; HTML output will typically preserve `@outputclass` for CSS processing.
 
 
 **Parent topic:**[Attributes](../../langRef/attributes/attributes.md)

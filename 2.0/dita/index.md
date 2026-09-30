@@ -205,7 +205,7 @@
             -   [Example: Using chunk to combine all documents into one](archSpec/base/example-chunk-combine-all.md)
             -   [Example: Using chunk to render a single document from one or more branches](archSpec/base/example-chunk-combine-branch.md)
             -   [Example: Using chunk to combine groups of topics](archSpec/base/example-chunk-combine-group.md)
-            -   [Example: How chunk="combine" effects the map hierarchy](archSpec/base/example-chunk-combine-nested-topics.md)
+            -   [Example: How chunk="combine" affects the map hierarchy](archSpec/base/example-chunk-combine-nested-topics.md)
             -   [Example: Using chunk to split documents](archSpec/base/example-chunk-split.md)
             -   [Example: How chunk="split" affects the map hierarchy](archSpec/base/example-chunk-split-nested.md)
             -   [Example: When chunk is ignored](archSpec/base/example-chunk-ignored.md)

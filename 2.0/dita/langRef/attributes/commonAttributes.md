@@ -4,7 +4,7 @@ author: [OASIS DITA Technical Committee, OASIS DITA Technical Committee]
 
 # Common attributes
 
-The common attributes topic collects defines most of the attributes that are used on more than one base element.
+The common attributes topic collects definitions for most of the attributes that are used on more than one base element.
 
 ## Common attribute groups
 
@@ -165,7 +165,7 @@ Common attributes, including those in the groups listed above, are defined as fo
 
     -   **family**
 
-        Indicates a tight grouping in which each of the referenced topics not only relates to the current topic but also relate to each other.
+        Indicates a tight grouping in which each of the referenced topics not only relates to the current topic but also relates to each other.
 
         **Draft comment:**Kristen J Eberlein 28 September 2022  
         
@@ -345,7 +345,7 @@ Common attributes, including those in the groups listed above, are defined as fo
 
         See [Using the -dita-use-conref-target value](../../common/../archSpec/base/ditauseconreftarget.md) for more information.
 
-    See [The href attribute](../../archSpec/base/thehrefattribute.md) for detailed information on supported values and processing implications.
+    See [Imposing roles when referencing a map](../../archSpec/base/impose-topicref-role.md) for detailed information on processing implications.
 
 -   **`@keycol` \(simpletable attributes\)**
 

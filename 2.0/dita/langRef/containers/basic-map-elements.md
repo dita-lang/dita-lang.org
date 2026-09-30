@@ -15,7 +15,7 @@ A navigation reference is a reference to another map that is preserved as a tran
 -   **[relcell](../../langRef/base/relcell.md)**  
 A cell in a relationship table is a group of one or more topic references that are related to the topic references in other cells of the same row.
 -   **[relcolspec](../../langRef/base/relcolspec.md)**  
-A column specification in a relationship table column that provides default attribute values for the references in that column of a relationship table.
+A column specification in a relationship table provides default attribute values for the references in that column of a relationship table.
 -   **[relheader](../../langRef/base/relheader.md)**  
 A header row in a relationship table is a group of column definitions for a relationship table.
 -   **[relrow](../../langRef/base/relrow.md)**  

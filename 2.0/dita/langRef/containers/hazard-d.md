@@ -9,7 +9,7 @@ The `<hazardstatement>` domain adds markup to support hazard statements. It is b
 -   **[consequence](../../langRef/base/consequence.md)**  
 A consequence is a result or effect of an action or condition. In the context of a hazard statement, it is the result of failing to avoid a hazard.
 -   **[hazardstatement](../../langRef/base/hazardstatement.md)**  
-A hazard statement provides information about a hazard and its consequences. It also explains how to avoid the hazard. It can also associate an image.
+A hazard statement provides information about a hazard and its consequences. It also explains how to avoid the hazard. It can also associate an image with the hazard.
 -   **[hazardsymbol](../../langRef/base/hazardsymbol.md)**  
 The `<hazardsymbol>` element specifies a graphic. The graphic might represent a hazard, a hazardous situation, a result of not avoiding a hazard, or any combination of these messages.
 -   **[howtoavoid](../../langRef/base/howtoavoid.md)**  

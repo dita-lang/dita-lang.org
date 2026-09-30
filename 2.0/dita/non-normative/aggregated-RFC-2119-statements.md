@@ -641,9 +641,9 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     A single element MUST NOT contain both generalized and specialized values for the same attribute.
 
--   **[DITAREQ-0910](../archSpec/base/generalization-w-cross-specialization-dependencies.md#d2804e40)**
+-   **[DITAREQ-0910](../archSpec/base/generalization-w-cross-specialization-dependencies.md#d2804e41)**
 
-    When possible, generalizing processes SHOULD detect invalid generalization target combinations and report them as errors.
+    When possible, generalization processes SHOULD detect invalid generalization target combinations and report them as errors.
 
 -   **[DITAREQ-0920](../langRef/base/shortdesc.md#d4371e100)**
 
@@ -921,47 +921,47 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     In such cases processors MAY provide an error or warning message.
 
--   **[DITAREQ-1500](../conformance/conformance.md#d4213t19)**
+-   **[DITAREQ-1500](../conformance/conformance.md#d4213t22)**
 
     Any implementation that supports a feature MUST conform to all rules laid out in the section that describes the feature.
 
--   **[DITAREQ-1510](../conformance/conformance.md#d4213e195)**
+-   **[DITAREQ-1510](../conformance/conformance.md#d4213e198)**
 
     Conforming DITA implementations SHOULD include a conformance statement that gives the version of the DITA specification that is supported, indicate if all features from the list above are supported, and indicate that all normative rendering rules are supported.
 
--   **[DITAREQ-1520](../conformance/conformance.md#d4213e201)**
+-   **[DITAREQ-1520](../conformance/conformance.md#d4213e204)**
 
     If only a subset of features is supported, implementations SHOULD indicate which features are \(or are not\) supported.
 
--   **[DITAREQ-1530](../conformance/conformance.md#d4213t205)**
+-   **[DITAREQ-1530](../conformance/conformance.md#d4213t208)**
 
     If an implementation supports rendering DITA elements but does not render all elements as described above, that application SHOULD indicate which elements are \(or are not\) supported.
 
--   **[DITAREQ-1540](../conformance/conformance.md#d4213t214)**
+-   **[DITAREQ-1540](../conformance/conformance.md#d4213t217)**
 
     However, any application that renders content references MUST conform to the rules described in the section [../../archSpec/base/conref.md](../../archSpec/base/conref.md).
 
--   **[DITAREQ-1550](../conformance/conformance.md#d4213t222)**
+-   **[DITAREQ-1550](../conformance/conformance.md#d4213t225)**
 
     An implementation that does not support a particular feature MUST be prepared to interoperate with other implementations that do support the feature.
 
--   **[DITAREQ-1560](../conformance/conformance.md#d4213e238)**
+-   **[DITAREQ-1560](../conformance/conformance.md#d4213e241)**
 
     A DITA document that refers to document type shells distributed by OASIS MUST be valid according to both the grammar files and any assertions provided in the language reference.
 
--   **[DITAREQ-1570](../conformance/conformance.md#d4213e244)**
+-   **[DITAREQ-1570](../conformance/conformance.md#d4213e247)**
 
     If a DITA document's custom document type shell includes constraints, those constraints MUST also conform to the rules laid out in [../../archSpec/base/constraint-rules.md](../../archSpec/base/constraint-rules.md)
 
--   **[DITAREQ-1580](../conformance/conformance.md#d4213e251)**
+-   **[DITAREQ-1580](../conformance/conformance.md#d4213e254)**
 
-    If a DITA document's custom document type shell includes expansion modules, those moduless MUST also conform to the rules laid out in [../../archSpec/base/expansion-module-rules.md](../../archSpec/base/expansion-module-rules.md)
+    If a DITA document's custom document type shell includes expansion modules, those modules MUST also conform to the rules laid out in [../../archSpec/base/expansion-module-rules.md](../../archSpec/base/expansion-module-rules.md)
 
--   **[DITAREQ-1590](../conformance/conformance.md#d4213e258)**
+-   **[DITAREQ-1590](../conformance/conformance.md#d4213e261)**
 
     If a DITA document uses specialized elements, those elements MUST also conform to the rules laid out in [../../archSpec/base/specialization-rules-elements.md](../../archSpec/base/specialization-rules-elements.md) and [../../archSpec/base/specialization-class-attribute.md](../../archSpec/base/specialization-class-attribute.md).
 
--   **[DITAREQ-1600](../conformance/conformance.md#d4213e268)**
+-   **[DITAREQ-1600](../conformance/conformance.md#d4213e271)**
 
     If a DITA document uses specialized attributes, those attributes MUST also conform to the rules laid out in [../../archSpec/base/specialization-rules-attributes.md](../../archSpec/base/specialization-rules-attributes.md) and [../../archSpec/base/specialization-specializations-attribute.md](../../archSpec/base/specialization-specializations-attribute.md).
 

@@ -4,7 +4,7 @@ author: OASIS DITA Technical Committee
 
 # Example: Managing links when chunking
 
-If a topic is referenced more than once and one of those instances involves chunking, links to that topic might be ambiguous. In most of such cases, using key references to keys that are defined directly on the chunked instance of the topic will give the correct result.
+If a topic is referenced more than once and one of those instances involves chunking, links to that topic might be ambiguous. In most such cases, using key references to keys that are defined directly on the chunked instance of the topic will give the correct result.
 
 Consider the following DITA map, which is used for all examples in this topic:
 
@@ -75,14 +75,14 @@ Now assume that the above map is used as a submap in another context, where the 
 In this scenario, the topic documents are rendered in the following ways:
 
 -   The original source document `splitThis.dita` is rendered twice. Based on the map above, assume the processor creates two documents with names that are based on the topic IDs, so that topic becomes `splitThisRoot.dita` and `splitThisChild.dita`. At the same time, `splitThis.dita` is rendered *in another context* as a single document, with a different name.
--   Based on the map above, the branch that starts with the original source document `combineThis.dita` is rendered as one document combined with the content of `combinedChild.dita`. At the same time, those two documents are rendered in another context as individual documents. For this example, assume a processor generates the combined document using the generated name `combinThis-2.dita`, while the documents `combineThis.dita` and `combinedChild.dita` retain their names in the other context.
+-   Based on the map above, the branch that starts with the original source document `combineThis.dita` is rendered as one document combined with the content of `combinedChild.dita`. At the same time, those two documents are rendered in another context as individual documents. For this example, assume a processor generates the combined document using the generated name `combineThis-2.dita`, while the documents `combineThis.dita` and `combinedChild.dita` retain their names in the other context.
 
 In this scenario, the links to the topic documents are now problematic:
 
 -   All links in this map that use the direct URI references `href="splitThis.dita"`, `href="splitThis.dita#splitThisChild"`, `href="combineThis.dita"`, or `href="combinedChild.dita"` are ambiguous. They could resolve to either the chunked instance of the topic documents or to the individual topics in the other context. Implementations will have to guess which topic to target: the split or combined instances of the topic documents or the versions in the alternate context from the root map.
 -   All links that specify `keyref="splitThisKey"` or `keyref="splitThisChildKey"` are also ambiguous. The key definitions are not associated explicitly with the chunked or not-chunked instance. If key scopes are used, applications might more reliably guess that the intended target is the split copy in this map, but this is not guaranteed.
 
-All links that specify `keyref="explicitSplitKey"`, `keyref="combinedThisKey"`, or `keyref="combinedChildKey"` are unambiguous. These links can only resolve to the chunked instance of the topic documents, because the key definitions are defined directly within the chunked context.
+All links that specify `keyref="explicitSplitKey"`, `keyref="combineThisKey"`, or `keyref="combinedChildKey"` are unambiguous. These links can only resolve to the chunked instance of the topic documents, because the key definitions are defined directly within the chunked context.
 
 There is no way to unambiguously link to the child document that will result from splitting `splitThis.dita`. This is because a `<topicref>` element that specifies `@chunk` can only associate a key definition with the first or root topic in the document. While other key definition elements can be used to associate keys with other topics in the same document, that can only be done outside of the navigation context that uses `@chunk`. As a result, a processor cannot guarantee whether the intended link target is the split topic from the chunked context or a use of the same topic in the second context.
 

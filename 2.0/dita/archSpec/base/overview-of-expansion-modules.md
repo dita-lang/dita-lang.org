@@ -10,7 +10,7 @@ An expansion module works in conjunction with an element or attribute specializa
 
 -   **Expand content models**
 
-    Expansion modules can work in conjunction with element-specialization modules to extend the content models of specific elements. When an element-specialization module is combined with an extension module, the specialized elements can be made available *only* in specific contexts, rather than wherever the specialization bases are allowed.
+    Expansion modules can work in conjunction with element-specialization modules to extend the content models of specific elements. When an element-specialization module is combined with an expansion module, the specialized elements can be made available *only* in specific contexts, rather than wherever the specialization bases are allowed.
 
     exampleFor example, a DITA architect creates a new element-domain specialization that declares a new element specialized from `<p>`: `<sectionDesc>`. Using an extension module, the DITA architect can make `<sectionDesc>` available *only* as an optional child of `<section>`, rather than wherever `<p>` is permitted.
 

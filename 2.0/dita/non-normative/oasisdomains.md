@@ -27,7 +27,7 @@ The following table lists the element-domain specializations that are included i
 |Alternative titles|Provides alternative titles for resources|Map &amp; topic|alternativeTitles-d|
 |DITAVALref|Enables filtering a branch of a DITA map|Map|ditavalref-d|
 |Emphasis|Provides `<em>` and `<strong>` elements for indicating emphasis|Map &amp; topic|emphasis-d|
-|Hazard statement|Provides a hazard statement element that meets meets ANSI Z535 and ISO 3864 requirements|Map &amp; topic|hazard-d|
+|Hazard statement|Provides a hazard statement element that meets ANSI Z535 and ISO 3864 requirements|Map &amp; topic|hazard-d|
 |Highlighting|Provides typographic elements|Map &amp; topic|hi-d|
 |Map group|Provides convenience elements for use in DITA maps|Map|mapgroup-d|
 |Utilities|Provides image maps and a sort key|Map &amp; topic|ut-d|

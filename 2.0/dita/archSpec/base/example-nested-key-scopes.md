@@ -79,11 +79,11 @@ Assume that each key scope contains numerous key references. The following table
 |A-1.c|"A-1.c", as defined in key scope A-1. This key name is available because it exists in the parent scope, key scope A. The key name resolves to `topic-3.dita`|
 |A.A-1.c|"A-1.c", as defined in key scope A-1. This key name is available because it exists in the root key scope. The key name resolves to `topic-3.dita`|
 
-<table><thead><tr><th align="left" id="d278746e179">
+<table><thead><tr><th align="left" id="d278607e179">
 
 Key reference
 
-</th><th align="left" id="d278746e182">
+</th><th align="left" id="d278607e182">
 
 Resource to which the key resolves
 

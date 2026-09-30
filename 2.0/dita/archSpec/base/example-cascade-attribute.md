@@ -45,9 +45,9 @@ Consider the following code example:
 In this map, the `@cascade` attribute is set to merge at the map level but changes to nomerge on a topic reference.
 
 -   For the topic reference to `one.dita`, `cascade="merge"` is specified. This results in an effective `@platform` value of a b and an effective `@product` value of x y.
--   The topic reference to `two.dita` does not specify any additional attributes. The effective values for the `@platform` and `@product` attributes are the same as those on the parent topic reference to `one.dita`. The effective value of of the `@platform` attribute is a b, and the effective value for the `@product` attribute is x y.
+-   The topic reference to `two.dita` does not specify any additional attributes. The effective values for the `@platform` and `@product` attributes are the same as those on the parent topic reference to `one.dita`. The effective value of the `@platform` attribute is a b, and the effective value for the `@product` attribute is x y.
 -   The topic reference to `three.dita` specifies `cascade="nomerge"`, so attribute values from other elements do not merge with anything specified on the topic reference. The `@platform` attribute is not specified, so the effective value is a b, which still cascades from the parent element. The `@product` value does not merge with values from the parent, so the effective value is z.
--   The topic reference to `four.dita` does not specify any additional attributes. The effective values for the `@platform` and `@product` attributes are the same as those on the parent topic reference to `three.dita`. The effective value of of the `@platform` attribute is a b, and the effective value for the `@product` attribute is z.
+-   The topic reference to `four.dita` does not specify any additional attributes. The effective values for the `@platform` and `@product` attributes are the same as those on the parent topic reference to `three.dita`. The effective value of the `@platform` attribute is a b, and the effective value for the `@product` attribute is z.
 
 **Parent topic:**[Examples of metadata cascading](../../archSpec/base/examples-of-cascading.md)
 

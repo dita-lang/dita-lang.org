@@ -70,7 +70,7 @@ The following attributes are available on this element: [universal attributes](.
 
     -   **family**
 
-        Indicates a tight grouping in which each of the referenced topics not only relates to the current topic but also relate to each other.
+        Indicates a tight grouping in which each of the referenced topics not only relates to the current topic but also relates to each other.
 
         **Draft comment:**Kristen J Eberlein 28 September 2022  
         
@@ -118,7 +118,7 @@ The following attributes are available on this element: [universal attributes](.
 
         See [Using the -dita-use-conref-target value](../../common/../archSpec/base/ditauseconreftarget.md) for more information.
 
-    See [The href attribute](../../archSpec/base/thehrefattribute.md) for detailed information on supported values and processing implications.
+    See [Imposing roles when referencing a map](../../archSpec/base/impose-topicref-role.md) for detailed information on processing implications.
 
     For this element, the `@impose-role` attribute has a fixed value of keeptarget.
 

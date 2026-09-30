@@ -47,7 +47,7 @@ The `<subjectHead>` element is specialized from [`<topicref>`](../content-models
 
 ## Attributes
 
-The following attributes are available on this element: [universal attributes](../../common/../langRef/attributes/universalAttributes.md), [`@collection-type`](../attributes/commonAttributes.md#attr-collection-type), [`@linking`](../attributes/commonAttributes.md#attr-linking), [`@processing-role`](../attributes/commonAttributes.md#attr-processing-role), and [`@toc`](../attributes/commonAttributes.md#attr-toc),.
+The following attributes are available on this element: [universal attributes](../../common/../langRef/attributes/universalAttributes.md), [`@collection-type`](../attributes/commonAttributes.md#attr-collection-type), [`@linking`](../attributes/commonAttributes.md#attr-linking), [`@processing-role`](../attributes/commonAttributes.md#attr-processing-role), and [`@toc`](../attributes/commonAttributes.md#attr-toc).
 
 For this element, the following considerations apply:
 
@@ -74,7 +74,7 @@ The following attributes are available on this element: [universal attributes](.
 
     -   **family**
 
-        Indicates a tight grouping in which each of the referenced topics not only relates to the current topic but also relate to each other.
+        Indicates a tight grouping in which each of the referenced topics not only relates to the current topic but also relates to each other.
 
         **Draft comment:**Kristen J Eberlein 28 September 2022  
         

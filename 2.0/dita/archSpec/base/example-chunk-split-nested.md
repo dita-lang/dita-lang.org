@@ -67,7 +67,7 @@ Now consider the following three topic documents, each of which includes nested 
 
 When `chunk="split"` is evaluated, both `ancestor.dita` and `middle.dita` are split and treated as multiple topic documents. `child.dita` is only a single topic and has nothing to split.
 
-The following list addresses how the split operation effects the map hierarchy:
+The following list addresses how the split operation affects the map hierarchy:
 
 -   `ancestor.dita` has a root `<dita>` element, so it results in multiple peer topic references \(or branches\) in the map. Topic references that were nested within the original reference to `ancestor.dita` are now located within the reference to "ancestor-last" \(the last topic child of the `<dita>` element\).
 -   `middle.dita` has nested topics, so it results in its own new hierarchy within the map. Content from the nested topic reference is now located within the reference to the root topic from `middle.dita`, but after any references to child topics.
@@ -81,12 +81,12 @@ The result of evaluating the `@chunk` attribute is equivalent to the following D
   <!-- More topics in ancestor composite document -->
   <topicref href="ancestor-last.dita">
     <topicref href="ancestor-last-child.dita"/>
-    <!-- middle.dita now located here, as final child of
-         final topic child of <dita> in ancestor.dita -->
+    <!-- middle.dita now located here, in the final child of
+         the final root topic within <dita> in ancestor.dita -->
     <topicref href="middle-root.dita">
       <topicref href="middle-child.dita"/>
-      <!-- child.dita now located here, as final topic of
-           child root topic in middle.dita ancestor.dita -->
+      <!-- child.dita now located here, within the last topic
+           child of the root topic in middle.dita -->
       <topicref href="child.dita"/>
     </topicref>
   </topicref>

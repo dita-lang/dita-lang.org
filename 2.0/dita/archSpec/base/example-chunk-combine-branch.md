@@ -48,11 +48,11 @@ The following code samples show the content of `firstLesson.dita` and `nextLesso
 </task>
 ```
 
-For many systems or output formats, each document in the map is typicallyrendered as an independent document. For example, rendering this map as HTML5 might result in `goals.html`, `firstLesson.html`, and `nextLesson.html`, while the child documents within each branch would each result in their own HTML files.
+For many systems or output formats, each document in the map is typically rendered as an independent document. For example, rendering this map as HTML5 might result in `goals.html`, `firstLesson.html`, and `nextLesson.html`, while the child documents within each branch would each result in their own HTML files.
 
 When output requirements demand that portions of the map be combined into a single document, specifying `chunk="combine"` on a map branch instructs a processor to render one document that combines all topics in that branch.
 
-In the following code sample, `chunk="combine"` is specified on the map branches for the lessons. This indicates that each lesson branch should rendered as a single result document. Topics in the first branch with `goals.dita` will not be affected.
+In the following code sample, `chunk="combine"` is specified on the map branch for the first lesson. This indicates that the lesson branch should be rendered as a single result document. Topics in the first branch with `goals.dita` will not be affected.
 
 ```
 <map>

@@ -4,7 +4,7 @@ author: OASIS DITA Technical Committee
 
 # Lifecycle management metadata
 
-The lifecycle-management metadata elements are children of the `<prolog>` element. The contain information about the product lifecyle.
+The lifecycle-management metadata elements are children of the `<prolog>` element. They contain information about the product lifecycle.
 
 -   **[copyrholder](../../langRef/base/copyrholder.md)**  
 A copyright holder is the entity that holds the legal rights to a work that has been assigned a copyright.
@@ -19,7 +19,7 @@ Critical dates are important dates in the document life cycle, such as creation 
 -   **[metadata](../../langRef/base/metadata.md)**  
 Metadata is data about data.
 -   **[permissions](../../langRef/base/permissions.md)**  
-Permissions are the level of entitlement that are needed to access content.
+Permissions are the levels of entitlement that are needed to access content.
 -   **[resourceid](../../langRef/base/resourceid.md)**  
 A resource ID is an identifier that is designed for applications that need to use their own identifier scheme, such as context-sensitive help systems and databases.
 -   **[revised](../../langRef/base/revised.md)**  

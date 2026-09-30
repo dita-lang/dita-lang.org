@@ -113,7 +113,7 @@ The result of evaluating `@chunk` in this case is equivalent to the following ma
 
 This example covers the scenario of splitting all the topic documents that are referenced in a DITA map.
 
-Specifying `chunk="split"` on the `<map>` element sets a default for the entire map. The following change to the DITA map results in *every* referenced DITA document being split into one document per topic. The only source document that is not affected by this splitting operation is `about.dita`, because it only contains only one topic.
+Specifying `chunk="split"` on the `<map>` element sets a default for the entire map. The following change to the DITA map results in *every* referenced DITA document being split into one document per topic. The only source document that is not affected by this splitting operation is `about.dita`, because it contains only one topic.
 
 ```
 <map **chunk="split"**>

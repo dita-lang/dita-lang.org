@@ -4,7 +4,7 @@ author: OASIS DITA Technical Committee
 
 # Example: How map-level metadata elements cascade to the referenced topics
 
-In this scenario, elements located in the`<topicmeta>`element for a map cascade to the referenced topics.
+In this scenario, elements located in the `<topicmeta>`element for a map cascade to the referenced topics.
 
 The following code sample illustrates how an information architect can apply certain metadata to all the DITA topics in a map:
 

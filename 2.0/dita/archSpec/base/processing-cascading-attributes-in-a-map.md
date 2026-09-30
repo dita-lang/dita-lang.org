@@ -8,7 +8,7 @@ Certain rules apply to processors when they process cascading attributes in a ma
 
 When determining the effective value of an attribute, processors MUST evaluate each applicable attribute for each map element in the following order:
 
-1.  Evaluate `@conref` and `@keyref` attributes for the element. After resolving, continue to following steps to determine effective values.
+1.  Evaluate `@conref` and `@keyref` attributes for the element. After resolving, continue to the following steps to determine effective values.
 2.  Evaluate explicit values in the document instance. If the attribute is explicitly specified on the element, that value is part of the effective value for this element.
 3.  Evaluate default and fixed values from the XML grammar for elements where no explicit value is specified on the element itself.
 4.  Evaluate cascading values from containing map elements.
