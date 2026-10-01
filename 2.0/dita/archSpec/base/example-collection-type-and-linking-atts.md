@@ -15,8 +15,8 @@ The following example illustrates how linkage is defined in a DITA map:
 </topicref>
 <reltable>
   <relrow>
-    &lt;relcell&gt;&lt;topicref href="A.dita"/&gt;&lt;/relcell&gt;
-    &lt;relcell&gt;&lt;topicref href="B.dita"/&gt;&lt;/relcell&gt;
+    <relcell><topicref href="A.dita"/></relcell>
+    <relcell><topicref href="B.dita"/></relcell>
   </relrow>
 </reltable>
 ```
@@ -56,8 +56,8 @@ The following example illustrates how setting the `@linking` attribute can chang
 </topicref>
 <reltable>
   <relrow>
-    &lt;relcell&gt;&lt;topicref href="A.dita"/&gt;&lt;/relcell&gt;
-    &lt;relcell linking="sourceonly"&gt;&lt;topicref href="B.dita"/&gt;&lt;/relcell&gt;
+    <relcell><topicref href="A.dita"/></relcell>
+    <relcell linking="sourceonly"><topicref href="B.dita"/></relcell>
   </relrow>
 </reltable>
 ```
