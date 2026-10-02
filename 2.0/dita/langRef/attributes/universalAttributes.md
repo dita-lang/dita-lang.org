@@ -14,7 +14,7 @@ This is something wrong with the organizational structure of this topic ... Look
 **Draft comment:**robander   
 TO RESOLVE 13 May 2026: Not sure what to change here. Looking at the topic at dita-lang.org, the only thing that really stands out is the heading "Common attribute groups". Maybe we can delete that title, check the remaining content in that section for accuracy, and be done?
 
-## Attributes included with the universal attibutes
+## Attributes included with the universal attributes
 
 The following common attribute groups are referenced in this specification. The universal attributes group includes each attribute from the following groups, along with `@class` and `@outputclass`.
 
