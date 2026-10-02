@@ -47,19 +47,19 @@ The following list explains the headers for the columns:
 
 The following table contains information about elements that are available within topics. Some elements are also available in DITA maps.
 
-<table id="simpletable_body"><thead><tr><th align="left" id="d178041e251">
+<table id="simpletable_body"><thead><tr><th align="left" id="d177122e251">
 
 Element name
 
-</th><th align="left" id="d178041e255">
+</th><th align="left" id="d177122e255">
 
 Block/inline \(translation\)
 
-</th><th align="left" id="d178041e259">
+</th><th align="left" id="d177122e259">
 
 Translatable content?
 
-</th><th align="left" id="d178041e263">
+</th><th align="left" id="d177122e263">
 
 Notes
 
@@ -649,7 +649,7 @@ The `<foreign>` element might contain DITA elements, such
 
 </td><td>
 
-block when `@placement`= break, otherwise inline
+n/a \(container element\)
 
 </td><td>
 
@@ -657,7 +657,7 @@ yes
 
 </td><td>
 
-
+The nested `<alt>` element has translatable text, and the referenced image might require translation.
 
 </td></tr><tr><td>
 
@@ -1700,17 +1700,7 @@ yes
 
 
 </td></tr></tbody>
-</table>**Draft comment:**Kristen J Eberlein 11 October 2022  
-
-
-We need to consider how we want to handle `<image>` and `<hazardsymbol>` \(specialized from `<image>`\). The current wording in the tables in awkward.
-
-Also, Eliot pointed out the following in the Content Fusion review: "`<image>` is not a block for translation purposes, it is a container -- only the `<alt>` element within `<image>` contains translatable text. Localization of the image would be separate."
-
-**Draft comment:**robander   
-TO RESOLVE 13 May 2026: For those two, can we change the block/inline column to say "N/A \(container element\)", and in the final notes colum, say that "The nested `<alt>` element has translatable text, and the referenced image may also require translation."
-
-## Map elements
+</table>## Map elements
 
 The following table contains information about the elements that are defined in the map module.
 
@@ -1757,7 +1747,7 @@ There are no translatable attributes or other special considerations for element
 |------------|-------------------|-------------------------------------|----------------------------|---------------------|
 |`<consequence>`|`<div>`|yes|block|yes|
 |`<hazardstatement>`|`<note>`|yes|block|yes|
-|`<hazardsymbol>`|`<image>`|yes|block when `@placement`= break, otherwise inline|yes|
+|`<hazardsymbol>`|`<image>`|yes|n/a \(container element\)|yes|
 |`<howtoavoid>`|`<div>`|yes|block|yes|
 |`<messagepanel>`|`<div>`|yes|block|yes|
 |`<typeofhazard>`|`<div>`|yes|block|yes|
@@ -1823,6 +1813,6 @@ There are no translatable attributes in the DITAVAL element set. The only elemen
 |`<prop>`|block|yes|
 |`<revprop>`|block|yes|
 |`<startflag>`|block|yes|
-|`<style-conflict>`|n/a \(empty\)|n/a \(empty element\)|
+|`<style-conflict>`|n/a \(empty\)|n/a \(empty\)|
 |`<val>`|block|yes|
 

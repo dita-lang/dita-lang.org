@@ -18,11 +18,7 @@ Variable text can be specified by key definitions. Processors determine the effe
     -   For empty `<link>` and `<xref>` elements, a key definition can provide a short description in addition to the normal effective content. If the key definition includes `<shortdesc>` inside of `<topicmeta>`, the content of the `<shortdesc>` element also provides effective content for a `<desc>` sub-element.
     -   The `<longdescref>` element is an empty element with no effective content. Key definitions do not set effective text for this element.
     -   The `<param>` element does not have any effective content, so key definitions do not result in effective content for `<param>` elements.
-    **Draft comment:**robander 1 june 2021  
-    we've allowed @keyref on &lt;lq&gt; for a while now. Based on discussion at today's TC \(1 june 2021\) this would be interpreted as the title of the source of the quotation - thus the removal of href/reftitle. OK to update accordingly, or does that need further confirmation from TC?
-
-    **Draft comment:**robander   
-    TO RESOLVE 12 May 2026: Just update based on that understanding from 2021
+    When a `@keyref` attribute is specified on the `<lq>` element, effective content from the key definition makes up the title of the source of the quotation inside of the `<lq>`.
 
 -   **Processing rules**
 

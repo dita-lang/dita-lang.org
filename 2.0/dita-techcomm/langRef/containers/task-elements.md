@@ -47,7 +47,7 @@ Informal steps are steps that do not follow a strict content model. A paragraph 
 -   **[stepsection](../../langRef/technicalContent/stepsection.md)**  
 The `<stepsection>` element contains expository text that might be rendered before a step.
 -   **[steptroubleshooting](../../langRef/technicalContent/steptroubleshooting.md)**  
-Step troubleshoooting is information that is intended to help people respond to the situation if a step does not complete as expected.
+Step troubleshooting is information that is intended to help people respond to the situation if a step does not complete as expected.
 -   **[steps-unordered](../../langRef/technicalContent/steps-unordered.md)**  
 Unordered steps are steps in which the order of the steps to be performed might vary from one situation to another.
 -   **[stepxmp](../../langRef/technicalContent/stepxmp.md)**  

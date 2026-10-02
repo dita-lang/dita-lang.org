@@ -48,7 +48,7 @@ The following referenced documents are not required for the application of this 
 
 -   **\[SVG 1.1\]**
 
-    **[Scalable Vector Graphics \(SVG\) Version 1.1 \(Second\) Edition\)](https://www.w3.org/TR/SVG11/)**, E. Dahlstrom, P. Dengler, A. Grasso, C. Lilley, C. McCormack, D. Schepers, J. Watt, Editors, W3C Recommendation, 16 August 2011, https://www.w3.org/TR/SVG11/.
+    **[Scalable Vector Graphics \(SVG\) Version 1.1 \(Second Edition\)](https://www.w3.org/TR/SVG11/)**, E. Dahlstrom, P. Dengler, A. Grasso, C. Lilley, C. McCormack, D. Schepers, J. Watt, Editors, W3C Recommendation, 16 August 2011, https://www.w3.org/TR/SVG11/.
 
 -   **\[Unicode BiDi\]**
 
@@ -76,7 +76,7 @@ The following referenced documents are not required for the application of this 
 
 -   **\[xml:tm 1.0\]**
 
-    A. Zydroń, R. Raya, and B. Bogacki, editors, **XML Text Memory \(xml:tm\) 1.0 Specification**, [http://www.gala-global.org/oscarStandards/xml-tm/](http://www.ttt.org/oscarStandards/xml-tm/), The Localization Industry Standards Association \(LISA\) xml:tm 1.0, 26 February 2007.
+    A. Zydroń, R. Raya, and B. Bogacki, editors, **XML Text Memory \(xml:tm\) 1.0 Specification**, [http://www.ttt.org/oscarStandards/xml-tm/](http://www.ttt.org/oscarStandards/xml-tm/), The Localization Industry Standards Association \(LISA\) xml:tm 1.0, 26 February 2007.
 
 -   **\[XSL 1.0\]**
 
@@ -92,7 +92,7 @@ The following referenced documents are not required for the application of this 
 
 -   **\[XSLT 3.0\]**
 
-    **[XSL Transformations \(XSLT\) Version 3.0](https://www.w3.org/TR/xslt-30/)**, M. Kay, Editor,W3C Recommendation, 8 June 2017, https://www.w3.org/TR/xslt-30/.
+    **[XSL Transformations \(XSLT\) Version 3.0](https://www.w3.org/TR/xslt-30/)**, M. Kay, Editor, W3C Recommendation, 8 June 2017, https://www.w3.org/TR/xslt-30/.
 
 -   **\[XTM 1.0\]**
 

@@ -8,11 +8,11 @@ This appendix contains all the normative statements from the DITA for Technical 
 
 ## Aggregated error statements
 
--   **[DTTCERR-0010](../baseSpec/specification/langRef/attributes/attribute-groups.md#d2686e2063)**
+-   **[DTTCERR-0010](../baseSpec/specification/langRef/attributes/attribute-groups.md#d2686e2046)**
 
     It is an error to use `parse="xml"` anywhere other than within `<foreign>` or a specialization thereof.
 
--   **[DTTCERR-0020](../baseSpec/specification/langRef/attributes/commonAttributes.md#d2434e1740)**
+-   **[DTTCERR-0020](../baseSpec/specification/langRef/attributes/commonAttributes.md#d2434e1734)**
 
     It is an error to use `parse="xml"` anywhere other than within `<foreign>` or a specialization thereof.
 
@@ -27,15 +27,15 @@ This appendix contains all the normative statements from the DITA for Technical 
 
     The available height is implementation dependent, but if feasible, it is suggested to be the page or table cell height or some other reasonable value.
 
--   **[DTTCIMP-0030](../baseSpec/specification/langRef/attributes/attribute-groups.md#d2686e259)**
+-   **[DTTCIMP-0030](../baseSpec/specification/langRef/attributes/attribute-groups.md#d2686e247)**
 
     Processors can also define custom, implementation-specific tokens for this attribute.
 
--   **[DTTCIMP-0040](../baseSpec/specification/langRef/attributes/attribute-groups.md#d2686e324)**
+-   **[DTTCIMP-0040](../baseSpec/specification/langRef/attributes/attribute-groups.md#d2686e312)**
 
     Processors can also define custom, implementation-specific tokens for this attribute.
 
--   **[DTTCIMP-0050](../baseSpec/specification/langRef/attributes/attribute-groups.md#d2686t2016)**
+-   **[DTTCIMP-0050](../baseSpec/specification/langRef/attributes/attribute-groups.md#d2686t1999)**
 
     The necessity and uses of `@encoding` for non-standard values of `@parse` are implementation-dependent.
 
@@ -47,7 +47,7 @@ This appendix contains all the normative statements from the DITA for Technical 
 
     Processors can also define custom, implementation-specific tokens for this attribute.
 
--   **[DTTCIMP-0080](../baseSpec/specification/langRef/attributes/commonAttributes.md#d2434t981)**
+-   **[DTTCIMP-0080](../baseSpec/specification/langRef/attributes/commonAttributes.md#d2434t983)**
 
     The necessity and uses of `@encoding` for non-standard values of `@parse` are implementation-dependent.
 

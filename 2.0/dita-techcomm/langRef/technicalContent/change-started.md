@@ -45,13 +45,7 @@ The following attributes are available on this element: [universal attributes](.
 
 -   **`@name` \(data-element attributes\)**
 
-    Defines a unique name for the object.
-
-    **Draft comment:**robander   
-    Do we need to specify the scope of "unique" here?
-
-    **Draft comment:**robander   
-    TO RESOLVE 13 May 2026: ha, it often won't be unique because you often use the same name for all instances of a specific type of metadata. Maybe we just get rid of "unique"
+    Defines a name for the object.
 
 
 ## Example

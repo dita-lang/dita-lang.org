@@ -28,7 +28,7 @@ The general task topic is divided into three parts:
     -   Steps unordered: [`<steps-unordered>`](../../langRef/technicalContent/steps-unordered.md)
 -   **Post-instructions**
 
-    The section of the topic can contain the following structural sections:
+    This portion of the topic can contain the following structural sections:
 
     1.  Result: [`<result>`](../../langRef/technicalContent/result.md)
     2.  Troubleshooting information: [`<tasktroubleshooting>`](../../langRef/technicalContent/tasktroubleshooting.md)

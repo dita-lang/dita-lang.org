@@ -4,7 +4,7 @@ author: [OASIS DITA Technical Committee, OASIS DITA Technical Committee]
 
 # Attribute groups
 
-Many of the attributes used on DITA elements are defined in attribute groups. These attribute groups are used both in the grammar files and the specification,
+Many of the attributes used on DITA elements are defined in attribute groups. These attribute groups are used both in the grammar files and in the specification.
 
 ## Architectural attributes
 
@@ -26,14 +26,6 @@ This group contains a set of attributes that are defined for document-level elem
 ## Common map attributes
 
 This group contains attributes that are frequently used on map elements.
-
-**Draft comment:**Kristen J Eberlein 28 September 2022  
-
-
-I've added draft comments to the attribute definitions in this section that explain how the attribute is defined in the "DITA map attributes" topic.
-
-**Draft comment:**robander   
-TO RESOLVE 13 May 2026: I think there is nothing to resolve here, can remove
 
 -   **`@cascade`\(common map attributes\)**
 
@@ -87,7 +79,7 @@ TO RESOLVE 13 May 2026: I think there is nothing to resolve here, can remove
 
     -   **family**
 
-        Indicates a tight grouping in which each of the referenced topics not only relates to the current topic but also relate to each other.
+        Indicates a tight grouping in which each of the referenced topics not only relates to the current topic but also relates to each other.
 
         **Draft comment:**Kristen J Eberlein 28 September 2022  
         
@@ -272,7 +264,7 @@ TO RESOLVE 13 May 2026: I think there is nothing to resolve here, can remove
 
 ## Complex table attributes
 
-This group includes attributes that are defined on complex table elements. Unless other noted, these attributes are part of the OASIS Exchange Table Model. Complex table elements typically use only a subset of the attributes that are defined in this group.
+This group includes attributes that are defined on complex table elements. Unless otherwise noted, these attributes are part of the OASIS Exchange Table Model. Complex table elements typically use only a subset of the attributes that are defined in this group.
 
 -   **`@align` \(complex table attributes\)**
 
@@ -389,13 +381,7 @@ This group contains attributes that are defined on the `<data>` element and its 
 
 -   **`@name` \(data-element attributes\)**
 
-    Defines a unique name for the object.
-
-    **Draft comment:**robander   
-    Do we need to specify the scope of "unique" here?
-
-    **Draft comment:**robander   
-    TO RESOLVE 13 May 2026: ha, it often won't be unique because you often use the same name for all instances of a specific type of metadata. Maybe we just get rid of "unique"
+    Defines a name for the object.
 
 -   **`@value` \(data-element attributes\)**
 
@@ -561,7 +547,9 @@ TO RESOLVE 13 May 2026: Is this a suggestion that we list the specializations he
     **Draft comment:**robander   
     TO RESOLVE 13 May 2026: we can change to "is"
 
-    Specifies the character encoding to use when translating the character data from the referenced content. The value should be a valid encoding name. If not specified, processors may make attempts to automatically determine the correct encoding, for example using HTTP headers, through analysis of the binary structure of the referenced data, or the `xml` processing instruction when including XML as text. The resource should be treated as UTF-8 if no other encoding information can be determined.
+    Update 18 May 2026: made that change, but also noticed it says "processors may make attempts to..." which in this context really feels like a normative rule that was not marked as a normative rule. Changed to "can" for now.
+
+    Specifies the character encoding to use when translating the character data from the referenced content. The value is a valid encoding name. If not specified, processors can make attempts to automatically determine the correct encoding, for example using HTTP headers, through analysis of the binary structure of the referenced data, or the `xml` processing instruction when including XML as text. The resource should be treated as UTF-8 if no other encoding information can be determined.
 
     When `parse="xml"`, standard XML parsing rules apply for the detection of character encoding. The necessity and uses of `@encoding` for non-standard values of `@parse` are implementation-dependent.
 
@@ -649,27 +637,13 @@ This group contains the attributes that are related to translation and localizat
 
     Specifies whether the content of the element should be translated. The following values are valid: yes, no, and -dita-use-conref-target.
 
-    See [Element-by-element recommendations for translators](../../non-normative/elementsMerged.md) for suggested processing defaults for each element.
-
-    **Draft comment:**Kristen J Eberlein 31 December 2021  
-    
-
-    Does [Element-by-element recommendations for translators](../../non-normative/elementsMerged.md) really provide suggested processing defaults for each element? I thought it covered whether an element was block or in-line and whether there were considerations that translators needed to be aware of.
-
-    **Draft comment:**robander   
-    TO RESOLVE 13 May 2026: Can we update to "See \(link\) for information on additional considerations on translating DITA elements."
+    See [Element-by-element recommendations for translators](../../non-normative/elementsMerged.md) for additional considerations on translating DITA elements.
 
 -   **`@xml:lang`**
 
     Specifies the language and optional locale of the content that is contained in an element. Valid values are language tokens or the null string. The `@xml:lang` attribute and its values are described in the [Extensible Markup Language 1.0 specification, fifth edition](http://www.w3.org/TR/REC-xml/#sec-lang-tag).
 
-    **Draft comment:**Kristen J Eberlein 29 September 2022  
-    
-
-    Do we also want to direct readers to the architectural topics about the `@xml:lang` attribute?
-
-    **Draft comment:**robander   
-    TO RESOLVE 13 May 2026: Yes, should provide a cross reference, not sure if that will work in the lwdita spec but can figure that out later
+    See  for additional information about using the `@xml:lang` attribute.
 
 
 ## Metadata attributes
@@ -684,18 +658,8 @@ This group contains common metadata attributes: `@base`, `@importance`, `@props`
 
 -   **`@importance`**
 
-    Specifies the importance or priority that is assigned to an element. The following values are valid: default, deprecated, high, low, normal, obsolete, optional, recommended, required, urgent, and -dita-use-conref-target. This attribute is not used for conditional processing, although applications might use the value of the `@importance` attribute to highlight elements. exampleFor example, in steps of a task topic, the value of the `@importance` attribute indicates whether a step is optional or required.
+    Specifies the importance or priority that is assigned to an element. The following values are valid: default, deprecated, high, low, normal, obsolete, optional, recommended, required, urgent, and -dita-use-conref-target. This attribute is not used for conditional processing, although applications can modify how content is rendered based on the value of the `@importance` attribute. exampleFor example, in steps of a task topic, processors often add text or images to highlight that a step is marked optional or required.
 
-    **Draft comment:**Kristen J Eberlein 29 September 2022  
-    
-
-    I think the phrase "to highlight elements" is a little off. Maybe "render generated text"? And how about adding "Processors often add text or images to ensure that readers of the generated content understand whether the step is optional or required." to the end of the example?
-
-    **Draft comment:**robander   
-    TO RESOLVE 13 May 2026:
-
-    -   maybe change to "… although applications can modify how content is rendered based on the value of the `@importance` attribute
-    -   And update the example with something like "For example, in steps of a task topic, processors often add text or images to highlight that a step is optional or required"
 -   **`@props`**
 
     Specifies metadata about the element. New attributes can be specialized from the `@props` attribute. This attribute supports conditional processing. If no value is specified but the attribute is specified on a containing element within a map or within the related-links section, the value cascades from the closest containing element.
@@ -704,17 +668,7 @@ This group contains common metadata attributes: `@base`, `@importance`, `@props`
 
 -   **`@rev`**
 
-    Specifies a revision level of an element that identifies when the element was added or modified. It can be used to flag outputs when it matches a run-time parameter. It cannot be used for filtering nor is it sufficient to be used for version control. If no value is specified but the attribute is specified on a containing element within a map or within the related-links section, the value cascades from the closest containing element.
-
-    **Draft comment:**Kristen J Eberlein 29 September 2022  
-    
-
-    I want to tweak this. How about the following? Also, neither definition describes what values are permitted.
-
-    Specifies metadata that identifies when the element was added or the content of the element was modified. The `@rev` attribute can be used for flagging. It cannot be used for filtering nor is it sufficient to be used for version control. If no value is specified but the attribute is specified on a containing element within a map or within the related-links section, the value cascades from the closest containing element.
-
-    **Draft comment:**robander   
-    TO RESOLVE 13 May 2026: Sounds good, I might say "can be used for flagging revisions" just because that sentence feels a bit odd ending in "for flagging" but really don't care, fine with using the text with or without that update.
+    Specifies metadata that identifies when the element was added or the content of the element was modified. The `@rev` attribute can be used for flagging revisions when content is rendered. It cannot be used for filtering nor is it sufficient to be used for version control. If no value is specified but the attribute is specified on a containing element within a map or within the related-links section, the value cascades from the closest containing element.
 
 -   **`@status`**
 
@@ -779,13 +733,7 @@ This group defines a set of attributes that are available on almost all DITA ele
 
 -   **`@outputclass`**
 
-    Specifies a role that the element is playing. The role must be consistent with the basic semantic and expectations for the element. In particular, the `@outputclass` attribute can be used for styling during output processing; HTML output will typically preserve `@outputclass` for CSS processing.
-
-    **Draft comment:**robander   
-    I don't like "The role must be consistent...", that seems like best practice that cannot be normative – and I could easily say outputclass="flashy" which makes my element show up with sparkles, and has nothing to do with "the basic semantic and expectations for the element".
-
-    **Draft comment:**robander   
-    TO RESOLVE 13 May 2026: how about saying "the role can be", or even a lower-case should, rather than "must be"?
+    Specifies a role that the element is playing. The role should be consistent with the basic semantics and expectations for the element. In particular, the `@outputclass` attribute can be used for styling during output processing; HTML output will typically preserve `@outputclass` for CSS processing.
 
 
 **Parent topic:**[Attributes](../../../../baseSpec/specification/langRef/attributes/attributes.md)

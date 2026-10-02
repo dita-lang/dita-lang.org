@@ -4,7 +4,7 @@ author: [OASIS DITA Technical Committee, OASIS DITA Technical Committee]
 
 # Common attributes
 
-The common attributes topic collects defines most of the attributes that are used on more than one base element.
+The common attributes topic collects definitions for most of the attributes that are used on more than one base element.
 
 ## Common attribute groups
 
@@ -165,7 +165,7 @@ Common attributes, including those in the groups listed above, are defined as fo
 
     -   **family**
 
-        Indicates a tight grouping in which each of the referenced topics not only relates to the current topic but also relate to each other.
+        Indicates a tight grouping in which each of the referenced topics not only relates to the current topic but also relates to each other.
 
         **Draft comment:**Kristen J Eberlein 28 September 2022  
         
@@ -241,7 +241,9 @@ Common attributes, including those in the groups listed above, are defined as fo
     **Draft comment:**robander   
     TO RESOLVE 13 May 2026: we can change to "is"
 
-    Specifies the character encoding to use when translating the character data from the referenced content. The value should be a valid encoding name. If not specified, processors may make attempts to automatically determine the correct encoding, for example using HTTP headers, through analysis of the binary structure of the referenced data, or the `xml` processing instruction when including XML as text. The resource should be treated as UTF-8 if no other encoding information can be determined.
+    Update 18 May 2026: made that change, but also noticed it says "processors may make attempts to..." which in this context really feels like a normative rule that was not marked as a normative rule. Changed to "can" for now.
+
+    Specifies the character encoding to use when translating the character data from the referenced content. The value is a valid encoding name. If not specified, processors can make attempts to automatically determine the correct encoding, for example using HTTP headers, through analysis of the binary structure of the referenced data, or the `xml` processing instruction when including XML as text. The resource should be treated as UTF-8 if no other encoding information can be determined.
 
     When `parse="xml"`, standard XML parsing rules apply for the detection of character encoding. The necessity and uses of `@encoding` for non-standard values of `@parse` are implementation-dependent.
 
@@ -343,7 +345,7 @@ Common attributes, including those in the groups listed above, are defined as fo
 
         See [Using the -dita-use-conref-target value](../../common/../archSpec/base/ditauseconreftarget.md) for more information.
 
-    See [TODO: Update link and title to OASIS published URI](https://dita-lang.org/dita/langref/attributes/attribute-groups#attribute-groups__attr-href) for detailed information on supported values and processing implications.
+    See  for detailed information on processing implications.
 
 -   **`@keycol` \(simpletable attributes\)**
 
@@ -457,13 +459,7 @@ Common attributes, including those in the groups listed above, are defined as fo
 
 -   **`@name` \(data-element attributes\)**
 
-    Defines a unique name for the object.
-
-    **Draft comment:**robander   
-    Do we need to specify the scope of "unique" here?
-
-    **Draft comment:**robander   
-    TO RESOLVE 13 May 2026: ha, it often won't be unique because you often use the same name for all instances of a specific type of metadata. Maybe we just get rid of "unique"
+    Defines a name for the object.
 
 -   **`@otherrole`**
 

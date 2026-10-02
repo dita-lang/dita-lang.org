@@ -49,7 +49,7 @@ The `<month>` element denotes a month of the year.
 -   **[organization](../../langRef/technicalContent/organization.md)**  
 The `<organization>` element contains the name of a business unit.
 -   **[person](../../langRef/technicalContent/person.md)**  
-The `<person>` element contains name of a person.
+The `<person>` element contains the name of a person.
 -   **[printlocation](../../langRef/technicalContent/printlocation.md)**  
 The `<printlocation>` element indicates where the book was printed.
 -   **[published](../../langRef/technicalContent/published.md)**  

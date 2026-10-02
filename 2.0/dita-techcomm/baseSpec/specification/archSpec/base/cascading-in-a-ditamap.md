@@ -15,7 +15,7 @@ The following attributes cascade when set on the `<map>` element or when set wit
 
 Cascading is additive for attributes that accept multiple values, except when `cascade="nomerge"` is specified. For attributes that take a single value, the value that is defined on the closest containing element takes effect.
 
-In a relationship table, metadata can be applied to entire rows or columns, as well as individual cells. The metadata cascade operates differently due to the nature of this tabular structure The cascade is not driven by a strict containment hierarchy because `<relcolspec>` elements do not contain child elements.
+In a relationship table, metadata can be applied to entire rows or columns, as well as individual cells. The metadata cascade operates differently due to the nature of this tabular structure. The cascade is not driven by a strict containment hierarchy because `<relcolspec>` elements do not contain child elements.
 
 The following list illustrates how metadata cascades in a relationship table:
 
