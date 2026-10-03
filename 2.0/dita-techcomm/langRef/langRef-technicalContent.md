@@ -4,7 +4,7 @@ author: OASIS DITA Technical Committee
 
 # Element reference
 
-This section contains topics for each element defined in the technical content specializations. These elements include the original concept, task, and reference specializations, as well as specializations added in later releases . It also includes domains designed primarily for technical content.
+This section contains topics for each element defined in the technical content specializations. These elements include the original concept, task, and reference specializations, as well as specializations added in later releases. It also includes domains designed primarily for technical content.
 
 -   **[Elements, A to Z](../langRef/quick-reference/technicalContent-elements-a-to-z.md)**  
 This section provides an alphabetized list of links to all elements in the specification.

@@ -11,7 +11,7 @@ The `<glossAcronym>` element defines an acronym for the term that is specified i
 -   **[glossAlt](../../langRef/technicalContent/glossAlt.md)**  
 The `<glossAlt>` element contains information about a variant for the termthat is specified in the `<glossterm>` element. A variant might include an acronymor a synonym.
 -   **[glossBody](../../langRef/technicalContent/glossBody.md)**  
-The `<glossBody>` element contains information about the term that is specified in the `<glossterm>` element, such as a acronym, synonyms, or usage notes.
+The `<glossBody>` element contains information about the term that is specified in the `<glossterm>` element, such as an acronym, synonyms, or usage notes.
 -   **[glossdef](../../langRef/technicalContent/glossdef.md)**  
 The `<glossdef>` element defines the meaning of the term that is specified in the `<glossterm>` element.
 -   **[glossentry](../../langRef/technicalContent/glossentry.md)**  
@@ -19,7 +19,7 @@ The `<glossentry>` element is the top-level element for a topic that defines a g
 -   **[glossSurfaceForm](../../langRef/technicalContent/glossSurfaceForm.md)**  
 The `<glossSurfaceForm>` element specifies how the term that is specified by the `<glossterm>` element should appear in the text. The surface form is suitable to introduce the term in new contexts or as the first occurrence.
 -   **[glossSymbol](../../langRef/technicalContent/glossSymbol.md)**  
-The `<glossSymbol>` element identifies an image that is associated with the subject of the term that is specified by `<glossterm>` element.
+The `<glossSymbol>` element identifies an image that is associated with the subject of the term that is specified by the `<glossterm>` element.
 -   **[glossSynonym](../../langRef/technicalContent/glossSynonym.md)**  
 The `<glossSynonym>` element provides a term that is a synonym of the term that is specified by the `<glossterm>` element.
 -   **[glossterm](../../langRef/technicalContent/glossterm.md)**  

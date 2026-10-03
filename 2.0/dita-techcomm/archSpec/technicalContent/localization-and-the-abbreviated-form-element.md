@@ -14,7 +14,7 @@ The `<glossAcronym>` and `<glossSurfaceForm>` elements were designed to accommod
 
     An acronym in one language might not have an equivalent in another language. In addition, languages have varying conventions for how an expanded form of a term is displayed. When acronyms are first displayed, some languages will display the expanded form followed by the acronym in parentheses, while other languages do the reverse. For some acronyms, a translation might need to render both the original and the translated version of the acronym. The `<glossSurfaceForm>` enables authors and translators to present a locale-appropriate expanded form to the reader.
 
-    If a language does not have a acronym for a term, the translation of a glossary entry topic might result in an empty `<glossAcronym>` element.
+    If a language does not have an acronym for a term, the translation of a glossary entry topic might result in an empty `<glossAcronym>` element.
 
 -   **Synonyms**
 

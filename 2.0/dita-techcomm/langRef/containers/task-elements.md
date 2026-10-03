@@ -41,7 +41,7 @@ A step is an action that people take to complete a task. It can also contain add
 -   **[stepresult](../../langRef/technicalContent/stepresult.md)**  
 The `<stepresult>` element provides information about the expected outcome of a step.
 -   **[steps](../../langRef/technicalContent/steps.md)**  
-Steps are a series of actions that people perform in a specific order and manner.
+Steps are actions that people perform in a specific order and manner.
 -   **[steps-informal](../../langRef/technicalContent/steps-informal.md)**  
 Informal steps are steps that do not follow a strict content model. A paragraph might describe more than one step, or a paragraph might combine procedural information along with other information.
 -   **[stepsection](../../langRef/technicalContent/stepsection.md)**  
