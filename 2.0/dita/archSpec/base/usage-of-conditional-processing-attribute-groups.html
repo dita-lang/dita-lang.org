@@ -4,7 +4,7 @@ title: 'Conditional processing attribute values with groups'
 description: 'For more advanced needs, groups can be used to organize metadata into subcategories within a conditional processing attribute.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '1e6a6ea0b35693f5112d7c9eb46ab8cebb6672e0'
+commit: '220b1264cdc01e6f15058f2ba213ce235ecf1e4c'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -28,8 +28,8 @@ classes: ''
 <p class="p">The following rules apply to groups within conditional processing attributes:</p>
     <ul class="ul">
       <li class="li">Groups consist of a name immediately followed by a parenthetical group of zero or more
-        space-delimited string values. For example, <code class="ph codeph">"groupName(valueOne
-        valueTwo)"</code>.</li>
+        space-delimited string values. <span class="ph example">For example, <code class="ph codeph">"groupName(valueOne
+        valueTwo)"</code>.</span></li>
       <li class="li">Groups cannot be nested.</li>
       <li class="li">If two groups with the same name are found in a single attribute, they are treated as if
         all values are specified in the same group. The following values for the
@@ -44,14 +44,14 @@ otherprops="groupA(a b c) groupZ(APPNAME)"</code></pre></li>
 product="product(a b c) database(dbA dbB) appserver(mySERVER)"</code></pre></li>
     </ul>
     <p class="p">An empty group within an attribute is equivalent to omitting that group from the attribute.
-      For example, <code class="ph codeph">&lt;ph product="database() A"&gt;</code> is equivalent to <code class="ph codeph">&lt;ph
+      <span class="ph example">For example, <code class="ph codeph">&lt;ph product="database() A"&gt;</code> is equivalent to <code class="ph codeph">&lt;ph
         product="A"&gt;</code>. Similarly, <code class="ph codeph">&lt;ph product="operatingSystem()"&gt;</code> is
       equivalent to <code class="ph codeph">&lt;ph product=""&gt;</code>, which in turn is equivalent to
-        <code class="ph codeph">&lt;ph&gt;</code>.</p>
+        <code class="ph codeph">&lt;ph&gt;</code>.</span></p>
     <p class="p">If two groups with the same name exist on different attributes, a rule specified for that
-      group will evaluate the same way on each attribute. For example, if the group "sample" is
+      group will evaluate the same way on each attribute. <span class="ph example">For example, if the group "sample" is
       specified within both <code class="keyword markupname xmlatt">@platform</code> and <code class="keyword markupname xmlatt">@otherprops</code>, a DITAVAL
-      rule for <code class="ph codeph">sample="value"</code> will evaluate the same in each attribute. If there is
+      rule for <code class="ph codeph">sample="value"</code> will evaluate the same in each attribute.</span> If there is
       a need to distinguish between similarly named groups on different attributes, the best
       practice is to use more specific group names such as <var class="keyword varname">platformGroupname</var> and
         <var class="keyword varname">productGroupname</var>. Alternatively, DITAVAL rules can be specified based on
@@ -59,12 +59,12 @@ product="product(a b c) database(dbA dbB) appserver(mySERVER)"</code></pre></li>
     <p class="p">If the same group name is used in different attributes, a complex scenario could be created
       where different defaults are specified for different attributes, with no rule set for a group
       or individual value. In this case a value might end up evaluating differently in the different
-      attributes. For example, a DITAVAL can set a default of "exclude" for
+      attributes. <span class="ph example">For example, a DITAVAL can set a default of "exclude" for
         <code class="keyword markupname xmlatt">@platform</code> and a default of "flag" for <code class="keyword markupname xmlatt">@product</code>. If no rules
       are specified for group <code class="ph codeph">oddgroup()</code>, or for the value
         <code class="ph codeph">oddgroup="edgecase"</code>, the attribute
         <code class="ph codeph">platform="oddgroup(edgecase)"</code> will evaluate to "exclude" while
-        <code class="ph codeph">product="oddgroup(edgecase)"</code> will resolve to "flag". See <a class="xref" href="../../langRef/containers/ditaval-elements.html" title="A DITAVAL document identifies content that is filtered and flagged at rendering time. The DITAVAL document has an extension of .ditaval.">DITAVAL elements</a> for information on how to change
+        <code class="ph codeph">product="oddgroup(edgecase)"</code> will resolve to "flag".</span> See <a class="xref" href="../../langRef/containers/ditaval-elements.html" title="A DITAVAL document identifies content that is filtered and flagged at rendering time. The DITAVAL document has an extension of .ditaval.">DITAVAL elements</a> for information on how to change
       default behaviors in a DITAVAL profile.</p>
   </div>
 <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/condproc.html" title="Conditional processing is the filtering or flagging of information based on processing-time criteria. Conditional processing is based on attributes specified in the DITA source.">Conditional processing</a></div></div></nav><aside class="section-toc" role="aside"></aside></article></main>

@@ -32,11 +32,11 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     If it is an error for the element to be empty, an implementation MAY give an error message; it also MAY recover from this error condition by leaving the key reference element empty.
 
--   **[DITAERR-0070](../archSpec/base/theconactionattribute.md#d3141e215)**
+-   **[DITAERR-0070](../archSpec/base/theconactionattribute.md#d3141e232)**
 
     It is an error for two source topics to replace the same element.
 
--   **[DITAERR-0080](../archSpec/base/theconactionattribute.md#d3141e406)**
+-   **[DITAERR-0080](../archSpec/base/theconactionattribute.md#d3141e423)**
 
     The conref push function does not provide the ability to push a range of elements, so it is an error to specify the `@conrefend` attribute together with the `@conaction` attribute.
 
@@ -125,11 +125,11 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     In such cases processors MAY provide an error or warning message.
 
--   **[DITAERR-0290](../langRef/attributes/attribute-groups.md#d3600e2040)**
+-   **[DITAERR-0290](../langRef/attributes/attribute-groups.md#d3600e2047)**
 
     It is an error to use `parse="xml"` anywhere other than within `<foreign>` or a specialization thereof.
 
--   **[DITAERR-0300](../langRef/attributes/commonAttributes.md#d3125e1729)**
+-   **[DITAERR-0300](../langRef/attributes/commonAttributes.md#d3125e1736)**
 
     It is an error to use `parse="xml"` anywhere other than within `<foreign>` or a specialization thereof.
 
@@ -204,7 +204,7 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     Processors can also define custom, implementation-specific tokens for this attribute.
 
--   **[DITAIMP-0150](../langRef/attributes/attribute-groups.md#d3600t1993)**
+-   **[DITAIMP-0150](../langRef/attributes/attribute-groups.md#d3600t2000)**
 
     The necessity and uses of `@encoding` for non-standard values of `@parse` are implementation-dependent.
 
@@ -216,7 +216,7 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     Processors can also define custom, implementation-specific tokens for this attribute.
 
--   **[DITAIMP-0180](../langRef/attributes/commonAttributes.md#d3125t983)**
+-   **[DITAIMP-0180](../langRef/attributes/commonAttributes.md#d3125t990)**
 
     The necessity and uses of `@encoding` for non-standard values of `@parse` are implementation-dependent.
 
@@ -311,19 +311,19 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
     1.  If an attribute specifies a value in the taxonomy, and a DITAVAL or other categorization tool is configured with that value, the rule matches.
     2.  Otherwise, if the parent value in the taxonomy has a rule, that matches.
     3.  Otherwise, continue up the chain in the taxonomy until a matching rule is found.
--   **[DITAREQ-0180](../archSpec/base/id.md#d3672e63)**
+-   **[DITAREQ-0180](../archSpec/base/id.md#d3672e69)**
 
     Within a map document, the values of the `@id` attributes for all elements SHOULD be unique.
 
--   **[DITAREQ-0190](../archSpec/base/id.md#d3672t70)**
+-   **[DITAREQ-0190](../archSpec/base/id.md#d3672t76)**
 
     When two elements within a map have the same value for the `@id` attribute, processors MUST resolve references to that ID to the first element with the given ID value in document order.
 
--   **[DITAREQ-0200](../archSpec/base/theformatattribute.md#d4337e277)**
+-   **[DITAREQ-0200](../archSpec/base/theformatattribute.md#d4337e283)**
 
     If the actual format of the referenced content differs from the effective value of the `@format` attribute, and a processor is capable of identifying such cases, it MAY recover gracefully and treat the content as its actual format.
 
--   **[DITAREQ-0210](../archSpec/base/theformatattribute.md#d4337t284)**
+-   **[DITAREQ-0210](../archSpec/base/theformatattribute.md#d4337t290)**
 
     The processor MAY also issue a message.
 
@@ -442,7 +442,7 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     The parent of the referencing element MUST be the same type as the parent of the referenced range or generalizable to the parent of the referencing element.
 
--   **[DITAREQ-0430](../archSpec/base/theconactionattribute.md#d3141t216)**
+-   **[DITAREQ-0430](../archSpec/base/theconactionattribute.md#d3141t233)**
 
     Applications MAY warn users if more than one element attempts to replace a single target.
 
@@ -554,7 +554,7 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     Processors that perform sorting SHOULD explicitly document how the base sort phrase is determined for a given element.
 
--   **[DITAREQ-0710](../archSpec/base/sort-as-processing.md#d3761e87)**
+-   **[DITAREQ-0710](../archSpec/base/sort-as-processing.md#d3761e93)**
 
     When a `<sort-as>` element is specified, processors that sort the containing element MUST construct the effective sort phrase by prepending the content of the `<sort-as>` element to the base sort phrase.
 
@@ -578,15 +578,15 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     The public identifier or URN for such document-type shells SHOULD reflect the owner or creator of the document-type shell.
 
--   **[DITAREQ-0770](../archSpec/base/specialization-vocabulary-modules.md#d3081e126)**
+-   **[DITAREQ-0770](../archSpec/base/specialization-vocabulary-modules.md#d3081e132)**
 
     Structural modules based on topic MAY define additional topic types that are then allowed to occur as subordinate topics within the top-level topic.
 
--   **[DITAREQ-0780](../archSpec/base/specialization-vocabulary-modules.md#d3081e139)**
+-   **[DITAREQ-0780](../archSpec/base/specialization-vocabulary-modules.md#d3081e145)**
 
     Domain elements intended for use in topics MUST ultimately be specialized from elements that are defined in the topic module.
 
--   **[DITAREQ-0790](../archSpec/base/specialization-vocabulary-modules.md#d3081t143)**
+-   **[DITAREQ-0790](../archSpec/base/specialization-vocabulary-modules.md#d3081t149)**
 
     Domain elements intended for use in maps MUST ultimately be specialized from elements defined by or used in the map module.
 
@@ -614,7 +614,7 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     Each specialization of the `@props` and `@base` attributes MUST provide a token for use by the `@specializations` attribute.
 
--   **[DITAREQ-0860](../archSpec/base/generalization-overview.md#d3447e75)**
+-   **[DITAREQ-0860](../archSpec/base/generalization-overview.md#d3447e87)**
 
     When generalizing for round-tripping, the `@class` attribute and `@specializations` attribute SHOULD retain the original specialized values in the generalized instance document.
 
@@ -641,7 +641,7 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     A single element MUST NOT contain both generalized and specialized values for the same attribute.
 
--   **[DITAREQ-0920](../archSpec/base/generalization-w-cross-specialization-dependencies.md#d2804e41)**
+-   **[DITAREQ-0920](../archSpec/base/generalization-w-cross-specialization-dependencies.md#d2804e49)**
 
     When possible, generalization processes SHOULD detect invalid generalization target combinations and report them as errors.
 
@@ -921,47 +921,47 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     In such cases processors MAY provide an error or warning message.
 
--   **[DITAREQ-1510](../conformance/conformance.md#d4213t22)**
+-   **[DITAREQ-1510](../conformance/conformance.md#d4213t25)**
 
     Any implementation that supports a feature MUST conform to all rules laid out in the section that describes the feature.
 
--   **[DITAREQ-1520](../conformance/conformance.md#d4213e198)**
+-   **[DITAREQ-1520](../conformance/conformance.md#d4213e201)**
 
     Conforming DITA implementations SHOULD include a conformance statement that gives the version of the DITA specification that is supported, indicate if all features from the list above are supported, and indicate that all normative rendering rules are supported.
 
--   **[DITAREQ-1530](../conformance/conformance.md#d4213e204)**
+-   **[DITAREQ-1530](../conformance/conformance.md#d4213e207)**
 
     If only a subset of features is supported, implementations SHOULD indicate which features are \(or are not\) supported.
 
--   **[DITAREQ-1540](../conformance/conformance.md#d4213t208)**
+-   **[DITAREQ-1540](../conformance/conformance.md#d4213t211)**
 
     If an implementation supports rendering DITA elements but does not render all elements as described above, that application SHOULD indicate which elements are \(or are not\) supported.
 
--   **[DITAREQ-1550](../conformance/conformance.md#d4213t217)**
+-   **[DITAREQ-1550](../conformance/conformance.md#d4213t224)**
 
     However, any application that renders content references MUST conform to the rules described in the section [../../archSpec/base/conref.md](../../archSpec/base/conref.md).
 
--   **[DITAREQ-1560](../conformance/conformance.md#d4213t225)**
+-   **[DITAREQ-1560](../conformance/conformance.md#d4213t234)**
 
     An implementation that does not support a particular feature MUST be prepared to interoperate with other implementations that do support the feature.
 
--   **[DITAREQ-1570](../conformance/conformance.md#d4213e241)**
+-   **[DITAREQ-1570](../conformance/conformance.md#d4213e250)**
 
     A DITA document that refers to document type shells distributed by OASIS MUST be valid according to both the grammar files and any assertions provided in the language reference.
 
--   **[DITAREQ-1580](../conformance/conformance.md#d4213e247)**
+-   **[DITAREQ-1580](../conformance/conformance.md#d4213e256)**
 
     If a DITA document's custom document type shell includes constraints, those constraints MUST also conform to the rules laid out in [../../archSpec/base/constraint-rules.md](../../archSpec/base/constraint-rules.md)
 
--   **[DITAREQ-1590](../conformance/conformance.md#d4213e254)**
+-   **[DITAREQ-1590](../conformance/conformance.md#d4213e263)**
 
     If a DITA document's custom document type shell includes expansion modules, those modules MUST also conform to the rules laid out in [../../archSpec/base/expansion-module-rules.md](../../archSpec/base/expansion-module-rules.md)
 
--   **[DITAREQ-1600](../conformance/conformance.md#d4213e261)**
+-   **[DITAREQ-1600](../conformance/conformance.md#d4213e270)**
 
     If a DITA document uses specialized elements, those elements MUST also conform to the rules laid out in [../../archSpec/base/specialization-rules-elements.md](../../archSpec/base/specialization-rules-elements.md) and [../../archSpec/base/specialization-class-attribute.md](../../archSpec/base/specialization-class-attribute.md).
 
--   **[DITAREQ-1610](../conformance/conformance.md#d4213e271)**
+-   **[DITAREQ-1610](../conformance/conformance.md#d4213e280)**
 
     If a DITA document uses specialized attributes, those attributes MUST also conform to the rules laid out in [../../archSpec/base/specialization-rules-attributes.md](../../archSpec/base/specialization-rules-attributes.md) and [../../archSpec/base/specialization-specializations-attribute.md](../../archSpec/base/specialization-specializations-attribute.md).
 

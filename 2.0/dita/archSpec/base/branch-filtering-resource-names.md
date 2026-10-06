@@ -10,6 +10,8 @@ When map branches are cloned by a processor in order to support multiple conditi
 
 When a map branch uses multiple condition sets, processors create multiple effective copies of the branch to support the different conditions. This results in potential conflicts for resource names, key names, and key scopes. Metadata elements inside of the `<ditavalref>` element are available to provide control over these values, so that keys, key scopes, and URIs can be individually referenced within a branch.
 
+## Example
+
 For example, the following map branch references two DITAVAL documents:
 
 ```

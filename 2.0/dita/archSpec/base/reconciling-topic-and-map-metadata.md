@@ -10,11 +10,11 @@ For each element that can be contained in the `<topicmeta>` element, the followi
 
 -   **How does it apply to the topic?**
 
-    This column describes how the metadata specified within the `<topicmeta>` element interacts with the metadata specified in the referenced topic. In most cases, the properties are additive. For example, when a topic reference in a map contains `<category>installation</category>`, `<category>installation</category>` is added during processing to any metadata that is specified in the topic prolog.
+    This column describes how the metadata specified within the `<topicmeta>` element interacts with the metadata specified in the referenced topic. In most cases, the properties are additive. exampleFor example, when a topic reference in a map contains `<category>installation</category>`, `<category>installation</category>` is added during processing to any metadata that is specified in the topic prolog.
 
 -   **Does it cascade to other topics in the map?**
 
-    This column indicates whether the specified metadata element cascades to nested `<topicref>` elements. For example, when a topic reference in a map contains `<author>Jane Doe</author>`, `<author>Jane Doe</author>` is added during processing to the metadata for all child topic references. Some elements do not cascade.
+    This column indicates whether the specified metadata element cascades to nested `<topicref>` elements. exampleFor example, when a topic reference in a map contains `<author>Jane Doe</author>`, `<author>Jane Doe</author>` is added during processing to the metadata for all child topic references. Some elements do not cascade.
 
 -   **What is the purpose when specified on the `<map>` element?**
 

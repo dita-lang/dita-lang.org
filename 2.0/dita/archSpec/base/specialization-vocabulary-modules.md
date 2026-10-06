@@ -21,7 +21,7 @@ The following terminology is used to refer to DITA vocabulary modules:
     A vocabulary module that defines exactly one specialization of either the `@base` or `@props` attribute.
 
 
-For structural types, the module name is typically the same as the root element. For example, "task" is the name of the structural vocabulary module whose root element is `<task>`.
+For structural types, the module name is typically the same as the root element. exampleFor example, "task" is the name of the structural vocabulary module whose root element is `<task>`.
 
 For element domain modules, the module name is typically a name that reflects the subject domain to which the domain applies, such as "highlight" or "software". Domain modules often have an associated short name, such as hi-d for the highlighting domain or sw-d for the software domain.
 

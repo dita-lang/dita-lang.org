@@ -18,14 +18,14 @@ There are two types of DITA specializations:
 
 -   **Structural specialization**
 
-    Structural specializations are developed from either topic or map types. Structural specializations enable information architects to add new document types to DITA. The structures defined in the new document types either directly use, or inherit from, elements found in other document types. For example, concept, task, and reference are specialized from topic, and bookmap is specialized from map.
+    Structural specializations are developed from either topic or map types. Structural specializations enable information architects to add new document types to DITA. The structures defined in the new document types either directly use, or inherit from, elements found in other document types. exampleFor example, concept, task, and reference are specialized from topic, and bookmap is specialized from map.
 
 -   **Domain specialization**
 
     Domain specializations are developed from elements defined within topic or map, or from the `@props` or `@base` attributes. They define markup for a specific information domain or subject area. Domain specializations can be added to document-type shells.
 
 
-Each type of specialization module represents an “is a” hierarchy, in object-oriented terms, with each structural type or domain being a subclass of its parent. For example, a specialization of task is still a task, and a specialization of the user interface domain is still part of the user interface domain. A given domain can be used with any map or topic type. In addition, specific structural types might require the use of specific domains.
+Each type of specialization module represents an “is a” hierarchy, in object-oriented terms, with each structural type or domain being a subclass of its parent. exampleFor example, a specialization of task is still a task, and a specialization of the user interface domain is still part of the user interface domain. A given domain can be used with any map or topic type. In addition, specific structural types might require the use of specific domains.
 
 Use specialization when you need a new structural type or domain. Specialization is appropriate in the following circumstances:
 

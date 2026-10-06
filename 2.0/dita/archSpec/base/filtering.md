@@ -20,7 +20,7 @@ When deciding whether to include or exclude a particular element, a processor ev
         2.  If any group within an attribute evaluates to exclude, that attribute evaluates to exclude. In other words, the attribute evaluates to include only when **all** groups in that attribute evaluate to include.
 2.  If **any single attribute** evaluates to exclude, the element is filtered.
 
-For example, if a paragraph applies to three products and the publisher has chosen to exclude all of them, the processor will exclude the paragraph. This is true even if the paragraph applies to an audience or platform that is not excluded. But if the paragraph applies to an additional product that has not been excluded, then its content is still relevant for the intended output and is preserved.
+exampleFor example, if a paragraph applies to three products and the publisher has chosen to exclude all of them, the processor will exclude the paragraph. This is true even if the paragraph applies to an audience or platform that is not excluded. But if the paragraph applies to an additional product that has not been excluded, then its content is still relevant for the intended output and is preserved.
 
 **Parent topic:**[Conditional processing](../../archSpec/base/condproc.md)
 

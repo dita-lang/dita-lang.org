@@ -22,7 +22,7 @@ The DITA Technical Committee chose the RELAX NG XML syntax for the following rea
 
 -   **Capability of expressing precise restrictions**
 
-    RELAX NG is capable of expressing constraints that are more precise than is possible with DTDs. For example, RELAX NG patterns can be context specific such that the same element type can allow different content or attributes in different contexts. However, the grammar files that are provided by the OASIS DITA Technical Committee do not use any features of RELAX NG that cannot be translated into equivalent DTD constructs.
+    RELAX NG is capable of expressing constraints that are more precise than is possible with DTDs. exampleFor example, RELAX NG patterns can be context specific such that the same element type can allow different content or attributes in different contexts. However, the grammar files that are provided by the OASIS DITA Technical Committee do not use any features of RELAX NG that cannot be translated into equivalent DTD constructs.
 
 
 The DITA use of RELAX NG depends on the **RELAX NG DTD Compatibility** specification, which provides a mechanism for defining default-attribute values and embedded documentation. Processors that use RELAX NG for DITA documents in which required attributes \(for example, the `@class` attribute\) are not explicitly present must implement the DTD compatibility specification in order to get default attribute values.

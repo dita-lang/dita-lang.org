@@ -28,7 +28,7 @@ The following values are explicitly supported:
     **Note:** If a `<topicref>` element that references a map contains child `<topicref>` elements, the processing behavior regarding the child `<topicref>` elements is undefined.
 
 
-For other formats, the file extension without the "." character typically represents the format. For example, the following are all possible values for `@format`: html, pdf, or txt.
+For other formats, the file extension without the "." character typically represents the format. exampleFor example, the following are all possible values for `@format`: html, pdf, or txt.
 
 If no value is explicitly specified for the `@format` attribute, the following precedence rules apply:
 

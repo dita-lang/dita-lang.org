@@ -4,7 +4,7 @@ title: 'Pushing reusable content to a new location'
 description: 'The conaction attribute allows users to push content from one location into another. It causes the conref attribute to work in reverse, so that content is pushed from the referencing element into another location, rather than pulled from another location to replace the referencing element.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '29ecfc34e9ab144a011f9a52c69ae0b3c4daa931'
+commit: '220b1264cdc01e6f15058f2ba213ce235ecf1e4c'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -32,18 +32,18 @@ classes: ''
       content will be valid in the target topic.</p><ul class="ul">
 <li class="li">It is valid to push using <code class="keyword markupname xmlatt">@conref</code>
         <span style="color:red;" class="ph">or <code class="keyword markupname xmlatt">@conkeyref</code></span> when the two elements involved are
-        of the same type. For example, a <code class="keyword markupname xmlelement">&lt;step&gt;</code> element can use the conref
+        of the same type. <span class="ph example">For example, a <code class="keyword markupname xmlelement">&lt;step&gt;</code> element can use the conref
         push feature with another <code class="keyword markupname xmlelement">&lt;step&gt;</code> as the target of the
           <code class="keyword markupname xmlatt">@conref</code>
-        <span style="color:red;" class="ph">or <code class="keyword markupname xmlatt">@conkeyref</code></span>.</li>
-<li class="li">The target element can be more general than the source. For example, it is legal to push a
+        <span style="color:red;" class="ph">or <code class="keyword markupname xmlatt">@conkeyref</code></span>.</span></li>
+<li class="li">The target element can be more general than the source. <span class="ph example">For example, it is legal to push a
             <code class="keyword markupname xmlelement">&lt;step&gt;</code> element to replace a general list item
             (<code class="keyword markupname xmlelement">&lt;li&gt;</code>); the <code class="keyword markupname xmlelement">&lt;step&gt;</code> element should be
-          generalized back to a list item during the process.</li>
-<li class="li">It is not possible to push a more general element into a specialized context. For example, it is
+          generalized back to a list item during the process.</span></li>
+<li class="li">It is not possible to push a more general element into a specialized context. <span class="ph example">For example, it is
           not legal to push a list item (<code class="keyword markupname xmlelement">&lt;li&gt;</code>) in order to replace a
             <code class="keyword markupname xmlelement">&lt;step&gt;</code>, because the list item allows many items that are not
-          valid in the specialized context.</li>
+          valid in the specialized context.</span></li>
 </ul>
 <section class="section" id="theconactionattribute__replacing-content"><h2 class="title sectiontitle">Replacing content in another topic</h2>
       
@@ -60,7 +60,7 @@ classes: ''
         that if the source element does not specify an ID, the ID on the referenced element remains;
         if the source element does specify an ID then that replaces the ID on the referenced
         element.</p>
-      <p class="p errorcondition"><span class="error-statement" id="theconactionattribute__d3141e215" data-id="DITAERR-0070"></span>It is an error for two source topics to replace the same
+      <p class="p errorcondition"><span class="error-statement" id="theconactionattribute__d3141e232" data-id="DITAERR-0070"></span>It is an error for two source topics to replace the same
         element. Applications <dfn class="term RFC-2119">MAY</dfn> warn users if more than one
         element attempts to replace a single target.</p>
     </section>
@@ -126,7 +126,7 @@ classes: ''
         on an element that also uses the <code class="keyword markupname xmlatt">@conaction</code> attribute, the
           <code class="keyword markupname xmlatt">@conkeyref</code> attribute is used to determine the target of the conref push
         (as it would normally be used to determine the target of <code class="keyword markupname xmlatt">@conref</code>).</p>
-      <p class="p errorcondition"><span class="error-statement" id="theconactionattribute__d3141e406" data-id="DITAERR-0080"></span>The conref push function does not provide the ability to push
+      <p class="p errorcondition"><span class="error-statement" id="theconactionattribute__d3141e423" data-id="DITAERR-0080"></span>The conref push function does not provide the ability to push
         a range of elements, so it is an error to specify the <code class="keyword markupname xmlatt">@conrefend</code> attribute
         together with the <code class="keyword markupname xmlatt">@conaction</code> attribute. If the two are specified together an
         application can recover by warning the user, ignoring the <code class="keyword markupname xmlatt">@conrefend</code>

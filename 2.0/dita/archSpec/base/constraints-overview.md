@@ -32,7 +32,7 @@ A constraint module can perform the following functions:
 
     Constraint modules can replace base element types with the domain-provided extension elements.
 
-    For example, a constraint module can replace the `<ph>` element with the domain-provided elements, making `<ph>` unavailable.
+    exampleFor example, a constraint module can replace the `<ph>` element with the domain-provided elements, making `<ph>` unavailable.
 
 
 **Parent topic:**[Constraints](../../archSpec/base/constraints.md)

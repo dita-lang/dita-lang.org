@@ -12,9 +12,9 @@ There are three possible functions using the `@conaction` attribute: replacing a
 
 In each case, an element pushed using `@conref` or `@conkeyref`must be of the same type as, or more specialized than, its target. If the pushed element is more specialized than the target, then it should be generalized when the `@conref` or `@conkeyref` is resolved. This ensures that the content will be valid in the target topic.
 
--   It is valid to push using `@conref` or `@conkeyref` when the two elements involved are of the same type. For example, a `<step>` element can use the conref push feature with another `<step>` as the target of the `@conref` or `@conkeyref`.
--   The target element can be more general than the source. For example, it is legal to push a `<step>` element to replace a general list item \(`<li>`\); the `<step>` element should be generalized back to a list item during the process.
--   It is not possible to push a more general element into a specialized context. For example, it is not legal to push a list item \(`<li>`\) in order to replace a `<step>`, because the list item allows many items that are not valid in the specialized context.
+-   It is valid to push using `@conref` or `@conkeyref` when the two elements involved are of the same type. exampleFor example, a `<step>` element can use the conref push feature with another `<step>` as the target of the `@conref` or `@conkeyref`.
+-   The target element can be more general than the source. exampleFor example, it is legal to push a `<step>` element to replace a general list item \(`<li>`\); the `<step>` element should be generalized back to a list item during the process.
+-   It is not possible to push a more general element into a specialized context. exampleFor example, it is not legal to push a list item \(`<li>`\) in order to replace a `<step>`, because the list item allows many items that are not valid in the specialized context.
 
 ## Replacing content in another topic
 

@@ -22,7 +22,7 @@ The DITAVAL-reference domain defines four elements to control URI and key scope 
 
     The `<dvrResourceSuffix>` element specifies the suffix to use when constructing the effective file names or resource IDs of the resources that are referenced from within the map branch that is implied by the ancestor `<ditavalref>` element. This enables a map author to specify a suffix that is added to the end of resource names \(before any extension\) for each eligible resource in the branch.
 
-    For map branches that are processed with this element, the value of the `<dvrResourceSuffix>` element contributes to the effective file names and resource IDs of the resources that are referenced within the branch. The base part of the effective resource file name ends with the value of the `<dvrResourceSuffix>` element. The base part of the resource file name consists of the portion of the file name after any directory information, and before any period followed by the file extension. For example, in the original file name `task/install.dita`, the base portion of the file name is "install".
+    For map branches that are processed with this element, the value of the `<dvrResourceSuffix>` element contributes to the effective file names and resource IDs of the resources that are referenced within the branch. The base part of the effective resource file name ends with the value of the `<dvrResourceSuffix>` element. The base part of the resource file name consists of the portion of the file name after any directory information, and before any period followed by the file extension. exampleFor example, in the original file name `task/install.dita`, the base portion of the file name is "install".
 
     Some resources are not eligible for renaming, such as those marked with `scope="external"`.
 
@@ -42,6 +42,8 @@ The DITAVAL-reference domain defines four elements to control URI and key scope 
 
     For map branches processed with this element, the value of the `<dvrKeyscopeSuffix>` element contributes to the effective key scope names of the branch. The effective key scope names end with the value of the `<dvrKeyscopeSuffix>` element. Note that if the branch as authored does not specify a `@keyscope` value, specifying `<dvrKeyscopeSuffix>` \(without also specifying `<dvrKeyscopePrefix>`\) results in the branch establishing a key scope whose name is the value of the `<dvrKeyscopeSuffix>` element. The full key scope names will also reflect the value of a `<dvrKeyscopePrefix>` element if one is specified, regardless of whether the branch as authored specifies a `@keyscope` value.
 
+
+example
 
 For example, the previous code sample can be modified as follows to create predictable resource names and key scopes for the copy of the branch that is filtered using the conditions that are specified in `admin.ditaval`.
 

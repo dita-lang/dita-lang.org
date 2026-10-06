@@ -4,7 +4,7 @@ title: 'Using metadata elements in the DITAVAL-reference domain'
 description: 'Metadata within the ditavalref element makes it possible to control changes to resource names and key scope names, so that each distinct filtered copy can be referenced in a predictable manner.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: 'fa244eb7be2374c2d607f2c834a33cb1e8c0bc11'
+commit: '220b1264cdc01e6f15058f2ba213ce235ecf1e4c'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -47,9 +47,9 @@ classes: ''
                         with the value of the <code class="keyword markupname xmlelement">&lt;dvrResourceSuffix&gt;</code> element.
                         The base part of the resource file name consists of the portion of the file
                         name after any directory information, and before any period followed by the
-                        file extension. For example, in the original file name
+                        file extension. <span class="ph example">For example, in the original file name
                             <span class="ph filepath">task/install.dita</span>, the base portion of the file
-                        name is "install".</p><p class="p">Some resources are not eligible for renaming, such
+                        name is "install".</span></p><p class="p">Some resources are not eligible for renaming, such
                         as those marked with <code class="ph codeph">scope="external"</code>.</p><p class="p">Path information is not valid in
           <code class="keyword markupname xmlelement">&lt;dvrResourceSuffix&gt;</code>.</p><p class="p">If a topic reference
                         includes <code class="keyword markupname xmlelement">&lt;resourceid&gt;</code> with the
@@ -101,6 +101,7 @@ classes: ''
                             <code class="keyword markupname xmlatt">@keyscope</code> value.</p></dd>
             
         </dl>
+      <div class="div example">
         <p class="p">For example, the previous code sample can be modified as follows to create predictable
             resource names and key scopes for the copy of the branch that is filtered using the
             conditions that are specified in <span class="ph filepath">admin.ditaval</span>.</p>
@@ -140,6 +141,7 @@ classes: ''
                         <span class="ph filepath">newFeature.dita</span></li>
                 </ul></li>
         </ul>
+      </div>
         <div class="note note note_note non-normative"><span class="note__title">Note<span class="non-normative-label"> (non-normative)</span>:</span> <div class="note__body">In general, the best way to reference a topic that will be
             modified based on branch filtering is to use a key rather than a URI. Key scopes and key
             names (including those modified based on the elements above) are calculated by

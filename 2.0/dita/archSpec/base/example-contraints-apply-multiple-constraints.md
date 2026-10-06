@@ -10,15 +10,15 @@ You can apply multiple constraints to a single document-type shell. However, the
 
 Here is a list of constraint modules and what they do:
 
-<table><thead><tr><th align="left" id="d245870e54">
+<table><thead><tr><th align="left" id="d246263e54">
 
 File name
 
-</th><th align="left" id="d245870e57">
+</th><th align="left" id="d246263e57">
 
 What it constrains
 
-</th><th align="left" id="d245870e60">
+</th><th align="left" id="d246263e60">
 
 Details
 

@@ -10,8 +10,8 @@ All DITA documents contain a mix of markup from at least one structural type and
 
 Generalization serves several purposes:
 
--   It can be used to migrate content. For example, if a specialization is unsuccessful or is no longer needed, the content can be generalized back to a less specialized form.
--   It can be used for temporary round-tripping. For example, if content is shared with a process that is not specialization aware, it can be temporarily generalized for that process and then returned to specialized form.
+-   It can be used to migrate content. exampleFor example, if a specialization is unsuccessful or is no longer needed, the content can be generalized back to a less specialized form.
+-   It can be used for temporary round-tripping. exampleFor example, if content is shared with a process that is not specialization aware, it can be temporarily generalized for that process and then returned to specialized form.
 -   It can allow reuse of specialized content in an environment that does not support the specialization. Similar to round-tripping, content can be generalized for sharing, without the need to re-specialize.
 
 When generalizing for migration, the `@class` attribute and `@specializations` attribute need to be absent from the generalized instance document, so that the default values in the document-type shell are used.

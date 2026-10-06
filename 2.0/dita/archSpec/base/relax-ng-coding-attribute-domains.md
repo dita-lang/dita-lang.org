@@ -6,7 +6,7 @@ author: OASIS DITA Technical Committee
 
 An attribute-domain vocabulary module declares a new attribute specialized from either the `@props` or `@base` attribute.
 
-The name of an attribute domain is the name of the attribute plus Att. For example, for the attribute named `@deliveryTarget`, the attribute-domain name is "deliveryTargetAtt". The attribute-domain name is used to construct pattern names for the domain.
+The name of an attribute domain is the name of the attribute plus Att. exampleFor example, for the attribute named `@deliveryTarget`, the attribute-domain name is "deliveryTargetAtt". The attribute-domain name is used to construct pattern names for the domain.
 
 An attribute-domain module consists of a single file, which has three sections:
 

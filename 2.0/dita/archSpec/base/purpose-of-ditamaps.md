@@ -37,7 +37,7 @@ DITA maps support the following uses:
     Maps also define the context or contexts for resolving key-based references, such as elements that specify the `@keyref` or `@conkeyref` attribute. Elements within a map structure that specify a `@keyscope` attribute create a new context for key reference resolution. Key references within such elements are resolved against the set of effective key definitions for that scope.
 
 
-Specialized maps can provide additional semantics beyond those of organization, linking, and indirection. For example, the subjectScheme map specialization adds the semantics of taxonomy and ontology definition.
+Specialized maps can provide additional semantics beyond those of organization, linking, and indirection. exampleFor example, the subjectScheme map specialization adds the semantics of taxonomy and ontology definition.
 
 **Parent topic:**[DITA maps](../../archSpec/base/ditamaps.md)
 

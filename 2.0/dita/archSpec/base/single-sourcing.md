@@ -10,7 +10,7 @@ Like many XML-based applications for human-readable documentation, DITA supports
 
 -   **DITA maps**
 
-    Different DITA maps can be optimized for different delivery formats. For example, you might have a book map for printed output and another DITA map to generate online help; each map uses the same content set.
+    Different DITA maps can be optimized for different delivery formats. exampleFor example, you might have a book map for printed output and another DITA map to generate online help; each map uses the same content set.
 
 -   **Specialization**
 

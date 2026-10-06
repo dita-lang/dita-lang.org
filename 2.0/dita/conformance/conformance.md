@@ -9,6 +9,9 @@ An implementation is a conforming implementation of DITA if the implementation m
 **Draft comment:**robander 29 September 2026  
 These section numbers need to be revised once the 2.0 TOC structure and numbering is complete
 
+**Draft comment:**robander 5 October 2026  
+We have a "for example" below about conformance to conref rules, that includes an RFC MUST statement. We can't have an actual conformance rule in an example, and that should not be treated as an additional conformance rule.
+
 Conformance to the DITA specification allows documents and document types that are used with different processors to produce the same or similar results with little or no reimplementation or modification. Conformance also allows DITA specializations to work with any conforming DITA application, with at least the same level of support available to unspecialized documents.
 
 ## 10.1 Conformance of DITA implementations
@@ -43,7 +46,7 @@ Conforming DITA implementations SHOULD include a conformance statement that give
 
 If only a subset of features is supported, implementations SHOULD indicate which features are \(or are not\) supported. If an implementation supports rendering DITA elements but does not render all elements as described above, that application SHOULD indicate which elements are \(or are not\) supported.
 
-Not all DITA features are relevant for all implementations. For example, a DITA editor that does not render content references in context does not need to conform to rules regarding the `@conref` attribute. However, any application that renders content references MUST conform to the rules described in the section [Content reference \(conref\)](../archSpec/base/conref.md).
+Not all DITA features are relevant for all implementations. exampleFor example, a DITA editor that does not render content references in context does not need to conform to rules regarding the `@conref` attribute. However, any application that renders content references MUST conform to the rules described in the section [Content reference \(conref\)](../archSpec/base/conref.md).
 
 Implementations that support only a subset of DITA features are considered conforming as long as all supported features follow the requirements that are given in the DITA specification. An implementation that does not support a particular feature MUST be prepared to interoperate with other implementations that do support the feature.
 

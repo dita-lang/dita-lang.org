@@ -12,7 +12,7 @@ A DITA document type is defined by the following:
 -   The values of the `@class` attributes of all the elements in the document
 -   Rules for topic nesting
 
-Two document-type shells define the same DITA document type if they integrate identical vocabulary modules, element-configuration modules \(constraint and expansion\), and rules for topic nesting. For example, a document-type shell that is an unmodified copy of the OASIS-provided document-type shell for topic defines the same DITA document type as the original document-type shell. However, the new document-type shell has the following differences:
+Two document-type shells define the same DITA document type if they integrate identical vocabulary modules, element-configuration modules \(constraint and expansion\), and rules for topic nesting. exampleFor example, a document-type shell that is an unmodified copy of the OASIS-provided document-type shell for topic defines the same DITA document type as the original document-type shell. However, the new document-type shell has the following differences:
 
 -   It is a distinct file that is stored in a different location.
 -   It has a distinct system identifier.

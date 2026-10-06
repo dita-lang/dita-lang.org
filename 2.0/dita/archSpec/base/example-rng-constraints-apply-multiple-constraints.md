@@ -10,15 +10,15 @@ In this scenario, the DITA architect wants to apply multiple constraints to a do
 
 Here is a list of the constraint modules and what they do:
 
-<table><thead><tr><th align="left" id="d234755e57">
+<table><thead><tr><th align="left" id="d235130e57">
 
 File name
 
-</th><th align="left" id="d234755e60">
+</th><th align="left" id="d235130e60">
 
 What it constrains
 
-</th><th align="left" id="d234755e63">
+</th><th align="left" id="d235130e63">
 
 Details
 

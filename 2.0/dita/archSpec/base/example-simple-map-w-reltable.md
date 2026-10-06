@@ -35,15 +35,15 @@ The following example contains the markup for a simple relationship table:
 
 A DITA-aware tool might represent the relationship table graphically:
 
-<table><thead><tr><th align="left" id="d277420e34">
+<table><thead><tr><th align="left" id="d277864e34">
 
 type="concept"
 
-</th><th align="left" id="d277420e37">
+</th><th align="left" id="d277864e37">
 
 type="task"
 
-</th><th align="left" id="d277420e40">
+</th><th align="left" id="d277864e40">
 
 type="reference"
 

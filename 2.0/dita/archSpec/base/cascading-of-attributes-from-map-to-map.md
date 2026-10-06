@@ -27,7 +27,7 @@ The following attributes do not cascade from map to map
 
 -   **`@scope`**
 
-    The value of the `@scope` attribute describes the map itself, rather than the content. For example, when the `@scope` attribute is set to external, it indicates that the referenced map itself is external and unavailable, so the value cannot cascade into that referenced map.
+    The value of the `@scope` attribute describes the map itself, rather than the content. exampleFor example, when the `@scope` attribute is set to external, it indicates that the referenced map itself is external and unavailable, so the value cannot cascade into that referenced map.
 
 -   **`@xml:lang` and `@dir`**
 

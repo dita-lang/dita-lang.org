@@ -8,7 +8,7 @@ A link pool is a group of links. The order that the links are rendered in the ou
 
 ## Rendering expectations
 
-The order in which links in a `<linkpool>` element are rendered is processor-specific. A processor might sort links based on role or type. A processor might move or remove links based on the context. For example, prerequisite links might be rendered at the beginning of a Web page, or links to the next topic might be removed if the two topics are rendered on the same page in a PDF.
+The order in which links in a `<linkpool>` element are rendered is processor-specific. A processor might sort links based on role or type. A processor might move or remove links based on the context. exampleFor example, prerequisite links might be rendered at the beginning of a Web page, or links to the next topic might be removed if the two topics are rendered on the same page in a PDF.
 
 ## Processing expectations
 
@@ -71,7 +71,7 @@ The following attributes are available on this element: [universal attributes](.
 
         -   **`@collection-type`**
 
-            The `@collection-type` attribute specifies how the children of a `<topicref>` element relate to their parent and to each other. This attribute, which is set on the parent element, typically is used by processors to determine how to generate navigation links in the rendered topics. For example, a `@collection-type` value of "sequence" indicates that children of the specifying `<topicref>` element represent an ordered sequence of topics; processors might add numbers to the list of child topics or generate next/previous links for online presentation. This attribute is available in topics on the `<linklist>` and `<linkpool>` elements, where it has the same behavior. Where the `@collection-type` attribute is available on elements that cannot directly contain elements, the behavior of the attribute is undefined.
+            The `@collection-type` attribute specifies how the children of a `<topicref>` element relate to their parent and to each other. This attribute, which is set on the parent element, typically is used by processors to determine how to generate navigation links in the rendered topics. exampleFor example, a `@collection-type` value of "sequence" indicates that children of the specifying `<topicref>` element represent an ordered sequence of topics; processors might add numbers to the list of child topics or generate next/previous links for online presentation. This attribute is available in topics on the `<linklist>` and `<linkpool>` elements, where it has the same behavior. Where the `@collection-type` attribute is available on elements that cannot directly contain elements, the behavior of the attribute is undefined.
 
         **Draft comment:**robander   
         TO RESOLVE 13 May 2026: Make sure nothing here conflicts, and add a link from this to the architectural section

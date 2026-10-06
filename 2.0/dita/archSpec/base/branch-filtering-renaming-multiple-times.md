@@ -6,7 +6,11 @@ author: OASIS DITA Technical Committee
 
 It is possible for a branch with `<ditavalref>` already in effect to specify an additional `<ditavalref>`, where each `<ditavalref>` includes renaming metadata.
 
-When renaming, metadata on the `<ditavalref>` nested more deeply within the branch appears closer to the original resource or key name. For example:
+When renaming, metadata on the `<ditavalref>` nested more deeply within the branch appears closer to the original resource or key name.
+
+## Example
+
+For example, the following code sample has two `<ditavalref>` elements at different levels of the same branch:
 
 ```
 <topicref href="branchParent.dita">

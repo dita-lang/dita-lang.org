@@ -8,11 +8,11 @@ Dependencies across specializations limit generalization targets to those that e
 
 When a structural specialization has a dependency on a domain specialization, then the domain cannot be generalized without also generalizing the reusing structural specialization.
 
-For example, a structural specialization `<codeConcept>` might incorporate and require the `<codeblock>` element from the programming domain. A generalization process that turns programming domain elements back into topic elements would convert `<codeblock>` to `<pre>`, making a document that uses `<codeConcept>` invalid. However, `<codeConcept>` could be generalized to concept or topic, without generalizing programming domain elements, as long as the target document type includes the programming domain.
+exampleFor example, a structural specialization `<codeConcept>` might incorporate and require the `<codeblock>` element from the programming domain. A generalization process that turns programming domain elements back into topic elements would convert `<codeblock>` to `<pre>`, making a document that uses `<codeConcept>` invalid. However, `<codeConcept>` could be generalized to concept or topic, without generalizing programming domain elements, as long as the target document type includes the programming domain.
 
 When a structural specialization has a dependency on another structural specialization, then both must be generalized together to a common ancestor.
 
-For example, if the task elements in checklist were generalized without also generalizing checklist elements, then the checklist content models that referenced task elements would be broken. And if the checklist elements were generalized to topic without also generalizing the task elements, then the task elements would be out of place, since they cannot be validly present in topic. However, checklist and task can be generalized together to any ancestor they have in common: in this case topic.
+exampleFor example, if the task elements in checklist were generalized without also generalizing checklist elements, then the checklist content models that referenced task elements would be broken. And if the checklist elements were generalized to topic without also generalizing the task elements, then the task elements would be out of place, since they cannot be validly present in topic. However, checklist and task can be generalized together to any ancestor they have in common: in this case topic.
 
 When possible, generalization processes SHOULD detect invalid generalization target combinations and report them as errors.
 
