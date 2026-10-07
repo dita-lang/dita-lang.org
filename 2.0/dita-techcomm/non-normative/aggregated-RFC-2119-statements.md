@@ -8,11 +8,11 @@ This appendix contains all the normative statements from the DITA for Technical 
 
 ## Aggregated error statements
 
--   **[DTTCERR-0010](../baseSpec/specification/langRef/attributes/attribute-groups.md#d2686e2046)**
+-   **[DTTCERR-0010](../baseSpec/specification/langRef/attributes/attribute-groups.md#d2686e2053)**
 
     It is an error to use `parse="xml"` anywhere other than within `<foreign>` or a specialization thereof.
 
--   **[DTTCERR-0020](../baseSpec/specification/langRef/attributes/commonAttributes.md#d2434e1734)**
+-   **[DTTCERR-0020](../baseSpec/specification/langRef/attributes/commonAttributes.md#d2434e1741)**
 
     It is an error to use `parse="xml"` anywhere other than within `<foreign>` or a specialization thereof.
 
@@ -35,7 +35,7 @@ This appendix contains all the normative statements from the DITA for Technical 
 
     Processors can also define custom, implementation-specific tokens for this attribute.
 
--   **[DTTCIMP-0050](../baseSpec/specification/langRef/attributes/attribute-groups.md#d2686t1999)**
+-   **[DTTCIMP-0050](../baseSpec/specification/langRef/attributes/attribute-groups.md#d2686t2006)**
 
     The necessity and uses of `@encoding` for non-standard values of `@parse` are implementation-dependent.
 
@@ -47,7 +47,7 @@ This appendix contains all the normative statements from the DITA for Technical 
 
     Processors can also define custom, implementation-specific tokens for this attribute.
 
--   **[DTTCIMP-0080](../baseSpec/specification/langRef/attributes/commonAttributes.md#d2434t983)**
+-   **[DTTCIMP-0080](../baseSpec/specification/langRef/attributes/commonAttributes.md#d2434t990)**
 
     The necessity and uses of `@encoding` for non-standard values of `@parse` are implementation-dependent.
 

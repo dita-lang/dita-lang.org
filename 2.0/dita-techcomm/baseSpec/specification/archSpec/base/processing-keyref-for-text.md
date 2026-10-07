@@ -34,6 +34,6 @@ Variable text can be specified by key definitions. Processors determine the effe
 
     When the effective content for a key reference element results in invalid elements, those elements SHOULD be generalized to produce a valid result.
 
-    For example, `<keytext>` in the key definition might use a domain specialization of `<keyword>` that is not valid in the key reference context, in which case the specialized element is generalized to `<keyword>`. If the generalized content is also not valid, a text equivalent is used instead. For example, `<keytext>` might include `<ph>` or a specialized `<ph>` in the key definition, but neither of those are valid as the effective content for a `<keyword>`. In that case, the text content of the `<ph>` is used.
+    exampleFor example, `<keytext>` in the key definition might use a domain specialization of `<keyword>` that is not valid in the key reference context, in which case the specialized element is generalized to `<keyword>`. If the generalized content is also not valid, a text equivalent is used instead. For example, `<keytext>` might include `<ph>` or a specialized `<ph>` in the key definition, but neither of those are valid as the effective content for a `<keyword>`. In that case, the text content of the `<ph>` is used.
 
 
