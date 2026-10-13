@@ -4,7 +4,7 @@ author: OASIS DITA Technical Committee
 
 # Example: Flagging with `@add-outputclass`
 
-In this scenario, the `@add-outputclass` attribute in a DITAVAL document is used to enable CSS based flagging.
+In this scenario, the `@add-outputclass` attribute in a DITAVAL document is used to enable CSS-based flagging.
 
 An additional expectation for this scenario is that the processor rendering DITA content preserves `@outputclass` values as CSS `@class` tokens in HTML5. For example, the phrase `<ph outputclass="bird">eagle</ph>` might be rendered in HTML5 as `<span class="bird">eagle</span>`.
 

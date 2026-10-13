@@ -33,7 +33,7 @@ Certain concepts are critical for a full understanding of conditional processing
 
     The process of emphasizing content by inserting images, text, or stylistic formatting at rendering time.
 
-    DITAVAL documents also support flagging by passing through conditional processing attributes into rendered output, and by adding `@outputclass` values to elements.
+    DITAVAL documents also support flagging by passing through conditional processing attributes into rendered output and by adding `@outputclass` values to elements.
 
 
 **Parent topic:**[Conditional processing](../../archSpec/base/condproc.md)

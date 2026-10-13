@@ -4,7 +4,7 @@ title: 'revprop'
 description: 'The revprop element in a DITAVAL document identifies a value of the rev attribute for flagging. Unlike the conditional processing attributes, which can be used for both filtering and flagging, the rev attribute can only be used for flagging.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: 'd6fa292b3092f787e2be554c09ce8254866cd00d'
+commit: 'b4bdd78508a43cd88598a0826c7aade22a5b9619'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -190,12 +190,13 @@ classes: ''
             attribute.</dd></dl></section>
     <div class="example non-normative" id="ditaval-revprop__example"><h2 class="title sectiontitle">Example</h2><p class="non-normative-label">This section is non-normative.</p>
       
-      <p class="p">The following code sample shows how the
-          <code class="keyword markupname xmlelement">&lt;revprop&gt;</code> element can be used to flag
-        content that has been marked with the <code class="keyword markupname xmlatt">@rev</code>
-        attribute. Elements that specify <code class="ph codeph">rev="edits"</code> are
-        rendered in red text, and glyphs mark the start and end points of
-        the flagged revision. Alternate text is provided.</p>
+      <p class="p">The following code sample shows how the <code class="keyword markupname xmlelement">&lt;revprop&gt;</code> element can be
+        used to flag content that has been marked with the <code class="keyword markupname xmlatt">@rev</code> attribute. Elements
+        that specify <code class="ph codeph">rev="edits"</code> are rendered in red text, and glyphs mark the
+        start and end points of the flagged revision. Alternate text <span class="ph">for
+          the glyphs</span> is provided. <span class="ph">When the rendered format supports
+          change bars, elements that specify <code class="ph codeph">rev="v2"</code> will be marked with the
+          change bar character "#".</span></p>
       <pre class="pre codeblock"><code>&lt;val&gt;
   &lt;revprop action="flag" color="red" val="edits"&gt;
     &lt;startflag imageref="start-glyph.png"&gt;
@@ -205,6 +206,7 @@ classes: ''
       &lt;alt-text&gt;End of revision&lt;/alt-text&gt;
     &lt;/endflag&gt;
   &lt;/revprop&gt;
+  <span class="ph">&lt;revprop action="flag" val="v2" changebar="#"/&gt;</span>
 &lt;/val&gt;</code></pre>
     </div>
   </div>

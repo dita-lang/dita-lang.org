@@ -2,7 +2,7 @@
 author: OASIS DITA Technical Committee
 ---
 
-# Example: Simple DITAVAL document
+# Example: Simple DITAVAL document with filtering and flagging
 
 In this scenario, a simple DITAVAL document sets up rules for filtering and flagging based on conditional processing attributes.
 
