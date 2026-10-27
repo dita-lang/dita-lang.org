@@ -4,7 +4,7 @@ title: 'Filtering based on metadata attributes'
 description: 'When rendering content, a conditional processing profile can be used to specify whether an element and its content is filtered based on its conditional processing attributes.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '68d82ced4491ed1011a20474721f3d2de77aaac1'
+commit: '0ff9eecc5dbd5f3d2a7b05298217ba6ec4cadadd'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -39,14 +39,14 @@ attribute is treated as "include", because an omitted attribute cannot evaluate 
        <span class="keyword">exclude</span>.</li>
      <li class="li">If the attribute value does include groups, evaluate as follows, treating ungrouped tokens
       together as an implicit group:<ol class="ol" type="a">
-       <li class="li">For each group (including any implicit group), if any string token inside the group
+       <li class="li">For each group (including any implicit group), if <strong class="ph b">any</strong> string token inside the group
         evaluates to <span class="keyword">include</span>, the group evaluates to <span class="keyword">include</span>.
-        In other words, a group evaluates to <span class="keyword">exclude</span> only when <strong class="ph b">all</strong> string
-        tokens in that group evaluate to <span class="keyword">exclude</span>.</li>
-       <li class="li">If any group within an attribute evaluates to <span class="keyword">exclude</span>, that attribute
-        evaluates to <span class="keyword">exclude</span>. In other words, the attribute evaluates to
+        <span class="ph example">In other words, a group evaluates to <span class="keyword">exclude</span> only when <strong class="ph b">all</strong> string
+        tokens in that group evaluate to <span class="keyword">exclude</span>.</span></li>
+       <li class="li">If <strong class="ph b">any</strong> group within an attribute evaluates to <span class="keyword">exclude</span>, that attribute
+        evaluates to <span class="keyword">exclude</span>. <span class="ph example">In other words, the attribute evaluates to
          <span class="keyword">include</span> only when <strong class="ph b">all</strong> groups in that attribute evaluate to
-         <span class="keyword">include</span>.</li>
+         <span class="keyword">include</span>.</span></li>
       </ol></li>
     </ul></li>
    <li class="li">If <strong class="ph b">any single attribute</strong> evaluates to <span class="keyword">exclude</span>, the element <span style="color:red;" class="ph">and its content are</span> filtered <span style="color:red;" class="ph">out</span>.</li>
