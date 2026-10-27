@@ -4,7 +4,7 @@ title: 'Flagging based on metadata attributes'
 description: 'When rendering content, a conditional processing profile can be used to specify whether an element''s content is flagged based on its conditional processing attributes.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '88f95587f85b38f36d10e0fea9b52fb829bf22b5'
+commit: '68d82ced4491ed1011a20474721f3d2de77aaac1'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -17,13 +17,13 @@ classes: ''
   <p class="p example">For example, flagging can be used to highlight the fact that content
    applies to a specific audience or operating system. Flagging can also draw a reader's attention
    to content that has been marked as being revised.</p>
-  <p class="p">When deciding whether to flag a particular element, a processor evaluates each <span class="ph">conditional processing attribute</span>. Wherever an attribute value
+  <p class="p">When deciding whether to flag a particular element, a processor evaluates each <span style="color:red;" class="ph">conditional processing attribute</span>. Wherever an attribute value
       that has been set as flagged appears (for example, <code class="ph codeph">audience="administrator"</code>),
-      the processor adds the flag. <span class="implementation-statement" id="flagging__d4249t24" data-id="DITAIMP-0020"></span>When multiple flags apply to a single element, multiple flags are
-      rendered, <span class="ph">the order in which they are applied is implementation
+      the processor adds the flag. <span class="implementation-statement" id="flagging__d4251t28" data-id="DITAIMP-0020"></span>When multiple flags apply to a single element, multiple flags are
+      rendered, <span style="color:red;" class="ph">the order in which they are applied is implementation
         specific.</span></p>
     
-    <p class="p">Flagging behavior is determined based on the DITAVAL rule that matches a <span class="ph">conditional processing</span> attribute value. Flagging options for the
+    <p class="p">Flagging behavior is determined based on the DITAVAL rule that matches a <span style="color:red;" class="ph">conditional processing</span> attribute value. Flagging options for the
       content of an element include setting a text style, color, or background color. It also
       includes the ability to place an image or text at the start or end of the flagged content. If
       the <code class="keyword markupname xmlatt">@add-outputclass</code> attribute is present in the matching DITAVAL rule, the
@@ -31,32 +31,32 @@ classes: ''
         <code class="keyword markupname xmlatt">@outputclass</code> attribute.</p>
     <p class="p">If a matching DITAVAL rule uses the attribute value <code class="ph codeph">action="passthrough"</code>, a
       processor is instructed to pass the attribute directly through to rendered output, which
-      enables flagging within rendering tools. <span class="implementation-statement" id="flagging__d4249t44" data-id="DITAIMP-0030"></span>How the attribute is passed through <span class="ph">is implementation-specific and</span> will depend on the requirements of
+      enables flagging within rendering tools. <span class="implementation-statement" id="flagging__d4251t56" data-id="DITAIMP-0030"></span>How the attribute is passed through <span style="color:red;" class="ph">is implementation-specific and</span> will depend on the requirements of
       those rendering tools.</p>
   <p class="p">When the same element evaluates as both flagged and included, the element is both flagged and
       included. When the same element evaluates as both flagged and filtered, the element is
-      filtered. <span class="ph example">For example, an element that is
+      filtered. <span style="color:red;" class="ph example">For example, an element that is
         flagged because of a value for the <code class="keyword markupname xmlatt">@audience</code> attribute and filtered because
         of a value for the <code class="keyword markupname xmlatt">@product</code> attribute will be filtered.</span></p>
     <p class="p"><span style="color:red;" class="ph">When</span> flagging methods are specified for elements at different levels
       of the containment hierarchy, the flagging method <span style="color:red;" class="ph">that is</span> specified
       for the element at the lowest level of the hierarchy applies.</p>
-    <p class="p">When conflicting flagging methods are specified for the same element,
+    <p style="color:red;" class="p">When conflicting flagging methods are specified for the same element,
       the <code class="keyword markupname xmlelement">&lt;style-conflict&gt;</code> element in the DITAVAL document provides a
-      mechanism for resolving the conflict. <span class="implementation-statement" id="flagging__d4249t85" data-id="DITAIMP-0040"></span>If no <code class="keyword markupname xmlelement">&lt;style-conflict&gt;</code> element is
+      mechanism for resolving the conflict. <span class="implementation-statement" id="flagging__d4251t107" data-id="DITAIMP-0040"></span>If no <code class="keyword markupname xmlelement">&lt;style-conflict&gt;</code> element is
       present, it is implementation dependent how the conflict is resolved.</p>
-    <div class="div example">
-      <p class="p example">For example, if <span style="color:red;" class="ph">a</span>
+    <div class="example non-normative" id="flagging__example"><h2 class="title sectiontitle">Example</h2><p class="non-normative-label">This section is non-normative.</p>
+      <p class="p">For example, if <span style="color:red;" class="ph">a</span>
         <code class="keyword markupname xmlelement">&lt;section&gt;</code> element is to be flagged with green text and a
           <code class="keyword markupname xmlelement">&lt;p&gt;</code> element <span style="color:red;" class="ph">within that section</span> is to be
         flagged with red text, <span style="color:red;" class="ph">the <code class="keyword markupname xmlelement">&lt;p&gt;</code> element</span> should
         be rendered with red text.</p>
-      <p class="p">However, conditional processing rules can also result in an element
-        with conflicting flagging methods. If one conditional processing attribute causes a
-          <code class="keyword markupname xmlelement">&lt;section&gt;</code> to be flagged with red text and another conditional
-        processing attribute causes the same <code class="keyword markupname xmlelement">&lt;section&gt;</code> to be flagged with
-        green text, a <code class="keyword markupname xmlelement">&lt;style-conflict&gt;</code> element in the DITAVAL document can be
-        used to determine the result.</p>
+      <p style="color:red;" class="p">However, conditional processing rules can also
+        result in an element with conflicting flagging methods. If one conditional processing
+        attribute causes a <code class="keyword markupname xmlelement">&lt;section&gt;</code> to be flagged with red text and another
+        conditional processing attribute causes the same <code class="keyword markupname xmlelement">&lt;section&gt;</code> to be
+        flagged with green text, a <code class="keyword markupname xmlelement">&lt;style-conflict&gt;</code> element in the DITAVAL
+        document can be used to determine the result.</p>
     </div>
  </div>
-<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/condproc.html" title="Conditional processing is the filtering or flagging of information based on processing-time criteria. Conditional processing is based on attributes specified in the DITA source.">Conditional processing</a></div></div><div class="linklist relref"><strong>Related reference</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="../../langRef/ditaval/val.html" title="The val element is the root element of a DITAVAL document.">DITAVAL markup with extended flagging example</a></li><li class="linklist"><a class="link" href="../../langRef/ditaval/revprop.html" title="The revprop element in a DITAVAL document identifies a value of the rev attribute for flagging. Unlike the conditional processing attributes, which can be used for both filtering and flagging, the rev attribute can only be used for flagging.">DITAVAL markup for flagging revisions</a></li></ul></div></nav><aside class="section-toc" role="aside"></aside></article></main>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/condproc.html" title="Conditional processing is the filtering or flagging of information based on processing-time criteria. Conditional processing is based on attributes specified in the DITA source.">Conditional processing</a></div></div><div class="linklist relref"><strong>Related reference</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="../../langRef/ditaval/val.html" title="The val element is the root element of a DITAVAL document.">DITAVAL markup with extended flagging example</a></li><li class="linklist"><a class="link" href="../../langRef/ditaval/revprop.html" title="The revprop element in a DITAVAL document identifies a value of the rev attribute for flagging. Unlike the conditional processing attributes, which can be used for both filtering and flagging, the rev attribute can only be used for flagging.">DITAVAL markup for flagging revisions</a></li><li class="linklist"><a class="link" href="../../langRef/ditaval/style-conflict.html" title="The style-conflict element in a DITAVAL document declares the behavior to be used when one or more flagging methods collide on the same element.">style-conflict</a></li></ul></div></nav><aside class="section-toc" role="aside"><h2>In this section</h2><ul><li><a href="#flagging__example">Example</a></li></ul></aside></article></main>

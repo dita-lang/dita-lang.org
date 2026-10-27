@@ -8,7 +8,7 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
 ## Aggregated error statements
 
--   **[DITAERR-0010](../archSpec/base/impose-topicref-role.md#d4692t209)**
+-   **[DITAERR-0010](../archSpec/base/impose-topicref-role.md#d4694t209)**
 
     Processors MAY choose to treat this as an error, issue a warning, or simply assign new roles to the problematic elements.
 
@@ -60,11 +60,11 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     This saves considerable time and effort, reduces error, enforces consistency, and makes interoperability possible.
 
--   **[DITAERR-0140](../archSpec/base/generalization-processor-expectations.md#d4347e101)**
+-   **[DITAERR-0140](../archSpec/base/generalization-processor-expectations.md#d4349e101)**
 
     It is an error if the root element matches a specified source but its `@class` attribute does not contain the target.
 
--   **[DITAERR-0150](../archSpec/base/generalization-processor-expectations.md#d4347e157)**
+-   **[DITAERR-0150](../archSpec/base/generalization-processor-expectations.md#d4349e157)**
 
     It is an error if the last value in the `@class` attribute matches a specified source but the previous values do not include the target.
 
@@ -100,11 +100,11 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     When a map that contains a `<topicgroup>` element with a navigation title is used to generate publication output, processors MUST ignore the navigation title and MAY issue an error message.
 
--   **[DITAERR-0240](../langRef/base/sort-as.md#d4325e242)**
+-   **[DITAERR-0240](../langRef/base/sort-as.md#d4327e242)**
 
     It is an error if there is more than one `<sort-as>` child for a given `<indexterm>` element.
 
--   **[DITAERR-0250](../langRef/ditaval/prop.md#d4536e261)**
+-   **[DITAERR-0250](../langRef/ditaval/prop.md#d4538e261)**
 
     The following markup in a DITAVAL document is an error condition:
 
@@ -152,15 +152,15 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     Recovery from validation errors is implementation specific.
 
--   **[DITAIMP-0020](../archSpec/base/flagging.md#d4249t24)**
+-   **[DITAIMP-0020](../archSpec/base/flagging.md#d4251t28)**
 
     When multiple flags apply to a single element, multiple flags are rendered, the order in which they are applied is implementation specific.
 
--   **[DITAIMP-0030](../archSpec/base/flagging.md#d4249t44)**
+-   **[DITAIMP-0030](../archSpec/base/flagging.md#d4251t56)**
 
     How the attribute is passed through is implementation-specific and will depend on the requirements of those rendering tools.
 
--   **[DITAIMP-0040](../archSpec/base/flagging.md#d4249t85)**
+-   **[DITAIMP-0040](../archSpec/base/flagging.md#d4251t107)**
 
     If no `<style-conflict>` element is present, it is implementation dependent how the conflict is resolved.
 
@@ -196,7 +196,7 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     The available height is implementation dependent, but if feasible, it is suggested to be the page \(or table cell\) height or some other reasonable value.
 
--   **[DITAIMP-0130](../langRef/ditaval/prop.md#d4536t450)**
+-   **[DITAIMP-0130](../langRef/ditaval/prop.md#d4538t450)**
 
     How the attribute is preserved and used is implementation dependent.
 
@@ -276,7 +276,7 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     DITA processors SHOULD fully support the Unicode Bidirectional Algorithm.
 
--   **[DITAREQ-0070](../archSpec/base/impose-topicref-role.md#d4692t209)**
+-   **[DITAREQ-0070](../archSpec/base/impose-topicref-role.md#d4694t209)**
 
     Processors MAY choose to treat this as an error, issue a warning, or simply assign new roles to the problematic elements.
 
@@ -323,19 +323,19 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
     1.  If an attribute specifies a value in the taxonomy, and a DITAVAL or other categorization tool is configured with that value, the rule matches.
     2.  Otherwise, if the parent value in the taxonomy has a rule, that matches.
     3.  Otherwise, continue up the chain in the taxonomy until a matching rule is found.
--   **[DITAREQ-0180](../archSpec/base/id.md#d3672e69)**
+-   **[DITAREQ-0180](../archSpec/base/id.md#d3672e73)**
 
     Within a map document, the values of the `@id` attributes for all elements SHOULD be unique.
 
--   **[DITAREQ-0190](../archSpec/base/id.md#d3672t76)**
+-   **[DITAREQ-0190](../archSpec/base/id.md#d3672t80)**
 
     When two elements within a map have the same value for the `@id` attribute, processors MUST resolve references to that ID to the first element with the given ID value in document order.
 
--   **[DITAREQ-0200](../archSpec/base/theformatattribute.md#d4337e283)**
+-   **[DITAREQ-0200](../archSpec/base/theformatattribute.md#d4339e283)**
 
     If the actual format of the referenced content differs from the effective value of the `@format` attribute, and a processor is capable of identifying such cases, it MAY recover gracefully and treat the content as its actual format.
 
--   **[DITAREQ-0210](../archSpec/base/theformatattribute.md#d4337t290)**
+-   **[DITAREQ-0210](../archSpec/base/theformatattribute.md#d4339t290)**
 
     The processor MAY also issue a message.
 
@@ -363,11 +363,11 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     Applications MAY recover from this error condition by using the correct value detected.
 
--   **[DITAREQ-0280](../archSpec/base/uri-based-addressing.md#d4083e39)**
+-   **[DITAREQ-0280](../archSpec/base/uri-based-addressing.md#d4083e43)**
 
     DITA processors MAY ignore queries on URI references to DITA resources.
 
--   **[DITAREQ-0290](../archSpec/base/uri-based-addressing.md#d4083t43)**
+-   **[DITAREQ-0290](../archSpec/base/uri-based-addressing.md#d4083t47)**
 
     URI references that address components in the same document MAY consist of just the fragment identifier.
 
@@ -526,23 +526,23 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     The predefined values for the `@cascade` attribute MUST precede any implementation-specific tokens, for example, `cascade="merge appToken:audience"`.
 
--   **[DITAREQ-0610](../archSpec/base/chunk-attribute-overview.md#d4653e154)**
+-   **[DITAREQ-0610](../archSpec/base/chunk-attribute-overview.md#d4655e154)**
 
     When the source document organization has no effect on published output, such as when producing a single PDF or EPUB, processors MAY ignore the `@chunk` attribute.
 
--   **[DITAREQ-0620](../archSpec/base/chunk-attribute-overview.md#d4653e163)**
+-   **[DITAREQ-0620](../archSpec/base/chunk-attribute-overview.md#d4655e163)**
 
     When the `@chunk` attribute results in more or fewer documents based on the `combine` or `split` tokens, the hierarchy of topics within the resulting map and topic organization SHOULD match the hierarchy in the original topics and maps.
 
--   **[DITAREQ-0630](../archSpec/base/chunk-attribute-overview.md#d4653e178)**
+-   **[DITAREQ-0630](../archSpec/base/chunk-attribute-overview.md#d4655e178)**
 
     When the `@chunk` attribute results in more or fewer documents, processors MAY create their own naming schemes for those reorganized documents.
 
--   **[DITAREQ-0640](../archSpec/base/chunk-attribute-overview.md#d4653t197)**
+-   **[DITAREQ-0640](../archSpec/base/chunk-attribute-overview.md#d4655t197)**
 
     Processors MAY apply equivalent processing to non-DITA documents.
 
--   **[DITAREQ-0650](../archSpec/base/branch-filtering-overview.md#d4426e52)**
+-   **[DITAREQ-0650](../archSpec/base/branch-filtering-overview.md#d4428e52)**
 
     In addition to filtering, applications MAY support flagging at the branch level based on the referenced DITAVAL documents.
 
@@ -558,7 +558,7 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     exampleFor example, a topic might appear in both the admin and novice copies of a branch but not contain content that is tailored to either audience; in that case, the filtered copies would match. A processor MAY consider this form of equivalence when determining if two references to the same resource should be reported as an error.
 
--   **[DITAREQ-0690](../archSpec/base/branch-filtering-implications-of-processing-order.md#d4758e10)**
+-   **[DITAREQ-0690](../archSpec/base/branch-filtering-implications-of-processing-order.md#d4760e10)**
 
     The full effects of the branch filtering process MUST be calculated by processors before they construct the effective map and key scope structure.
 
@@ -622,7 +622,7 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     Authors SHOULD NOT modify the `@class` attribute.
 
--   **[DITAREQ-0850](../archSpec/base/specialization-specializations-attribute.md#d4704e70)**
+-   **[DITAREQ-0850](../archSpec/base/specialization-specializations-attribute.md#d4706e70)**
 
     Each specialization of the `@props` and `@base` attributes MUST provide a token for use by the `@specializations` attribute.
 
@@ -630,18 +630,18 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     When generalizing for round-tripping, the `@class` attribute and `@specializations` attribute SHOULD retain the original specialized values in the generalized instance document.
 
--   **[DITAREQ-0870](../archSpec/base/generalization-processor-expectations.md#d4347e35)**
+-   **[DITAREQ-0870](../archSpec/base/generalization-processor-expectations.md#d4349e35)**
 
     A generalization processor SHOULD be able to handle cases where it is given:
 
     -   Only source modules for generalization \(in which case the designated source types are generalized to topic or map\)
     -   Only target modules for generalization \(in which case all descendants of each target are generalized to that target\)
     -   Both \(in which case only the specified descendants of each target are generalized to that target\)
--   **[DITAREQ-0880](../archSpec/base/generalization-processor-expectations.md#d4347e168)**
+-   **[DITAREQ-0880](../archSpec/base/generalization-processor-expectations.md#d4349e168)**
 
     When renaming elements during round-trip generalization, the generalization processor SHOULD preserve the values of all attributes.
 
--   **[DITAREQ-0890](../archSpec/base/generalization-processor-expectations.md#d4347t172)**
+-   **[DITAREQ-0890](../archSpec/base/generalization-processor-expectations.md#d4349t172)**
 
     When renaming elements during one-way or migration generalization, the process SHOULD preserve the values of all attributes except the `@class` attribute, which is supplied by the target document type.
 
@@ -657,19 +657,19 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     When possible, generalization processes SHOULD detect invalid generalization target combinations and report them as errors.
 
--   **[DITAREQ-0930](../langRef/base/shortdesc.md#d4371e100)**
+-   **[DITAREQ-0930](../langRef/base/shortdesc.md#d4373e100)**
 
     Processors SHOULD render the content of the `<shortdesc>` element as the initial paragraph of the topic.
 
--   **[DITAREQ-0940](../langRef/base/shortdesc.md#d4371e111)**
+-   **[DITAREQ-0940](../langRef/base/shortdesc.md#d4373e111)**
 
     When processors generate link previews that are based on the map context, they SHOULD use the content of the `<shortdesc>` that is located in the map rather than the `<shortdesc>` that is located in the DITA topic.
 
--   **[DITAREQ-0950](../langRef/base/shortdesc.md#d4371t121)**
+-   **[DITAREQ-0950](../langRef/base/shortdesc.md#d4373t121)**
 
     However, when processors render the topic itself, they SHOULD use the content of the `<shortdesc>` element that is located in the DITA topic.
 
--   **[DITAREQ-0960](../langRef/base/titlealt.md#d4520t172)**
+-   **[DITAREQ-0960](../langRef/base/titlealt.md#d4522t172)**
 
     Processors SHOULD support the following tokens for the `@title-role` attribute:
 
@@ -697,11 +697,11 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
         See [../../../archSpec/base/ditauseconreftarget.md](../../../archSpec/base/ditauseconreftarget.md) for more information.
 
--   **[DITAREQ-0970](../langRef/base/titlealt.md#d4520e278)**
+-   **[DITAREQ-0970](../langRef/base/titlealt.md#d4522e278)**
 
     Alternative titles with the `@title-role` attribute set to tokens that are not recognized by the processor SHOULD be ignored and not appear in output.
 
--   **[DITAREQ-0980](../langRef/base/desc.md#d4762e102)**
+-   **[DITAREQ-0980](../langRef/base/desc.md#d4764e102)**
 
     When used in conjunction with `<fig>` or `<table>` elements, processors SHOULD consider the content of `<desc>` elements to be part of the content flow.
 
@@ -733,11 +733,11 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     If both a height value and width value are specified, implementations MAY ignore one of the two values when they are unable to scale to each direction using different factors.
 
--   **[DITAREQ-1060](../langRef/base/include.md#d4684e139)**
+-   **[DITAREQ-1060](../langRef/base/include.md#d4686e139)**
 
     Processors SHOULD support the [`@parse`](../../attributes/commonAttributes.md#attr-parse) values text and xml.
 
--   **[DITAREQ-1070](../langRef/base/include.md#d4684e155)**
+-   **[DITAREQ-1070](../langRef/base/include.md#d4686e155)**
 
     Processors SHOULD detect the encoding of the referenced document based on the rules described for the [`@encoding`](../../attributes/commonAttributes.md#attr-encoding) attribute.
 
@@ -745,7 +745,7 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     Processors SHOULD preserve the line breaks and spaces that are present in the content of a `<lines>` element.
 
--   **[DITAREQ-1090](../langRef/base/note.md#d4259e69)**
+-   **[DITAREQ-1090](../langRef/base/note.md#d4261e69)**
 
     Processors SHOULD render a label for notes.
 
@@ -769,7 +769,7 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     When an object cannot be rendered in a meaningful way, processors SHOULD present the contents of the `<fallback>` element, if it is present.
 
--   **[DITAREQ-1150](../langRef/base/pre.md#d4490e67)**
+-   **[DITAREQ-1150](../langRef/base/pre.md#d4492e67)**
 
     Processors SHOULD preserve the line breaks and spaces that are present in the content of a `<pre>` element.
 
@@ -801,15 +801,15 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     When a video resource cannot be rendered in a meaningful way, processors SHOULD render the contents of the `<fallback>` element, if it is present.
 
--   **[DITAREQ-1230](../langRef/base/index-see.md#d4305e51)**
+-   **[DITAREQ-1230](../langRef/base/index-see.md#d4307e51)**
 
     Processors SHOULD ignore an `<index-see>` element if its parent `<indexterm>` element contains any `<indexterm>` children.
 
--   **[DITAREQ-1240](../langRef/base/index-see-also.md#d4446e59)**
+-   **[DITAREQ-1240](../langRef/base/index-see-also.md#d4448e59)**
 
     Processors SHOULD ignore an `<index-see-also>` element if its parent `<indexterm>` element contains any `<indexterm>` children.
 
--   **[DITAREQ-1250](../langRef/base/resourceid.md#d4720e126)**
+-   **[DITAREQ-1250](../langRef/base/resourceid.md#d4722e126)**
 
     When `@appid-role` is set to deliverable-anchor, and the `<resourceid>` applies to a deliverable, processors SHOULD use the `@appid` value when constructing a URI for the delivered resource.
 
@@ -825,7 +825,7 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     Processors that recognize a particular `<data>` element MAY make use of it to trigger specialized rendering.
 
--   **[DITAREQ-1290](../langRef/base/foreign.md#d4472t80)**
+-   **[DITAREQ-1290](../langRef/base/foreign.md#d4474t80)**
 
     If a processor cannot render the content, it MAY issue a warning.
 
@@ -849,15 +849,15 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     When a map that contains a `<topicgroup>` element with a navigation title is used to generate publication output, processors MUST ignore the navigation title and MAY issue an error message.
 
--   **[DITAREQ-1350](../langRef/base/topichead.md#d4430e97)**
+-   **[DITAREQ-1350](../langRef/base/topichead.md#d4432e97)**
 
     Processors SHOULD generate a warning if a navigation title is not specified on a `<topichead>` element.
 
--   **[DITAREQ-1360](../langRef/base/sort-as.md#d4325e203)**
+-   **[DITAREQ-1360](../langRef/base/sort-as.md#d4327e203)**
 
     Processors SHOULD expect to encounter `<sort-as>` elements in the above locations.
 
--   **[DITAREQ-1370](../langRef/base/sort-as.md#d4325t210)**
+-   **[DITAREQ-1370](../langRef/base/sort-as.md#d4327t210)**
 
     Processors that sort SHOULD use the following precedence rules:
 
@@ -867,7 +867,7 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
     -   It is an error if there is more than one `<sort-as>` child for a given `<indexterm>` element.
 
     -   Sort phrases are determined after filtering and content reference resolution occur.
--   **[DITAREQ-1380](../langRef/base/sort-as.md#d4325e258)**
+-   **[DITAREQ-1380](../langRef/base/sort-as.md#d4327e258)**
 
     When a `<sort-as>` element is specified, processors that sort the containing element MUST construct the effective sort phrase by prepending the content of the `<sort-as>` element to the base sort phrase.
 
@@ -875,13 +875,13 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     Processors MUST strip this element from output by default.
 
--   **[DITAREQ-1400](../langRef/ditaval/prop.md#d4536e164)**
+-   **[DITAREQ-1400](../langRef/ditaval/prop.md#d4538e164)**
 
     For the `@color` and `@backcolor` attributes on `<prop>` and `<revprop>`, processors SHOULD support at least the following values:
 
     -   The color names listed under the heading "&lt;color&gt;" in [the XSL version 1.1 specification](http://www.w3.org/TR/2006/REC-xsl11-20061205/#datatype)
     -   The associated hex code
--   **[DITAREQ-1410](../langRef/ditaval/prop.md#d4536e204)**
+-   **[DITAREQ-1410](../langRef/ditaval/prop.md#d4538e204)**
 
     For the `@style` attribute on `<prop>` and `<revprop>`, processors SHOULD support the following tokens:
 
@@ -890,15 +890,15 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
     -   italics
     -   overline
     -   underline
--   **[DITAREQ-1420](../langRef/ditaval/prop.md#d4536e236)**
+-   **[DITAREQ-1420](../langRef/ditaval/prop.md#d4538e236)**
 
     In addition, processors MAY support proprietary tokens for the `@style` attribute.
 
--   **[DITAREQ-1430](../langRef/ditaval/prop.md#d4536t243)**
+-   **[DITAREQ-1430](../langRef/ditaval/prop.md#d4538t243)**
 
     Such tokens SHOULD have a processor-specific prefix to identify them as proprietary.
 
--   **[DITAREQ-1440](../langRef/ditaval/prop.md#d4536t246)**
+-   **[DITAREQ-1440](../langRef/ditaval/prop.md#d4538t246)**
 
     If a processor encounters an unsupported style token, it MAY issue a warning, and it MAY render content that is flagged with such a style token by using some default formatting.
 

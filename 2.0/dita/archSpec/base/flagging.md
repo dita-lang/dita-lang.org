@@ -20,9 +20,9 @@ When flagging methods are specified for elements at different levels of the cont
 
 When conflicting flagging methods are specified for the same element, the `<style-conflict>` element in the DITAVAL document provides a mechanism for resolving the conflict. If no `<style-conflict>` element is present, it is implementation dependent how the conflict is resolved.
 
-example
+## Example
 
-exampleFor example, if a `<section>` element is to be flagged with green text and a `<p>` element within that section is to be flagged with red text, the `<p>` element should be rendered with red text.
+For example, if a `<section>` element is to be flagged with green text and a `<p>` element within that section is to be flagged with red text, the `<p>` element should be rendered with red text.
 
 However, conditional processing rules can also result in an element with conflicting flagging methods. If one conditional processing attribute causes a `<section>` to be flagged with red text and another conditional processing attribute causes the same `<section>` to be flagged with green text, a `<style-conflict>` element in the DITAVAL document can be used to determine the result.
 
@@ -34,4 +34,6 @@ However, conditional processing rules can also result in an element with conflic
 [DITAVAL markup with extended flagging example](../../langRef/ditaval/val.md)
 
 [DITAVAL markup for flagging revisions](../../langRef/ditaval/revprop.md)
+
+[style-conflict](../../langRef/ditaval/style-conflict.md)
 
