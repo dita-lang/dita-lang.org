@@ -51,19 +51,19 @@ The following list explains the headers for the columns:
 
 The following table contains information about elements that are available within topics. Some elements are also available in DITA maps.
 
-<table id="simpletable_body"><thead><tr><th align="left" id="d254364e254">
+<table id="simpletable_body"><thead><tr><th align="left" id="d254491e254">
 
 Element name
 
-</th><th align="left" id="d254364e258">
+</th><th align="left" id="d254491e258">
 
 Block/inline \(translation\)
 
-</th><th align="left" id="d254364e262">
+</th><th align="left" id="d254491e262">
 
 Translatable content?
 
-</th><th align="left" id="d254364e266">
+</th><th align="left" id="d254491e266">
 
 Notes
 

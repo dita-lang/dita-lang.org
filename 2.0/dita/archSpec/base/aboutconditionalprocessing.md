@@ -22,7 +22,7 @@ Certain concepts are critical for a full understanding of conditional processing
 
 -   **DITAVAL document**
 
-    A document that specifies a set of rules that define which elements to include, exclude, or flag. A DITAVAL document can be a file on the file system, a set of rules stored in memory, or another way of storing information that is expressed using DITAVAL syntax.
+    A document that specifies a set of rules that define which elements to include, exclude, or flag. A DITAVAL document can be a file on the file system, a set of rules stored in memory, or another way of storing information that is expressed using DITAVAL rules.
 
 -   **filtering**
 

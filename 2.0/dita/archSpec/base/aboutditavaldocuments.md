@@ -14,14 +14,14 @@ Each rule in a DITAVAL document does one of the following:
 -   Defines a default behavior for a conditional processing attribute, such as defining a default rendering behavior of exclude for the `@deliveryTarget`. With that default, any `@deliveryTarget` value not otherwise defined in the document uses that default behavior of exclude.
 -   Defines a default behavior for **all** conditional processing attributes, such as defining a default rendering behavior of exclude. With that default, any conditional-processing attribute not otherwise defined in the document uses that default behavior of exclude.
 
-Those rules in a DITAVAL document enable the following actions when a processor matches a rule with a DITA element:
+Those rules in a DITAVAL document enable the following actions when a processor matches a rule with a DITA element. A DITAVAL rule can instruct processors to:
 
-1.  A DITAVAL rule can instruct processors to include matching content.
-2.  A DITAVAL rule can instruct processors to exclude matching content.
-3.  A DITAVAL rule can instruct processors to flag matching revisions.
-4.  A DITAVAL rule can instruct processors to flag matching content with styles also specified on the `<prop>` or `<revprop>` element.
-5.  A DITAVAL rule can instruct processors to pass the matching attribute through to rendered output, for processors that are able to recognize and make use of the value.
-6.  A DITAVAL rule can instruct processors to treat the matching content as if the element has an `@outputclass` attribute, with the value specified in the `<prop>` or `<revprop>` element using `@add-outputclass`
+1.  Include matching content.
+2.  Exclude matching content.
+3.  Flag matching revisions.
+4.  Flag matching content with styles also specified on the `<prop>` or `<revprop>` element.
+5.  Pass the matching attribute through to rendered output, for processors that are able to recognize and make use of the value.
+6.  Treat the matching content as if the element has an `@outputclass` attribute, with the value specified in the `<prop>` or `<revprop>` element using `@add-outputclass`
 
 Processors can implement default behaviors for flagging. This might include alternate text to indicate the start and end points of revised content or stylistic formatting when no specific flagging behavior is specified.
 
