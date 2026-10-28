@@ -13,8 +13,8 @@ Within a DITAVAL document, it is possible to specify a default action for condit
 When deciding whether to include or exclude a particular element, a processor evaluates each attribute independently:
 
 1.  For each attribute:
-    -   If the attribute is empty, or contains only empty groups, it is equivalent to omitting the attribute from the element. If evaluated for the purposes of filtering, the attribute is treated as "include", because an omitted attribute cannot evaluate to "exclude".
-    -   If the attribute value does not contain **any** groups, then if any string token in the attribute value evaluates to include, the element evaluates to include. exampleIn other words, the attribute evaluates to exclude only when **all** string tokens in that attribute evaluate to exclude.
+    -   If the attribute is empty, or contains only empty groups, it evaluates to include. This is equivalent to omitting the attribute from the element, and an omitted attribute cannot evaluate to exclude.
+    -   If the attribute value does not contain any groups, then if **any** string token in the attribute value evaluates to include, the element evaluates to include. exampleIn other words, the attribute evaluates to exclude only when **all** string tokens in that attribute evaluate to exclude.
     -   If the attribute value does include groups, evaluate as follows, treating ungrouped tokens together as an implicit group:
         1.  For each group \(including any implicit group\), if **any** string token inside the group evaluates to include, the group evaluates to include. exampleIn other words, a group evaluates to exclude only when **all** string tokens in that group evaluate to exclude.
         2.  If **any** group within an attribute evaluates to exclude, that attribute evaluates to exclude. exampleIn other words, the attribute evaluates to include only when **all** groups in that attribute evaluate to include.

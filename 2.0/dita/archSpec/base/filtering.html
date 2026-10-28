@@ -4,7 +4,7 @@ title: 'Filtering based on metadata attributes'
 description: 'When rendering content, a conditional processing profile can be used to specify whether an element and its content is filtered based on its conditional processing attributes.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '6eeacebf2c2f1e3a251cfecc57783d2a1678144a'
+commit: '04f1ddfd93631b70d49f82062b157809e572e686'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -29,10 +29,10 @@ classes: ''
    attribute independently:</p>
   <ol class="ol">
    <li class="li">For each attribute:<ul class="ul">
-<li class="li">If the attribute is empty, or contains only empty groups, it is equivalent
-to omitting the attribute from the element. If evaluated for the purposes of filtering, the
-attribute is treated as "include", because an omitted attribute cannot evaluate to "exclude".</li>
-     <li class="li">If the attribute value does not contain <strong class="ph b">any</strong> groups, then if any string token in the
+<li class="li">If the attribute is empty, or contains only empty groups, <span style="color:red;" class="ph">it evaluates
+       to <span class="keyword">include</span>. This is equivalent to omitting the attribute from the element,
+       and an omitted attribute cannot evaluate to <span class="keyword">exclude</span>.</span></li>
+     <li class="li">If the attribute value does not contain any groups, then if <strong class="ph b">any</strong> string token in the
       attribute value evaluates to <span class="keyword">include</span>, the element evaluates to
        <span class="keyword">include</span>. <span class="ph example">In other words, the attribute evaluates to
        <span class="keyword">exclude</span> only when <strong class="ph b">all</strong> string tokens in that attribute evaluate to
