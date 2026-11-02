@@ -1,5 +1,5 @@
 ---
-author: OASIS DITA Technical Committee
+author: [OASIS DITA Technical Committee, OASIS DITA Technical Committee]
 ---
 
 # Processing key references to generate text or link text
@@ -15,7 +15,9 @@ Variable text can be specified by key definitions. Processors determine the effe
     -   Have no attributes that would be used as text content
 -   **Key definitions with child `<topicmeta>` elements**
 
-    When an empty element references a key definition that has a child `<topicmeta>` element, content from that `<topicmeta>` element is used to determine the effective content of the referencing element. Effective content from the key definition becomes the element content, with the following exceptions:
+    When an empty element references a key definition that has a child `<topicmeta>` element, content from that `<topicmeta>` element is used to determine the effective content of the referencing element. The recommended mechanism for providing effective content within `<topicmeta>` is to use the `<keytext>` element, although alternative mechanisms are described below.
+
+    Effective content from the key definition becomes the element content, with the following exceptions:
 
     -   For empty `<image>` elements, the effective content is used as alternate text. This is equivalent to creating an `<alt>` sub-element to hold that content.
     -   For empty `<link>` elements, the effective content is used as link text. This is equivalent to creating a `<linktext>` sub-element to hold that content.
@@ -26,7 +28,7 @@ Variable text can be specified by key definitions. Processors determine the effe
 
 -   **Processing rules**
 
-    Processors MUST resolve variable text that is defined using keys by using the following sequence:
+    Processors MUST resolve variable text that is defined using keys by applying the following rules in order, stopping as soon as the effective text content is determined:
 
     1.  Effective text content is taken from the `<keytext>` element.
     2.  Effective text content is taken from the `<titlealt>` element with `@title-role` set to linking.
@@ -42,4 +44,9 @@ Variable text can be specified by key definitions. Processors determine the effe
 
 
 **Parent topic:**[Indirect key-based addressing](../../archSpec/base/key-based-addressing.md)
+
+**Related information**  
+
+
+[keytext](../../langRef/base/keytext.md)
 

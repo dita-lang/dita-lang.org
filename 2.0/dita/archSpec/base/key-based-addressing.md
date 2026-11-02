@@ -9,13 +9,11 @@ DITA keys provide an alternative to direct addressing. The key reference mechani
 For information about using keys to define and reference controlled values, see [Subject scheme maps and their usage](subject-scheme-maps-and-usage.md).
 
 -   **[Core concepts for working with keys](../../archSpec/base/keys-core-concepts.md)**  
- The concepts described below are critical for a full understanding of keys and key processing.
+ The concepts and terminology described below are critical for a full understanding of the rules around keys, key scopes, and key spaces. These rules determine which keys are effective across a key space and how those keys are processed.
 -   **[Setting key names with the keys attribute](../../archSpec/base/thekeysattribute.md)**  
 A `@keys` attribute consists of one or more space-separated keys. Map authors define keys using a `<topicref>` or `<topicref>` specialization that contains the `@keys` attribute. Each key definition introduces an identifier for a resource referenced from a map. Keys resolve to the resources given as the `@href` value on the key definition `<topicref>` element, to content contained within the key definition `<topicref>` element, or both.
 -   **[Referencing a key with the keyref attribute](../../archSpec/base/thekeyrefattribute.md)**  
-The `@keyref` attribute provides an indirect, late-bound reference to topics, to collections of topics \(ditabase\), to maps, to referenceable portions of maps, to non-DITA documents, to external URIs, or to XML content contained within a key definition topic reference. When the DITA content is processed, the key references are resolved using key definitions from DITA maps.
--   **[Using keys for addressing](../../archSpec/base/using-keys-for-addressing.md)**  
-For topic references, image references, and other link relationships, resources can be indirectly addressed by using the `@keyref` attribute. For content reference relationships, resources can be indirectly addressed by using the `@conkeyref` attribute.
+The `@keyref` attribute provides an indirect, late-bound reference to topics, to collections of topics \(ditabase\), to maps, to referenceable portions of maps, to non-DITA documents, to external URIs, or to XML content contained within a key definition topic reference. For content reference relationships, the `@conkeyref` attribute similarly provides an indirect, late-bound reference to reusable content. When the DITA content is processed, the key references are resolved using key definitions from DITA maps.
 -   **[Scoping keys with the keyscope attribute](../../archSpec/base/keyScopes.md)**  
 Key scopes enable map authors to specify different sets of key definitions for different map branches.
 -   **[Addressing keys across scopes](../../archSpec/base/using-keys-to-address-keys-across-scopes.md)**  

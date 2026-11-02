@@ -4,7 +4,13 @@ author: OASIS DITA Technical Committee
 
 # Core concepts for working with keys
 
-The concepts described below are critical for a full understanding of keys and key processing.
+The concepts and terminology described below are critical for a full understanding of the rules around keys, key scopes, and key spaces. These rules determine which keys are effective across a key space and how those keys are processed.
+
+These rules determine
+
+which key definition is effective when multiple definitions exist and establish key-definition precedence across
+
+scopes.
 
 **Note:** The use of the phases "`<map>` element" or "`<topicref>` element" should be interpreted as "`<map>` element and any specialization of `<map>` element " or " `<topicref>` element or any specialization of `<topicref>` element."
 
@@ -21,7 +27,7 @@ When considering keys and key references, it is important to remember that `<key
     -   Text or metadata located within a `<topicmeta>` element
 -   **key**
 
-    A name for a resource. See [Using keys for addressing](using-keys-for-addressing.md) for more information.
+    A name for a resource. See [Setting key names with the keys attribute](thekeysattribute.md) and [Referencing a key with the keyref attribute](thekeyrefattribute.md) for more information.
 
 -   **key definition**
 

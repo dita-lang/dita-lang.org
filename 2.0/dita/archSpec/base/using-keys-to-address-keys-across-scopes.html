@@ -4,7 +4,7 @@ title: 'Addressing keys across scopes'
 description: 'When referencing key definitions that are defined in a different key scope, key names might need to be qualified with key scope names.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '78f967e80a84f7ce528d0a5072ff3070a0e2b375'
+commit: '9323b0198c97edd205ab1dbb6d963dc65fb33144'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -17,53 +17,57 @@ classes: ''
 	 <p class="p">A root map might contain any number of key scopes; relationships between
 		key scopes are discussed using the following terms: 
 	 </p> 
-	 <dl class="dl"> 
-		 
-		  <dt class="dt dlterm">child scope 
-		  </dt> 
-		  <dd class="dd">A key scope that occurs directly within another key scope. <span class="ph example">For
-						example, in the figure below, key scopes "A-1" and "A-2" are child scopes of
-						key scope "A".</span>
-				</dd> 
-		 
-		 
-		  <dt class="dt dlterm">parent scope 
-		  </dt> 
-		  <dd class="dd">A key scope that occurs one level above another key scope. <span class="ph example">For
-						example, in the figure below, key scope "A" is a parent scope of key scopes
-						"A-1" and "A-2".</span>
-				</dd> 
-		 
-		 
-		  <dt class="dt dlterm">ancestor scope 
-		  </dt> 
-		  <dd class="dd">A key scope that occurs any level above another key scope. <span class="ph example">For
-						example, in the figure below, key scopes "A" and "Root" are both ancestor
-						scopes of key scopes "A-1" and "A-2".</span>
-				</dd> 
-		 
-		 
-		  <dt class="dt dlterm">descendant scope 
-		  </dt> 
-		  <dd class="dd">A key scope that occurs any level below another key scope. <span class="ph example">For
-						example, in the figure below, key scopes "A", "A-1", and "A-2" are all
-						descendant scopes of the implicit, root key scope.</span>
-				</dd> 
-		 
-		 
-		  <dt class="dt dlterm">sibling scope 
-		  </dt> 
-		  <dd class="dd">A key scope that shares a common parent with another key scope. <span class="ph example">For example, in the figure below, key scopes "A" and "B" are sibling
-						scopes; they both are children of the implicit, root key scope.</span>
-				</dd> 
-		 
-		 
-		  <dt class="dt dlterm">key scope hierarchy 
-		  </dt> 
-		  <dd class="dd">A key scope and all of its descendant scopes. 
-		  </dd> 
-		 
-	 </dl> 
+	 <dl class="dl" id="concept_art_5ps_sr__key-scope-terms">
+			
+				<dt class="dt dlterm">child scope</dt>
+				<dd class="dd">A key scope that occurs directly within another key scope. <span class="ph example">For example, in the figure below, key scopes "A-1" and
+						"A-2" are child scopes of key scope "A".</span>
+				</dd>
+			
+			
+				<dt class="dt dlterm">parent scope</dt>
+				<dd class="dd">A key scope that occurs one level above another key scope. <span class="ph example">For example, in the figure below, key scope "A" is a
+						parent scope of key scopes "A-1" and "A-2".</span>
+				</dd>
+			
+			
+				<dt class="dt dlterm">ancestor scope</dt>
+				<dd class="dd">A key scope that occurs any level above another key scope. <span class="ph example">For example, in the figure below, key scopes "A" and
+						"Root" are both ancestor scopes of key scopes "A-1" and "A-2".</span>
+				</dd>
+			
+			
+				<dt class="dt dlterm">descendant scope</dt>
+				<dd class="dd">A key scope that occurs any level below another key scope. <span class="ph example">For example, in the figure below, key scopes "A",
+						"A-1", and "A-2" are all descendant scopes of the implicit, root key
+						scope.</span>
+				</dd>
+			
+			
+				<dt class="dt dlterm">sibling scope</dt>
+				<dd class="dd">A key scope that shares a common parent with another key scope. <span class="ph example">For example, in the figure below, key scopes "A" and
+						"B" are sibling scopes; they both are children of the implicit, root key
+						scope.</span>
+				</dd>
+			
+			
+				<dt class="dt dlterm">key scope hierarchy</dt>
+				<dd class="dd">A key scope and all of its descendant scopes. </dd>
+			
+			
+				<dt style="color:red;" class="dt dlterm">scope-qualified key name</dt>
+				<dd style="color:red;" class="dd">A key name, prepended by one or more key scope names and separated by periods.
+						<span class="ph example">For example, to reference a key "keyName" defined
+						in a child scope named "keyScope", specify the scope-qualified key name
+						"keyScope.keyName".</span></dd>
+			
+			
+				<dt style="color:red;" class="dt dlterm">unqualified key name</dt>
+				<dd style="color:red;" class="dd">A key name that is not qualified with a key scope. <span class="ph example">For
+						example, <code class="ph codeph">keyref="productName"</code> is a reference to the
+						unqualified key name "productName".</span></dd>
+			
+		</dl> 
 	 <figure class="fig fignone" id="concept_art_5ps_sr__fig_DE65294F6EF64C129F38A19C66C40E3E"><figcaption><span class="fig--title-label">Figure 1. </span>A key scope hierarchy</figcaption> 
 		 
 		<br><img class="image" id="concept_art_5ps_sr__image_3BFFE5D941FD4EB6BD976801585C893A" src="../../images/key-scope-hierarchy.png" alt="Tree structure diagram showing a key scope hierarchy. The leftmost node is labeled 'Root'. There are two child nodes of Root labeled 'A' and 'B'. Node A has two children labeled 'A-1' and 'A-2'. Node B has two children labeled 'B-1' and 'B-2'."><br> 
@@ -88,11 +92,6 @@ classes: ''
 		  does include scope-qualified keys from the child scopes. This enables sibling
 		  key scopes to have different key definitions for the same key name. 
 		</p> 
-		<p class="p">A <dfn class="term">scope-qualified key name</dfn> is a key name, prepended by one or more key scope names
-				and separated by periods. <span class="ph example">For example, to reference a key
-					"keyName" defined in a child scope named "keyScope", specify
-						<code class="ph codeph">keyref="keyScope.keyName"</code>.</span>
-			</p> 
 		<p class="p">If a key scope has multiple names, its keys can be addressed from its parent scope using any of
 				the scope names. <span class="ph example">For example, if a key scope is defined
 					with <code class="ph codeph">keyscope="a b c"</code>, and it contains a key name of "product",

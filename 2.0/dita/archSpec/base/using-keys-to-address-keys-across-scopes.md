@@ -32,6 +32,14 @@ A root map might contain any number of key scopes; relationships between key sco
 
     A key scope and all of its descendant scopes.
 
+-   **scope-qualified key name**
+
+    A key name, prepended by one or more key scope names and separated by periods. exampleFor example, to reference a key "keyName" defined in a child scope named "keyScope", specify the scope-qualified key name "keyScope.keyName".
+
+-   **unqualified key name**
+
+    A key name that is not qualified with a key scope. exampleFor example, `keyref="productName"` is a reference to the unqualified key name "productName".
+
 
 ![Tree structure diagram showing a key scope hierarchy. The leftmost node is labeled 'Root'. There are two child nodes of Root labeled 'A' and 'B'. Node A has two children labeled 'A-1' and 'A-2'. Node B has two children labeled 'B-1' and 'B-2'.](../../images/key-scope-hierarchy.png "A key scope hierarchy")
 
@@ -44,8 +52,6 @@ In certain complex cases, a scope-qualified key name \(such as scope.key\) can o
 ## Keys that are defined in child key scopes
 
 The key space associated with a key scope does not include the *unqualified* key definitions from the child scopes. However, it does include scope-qualified keys from the child scopes. This enables sibling key scopes to have different key definitions for the same key name.
-
-A scope-qualified key name is a key name, prepended by one or more key scope names and separated by periods. exampleFor example, to reference a key "keyName" defined in a child scope named "keyScope", specify `keyref="keyScope.keyName"`.
 
 If a key scope has multiple names, its keys can be addressed from its parent scope using any of the scope names. exampleFor example, if a key scope is defined with `keyscope="a b c"`, and it contains a key name of "product", that key can be referenced from the parent scope by `keyref="a.product"`, `keyref="b.product"`, or `keyref="c.product"`.
 

@@ -28,7 +28,7 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     Applications MAY recover from this error condition by using the correct value detected.
 
--   **[DITAERR-0060](../archSpec/base/processing-key-references-general.md#d4091t126)**
+-   **[DITAERR-0060](../archSpec/base/processing-key-references-general.md#d4091t147)**
 
     If it is an error for the element to be empty, an implementation MAY give an error message; it also MAY recover from this error condition by leaving the key reference element empty.
 
@@ -379,15 +379,15 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     If both `@conkeyref` and `@conref` attributes are specified on an element, the `@conref` value MUST be used as a fallback address when the key name is undefined.
 
--   **[DITAREQ-0320](../archSpec/base/processing-key-references-general.md#d4091t78)**
+-   **[DITAREQ-0320](../archSpec/base/processing-key-references-general.md#d4091t86)**
 
     Processors SHOULD perform conditional processing before determining the effective key definitions.
 
--   **[DITAREQ-0330](../archSpec/base/processing-key-references-general.md#d4091e92)**
+-   **[DITAREQ-0330](../archSpec/base/processing-key-references-general.md#d4091e107)**
 
     If a topic that contains key references is reused in multiple key scopes within a given root map such that its references resolve differently in each use context, processors MUST produce multiple copies of the source topic in resolved output for each distinct set of effective key definitions that are referenced by the topic.
 
--   **[DITAREQ-0340](../archSpec/base/processing-key-references-general.md#d4091t126)**
+-   **[DITAREQ-0340](../archSpec/base/processing-key-references-general.md#d4091t147)**
 
     If it is an error for the element to be empty, an implementation MAY give an error message; it also MAY recover from this error condition by leaving the key reference element empty.
 
@@ -399,9 +399,9 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     Processors SHOULD support at least three levels of key references.
 
--   **[DITAREQ-0370](../archSpec/base/processing-keyref-for-text.md#d3065e137)**
+-   **[DITAREQ-0370](../archSpec/base/processing-keyref-for-text.md#d3065e152)**
 
-    Processors MUST resolve variable text that is defined using keys by using the following sequence:
+    Processors MUST resolve variable text that is defined using keys by applying the following rules in order, stopping as soon as the effective text content is determined:
 
     1.  Effective text content is taken from the `<keytext>` element.
     2.  Effective text content is taken from the `<titlealt>` element with `@title-role` set to linking.
@@ -409,7 +409,7 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
     4.  Effective text content is taken from the `<titlealt>` element with `@title-role` set to a processor-recognized value.
     5.  Effective text content is taken from the title of the referenced document, if available.
     6.  Effective text content is determined by the processor.
--   **[DITAREQ-0380](../archSpec/base/processing-keyref-for-text.md#d3065e200)**
+-   **[DITAREQ-0380](../archSpec/base/processing-keyref-for-text.md#d3065e221)**
 
     When the effective content for a key reference element results in invalid elements, those elements SHOULD be generalized to produce a valid result.
 

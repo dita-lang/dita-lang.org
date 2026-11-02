@@ -15,7 +15,7 @@ Certain terminology is used to discuss keys.
     -   Text or metadata located within a `<topicmeta>` element
 -   **key**
 
-    A name for a resource. See [Using keys for addressing](using-keys-for-addressing.md) for more information.
+    A name for a resource. See [Setting key names with the keys attribute](thekeysattribute.md) and [Referencing a key with the keyref attribute](thekeyrefattribute.md) for more information.
 
 -   **key definition**
 

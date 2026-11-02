@@ -4,7 +4,7 @@ author: [OASIS DITA Technical Committee, OASIS DITA Technical Committee]
 
 # Referencing a key with the `@keyref` attribute
 
-The `@keyref` attribute provides an indirect, late-bound reference to topics, to collections of topics \(ditabase\), to maps, to referenceable portions of maps, to non-DITA documents, to external URIs, or to XML content contained within a key definition topic reference. When the DITA content is processed, the key references are resolved using key definitions from DITA maps.
+The `@keyref` attribute provides an indirect, late-bound reference to topics, to collections of topics \(ditabase\), to maps, to referenceable portions of maps, to non-DITA documents, to external URIs, or to XML content contained within a key definition topic reference. For content reference relationships, the `@conkeyref` attribute similarly provides an indirect, late-bound reference to reusable content. When the DITA content is processed, the key references are resolved using key definitions from DITA maps.
 
 When used within a DITA map, the `@keyref` attribute can only resolve to topics, to elements within a DITA map, or to non-DITA resources.
 
@@ -14,10 +14,15 @@ For references to topics, to elements within a map, or to non-DITA resources, th
 
 For references to elements within a topic, the value of the `@keyref` attribute is a key name, a slash \("/"\), and the ID of the target element, where the key name must be bound to the topic that contains the target element.
 
+**Draft comment:**robander 1 November 2026  
+This was combined with a topic that previously had an inline example of a cross reference to a section, using a key. Would be good to have an example topic for that, which we could link to here. Would also be good to have a simpler example topic of just a plain keyref used to link to a topic.
+
 **Parent topic:**[Indirect key-based addressing](../../archSpec/base/key-based-addressing.md)
 
 **Related information**  
 
+
+[Indirect key-based content reuse](../../archSpec/base/theconkeyrefattribute.md)
 
 [Indirect key-based addressing](../../archSpec/base/key-based-addressing.md)
 

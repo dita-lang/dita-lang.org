@@ -97,7 +97,6 @@
         -   [Core concepts for working with keys](archSpec/base/keys-core-concepts.md)
         -   [Setting key names with the keys attribute](archSpec/base/thekeysattribute.md)
         -   [Referencing a key with the keyref attribute](archSpec/base/thekeyrefattribute.md)
-        -   [Using keys for addressing](archSpec/base/using-keys-for-addressing.md)
         -   [Scoping keys with the keyscope attribute](archSpec/base/keyScopes.md)
         -   [Addressing keys across scopes](archSpec/base/using-keys-to-address-keys-across-scopes.md)
         -   [Cross-deliverable addressing and linking](archSpec/base/links-between-maps.md)

@@ -16,5 +16,7 @@ Note the inverse implication; if the peer map is not available, then it is impos
 
 The peer map might specify `@keyscope` on its root element. In that case, the `@keyscope` on the peer map is ignored for the purpose of resolving scoped key references from the referencing map. This avoids the need for processors to have access to the peer map in order to determine whether a given key definition comes from the peer map.
 
+**Note:** The markup strategy described here uses peer maps and scoped keys to provide a common approach to cross-deliverable linking. How processors generate working links between deliverables is implementation dependent because link targets and behavior depend on the output format, publication environment, and other requirements of the user's deliverables.
+
 **Parent topic:**[Indirect key-based addressing](../../archSpec/base/key-based-addressing.md)
 

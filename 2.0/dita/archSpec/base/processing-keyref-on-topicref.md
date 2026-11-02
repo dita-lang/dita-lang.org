@@ -14,12 +14,12 @@ While `<topicref>` elements are used to define keys, they also can reference key
 
 -   **Combining metadata**
 
-    Content from a key-defining element cascades to the key-referencing element following the rules for combining metadata between maps and other maps and between maps and topics.
+    Content from a key-defining element cascades to the key-referencing element following the rules for combining metadata between maps and other maps and between maps and topics. For details, see [Metadata cascading](map-cascading.md).
 
     The combined attributes and content cascade from one map to another or from a map to a topic, but this is controlled by existing rules for cascading, which are not affected by the use of key references.
 
 
-If, in addition to the `@keys` attribute, a key definition specifies a `@keyref` attribute that can be resolved after the key resolution context for the key definition has been determined, the resources bound to the referenced key definition take precedence.
+If, in addition to the `@keys` attribute, a key definition specifies a `@keyref` attribute that can be resolved after the key resolution context for the key definition has been determined, the resources bound to the referenced key definition take precedence. exampleFor an example of this situation, see [Example: Key definition with key reference](example-keydef-with-keyref.md).
 
 **Parent topic:**[Indirect key-based addressing](../../archSpec/base/key-based-addressing.md)
 

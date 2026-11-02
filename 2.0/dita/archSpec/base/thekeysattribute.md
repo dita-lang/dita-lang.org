@@ -19,3 +19,7 @@ When more than one key name is specified on `@keys`, each key name is bound to t
 
 [Indirect key-based addressing](../../archSpec/base/key-based-addressing.md)
 
+[Examples: Key definition](../../archSpec/base/example-key-definition.md)
+
+[Examples: Key definitions for variable text](../../archSpec/base/example-key-definition-for-variable-text.md)
+

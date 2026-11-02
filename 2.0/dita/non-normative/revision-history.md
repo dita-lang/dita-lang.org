@@ -6,19 +6,19 @@ author: OASIS DITA Technical Committee
 
 The following table contains information about revisions to this document.
 
-<table><thead><tr><th align="left" id="d259732e26">
+<table><thead><tr><th align="left" id="d259485e26">
 
 Revision
 
-</th><th align="left" id="d259732e30">
+</th><th align="left" id="d259485e30">
 
 Date
 
-</th><th align="left" id="d259732e34">
+</th><th align="left" id="d259485e34">
 
 Editor
 
-</th><th align="left" id="d259732e38">
+</th><th align="left" id="d259485e38">
 
 Description of changes
 
