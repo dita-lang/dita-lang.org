@@ -498,69 +498,69 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     The `@props` attribute can be specialized to create new attributes, and processors SHOULD be able to perform conditional processing on specializations of `@props`.
 
--   **[DITAREQ-0540](../archSpec/base/processing-cascading-attributes-in-a-map.md#d3809e12)**
-
-    When determining the effective value of an attribute, processors MUST evaluate each applicable attribute for each map element in the following order:
-
--   **[DITAREQ-0550](../archSpec/base/processing-cascading-attributes-in-a-map.md#d3809e42)**
-
-    For multi-value attributes, cascading and merging behavior MUST follow the rules of `@cascade`.
-
--   **[DITAREQ-0560](../archSpec/base/processing-cascading-attributes-in-a-map.md#d3809t61)**
-
-    Values established only by processing-supplied defaults in step 6 MUST NOT cascade to referenced maps.
-
--   **[DITAREQ-0570](../archSpec/base/merging-of-cascading-attributes.md#d2836e75)**
-
-    If no value is set for the `@cascade` attribute and no value cascades from a containing element, processors SHOULD assume a default of merge.
-
--   **[DITAREQ-0580](../archSpec/base/merging-of-cascading-attributes.md#d2836e87)**
-
-    Implementers MAY define their own custom, implementation-specific tokens for the `@cascade` attribute.
-
--   **[DITAREQ-0590](../archSpec/base/merging-of-cascading-attributes.md#d2836t94)**
-
-    To avoid name conflicts between implementations or with future additions to the standard, implementation-specific tokens SHOULD consist of a prefix that gives the name or an abbreviation for the implementation followed by a colon followed by the token or method name.
-
--   **[DITAREQ-0600](../archSpec/base/merging-of-cascading-attributes.md#d2836e111)**
-
-    The predefined values for the `@cascade` attribute MUST precede any implementation-specific tokens, for example, `cascade="merge appToken:audience"`.
-
--   **[DITAREQ-0610](../archSpec/base/chunk-attribute-overview.md#d4655e154)**
-
-    When the source document organization has no effect on published output, such as when producing a single PDF or EPUB, processors MAY ignore the `@chunk` attribute.
-
--   **[DITAREQ-0620](../archSpec/base/chunk-attribute-overview.md#d4655e163)**
-
-    When the `@chunk` attribute results in more or fewer documents based on the `combine` or `split` tokens, the hierarchy of topics within the resulting map and topic organization SHOULD match the hierarchy in the original topics and maps.
-
--   **[DITAREQ-0630](../archSpec/base/chunk-attribute-overview.md#d4655e178)**
-
-    When the `@chunk` attribute results in more or fewer documents, processors MAY create their own naming schemes for those reorganized documents.
-
--   **[DITAREQ-0640](../archSpec/base/chunk-attribute-overview.md#d4655t197)**
-
-    Processors MAY apply equivalent processing to non-DITA documents.
-
--   **[DITAREQ-0650](../archSpec/base/branch-filtering-overview.md#d4428e52)**
+-   **[DITAREQ-0540](../archSpec/base/branch-filtering-overview.md#d4428e52)**
 
     In addition to filtering, applications MAY support flagging at the branch level based on the referenced DITAVAL documents.
 
--   **[DITAREQ-0660](../archSpec/base/branch-filtering-handling-conflicts.md#d3463t16)**
+-   **[DITAREQ-0550](../archSpec/base/branch-filtering-handling-conflicts.md#d3463t16)**
 
     Processors SHOULD report an error in such cases.
 
--   **[DITAREQ-0670](../archSpec/base/branch-filtering-handling-conflicts.md#d3463t19)**
+-   **[DITAREQ-0560](../archSpec/base/branch-filtering-handling-conflicts.md#d3463t19)**
 
     Processors MAY recover by using an alternate naming scheme for the conflicting topics.
 
--   **[DITAREQ-0680](../archSpec/base/branch-filtering-handling-conflicts.md#d3463t25)**
+-   **[DITAREQ-0570](../archSpec/base/branch-filtering-handling-conflicts.md#d3463t25)**
 
     exampleFor example, a topic might appear in both the admin and novice copies of a branch but not contain content that is tailored to either audience; in that case, the filtered copies would match. A processor MAY consider this form of equivalence when determining if two references to the same resource should be reported as an error.
 
--   **[DITAREQ-0690](../archSpec/base/branch-filtering-implications-of-processing-order.md#d4760e10)**
+-   **[DITAREQ-0580](../archSpec/base/branch-filtering-implications-of-processing-order.md#d4760e10)**
 
     The full effects of the branch filtering process MUST be calculated by processors before they construct the effective map and key scope structure.
+
+-   **[DITAREQ-0590](../archSpec/base/processing-cascading-attributes-in-a-map.md#d3809e12)**
+
+    When determining the effective value of an attribute, processors MUST evaluate each applicable attribute for each map element in the following order:
+
+-   **[DITAREQ-0600](../archSpec/base/processing-cascading-attributes-in-a-map.md#d3809e42)**
+
+    For multi-value attributes, cascading and merging behavior MUST follow the rules of `@cascade`.
+
+-   **[DITAREQ-0610](../archSpec/base/processing-cascading-attributes-in-a-map.md#d3809t61)**
+
+    Values established only by processing-supplied defaults in step 6 MUST NOT cascade to referenced maps.
+
+-   **[DITAREQ-0620](../archSpec/base/merging-of-cascading-attributes.md#d2836e75)**
+
+    If no value is set for the `@cascade` attribute and no value cascades from a containing element, processors SHOULD assume a default of merge.
+
+-   **[DITAREQ-0630](../archSpec/base/merging-of-cascading-attributes.md#d2836e87)**
+
+    Implementers MAY define their own custom, implementation-specific tokens for the `@cascade` attribute.
+
+-   **[DITAREQ-0640](../archSpec/base/merging-of-cascading-attributes.md#d2836t94)**
+
+    To avoid name conflicts between implementations or with future additions to the standard, implementation-specific tokens SHOULD consist of a prefix that gives the name or an abbreviation for the implementation followed by a colon followed by the token or method name.
+
+-   **[DITAREQ-0650](../archSpec/base/merging-of-cascading-attributes.md#d2836e111)**
+
+    The predefined values for the `@cascade` attribute MUST precede any implementation-specific tokens, for example, `cascade="merge appToken:audience"`.
+
+-   **[DITAREQ-0660](../archSpec/base/chunk-attribute-overview.md#d4655e154)**
+
+    When the source document organization has no effect on published output, such as when producing a single PDF or EPUB, processors MAY ignore the `@chunk` attribute.
+
+-   **[DITAREQ-0670](../archSpec/base/chunk-attribute-overview.md#d4655e163)**
+
+    When the `@chunk` attribute results in more or fewer documents based on the `combine` or `split` tokens, the hierarchy of topics within the resulting map and topic organization SHOULD match the hierarchy in the original topics and maps.
+
+-   **[DITAREQ-0680](../archSpec/base/chunk-attribute-overview.md#d4655e178)**
+
+    When the `@chunk` attribute results in more or fewer documents, processors MAY create their own naming schemes for those reorganized documents.
+
+-   **[DITAREQ-0690](../archSpec/base/chunk-attribute-overview.md#d4655t197)**
+
+    Processors MAY apply equivalent processing to non-DITA documents.
 
 -   **[DITAREQ-0700](../archSpec/base/sort-as-processing.md#d3761e64)**
 
