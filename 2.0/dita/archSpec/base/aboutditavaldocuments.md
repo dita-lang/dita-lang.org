@@ -11,7 +11,7 @@ The markup for DITAVAL documents provides a standard way to define all condition
 Each rule in a DITAVAL document does one of the following:
 
 -   Defines a rendering behavior for an attribute and value pair, for example, `audience="novice"`.
--   Defines a default behavior for a conditional processing attribute, such as defining a default rendering behavior of exclude for the `@deliveryTarget`. With that default, any `@deliveryTarget` value not otherwise defined in the document uses that default behavior of exclude.
+-   Defines a default behavior for a conditional processing attribute, such as defining a default rendering behavior of exclude for the `@deliveryTarget` attribute. With that default, any `@deliveryTarget` value not otherwise defined in the document uses that default behavior of exclude.
 -   Defines a default behavior for **all** conditional processing attributes, such as defining a default rendering behavior of exclude. With that default, any conditional-processing attribute not otherwise defined in the document uses that default behavior of exclude.
 
 Those rules in a DITAVAL document enable the following actions when a processor matches a rule with a DITA element. A DITAVAL rule can instruct processors to:

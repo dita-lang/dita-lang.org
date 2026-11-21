@@ -4,7 +4,7 @@ title: 'Branch filtering: Single referenced DITAVAL document for a branch'
 description: 'Using a single ditavalref element as a child of a map or map branch indicates that the map or map branch is filtered using the rules specified in the referenced DITAVAL document.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '4680b7fa26af77379c4250db2d73c93abcf2a13b'
+commit: '16e23d3c8a963604c6374ef95ac71cc04d614688'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -33,7 +33,15 @@ classes: ''
             
                 <dt class="dt dlterm"><code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element within a
                         <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> reference to a local map</dt>
-                <dd class="dd">The filtering conditions are applied to the submap.</dd>
+                <dd class="dd">The filtering conditions are applied to the submap.<div class="note note note_note non-normative" id="branch-filter-single-set__ditavalref-mapref"><span class="note__title">Note<span class="non-normative-label"> (non-normative)</span>:</span> <div class="note__body">The base DITA vocabulary defines
+                            <code class="keyword markupname xmlelement">&lt;mapref&gt;</code> as a convenience element for referencing
+                        other maps. The <code class="keyword markupname xmlelement">&lt;mapref&gt;</code> element does not allow
+                            <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> as a child, which means it also does
+                        not allow specializations of <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> (including
+                            <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code>). To place
+                            <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> inside of a map reference, reference
+                        the map using a <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element with
+                            <code class="ph codeph">format="ditamap"</code>.</div></div></dd>
             
             
                 <dt class="dt dlterm"><code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element within a

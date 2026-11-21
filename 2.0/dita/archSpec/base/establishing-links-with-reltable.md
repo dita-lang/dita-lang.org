@@ -1,5 +1,5 @@
 ---
-author: [OASIS DITA Technical Committee, OASIS DITA Technical Committee]
+author: [OASIS DITA Technical Committee, OASIS DITA Technical Committee, OASIS DITA Technical Committee]
 ---
 
 # How relationship tables establish linking relationships
@@ -53,4 +53,9 @@ In the following example, `overview.dita`, `configure.dita`, `parameters.dita`, 
 ```
 
 **Parent topic:**[DITA maps and their usage](../../archSpec/base/dita-maps-and-their-usage.md)
+
+**Related information**  
+
+
+[reltable](../../langRef/base/reltable.md)
 

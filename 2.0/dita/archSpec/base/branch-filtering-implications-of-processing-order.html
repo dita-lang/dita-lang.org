@@ -4,7 +4,7 @@ title: 'Branch filtering: Implications of processing order'
 description: 'The branch filtering mechanism can result in changes to the global key space for a root map. As a result, processors are required to evaluate branch filtering in order to construct the key space.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: 'fa244eb7be2374c2d607f2c834a33cb1e8c0bc11'
+commit: '16e23d3c8a963604c6374ef95ac71cc04d614688'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -51,12 +51,13 @@ classes: ''
           <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> filtering conditions are evaluated, content that
         applies to multiple audiences can be brought in and (later in the process) selectively
         filtered by branch. <span class="ph example">For example, if a set of installation steps is
-          pulled in with conref (from outside the branch), it might contain information that is
-          later filtered by platform based on <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code>. This results in
-          copies of the steps that are specific to each operating system. If conref is processed
-          after the <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code>, content might be pulled in that has not
-          been appropriately filtered for the new context.</span></li>
-      <li class="li">The same scenario applies to conref values that push content into the branch.<ul class="ul">
+          pulled in with <code class="keyword markupname xmlatt">@conref</code> (from outside the branch), it might contain
+          information that is later filtered by platform based on
+            <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code>. This results in copies of the steps that are
+          specific to each operating system. If the <code class="keyword markupname xmlatt">@conref</code> is processed after the
+            <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code>, content might be pulled in that has not been
+          appropriately filtered for the new context.</span></li>
+      <li class="li">The same scenario applies to <code class="keyword markupname xmlatt">@conref</code> values that push content into the branch.<ul class="ul">
           <li class="li">Pushing content into a branch before resolving the <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code>
             conditions allows content for multiple conditions to be pushed and then filtered by
             branch based on the <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> conditions.</li>

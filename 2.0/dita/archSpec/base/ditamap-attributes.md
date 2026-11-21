@@ -16,11 +16,9 @@ I alphabeticized the attributes in this topic. I also added them to draft commen
 **Draft comment:**robander   
 TO RESOLVE 11 May 2026: compare side-by-side, set up conref level reuse if we can, and if not, just make sure they do not conflict and move on.
 
-unrelated, in the next sentence, should "Web pages" really be capitalized? Should it say HTML pages?
-
 Update 20 May 2026: Kris will look at this section
 
-DITA maps often encode structures that are specific to a particular medium or output, for example, Web pages or a PDF document. Attributes, such as `@deliveryTarget` and `@toc`, are designed to help processors interpret the DITA map for each kind of output.
+DITA maps often encode structures that are specific to a particular medium or output, for example, HTML pages or a PDF document. Attributes, such as `@deliveryTarget` and `@toc`, are designed to help processors interpret the DITA map for each kind of output.
 
 -   **`@cascade`**
 

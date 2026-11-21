@@ -20,6 +20,8 @@ The following rules outline how the filtering conditions that are specified in a
 
     The filtering conditions are applied to the submap.
 
+    **Note:** The base DITA vocabulary defines `<mapref>` as a convenience element for referencing other maps. The `<mapref>` element does not allow `<topicref>` as a child, which means it also does not allow specializations of `<topicref>` \(including `<ditavalref>`\). To place `<ditavalref>` inside of a map reference, reference the map using a `<topicref>` element with `format="ditamap"`.
+
 -   **`<ditavalref>` element within a `<topicref>` reference to peer map**
 
     The reference conditions are **not** applied to the peer map.

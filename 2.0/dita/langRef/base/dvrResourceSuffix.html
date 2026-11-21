@@ -4,7 +4,7 @@ title: 'dvrResourceSuffix'
 description: 'The dvrResourceSuffix element specifies the suffix to use when constructing the effective file names or resource IDs of the resources that are referenced from within the map branch that is implied by the ancestor ditavalref element.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: 'fa244eb7be2374c2d607f2c834a33cb1e8c0bc11'
+commit: '16e23d3c8a963604c6374ef95ac71cc04d614688'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -45,51 +45,7 @@ classes: ''
           <span class="keyword">dvrResourceSuffix</span>.</dd></dl></section>
     <div class="example non-normative" id="dvrResourceSuffix__example"><h2 class="title sectiontitle">Example</h2><p class="non-normative-label">This section is non-normative.</p>
       
-      <figure class="fig fignone" id="dvrResourceSuffix__fig_twy_5w1_ppb"><figcaption><span class="fig--title-label">Example 1. </span>How <code class="keyword markupname xmlelement">&lt;dvrResourceSuffix&gt;</code> affects resource file names</figcaption>
-        
-        <div class="p">The following code sample shows a simple branch with a parent and child topic, where the
-          branch uses a <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element and
-            <code class="keyword markupname xmlelement">&lt;dvrResourceSuffix&gt;</code>.<pre class="pre codeblock"><code>&lt;topicref href="branch-01.dita"&gt;
-  &lt;ditavalref href="condition-01.ditaval"&gt;
-    &lt;ditavalmeta&gt;
-      &lt;dvrResourceSuffix&gt;-cond01&lt;/dvrResourceSuffix&gt;
-    &lt;/ditavalmeta&gt;
-  &lt;/ditavalref&gt;
-  &lt;topicref href="topics/subtopic-01.dita"/&gt;
-&lt;/topicref&gt;</code></pre></div>
-        <div class="p">After the <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> is evaluated:<ul class="ul" id="dvrResourceSuffix__ul_syl_cy1_ppb">
-            <li class="li">The effective file name of the resource <span class="ph filepath">subtopic-01.dita</span> is
-                <span class="ph filepath">subtopic-01-cond01.dita</span>.</li>
-            <li class="li">The effective file name of resource <span class="ph filepath">branch-01.dita</span> is
-                <span class="ph filepath">branch-01-cond01.dita</span>.</li>
-          </ul></div>
-      </figure>
-      <figure class="fig fignone" id="dvrResourceSuffix__fig_s32_2y1_ppb"><figcaption><span class="fig--title-label">Example 2. </span>How <code class="keyword markupname xmlelement">&lt;dvrResourceSuffix&gt;</code> interacts with
-            <code class="keyword markupname xmlelement">&lt;resourceid&gt;</code></figcaption>
-        
-        <div class="p">The following code sample shows the same branch with a parent and child topic, but in
-          this case the child topic specifies a deliverable anchor with
-            <code class="keyword markupname xmlelement">&lt;resourceid&gt;</code>.<pre class="pre codeblock"><code>&lt;topicref href="branch-01.dita"&gt;
-  &lt;ditavalref href="condition-01.ditaval"&gt;
-    &lt;ditavalmeta&gt;
-      &lt;dvrResourceSuffix&gt;-cond01&lt;/dvrResourceSuffix&gt;
-    &lt;/ditavalmeta&gt;
-  &lt;/ditavalref&gt;
-  &lt;topicref href="topics/subtopic-01.dita"&gt;
-    &lt;topicmeta&gt;
-      &lt;resourceid appid="ae35-unit-fault" appid-role="deliverable-anchor"/&gt;
-    &lt;/topicmeta&gt;
-  &lt;/topicref&gt;
-&lt;/topicref&gt;</code></pre></div>
-        <div class="p">After the <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> is evaluated:<ul class="ul" id="dvrResourceSuffix__ul_ybb_ly1_ppb">
-            <li class="li">The effective file name of the resource <span class="ph filepath">subtopic-01.dita</span> is
-                <span class="ph filepath">subtopic-01-cond01.dita</span>.</li>
-            <li class="li">The effective file name of resource <span class="ph filepath">branch-01.dita</span> is
-                <span class="ph filepath">branch-01-cond01.dita</span>.</li>
-            <li class="li">The effective value of <code class="keyword markupname xmlatt">@appid</code> on <code class="keyword markupname xmlelement">&lt;resourceid&gt;</code>
-              for the child topic is <span class="keyword">ae35-unit-fault-cond01</span>.</li>
-          </ul></div>
-      </figure>
+      <p class="p">For examples of the <code class="keyword markupname xmlelement">&lt;dvrResourceSuffix&gt;</code> element, see <a class="xref" href="../../archSpec/base/example-ditavalref-dvrresourcesuffix.html" title="In this scenario, a ditavalref element uses the nested dvrResourceSuffix element to control the names of resources within the filtered branch.">Example: Using dvrResourceSuffix to control resource names</a> and <a class="xref" href="../../archSpec/base/example-ditavalref-resourceid.html" title="In this scenario, a ditavalref element uses the nested dvrResourcePrefix and dvrResourceSuffix elements to resource IDs specified using resourceid.">Example: How dvrResourcePrefix and dvrResourceSuffix interact with resourceid</a>.</p>
     </div>
   </div>
 <nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../langRef/containers/ditaval-d.html" title="The DITAVAL-reference domain is used to reference a DITAVAL document that contains conditions that apply only to a subset of a DITA map. It also can be used to replicate a subset of a DITA map for multiple audiences.">DITAVAL-reference domain elements</a></div></div></nav><aside class="section-toc" role="aside"><h2>In this section</h2><ul><li><a href="#dvrResourceSuffix__usage-information">Usage information</a></li><li><a href="#dvrResourceSuffix__processing-expectations">Processing expectations</a></li><li><a href="#dvrResourceSuffix__specialization-hierarchy">Specialization hierarchy</a></li><li><a href="#dvrResourceSuffix__content-model">Content model</a></li><li><a href="#dvrResourceSuffix__inheritance">Inheritance</a></li><li><a href="#dvrResourceSuffix__attributes">Attributes</a></li><li><a href="#dvrResourceSuffix__example">Example</a></li></ul></aside></article></main>

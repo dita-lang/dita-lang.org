@@ -1,0 +1,35 @@
+---
+layout: base.njk
+title: 'Example: Using dvrResourcePrefix to control resource names'
+description: 'In this scenario, a ditavalref element uses the nested dvrResourcePrefix element to control the names of resources within the filtered branch.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '16e23d3c8a963604c6374ef95ac71cc04d614688'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="toc" role="toc"><ul></ul></nav><main role="main" class="non-normative"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Example: Using <code class="keyword markupname xmlelement">&lt;dvrResourcePrefix&gt;</code> to control resource names</h1>
+  
+  <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">In this scenario, a <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element uses the nested
+      <code class="keyword markupname xmlelement">&lt;dvrResourcePrefix&gt;</code> element to control the names of resources within
+    the filtered branch.</p>
+    <div class="p">The following code sample shows a simple branch with a parent and child topic, where the
+      branch uses a <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element and
+        <code class="keyword markupname xmlelement">&lt;dvrResourcePrefix&gt;</code>.<pre class="pre codeblock" id="example-ditavalref-dvrresourceprefix__codeblock_tf2_1ps_hlc"><code>&lt;topicref href="branch-01.dita"&gt;
+  &lt;ditavalref href="condition-01.ditaval"&gt;
+    &lt;ditavalmeta&gt;
+      &lt;dvrResourcePrefix&gt;cond01-&lt;/dvrResourcePrefix&gt;
+    &lt;/ditavalmeta&gt;
+  &lt;/ditavalref&gt;
+  &lt;topicref href="topics/subtopic-01.dita"/&gt;
+&lt;/topicref&gt;</code></pre></div>
+    <div class="p">After the <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> is evaluated:<ul class="ul" id="example-ditavalref-dvrresourceprefix__ul_syl_cy1_ppb">
+        <li class="li">The effective file name of resource <span class="ph filepath">branch-01.dita</span> is
+            <span class="ph filepath">cond01-branch-01.dita</span>.</li>
+        <li class="li">The effective file name of the resource <span class="ph filepath">topics/subtopic-01.dita</span> is
+            <span class="ph filepath">topics/cond01-subtopic-01.dita</span>.</li>
+      </ul></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/examples-of-branch-filter.html" title="The branch filtering examples illustrate the processing expectations for various scenarios that involve ditavalref elements. Processing examples use either before and after sample markup or expanded syntax that shows the equivalent markup without the ditavalref elements.">Examples of branch filtering</a></div></div></nav><aside class="section-toc" role="aside"></aside></article></main>

@@ -6,7 +6,7 @@ author: [OASIS DITA Technical Committee, OASIS DITA Technical Committee]
 
 The branch filtering mechanism enables map authors to set filtering conditions for specific branches of a map. This makes it possible for multiple conditional-processing profiles to be applied within a single publication.
 
-Conditional processing profiles are most often used for an entire root map, with rules applied to all content in that root map. The branch filtering mechanism uses the `<ditavalref>` element to apply rules from a single DITAVAL document against a subset of content.
+Conditional processing profiles are most often used for an entire root map, with rules applied to all content in that root map. The branch filtering mechanism uses the `<ditavalref>` element to apply rules from a single referenced DITAVAL document against a subset of content.
 
 The location of the `<ditavalref>` element determines the content to which filtering conditions are applied. The filtering conditions then are used to filter the map branch itself \(that is, the map elements used to create the branch\). In addition, the conditions are used to filter local maps and topics that are referenced by that branch.
 

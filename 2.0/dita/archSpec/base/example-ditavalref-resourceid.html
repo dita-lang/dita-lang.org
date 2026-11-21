@@ -1,0 +1,67 @@
+---
+layout: base.njk
+title: 'Example: How dvrResourcePrefix and dvrResourceSuffix interact with resourceid'
+description: 'In this scenario, a ditavalref element uses the nested dvrResourcePrefix and dvrResourceSuffix elements to resource IDs specified using resourceid.'
+index: '../../toc.html'
+notices: '../../resources/oasis-notices.html'
+commit: '16e23d3c8a963604c6374ef95ac71cc04d614688'
+repository: 'oasis-tcs/dita'
+classes: ''
+---
+
+<nav class="toc" role="toc"><ul></ul></nav><main role="main" class="non-normative"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Example: How <code class="keyword markupname xmlelement">&lt;dvrResourcePrefix&gt;</code> and
+      <code class="keyword markupname xmlelement">&lt;dvrResourceSuffix&gt;</code> interact with
+    <code class="keyword markupname xmlelement">&lt;resourceid&gt;</code></h1>
+  
+  <div class="body conbody"><p class="non-normative-label">This section is non-normative.</p><p class="shortdesc">In this scenario, a <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element uses the nested
+      <code class="keyword markupname xmlelement">&lt;dvrResourcePrefix&gt;</code> and <code class="keyword markupname xmlelement">&lt;dvrResourceSuffix&gt;</code>
+    elements to resource IDs specified using <code class="keyword markupname xmlelement">&lt;resourceid&gt;</code>.</p>
+    <div class="p">The following code sample shows a simple branch with a parent and child topic, where the map
+      branch uses <code class="keyword markupname xmlelement">&lt;dvrResourcePrefix&gt;</code> to manage resource names. In this case
+      the child topic also specifies a deliverable anchor with
+      <code class="keyword markupname xmlelement">&lt;resourceid&gt;</code>.<pre class="pre codeblock" id="example-ditavalref-resourceid__codeblock_bvm_mqs_hlc"><code>&lt;topicref href="branch-01.dita"&gt;
+  &lt;ditavalref href="condition-01.ditaval"&gt;
+    &lt;ditavalmeta&gt;
+      &lt;dvrResourcePrefix&gt;cond01-&lt;/dvrResourcePrefix&gt;
+    &lt;/ditavalmeta&gt;
+  &lt;/ditavalref&gt;
+  &lt;topicref href="topics/subtopic-01.dita"&gt;
+    &lt;topicmeta&gt;
+      &lt;resourceid appid="ae35-unit-fault" appid-role="deliverable-anchor"/&gt;
+    &lt;/topicmeta&gt;
+  &lt;/topicref&gt;
+&lt;/topicref&gt;</code></pre></div>
+    <div class="p">After the <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> is evaluated:<ul class="ul" id="example-ditavalref-resourceid__ul_ybb_ly1_ppb">
+        <li class="li">The effective file name of resource <span class="ph filepath">branch-01.dita</span> is
+            <span class="ph filepath">cond01-branch-01.dita</span>.</li>
+        <li class="li">The effective file name of the resource <span class="ph filepath">topics/subtopic-01.dita</span> is
+            <span class="ph filepath">topics/cond01-subtopic-01.dita</span>.</li>
+        <li class="li">The effective value of <code class="keyword markupname xmlatt">@appid</code> on <code class="keyword markupname xmlelement">&lt;resourceid&gt;</code> for
+          the child topic is <span class="keyword">cond01-ae35-unit-fault</span>.</li>
+      </ul></div>
+    <div class="p">The same concept applies when using <code class="keyword markupname xmlelement">&lt;dvrResourceSuffix&gt;</code>. The map in
+      this case uses the same structure as above, but uses
+        <code class="keyword markupname xmlelement">&lt;dvrResourceSuffix&gt;</code> to modify resource
+      names:<pre class="pre codeblock" id="example-ditavalref-resourceid__codeblock_jdl_5qs_hlc"><code>&lt;topicref href="branch-01.dita"&gt;
+  &lt;ditavalref href="condition-01.ditaval"&gt;
+    &lt;ditavalmeta&gt;
+      &lt;dvrResourceSuffix&gt;-cond01&lt;/dvrResourceSuffix&gt;
+    &lt;/ditavalmeta&gt;
+  &lt;/ditavalref&gt;
+  &lt;topicref href="topics/subtopic-01.dita"&gt;
+    &lt;topicmeta&gt;
+      &lt;resourceid appid="ae35-unit-fault" appid-role="deliverable-anchor"/&gt;
+    &lt;/topicmeta&gt;
+  &lt;/topicref&gt;
+&lt;/topicref&gt;</code></pre></div>
+    <div class="p">After the <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> is evaluated:<ul class="ul" id="example-ditavalref-resourceid__ul_ybb_ly1_ppb_ouwe">
+        <li class="li">The effective file name of resource <span class="ph filepath">branch-01.dita</span> is
+            <span class="ph filepath">branch-01-cond01.dita</span>.</li>
+        <li class="li">The effective file name of the resource <span class="ph filepath">topics/subtopic-01.dita</span> is
+            <span class="ph filepath">topics/subtopic-01-cond01.dita</span>.</li>
+        <li class="li">The effective value of <code class="keyword markupname xmlatt">@appid</code> on <code class="keyword markupname xmlelement">&lt;resourceid&gt;</code> for
+          the child topic is <span class="keyword">ae35-unit-fault-cond01</span>.</li>
+      </ul></div>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/examples-of-branch-filter.html" title="The branch filtering examples illustrate the processing expectations for various scenarios that involve ditavalref elements. Processing examples use either before and after sample markup or expanded syntax that shows the equivalent markup without the ditavalref elements.">Examples of branch filtering</a></div></div></nav><aside class="section-toc" role="aside"></aside></article></main>

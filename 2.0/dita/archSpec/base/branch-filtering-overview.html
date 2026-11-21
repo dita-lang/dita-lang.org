@@ -4,7 +4,7 @@ title: 'Overview of branch filtering'
 description: 'Maps or map branches can be filtered by adding a ditavalref element that specifies the DITAVAL document to use for that map or map branch.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '4680b7fa26af77379c4250db2d73c93abcf2a13b'
+commit: '16e23d3c8a963604c6374ef95ac71cc04d614688'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -19,18 +19,21 @@ classes: ''
         <p class="p">The <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element is designed to manage conditional
             processing for the following use cases.</p>
         <ol class="ol">
-            <li class="li">A map branch needs to be filtered using conditions that do
-                not apply to the rest of the publication. <span class="ph example">For example, a
-                    root map might contain content that is written for both novice and expert users.
+            <li class="li" id="branch-filter-overview__singlebranchcase">A map branch needs to be filtered using conditions that do not
+                apply to the rest of the publication. <span class="ph example">For example, a root
+                    map might contain content that is written for both novice and expert users.
                     However, the authors want to add a section that targets only novice users. Using
                     branch filtering, a map branch can be filtered so that it only includes content
-                    germane to a novice audience, while the content of the rest of the map remains
-                    appropriate for multiple audiences.</span></li>
-            <li class="li">A map branch needs to be presented differently for different audiences. <span class="ph example">For example, a set of software documentation might contain
-                    installation instructions that differ between operating systems. In that case,
-                    the map branch with the installation instructions needs to be filtered multiple
-                    times with distinct sets of conditions, while the rest of the map remains common
-                    to all operating systems.</span></li>
+                        <span class="ph">intended for</span> a novice audience, while the content
+                    of the rest of the map remains appropriate for multiple audiences.</span></li>
+            <li class="li" id="branch-filter-overview__duplicatebranchcase">A map branch needs <span class="ph">the same
+                    content</span> to be presented differently <span class="ph">for different use
+                    cases in the same publication</span>. <span class="ph example">For example, a set
+                    of software documentation might contain installation instructions that differ
+                    between operating systems. In that case, the map branch with the installation
+                    instructions needs to be filtered multiple times with distinct sets of
+                    conditions, while the rest of the map remains common to all operating
+                    systems.</span></li>
         </ol>
         <p class="p">In addition to filtering, applications <dfn class="term RFC-2119">MAY</dfn> support
             flagging at the branch level based on the referenced DITAVAL documents.</p>

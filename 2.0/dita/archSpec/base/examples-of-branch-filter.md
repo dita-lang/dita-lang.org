@@ -20,6 +20,16 @@ In this scenario, multiple instances of the `<ditavalref>` element are specified
 In this scenario, multiple instances of the `<ditavalref>` element are specified in a reference to a map. This is equivalent to referencing that map multiple times, with each reference nesting one of the `<ditavalref>` elements.
 -   **[Example: ditavalref within a branch that already uses ditavalref](../../archSpec/base/example-ditavalref-in-filtered-branch.md)**  
 In this scenario, a branch is filtered because a `<ditavalref>` element is present, and another `<ditavalref>` deeper within that branch supplies additional conditions for a subset of the branch.
+-   **[Example: Using dvrResourcePrefix to control resource names](../../archSpec/base/example-ditavalref-dvrresourceprefix.md)**  
+In this scenario, a `<ditavalref>` element uses the nested `<dvrResourcePrefix>` element to control the names of resources within the filtered branch.
+-   **[Example: Using dvrResourceSuffix to control resource names](../../archSpec/base/example-ditavalref-dvrresourcesuffix.md)**  
+In this scenario, a `<ditavalref>` element uses the nested `<dvrResourceSuffix>` element to control the names of resources within the filtered branch.
+-   **[Example: How dvrResourcePrefix and dvrResourceSuffix interact with resourceid](../../archSpec/base/example-ditavalref-resourceid.md)**  
+In this scenario, a `<ditavalref>` element uses the nested `<dvrResourcePrefix>` and `<dvrResourceSuffix>` elements to resource IDs specified using `<resourceid>`.
+-   **[Example: Using dvrKeyscopePrefix to control key scope names](../../archSpec/base/example-ditavalref-dvrkeyscopeprefix.md)**  
+In this scenario, a `<ditavalref>` element uses the nested `<dvrKeyscopePrefix>` element to control the names of key scopes within the filtered branch.
+-   **[Example: Using dvrKeyscopeSuffix to control key scope names](../../archSpec/base/example-ditavalref-dvrkeyscopesuffix.md)**  
+In this scenario, a `<ditavalref>` element uses the nested `<dvrKeyscopeSuffix>` element to control the names of key scopes within the filtered branch.
 -   **[Example: ditavalref error conditions](../../archSpec/base/example-ditavalref-error-conditions.md)**  
 In this scenario, multiple, non-equivalent copies of the same resource name are created as a result of branch filtering. In addition, the process results in duplicate key names, making it impossible to reliably reference individual result topics.
 
