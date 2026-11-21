@@ -498,7 +498,7 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     The `@props` attribute can be specialized to create new attributes, and processors SHOULD be able to perform conditional processing on specializations of `@props`.
 
--   **[DITAREQ-0540](../archSpec/base/branch-filtering-overview.md#d4448e61)**
+-   **[DITAREQ-0540](../archSpec/base/branch-filtering-overview.md#d4448e73)**
 
     In addition to filtering, applications MAY support flagging at the branch level based on the referenced DITAVAL documents.
 

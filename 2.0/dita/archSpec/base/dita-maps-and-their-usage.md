@@ -52,5 +52,5 @@ When specialized `<topicref>` elements reference a map, they might imply a seman
 -   **[Examples of DITA maps](../../archSpec/base/example-ditamaps.md)**  
 This section of the specification contains simple examples of DITA maps. The examples illustrate a few of the ways that DITA maps are used.
 
-**Parent topic:**[DITA maps](../../archSpec/base/dita-maps.md)
+**Parent topic:**[Organizing DITA content with maps](../../archSpec/base/dita-maps.md)
 

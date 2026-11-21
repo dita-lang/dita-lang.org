@@ -2,9 +2,9 @@
 author: OASIS DITA Technical Committee
 ---
 
-# DITA maps
+# Organizing DITA content with maps
 
-The core DITA specification defines elements for the base DITA map. It also includes the Subject Scheme map specialization, which enables support for controlled values and subject definitions.
+DITA maps are used to organize DITA content. The core DITA specification defines elements for the base DITA map. It also includes the Subject Scheme map specialization, which enables support for controlled values and subject definitions.
 
 -   **[DITA maps and their usage](../../archSpec/base/dita-maps-and-their-usage.md)**  
 DITA maps serve a variety of roles, both setting up navigation hierarchies and creating relationships between topics and resources. These relationships can be both explicit based on relationship tables and attributes within the map, and implicit based on how topic references are nested within the map.

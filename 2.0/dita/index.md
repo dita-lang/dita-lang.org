@@ -62,7 +62,7 @@
             -   [Recommended usage of the dir attribute](archSpec/base/recommended-usage-of-the-dir-attribute.md)
             -   [Processing expectations regarding the Unicode Bidirectional Algorithm](archSpec/base/processing-expectations-about-the-unicode-bidirectional-algorithm.md)
         -   [The translate attribute](archSpec/base/the-translate-attribute.md)
--   [DITA maps](archSpec/base/dita-maps.md)
+-   [Organizing DITA content with maps](archSpec/base/dita-maps.md)
     -   [DITA maps and their usage](archSpec/base/dita-maps-and-their-usage.md)
         -   [How topicref elements establish hierarchies in a map](archSpec/base/topicref-creating-hierarchies.md)
         -   [How relationship tables establish linking relationships](archSpec/base/establishing-links-with-reltable.md)

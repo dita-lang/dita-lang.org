@@ -21,5 +21,5 @@ The `@subjectrefs` attribute specifies one or more keys that are defined by a su
 -   **[Examples of subject scheme maps](../../archSpec/base/examples-subjectScheme-maps.md)**  
 This section contains examples and scenarios that illustrate the use of subject scheme maps.
 
-**Parent topic:**[DITA maps](../../archSpec/base/dita-maps.md)
+**Parent topic:**[Organizing DITA content with maps](../../archSpec/base/dita-maps.md)
 
