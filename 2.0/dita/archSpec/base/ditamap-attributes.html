@@ -4,7 +4,7 @@ title: 'DITA map attributes'
 description: 'DITA maps have unique attributes that are designed to control the way that relationships are interpreted for different output purposes. In addition, DITA maps share many metadata and linking attributes with DITA topics.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: 'd646340742acac6a4ed8bb4e8d36439e85ae74a5'
+commit: '8fbb59787dd961d64e970f176da4635283b0ee86'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -70,20 +70,17 @@ classes: ''
         
           <dt class="dt dlterm"><code class="keyword markupname xmlatt">@chunk</code>
           </dt>
-          <dd class="dd">Specifies that the processor generates an interim set of DITA
-            topics that are used as the input for the final processing.
-            This can produce the following output results: <ul class="ul">
-              <li class="li">Multi-topic files are transformed into smaller files, for
-                example, individual HTML files for each DITA topic. </li>
-              <li class="li">Individual DITA topics are combined into a single file.
-              </li>
-            </ul><p class="p">Specifying a value for the <code class="keyword markupname xmlatt">@chunk</code>
-              attribute on a <code class="keyword markupname xmlelement">&lt;map&gt;</code> element
-              establishes chunking behavior that applies to the entire map,
-              unless overridden by <code class="keyword markupname xmlatt">@chunk</code> attributes that
-              are set on more specific elements in the DITA map. For a
-              detailed description of the <code class="keyword markupname xmlatt">@chunk</code> attribute
-              and its usage, see <a class="xref" href="chunking.html" title="Content often needs to be delivered in a different granularity than it is authored. The chunk attribute enables map authors to specify that multiple source documents should be combined into a single document for delivery or that a single source document should be split into multiple documents for delivery.">Chunking</a>. </p></dd>
+          <dd class="dd">Specifies that the processor will split or combine referenced topics when rendering.
+						This can produce the following output results: <ul class="ul">
+							<li class="li">Multi-topic files are transformed into smaller files, for example,
+								individual HTML files for each DITA topic. </li>
+							<li class="li">Individual DITA topics are combined into a single file. </li>
+						</ul><p class="p">Specifying a value for the <code class="keyword markupname xmlatt">@chunk</code> attribute on a
+								<code class="keyword markupname xmlelement">&lt;map&gt;</code> element establishes chunking behavior
+							that applies to the entire map, unless overridden by
+								<code class="keyword markupname xmlatt">@chunk</code> attributes that are set on more specific
+							elements in the DITA map. For a detailed description of the
+								<code class="keyword markupname xmlatt">@chunk</code> attribute and its usage, see <a class="xref" href="chunking.html" title="Content often needs to be delivered in a different granularity than it is authored. The chunk attribute enables map authors to specify that multiple source documents should be combined into a single document for delivery or that a single source document should be split into multiple documents for delivery.">Chunking</a>. </p></dd>
         
 				
 					<dt class="dt dlterm"><code class="keyword markupname xmlatt">@collection-type</code>
@@ -102,17 +99,19 @@ classes: ''
 						elements, where it has the same behavior. Where the
 							<code class="keyword markupname xmlatt">@collection-type</code> attribute is available on elements that
 						cannot directly contain elements, the behavior of the attribute is
-						undefined. </dd>
+							undefined.<p class="p">For additional information on how to manage linking with
+								<code class="keyword markupname xmlatt">@collection-type</code>, see <a class="xref" href="controlling-linking-with-attributes.html" title="In DITA maps, the collection-type and linking attributes can be used to modify default linking behavior and to make implied relationships explicit.">Controlling link relationships with collection-type and linking</a>.</p>
+					</dd>
 				
         
           <dt class="dt dlterm"><code class="keyword markupname xmlatt">@keys</code></dt>
-          <dd class="dd">Specifies one or more key names.</dd>
+          <dd class="dd">Specifies one or more key names. For more information about using keys for indirect
+						addressing, see <a class="xref" href="key-based-addressing.html" title="DITA keys provide an alternative to direct addressing. The key reference mechanism provides a layer of indirection so that resources can be defined at the DITA map level instead of locally in each topic. Those resources can include URIs, metadata, variable text strings, and more.">Indirect key-based addressing</a>.</dd>
         
         
           <dt class="dt dlterm"><code class="keyword markupname xmlatt">@keyscope</code></dt>
-          <dd class="dd">Defines a new scope for key definition and resolution, and
-            gives the scope one or more names. For more information about
-            key scopes, see <a class="xref" href="key-based-addressing.html" title="DITA keys provide an alternative to direct addressing. The key reference mechanism provides a layer of indirection so that resources can be defined at the DITA map level instead of locally in each topic. Those resources can include URIs, metadata, variable text strings, and more.">Indirect key-based addressing</a>.</dd>
+          <dd class="dd">Defines a new scope for key definition and resolution, and gives the scope one or more
+						names. For more information about key scopes, see <a class="xref" href="keyScopes.html" title="Key scopes enable map authors to specify different sets of key definitions for different map branches.">Scoping keys with the keyscope attribute</a>.</dd>
         
 				
 					<dt class="dt dlterm"><code class="keyword markupname xmlatt">@linking</code></dt>
@@ -168,31 +167,32 @@ classes: ''
 							reciprocal links in generated output that includes links. The rendered
 							navigation links are a function of the presentation style that is
 							determined by the processor. </p>
+						<p class="p">For additional information on how to manage linking with
+								<code class="keyword markupname xmlatt">@linking</code>, see <a class="xref" href="controlling-linking-with-attributes.html" title="In DITA maps, the collection-type and linking attributes can be used to modify default linking behavior and to make implied relationships explicit.">Controlling link relationships with collection-type and linking</a>.</p>
 					</dd>
 				
         
           <dt class="dt dlterm"><code class="keyword markupname xmlatt">@processing-role</code>
           </dt>
-          <dd class="dd">Specifies whether the topic or map referenced is processed
-            normally or treated as a resource that is only included in
-            order to resolve key or content references. <dl class="dl">
-              
-                <dt class="dt dlterm">processing-role="normal" </dt>
-                <dd class="dd">The topic is a readable part of the information set. It
-                  is included in navigation and search results. This is the
-                  default value for the <code class="keyword markupname xmlelement">&lt;topicref&gt;</code>
-                  element.</dd>
-              
-              
-                <dt class="dt dlterm">processing-role="resource-only" </dt>
-                <dd class="dd">The topic is used only as a resource for processing. It
-                  is not included in navigation or search results, nor is
-                  it rendered as a topic. This is the default value for the
-                    <code class="keyword markupname xmlelement">&lt;keydef&gt;</code> element. </dd>
-              
-            </dl><p class="p">If the <code class="keyword markupname xmlatt">@processing-role</code> attribute is
-              not specified locally, the value cascades from the closest
-              element in the containment hierarchy. </p></dd>
+          <dd class="dd">Specifies whether the topic or map referenced is processed normally or treated as a
+						resource that is only included in order to resolve key or content
+						references. <dl class="dl">
+							
+								<dt class="dt dlterm">processing-role="normal" </dt>
+								<dd class="dd">The topic is a readable part of the information set. It is
+									included in navigation and search results. This is the default
+									value for the <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> element.</dd>
+							
+							
+								<dt class="dt dlterm">processing-role="resource-only" </dt>
+								<dd class="dd">The topic is used only as a resource for processing. It is not
+									included in navigation or search results, nor is it rendered as
+									a topic. This is the default value for the
+										<code class="keyword markupname xmlelement">&lt;keydef&gt;</code> element. </dd>
+							
+						</dl><p class="p">If the <code class="keyword markupname xmlatt">@processing-role</code> attribute is not specified
+							locally, the value can cascade from an ancestor. See <a class="xref" href="processing-cascading-attributes-in-a-map.html" title="Certain rules apply to processors when they process cascading attributes in a map.">Processing cascading attributes in a map</a> for details on how attributes
+							cascade within a map.</p></dd>
         
         
           <dt class="dt dlterm"><code class="keyword markupname xmlatt">@search</code>
@@ -202,10 +202,10 @@ classes: ''
         
 				
 					<dt class="dt dlterm"><code class="keyword markupname xmlatt">@toc</code></dt>
-					<dd class="dd">Specifies whether topics are included or excluded from navigation output, such as a Web
-						site map or an online table of contents. By default,
-							<code class="keyword markupname xmlelement">&lt;topicref&gt;</code> hierarchies are included in navigation
-						output; relationship tables are excluded. </dd>
+					<dd class="dd">Specifies whether a topic appears in a publication's table of contents based on the current
+						map context. By default, <code class="keyword markupname xmlelement">&lt;topicref&gt;</code> hierarchies are
+						included in navigation output; relationship tables are excluded. For more
+						details about this attribute, see <a class="xref" href="../../langRef/attributes/commonAttributes.html#common-atts__toc"><code class="keyword markupname xmlatt">@toc</code></a>.</dd>
 				
 			</dl>
 		</section> 

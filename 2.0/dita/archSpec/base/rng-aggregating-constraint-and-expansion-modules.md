@@ -8,15 +8,15 @@ The DITA architect wants to add some extension modules to the document-type shel
 
 The following table lists the constraint module and the extension modules that the DITA architect wants to integrate into the document-type shell for topic.
 
-<table><thead><tr><th align="left" id="d246553e28">
+<table><thead><tr><th align="left" id="d245521e28">
 
 Type of element configuration
 
-</th><th align="left" id="d246553e31">
+</th><th align="left" id="d245521e31">
 
 File name
 
-</th><th align="left" id="d246553e34">
+</th><th align="left" id="d245521e34">
 
 What it does
 

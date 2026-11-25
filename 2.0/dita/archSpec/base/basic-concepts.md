@@ -16,7 +16,7 @@ DITA has been designed to satisfy requirements for information typing, semantic 
 
 -   **Information typing**
 
-    Information typing is the practice of identifying types of topics, such as concept, reference, and task, to clearly distinguish between different types of information. Topics that answer different reader questions \(How do I? What is?\) can be categorized with different information types. The base information types provided by DITA specializations \(for example, technical content, machine industry, and learning and training\) provide starter sets of information types that can be adopted immediately by many technical and business-related organizations. See [Information typing](information-typing.md) for more information.
+    Information typing is the practice of identifying types of topics, such as concept, reference, and task, to clearly distinguish between different types of information. Topics that answer different reader questions \(How do I? What is?\) can be categorized with different information types. The base information types provided by DITA specializations \(for example, the technical content topics in the related DITA Technical Communication specification\) provide starter sets of information types that can be adopted immediately by many technical and business-related organizations. See [Information typing](information-typing.md) for more information.
 
 -   **DITA addressing**
 

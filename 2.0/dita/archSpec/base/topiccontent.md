@@ -4,17 +4,17 @@ author: OASIS DITA Technical Committee
 
 # Topic content
 
-The content of all topics, regardless of topic type, is built on the same common structures.
+The main body content of all topics, regardless of topic type, is built on the same common structures.
 
 -   **Topic body**
 
-    The topic body contains all content except for that contained in the title or the short description/abstract. The topic body can be constrained to remove specific elements from the content model; it also can be specialized to add additional specialized elements to the content model. The topic body can be generic while the topic title and prolog are specialized.
+    The topic body makes up the main content of the topic. The topic body can be constrained to remove specific elements from the content model; it also can be specialized to add additional specialized elements to the content model. The topic body can be generic while the topic title and prolog are specialized.
 
 -   **Sections and examples**
 
     The body of a topic might contain divisions, such as sections and examples. They might contain block-level elements like titles and paragraphs and phrase-level elements like API names or text. It is recommended that sections have titles, whether they are entered directly into the `<title>` element or rendered using a fixed or default title.
 
-    Either body divisions or untitled sections or examples can be used to delimit arbitrary structures within a topic body. However, body divisions can nest, but sections and examples cannot contain sections.
+    Either body divisions or untitled sections or examples can be used to delimit arbitrary structures within a topic body. Body divisions can nest other body divisions, while sections and examples cannot contain sections.
 
 -   **`<bodydiv>`**
 
@@ -30,7 +30,7 @@ The content of all topics, regardless of topic type, is built on the same common
 
 -   **Phrases and keywords**
 
-    Phrase level elements can contain markup to label parts of a paragraph or parts of a sentence as having special semantic meaning or presentation characteristics, such as `<uicontrol>` or `<b>`. Phrases can usually contain other phrases and keywords as well as text. Keywords can only contain text.
+    Phrase level elements can contain markup to label parts of a paragraph or parts of a sentence as having special semantic meaning or presentation characteristics, such as `<uicontrol>` or `<b>`. Phrases can usually contain other phrases and keywords as well as text. Keywords are more limited and do not nest other keywords or phrases.
 
 -   **Images**
 

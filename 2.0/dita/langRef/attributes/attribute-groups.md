@@ -249,18 +249,6 @@ This group contains attributes that are frequently used on map elements.
 
         See [Using the -dita-use-conref-target value](../../archSpec/base/ditauseconreftarget.md) for more information.
 
-    **Draft comment:**Kristen J Eberlein 28 September 2022  
-    
-
-    Here is the content from the "DITA map attributes" topic:
-
-    -   **`@toc`**
-
-        Specifies whether topics are excluded from navigation output, such as a Web site map or an online table of contents. By default, `<topicref>` hierarchies are included in navigation output; relationship tables are excluded.
-
-    **Draft comment:**robander   
-    TO RESOLVE 13 May 2026: I read that and kind of hate "web site map". Kind of think we should delete that bit from the other topic, and replace the first sentence there with a reused sentence from here.
-
 
 ## Complex table attributes
 

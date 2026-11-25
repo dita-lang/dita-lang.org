@@ -4,7 +4,7 @@ title: 'sort-as'
 description: 'The sort-as element can be used to specify an effective sort phrase when the base sort phrase is not appropriate for sorting, for example, Japanese characters. This element prepends text to the base sort phrase in order to construct an effective sort phrase.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: '16e23d3c8a963604c6374ef95ac71cc04d614688'
+commit: '8fbb59787dd961d64e970f176da4635283b0ee86'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -99,10 +99,13 @@ classes: ''
             occur.</li>
         </ul></div>
       <div class="div">
-        <p class="p" id="sort-as__sort-as-1">When a <code class="keyword markupname xmlelement">&lt;sort-as&gt;</code> element is specified, processors
-          that sort the containing element <dfn class="term RFC-2119">MUST</dfn> construct the
-          effective sort phrase by prepending the content of the <code class="keyword markupname xmlelement">&lt;sort-as&gt;</code>
-          element to the base sort phrase. This ensures that two items with the same
+        <p class="p" id="sort-as__sort-as-1">The sort text from a <code class="keyword markupname xmlelement">&lt;sort-as&gt;</code> element is the value
+          of the <code class="keyword markupname xmlatt">@value</code> attribute on <code class="keyword markupname xmlelement">&lt;sort-as&gt;</code>, when that
+          attribute is specified; otherwise it it is the content of the element. When a
+            <code class="keyword markupname xmlelement">&lt;sort-as&gt;</code> element is specified, processors that sort the
+          containing element <dfn class="term RFC-2119">MUST</dfn> construct the effective sort
+          phrase by prepending the sort text from the <code class="keyword markupname xmlelement">&lt;sort-as&gt;</code> element to
+          the base sort phrase. This ensures that two items with the same
             <code class="keyword markupname xmlelement">&lt;sort-as&gt;</code> element but different base sort phrases will sort in
           the appropriate order.</p>
         <p class="p example" id="sort-as__sort-as-2">For example, if a processor uses the content of the

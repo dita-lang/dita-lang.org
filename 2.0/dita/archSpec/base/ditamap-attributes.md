@@ -36,7 +36,7 @@ DITA maps often encode structures that are specific to a particular medium or ou
 
 -   **`@chunk`**
 
-    Specifies that the processor generates an interim set of DITA topics that are used as the input for the final processing. This can produce the following output results:
+    Specifies that the processor will split or combine referenced topics when rendering. This can produce the following output results:
 
     -   Multi-topic files are transformed into smaller files, for example, individual HTML files for each DITA topic.
     -   Individual DITA topics are combined into a single file.
@@ -46,13 +46,15 @@ DITA maps often encode structures that are specific to a particular medium or ou
 
     The `@collection-type` attribute specifies how the children of a `<topicref>` element relate to their parent and to each other. This attribute, which is set on the parent element, typically is used by processors to determine how to generate navigation links in the rendered topics. exampleFor example, a `@collection-type` value of "sequence" indicates that children of the specifying `<topicref>` element represent an ordered sequence of topics; processors might add numbers to the list of child topics or generate next/previous links for online presentation. This attribute is available in topics on the `<linklist>` and `<linkpool>` elements, where it has the same behavior. Where the `@collection-type` attribute is available on elements that cannot directly contain elements, the behavior of the attribute is undefined.
 
+    For additional information on how to manage linking with `@collection-type`, see [Controlling link relationships with collection-type and linking](controlling-linking-with-attributes.md).
+
 -   **`@keys`**
 
-    Specifies one or more key names.
+    Specifies one or more key names. For more information about using keys for indirect addressing, see [Indirect key-based addressing](key-based-addressing.md).
 
 -   **`@keyscope`**
 
-    Defines a new scope for key definition and resolution, and gives the scope one or more names. For more information about key scopes, see [Indirect key-based addressing](key-based-addressing.md).
+    Defines a new scope for key definition and resolution, and gives the scope one or more names. For more information about key scopes, see [Scoping keys with the keyscope attribute](keyScopes.md).
 
 -   **`@linking`**
 
@@ -84,6 +86,8 @@ DITA maps often encode structures that are specific to a particular medium or ou
 
     Note that while the relationships between the topics that are referenced in a map are reciprocal, the relationships merely *imply* reciprocal links in generated output that includes links. The rendered navigation links are a function of the presentation style that is determined by the processor.
 
+    For additional information on how to manage linking with `@linking`, see [Controlling link relationships with collection-type and linking](controlling-linking-with-attributes.md).
+
 -   **`@processing-role`**
 
     Specifies whether the topic or map referenced is processed normally or treated as a resource that is only included in order to resolve key or content references.
@@ -96,7 +100,7 @@ DITA maps often encode structures that are specific to a particular medium or ou
 
         The topic is used only as a resource for processing. It is not included in navigation or search results, nor is it rendered as a topic. This is the default value for the `<keydef>` element.
 
-    If the `@processing-role` attribute is not specified locally, the value cascades from the closest element in the containment hierarchy.
+    If the `@processing-role` attribute is not specified locally, the value can cascade from an ancestor. See [Processing cascading attributes in a map](processing-cascading-attributes-in-a-map.md) for details on how attributes cascade within a map.
 
 -   **`@search`**
 
@@ -104,7 +108,7 @@ DITA maps often encode structures that are specific to a particular medium or ou
 
 -   **`@toc`**
 
-    Specifies whether topics are included or excluded from navigation output, such as a Web site map or an online table of contents. By default, `<topicref>` hierarchies are included in navigation output; relationship tables are excluded.
+    Specifies whether a topic appears in a publication's table of contents based on the current map context. By default, `<topicref>` hierarchies are included in navigation output; relationship tables are excluded. For more details about this attribute, see [`@toc`](../../langRef/attributes/commonAttributes.md#toc).
 
 
 Attributes in the list above are used exclusively or primarily in maps, but many important map attributes are shared with elements in topics. DITA maps also use many of the following attributes that are used with linking elements in DITA topics, such as `<link>` and `<xref>`:

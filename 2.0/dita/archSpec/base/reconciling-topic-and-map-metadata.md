@@ -1,10 +1,10 @@
 ---
-author: OASIS DITA Technical Committee
+author: [OASIS DITA Technical Committee, OASIS DITA Technical Committee]
 ---
 
 # Reconciling topic and map metadata elements
 
-The `<topicmeta>` element in maps can contain numerous metadata elements. These metadata elements can have an effect on the parent `<topicref>` element, any child `<topicref>` elements, and – if a direct child of the `<map>` element – on the map itself.
+The `<topicmeta>` element in maps can contain numerous metadata elements. These metadata elements can have an effect on the parent `<topicref>` element and any child `<topicref>` elements. When `<topicmeta>` is a direct child of the `<map>` element, its metadata can also describe the map itself.
 
 For each element that can be contained in the `<topicmeta>` element, the following table addresses the following questions:
 

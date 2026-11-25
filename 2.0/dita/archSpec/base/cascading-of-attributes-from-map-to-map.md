@@ -17,7 +17,7 @@ The following attributes cascade from map to map:
 -   `@cascade`
 -   `@subjectrefs`
 
-As with values that cascade within a map, the cascading is additive if the attribute permits multiple values,such as `@audience`. For attributes that take a single value, the value that is defined on the closest containing element takes effect.
+As with values that cascade within a map, the cascading is additive if the attribute permits multiple values, unless the active `@cascade` attribute value is set to nomerge. For attributes that take a single value, the value that is defined on the closest containing element takes effect.
 
 The following attributes do not cascade from map to map
 

@@ -235,7 +235,7 @@
             -   [Example: Using chunk="combine" when the root map specifies chunk="split"](archSpec/base/example-chunk-combine-within-split.md)
             -   [Example: Managing links when chunking](archSpec/base/example-chunk-managing-links.md)
     -   [Sorting](archSpec/base/sort-as-processing.md)
-    -   [Determining effective attribute values](archSpec/base/determining-effective-attribute-values.md)
+    -   [Determining effective attribute values in DITA maps](archSpec/base/determining-effective-attribute-values.md)
 -   [Configuration and specialization](archSpec/base/configuration-specialization-and-constraints.md)
     -   [Overview of DITA extension facilities](archSpec/base/ditaspecialization.md)
     -   [Document-type configuration](archSpec/base/configuration.md)

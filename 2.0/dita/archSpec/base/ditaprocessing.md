@@ -22,6 +22,6 @@ Metadata cascading is the process by which metadata elements and attributes spec
 Content often needs to be delivered in a different granularity than it is authored. The `@chunk` attribute enables map authors to specify that multiple source documents should be combined into a single document for delivery or that a single source document should be split into multiple documents for delivery.
 -   **[Sorting](../../archSpec/base/sort-as-processing.md)**  
 Processors can be configured to sort elements. Typical processing includes sorting glossary entries, index entries, list items, and tables based on the contents of cells in specific columns or rows.
--   **[Determining effective attribute values](../../archSpec/base/determining-effective-attribute-values.md)**  
-This topic defines the precedence rules for determining the effective value of an attribute.
+-   **[Determining effective attribute values in DITA maps](../../archSpec/base/determining-effective-attribute-values.md)**  
+This topic defines the precedence rules for determining the effective value of an attribute in a DITA map.
 

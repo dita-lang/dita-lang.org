@@ -34,7 +34,7 @@ DITA maps support the following uses:
 
     -   A required `@keys` attribute
     -   A `@processing-role` attribute with a default value of "resource-only".
-    Maps also define the context or contexts for resolving key-based references, such as elements that specify the `@keyref` or `@conkeyref` attribute. Elements within a map structure that specify a `@keyscope` attribute create a new context for key reference resolution. Key references within such elements are resolved against the set of effective key definitions for that scope.
+    Maps also define the context or contexts for resolving key-based references, such as elements that specify the `@keyref` or `@conkeyref` attribute. For more information about using keys or key-based references, see [Indirect key-based addressing](key-based-addressing.md).
 
 
 Specialized maps can provide additional semantics beyond those of organization, linking, and indirection. exampleFor example, the subjectScheme map specialization adds the semantics of taxonomy and ontology definition.

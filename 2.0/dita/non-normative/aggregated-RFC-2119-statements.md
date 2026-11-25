@@ -125,7 +125,7 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     In such cases processors MAY provide an error or warning message.
 
--   **[DITAERR-0290](../langRef/attributes/attribute-groups.md#d3604e2047)**
+-   **[DITAERR-0290](../langRef/attributes/attribute-groups.md#d3604e2020)**
 
     It is an error to use `parse="xml"` anywhere other than within `<foreign>` or a specialization thereof.
 
@@ -228,7 +228,7 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     Processors can also define custom, implementation-specific tokens for this attribute.
 
--   **[DITAIMP-0210](../langRef/attributes/attribute-groups.md#d3604t2000)**
+-   **[DITAIMP-0210](../langRef/attributes/attribute-groups.md#d3604t1973)**
 
     The necessity and uses of `@encoding` for non-standard values of `@parse` are implementation-dependent.
 
@@ -540,7 +540,7 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
 -   **[DITAREQ-0610](../archSpec/base/processing-cascading-attributes-in-a-map.md#d3817t61)**
 
-    Values established only by processing-supplied defaults in step 6 MUST NOT cascade to referenced maps.
+    Values established only by processor-supplied defaults in step 6 MUST NOT cascade to referenced maps.
 
 -   **[DITAREQ-0620](../archSpec/base/merging-of-cascading-attributes.md#d2840e75)**
 
@@ -578,9 +578,9 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     Processors that perform sorting SHOULD explicitly document how the base sort phrase is determined for a given element.
 
--   **[DITAREQ-0710](../archSpec/base/sort-as-processing.md#d3769e93)**
+-   **[DITAREQ-0710](../archSpec/base/sort-as-processing.md#d3769t103)**
 
-    When a `<sort-as>` element is specified, processors that sort the containing element MUST construct the effective sort phrase by prepending the content of the `<sort-as>` element to the base sort phrase.
+    When a `<sort-as>` element is specified, processors that sort the containing element MUST construct the effective sort phrase by prepending the sort text from the `<sort-as>` element to the base sort phrase.
 
 -   **[DITAREQ-0720](../archSpec/base/rules-document-type-shells.md#d2951e50)**
 
@@ -655,7 +655,7 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
 -   **[DITAREQ-0890](../archSpec/base/generalization-processor-expectations.md#d4365t172)**
 
-    When renaming elements during one-way or migration generalization, the process SHOULD preserve the values of all attributes except the `@class` attribute, which is supplied by the target document type.
+    When renaming elements during one-way or migration generalization, the process SHOULD preserve the values of all attributes except for the `@class` attribute and the `@specializations` attribute.
 
 -   **[DITAREQ-0900](../archSpec/base/generalization-attributes.md#d2686e44)**
 
@@ -879,13 +879,13 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
     -   It is an error if there is more than one `<sort-as>` child for a given `<indexterm>` element.
 
     -   Sort phrases are determined after filtering and content reference resolution occur.
--   **[DITAREQ-1380](../langRef/base/sort-as.md#d4343e258)**
+-   **[DITAREQ-1380](../langRef/base/sort-as.md#d4343t268)**
 
-    When a `<sort-as>` element is specified, processors that sort the containing element MUST construct the effective sort phrase by prepending the content of the `<sort-as>` element to the base sort phrase.
+    When a `<sort-as>` element is specified, processors that sort the containing element MUST construct the effective sort phrase by prepending the sort text from the `<sort-as>` element to the base sort phrase.
 
 -   **[DITAREQ-1390](../langRef/base/required-cleanup.md#d3521e47)**
 
-    Processors MUST strip this element from output by default.
+    Processors MUST omit this element and its content from output by default.
 
 -   **[DITAREQ-1400](../langRef/ditaval/prop.md#d4558e164)**
 

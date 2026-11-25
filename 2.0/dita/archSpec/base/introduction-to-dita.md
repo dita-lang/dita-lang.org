@@ -10,25 +10,6 @@ DITA is designed for creating new document types and describing new information 
 
 Because DITA topics are conforming XML documents, they can be readily viewed, edited, and validated using standard XML tools, although realizing the full potential of DITA requires using DITA-aware tools.
 
-**Draft comment:**Kristen J Eberlein 03 June 2019  
-
-
-This section of the spec now contains material about topics, maps, and metadata that was previously in the "DITA markup" section."
-
-We need to carefully consider what of this content is appropriate. Some of it – information about map elements and attributes, metadata – is duplicated elsewhere. If we think it is useful to have a high-level overview here, we should mark it as non-normative – and point users to the normative coverage of the topic.
-
-In a parallel move, I think we'll need to move coverage of critical DITA attributes into a more prominent place in the spec.
-
-**Draft comment:**robander   
-TO RESOLVE 12 May 2026: Not sure how best to resolve this. I don't think we need to explicitly declare "non-normative" just because it's giving an overview rather than normative RFC rules – most of the spec isn't made up of RFC rules.
-
-We could
-
--   Run a magic robot across it and see if this information is duplicated elsewhere
--   If so, either reuse by conref, or make sure that the wording is consistent, or replace with pointers
--   and leave it at that, as long as the info is accurate we keep it here
--   The critical attributes bit already has additional draft comments specific to that section
-
 -   **[Basic concepts](../../archSpec/base/basic-concepts.md)**  
 DITA has been designed to satisfy requirements for information typing, semantic markup, modularity, reuse, interchange, and production of different deliverable forms from a single source. These topics provide an overview of the key DITA features and facilities that serve to satisfy these requirements.
 -   **[Producing different deliverables from a single source](../../archSpec/base/single-sourcing.md)**  

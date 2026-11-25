@@ -6,7 +6,7 @@ author: OASIS DITA Technical Committee
 
 All topics have the same basic structure, regardless of topic type: title, description or abstract, prolog, body, related links, and nested topics.
 
-All DITA topics must have an XML identifier \(the `@id` attribute\) and a title. The basic topic structure consists of the following parts, some of which are optional:
+All DITA topics have an XML identifier \(the `@id` attribute\) and a title. The basic topic structure consists of the following parts, some of which are optional:
 
 -   **Topic element**
 
@@ -16,10 +16,6 @@ All DITA topics must have an XML identifier \(the `@id` attribute\) and a title.
 
     The title contains the subject of the topic.
 
--   **Alternate titles**
-
-    Titles specifically for use in navigation or search. When not provided, the base title is used for all contexts.
-
 -   **Short description or abstract**
 
     A short description of the topic or a longer abstract with an embedded short description. The short description might be used both in topic content \(as the first paragraph\), in generated summaries that include the topic, and in links to the topic. Alternatively, the abstract lets you create more complex introductory content and uses an embedded short description element to define the part of the abstract that is suitable for summaries and link previews.
@@ -28,7 +24,7 @@ All DITA topics must have an XML identifier \(the `@id` attribute\) and a title.
 
 -   **Prolog**
 
-    The prolog is the container for topic metadata, such as change history, audience, product, and so on.
+    The prolog is the container for topic metadata, such as change history, audience, alternative titles for use in navigation, and so on.
 
 -   **Body**
 
