@@ -4,7 +4,7 @@ title: 'Using metadata elements in the DITAVAL-reference domain'
 description: 'Metadata within the ditavalref element makes it possible to control changes to resource names and key scope names, so that each distinct filtered copy can be referenced in a predictable manner.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: 'd646340742acac6a4ed8bb4e8d36439e85ae74a5'
+commit: 'fd8b7c184331c67e00499492ccec86b781877688'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -47,10 +47,10 @@ classes: ''
                         with the value of the <code class="keyword markupname xmlelement">&lt;dvrResourceSuffix&gt;</code> element.
                         The base part of the resource file name consists of the portion of the file
                         name after any directory information, and before any period followed by the
-                        file extension. <span class="ph example">For example, in the original file name
-                            <span class="ph filepath">task/install.dita</span>, the base portion of the file
-                        name is "install".</span></p><p class="p">Some resources are not eligible for renaming, such
-                        as those marked with <code class="ph codeph">scope="external"</code>.</p><p class="p">Path information is not valid in
+                        file extension. <span class="ph example">For example, in the original file
+                            name <span class="ph filepath">task/install.dita</span>, the base portion of the
+                            file name is "install".</span></p><p class="p">Some resources are not eligible for
+                        renaming, such as those marked with <code class="ph codeph">scope="external"</code>.</p><p class="p">Path information is not valid in
           <code class="keyword markupname xmlelement">&lt;dvrResourceSuffix&gt;</code>.</p><p class="p">If a topic reference
                         includes <code class="keyword markupname xmlelement">&lt;resourceid&gt;</code> with the
                             <code class="keyword markupname xmlatt">@appid-role</code> attribute set to
@@ -63,17 +63,21 @@ classes: ''
                 <dt class="dt dlterm"><code class="keyword markupname xmlelement">&lt;dvrKeyscopePrefix&gt;</code></dt>
                 <dd class="dd"><span class="ph">The <code class="keyword markupname xmlelement">&lt;dvrKeyscopePrefix&gt;</code> element specifies the prefix to use when constructing the effective key scope names for the map branch that is implied by the ancestor <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element.</span> This enables a map
                     author to specify a prefix that is added to the start of key scope names for
-                    each key scope in the branch. If no key scope is specified for the branch, this
-                    can be used to establish a new key scope, optionally combined with a value
-                    specified in <code class="keyword markupname xmlelement">&lt;dvrKeyscopeSuffix&gt;</code>.<p class="p">For map branches that
-                        are processed with this element, the value of the
+                    each key scope <span style="color:red;" class="ph">name specified on</span> the branch. If no key
+                    scope is specified for the branch, this can be used to establish a new key
+                    scope, optionally combined with a value specified in
+                        <code class="keyword markupname xmlelement">&lt;dvrKeyscopeSuffix&gt;</code>.<p class="p">For map branches that are
+                        processed with this element, the value of the
                             <code class="keyword markupname xmlelement">&lt;dvrKeyscopePrefix&gt;</code> element contributes to the
-                        effective key scope names of the branch. The effective key scope names start
-                        with the value of the <code class="keyword markupname xmlelement">&lt;dvrKeyscopePrefix&gt;</code> element.
-                        Note that if the branch as authored does not specify a
-                            <code class="keyword markupname xmlatt">@keyscope</code> value, specifying
-                            <code class="keyword markupname xmlelement">&lt;dvrKeyscopePrefix&gt;</code> (without also specifying
-                            <code class="keyword markupname xmlelement">&lt;dvrKeyscopeSuffix&gt;</code>) results in the branch
+                        effective key scope names of the branch. <span style="color:red;" class="ph">The prefix is
+                            prepended to each name specified by the <code class="keyword markupname xmlatt">@keyscope</code>
+                            attribute on the parent element of the containing
+                                <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element. As a result,</span> the
+                        effective key scope names start with the value of the
+                            <code class="keyword markupname xmlelement">&lt;dvrKeyscopePrefix&gt;</code> element. Note that if the
+                        branch as authored does not specify a <code class="keyword markupname xmlatt">@keyscope</code> value,
+                        specifying <code class="keyword markupname xmlelement">&lt;dvrKeyscopePrefix&gt;</code> (without also
+                        specifying <code class="keyword markupname xmlelement">&lt;dvrKeyscopeSuffix&gt;</code>) results in the branch
                         establishing a key scope <span style="color:red;" class="ph">with a name equal to</span> the
                         value of the <code class="keyword markupname xmlelement">&lt;dvrKeyscopePrefix&gt;</code> element. The full
                         key scope names will also reflect the value of a
@@ -85,14 +89,18 @@ classes: ''
                 <dt class="dt dlterm"><code class="keyword markupname xmlelement">&lt;dvrKeyscopeSuffix&gt;</code></dt>
                 <dd class="dd"><span class="ph">The <code class="keyword markupname xmlelement">&lt;dvrKeyscopeSuffix&gt;</code> element specifies the suffix to use when constructing the effective key scope names for the map branch that is implied by the ancestor <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element.</span> This enables a map
                     author to specify a suffix that is added to the end of key scope names for each
-                    key scope in the branch.<p class="p">For map branches processed with this element, the
-                        value of the <code class="keyword markupname xmlelement">&lt;dvrKeyscopeSuffix&gt;</code> element contributes
-                        to the effective key scope names of the branch. The effective key scope
-                        names end with the value of the <code class="keyword markupname xmlelement">&lt;dvrKeyscopeSuffix&gt;</code>
-                        element. Note that if the branch as authored does not specify a
-                            <code class="keyword markupname xmlatt">@keyscope</code> value, specifying
-                            <code class="keyword markupname xmlelement">&lt;dvrKeyscopeSuffix&gt;</code> (without also specifying
-                            <code class="keyword markupname xmlelement">&lt;dvrKeyscopePrefix&gt;</code>) results in the branch
+                    key scope <span style="color:red;" class="ph">name specified on</span> the branch.<p class="p">For map
+                        branches processed with this element, the value of the
+                            <code class="keyword markupname xmlelement">&lt;dvrKeyscopeSuffix&gt;</code> element contributes to the
+                        effective key scope names of the branch. <span style="color:red;" class="ph">The suffix is
+                            appended to each name specified by the <code class="keyword markupname xmlatt">@keyscope</code>
+                            attribute on the parent element of the containing
+                                <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element. As a result,</span> the
+                        effective key scope names end with the value of the
+                            <code class="keyword markupname xmlelement">&lt;dvrKeyscopeSuffix&gt;</code> element. Note that if the
+                        branch as authored does not specify a <code class="keyword markupname xmlatt">@keyscope</code> value,
+                        specifying <code class="keyword markupname xmlelement">&lt;dvrKeyscopeSuffix&gt;</code> (without also
+                        specifying <code class="keyword markupname xmlelement">&lt;dvrKeyscopePrefix&gt;</code>) results in the branch
                         establishing a key scope <span style="color:red;" class="ph">with a name equal to</span> the
                         value of the <code class="keyword markupname xmlelement">&lt;dvrKeyscopeSuffix&gt;</code> element. The full
                         key scope names will also reflect the value of a

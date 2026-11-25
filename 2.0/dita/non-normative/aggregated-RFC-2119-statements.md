@@ -164,71 +164,83 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     If no `<style-conflict>` element is present, it is implementation dependent how the conflict is resolved.
 
--   **[DITAIMP-0050](../archSpec/base/merging-of-cascading-attributes.md#d2840e87)**
+-   **[DITAIMP-0050](../archSpec/base/branch-filtering-multiple-sets.md#d4409t59)**
+
+    Without renaming, key references could only be used to refer to a single filtered copy of the resource; which filtered copy to gets referenced is implementation dependent.
+
+-   **[DITAIMP-0060](../archSpec/base/merging-of-cascading-attributes.md#d2840e87)**
 
     Implementers MAY define their own custom, implementation-specific tokens for the `@cascade` attribute.
 
--   **[DITAIMP-0060](../archSpec/base/merging-of-cascading-attributes.md#d2840t94)**
+-   **[DITAIMP-0070](../archSpec/base/merging-of-cascading-attributes.md#d2840t94)**
 
     To avoid name conflicts between implementations or with future additions to the standard, implementation-specific tokens SHOULD consist of a prefix that gives the name or an abbreviation for the implementation followed by a colon followed by the token or method name.
 
--   **[DITAIMP-0070](../archSpec/base/merging-of-cascading-attributes.md#d2840e111)**
+-   **[DITAIMP-0080](../archSpec/base/merging-of-cascading-attributes.md#d2840e111)**
 
     The predefined values for the `@cascade` attribute MUST precede any implementation-specific tokens, for example, `cascade="merge appToken:audience"`.
 
--   **[DITAIMP-0080](../archSpec/base/chunk-attribute-other-tokens.md#d4253t12)**
+-   **[DITAIMP-0090](../archSpec/base/chunk-attribute-other-tokens.md#d4253t12)**
 
     These tokens are implementation dependent and might not be supported by other applications.
 
--   **[DITAIMP-0090](../archSpec/base/sort-as-processing.md#d3769e79)**
+-   **[DITAIMP-0100](../archSpec/base/sort-as-processing.md#d3769e79)**
 
     The details of sorting and grouping are implementation specific.
 
--   **[DITAIMP-0100](../langRef/base/fn.md#d3435e179)**
+-   **[DITAIMP-0110](../langRef/base/fn.md#d3435e179)**
 
     However, the details of footnote processing and formatting are implementation dependent.
 
--   **[DITAIMP-0110](../langRef/base/image.md#d3425t618)**
+-   **[DITAIMP-0120](../langRef/base/image.md#d3425t618)**
 
     The available height is implementation dependent, but if feasible, it is suggested to be the page or table cell height or some other reasonable value.
 
--   **[DITAIMP-0120](../langRef/base/hazardsymbol.md#d4217t407)**
+-   **[DITAIMP-0130](../langRef/base/hazardsymbol.md#d4217t407)**
 
     The available height is implementation dependent, but if feasible, it is suggested to be the page \(or table cell\) height or some other reasonable value.
 
--   **[DITAIMP-0130](../langRef/ditaval/prop.md#d4558t450)**
+-   **[DITAIMP-0140](../langRef/ditaval/prop.md#d4558t338)**
+
+    The order of the tokens for the `@outputclass` attribute that were provided in the DITAVAL document is implementation dependent.
+
+-   **[DITAIMP-0150](../langRef/ditaval/prop.md#d4558t457)**
 
     How the attribute is preserved and used is implementation dependent.
 
--   **[DITAIMP-0140](../langRef/ditaval/revprop.md#d3137t183)**
+-   **[DITAIMP-0160](../langRef/ditaval/revprop.md#d3137t183)**
 
     Recovery from this error is implementation dependent.
 
--   **[DITAIMP-0150](../langRef/ditaval/revprop.md#d3137t327)**
+-   **[DITAIMP-0170](../langRef/ditaval/revprop.md#d3137t224)**
+
+    The order of the tokens for the `@outputclass` attribute that were provided in the DITAVAL document is implementation dependent.
+
+-   **[DITAIMP-0180](../langRef/ditaval/revprop.md#d3137t334)**
 
     How the attribute is preserved and used is implementation dependent.
 
--   **[DITAIMP-0160](../langRef/attributes/attribute-groups.md#d3604e247)**
+-   **[DITAIMP-0190](../langRef/attributes/attribute-groups.md#d3604e247)**
 
     Processors can also define custom, implementation-specific tokens for this attribute.
 
--   **[DITAIMP-0170](../langRef/attributes/attribute-groups.md#d3604e312)**
+-   **[DITAIMP-0200](../langRef/attributes/attribute-groups.md#d3604e312)**
 
     Processors can also define custom, implementation-specific tokens for this attribute.
 
--   **[DITAIMP-0180](../langRef/attributes/attribute-groups.md#d3604t2000)**
+-   **[DITAIMP-0210](../langRef/attributes/attribute-groups.md#d3604t2000)**
 
     The necessity and uses of `@encoding` for non-standard values of `@parse` are implementation-dependent.
 
--   **[DITAIMP-0190](../langRef/attributes/commonAttributes.md#d3129e503)**
+-   **[DITAIMP-0220](../langRef/attributes/commonAttributes.md#d3129e503)**
 
     Processors can also define custom, implementation-specific tokens for this attribute.
 
--   **[DITAIMP-0200](../langRef/attributes/commonAttributes.md#d3129e648)**
+-   **[DITAIMP-0230](../langRef/attributes/commonAttributes.md#d3129e648)**
 
     Processors can also define custom, implementation-specific tokens for this attribute.
 
--   **[DITAIMP-0210](../langRef/attributes/commonAttributes.md#d3129t990)**
+-   **[DITAIMP-0240](../langRef/attributes/commonAttributes.md#d3129t990)**
 
     The necessity and uses of `@encoding` for non-standard values of `@parse` are implementation-dependent.
 
@@ -498,7 +510,7 @@ This appendix contains all the normative statements from the DITA 2.0 specificat
 
     The `@props` attribute can be specialized to create new attributes, and processors SHOULD be able to perform conditional processing on specializations of `@props`.
 
--   **[DITAREQ-0540](../archSpec/base/branch-filtering-overview.md#d4448e73)**
+-   **[DITAREQ-0540](../archSpec/base/branch-filtering-overview.md#d4448e25)**
 
     In addition to filtering, applications MAY support flagging at the branch level based on the referenced DITAVAL documents.
 

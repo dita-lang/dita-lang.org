@@ -4,7 +4,7 @@ author: [OASIS DITA Technical Committee, OASIS DITA Technical Committee]
 
 # Example: How `<dvrResourcePrefix>` and `<dvrResourceSuffix>` interact with `<resourceid>`
 
-In this scenario, a `<ditavalref>` element uses the nested `<dvrResourcePrefix>` and `<dvrResourceSuffix>` elements to resource IDs specified using `<resourceid>`.
+In this scenario, a `<ditavalref>` element uses the nested `<dvrResourcePrefix>` and `<dvrResourceSuffix>` elements to modify resource IDs specified using `<resourceid>`.
 
 The following code sample shows a simple branch with a parent and child topic, where the map branch uses `<dvrResourcePrefix>` to manage resource names. In this case the child topic also specifies a deliverable anchor with `<resourceid>`.
 

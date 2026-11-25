@@ -10,15 +10,15 @@ The OASIS DITA Technical Committee uses certain conventions for the names of XML
 
 The DITA Technical Committee uses certain file-naming conventions for DTD-based specialization modules. While the grammar files shipped with DITA 2.0 do not include domain constraint or expansion modules, we suggest conventions for those modules also.
 
-<table><thead><tr><th align="left" id="d268559e39">
+<table><thead><tr><th align="left" id="d268835e39">
 
 Module type
 
-</th><th align="left" id="d268559e43">
+</th><th align="left" id="d268835e43">
 
 File name
 
-</th><th align="left" id="d268559e47">
+</th><th align="left" id="d268835e47">
 
 Example
 
@@ -109,15 +109,15 @@ where:
 
 The DITA Technical Committee uses certain file-naming conventions for RNG-based specialization modules. While the grammar files shipped with DITA 2.0 do not include domain constraint or expansion modules, we suggest conventions for those modules also.
 
-<table><thead><tr><th align="left" id="d268559e265">
+<table><thead><tr><th align="left" id="d268835e265">
 
 Module type
 
-</th><th align="left" id="d268559e269">
+</th><th align="left" id="d268835e269">
 
 File name
 
-</th><th align="left" id="d268559e273">
+</th><th align="left" id="d268835e273">
 
 Example
 

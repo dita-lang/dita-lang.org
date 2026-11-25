@@ -32,9 +32,9 @@ The following code sample shows how `<dvrKeyscopeSuffix>` supplements the existi
 </topicref>
 ```
 
-After the `<ditavalref>` elemets are evaluated:
+After the `<ditavalref>` elements are evaluated:
 
--   With two `<ditavalref>` elemets, two effective copies of the branch are created.
+-   With two `<ditavalref>` elements, two effective copies of the branch are created.
 -   For the first effective copy of the branch:
     -   The effective key scope is branch-01-green
     -   The effective file names of the resources in the branch are `firstcond-branch-01.dita` and `topics/firstcond-subtopic-01.dita`

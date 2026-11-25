@@ -4,7 +4,7 @@ title: 'Renaming based on multiple ditavalref elements'
 description: 'It is possible for a branch with ditavalref already in effect to specify an additional ditavalref, where each ditavalref includes renaming metadata.'
 index: '../../toc.html'
 notices: '../../resources/oasis-notices.html'
-commit: 'd646340742acac6a4ed8bb4e8d36439e85ae74a5'
+commit: 'fd8b7c184331c67e00499492ccec86b781877688'
 repository: 'oasis-tcs/dita'
 classes: ''
 ---
@@ -15,12 +15,15 @@ classes: ''
     <div class="body conbody"><p class="shortdesc">It is possible for a branch with <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> already in
         effect to specify an additional <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code>, where each
             <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> includes renaming metadata.</p>
-        <p class="p">When renaming, metadata on the <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> nested more deeply
-            within the branch appears closer to the original resource or key name.</p>
-        <div class="example non-normative" id="branch_filtering_renaming_multiple_times__multipleditavalref"><h2 class="title sectiontitle">Example</h2><p class="non-normative-label">This section is non-normative.</p>
+        <p style="color:red;" class="p">When resource renaming metadata is specified at multiple levels of a
+            branch, the prefixes and suffixes are combined. Values specified by a more deeply nested
+                <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> element appear closer to the original resource
+            name.</p>
+        <div class="example non-normative" id="branch_filtering_renaming_multiple_times__multipleditavalref-resource"><h2 class="title sectiontitle">Example</h2><p class="non-normative-label">This section is non-normative.</p>
             <p class="p">For example, the following code sample has two <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code>
-                elements at different levels of the same branch:</p>
-        <pre class="pre codeblock"><code>&lt;topicref href="branchParent.dita"&gt;
+                elements <span style="color:red;" class="ph">with resource renaming metadata</span> at different
+                levels of the same branch:</p>
+            <pre class="pre codeblock"><code>&lt;topicref href="branchParent.dita"&gt;
   &lt;ditavalref href="parent.ditaval"&gt;
     &lt;ditavalmeta&gt;
       &lt;dvrResourcePrefix&gt;parentPrefix-&lt;/dvrResourcePrefix&gt;
@@ -33,19 +36,48 @@ classes: ''
         &lt;dvrResourcePrefix&gt;childPrefix-&lt;/dvrResourcePrefix&gt;
       &lt;/ditavalmeta&gt;
     &lt;/ditavalref&gt;
+    &lt;!-- ... --&gt;
   &lt;/topicref&gt;
 &lt;/topicref&gt;</code></pre>
-        <p class="p">In this situation, the resource <span class="ph filepath">branchChild.dita</span> is given a prefix
-            based on both the reference to <span class="ph filepath">parent.ditaval</span> and the reference to
-                <span class="ph filepath">child.ditaval</span>. The value <span class="keyword">childPrefix-</span> is
-            specified in the <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> that is nested more deeply within
-            the branch, so it appears closer to the original resource name. The resource
-                <span class="ph filepath">branchChild.dita</span> would result in
-                <span class="ph filepath">parentPrefix-childPrefix-branchChild.dita</span>. Suffixes (if
-            specified) would be added in a similar manner, resulting in a name like
-                <span class="ph filepath">branchChild-childSuffix-parentSuffix.dita</span>. Note that the
-            hyphens in these examples are part of the specified prefix and suffix values; they are
-            not added automatically.</p>
+            <p class="p">In this situation, the resource <span class="ph filepath">branchChild.dita</span> is given a
+                prefix based on both the reference to <span class="ph filepath">parent.ditaval</span> and the
+                reference to <span class="ph filepath">child.ditaval</span>. The value
+                    <span class="keyword">childPrefix-</span> is specified in the
+                    <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> that is nested more deeply within the
+                branch, so it appears closer to the original resource name. The resource
+                    <span class="ph filepath">branchChild.dita</span> would result in
+                    <span class="ph filepath">parentPrefix-childPrefix-branchChild.dita</span>. Suffixes (if
+                specified) would be added in a similar manner, resulting in a name like
+                    <span class="ph filepath">branchChild-childSuffix-parentSuffix.dita</span>. Note that the
+                hyphens in these examples are part of the specified prefix and suffix values; they
+                are not added automatically.</p>
+        </div>
+        <div style="color:red;" class="example non-normative" id="branch_filtering_renaming_multiple_times__multipleditavalref-keyscope"><h2 class="title sectiontitle">Example</h2><p class="non-normative-label">This section is non-normative.</p>
+            <p class="p">In the following example, metadata in the <code class="keyword markupname xmlelement">&lt;ditavalref&gt;</code> is used
+                to rename key scopes rather than resources.</p>
+            <pre class="pre codeblock" id="branch_filtering_renaming_multiple_times__codeblock_qj1_srv_3lc"><code>&lt;topicref href="branchParent.dita" keyscope="branchscope"&gt;
+  &lt;ditavalref href="parent.ditaval"&gt;
+    &lt;ditavalmeta&gt;
+      &lt;dvrKeyscopePrefix&gt;parentPrefix-&lt;/dvrKeyscopePrefix&gt;
+    &lt;/ditavalmeta&gt;
+  &lt;/ditavalref&gt;
+  &lt;!-- additional topics or layers of nesting --&gt;
+  &lt;topicref href="branchChild.dita"&gt;
+    &lt;ditavalref href="child.ditaval"&gt;
+      &lt;ditavalmeta&gt;
+        &lt;dvrKeyscopePrefix&gt;childscope&lt;/dvrKeyscopePrefix&gt;
+      &lt;/ditavalmeta&gt;
+    &lt;/ditavalref&gt;
+    &lt;!-- ... --&gt;
+  &lt;/topicref&gt;
+&lt;/topicref&gt;</code></pre>
+            <p class="p">In this example, the scope name <span class="keyword">branchscope</span> is modified with a key
+                scope prefix to make <span class="keyword">parentPrefix-branchscope</span>. The child branch
+                has no authored <code class="keyword markupname xmlatt">@keyscope</code> attribute, so the key scope prefix at that
+                level creates a new scope named <span class="keyword">childscope</span>. This scope is nested
+                within the scope <span class="keyword">parentPrefix-branchscope</span>, creating the qualified
+                scope name <span class="keyword">parentPrefix-branchscope.childscope</span> that can be used
+                to reference keys defined inside of that child branch.</p>
         </div>
     </div>
-<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/branch-filtering-resource-names.html" title="When map branches are cloned by a processor in order to support multiple condition sets, processors must manage conflicting resource and key names. The DITAVAL-reference domain includes metadata elements that authors can use to specify how resource and key names are renamed.">Branch filtering: Impact on resource and key names</a></div></div></nav><aside class="section-toc" role="aside"><h2>In this section</h2><ul><li><a href="#branch_filtering_renaming_multiple_times__multipleditavalref">Example</a></li></ul></aside></article></main>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../archSpec/base/branch-filtering-resource-names.html" title="When map branches are cloned by a processor in order to support multiple condition sets, processors must manage conflicting resource and key names. The DITAVAL-reference domain includes metadata elements that authors can use to specify how resource and key names are renamed.">Branch filtering: Impact on resource and key names</a></div></div></nav><aside class="section-toc" role="aside"><h2>In this section</h2><ul><li><a href="#branch_filtering_renaming_multiple_times__multipleditavalref-resource">Example</a></li><li><a href="#branch_filtering_renaming_multiple_times__multipleditavalref-keyscope">Example</a></li></ul></aside></article></main>

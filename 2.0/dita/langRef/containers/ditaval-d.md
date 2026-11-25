@@ -4,7 +4,7 @@ author: OASIS DITA Technical Committee
 
 # DITAVAL-reference domain elements
 
-The DITAVAL-reference domain is used to reference a DITAVAL document that contains conditions that apply only to a subset of a DITA map. It also can be used to replicate a subset of a DITA map for multiple audiences.
+The DITAVAL-reference domain is used to reference a DITAVAL document that contains conditions that apply to a specific map or map branch. It also can be used to create multiple effective copies of a map or map branch for multiple audiences.
 
 -   **[ditavalref](../../langRef/base/ditavalref.md)**  
 The `<ditavalref>` element references a DITAVAL document that specifies filter conditions to be used when processing a map or map branch.

@@ -15,7 +15,7 @@ The DITA conref attributes are mechanisms that enable effective content reuse. D
 -   **[Conditional processing](../../archSpec/base/condproc.md)**  
 Conditional processing is the filtering or flagging of information based on processing-time criteria. Conditional processing is based on attributes specified in the DITA source.
 -   **[Branch filtering](../../archSpec/base/branch-filtering.md)**  
-The branch filtering mechanism enables map authors to set filtering conditions for specific branches of a map. This makes it possible for multiple conditional-processing profiles to be applied within a single publication.
+The branch filtering mechanism enables map authors to set filtering or flagging conditions for specific branches of a map. This makes it possible for multiple conditional-processing profiles to be applied within a single publication.
 -   **[Metadata cascading](../../archSpec/base/map-cascading.md)**  
 Metadata cascading is the process by which metadata elements and attributes specified for a map or for a topic reference cascade to nested references. This allows metadata properties to be set once and apply to an entire map or branch of a map.
 -   **[Chunking](../../archSpec/base/chunking.md)**  
